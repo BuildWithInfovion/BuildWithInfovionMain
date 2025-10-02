@@ -1,0 +1,16 @@
+# robots.txt for BuildWithInfovion (buildwithinfovion.in)
+
+# Default rule for all search engine crawlers
+User-agent: *
+
+# Allow all content to be crawled by default (recommended for most modern sites)
+Allow: /
+
+# Disallow sensitive paths (e.g., login, internal tools, admin, temporary files)
+# If you add internal areas later, update this list:
+# Disallow: /admin/
+# Disallow: /dashboard/
+# Disallow: /temp/
+
+# Specify the location of your sitemap.xml file. This is CRUCIAL!
+Sitemap: https://buildwithinfovion.in/sitemap.xml
