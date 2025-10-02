@@ -22,7 +22,7 @@ import {
   Star,
   ArrowUpRight,
 } from "lucide-react";
-import { blogPosts } from "../Data/blogData";
+import { blogPosts } from "../data/blogData";
 
 // --- 1. IMPORT YOUR NEW BACKGROUND IMAGE ---
 import heroBg from "/src/assets/hero-bg.avif"; // Path to your background image
