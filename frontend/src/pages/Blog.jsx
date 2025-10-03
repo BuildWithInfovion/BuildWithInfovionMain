@@ -150,7 +150,7 @@ export default function Blog() {
           content="Expert insights on AI, web development, data solutions, and business growth strategies from the BuildWithInfovion team in Pune, India. Stay innovative."
         />
         {/* ✅ CRITICAL FIX: Canonical URL */}
-        <link rel="canonical" href="https://buildwithinfovion.in/blog" />
+        <link rel="canonical" href="https://buildwithinfovion.com/blog" />
       </Helmet>
 
       <Motion.main

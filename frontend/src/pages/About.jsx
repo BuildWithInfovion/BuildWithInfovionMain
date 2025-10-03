@@ -111,7 +111,7 @@ export default function About() {
         {/* <meta name="keywords" content="BuildWithInfovion, about us, web development, UI/UX design, tech consulting, digital solutions" /> */}
 
         {/* ✅ FIXED CANONICAL URL: Set to the absolute, primary domain URL (.in) */}
-        <link rel="canonical" href="https://buildwithinfovion.in/about" />
+        <link rel="canonical" href="https://buildwithinfovion.com/about" />
 
         {/* Open Graph Meta Tags (Kept consistent with main SEO) */}
         <meta
@@ -122,7 +122,7 @@ export default function About() {
           property="og:description"
           content="Learn about BuildWithInfovion's mission, vision, and expertise in affordable digital solutions."
         />
-        <meta property="og:url" content="https://buildwithinfovion.in/about" />
+        <meta property="og:url" content="https://buildwithinfovion.com/about" />
       </Helmet>
 
       <Motion.main

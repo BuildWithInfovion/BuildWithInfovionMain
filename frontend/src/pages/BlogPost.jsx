@@ -35,7 +35,7 @@ export default function BlogPost() {
   // -------------------------
   // ✅ NEW SEO LOGIC START
   // -------------------------
-  const absoluteUrl = `https://buildwithinfovion.in/blog/${slug}`;
+  const absoluteUrl = `https://buildwithinfovion.com/blog/${slug}`;
 
   // 🚀 Article Schema Markup for rich results
   const articleSchema = {
@@ -58,7 +58,7 @@ export default function BlogPost() {
       name: "BuildWithInfovion",
       logo: {
         "@type": "ImageObject",
-        url: "https://buildwithinfovion.in/logo.png", // Update this path if needed
+        url: "https://buildwithinfovion.com/logo.png", // Update this path if needed
       },
     },
     description: post.excerpt,

@@ -169,7 +169,7 @@ export default function Contact() {
         />
 
         {/* ✅ FIXED CANONICAL URL */}
-        <link rel="canonical" href="https://buildwithinfovion.in/contact" />
+        <link rel="canonical" href="https://buildwithinfovion.com/contact" />
 
         {/* 🚀 TECHNICAL SEO: Uses the correctly scoped 'faqSchema' variable. */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

@@ -153,7 +153,7 @@ export default function Services() {
         {/* <meta name="keywords" content="web development, app development, ERP solutions, digital marketing, AI solutions, data analysis, BuildWithInfovion services" /> */}
 
         {/* ✅ FIXED CANONICAL URL: Set to the absolute, primary domain URL */}
-        <link rel="canonical" href="https://buildwithinfovion.in/services" />
+        <link rel="canonical" href="https://buildwithinfovion.com/services" />
 
         {/* Open Graph Meta Tags (Optimized) */}
         <meta
@@ -167,7 +167,7 @@ export default function Services() {
         {/* ✅ FIXED OG URL */}
         <meta
           property="og:url"
-          content="https://buildwithinfovion.in/services"
+          content="https://buildwithinfovion.com/services"
         />
         <meta property="og:type" content="website" />
       </Helmet>

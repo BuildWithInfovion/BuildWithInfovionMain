@@ -196,7 +196,7 @@ export default function Portfolio() {
           content="Explore our portfolio of cutting-edge web development, mobile app, and ERP solutions built in Pune, India. See high-quality, customizable projects for E-commerce, Ed-Tech, and Real Estate."
         />
         {/* ✅ FIXED CANONICAL URL */}
-        <link rel="canonical" href="https://buildwithinfovion.in/portfolio" />
+        <link rel="canonical" href="https://buildwithinfovion.com/portfolio" />
       </Helmet>
 
       <Motion.main

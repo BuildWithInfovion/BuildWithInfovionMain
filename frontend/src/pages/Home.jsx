@@ -163,7 +163,7 @@ export default function Home() {
           content="Leading Digital Solutions Agency in Pune, India. We deliver high-performance Web Development, Mobile Apps, UI/UX Design, and custom AI/ERP solutions for businesses across the country. Get a free quote."
         />
         {/* ✅ FIXED CANONICAL URL: Set to the absolute, primary domain */}
-        <link rel="canonical" href="https://buildwithinfovion.in/" />
+        <link rel="canonical" href="https://buildwithinfovion.com/" />
       </Helmet>
 
       <Motion.main
