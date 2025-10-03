@@ -18,7 +18,7 @@ const MainLayout = ({ children }) => {
 
       <Navbar />
 
-      <main id="main-content" tabIndex={-1} className="flex-grow pt-6">
+      <main id="main-content" tabIndex={-1} className="flex-grow">
         {children}
       </main>
 
