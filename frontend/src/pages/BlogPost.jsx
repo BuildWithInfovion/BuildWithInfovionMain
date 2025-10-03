@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { blogPosts } from "../data/blogData";
+import { blogPosts } from "../Data/blogData";
 import { Calendar, Clock, User, ArrowRight, Tag } from "lucide-react";
 
 const formatDate = (dateString) => {

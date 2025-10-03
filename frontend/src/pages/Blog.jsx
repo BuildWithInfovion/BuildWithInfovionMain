@@ -16,7 +16,7 @@ import {
   Filter,
   BarChart3,
 } from "lucide-react";
-import { blogPosts } from "../data/blogData"; // <-- Import data from the new file
+import { blogPosts } from "../Data/blogData"; // <-- Import data from the new file
 
 // --- Animation Variants ---
 const sectionVariants = {
