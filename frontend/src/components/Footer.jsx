@@ -1,29 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter, Github } from "lucide-react";
-import logo from "/src/assets/logo.png"; // <-- 1. Import your logo
+import { Instagram, Linkedin, Twitter, Github, Mail } from "lucide-react";
+import logo from "/src/assets/logo.png";
 
 const Footer = () => {
-  const quickLinks = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/services", label: "Services" },
-    { to: "/portfolio", label: "Portfolio" },
-    { to: "/blog", label: "Blog" },
-    { to: "/contact", label: "Contact" },
+  const productLinks = [
+    { to: "/features", label: "Features" },
+    { to: "/portals", label: "Role Portals" },
+    { to: "/for-schools", label: "For Schools" },
+    { to: "/pricing", label: "Pricing" },
   ];
 
-  const legalLinks = [
+  const companyLinks = [
+    { to: "/about", label: "About" },
+    { to: "/blog", label: "Blog" },
+    { to: "/contact", label: "Contact" },
     { to: "/privacy-policy", label: "Privacy Policy" },
     { to: "/terms-of-service", label: "Terms of Service" },
   ];
 
   const socialLinks = [
-    { href: "#", label: "LinkedIn profile", icon: <Linkedin /> },
-    { href: "#", label: "Twitter (X) profile", icon: <Twitter /> },
-    { href: "#", label: "GitHub profile", icon: <Github /> },
-    { href: "#", label: "Instagram profile", icon: <Instagram /> },
+    { href: "#", label: "LinkedIn", icon: <Linkedin /> },
+    { href: "#", label: "Twitter (X)", icon: <Twitter /> },
+    {
+      href: "https://github.com/BuildWithInfovion/BuildWithInfovionMain",
+      label: "GitHub",
+      icon: <Github />,
+    },
+    { href: "#", label: "Instagram", icon: <Instagram /> },
   ];
 
   return (
@@ -32,50 +37,50 @@ const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="bg-white/70 dark:bg-gray-900/50 backdrop-blur-lg border-t border-gray-200/50 dark:border-gray-700/50"
+      className="bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800"
       role="contentinfo"
     >
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Branding Section */}
-          <section
-            aria-labelledby="footer-branding"
-            className="col-span-2 md:col-span-1"
-          >
-            {/* 2. Added the logo image here */}
-            <div className="flex items-center gap-3 mb-2">
-              <img
-                src={logo}
-                alt="BuildWithInfovion Logo"
-                className="h-10 w-auto"
-              />
-              <h3
-                id="footer-branding"
-                className="text-xl font-bold text-gray-900 dark:text-white"
-              >
-                Build<span className="text-blue-600">WithInfovion</span>
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400">
-              Building digital experiences that drive results.
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <img src={logo} alt="Infovion Logo" className="h-8 w-auto" />
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
+                Info<span className="text-blue-600">vion</span>
+              </span>
+            </Link>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              Cloud-based school management ERP for K-12 schools in India.
+              Built ground-up for Indian school operations.
             </p>
-          </section>
-
-          {/* Quick Links Navigation */}
-          <nav aria-labelledby="footer-quick-links">
-            <h4
-              id="footer-quick-links"
-              className="font-semibold text-lg text-gray-900 dark:text-white"
+            <a
+              href="mailto:sankalp7456@gmail.com"
+              className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
             >
-              Quick Links
+              <Mail className="w-4 h-4" />
+              sankalp7456@gmail.com
+            </a>
+          </div>
+
+          {/* Product */}
+          <nav aria-labelledby="footer-product">
+            <h4
+              id="footer-product"
+              className="font-semibold text-gray-900 dark:text-white mb-4"
+            >
+              Product
             </h4>
-            <ul className="mt-4 space-y-2">
-              {quickLinks.map((link) => (
+            <ul className="space-y-3">
+              {productLinks.map((link) => (
                 <li key={link.to}>
-                  <Motion.div whileHover={{ x: 4 }}>
+                  <Motion.div
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     <Link
                       to={link.to}
-                      className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                      className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -85,21 +90,24 @@ const Footer = () => {
             </ul>
           </nav>
 
-          {/* Legal Links Navigation */}
-          <nav aria-labelledby="footer-legal-links">
+          {/* Company */}
+          <nav aria-labelledby="footer-company">
             <h4
-              id="footer-legal-links"
-              className="font-semibold text-lg text-gray-900 dark:text-white"
+              id="footer-company"
+              className="font-semibold text-gray-900 dark:text-white mb-4"
             >
-              Legal
+              Company
             </h4>
-            <ul className="mt-4 space-y-2">
-              {legalLinks.map((link) => (
+            <ul className="space-y-3">
+              {companyLinks.map((link) => (
                 <li key={link.to}>
-                  <Motion.div whileHover={{ x: 4 }}>
+                  <Motion.div
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     <Link
                       to={link.to}
-                      className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                      className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -109,37 +117,54 @@ const Footer = () => {
             </ul>
           </nav>
 
-          {/* Social Media Section */}
-          <section aria-labelledby="footer-follow">
-            <h4
-              id="footer-follow"
-              className="font-semibold text-lg text-gray-900 dark:text-white"
-            >
+          {/* Social + Demo CTA */}
+          <div>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
               Follow Us
             </h4>
-            <div className="flex mt-4 space-x-4">
+            <div className="flex gap-4 mb-6">
               {socialLinks.map((link) => (
                 <Motion.a
                   key={link.label}
                   href={link.href}
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                   aria-label={link.label}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   whileHover={{ scale: 1.2, y: -2 }}
                 >
                   {React.cloneElement(link.icon, {
-                    className: "w-6 h-6",
+                    className: "w-5 h-5",
                     "aria-hidden": "true",
                   })}
                 </Motion.a>
               ))}
             </div>
-          </section>
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/40 rounded-xl p-4">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                Ready to modernize your school?
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                Free demo. No setup fee. No contract.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-block text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Schedule a free demo →
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="mt-12 border-t border-gray-200/50 dark:border-gray-700/50 pt-6 text-center text-gray-500 dark:text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} BuildWithInfovion. All Rights
-          Reserved.
+
+        <div className="mt-12 pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} Infovion Technologies. All rights
+            reserved.
+          </p>
+          <p className="text-sm text-gray-400">
+            Built for K-12 schools in India · CBSE · ICSE · State Board
+          </p>
         </div>
       </div>
     </Motion.footer>
