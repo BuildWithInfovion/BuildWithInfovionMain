@@ -101,7 +101,7 @@ const schoolTypes = [
     size: "200 to 3,000 students",
     fit: "Primary target — all 8 portals and all 8 modules are built for this segment.",
     badge: "Best Fit",
-    badgeColor: "bg-blue-600 text-white",
+    highlight: true,
   },
   {
     type: "Junior Colleges",
@@ -109,7 +109,7 @@ const schoolTypes = [
     size: "200 to 1,000 students",
     fit: "Core modules work well. Junior College-specific features planned for V2.",
     badge: "Good Fit",
-    badgeColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+    highlight: false,
   },
   {
     type: "Multi-Branch School Groups",
@@ -117,7 +117,7 @@ const schoolTypes = [
     size: "Multiple campuses",
     fit: "Multi-branch architecture already planned in the schema — available in V3 roadmap.",
     badge: "Roadmap",
-    badgeColor: "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400",
+    highlight: false,
   },
 ];
 
@@ -125,22 +125,14 @@ export default function ForSchools() {
   return (
     <>
       <Helmet>
-        <title>
-          For Schools — Infovion School Management Software India
-        </title>
+        <title>For Schools — Infovion School Management Software India</title>
         <meta
           name="description"
           content="Infovion is built specifically for K-12 schools in India. See how it solves admissions, attendance, exams, fees, and staff management — with India-first features like Aadhar fields, TC validation, and Indian fee heads."
         />
         <link rel="canonical" href="https://buildwithinfovion.com/for-schools" />
-        <meta
-          property="og:title"
-          content="For Schools — Infovion School Management India"
-        />
-        <meta
-          property="og:url"
-          content="https://buildwithinfovion.com/for-schools"
-        />
+        <meta property="og:title" content="For Schools — Infovion School Management India" />
+        <meta property="og:url" content="https://buildwithinfovion.com/for-schools" />
       </Helmet>
 
       <Motion.main
@@ -150,12 +142,12 @@ export default function ForSchools() {
         className="pt-24"
       >
         {/* Hero */}
-        <section className="py-20 px-6 bg-white dark:bg-gray-950 text-center">
+        <section className="py-20 px-6 bg-white text-center">
           <div className="max-w-3xl mx-auto">
             <Motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-4"
+              className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-4"
             >
               Built for Indian Schools
             </Motion.p>
@@ -163,22 +155,21 @@ export default function ForSchools() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-5xl font-extrabold text-gray-900 dark:text-white mb-5 leading-tight"
+              className="text-5xl font-extrabold text-brand-dark mb-5 leading-tight"
             >
               School Management,
               <br />
-              <span className="text-blue-600">Reimagined for India.</span>
+              <span className="text-brand-terra">Reimagined for India.</span>
             </Motion.h1>
             <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-8"
+              className="text-lg text-brand-neutral leading-relaxed mb-8"
             >
-              Not a Western ERP adapted for India. Not a generic SaaS template.
-              Infovion is built ground-up for K-12 schools in India — with
-              Aadhar fields, TC workflows, Indian fee heads, and role-specific
-              portals for every stakeholder.
+              Not a Western ERP adapted for India. Not a generic SaaS template. Infovion is built
+              ground-up for K-12 schools in India — with Aadhar fields, TC workflows, Indian fee
+              heads, and role-specific portals for every stakeholder.
             </Motion.p>
             <Motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -187,7 +178,7 @@ export default function ForSchools() {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 bg-brand-terra text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
               >
                 Request a Demo <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -196,7 +187,7 @@ export default function ForSchools() {
         </section>
 
         {/* Problem vs Solution */}
-        <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900/40">
+        <section className="py-20 px-6 bg-brand-cream/30">
           <div className="max-w-6xl mx-auto">
             <Motion.div
               variants={fadeUp}
@@ -205,13 +196,11 @@ export default function ForSchools() {
               viewport={{ once: true }}
               className="text-center mb-14"
             >
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3">
+              <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">
                 Before & After
               </p>
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Every Problem. Solved.
-              </h2>
-              <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+              <h2 className="text-4xl font-bold text-brand-dark mb-4">Every Problem. Solved.</h2>
+              <p className="text-brand-neutral max-w-xl mx-auto">
                 Here's exactly what Infovion replaces — operation by operation.
               </p>
             </Motion.div>
@@ -226,28 +215,24 @@ export default function ForSchools() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.005 }}
-                  className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm"
+                  className="bg-white border border-brand-cream rounded-2xl p-6 shadow-sm"
                 >
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 text-orange-500" />
+                  <h3 className="font-bold text-brand-dark mb-4 flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-brand-terra" />
                     {p.title}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 rounded-xl p-4">
-                      <p className="text-xs font-semibold text-red-600 dark:text-red-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <div className="bg-red-50/60 border border-red-100 rounded-xl p-4">
+                      <p className="text-xs font-semibold text-red-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                         <X className="w-3.5 h-3.5" /> Without Infovion
                       </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {p.without}
-                      </p>
+                      <p className="text-sm text-brand-brown leading-relaxed">{p.without}</p>
                     </div>
-                    <div className="bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/30 rounded-xl p-4">
-                      <p className="text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <div className="bg-brand-terra/5 border border-brand-terra/20 rounded-xl p-4">
+                      <p className="text-xs font-semibold text-brand-terra uppercase tracking-wider mb-2 flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5" /> With Infovion
                       </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {p.with}
-                      </p>
+                      <p className="text-sm text-brand-brown leading-relaxed">{p.with}</p>
                     </div>
                   </div>
                 </Motion.div>
@@ -257,7 +242,7 @@ export default function ForSchools() {
         </section>
 
         {/* India-First Features */}
-        <section className="py-24 px-6 bg-white dark:bg-gray-950">
+        <section className="py-24 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <Motion.div
               variants={fadeUp}
@@ -266,15 +251,14 @@ export default function ForSchools() {
               viewport={{ once: true }}
               className="text-center mb-14"
             >
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3">
+              <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">
                 India-First
               </p>
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-4xl font-bold text-brand-dark mb-4">
                 Designed for Indian Schools. Not Adapted.
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-                These features come standard — not as paid add-ons or
-                customization requests.
+              <p className="text-brand-neutral max-w-xl mx-auto">
+                These features come standard — not as paid add-ons or customization requests.
               </p>
             </Motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -287,17 +271,13 @@ export default function ForSchools() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   whileHover={{ y: -6 }}
-                  className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300"
+                  className="bg-white border border-brand-cream rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-accent/40 transition-all duration-300"
                 >
-                  <div className="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl w-fit mb-4">
+                  <div className="p-2.5 bg-brand-cream text-brand-terra rounded-xl w-fit mb-4">
                     {f.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-sm">
-                    {f.title}
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    {f.desc}
-                  </p>
+                  <h3 className="font-bold text-brand-dark mb-2 text-sm">{f.title}</h3>
+                  <p className="text-xs text-brand-neutral leading-relaxed">{f.desc}</p>
                 </Motion.div>
               ))}
             </div>
@@ -305,7 +285,7 @@ export default function ForSchools() {
         </section>
 
         {/* School Types */}
-        <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900/40">
+        <section className="py-20 px-6 bg-brand-cream/30">
           <div className="max-w-5xl mx-auto">
             <Motion.div
               variants={fadeUp}
@@ -314,10 +294,10 @@ export default function ForSchools() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3">
+              <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">
                 Who It's For
               </p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+              <h2 className="text-3xl font-bold text-brand-dark">
                 Is Infovion right for your school?
               </h2>
             </Motion.div>
@@ -331,27 +311,27 @@ export default function ForSchools() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   whileHover={{ y: -5 }}
-                  className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm"
+                  className="bg-white border border-brand-cream rounded-2xl p-6 shadow-sm"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
-                        {s.type}
-                      </h3>
-                      <p className="text-xs text-gray-400">{s.boards}</p>
+                      <h3 className="font-bold text-brand-dark text-sm mb-1">{s.type}</h3>
+                      <p className="text-xs text-brand-neutral">{s.boards}</p>
                     </div>
                     <span
-                      className={`text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 ml-2 ${s.badgeColor}`}
+                      className={`text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 ml-2 ${
+                        s.highlight
+                          ? "bg-brand-terra text-white"
+                          : s.badge === "Good Fit"
+                          ? "bg-brand-cream text-brand-brown"
+                          : "bg-brand-cream/60 text-brand-neutral"
+                      }`}
                     >
                       {s.badge}
                     </span>
                   </div>
-                  <p className="text-xs text-blue-600 dark:text-blue-400 font-medium mb-2">
-                    {s.size}
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                    {s.fit}
-                  </p>
+                  <p className="text-xs text-brand-terra font-medium mb-2">{s.size}</p>
+                  <p className="text-xs text-brand-neutral leading-relaxed">{s.fit}</p>
                 </Motion.div>
               ))}
             </div>
@@ -359,7 +339,7 @@ export default function ForSchools() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 bg-white dark:bg-gray-950">
+        <section className="py-20 px-6 bg-white">
           <Motion.div
             variants={fadeUp}
             initial="hidden"
@@ -367,16 +347,16 @@ export default function ForSchools() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-brand-dark mb-4">
               Your school. Every operation. One platform.
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Schedule a free demo and we'll show you exactly how Infovion
-              handles your school's specific workflows.
+            <p className="text-brand-neutral mb-8">
+              Schedule a free demo and we'll show you exactly how Infovion handles your school's
+              specific workflows.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
             >
               Request a Free Demo <ArrowUpRight className="w-4 h-4" />
             </Link>

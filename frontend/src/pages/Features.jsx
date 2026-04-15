@@ -34,8 +34,6 @@ const modules = [
     label: "Admissions",
     title: "Admissions & Enrollment",
     subtitle: "From inquiry to enrolled — every step, tracked.",
-    color: "text-blue-600",
-    bg: "bg-blue-50 dark:bg-blue-900/20",
     features: [
       "Auto-generated admission numbers (ADM-YYYY-XXXX format)",
       "Auto roll number assignment per class and section",
@@ -53,8 +51,6 @@ const modules = [
     label: "Attendance",
     title: "Attendance Tracking",
     subtitle: "Daily marking in seconds. Reports in one click.",
-    color: "text-green-600",
-    bg: "bg-green-50 dark:bg-green-900/20",
     features: [
       "Daily attendance marking per class by the assigned teacher",
       "Status cycle: Present → Absent → Late → Leave",
@@ -72,8 +68,6 @@ const modules = [
     label: "Exams",
     title: "Examinations & Results",
     subtitle: "Marks in. Scorecards and rank lists out.",
-    color: "text-purple-600",
-    bg: "bg-purple-50 dark:bg-purple-900/20",
     features: [
       "Exam creation linked to academic year",
       "Subject assignment per exam per class",
@@ -92,8 +86,6 @@ const modules = [
     label: "Fees",
     title: "Fee Management",
     subtitle: "Indian fee heads. Every collection. Zero confusion.",
-    color: "text-orange-600",
-    bg: "bg-orange-50 dark:bg-orange-900/20",
     features: [
       "10 Indian-standard fee heads seeded on institution setup (Tuition, Transport, Lab, Library, etc.)",
       "Fee structure: configurable amount per class per academic year per fee head",
@@ -111,8 +103,6 @@ const modules = [
     label: "Staff",
     title: "Staff Management",
     subtitle: "Every staff role, attendance, and leave — managed.",
-    color: "text-teal-600",
-    bg: "bg-teal-50 dark:bg-teal-900/20",
     features: [
       "Staff account creation with role assignment",
       "Role hierarchy: Director, Operator, Principal, Teacher, Receptionist, Accountant",
@@ -130,8 +120,6 @@ const modules = [
     label: "Portals",
     title: "Student & Parent Portals",
     subtitle: "Students see their own data. Parents see their child's.",
-    color: "text-cyan-600",
-    bg: "bg-cyan-50 dark:bg-cyan-900/20",
     features: [
       "Student portal: own attendance history (monthly view)",
       "Student portal: exam marks and scorecard per exam",
@@ -149,8 +137,6 @@ const modules = [
     label: "Timetable",
     title: "Timetable",
     subtitle: "Weekly period grid. Teacher and student views.",
-    color: "text-indigo-600",
-    bg: "bg-indigo-50 dark:bg-indigo-900/20",
     features: [
       "Weekly period grid per class",
       "Subject + teacher mapping per period slot",
@@ -168,8 +154,6 @@ const modules = [
     label: "Announcements",
     title: "Announcements",
     subtitle: "School-wide or class-specific. All roles notified.",
-    color: "text-pink-600",
-    bg: "bg-pink-50 dark:bg-pink-900/20",
     features: [
       "School-wide announcements visible to all roles",
       "Class-specific targeted announcements for selected classes",
@@ -217,14 +201,8 @@ export default function Features() {
           content="Explore Infovion's 8 modules: admissions, attendance, examinations, fee management, staff management, student & parent portals, timetable, and announcements. Built for K-12 schools in India."
         />
         <link rel="canonical" href="https://buildwithinfovion.com/features" />
-        <meta
-          property="og:title"
-          content="Features — Infovion School Management Software"
-        />
-        <meta
-          property="og:url"
-          content="https://buildwithinfovion.com/features"
-        />
+        <meta property="og:title" content="Features — Infovion School Management Software" />
+        <meta property="og:url" content="https://buildwithinfovion.com/features" />
       </Helmet>
 
       <Motion.main
@@ -234,13 +212,13 @@ export default function Features() {
         className="pt-24"
       >
         {/* Hero */}
-        <section className="py-20 px-6 text-center bg-white dark:bg-gray-950">
+        <section className="py-20 px-6 text-center bg-white">
           <div className="max-w-3xl mx-auto">
             <Motion.p
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-4"
+              className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-4"
             >
               Complete Feature Set
             </Motion.p>
@@ -249,31 +227,26 @@ export default function Features() {
               custom={1}
               initial="hidden"
               animate="visible"
-              className="text-5xl font-extrabold text-gray-900 dark:text-white mb-5 leading-tight"
+              className="text-5xl font-extrabold text-brand-dark mb-5 leading-tight"
             >
               Eight Modules.
               <br />
-              <span className="text-blue-600">Every School Operation.</span>
+              <span className="text-brand-terra">Every School Operation.</span>
             </Motion.h1>
             <Motion.p
               variants={fadeUp}
               custom={2}
               initial="hidden"
               animate="visible"
-              className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-8"
+              className="text-lg text-brand-neutral leading-relaxed mb-8"
             >
               From the first student inquiry to final exam results — every
               process your school runs, digitized and connected.
             </Motion.p>
-            <Motion.div
-              variants={fadeUp}
-              custom={3}
-              initial="hidden"
-              animate="visible"
-            >
+            <Motion.div variants={fadeUp} custom={3} initial="hidden" animate="visible">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 bg-brand-terra text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
               >
                 Request a Demo <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -282,7 +255,7 @@ export default function Features() {
         </section>
 
         {/* Module Explorer */}
-        <section className="py-16 px-6 bg-gray-50 dark:bg-gray-900/40">
+        <section className="py-16 px-6 bg-brand-cream/30">
           <div className="max-w-7xl mx-auto">
             {/* Tab nav */}
             <div className="flex flex-wrap gap-2 justify-center mb-12">
@@ -292,8 +265,8 @@ export default function Features() {
                   onClick={() => setActiveTab(m.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     activeTab === m.id
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
-                      : "bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700"
+                      ? "bg-brand-terra text-white shadow-lg shadow-brand-terra/20"
+                      : "bg-white text-brand-neutral border border-brand-cream hover:border-brand-accent"
                   }`}
                 >
                   {React.cloneElement(m.icon, { className: "w-4 h-4" })}
@@ -309,27 +282,21 @@ export default function Features() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-                className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-3xl p-8 lg:p-12 shadow-sm"
+                className="bg-white border border-brand-cream rounded-3xl p-8 lg:p-12 shadow-sm"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                   <div>
-                    <div
-                      className={`inline-flex items-center gap-3 ${activeModule.bg} ${activeModule.color} px-4 py-2 rounded-xl mb-5`}
-                    >
+                    <div className="inline-flex items-center gap-3 bg-brand-cream text-brand-terra px-4 py-2 rounded-xl mb-5">
                       {activeModule.icon}
-                      <span className="font-semibold text-sm">
-                        {activeModule.label}
-                      </span>
+                      <span className="font-semibold text-sm">{activeModule.label}</span>
                     </div>
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                    <h2 className="text-3xl font-bold text-brand-dark mb-3">
                       {activeModule.title}
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-lg mb-6">
-                      {activeModule.subtitle}
-                    </p>
+                    <p className="text-brand-neutral text-lg mb-6">{activeModule.subtitle}</p>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold text-sm hover:underline"
+                      className="inline-flex items-center gap-2 text-brand-terra font-semibold text-sm hover:underline"
                     >
                       See this in a demo <ArrowUpRight className="w-4 h-4" />
                     </Link>
@@ -343,12 +310,10 @@ export default function Features() {
                         transition={{ delay: i * 0.05, duration: 0.35 }}
                         className="flex items-start gap-3"
                       >
-                        <span className="mt-0.5 w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0">
+                        <span className="mt-0.5 w-5 h-5 rounded-full bg-brand-terra/10 text-brand-terra flex items-center justify-center flex-shrink-0">
                           <Check className="w-3 h-3" />
                         </span>
-                        <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                          {f}
-                        </span>
+                        <span className="text-brand-brown text-sm leading-relaxed">{f}</span>
                       </Motion.li>
                     ))}
                   </ul>
@@ -359,7 +324,7 @@ export default function Features() {
         </section>
 
         {/* All modules grid */}
-        <section className="py-24 px-6 bg-white dark:bg-gray-950">
+        <section className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <Motion.div
               variants={fadeUp}
@@ -368,10 +333,10 @@ export default function Features() {
               viewport={{ once: true }}
               className="text-center mb-14"
             >
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-3xl font-bold text-brand-dark mb-3">
                 Every Module at a Glance
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+              <p className="text-brand-neutral max-w-xl mx-auto">
                 All eight modules are live and production-ready as of April 2026.
               </p>
             </Motion.div>
@@ -389,19 +354,13 @@ export default function Features() {
                     setActiveTab(m.id);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="group text-left bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-blue-500/8 transition-all duration-300"
+                  className="group text-left bg-white border border-brand-cream rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-terra/8 hover:border-brand-accent/40 transition-all duration-300"
                 >
-                  <div
-                    className={`${m.bg} ${m.color} p-2.5 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
+                  <div className="bg-brand-cream text-brand-terra p-2.5 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
                     {m.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1 text-sm">
-                    {m.title}
-                  </h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">
-                    {m.subtitle}
-                  </p>
+                  <h3 className="font-bold text-brand-dark mb-1 text-sm">{m.title}</h3>
+                  <p className="text-xs text-brand-neutral leading-relaxed">{m.subtitle}</p>
                 </Motion.button>
               ))}
             </div>
@@ -409,7 +368,7 @@ export default function Features() {
         </section>
 
         {/* Technical highlights */}
-        <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900/40">
+        <section className="py-20 px-6 bg-brand-cream/30">
           <div className="max-w-5xl mx-auto">
             <Motion.div
               variants={fadeUp}
@@ -418,12 +377,10 @@ export default function Features() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3">
+              <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">
                 Under the Hood
               </p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Built Secure by Default
-              </h2>
+              <h2 className="text-3xl font-bold text-brand-dark">Built Secure by Default</h2>
             </Motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {technicalHighlights.map((t, i) => (
@@ -435,18 +392,12 @@ export default function Features() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   whileHover={{ y: -4 }}
-                  className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm flex gap-4"
+                  className="bg-white border border-brand-cream rounded-2xl p-6 shadow-sm flex gap-4"
                 >
-                  <div className="text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5">
-                    {t.icon}
-                  </div>
+                  <div className="text-brand-terra flex-shrink-0 mt-0.5">{t.icon}</div>
                   <div>
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-1 text-sm">
-                      {t.title}
-                    </h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                      {t.desc}
-                    </p>
+                    <h3 className="font-bold text-brand-dark mb-1 text-sm">{t.title}</h3>
+                    <p className="text-xs text-brand-neutral leading-relaxed">{t.desc}</p>
                   </div>
                 </Motion.div>
               ))}
@@ -455,7 +406,7 @@ export default function Features() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 bg-white dark:bg-gray-950">
+        <section className="py-20 px-6 bg-white">
           <Motion.div
             variants={fadeUp}
             initial="hidden"
@@ -463,16 +414,15 @@ export default function Features() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-brand-dark mb-4">
               See every feature in a live demo.
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-8">
-              We'll walk through every module with your school's context in
-              mind. Free. No commitment.
+            <p className="text-brand-neutral mb-8">
+              We'll walk through every module with your school's context in mind. Free. No commitment.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
             >
               Request a Free Demo <ArrowUpRight className="w-4 h-4" />
             </Link>

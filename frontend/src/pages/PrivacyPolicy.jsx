@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
           name="description"
           content="Read the Privacy Policy for BuildWithInfovion. Understand how we collect, use, and protect your data."
         />
-        <link rel="canonical" href="https://yourdomain.com/privacy-policy" />
+        <link rel="canonical" href="https://buildwithinfovion.com/privacy-policy" />
       </Helmet>
       <Motion.div
         initial={{ opacity: 0, y: 20 }}

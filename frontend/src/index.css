@@ -2,8 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-.hero-bg {
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./assets/hero-bg.avif');
-  background-size: cover;
-  background-position: center;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: #33312E;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #BE6D56;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  /* Warm dot grid for dark hero */
+  .dot-grid-dark {
+    background-image: radial-gradient(circle, rgba(209, 171, 131, 0.18) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Warm dot grid for light sections */
+  .dot-grid-light {
+    background-image: radial-gradient(circle, rgba(156, 146, 140, 0.25) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #E3DDDB;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #9C928C;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #BE6D56;
+  }
 }

@@ -27,9 +27,6 @@ const tiers = [
     icon: <School className="w-6 h-6" />,
     tagline: "For small schools getting started.",
     size: "Up to 500 students",
-    color: "text-blue-600",
-    bg: "bg-blue-50 dark:bg-blue-900/20",
-    border: "border-gray-100 dark:border-gray-800",
     features: [
       "All 8 modules included",
       "All 8 role-specific portals",
@@ -49,9 +46,6 @@ const tiers = [
     icon: <Users className="w-6 h-6" />,
     tagline: "For mid-sized schools scaling operations.",
     size: "Up to 1,500 students",
-    color: "text-white",
-    bg: "bg-blue-600",
-    border: "border-blue-600",
     features: [
       "Everything in Starter",
       "Up to 1,500 students",
@@ -71,9 +65,6 @@ const tiers = [
     icon: <Building2 className="w-6 h-6" />,
     tagline: "For multi-branch school groups.",
     size: "Unlimited students",
-    color: "text-indigo-600",
-    bg: "bg-indigo-50 dark:bg-indigo-900/20",
-    border: "border-gray-100 dark:border-gray-800",
     features: [
       "Everything in Growth",
       "Unlimited students",
@@ -128,14 +119,8 @@ export default function Pricing() {
           content="Infovion Academic ERP pricing for K-12 schools in India. No setup fee, no long-term contract. Cloud-based school management software built for Tier 2 and Tier 3 school budgets."
         />
         <link rel="canonical" href="https://buildwithinfovion.com/pricing" />
-        <meta
-          property="og:title"
-          content="Pricing — Infovion School Management Software"
-        />
-        <meta
-          property="og:url"
-          content="https://buildwithinfovion.com/pricing"
-        />
+        <meta property="og:title" content="Pricing — Infovion School Management Software" />
+        <meta property="og:url" content="https://buildwithinfovion.com/pricing" />
       </Helmet>
 
       <Motion.main
@@ -145,12 +130,12 @@ export default function Pricing() {
         className="pt-24"
       >
         {/* Hero */}
-        <section className="py-20 px-6 bg-white dark:bg-gray-950 text-center">
+        <section className="py-20 px-6 bg-white text-center">
           <div className="max-w-2xl mx-auto">
             <Motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-4"
+              className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-4"
             >
               Simple Pricing
             </Motion.p>
@@ -158,26 +143,26 @@ export default function Pricing() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-5xl font-extrabold text-gray-900 dark:text-white mb-5 leading-tight"
+              className="text-5xl font-extrabold text-brand-dark mb-5 leading-tight"
             >
               Built for School Budgets.
               <br />
-              <span className="text-blue-600">Not Enterprise Pricing.</span>
+              <span className="text-brand-terra">Not Enterprise Pricing.</span>
             </Motion.h1>
             <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed"
+              className="text-lg text-brand-neutral leading-relaxed"
             >
-              No setup fee. No long-term contract. Per-school monthly
-              subscription with every module and every portal included.
+              No setup fee. No long-term contract. Per-school monthly subscription with every
+              module and every portal included.
             </Motion.p>
           </div>
         </section>
 
         {/* Pricing tiers */}
-        <section className="py-8 px-6 pb-24 bg-white dark:bg-gray-950">
+        <section className="py-8 px-6 pb-24 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
               {tiers.map((tier, i) => (
@@ -190,13 +175,13 @@ export default function Pricing() {
                   whileHover={{ y: tier.highlight ? -6 : -4 }}
                   className={`relative rounded-3xl border p-8 flex flex-col shadow-sm transition-all duration-300 ${
                     tier.highlight
-                      ? "bg-blue-600 border-blue-600 shadow-2xl shadow-blue-600/25"
-                      : "bg-white dark:bg-gray-900 " + tier.border
+                      ? "bg-brand-terra border-brand-terra shadow-2xl shadow-brand-terra/25"
+                      : "bg-white border-brand-cream"
                   }`}
                 >
                   {tier.highlight && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="bg-white text-blue-600 text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                      <span className="bg-white text-brand-terra text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                         Most Popular
                       </span>
                     </div>
@@ -205,34 +190,28 @@ export default function Pricing() {
                   <div className="mb-6">
                     <div
                       className={`inline-flex p-2.5 rounded-xl mb-4 ${
-                        tier.highlight
-                          ? "bg-white/20"
-                          : tier.bg
-                      } ${tier.color}`}
+                        tier.highlight ? "bg-white/20 text-white" : "bg-brand-cream text-brand-terra"
+                      }`}
                     >
                       {tier.icon}
                     </div>
                     <h2
                       className={`text-xl font-bold mb-1 ${
-                        tier.highlight
-                          ? "text-white"
-                          : "text-gray-900 dark:text-white"
+                        tier.highlight ? "text-white" : "text-brand-dark"
                       }`}
                     >
                       {tier.name}
                     </h2>
                     <p
                       className={`text-sm mb-2 ${
-                        tier.highlight
-                          ? "text-blue-100"
-                          : "text-gray-500 dark:text-gray-400"
+                        tier.highlight ? "text-white/80" : "text-brand-neutral"
                       }`}
                     >
                       {tier.tagline}
                     </p>
                     <p
                       className={`text-xs font-semibold uppercase tracking-wide ${
-                        tier.highlight ? "text-blue-200" : "text-blue-600 dark:text-blue-400"
+                        tier.highlight ? "text-white/70" : "text-brand-terra"
                       }`}
                     >
                       {tier.size}
@@ -241,19 +220,19 @@ export default function Pricing() {
 
                   <div
                     className={`text-center py-5 mb-6 rounded-2xl ${
-                      tier.highlight ? "bg-white/10" : "bg-gray-50 dark:bg-gray-800"
+                      tier.highlight ? "bg-white/10" : "bg-brand-cream/40"
                     }`}
                   >
                     <p
                       className={`text-sm font-medium ${
-                        tier.highlight ? "text-blue-100" : "text-gray-500 dark:text-gray-400"
+                        tier.highlight ? "text-white/80" : "text-brand-neutral"
                       }`}
                     >
                       Pricing available on request
                     </p>
                     <p
                       className={`text-xs mt-1 ${
-                        tier.highlight ? "text-blue-200" : "text-gray-400"
+                        tier.highlight ? "text-white/60" : "text-brand-neutral/70"
                       }`}
                     >
                       Tailored for your school's size
@@ -267,16 +246,14 @@ export default function Pricing() {
                           className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${
                             tier.highlight
                               ? "bg-white/20 text-white"
-                              : "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                              : "bg-brand-terra/10 text-brand-terra"
                           }`}
                         >
                           <Check className="w-2.5 h-2.5" />
                         </span>
                         <span
                           className={`text-sm ${
-                            tier.highlight
-                              ? "text-blue-50"
-                              : "text-gray-600 dark:text-gray-400"
+                            tier.highlight ? "text-white/90" : "text-brand-brown"
                           }`}
                         >
                           {f}
@@ -285,16 +262,13 @@ export default function Pricing() {
                     ))}
                   </ul>
 
-                  <Motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
+                  <Motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Link
                       to="/contact"
                       className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold text-sm transition-colors ${
                         tier.highlight
-                          ? "bg-white text-blue-600 hover:bg-gray-50"
-                          : "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
+                          ? "bg-white text-brand-terra hover:bg-brand-cream"
+                          : "bg-brand-terra text-white hover:bg-[#a85d48] shadow-lg shadow-brand-terra/20"
                       }`}
                     >
                       {tier.cta} <ArrowUpRight className="w-4 h-4" />
@@ -310,7 +284,7 @@ export default function Pricing() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="mt-10 flex flex-wrap justify-center gap-8 text-sm text-gray-500 dark:text-gray-400"
+              className="mt-10 flex flex-wrap justify-center gap-8 text-sm text-brand-neutral"
             >
               {[
                 "No setup fee",
@@ -319,7 +293,7 @@ export default function Pricing() {
                 "All modules included in every plan",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-brand-terra" />
                   {item}
                 </span>
               ))}
@@ -328,7 +302,7 @@ export default function Pricing() {
         </section>
 
         {/* FAQ */}
-        <section className="py-20 px-6 bg-gray-50 dark:bg-gray-900/40">
+        <section className="py-20 px-6 bg-brand-cream/30">
           <div className="max-w-3xl mx-auto">
             <Motion.div
               variants={fadeUp}
@@ -337,12 +311,10 @@ export default function Pricing() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs uppercase tracking-widest mb-3">
+              <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">
                 FAQ
               </p>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Common Questions
-              </h2>
+              <h2 className="text-3xl font-bold text-brand-dark">Common Questions</h2>
             </Motion.div>
 
             <div className="space-y-3">
@@ -354,19 +326,17 @@ export default function Pricing() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden"
+                  className="bg-white border border-brand-cream rounded-2xl overflow-hidden"
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full flex items-center justify-between px-6 py-4 text-left"
                   >
-                    <span className="font-semibold text-gray-900 dark:text-white text-sm">
-                      {faq.q}
-                    </span>
+                    <span className="font-semibold text-brand-dark text-sm">{faq.q}</span>
                     <Motion.span
                       animate={{ rotate: openFaq === i ? 45 : 0 }}
                       transition={{ duration: 0.2 }}
-                      className="text-gray-400 flex-shrink-0 ml-4 text-lg leading-none"
+                      className="text-brand-neutral flex-shrink-0 ml-4 text-lg leading-none"
                     >
                       +
                     </Motion.span>
@@ -380,9 +350,7 @@ export default function Pricing() {
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                      {faq.a}
-                    </p>
+                    <p className="px-6 pb-5 text-sm text-brand-neutral leading-relaxed">{faq.a}</p>
                   </Motion.div>
                 </Motion.div>
               ))}
@@ -391,7 +359,7 @@ export default function Pricing() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 bg-white dark:bg-gray-950">
+        <section className="py-20 px-6 bg-white">
           <Motion.div
             variants={fadeUp}
             initial="hidden"
@@ -399,17 +367,17 @@ export default function Pricing() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <MessageCircle className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <MessageCircle className="w-10 h-10 text-brand-terra mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-brand-dark mb-4">
               Not sure which plan fits your school?
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Tell us your school's size, board, and current pain points. We'll
-              recommend the right plan and walk you through a free demo.
+            <p className="text-brand-neutral mb-8">
+              Tell us your school's size, board, and current pain points. We'll recommend the right
+              plan and walk you through a free demo.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
             >
               Talk to Us <ArrowUpRight className="w-4 h-4" />
             </Link>
