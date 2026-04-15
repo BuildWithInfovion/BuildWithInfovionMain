@@ -6,7 +6,7 @@ export const blogPosts = [
     excerpt:
       "Paper registers are costing Indian schools hours every week. Here's how digital attendance systems work — and what to look for when choosing one.",
     category: "attendance",
-    author: "Sankalp Deshpande",
+    author: "Infovion Team",
     date: "2026-04-10",
     readTime: "7 min read",
     tags: ["Attendance", "School Software", "India"],
@@ -31,7 +31,7 @@ export const blogPosts = [
     excerpt:
       "Ledger-based fee collection creates confusion, delays, and defaulter blindspots. This guide walks through what a digital fee system should do for your school.",
     category: "fees",
-    author: "Sankalp Deshpande",
+    author: "Infovion Team",
     date: "2026-04-05",
     readTime: "9 min read",
     tags: ["Fee Management", "School ERP", "India"],
@@ -55,7 +55,7 @@ export const blogPosts = [
     excerpt:
       "Parents call schools daily for information that should be instantly accessible. A parent portal cuts inbound calls and builds trust — here's why it matters.",
     category: "portals",
-    author: "Sankalp Deshpande",
+    author: "Infovion Team",
     date: "2026-03-28",
     readTime: "6 min read",
     tags: ["Parent Portal", "School Software", "Communication"],
@@ -77,7 +77,7 @@ export const blogPosts = [
     excerpt:
       "TC management is a regulatory requirement in Indian schools. Here's how moving from manual to digital TC workflows saves time and prevents compliance gaps.",
     category: "admissions",
-    author: "Sankalp Deshpande",
+    author: "Infovion Team",
     date: "2026-03-20",
     readTime: "8 min read",
     tags: ["Admissions", "Transfer Certificate", "India"],
@@ -99,7 +99,7 @@ export const blogPosts = [
     excerpt:
       "Multi-tenancy sounds technical. For a school director, it means one important thing: your school's data stays completely separate from every other school on the platform.",
     category: "technology",
-    author: "Sankalp Deshpande",
+    author: "Infovion Team",
     date: "2026-03-12",
     readTime: "5 min read",
     tags: ["Multi-Tenancy", "School ERP", "Data Security"],
@@ -121,7 +121,7 @@ export const blogPosts = [
     excerpt:
       "Spreadsheets feel free. But when you count staff hours, errors, and the decisions you can't make without clean data — the cost becomes very real.",
     category: "operations",
-    author: "Sankalp Deshpande",
+    author: "Infovion Team",
     date: "2026-03-05",
     readTime: "10 min read",
     tags: ["School Operations", "Productivity", "India"],

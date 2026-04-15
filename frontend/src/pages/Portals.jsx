@@ -170,14 +170,18 @@ export default function Portals() {
   return (
     <>
       <Helmet>
-        <title>Role Portals — Infovion School Management Software India</title>
+        <title>School ERP Portals: Director, Teacher, Parent & More | Infovion India</title>
         <meta
           name="description"
-          content="Infovion gives every school role their own purpose-built portal. Director, Principal, Teacher, Student, Parent, Accountant, Operator, and Receptionist — each with exactly what they need."
+          content="Infovion provides 8 separate role portals for every school stakeholder — Director, Principal, Teacher, Student, Parent, Accountant, Operator, Receptionist. Purpose-built school ERP access."
         />
+        <meta name="keywords" content="school ERP role portals India, teacher portal school, parent portal school India, student portal school, principal dashboard school ERP, school director portal, school management roles India" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/portals" />
-        <meta property="og:title" content="Role Portals — Infovion School Management" />
+        <meta property="og:title" content="School ERP Role Portals — Infovion" />
+        <meta property="og:description" content="8 purpose-built portals for every school role. Director, Principal, Teacher, Student, Parent — each sees exactly what they need." />
         <meta property="og:url" content="https://buildwithinfovion.com/portals" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <Motion.main

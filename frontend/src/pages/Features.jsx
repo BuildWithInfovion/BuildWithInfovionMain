@@ -195,14 +195,18 @@ export default function Features() {
   return (
     <>
       <Helmet>
-        <title>Features — Infovion School Management Software India</title>
+        <title>School Management Software Features | 8 Modules — Infovion India</title>
         <meta
           name="description"
-          content="Explore Infovion's 8 modules: admissions, attendance, examinations, fee management, staff management, student & parent portals, timetable, and announcements. Built for K-12 schools in India."
+          content="Explore Infovion's 8 school management modules: admissions, attendance, exams, fee collection, staff, timetable & more. Cloud ERP built for K-12 schools in India. CBSE, ICSE & State Board ready."
         />
+        <meta name="keywords" content="school management software features, school ERP modules India, school attendance software, fee management software schools, school admission software India, exam management software, school staff management, K-12 school ERP features" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/features" />
-        <meta property="og:title" content="Features — Infovion School Management Software" />
+        <meta property="og:title" content="School Management Software Features — Infovion" />
+        <meta property="og:description" content="8 modules covering every K-12 school operation: admissions, attendance, exams, fees, staff, timetable. Built for India." />
         <meta property="og:url" content="https://buildwithinfovion.com/features" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <Motion.main

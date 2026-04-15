@@ -139,18 +139,17 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        {/* ✅ OPTIMIZED TITLE (Keywords + Location) */}
-        <title>
-          Tech Blog: AI, Web Development & Business Insights | BuildWithInfovion
-          Pune
-        </title>
+        <title>School Management Blog — Tips for Indian School Administrators | Infovion</title>
         <meta
           name="description"
-          // ✅ OPTIMIZED META DESCRIPTION (Keywords + Location)
-          content="Expert insights on AI, web development, data solutions, and business growth strategies from the BuildWithInfovion team in Pune, India. Stay innovative."
+          content="School management insights for Indian K-12 school administrators — digital attendance, fee management, parent portals, school ERP, and more. By Infovion Technologies."
         />
-        {/* ✅ CRITICAL FIX: Canonical URL */}
+        <meta name="keywords" content="school management blog India, school ERP tips, school administration tips India, digital attendance schools, fee management schools India, parent portal school, school software guide India" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/blog" />
+        <meta property="og:title" content="School Management Blog — Infovion" />
+        <meta property="og:description" content="Insights for Indian school administrators on attendance, fees, admissions, and digital school management." />
+        <meta property="og:url" content="https://buildwithinfovion.com/blog" />
       </Helmet>
 
       <Motion.main

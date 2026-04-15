@@ -125,14 +125,18 @@ export default function ForSchools() {
   return (
     <>
       <Helmet>
-        <title>For Schools — Infovion School Management Software India</title>
+        <title>School ERP for Indian K-12 Schools | CBSE, ICSE, State Board — Infovion</title>
         <meta
           name="description"
-          content="Infovion is built specifically for K-12 schools in India. See how it solves admissions, attendance, exams, fees, and staff management — with India-first features like Aadhar fields, TC validation, and Indian fee heads."
+          content="Infovion is built ground-up for K-12 schools in India — Aadhar fields, TC validation, Indian fee heads, CBSE/ICSE/State Board ready. Not a Western ERP adapted for India."
         />
+        <meta name="keywords" content="school ERP for Indian schools, CBSE school management software, ICSE school ERP, state board school software India, school management software Pune, K-12 school ERP India, school administration software India, school software Tier 2 Tier 3 India" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/for-schools" />
-        <meta property="og:title" content="For Schools — Infovion School Management India" />
+        <meta property="og:title" content="School ERP Built for Indian K-12 Schools — Infovion" />
+        <meta property="og:description" content="CBSE, ICSE & State Board ready. Aadhar fields, TC validation, Indian fee heads. School management software built for India, not adapted." />
         <meta property="og:url" content="https://buildwithinfovion.com/for-schools" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <Motion.main

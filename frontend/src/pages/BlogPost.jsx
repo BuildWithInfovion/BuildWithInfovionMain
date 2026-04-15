@@ -50,15 +50,17 @@ export default function BlogPost() {
     datePublished: post.date,
     dateModified: post.date,
     author: {
-      "@type": "Person",
-      name: post.author,
+      "@type": "Organization",
+      name: "Infovion Technologies",
+      url: "https://buildwithinfovion.com",
     },
     publisher: {
       "@type": "Organization",
-      name: "BuildWithInfovion",
+      name: "Infovion Technologies",
+      url: "https://buildwithinfovion.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://buildwithinfovion.com/logo.png", // Update this path if needed
+        url: "https://buildwithinfovion.com/src/assets/logo.png",
       },
     },
     description: post.excerpt,
@@ -71,7 +73,7 @@ export default function BlogPost() {
     <>
       <Helmet>
         {/* ✅ OPTIMIZED TITLE */}
-        <title>{post.title} | BuildWithInfovion - Digital Solutions Blog</title>
+        <title>{post.title} | Infovion School Management Blog</title>
         <meta name="description" content={post.excerpt} />
 
         {/* ✅ CRITICAL FIX: Canonical URL */}

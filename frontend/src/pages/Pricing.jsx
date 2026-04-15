@@ -11,6 +11,61 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is there a setup fee for Infovion school ERP?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No setup fee. Your school is onboarded through a guided wizard that creates your institution, academic year, classes, and default subjects automatically.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is there a long-term contract for Infovion?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No long-term contract. Infovion is designed for schools that want flexibility — no lock-in, no annual commitment required.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does cloud-native school ERP mean for my school?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No servers to buy, no software to install, no IT team needed. Infovion runs on Railway (backend) and Vercel (frontend) — accessible from any device with a browser, on 4G.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can we try Infovion school management software before committing?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We offer a free demo where we walk through every module and portal with your school's context in mind. Request one and we'll set up a session within 48 hours.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What happens to our school data if we leave Infovion?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Your data belongs to your school. We provide a full export of all student, attendance, exam, and fee records on request before account closure.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Infovion work for ICSE and State Board schools, not just CBSE?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Subject naming, fee heads, TC workflows, and roll number systems are aligned with Indian board conventions generally — not tied to any single board.",
+      },
+    },
+  ],
+};
+
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
   visible: (i = 0) => ({
@@ -113,14 +168,19 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing — Infovion School Management Software India</title>
+        <title>School ERP Pricing India — No Setup Fee, All Modules Included | Infovion</title>
         <meta
           name="description"
-          content="Infovion Academic ERP pricing for K-12 schools in India. No setup fee, no long-term contract. Cloud-based school management software built for Tier 2 and Tier 3 school budgets."
+          content="Infovion school ERP pricing for K-12 schools in India. No setup fee, no long-term contract. All 8 modules & 8 portals included. Affordable cloud school management software for Tier 2 & 3 schools."
         />
+        <meta name="keywords" content="school ERP pricing India, affordable school management software India, school software cost India, cloud school ERP price, school management software subscription India, school ERP no setup fee" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/pricing" />
-        <meta property="og:title" content="Pricing — Infovion School Management Software" />
+        <meta property="og:title" content="School ERP Pricing — No Setup Fee | Infovion India" />
+        <meta property="og:description" content="All 8 school management modules & portals included. No setup fee, no long-term contract. Built for Indian school budgets." />
         <meta property="og:url" content="https://buildwithinfovion.com/pricing" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <Motion.main

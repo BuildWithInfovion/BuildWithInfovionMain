@@ -59,14 +59,18 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About — Infovion Technologies | Academic ERP for Indian Schools</title>
+        <title>About Infovion — School Management Software Company, Pune India</title>
         <meta
           name="description"
-          content="Infovion Technologies is building a cloud-based Academic ERP for K-12 schools in India. Learn who we are, why we built Infovion, and the technology behind it."
+          content="Infovion Technologies is a Pune-based startup building cloud-native school ERP for K-12 schools in India. Learn why we built Infovion and the technology behind it."
         />
+        <meta name="keywords" content="Infovion Technologies Pune, school ERP company India, school management software company Pune, academic ERP India, school software startup India" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/about" />
-        <meta property="og:title" content="About — Infovion Technologies" />
+        <meta property="og:title" content="About Infovion Technologies — School ERP Company, Pune" />
+        <meta property="og:description" content="Pune-based startup building cloud-native school management ERP for K-12 schools across India. Learn who we are and why we built Infovion." />
         <meta property="og:url" content="https://buildwithinfovion.com/about" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <Motion.main

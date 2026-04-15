@@ -1,56 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
+  <!-- Core pages -->
   <url>
     <loc>https://buildwithinfovion.com/</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <url>
-    <loc>https://buildwithinfovion.com/services</loc>
-    <lastmod>2025-10-03</lastmod>
+    <loc>https://buildwithinfovion.com/features</loc>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/portals</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/for-schools</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/pricing</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://buildwithinfovion.com/about</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://buildwithinfovion.com/contact</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Blog index -->
   <url>
-    <loc>https://buildwithinfovion.com/portfolio</loc>
-    <lastmod>2025-10-03</lastmod>
+    <loc>https://buildwithinfovion.com/blog</loc>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
+  <!-- Blog posts -->
   <url>
-    <loc>https://buildwithinfovion.com/blog</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://buildwithinfovion.com/blog/how-indian-schools-can-replace-paper-attendance-registers</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://buildwithinfovion.com/privacy-policy</loc>
-    <lastmod>2025-10-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://buildwithinfovion.com/blog/school-fee-management-moving-from-ledgers-to-cloud</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/blog/why-every-k12-school-in-india-needs-a-parent-portal</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/blog/transfer-certificate-workflow-manual-vs-digital-indian-schools</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/blog/what-is-multi-tenant-school-erp-explained-for-school-directors</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://buildwithinfovion.com/blog/school-management-software-vs-spreadsheets-real-cost</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://buildwithinfovion.com/privacy-policy</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <url>
     <loc>https://buildwithinfovion.com/terms-of-service</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
-  
-  </urlset>
+
+</urlset>

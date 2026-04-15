@@ -159,19 +159,17 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        {/* ✅ OPTIMIZED TITLE & DESCRIPTION */}
-        <title>
-          Contact BuildWithInfovion: Web & App Solutions in Pune, India
-        </title>
+        <title>Contact Infovion — School ERP Demo & Support | Pune, India</title>
         <meta
           name="description"
-          content="Contact BuildWithInfovion in Pune, Maharashtra for professional web development, mobile apps, and digital solutions. Available 7 days a week with fast response time."
+          content="Contact Infovion Technologies in Pune for a free school ERP demo. Schedule a walkthrough of our school management software for K-12 schools in India. Available 7 days a week."
         />
-
-        {/* ✅ FIXED CANONICAL URL */}
+        <meta name="keywords" content="contact Infovion, school ERP demo India, school management software demo, Infovion Pune contact, school software inquiry India" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/contact" />
-
-        {/* 🚀 TECHNICAL SEO: Uses the correctly scoped 'faqSchema' variable. */}
+        <meta property="og:title" content="Contact Infovion — Free School ERP Demo" />
+        <meta property="og:description" content="Schedule a free demo of Infovion school management software. We walk through every module with your school's context in mind." />
+        <meta property="og:url" content="https://buildwithinfovion.com/contact" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
