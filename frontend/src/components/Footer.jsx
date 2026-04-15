@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter, Github, Mail, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Mail, MapPin } from "lucide-react";
 import logo from "/src/assets/logo.png";
 
 const productLinks = [
@@ -20,10 +20,9 @@ const companyLinks = [
 ];
 
 const socialLinks = [
-  { href: "#",                                                           label: "LinkedIn",    icon: <Linkedin /> },
-  { href: "#",                                                           label: "Twitter (X)", icon: <Twitter /> },
-  { href: "https://github.com/BuildWithInfovion/BuildWithInfovionMain",  label: "GitHub",      icon: <Github /> },
-  { href: "#",                                                           label: "Instagram",   icon: <Instagram /> },
+  { href: "https://www.linkedin.com/company/112026919/", label: "LinkedIn",    icon: <Linkedin /> },
+  { href: "#",                                           label: "Twitter (X)", icon: <Twitter /> },
+  { href: "#",                                           label: "Instagram",   icon: <Instagram /> },
 ];
 
 const FooterLink = ({ to, label }) => (
@@ -83,11 +82,11 @@ export default function Footer() {
             </p>
             <div className="space-y-2">
               <a
-                href="mailto:sankalp7456@gmail.com"
+                href="mailto:infovion2025@gmail.com"
                 className="flex items-center gap-2 text-sm text-brand-neutral hover:text-brand-accent transition-colors"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                sankalp7456@gmail.com
+                infovion2025@gmail.com
               </a>
               <div className="flex items-center gap-2 text-sm text-brand-neutral">
                 <MapPin className="w-4 h-4 flex-shrink-0" />

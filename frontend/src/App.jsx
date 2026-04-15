@@ -15,6 +15,7 @@ import BlogPost from "./pages/BlogPost";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ScrollToTop from "./components/ScrollToTop";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const primaryDomain = "https://buildwithinfovion.com";
@@ -66,7 +67,7 @@ function App() {
               url: primaryDomain,
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "sankalp7456@gmail.com",
+                email: "infovion2025@gmail.com",
                 contactType: "sales",
               },
             },
@@ -95,6 +96,7 @@ function App() {
 
       <Router>
         <ScrollToTop />
+        <WhatsAppButton />
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -11,7 +11,7 @@ import {
   Users,
   Mail,
   MapPin,
-  Github,
+  Linkedin,
 } from "lucide-react";
 
 const fadeUp = {
@@ -355,10 +355,10 @@ export default function About() {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-brand-terra flex-shrink-0" />
                 <a
-                  href="mailto:sankalp7456@gmail.com"
+                  href="mailto:infovion2025@gmail.com"
                   className="text-brand-brown hover:text-brand-terra transition-colors text-sm"
                 >
-                  sankalp7456@gmail.com
+                  infovion2025@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
@@ -366,14 +366,14 @@ export default function About() {
                 <span className="text-brand-brown text-sm">Pune, Maharashtra, India</span>
               </div>
               <div className="flex items-center gap-3">
-                <Github className="w-5 h-5 text-brand-terra flex-shrink-0" />
+                <Linkedin className="w-5 h-5 text-brand-terra flex-shrink-0" />
                 <a
-                  href="https://github.com/BuildWithInfovion/BuildWithInfovionMain"
+                  href="https://www.linkedin.com/company/112026919/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-brand-brown hover:text-brand-terra transition-colors text-sm"
                 >
-                  github.com/BuildWithInfovion
+                  linkedin.com/company/Infovion
                 </a>
               </div>
             </Motion.div>
