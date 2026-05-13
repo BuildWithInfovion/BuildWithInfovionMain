@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy - BuildWithInfovion</title>
+        <title>Privacy Policy — Infovion School Management Software</title>
         <meta
           name="description"
           content="Read the Privacy Policy for BuildWithInfovion. Understand how we collect, use, and protect your data."
@@ -20,14 +20,14 @@ const PrivacyPolicy = () => {
         className="max-w-4xl mx-auto px-6 py-24 sm:py-32"
       >
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-brand-dark sm:text-5xl">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-lg leading-8 text-brand-neutral">
             Last updated: October 2, 2025
           </p>
         </div>
-        <div className="mt-12 text-gray-700 dark:text-gray-300 space-y-8">
+        <div className="mt-12 text-brand-brown space-y-8">
           <p>
             BuildWithInfovion ("us", "we", or "our") operates the
             BuildWithInfovion website (the "Service"). This page informs you of
@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
           </p>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Information Collection and Use
             </h2>
             <p>
@@ -49,7 +49,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Use of Data
             </h2>
             <p>
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Cookies Data
             </h2>
             <p>
@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Security of Data
             </h2>
             <p>
@@ -88,7 +88,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Changes to This Privacy Policy
             </h2>
             <p>
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Contact Us
             </h2>
             <p>

@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion as Motion, AnimatePresence } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import logo from "/src/assets/logo.png";
 
 const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/features", label: "Features" },
-  { to: "/portals", label: "Portals" },
+  { to: "/",          label: "Home" },
+  { to: "/features",  label: "Features" },
+  { to: "/portals",   label: "Portals" },
   { to: "/for-schools", label: "For Schools" },
-  { to: "/pricing", label: "Pricing" },
-  { to: "/blog", label: "Blog" },
+  { to: "/pricing",   label: "Pricing" },
+  { to: "/blog",      label: "Blog" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen]       = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -36,51 +37,55 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50"
         animate={{
           backgroundColor: isScrolled
-            ? "rgba(51, 49, 46, 0.96)"
-            : "rgba(51, 49, 46, 0.85)",
+            ? "rgba(44, 42, 39, 0.97)"
+            : "rgba(44, 42, 39, 0.82)",
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.35 }}
         style={{
-          backdropFilter: "blur(20px)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
           borderBottom: isScrolled
-            ? "1px solid rgba(209, 171, 131, 0.12)"
+            ? "1px solid rgba(209, 171, 131, 0.14)"
             : "1px solid transparent",
+          boxShadow: isScrolled
+            ? "0 4px 32px rgba(0,0,0,0.28)"
+            : "none",
         }}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-[72px]">
 
-            {/* Logo — bigger, more prominent */}
+            {/* Logo */}
             <NavLink to="/" className="flex items-center gap-3 flex-shrink-0 group">
               <Motion.img
                 src={logo}
-                alt="Infovion Logo"
-                className="h-14 w-auto"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                alt="Infovion"
+                className="h-12 w-auto"
+                whileHover={{ scale: 1.06 }}
+                transition={{ duration: 0.25 }}
               />
               <div className="flex flex-col leading-none">
-                <span className="text-2xl font-bold text-white tracking-tight">
+                <span className="text-[22px] font-extrabold text-white tracking-tight leading-none">
                   Info<span className="text-brand-accent">vion</span>
                 </span>
-                <span className="text-[10px] text-brand-neutral tracking-widest uppercase">
-                  Academic ERP
+                <span className="text-[9px] text-brand-neutral/70 tracking-[0.2em] uppercase mt-0.5">
+                  School Management
                 </span>
               </div>
             </NavLink>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === "/"}
                   className={({ isActive }) =>
-                    `relative px-4 py-2 text-sm font-medium rounded-full transition-colors z-10 ${
+                    `relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 z-10 ${
                       isActive
                         ? "text-brand-accent"
-                        : "text-gray-300 hover:text-white"
+                        : "text-gray-300/90 hover:text-white"
                     }`
                   }
                 >
@@ -89,8 +94,8 @@ export default function Navbar() {
                       {isActive && (
                         <Motion.div
                           layoutId="nav-pill"
-                          className="absolute inset-0 bg-brand-accent/15 rounded-full -z-10"
-                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                          className="absolute inset-0 bg-brand-accent/12 rounded-full -z-10"
+                          transition={{ type: "spring", stiffness: 400, damping: 32 }}
                         />
                       )}
                       {link.label}
@@ -102,41 +107,51 @@ export default function Navbar() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
+              {/* Demo CTA — desktop */}
               <Motion.div
-                whileHover={{ scale: 1.04 }}
+                whileHover={{ scale: 1.04, y: -1 }}
                 whileTap={{ scale: 0.96 }}
                 className="hidden lg:block"
               >
                 <Link
                   to="/contact"
-                  className="px-5 py-2.5 text-sm font-semibold text-white bg-brand-terra rounded-full shadow-lg shadow-brand-terra/30 hover:bg-[#a85d48] transition-colors"
+                  className="relative inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white rounded-full overflow-hidden group"
+                  style={{
+                    background: "linear-gradient(135deg, #BE6D56 0%, #A85D48 100%)",
+                    boxShadow: "0 4px 18px rgba(190,109,86,0.38), inset 0 1px 0 rgba(255,255,255,0.15)",
+                  }}
                 >
-                  Request Demo
+                  {/* Shine sweep on hover */}
+                  <span
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"
+                  />
+                  <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
+                  Free Demo
                 </Link>
               </Motion.div>
 
               {/* Hamburger */}
               <Motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 lg:hidden z-50 relative"
+                className="p-2 lg:hidden z-50 relative rounded-lg hover:bg-white/8 transition-colors"
                 aria-label="Toggle menu"
                 whileTap={{ scale: 0.9 }}
               >
-                <div className="w-6 flex flex-col gap-1.5">
+                <div className="w-6 flex flex-col gap-[5px]">
                   <Motion.span
-                    className="block h-0.5 w-full bg-white rounded-full"
-                    animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 8 : 0 }}
-                    transition={{ duration: 0.2 }}
+                    className="block h-[2px] w-full bg-white rounded-full"
+                    animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 7 : 0 }}
+                    transition={{ duration: 0.22 }}
                   />
                   <Motion.span
-                    className="block h-0.5 w-full bg-white rounded-full"
-                    animate={{ opacity: isOpen ? 0 : 1 }}
-                    transition={{ duration: 0.2 }}
+                    className="block h-[2px] w-full bg-white rounded-full"
+                    animate={{ opacity: isOpen ? 0 : 1, scaleX: isOpen ? 0 : 1 }}
+                    transition={{ duration: 0.18 }}
                   />
                   <Motion.span
-                    className="block h-0.5 w-full bg-white rounded-full"
-                    animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -8 : 0 }}
-                    transition={{ duration: 0.2 }}
+                    className="block h-[2px] w-full bg-white rounded-full"
+                    animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -7 : 0 }}
+                    transition={{ duration: 0.22 }}
                   />
                 </div>
               </Motion.button>
@@ -152,32 +167,35 @@ export default function Navbar() {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3, ease: [0.33, 1, 0.68, 1] }}
-            className="lg:hidden fixed inset-0 z-40 bg-brand-dark"
+            transition={{ duration: 0.32, ease: [0.33, 1, 0.68, 1] }}
+            className="lg:hidden fixed inset-0 z-40"
+            style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 100%)" }}
           >
-            {/* Subtle bg orb */}
-            <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-brand-terra/10 blur-3xl pointer-events-none" />
+            {/* BG orb */}
+            <div className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.14)" }} />
+            <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.08)" }} />
+            <div className="absolute inset-0 dot-grid-dark opacity-30" />
 
             <Motion.nav
               variants={{
-                open:   { transition: { staggerChildren: 0.07, delayChildren: 0.15 } },
-                closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+                open:   { transition: { staggerChildren: 0.07, delayChildren: 0.14 } },
+                closed: { transition: { staggerChildren: 0.04, staggerDirection: -1 } },
               }}
               initial="closed"
               animate="open"
               exit="closed"
-              className="h-full flex flex-col items-center justify-center gap-5"
+              className="h-full flex flex-col items-center justify-center gap-4 relative z-10"
             >
               {navLinks.map((link) => (
                 <Motion.div
                   key={link.to}
-                  variants={{ open: { y: 0, opacity: 1 }, closed: { y: 24, opacity: 0 } }}
+                  variants={{ open: { y: 0, opacity: 1 }, closed: { y: 20, opacity: 0 } }}
                 >
                   <NavLink
                     to={link.to}
                     end={link.to === "/"}
                     className={({ isActive }) =>
-                      `text-3xl font-bold transition-colors ${
+                      `text-3xl font-extrabold tracking-tight transition-colors ${
                         isActive ? "text-brand-accent" : "text-white/80 hover:text-white"
                       }`
                     }
@@ -186,17 +204,30 @@ export default function Navbar() {
                   </NavLink>
                 </Motion.div>
               ))}
+
               <Motion.div
-                variants={{ open: { y: 0, opacity: 1 }, closed: { y: 24, opacity: 0 } }}
-                className="mt-6"
+                variants={{ open: { y: 0, opacity: 1 }, closed: { y: 20, opacity: 0 } }}
+                className="mt-8"
               >
                 <Link
                   to="/contact"
-                  className="px-8 py-4 text-lg font-bold text-white bg-brand-terra rounded-full shadow-lg"
+                  className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-full"
+                  style={{
+                    background: "linear-gradient(135deg, #BE6D56 0%, #A85D48 100%)",
+                    boxShadow: "0 8px 32px rgba(190,109,86,0.4)",
+                  }}
                 >
-                  Request Demo
+                  <Sparkles className="w-5 h-5" />
+                  Book a Free Demo
                 </Link>
               </Motion.div>
+
+              <Motion.p
+                variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
+                className="text-brand-neutral/50 text-xs mt-4"
+              >
+                infovion2025@gmail.com
+              </Motion.p>
             </Motion.nav>
           </Motion.div>
         )}

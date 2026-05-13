@@ -5,46 +5,212 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    color: #33312E;
+    color: #2C2A27;
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   ::selection {
     background-color: #BE6D56;
     color: #ffffff;
   }
+
+  h1, h2, h3, h4, h5 {
+    letter-spacing: -0.02em;
+  }
 }
 
 @layer utilities {
-  /* Warm dot grid for dark hero */
+  /* ── DOT GRIDS ────────────────────────────────────────── */
   .dot-grid-dark {
-    background-image: radial-gradient(circle, rgba(209, 171, 131, 0.18) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(209,171,131,0.16) 1px, transparent 1px);
     background-size: 32px 32px;
   }
-
-  /* Warm dot grid for light sections */
   .dot-grid-light {
-    background-image: radial-gradient(circle, rgba(156, 146, 140, 0.25) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(156,146,140,0.22) 1px, transparent 1px);
     background-size: 28px 28px;
   }
+  .dot-grid-fine {
+    background-image: radial-gradient(circle, rgba(156,146,140,0.14) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
+  /* ── GRADIENT TEXT ────────────────────────────────────── */
+  .text-gradient-terra {
+    background: linear-gradient(135deg, #BE6D56 0%, #D1AB83 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  ::-webkit-scrollbar-track {
-    background: #E3DDDB;
+  .text-gradient-warm {
+    background: linear-gradient(135deg, #C9943A 0%, #BE6D56 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  ::-webkit-scrollbar-thumb {
-    background: #9C928C;
-    border-radius: 3px;
+  .text-gradient-hero {
+    background: linear-gradient(135deg, #E3DDDB 0%, #D1AB83 60%, #BE6D56 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #BE6D56;
+
+  /* ── PREMIUM CARD BORDERS ─────────────────────────────── */
+  .card-border-terra {
+    border-image: linear-gradient(135deg, rgba(190,109,86,0.5), rgba(209,171,131,0.3)) 1;
+  }
+  .card-glow {
+    box-shadow: 0 0 0 1px rgba(209,171,131,0.15), 0 4px 24px rgba(190,109,86,0.10);
+  }
+  .card-glow-hover:hover {
+    box-shadow: 0 0 0 1px rgba(209,171,131,0.35), 0 12px 48px rgba(190,109,86,0.18);
+  }
+
+  /* ── SHIMMER EFFECT ───────────────────────────────────── */
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      #BE6D56 0%,
+      #D1AB83 25%,
+      #BE6D56 50%,
+      #D1AB83 75%,
+      #BE6D56 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* ── GRADIENT BORDERS ─────────────────────────────────── */
+  .border-gradient-terra {
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  .border-gradient-terra::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(190,109,86,0.5), rgba(209,171,131,0.25));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ── GLASS CARD ───────────────────────────────────────── */
+  .glass-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(209,171,131,0.2);
+  }
+  .glass-card-dark {
+    background: rgba(44,42,39,0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(209,171,131,0.12);
+  }
+
+  /* ── SECTION DIVIDER ──────────────────────────────────── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(209,171,131,0.3) 30%, rgba(190,109,86,0.3) 70%, transparent);
+  }
+
+  /* ── HOVER LIFT ───────────────────────────────────────── */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.33,1,0.68,1), box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+  }
+
+  /* ── SCROLLBAR ────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #F0ECEB; }
+  ::-webkit-scrollbar-thumb { background: #C9A898; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #BE6D56; }
+
+  /* ── FOCUS RING ───────────────────────────────────────── */
+  .focus-ring:focus-visible {
+    outline: 2px solid #BE6D56;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ── PREMIUM BTN ──────────────────────────────────────── */
+  .btn-premium {
+    background: linear-gradient(135deg, #BE6D56 0%, #A85D48 100%);
+    box-shadow: 0 4px 20px rgba(190,109,86,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+    transition: all 0.25s cubic-bezier(0.33,1,0.68,1);
+  }
+  .btn-premium:hover {
+    box-shadow: 0 8px 32px rgba(190,109,86,0.48), inset 0 1px 0 rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+  }
+  .btn-premium:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 12px rgba(190,109,86,0.30);
+  }
+
+  /* ── ARTICLE CONTENT (blog posts) ────────────────────── */
+  .article-content p {
+    margin-bottom: 1.25rem;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #5A4A48;
+  }
+  .article-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2C2A27;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .article-content h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2C2A27;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .article-content ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .article-content ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .article-content li {
+    margin-bottom: 0.4rem;
+    color: #5A4A48;
+    line-height: 1.7;
+  }
+
+  /* ── STEP CONNECTOR ───────────────────────────────────── */
+  .step-connector::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: calc(50% + 32px);
+    right: calc(-50% + 32px);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(190,109,86,0.4), rgba(209,171,131,0.2));
   }
 }

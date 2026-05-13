@@ -32,27 +32,27 @@ const values = [
   {
     icon: <IndianRupee className="w-6 h-6" />,
     title: "Built for India",
-    desc: "Aadhar fields, TC workflows, Indian fee heads, CBSE/ICSE/State Board conventions — not a Western ERP ported to India. Ground-up Indian school operations.",
+    desc: "Aadhar fields, TC workflows, Indian fee heads, CBSE/ICSE/State Board conventions — not a Western system ported to India. Ground-up Indian school operations.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Security by Default",
-    desc: "JWT with httpOnly cookies, role-based access control enforced at the API level, multi-tenant isolation, and an append-only audit trail on every write.",
+    desc: "Every login is protected. Each person sees only what their role allows. Full activity records are kept — nothing is ever silently changed or deleted.",
   },
   {
     icon: <Smartphone className="w-6 h-6" />,
     title: "Mobile-First Reality",
-    desc: "All 8 portals work on any smartphone over 4G. Designed for Tier 2 and Tier 3 India where mobile is the primary — and often only — internet device.",
+    desc: "All 9 portals work on any smartphone. Designed for Tier 2 and Tier 3 India where mobile is the primary — and often only — internet device.",
   },
 ];
 
-const techStack = [
-  { label: "Backend", value: "NestJS · TypeScript · PostgreSQL (Neon)" },
-  { label: "Frontend", value: "Next.js · React · Tailwind CSS" },
-  { label: "Infrastructure", value: "Railway (API) · Vercel (Frontend)" },
-  { label: "Auth", value: "JWT · httpOnly Cookies · RBAC" },
-  { label: "Architecture", value: "Multi-tenant SaaS · institution_id isolation" },
-  { label: "Audit", value: "Append-only audit log · soft deletes throughout" },
+const promises = [
+  { label: "Your Data is Safe", value: "Secured end-to-end. Only authorised staff can access school data. Everything is logged." },
+  { label: "Always Available", value: "Online 24/7. Your school keeps running — even when the principal checks reports at 11 PM." },
+  { label: "Built in India", value: "Hosted in India. Faster, more reliable, and built to meet Indian regulatory requirements." },
+  { label: "No IT Team Needed", value: "We set it up, we maintain it, we support it. Your staff just logs in and uses it." },
+  { label: "Grows With You", value: "Whether you have 200 or 3,000 students, Infovion handles it without changing your plan." },
+  { label: "Gets Better Every Month", value: "Regular feature updates based on feedback from real schools. You always get the latest." },
 ];
 
 export default function About() {
@@ -62,13 +62,13 @@ export default function About() {
         <title>About Infovion — School Management Software Company, Pune India</title>
         <meta
           name="description"
-          content="Infovion Technologies is a Pune-based startup building cloud-native school ERP for K-12 schools in India. Learn why we built Infovion and the technology behind it."
+          content="Infovion Technologies is a Pune-based startup building school management software for K-12 schools in India. Learn why we built Infovion and the values behind it."
         />
         <meta name="keywords" content="Infovion Technologies Pune, school ERP company India, school management software company Pune, academic ERP India, school software startup India" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/about" />
         <meta property="og:title" content="About Infovion Technologies — School ERP Company, Pune" />
-        <meta property="og:description" content="Pune-based startup building cloud-native school management ERP for K-12 schools across India. Learn who we are and why we built Infovion." />
+        <meta property="og:description" content="Pune-based startup building school management software for K-12 schools across India. Learn who we are and why we built Infovion." />
         <meta property="og:url" content="https://buildwithinfovion.com/about" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -123,9 +123,9 @@ export default function About() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-lg text-brand-neutral leading-relaxed max-w-2xl mx-auto"
             >
-              Infovion Technologies is a Pune-based startup building cloud-native school management
+              Infovion Technologies is a Pune-based startup building school management
               software for K-12 schools across India. We started because we couldn't find a school
-              ERP that actually fit how Indian schools work.
+              management platform that actually fit how Indian schools work.
             </Motion.p>
           </div>
         </section>
@@ -211,12 +211,12 @@ export default function About() {
                 The Solution
               </p>
               <h2 className="text-4xl font-bold text-brand-dark mb-5">
-                Eight modules. Eight portals. One platform.
+                Eight modules. Nine portals. One platform.
               </h2>
               <p className="text-brand-neutral leading-relaxed max-w-2xl mx-auto">
-                Infovion Academic ERP covers every operation a K-12 school runs — from the first
-                student inquiry to final exam results. Every role gets their own purpose-built
-                portal. Every Indian-specific requirement is built in from day one.
+                Infovion covers every operation a K-12 school runs — from the first student inquiry
+                to final exam results. Every person gets their own purpose-built portal. Every
+                Indian-specific requirement is built in from day one.
               </p>
             </Motion.div>
 
@@ -290,9 +290,10 @@ export default function About() {
           </div>
         </section>
 
-        {/* Tech Stack */}
-        <section className="py-20 px-6 bg-brand-dark">
-          <div className="max-w-4xl mx-auto">
+        {/* Our Promise */}
+        <section className="py-20 px-6 bg-brand-dark relative overflow-hidden">
+          <div className="absolute inset-0 dot-grid-dark opacity-20 pointer-events-none" />
+          <div className="max-w-4xl mx-auto relative z-10">
             <Motion.div
               variants={fadeUp}
               initial="hidden"
@@ -301,12 +302,12 @@ export default function About() {
               className="text-center mb-12"
             >
               <p className="text-brand-accent font-semibold text-xs uppercase tracking-widest mb-4">
-                Technology
+                Our Promise
               </p>
-              <h2 className="text-3xl font-bold text-white">Built on Modern Infrastructure</h2>
+              <h2 className="text-3xl font-bold text-white">Built to Last. Built for Schools.</h2>
             </Motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {techStack.map((t, i) => (
+              {promises.map((t, i) => (
                 <Motion.div
                   key={i}
                   custom={i}
@@ -314,7 +315,8 @@ export default function About() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="bg-brand-brown/30 border border-brand-brown/40 rounded-2xl p-5"
+                  whileHover={{ y: -4 }}
+                  className="bg-brand-brown/30 border border-brand-brown/40 rounded-2xl p-5 hover:border-brand-accent/40 transition-all duration-300"
                 >
                   <p className="text-xs text-brand-accent font-semibold uppercase tracking-wider mb-2">
                     {t.label}
@@ -402,7 +404,7 @@ export default function About() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
+              className="btn-premium inline-flex items-center gap-2 text-white px-8 py-4 rounded-full font-bold"
             >
               Schedule a Free Demo <ArrowUpRight className="w-4 h-4" />
             </Link>

@@ -35,7 +35,7 @@ const globalSchema = {
         height: 512,
       },
       description:
-        "Infovion Technologies is a Pune-based company building cloud-native Academic ERP software for K-12 schools across India.",
+        "Infovion Technologies is a Pune-based company building school management software for K-12 schools across India.",
       email: "infovion2025@gmail.com",
       telephone: "+919309193613",
       address: {
@@ -76,7 +76,7 @@ const globalSchema = {
       operatingSystem: "Web, iOS, Android",
       url: DOMAIN,
       description:
-        "Cloud-based school management ERP for K-12 schools in India. Covers admissions, attendance, examinations, fee collection, staff management, timetable, and announcements — with 8 role-specific portals for Director, Principal, Teacher, Student, Parent, Accountant, Operator, and Receptionist.",
+        "School management software for K-12 schools in India. Covers admissions, attendance, examinations, fee collection, staff management, timetable, and announcements — with 9 role-specific portals for Director, Principal, Teacher, Student, Parent, Accountant, Operator, Receptionist, and Non-Teaching Staff.",
       offers: {
         "@type": "Offer",
         priceCurrency: "INR",
@@ -97,16 +97,16 @@ const globalSchema = {
         "Digital Attendance Tracking with bulk marking",
         "Examination & Results Management with rank lists",
         "Fee Management with Indian fee head standards",
-        "Staff Management with RBAC",
+        "Staff Management with role-based access",
         "Student Portal and Parent Portal",
         "Weekly Timetable Management",
         "School Announcements",
         "Transfer Certificate (TC) Validation",
         "Aadhar and demographic fields for Indian compliance",
         "CBSE, ICSE, and State Board compatible",
-        "Multi-Tenant Architecture with institution-level isolation",
-        "Role-Based Access Control",
-        "Audit Trail on all write operations",
+        "Complete data privacy — each school's data is fully isolated",
+        "Each user sees only what their role requires",
+        "Full activity history on all changes",
       ],
       keywords:
         "school management software India, school ERP India, K-12 school management system, school attendance software India, fee management software schools, CBSE school software, cloud school ERP, school administration software India",
@@ -138,7 +138,7 @@ function App() {
         <title>Infovion — School Management Software for K-12 Schools in India</title>
         <meta
           name="description"
-          content="Cloud-based school ERP for K-12 schools in India. Manage admissions, attendance, exams, fees & staff with 8 role-specific portals. CBSE, ICSE & State Board ready. Free demo."
+          content="School management software for K-12 schools in India. Manage admissions, attendance, exams, fees & staff with 9 role-specific portals. CBSE, ICSE & State Board ready. Free demo."
         />
         <meta
           name="keywords"
@@ -153,7 +153,7 @@ function App() {
 
         {/* Open Graph */}
         <meta property="og:title" content="Infovion — School Management Software for K-12 India" />
-        <meta property="og:description" content="Cloud-based school ERP. Admissions, attendance, exams, fees, staff — 8 role-specific portals. CBSE, ICSE & State Board. Free demo." />
+        <meta property="og:description" content="School management software for India. Admissions, attendance, exams, fees, staff — 9 role-specific portals. CBSE, ICSE & State Board. Free demo." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={DOMAIN} />
         <meta property="og:site_name" content="Infovion" />
@@ -163,7 +163,7 @@ function App() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Infovion — School Management Software India" />
-        <meta name="twitter:description" content="Cloud-based K-12 school ERP for India. Admissions, attendance, exams, fees, 8 role portals. Free demo." />
+        <meta name="twitter:description" content="School management software for K-12 India. Admissions, attendance, exams, fees, 9 role portals. Free demo." />
         <meta name="twitter:image" content={`${DOMAIN}/src/assets/logo.png`} />
 
         <meta name="theme-color" content="#BE6D56" />

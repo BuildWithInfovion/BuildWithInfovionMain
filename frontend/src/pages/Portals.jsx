@@ -11,6 +11,7 @@ import {
   CreditCard,
   Phone,
   BarChart3,
+  Briefcase,
   Check,
   ArrowUpRight,
   ArrowRight,
@@ -124,8 +125,8 @@ const portals = [
       "School announcements relevant to child's class",
       "Secure parent-student linking: sees only their child's data",
       "Mobile-responsive: works on any smartphone",
-      "Parent notification on absence (SMS/push — roadmap)",
-      "No overlap with other students' data — enforced at API level",
+      "Parent absence notification coming soon",
+      "No overlap with other students' data — your child's records are completely private",
     ],
   },
   {
@@ -158,7 +159,23 @@ const portals = [
       "Fee head and fee structure management",
       "Complete payment history per student",
       "Access scoped to finance operations only — no academic data",
-      "Fee receipt PDF generation (roadmap)",
+      "Fee receipt PDF generation coming soon",
+    ],
+  },
+  {
+    id: "nonteaching",
+    role: "Non-Teaching Staff",
+    tagline: "Your role. Your access. Nothing extra.",
+    desc: "Support staff — librarians, lab assistants, and other non-teaching roles — get a simple, focused portal for their own attendance, leave, and school announcements.",
+    icon: <Briefcase className="w-6 h-6" />,
+    capabilities: [
+      "Own attendance record and leave status",
+      "School-wide announcements relevant to all staff",
+      "Personal profile with contact and role details",
+      "Leave request and approval status",
+      "No access to student data, exam marks, or fee information",
+      "Simple, clutter-free interface with only what's relevant",
+      "Works on any smartphone — no app download required",
     ],
   },
 ];
@@ -173,13 +190,13 @@ export default function Portals() {
         <title>School ERP Portals: Director, Teacher, Parent & More | Infovion India</title>
         <meta
           name="description"
-          content="Infovion provides 8 separate role portals for every school stakeholder — Director, Principal, Teacher, Student, Parent, Accountant, Operator, Receptionist. Purpose-built school ERP access."
+          content="Infovion provides 9 separate role portals for every school stakeholder — Director, Principal, Teacher, Student, Parent, Accountant, Operator, Receptionist, Non-Teaching Staff. Purpose-built school management access."
         />
         <meta name="keywords" content="school ERP role portals India, teacher portal school, parent portal school India, student portal school, principal dashboard school ERP, school director portal, school management roles India" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://buildwithinfovion.com/portals" />
         <meta property="og:title" content="School ERP Role Portals — Infovion" />
-        <meta property="og:description" content="8 purpose-built portals for every school role. Director, Principal, Teacher, Student, Parent — each sees exactly what they need." />
+        <meta property="og:description" content="9 purpose-built portals for every school role. Director, Principal, Teacher, Student, Parent — each sees exactly what they need." />
         <meta property="og:url" content="https://buildwithinfovion.com/portals" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -199,7 +216,7 @@ export default function Portals() {
               transition={{ duration: 0.5 }}
               className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-4"
             >
-              Role-Based UX
+              9 Dedicated Portals
             </Motion.p>
             <Motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -217,7 +234,7 @@ export default function Portals() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-lg text-brand-neutral leading-relaxed"
             >
-              Not one admin panel with hidden buttons. Eight completely separate,
+              Not one admin panel with hidden buttons. Nine completely separate,
               purpose-designed interfaces — one for every person in the school.
             </Motion.p>
           </div>
@@ -286,7 +303,7 @@ export default function Portals() {
                     <div className="flex gap-3">
                       <Link
                         to="/contact"
-                        className="inline-flex items-center gap-2 bg-brand-terra text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#a85d48] transition-colors"
+                        className="btn-premium inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-full text-sm font-bold"
                       >
                         See Demo <ArrowUpRight className="w-4 h-4" />
                       </Link>
@@ -347,7 +364,7 @@ export default function Portals() {
                 },
                 {
                   title: "Secure by design",
-                  desc: "The accountant cannot see exam marks. The teacher cannot see fee structures. Access is enforced at the API level — not just the UI.",
+                  desc: "Every person can only see and do what their role allows — and it stays that way no matter what. The accountant never sees exam marks. The teacher never sees fee structures.",
                 },
                 {
                   title: "Better adoption",
@@ -382,7 +399,7 @@ export default function Portals() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl font-bold text-brand-dark mb-4">
-              See all 8 portals in a 30-minute demo.
+              See all 9 portals in a 30-minute demo.
             </h2>
             <p className="text-brand-neutral mb-8">
               We'll walk through the director, teacher, and parent portals with your school's
@@ -390,7 +407,7 @@ export default function Portals() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
+              className="btn-premium inline-flex items-center gap-2 text-white px-8 py-4 rounded-full font-bold"
             >
               Request a Free Demo <ArrowUpRight className="w-4 h-4" />
             </Link>

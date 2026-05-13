@@ -33,7 +33,7 @@ const problems = [
     title: "Attendance Headaches",
     without:
       "Teachers spend 5–10 minutes per class on paper registers every morning. Monthly reports take days to compile. Parents find out about absences only if the school calls — which rarely happens.",
-    with: "One-tap marking with bulk Present/All Absent. Monthly reports available in real time. Defaulter list auto-generated with a configurable threshold. Parent notification on absence in roadmap.",
+    with: "One-tap marking with bulk Present/All Absent. Monthly reports available in real time. Defaulter list auto-generated with a configurable threshold. Parent absence notification coming soon.",
   },
   {
     title: "Examination Disorder",
@@ -84,8 +84,8 @@ const indiaFeatures = [
   },
   {
     icon: <Smartphone className="w-5 h-5" />,
-    title: "Works on 4G Mobile",
-    desc: "All 8 portals are fully mobile-responsive. Designed for Tier 2 and Tier 3 India where 4G is the primary internet connection for most staff and parents.",
+    title: "Works on Any Smartphone",
+    desc: "All 9 portals are fully mobile-responsive. Designed for Tier 2 and Tier 3 India where mobile is the primary internet connection for most staff and parents.",
   },
   {
     icon: <IndianRupee className="w-5 h-5" />,
@@ -99,7 +99,7 @@ const schoolTypes = [
     type: "Private K-12 Schools",
     boards: "CBSE · ICSE · State Board",
     size: "200 to 3,000 students",
-    fit: "Primary target — all 8 portals and all 8 modules are built for this segment.",
+    fit: "Primary target — all 9 portals and all 8 modules are built for this segment.",
     badge: "Best Fit",
     highlight: true,
   },
@@ -107,7 +107,7 @@ const schoolTypes = [
     type: "Junior Colleges",
     boards: "Class 11–12 Standalone",
     size: "200 to 1,000 students",
-    fit: "Core modules work well. Junior College-specific features planned for V2.",
+    fit: "Core modules work well. Additional junior college features coming soon.",
     badge: "Good Fit",
     highlight: false,
   },
@@ -115,7 +115,7 @@ const schoolTypes = [
     type: "Multi-Branch School Groups",
     boards: "Any board",
     size: "Multiple campuses",
-    fit: "Multi-branch architecture already planned in the schema — available in V3 roadmap.",
+    fit: "Multi-branch support is on our roadmap — talk to us about your group's requirements.",
     badge: "Roadmap",
     highlight: false,
   },
@@ -182,7 +182,7 @@ export default function ForSchools() {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-brand-terra text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
+                className="btn-premium inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full font-bold"
               >
                 Request a Demo <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -360,7 +360,7 @@ export default function ForSchools() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
+              className="btn-premium inline-flex items-center gap-2 text-white px-8 py-4 rounded-full font-bold"
             >
               Request a Free Demo <ArrowUpRight className="w-4 h-4" />
             </Link>

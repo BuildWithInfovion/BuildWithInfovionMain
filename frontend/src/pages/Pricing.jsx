@@ -33,10 +33,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What does cloud-native school ERP mean for my school?",
+      name: "What does online school management software mean for my school?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No servers to buy, no software to install, no IT team needed. Infovion runs on Railway (backend) and Vercel (frontend) — accessible from any device with a browser, on 4G.",
+        text: "No servers to buy, no software to install, no IT team needed. Infovion is fully online — accessible from any device with a browser, whether you're in school or at home.",
       },
     },
     {
@@ -84,12 +84,12 @@ const tiers = [
     size: "Up to 500 students",
     features: [
       "All 8 modules included",
-      "All 8 role-specific portals",
+      "All 9 role-specific portals",
       "Up to 500 students",
       "Up to 30 staff accounts",
-      "Cloud hosting (Railway + Vercel)",
-      "Audit log and soft delete",
-      "Mobile-responsive on all portals",
+      "Fully online — no installation needed",
+      "Complete activity history kept",
+      "Mobile-friendly on all portals",
       "Email support",
     ],
     cta: "Contact for Pricing",
@@ -145,8 +145,8 @@ const faqs = [
     a: "No long-term contract. Infovion is designed for schools that want flexibility — no lock-in, no annual commitment required.",
   },
   {
-    q: "What does 'cloud-native' mean for my school?",
-    a: "No servers to buy, no software to install, no IT team needed. Infovion runs on Railway (backend) and Vercel (frontend) — accessible from any device with a browser, on 4G.",
+    q: "Is Infovion fully online? Do we need to install anything?",
+    a: "Nothing to install. Infovion is fully online — accessible from any device with a browser. No servers to buy, no IT team needed. We handle all the maintenance.",
   },
   {
     q: "Can we try it before committing?",
@@ -171,7 +171,7 @@ export default function Pricing() {
         <title>School ERP Pricing India — No Setup Fee, All Modules Included | Infovion</title>
         <meta
           name="description"
-          content="Infovion school ERP pricing for K-12 schools in India. No setup fee, no long-term contract. All 8 modules & 8 portals included. Affordable cloud school management software for Tier 2 & 3 schools."
+          content="Infovion school management pricing for K-12 schools in India. No setup fee, no long-term contract. All 8 modules & 9 portals included. Affordable school management software for Tier 2 & 3 schools."
         />
         <meta name="keywords" content="school ERP pricing India, affordable school management software India, school software cost India, cloud school ERP price, school management software subscription India, school ERP no setup fee" />
         <meta name="robots" content="index, follow" />

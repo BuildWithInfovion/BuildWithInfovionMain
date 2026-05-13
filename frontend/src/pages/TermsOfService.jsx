@@ -6,12 +6,12 @@ const TermsOfService = () => {
   return (
     <>
       <Helmet>
-        <title>Terms of Service - BuildWithInfovion</title>
+        <title>Terms of Service — Infovion School Management Software</title>
         <meta
           name="description"
           content="Read the Terms of Service for BuildWithInfovion. Understand the rules and guidelines for using our website and services."
         />
-        <link rel="canonical" href="https://yourdomain.com/terms-of-service" />
+        <link rel="canonical" href="https://buildwithinfovion.com/terms-of-service" />
       </Helmet>
       <Motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -20,14 +20,14 @@ const TermsOfService = () => {
         className="max-w-4xl mx-auto px-6 py-24 sm:py-32"
       >
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-brand-dark sm:text-5xl">
             Terms of Service
           </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-lg leading-8 text-brand-neutral">
             Last updated: October 2, 2025
           </p>
         </div>
-        <div className="mt-12 text-gray-700 dark:text-gray-300 space-y-8">
+        <div className="mt-12 text-brand-brown space-y-8">
           <p>
             Please read these Terms of Service ("Terms", "Terms of Service")
             carefully before using the BuildWithInfovion website (the "Service")
@@ -37,7 +37,7 @@ const TermsOfService = () => {
           </p>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               1. Acceptance of Terms
             </h2>
             <p>
@@ -48,7 +48,7 @@ const TermsOfService = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               2. Intellectual Property
             </h2>
             <p>
@@ -59,7 +59,7 @@ const TermsOfService = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               3. Links To Other Web Sites
             </h2>
             <p>
@@ -72,7 +72,7 @@ const TermsOfService = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               4. Limitation Of Liability
             </h2>
             <p>
@@ -85,7 +85,7 @@ const TermsOfService = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               5. Changes
             </h2>
             <p>
@@ -96,7 +96,7 @@ const TermsOfService = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Contact Us
             </h2>
             <p>

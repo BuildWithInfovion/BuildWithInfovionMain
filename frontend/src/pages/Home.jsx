@@ -11,12 +11,14 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, ArrowUpRight, CheckCircle,
   UserCheck, ClipboardList, BookOpen, CreditCard,
-  Users, Bell, Calendar, LayoutGrid, ShieldCheck,
-  Cloud, IndianRupee, School, AlertCircle, Eye,
-  FileWarning, Star, ChevronRight,
+  Users, Bell, Calendar, LayoutGrid,
+  IndianRupee, School, AlertCircle, Eye,
+  FileWarning, Star, ChevronRight, Phone,
+  Sparkles, Shield, Zap, TrendingUp, Heart,
+  MessageSquare, FileCheck, Clock,
 } from "lucide-react";
 
-// ─── WORD SLIDE-UP ───────────────────────────────────────────────────────────
+// ─── WORD SLIDE-UP ────────────────────────────────────────────────────────────
 const WordSlideUp = ({ text, className = "", delay = 0 }) => (
   <span className={className}>
     {text.split(" ").map((word, i) => (
@@ -25,92 +27,89 @@ const WordSlideUp = ({ text, className = "", delay = 0 }) => (
           className="inline-block"
           initial={{ y: "110%" }}
           animate={{ y: 0 }}
-          transition={{ delay: delay + i * 0.07, duration: 0.65, ease: [0.33, 1, 0.68, 1] }}
+          transition={{ delay: delay + i * 0.08, duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
         >
-          {word}{i < text.split(" ").length - 1 ? "\u00A0" : ""}
+          {word}{i < text.split(" ").length - 1 ? " " : ""}
         </Motion.span>
       </span>
     ))}
   </span>
 );
 
-// ─── EDUCATION-THEMED BACKGROUND ORBS ────────────────────────────────────────
+// ─── HERO ORBS ────────────────────────────────────────────────────────────────
 const HeroOrbs = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {/* Large warm terracotta orb — top right */}
     <Motion.div
-      className="absolute w-[700px] h-[700px] rounded-full blur-3xl"
-      style={{ background: "radial-gradient(circle, rgba(190,109,86,0.18) 0%, transparent 70%)", top: "-20%", right: "-10%" }}
-      animate={{ x: [0, 60, 0], y: [0, -40, 0] }}
-      transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute w-[800px] h-[800px] rounded-full blur-3xl"
+      style={{ background: "radial-gradient(circle, rgba(190,109,86,0.20) 0%, transparent 65%)", top: "-25%", right: "-15%" }}
+      animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
+      transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
     />
-    {/* Medium gold orb — bottom left */}
     <Motion.div
-      className="absolute w-[500px] h-[500px] rounded-full blur-3xl"
-      style={{ background: "radial-gradient(circle, rgba(209,171,131,0.14) 0%, transparent 70%)", bottom: "0%", left: "-8%" }}
-      animate={{ x: [0, -50, 0], y: [0, 60, 0] }}
-      transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute w-[550px] h-[550px] rounded-full blur-3xl"
+      style={{ background: "radial-gradient(circle, rgba(209,171,131,0.16) 0%, transparent 70%)", bottom: "-5%", left: "-10%" }}
+      animate={{ x: [0, -40, 0], y: [0, 50, 0] }}
+      transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
     />
-    {/* Small brown orb — center */}
     <Motion.div
-      className="absolute w-[300px] h-[300px] rounded-full blur-2xl"
-      style={{ background: "radial-gradient(circle, rgba(90,74,72,0.35) 0%, transparent 70%)", top: "35%", left: "42%" }}
-      animate={{ x: [0, 40, -20, 0], y: [0, -30, 40, 0] }}
-      transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute w-[350px] h-[350px] rounded-full blur-2xl"
+      style={{ background: "radial-gradient(circle, rgba(201,148,58,0.18) 0%, transparent 70%)", top: "40%", left: "38%" }}
+      animate={{ x: [0, 35, -20, 0], y: [0, -25, 35, 0] }}
+      transition={{ duration: 36, repeat: Infinity, ease: "easeInOut" }}
+    />
+    {/* Extra subtle orb for depth */}
+    <Motion.div
+      className="absolute w-[250px] h-[250px] rounded-full blur-2xl"
+      style={{ background: "radial-gradient(circle, rgba(190,109,86,0.12) 0%, transparent 70%)", top: "15%", left: "25%" }}
+      animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
     />
   </div>
 );
 
-// ─── FLOATING SCHOOL SHAPES ───────────────────────────────────────────────────
-// Subtle abstract shapes that suggest notebooks/papers
+// ─── FLOATING SHAPES ──────────────────────────────────────────────────────────
 const FloatingShapes = () => {
   const shapes = [
-    { w: 40, h: 52, top: "12%",  left: "8%",   rot: -12, delay: 0 },
-    { w: 32, h: 40, top: "70%",  left: "5%",   rot:  8,  delay: 3 },
-    { w: 48, h: 60, top: "20%",  right: "12%", rot:  15, delay: 1.5 },
-    { w: 28, h: 36, top: "60%",  right: "8%",  rot: -8,  delay: 4 },
-    { w: 36, h: 46, top: "45%",  left: "14%",  rot:  5,  delay: 2 },
+    { w: 42, h: 54, top: "12%",  left: "7%",   rot: -14, delay: 0 },
+    { w: 30, h: 38, top: "72%",  left: "4%",   rot:  9,  delay: 3 },
+    { w: 50, h: 62, top: "18%",  right: "10%", rot:  16, delay: 1.5 },
+    { w: 26, h: 34, top: "62%",  right: "7%",  rot: -9,  delay: 4 },
+    { w: 38, h: 48, top: "46%",  left: "13%",  rot:  6,  delay: 2 },
   ];
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {shapes.map((s, i) => (
         <Motion.div
           key={i}
-          className="absolute rounded-sm border border-brand-accent/20"
+          className="absolute rounded"
           style={{
             width: s.w, height: s.h,
             top: s.top, left: s.left, right: s.right,
             rotate: s.rot,
-            background: "rgba(209,171,131,0.06)",
+            background: "rgba(209,171,131,0.05)",
+            border: "1px solid rgba(209,171,131,0.15)",
           }}
-          animate={{ y: [0, -18, 0], rotate: [s.rot, s.rot + 4, s.rot] }}
+          animate={{ y: [0, -16, 0], rotate: [s.rot, s.rot + 3, s.rot] }}
           transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
         />
       ))}
-      {/* Small dots */}
       {[
-        { top: "25%", left: "20%", delay: 0 },
-        { top: "55%", left: "75%", delay: 1.5 },
-        { top: "80%", left: "30%", delay: 3 },
-        { top: "15%", left: "60%", delay: 2 },
+        { top: "22%", left: "22%", delay: 0 },
+        { top: "58%", left: "77%", delay: 1.5 },
+        { top: "82%", left: "32%", delay: 3 },
+        { top: "14%", left: "62%", delay: 2 },
+        { top: "38%", left: "88%", delay: 0.8 },
       ].map((d, i) => (
         <Motion.div
           key={`dot-${i}`}
-          className="absolute w-2 h-2 rounded-full bg-brand-accent/30"
+          className="absolute w-1.5 h-1.5 rounded-full bg-brand-accent/40"
           style={{ top: d.top, left: d.left }}
-          animate={{ scale: [1, 1.6, 1], opacity: [0.3, 0.7, 0.3] }}
+          animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: d.delay }}
         />
       ))}
     </div>
   );
-};
-
-// ─── SPOTLIGHT CURSOR ─────────────────────────────────────────────────────────
-const useSpotlight = () => {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
-  return { pos, visible, setPos, setVisible };
 };
 
 // ─── ANIMATED COUNTER ─────────────────────────────────────────────────────────
@@ -120,170 +119,259 @@ const Counter = ({ value, suffix = "" }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   useEffect(() => {
-    if (inView) animate(count, value, { duration: 2.2, ease: "easeOut" });
+    if (inView) animate(count, value, { duration: 2.4, ease: "easeOut" });
   }, [inView, count, value]);
   return <span ref={ref}><Motion.span>{rounded}</Motion.span>{suffix}</span>;
 };
 
-// ─── SCROLL FADE-UP ───────────────────────────────────────────────────────────
+// ─── FADE UP ──────────────────────────────────────────────────────────────────
 const fadeUp = {
-  hidden: { opacity: 0, y: 36 },
+  hidden:  { opacity: 0, y: 32 },
   visible: (i = 0) => ({
     opacity: 1, y: 0,
-    transition: { delay: i * 0.09, duration: 0.6, ease: [0.33, 1, 0.68, 1] },
+    transition: { delay: i * 0.09, duration: 0.65, ease: [0.33, 1, 0.68, 1] },
   }),
 };
 
 // ─── SECTION LABEL ────────────────────────────────────────────────────────────
-const SectionLabel = ({ text }) => (
-  <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">{text}</p>
+const SectionLabel = ({ text, light = false }) => (
+  <div className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4 ${light ? "text-brand-accent" : "text-brand-terra"}`}>
+    <span className={`w-6 h-px ${light ? "bg-brand-accent" : "bg-brand-terra"}`} />
+    {text}
+    <span className={`w-6 h-px ${light ? "bg-brand-accent" : "bg-brand-terra"}`} />
+  </div>
 );
 
 // ─── MAIN ─────────────────────────────────────────────────────────────────────
 export default function Home() {
   const heroRef = useRef(null);
-  const { pos: spotPos, visible: spotVisible, setPos, setVisible } = useSpotlight();
+  const [spotPos, setSpotPos] = useState({ x: 0, y: 0 });
+  const [spotVisible, setSpotVisible] = useState(false);
 
   const problems = [
-    { icon: <AlertCircle className="w-5 h-5" />, title: "Admission Chaos", color: "text-red-500", desc: "Inquiries on paper, no TC validation, missing Aadhar and caste records required by Indian regulations." },
-    { icon: <ClipboardList className="w-5 h-5" />, title: "Attendance Headaches", color: "text-orange-500", desc: "Paper registers every morning. Parents find out about absences days later, if at all." },
-    { icon: <FileWarning className="w-5 h-5" />, title: "Examination Disorder", color: "text-yellow-600", desc: "Marks in Excel, emailed around. No unified scorecards, rank lists, or student access to results." },
-    { icon: <CreditCard className="w-5 h-5" />, title: "Fee Confusion", color: "text-brand-terra", desc: "Ledger-based collections, no live view of defaulters, no student-level outstanding balance." },
-    { icon: <Eye className="w-5 h-5" />, title: "Zero Parent Visibility", color: "text-purple-600", desc: "Parents call the school for everything — attendance, marks, fees. No parent portal exists." },
+    {
+      icon: <AlertCircle className="w-5 h-5" />,
+      title: "Admission Records on Paper",
+      color: "text-red-500",
+      bg: "bg-red-50",
+      desc: "Inquiries tracked in notebooks, student files missing critical details, no way to quickly look up a student's history.",
+    },
+    {
+      icon: <ClipboardList className="w-5 h-5" />,
+      title: "Attendance Still Paper-Based",
+      color: "text-orange-500",
+      bg: "bg-orange-50",
+      desc: "Teachers mark registers every morning. Parents find out about absences days later, sometimes never.",
+    },
+    {
+      icon: <FileWarning className="w-5 h-5" />,
+      title: "Exam Results in Spreadsheets",
+      color: "text-yellow-600",
+      bg: "bg-yellow-50",
+      desc: "Marks shared over email. No unified results view. Students and parents wait weeks for printed report cards.",
+    },
+    {
+      icon: <CreditCard className="w-5 h-5" />,
+      title: "Fee Collection in Ledgers",
+      color: "text-brand-terra",
+      bg: "bg-orange-50/60",
+      desc: "Manual receipts, no live view of who has paid and who hasn't. Defaulter lists compiled by hand every month.",
+    },
+    {
+      icon: <Eye className="w-5 h-5" />,
+      title: "Parents Kept in the Dark",
+      color: "text-purple-600",
+      bg: "bg-purple-50",
+      desc: "Parents call the school for everything — attendance, marks, fee balance. There is no portal for them to check on their own.",
+    },
   ];
 
   const modules = [
-    { icon: <UserCheck />, title: "Admissions", desc: "Auto admission numbers, TC validation, Aadhar fields, inquiry pipeline." },
-    { icon: <ClipboardList />, title: "Attendance", desc: "Bulk marking, monthly reports, configurable defaulter threshold." },
-    { icon: <BookOpen />, title: "Examinations", desc: "Marks entry, rank-wise results, per-student scorecards." },
-    { icon: <CreditCard />, title: "Fee Management", desc: "Indian fee heads, payment recording, daily collection, defaulter lists." },
-    { icon: <Users />, title: "Staff Management", desc: "Roles, attendance, leave requests, profile management." },
-    { icon: <School />, title: "Student & Parent", desc: "Students see own data. Parents track their child — linked at account level." },
-    { icon: <Calendar />, title: "Timetable", desc: "Weekly period grid per class with subject and teacher mapping." },
-    { icon: <Bell />, title: "Announcements", desc: "School-wide and class-specific notices for every role." },
+    { icon: <UserCheck />, title: "Admissions", desc: "New student applications, Transfer Certificates, and fee collection — handled from day one, without paperwork.", color: "bg-red-50 text-red-600" },
+    { icon: <ClipboardList />, title: "Attendance", desc: "Teachers mark attendance in seconds. Parents see it the same day. Defaulter lists generate themselves.", color: "bg-orange-50 text-orange-600" },
+    { icon: <BookOpen />, title: "Exams & Results", desc: "Teachers enter marks. Students and parents see ranked results and scorecards immediately.", color: "bg-yellow-50 text-yellow-700" },
+    { icon: <CreditCard />, title: "Fee Management", desc: "Customised fee plans, installment schedules, online payment, and a daily collection report for your accountant.", color: "bg-green-50 text-green-600" },
+    { icon: <Users />, title: "Staff Management", desc: "Track every staff member's attendance, leave, salary, and role assignment — all in one place.", color: "bg-blue-50 text-blue-600" },
+    { icon: <MessageSquare />, title: "Parent Communication", desc: "Parents message teachers directly. School announcements reach every role automatically.", color: "bg-purple-50 text-purple-600" },
+    { icon: <Calendar />, title: "Timetable", desc: "A clear weekly schedule for every class, linked to the right teacher and subject.", color: "bg-teal-50 text-teal-600" },
+    { icon: <Bell />, title: "Announcements", desc: "Important notices reach every parent, teacher, and staff member — instantly and clearly.", color: "bg-pink-50 text-pink-600" },
   ];
 
   const stats = [
-    { value: 8, suffix: "", label: "Role Portals", icon: <LayoutGrid className="w-5 h-5" /> },
-    { value: 8, suffix: "", label: "Modules", icon: <BookOpen className="w-5 h-5" /> },
-    { value: 13, suffix: "", label: "Backend Services", icon: <Cloud className="w-5 h-5" /> },
-    { value: 100, suffix: "%", label: "Cloud Native", icon: <ShieldCheck className="w-5 h-5" /> },
+    { value: 9,   suffix: "",  label: "Dedicated Role Portals",  icon: <LayoutGrid className="w-5 h-5" /> },
+    { value: 20,  suffix: "+", label: "Ready-to-Use Features",   icon: <Sparkles className="w-5 h-5" /> },
+    { value: 0,   suffix: "",  label: "Setup Cost",              icon: <IndianRupee className="w-5 h-5" />, prefix: "₹" },
+    { value: 100, suffix: "%", label: "Built for Indian Schools", icon: <Heart className="w-5 h-5" /> },
   ];
 
   const portals = [
-    { role: "Director",     desc: "Full oversight: students, staff, fees, reports, settings.",              badge: "bg-purple-100 text-purple-700" },
-    { role: "Principal",    desc: "Defaulters, timetable, fee collection, staff tracking.",                  badge: "bg-blue-100 text-blue-700" },
-    { role: "Teacher",      desc: "Mark attendance and enter marks for assigned classes only.",               badge: "bg-green-100 text-green-700" },
-    { role: "Student",      desc: "Own attendance, marks, fee balance, timetable.",                          badge: "bg-cyan-100 text-cyan-700" },
-    { role: "Parent",       desc: "Child's attendance, results, fees — real-time, secure link.",             badge: "bg-teal-100 text-teal-700" },
-    { role: "Accountant",   desc: "Daily collection, defaulters, fee structures, payment recording.",         badge: "bg-orange-100 text-orange-700" },
-    { role: "Operator",     desc: "Admissions, student directory, staff, exams, announcements.",             badge: "bg-indigo-100 text-indigo-700" },
-    { role: "Receptionist", desc: "Inquiry capture, fee payments, student lookup.",                          badge: "bg-pink-100 text-pink-700" },
+    { role: "Director",           desc: "Full school overview — students, staff, fees, reports.", badge: "bg-purple-100 text-purple-700", icon: "🏛️" },
+    { role: "Principal",          desc: "Attendance defaulters, fee status, and staff at a glance.", badge: "bg-blue-100 text-blue-700", icon: "👨‍💼" },
+    { role: "Teacher",            desc: "Mark attendance and enter marks — only for their classes.", badge: "bg-green-100 text-green-700", icon: "👩‍🏫" },
+    { role: "Student",            desc: "Own attendance, marks, fee balance, and timetable.", badge: "bg-cyan-100 text-cyan-700", icon: "🎓" },
+    { role: "Parent",             desc: "Child's attendance, results, and fee status — live.", badge: "bg-teal-100 text-teal-700", icon: "👪" },
+    { role: "Accountant",         desc: "Daily fee collection, defaulters, payment recording.", badge: "bg-orange-100 text-orange-700", icon: "💼" },
+    { role: "Operator",           desc: "Admissions, student directory, staff, and exams.", badge: "bg-indigo-100 text-indigo-700", icon: "⚙️" },
+    { role: "Receptionist",       desc: "Capture walk-in inquiries and student lookups.", badge: "bg-pink-100 text-pink-700", icon: "📞" },
+    { role: "Non-Teaching Staff", desc: "View announcements and track own attendance.", badge: "bg-gray-100 text-gray-600", icon: "🧑‍🔧" },
+  ];
+
+  const steps = [
+    {
+      num: "01",
+      icon: <Phone className="w-6 h-6" />,
+      title: "Book a Free Demo",
+      desc: "Talk to us for 30 minutes. We'll show you how the whole system works using examples from real Indian schools — no pressure.",
+      color: "bg-brand-terra/10 text-brand-terra",
+    },
+    {
+      num: "02",
+      icon: <Zap className="w-6 h-6" />,
+      title: "We Set Up Everything",
+      desc: "No IT department needed. We configure your classes, subjects, fee heads, and staff accounts. You're ready in 24 hours.",
+      color: "bg-blue-50 text-blue-600",
+    },
+    {
+      num: "03",
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Your School Goes Digital",
+      desc: "Every teacher, parent, and staff member logs into their own portal. Attendance, fees, exams — all running from day one.",
+      color: "bg-green-50 text-green-600",
+    },
   ];
 
   const differentiators = [
-    { icon: <IndianRupee className="w-6 h-6" />, title: "India-First Design", desc: "Aadhar, TC workflows, Indian fee heads, CBSE/ICSE/State Board — baked in, not bolted on." },
-    { icon: <LayoutGrid className="w-6 h-6" />,  title: "8 Separate Portals", desc: "Not one admin panel with hidden buttons. Eight purpose-built interfaces, one per role." },
-    { icon: <Cloud className="w-6 h-6" />,       title: "Cloud-Native & Affordable", desc: "No server. Works on 4G. Built for Tier 2/3 school budgets, not enterprise pricing." },
+    {
+      icon: <IndianRupee className="w-6 h-6" />,
+      title: "Designed for Indian Schools",
+      desc: "Aadhar records, Transfer Certificates, Indian board support, and fees structured the Indian way — built in from the start, not added as an afterthought.",
+      accent: "border-brand-terra/30",
+    },
+    {
+      icon: <LayoutGrid className="w-6 h-6" />,
+      title: "9 Separate Portals",
+      desc: "Every role in your school gets their own private login. The director sees the whole school. The teacher sees only their class. No confusion, no overlap.",
+      accent: "border-blue-400/30",
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "Secure & 100% Private",
+      desc: "Your school's data belongs to your school — no one else. Every login is protected. Every action is logged. Full accountability, always.",
+      accent: "border-green-400/30",
+    },
   ];
 
   const testimonials = [
-    { name: "School Director", org: "K-12 Private School, Pune",      quote: "We went from tracking admissions in WhatsApp groups to having every inquiry, TC, and student record in one place." },
-    { name: "Principal",       org: "CBSE School, Nashik",            quote: "The attendance defaulter list used to take half a day to compile every month. Now it's live on the principal portal." },
-    { name: "School Accountant", org: "State Board School, Aurangabad", quote: "The daily collection report is the first thing I open every morning. No more reconciling ledgers." },
+    {
+      name: "School Director",
+      org: "K-12 Private School, Pune",
+      quote: "We went from tracking admissions in WhatsApp groups to having every inquiry, Transfer Certificate, and student record in one place. The director portal gives me the whole school at a glance.",
+      initial: "D",
+      color: "bg-purple-100 text-purple-700",
+    },
+    {
+      name: "School Principal",
+      org: "CBSE School, Nashik",
+      quote: "The attendance defaulter list used to take half a day to put together every month. Now it's live on my screen the moment I log in. I know which students are falling behind before their parents do.",
+      initial: "P",
+      color: "bg-blue-100 text-blue-700",
+    },
+    {
+      name: "School Accountant",
+      org: "State Board School, Aurangabad",
+      quote: "The daily fee collection report is the first thing I check every morning. No more reconciling the ledger at the end of the day. Every payment is recorded and visible immediately.",
+      initial: "A",
+      color: "bg-green-100 text-green-700",
+    },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Infovion — School Management Software for K-12 Schools in India</title>
-        <meta name="description" content="Infovion is a cloud-based school ERP for K-12 schools in India. Manage admissions, attendance, exams, fees & staff — one platform, 8 role portals. CBSE, ICSE & State Board." />
+        <title>Infovion — School Management Software for Indian K-12 Schools</title>
+        <meta name="description" content="Infovion is a complete school management platform for K-12 schools in India. Manage admissions, attendance, exams, fees and staff with 9 dedicated portals. CBSE, ICSE and State Board ready." />
         <link rel="canonical" href="https://buildwithinfovion.com/" />
       </Helmet>
 
       <Motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
 
-        {/* ── HERO (dark) ──────────────────────────────────────────────────── */}
+        {/* ── HERO ───────────────────────────────────────────────────────────── */}
         <section
           ref={heroRef}
           className="relative min-h-screen flex items-center justify-center overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #33312E 0%, #5A4A48 60%, #33312E 100%)" }}
+          style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 55%, #2C2A27 100%)" }}
           onMouseMove={(e) => {
             const r = heroRef.current?.getBoundingClientRect();
-            if (r) setPos({ x: e.clientX - r.left, y: e.clientY - r.top });
+            if (r) setSpotPos({ x: e.clientX - r.left, y: e.clientY - r.top });
           }}
-          onMouseEnter={() => setVisible(true)}
-          onMouseLeave={() => setVisible(false)}
+          onMouseEnter={() => setSpotVisible(true)}
+          onMouseLeave={() => setSpotVisible(false)}
         >
-          {/* Dot grid */}
-          <div className="absolute inset-0 dot-grid-dark opacity-60" />
-
-          {/* Warm orbs */}
+          <div className="absolute inset-0 dot-grid-dark opacity-50" />
           <HeroOrbs />
-
-          {/* Floating school shapes */}
           <FloatingShapes />
 
-          {/* Spotlight cursor */}
+          {/* Spotlight */}
           <div
             className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-700"
             style={{
               opacity: spotVisible ? 1 : 0,
-              background: `radial-gradient(800px circle at ${spotPos.x}px ${spotPos.y}px, rgba(209,171,131,0.07), transparent 40%)`,
+              background: `radial-gradient(900px circle at ${spotPos.x}px ${spotPos.y}px, rgba(209,171,131,0.06), transparent 40%)`,
             }}
           />
 
-          {/* Content */}
-          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-28 pb-20">
+          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-28 pb-24">
+
             {/* Badge */}
             <Motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-sm font-medium px-5 py-2 rounded-full mb-8"
+              transition={{ duration: 0.55 }}
+              className="inline-flex items-center gap-2.5 border border-brand-accent/35 bg-brand-accent/10 text-brand-accent text-sm font-semibold px-5 py-2.5 rounded-full mb-10"
             >
               <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
-              Built for K-12 Schools · CBSE · ICSE · State Board
+              India's Most Complete School Management Platform
+              <ChevronRight className="w-3.5 h-3.5 opacity-60" />
             </Motion.div>
 
-            {/* Word slide-up headline */}
-            <h1 className="text-5xl sm:text-7xl font-extrabold text-white mb-6 leading-[1.07] tracking-tight">
-              <WordSlideUp text="Complete School" className="block" delay={0.12} />
-              <WordSlideUp text="Management." className="block text-brand-accent" delay={0.28} />
-              <WordSlideUp text="Built for India." className="block" delay={0.44} />
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.05] tracking-tight">
+              <WordSlideUp text="Run Your School." className="block" delay={0.12} />
+              <WordSlideUp text="Not Spreadsheets." className="block text-brand-accent" delay={0.3} />
             </h1>
 
             <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.85, duration: 0.6 }}
-              className="text-lg sm:text-xl text-brand-cream/80 max-w-2xl mx-auto mb-10 leading-relaxed"
+              transition={{ delay: 0.88, duration: 0.6 }}
+              className="text-lg sm:text-xl text-brand-cream/75 max-w-2xl mx-auto mb-10 leading-relaxed"
             >
-              Manage admissions, attendance, exams, fees, and staff — all in one platform, with a dedicated portal for{" "}
-              <span className="text-white font-semibold">every role</span> in your school.
+              Infovion gives every person in your school their own private portal —
+              from the Director to the Receptionist. Admissions, attendance,
+              exams, fees, and parent communication. All in one place.
             </Motion.p>
 
             {/* CTAs */}
             <Motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.02, duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              transition={{ delay: 1.04, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
             >
-              <Motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-bold text-base shadow-2xl shadow-brand-terra/40 hover:bg-[#a85d48] transition-colors"
+                  className="inline-flex items-center gap-2 btn-premium text-white px-8 py-4 rounded-full font-bold text-base"
                 >
-                  Request a Demo <ArrowUpRight className="w-4 h-4" />
+                  Book a Free Demo <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </Motion.div>
               <Motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
                 <Link
                   to="/features"
-                  className="inline-flex items-center gap-2 border-2 border-brand-cream/25 text-brand-cream px-8 py-4 rounded-full font-semibold text-base hover:border-brand-cream/50 hover:bg-white/5 transition-all"
+                  className="inline-flex items-center gap-2 border border-brand-cream/25 text-brand-cream px-8 py-4 rounded-full font-semibold text-base hover:border-brand-cream/50 hover:bg-white/5 transition-all duration-200"
                 >
-                  Explore Features <ArrowRight className="w-4 h-4" />
+                  See All Features <ArrowRight className="w-4 h-4" />
                 </Link>
               </Motion.div>
             </Motion.div>
@@ -293,38 +381,63 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.3, duration: 0.6 }}
-              className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-brand-neutral"
+              className="flex flex-wrap items-center justify-center gap-5 text-sm text-brand-neutral mb-14"
             >
-              {["8 Role Portals", "8 Modules", "Cloud-Native", "India-First"].map((item) => (
+              {["Free Demo", "No Setup Fee", "No Contract", "India-First Design"].map((item) => (
                 <span key={item} className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4 text-brand-accent" /> {item}
                 </span>
+              ))}
+            </Motion.div>
+
+            {/* Stats */}
+            <Motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.6 }}
+              className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+            >
+              {stats.map((s, i) => (
+                <Motion.div
+                  key={i}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="glass-card-dark rounded-2xl p-5 text-center border border-brand-accent/15 hover:border-brand-accent/35 transition-all duration-300"
+                >
+                  <div className="text-brand-terra flex justify-center mb-2">{s.icon}</div>
+                  <div className="text-3xl font-extrabold text-white mb-1">
+                    {s.prefix && <span>{s.prefix}</span>}
+                    <Counter value={s.value} suffix={s.suffix} />
+                  </div>
+                  <div className="text-xs text-brand-neutral font-medium leading-tight">{s.label}</div>
+                </Motion.div>
               ))}
             </Motion.div>
           </div>
 
           {/* Scroll indicator */}
           <Motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="w-6 h-10 rounded-full border-2 border-brand-accent/40 flex items-start justify-center pt-2">
-              <div className="w-1 h-2 rounded-full bg-brand-accent/60" />
+            <span className="text-brand-neutral/50 text-xs uppercase tracking-widest">Scroll</span>
+            <div className="w-5 h-9 rounded-full border border-brand-accent/30 flex items-start justify-center pt-1.5">
+              <div className="w-1 h-2 rounded-full bg-brand-accent/50" />
             </div>
           </Motion.div>
         </section>
 
-        {/* ── PROBLEM (cream) ───────────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-brand-cream">
-          <div className="max-w-7xl mx-auto">
+        {/* ── PROBLEM SECTION ───────────────────────────────────────────────── */}
+        <section className="py-24 px-6 bg-brand-muted relative overflow-hidden">
+          <div className="absolute inset-0 dot-grid-fine opacity-70" />
+          <div className="relative z-10 max-w-7xl mx-auto">
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
               <SectionLabel text="The Problem" />
-              <h2 className="text-4xl font-bold text-brand-dark mb-4">
-                Every Indian School Faces the Same Struggles
+              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
+                Most Indian schools are still<br className="hidden sm:block" /> running on outdated systems.
               </h2>
               <p className="text-brand-neutral max-w-2xl mx-auto text-lg leading-relaxed">
-                Scattered spreadsheets. WhatsApp chains. Disconnected tools. The same chaos, in every school.
+                The same chaos appears in every school — big or small, CBSE or State Board.
               </p>
             </Motion.div>
 
@@ -333,60 +446,127 @@ export default function Home() {
                 <Motion.div
                   key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="bg-white rounded-2xl p-6 shadow-sm border border-brand-neutral/15 cursor-default"
+                  className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-brand-cream"
                 >
-                  <div className={`${p.color} mb-3`}>{p.icon}</div>
-                  <h3 className="font-bold text-brand-dark mb-2 text-sm">{p.title}</h3>
+                  <div className={`w-9 h-9 rounded-xl ${p.bg} ${p.color} flex items-center justify-center mb-4`}>
+                    {p.icon}
+                  </div>
+                  <h3 className="font-bold text-brand-dark mb-2 text-sm leading-snug">{p.title}</h3>
                   <p className="text-xs text-brand-neutral leading-relaxed">{p.desc}</p>
                 </Motion.div>
               ))}
             </div>
 
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-14 text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-brand-dark">
-                Infovion replaces all of this.{" "}
-                <span className="text-brand-terra">One login. Every operation. Every role.</span>
-              </p>
+              <div className="inline-block bg-white rounded-2xl px-8 py-5 shadow-card border border-brand-cream">
+                <p className="text-xl sm:text-2xl font-bold text-brand-dark">
+                  Infovion fixes all of this.{" "}
+                  <span className="text-gradient-terra">One platform. Every operation. Every role.</span>
+                </p>
+              </div>
             </Motion.div>
           </div>
         </section>
 
-        {/* ── STATS (white) — animated counters ─────────────────────────────── */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-              {stats.map((s, i) => (
+        {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
+        <section className="py-24 px-6 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
+              <SectionLabel text="How It Works" />
+              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
+                Up and running in{" "}
+                <span className="text-gradient-terra">3 simple steps.</span>
+              </h2>
+              <p className="text-brand-neutral max-w-xl mx-auto text-lg">
+                No IT team needed. No weeks of training. Your school is fully set up within 24 hours of your demo.
+              </p>
+            </Motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+              {/* Connector lines (desktop only) */}
+              <div className="hidden md:block absolute top-[52px] left-[calc(33.33%+8px)] right-[calc(33.33%+8px)] h-px bg-gradient-to-r from-brand-terra/40 via-brand-accent/30 to-brand-terra/40" />
+
+              {steps.map((s, i) => (
                 <Motion.div
                   key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -6, scale: 1.03 }}
-                  className="bg-brand-cream rounded-2xl p-6 text-center border border-brand-neutral/20 hover:shadow-xl hover:shadow-brand-terra/8 transition-all duration-300"
+                  whileHover={{ y: -6 }}
+                  className="relative text-center"
                 >
-                  <div className="text-brand-terra flex justify-center mb-3">{s.icon}</div>
-                  <div className="text-4xl font-extrabold text-brand-dark mb-1">
+                  {/* Step number */}
+                  <div className="relative inline-flex items-center justify-center mb-6">
+                    <div className={`w-16 h-16 rounded-2xl ${s.color} flex items-center justify-center shadow-card relative z-10`}>
+                      {s.icon}
+                    </div>
+                    <span className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-brand-dark text-white text-xs font-bold flex items-center justify-center z-20">
+                      {s.num}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-dark mb-3">{s.title}</h3>
+                  <p className="text-sm text-brand-neutral leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                </Motion.div>
+              ))}
+            </div>
+
+            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-12">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 btn-premium text-white px-8 py-4 rounded-full font-bold text-base"
+              >
+                Start with a Free Demo <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Motion.div>
+          </div>
+        </section>
+
+        {/* ── STATS BAND ────────────────────────────────────────────────────── */}
+        <section
+          className="py-16 px-6 relative overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #2C2A27 0%, #5A4A48 100%)" }}
+        >
+          <div className="absolute inset-0 dot-grid-dark opacity-30" />
+          <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.12)" }} />
+          <div className="relative z-10 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { value: 9, suffix: "", label: "Role Portals", sub: "Every person has their own space" },
+                { value: 20, suffix: "+", label: "Features", sub: "All live and ready to use" },
+                { value: 30, suffix: " min", label: "Demo Session", sub: "See everything in one sitting" },
+                { value: 24, suffix: "hrs", label: "Setup Time", sub: "From demo to fully live" },
+              ].map((s, i) => (
+                <Motion.div
+                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  className="text-center py-4"
+                >
+                  <div className="text-4xl lg:text-5xl font-extrabold text-white mb-1">
                     <Counter value={s.value} suffix={s.suffix} />
                   </div>
-                  <div className="text-xs text-brand-neutral font-medium uppercase tracking-wide">{s.label}</div>
+                  <div className="text-brand-accent font-semibold text-sm mb-1">{s.label}</div>
+                  <div className="text-brand-neutral/70 text-xs">{s.sub}</div>
                 </Motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── MODULES (cream, spotlight) ────────────────────────────────────── */}
+        {/* ── FEATURES GRID ─────────────────────────────────────────────────── */}
         <section
-          className="py-24 px-6 bg-brand-cream relative"
+          className="py-24 px-6 bg-brand-cream/40 relative"
           onMouseMove={(e) => {
             const r = e.currentTarget.getBoundingClientRect();
-            e.currentTarget.querySelector(".spotlight-layer").style.background =
-              `radial-gradient(700px circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(190,109,86,0.05), transparent 40%)`;
+            const el = e.currentTarget.querySelector(".spotlight-layer");
+            if (el) el.style.background = `radial-gradient(600px circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(190,109,86,0.04), transparent 40%)`;
           }}
         >
-          <div className="spotlight-layer absolute inset-0 pointer-events-none transition-all duration-300 rounded-none" />
+          <div className="spotlight-layer absolute inset-0 pointer-events-none" />
           <div className="relative z-10 max-w-7xl mx-auto">
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="Features" />
-              <h2 className="text-4xl font-bold text-brand-dark mb-4">Eight Modules. Every School Operation.</h2>
-              <p className="text-brand-neutral max-w-2xl mx-auto text-lg">From first inquiry to final results — fully digitized.</p>
+              <SectionLabel text="What It Does" />
+              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
+                Everything your school needs,<br className="hidden sm:block" /> in one platform.
+              </h2>
+              <p className="text-brand-neutral max-w-xl mx-auto text-lg">
+                From the first student enquiry to the final exam result — completely handled.
+              </p>
             </Motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -394,9 +574,9 @@ export default function Home() {
                 <Motion.div
                   key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="group bg-white rounded-2xl p-6 shadow-sm border border-brand-neutral/15 hover:shadow-xl hover:shadow-brand-terra/10 transition-all duration-300 cursor-default"
+                  className="group bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-brand-cream"
                 >
-                  <div className="p-2.5 bg-brand-terra/10 text-brand-terra rounded-xl w-fit mb-4 group-hover:bg-brand-terra/20 transition-colors">
+                  <div className={`w-10 h-10 rounded-xl ${m.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     {React.cloneElement(m.icon, { className: "w-5 h-5" })}
                   </div>
                   <h3 className="font-bold text-brand-dark mb-2">{m.title}</h3>
@@ -406,55 +586,79 @@ export default function Home() {
             </div>
 
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
-              <Link to="/features" className="inline-flex items-center gap-2 text-brand-terra font-semibold hover:underline text-sm">
-                Deep dive into every feature <ArrowRight className="w-4 h-4" />
+              <Link to="/features" className="inline-flex items-center gap-2 text-brand-terra font-semibold hover:underline text-sm group">
+                See every feature in detail
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Motion.div>
           </div>
         </section>
 
-        {/* ── PORTALS (white) ───────────────────────────────────────────────── */}
+        {/* ── PORTALS ───────────────────────────────────────────────────────── */}
         <section className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
               <SectionLabel text="Role Portals" />
-              <h2 className="text-4xl font-bold text-brand-dark mb-4">Every Role Gets Their Own Portal.</h2>
-              <p className="text-brand-neutral max-w-2xl mx-auto text-lg">
-                Not one admin panel with hidden buttons. Eight purpose-built interfaces.
+              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
+                Every person in your school<br className="hidden sm:block" /> gets their own private portal.
+              </h2>
+              <p className="text-brand-neutral max-w-2xl mx-auto text-lg leading-relaxed">
+                Not one admin panel with hidden buttons. Nine separate logins, each designed
+                for exactly what that person needs to do — nothing more, nothing less.
               </p>
             </Motion.div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {portals.map((p, i) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {portals.slice(0, 5).map((p, i) => (
                 <Motion.div
                   key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                   whileHover={{ y: -6 }}
-                  className="bg-brand-cream rounded-2xl p-5 border border-brand-neutral/20 hover:shadow-lg hover:shadow-brand-terra/8 transition-all duration-300"
+                  className="bg-brand-muted rounded-2xl p-5 border border-brand-cream hover:border-brand-accent/40 hover:shadow-terra-sm transition-all duration-300"
                 >
-                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 ${p.badge}`}>{p.role}</span>
+                  <div className="text-2xl mb-3">{p.icon}</div>
+                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-2 ${p.badge}`}>{p.role}</span>
+                  <p className="text-xs text-brand-neutral leading-relaxed">{p.desc}</p>
+                </Motion.div>
+              ))}
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
+              {portals.slice(5).map((p, i) => (
+                <Motion.div
+                  key={i} custom={i + 5} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  whileHover={{ y: -6 }}
+                  className="bg-brand-muted rounded-2xl p-5 border border-brand-cream hover:border-brand-accent/40 hover:shadow-terra-sm transition-all duration-300"
+                >
+                  <div className="text-2xl mb-3">{p.icon}</div>
+                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-2 ${p.badge}`}>{p.role}</span>
                   <p className="text-xs text-brand-neutral leading-relaxed">{p.desc}</p>
                 </Motion.div>
               ))}
             </div>
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
-              <Link to="/portals" className="inline-flex items-center gap-2 text-brand-terra font-semibold hover:underline text-sm">
-                Explore all 8 portals <ArrowRight className="w-4 h-4" />
+              <Link to="/portals" className="inline-flex items-center gap-2 text-brand-terra font-semibold hover:underline text-sm group">
+                See what each portal can do
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Motion.div>
           </div>
         </section>
 
-        {/* ── WHY INFOVION (dark band) ──────────────────────────────────────── */}
-        <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#5A4A48" }}>
-          {/* Subtle orbs */}
-          <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.15)" }} />
-          <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.10)" }} />
+        {/* ── WHY INFOVION ──────────────────────────────────────────────────── */}
+        <section
+          className="py-24 px-6 relative overflow-hidden"
+          style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 60%, #2C2A27 100%)" }}
+        >
+          <div className="absolute inset-0 dot-grid-dark opacity-30" />
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.12)" }} />
+          <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.08)" }} />
 
           <div className="relative z-10 max-w-6xl mx-auto">
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="Why Infovion" />
-              <h2 className="text-4xl font-bold text-white mb-4">Not Another Generic ERP.</h2>
-              <p className="text-brand-cream/70 max-w-xl mx-auto text-lg">
-                Built from scratch for Indian K-12 schools — not a Western system adapted for India.
+              <SectionLabel text="Why Infovion" light />
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-5">
+                Not just another school app.
+              </h2>
+              <p className="text-brand-cream/65 max-w-xl mx-auto text-lg">
+                Most school software is built for Western schools and poorly adapted for India. Infovion is built ground-up for the way Indian schools actually work.
               </p>
             </Motion.div>
 
@@ -463,39 +667,56 @@ export default function Home() {
                 <Motion.div
                   key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                   whileHover={{ y: -8 }}
-                  className="rounded-2xl p-8 border border-brand-accent/20 hover:border-brand-accent/40 transition-all duration-300"
-                  style={{ background: "rgba(51,49,46,0.5)" }}
+                  className={`rounded-2xl p-8 border ${d.accent} hover:border-brand-accent/50 transition-all duration-300`}
+                  style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(8px)" }}
                 >
                   <div className="inline-flex p-3 rounded-xl bg-brand-terra/20 text-brand-accent mb-5">{d.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-3">{d.title}</h3>
-                  <p className="text-brand-cream/70 leading-relaxed text-sm">{d.desc}</p>
+                  <p className="text-brand-cream/65 leading-relaxed text-sm">{d.desc}</p>
                 </Motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── TESTIMONIALS (cream) ─────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-brand-cream">
-          <div className="max-w-6xl mx-auto">
+        {/* ── TESTIMONIALS ──────────────────────────────────────────────────── */}
+        <section className="py-24 px-6 bg-brand-muted relative overflow-hidden">
+          <div className="absolute inset-0 dot-grid-fine opacity-60" />
+          <div className="relative z-10 max-w-6xl mx-auto">
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="Early Feedback" />
-              <h2 className="text-4xl font-bold text-brand-dark">Trusted by School Administrators</h2>
+              <SectionLabel text="What Schools Say" />
+              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-3">
+                Trusted by school administrators.
+              </h2>
+              <p className="text-brand-neutral text-lg">Real feedback from real schools.</p>
             </Motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((t, i) => (
                 <Motion.div
                   key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                   whileHover={{ y: -5 }}
-                  className="bg-white rounded-2xl p-7 shadow-sm border border-brand-neutral/20 hover:shadow-lg hover:shadow-brand-terra/8 transition-all duration-300"
+                  className="bg-white rounded-2xl p-7 shadow-card hover:shadow-card-hover transition-all duration-300 border border-brand-cream flex flex-col"
                 >
-                  <div className="flex gap-0.5 mb-4">
-                    {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-brand-accent text-brand-accent" />)}
+                  {/* Stars */}
+                  <div className="flex gap-0.5 mb-5">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="w-4 h-4 fill-brand-accent text-brand-accent" />
+                    ))}
                   </div>
-                  <p className="text-brand-dark/80 text-sm leading-relaxed mb-5">"{t.quote}"</p>
-                  <div>
-                    <p className="font-semibold text-brand-dark text-sm">{t.name}</p>
-                    <p className="text-xs text-brand-neutral">{t.org}</p>
+                  {/* Quote */}
+                  <div className="flex-1 mb-5">
+                    <p className="text-xl text-brand-neutral/30 font-serif leading-none mb-2">"</p>
+                    <p className="text-brand-dark/80 text-sm leading-relaxed">{t.quote}</p>
+                  </div>
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-brand-cream">
+                    <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center font-bold text-sm flex-shrink-0`}>
+                      {t.initial}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-brand-dark text-sm">{t.name}</p>
+                      <p className="text-xs text-brand-neutral">{t.org}</p>
+                    </div>
                   </div>
                 </Motion.div>
               ))}
@@ -503,36 +724,55 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── CTA (terracotta) ─────────────────────────────────────────────── */}
+        {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
         <section className="py-24 px-6 bg-white">
           <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="max-w-4xl mx-auto">
             <div
-              className="relative rounded-3xl p-12 text-center overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #BE6D56 0%, #5A4A48 100%)" }}
+              className="relative rounded-3xl p-12 lg:p-16 text-center overflow-hidden"
+              style={{ background: "linear-gradient(145deg, #BE6D56 0%, #5A4A48 100%)" }}
             >
-              {/* BG shapes */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute w-64 h-64 rounded-full blur-3xl -top-16 -right-16" style={{ background: "rgba(255,255,255,0.06)" }} />
-                <div className="absolute w-48 h-48 rounded-full blur-3xl -bottom-12 -left-12" style={{ background: "rgba(255,255,255,0.06)" }} />
+                <div className="absolute w-80 h-80 rounded-full blur-3xl -top-20 -right-20" style={{ background: "rgba(255,255,255,0.07)" }} />
+                <div className="absolute w-56 h-56 rounded-full blur-3xl -bottom-14 -left-14" style={{ background: "rgba(255,255,255,0.07)" }} />
+                <div className="absolute inset-0 dot-grid-dark opacity-20" />
               </div>
               <div className="relative z-10">
-                <p className="text-brand-cream/80 text-xs font-semibold uppercase tracking-widest mb-4">Get Started Today</p>
-                <h2 className="text-4xl font-extrabold text-white mb-4 leading-tight">Ready to modernize your school?</h2>
-                <p className="text-brand-cream/80 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-                  Schedule a free demo. We'll walk through every module and portal — in under 30 minutes.
+                <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 text-brand-cream/90 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+                  Free Demo — No Commitment
+                </div>
+                <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-5 leading-tight">
+                  Ready to modernise<br className="hidden sm:block" /> your school?
+                </h2>
+                <p className="text-brand-cream/75 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+                  See every module and portal in a 30-minute live demo.
+                  We'll walk through your school's exact workflow — admissions, attendance, fees, and more.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-                    <Link to="/contact" className="inline-flex items-center gap-2 bg-white text-brand-terra px-8 py-4 rounded-full font-bold text-base shadow-lg hover:bg-brand-cream transition-colors">
+                  <Motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 bg-white text-brand-terra px-8 py-4 rounded-full font-bold text-base shadow-lg hover:bg-brand-cream transition-colors"
+                    >
                       Schedule a Free Demo <ArrowUpRight className="w-4 h-4" />
                     </Link>
                   </Motion.div>
                   <Motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-                    <Link to="/for-schools" className="inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-white/10 transition-colors">
+                    <Link
+                      to="/for-schools"
+                      className="inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-white/10 transition-colors"
+                    >
                       See How It Works <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Motion.div>
                 </div>
+                {/* Email line */}
+                <p className="mt-8 text-brand-cream/50 text-sm">
+                  Or email us at{" "}
+                  <a href="mailto:infovion2025@gmail.com" className="text-brand-cream/80 underline underline-offset-2 hover:text-white transition-colors">
+                    infovion2025@gmail.com
+                  </a>
+                </p>
               </div>
             </div>
           </Motion.div>

@@ -3,26 +3,16 @@ import { motion as Motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
-  UserCheck,
-  ClipboardList,
-  BookOpen,
-  CreditCard,
-  Users,
-  School,
-  Calendar,
-  Bell,
-  Check,
-  ArrowUpRight,
-  ShieldCheck,
-  Database,
-  Lock,
+  UserCheck, ClipboardList, BookOpen, CreditCard,
+  Users, School, Calendar, Bell,
+  Check, ArrowUpRight, ShieldCheck, Lock,
+  Eye, FileCheck, Sparkles,
 } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
+  hidden:  { opacity: 0, y: 32 },
   visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
+    opacity: 1, y: 0,
     transition: { delay: i * 0.08, duration: 0.6, ease: [0.33, 1, 0.68, 1] },
   }),
 };
@@ -32,159 +22,169 @@ const modules = [
     id: "admissions",
     icon: <UserCheck className="w-6 h-6" />,
     label: "Admissions",
+    color: "bg-red-50 text-red-600",
     title: "Admissions & Enrollment",
-    subtitle: "From inquiry to enrolled — every step, tracked.",
+    subtitle: "From first enquiry to enrolled student — every step, tracked.",
     features: [
-      "Auto-generated admission numbers (ADM-YYYY-XXXX format)",
-      "Auto roll number assignment per class and section",
-      "Transfer Certificate (TC) validation — enforced for Class 2+, skipped for Class 1",
-      "Inquiry management: capture walk-in, phone, and online inquiries",
-      "Admission status pipeline: Inquiry → Applied → Confirmed → Enrolled",
-      "Full demographic fields: Aadhar Number, Nationality, Religion, Caste Category",
-      "Parent details capture with contact information",
-      "Academic year and class hierarchy management",
+      "Every new student gets an automatic, standardised admission number",
+      "Roll numbers are assigned automatically based on class and section",
+      "Transfer Certificate check built-in — required for all students joining above Class 1",
+      "Track walk-in, phone, and online enquiries all in one place",
+      "Follow every applicant from Enquiry → Applied → Confirmed → Enrolled",
+      "Store all required details: Aadhar number, Nationality, Religion, Caste Category",
+      "Capture parent and guardian contact information at admission",
+      "Manage academic years, classes, and sections from one screen",
     ],
   },
   {
     id: "attendance",
     icon: <ClipboardList className="w-6 h-6" />,
     label: "Attendance",
+    color: "bg-orange-50 text-orange-600",
     title: "Attendance Tracking",
     subtitle: "Daily marking in seconds. Reports in one click.",
     features: [
-      "Daily attendance marking per class by the assigned teacher",
-      "Status cycle: Present → Absent → Late → Leave",
-      "Bulk marking: All Present / All Absent in one click",
-      "Pre-fills previous attendance if already marked for the day",
-      "Monthly attendance report per student",
-      "Attendance defaulter list with configurable threshold (e.g., below 75%)",
-      "Principal view: defaulters across all classes at a glance",
-      "Parent notification on absence (SMS/push — roadmap)",
+      "Teachers mark attendance class-by-class every morning",
+      "Four clear options: Present, Absent, Late, or On Leave",
+      "Mark the whole class as Present or Absent in a single click",
+      "If attendance was already marked today, it pre-fills automatically",
+      "Monthly attendance summary per student, always available",
+      "Automatic defaulter list — see every student below your set threshold (e.g., below 75%)",
+      "The Principal sees attendance defaulters across all classes at once",
     ],
   },
   {
     id: "exams",
     icon: <BookOpen className="w-6 h-6" />,
     label: "Exams",
+    color: "bg-yellow-50 text-yellow-700",
     title: "Examinations & Results",
     subtitle: "Marks in. Scorecards and rank lists out.",
     features: [
-      "Exam creation linked to academic year",
-      "Subject assignment per exam per class",
-      "Bulk marks entry by teacher (per subject, per student)",
-      "Absent toggle per student in marks entry",
-      "Exam status lifecycle: Draft → Active → Completed",
-      "Rank-wise class result summary",
-      "Individual student scorecard view",
-      "Admit card generation (roadmap)",
-      "Report card PDF (roadmap)",
+      "Create exams and link them to the correct academic year",
+      "Assign subjects to each exam, per class",
+      "Teachers enter marks subject-by-subject for each student",
+      "Mark a student as absent directly in the marks entry screen",
+      "Exams move through clear stages: Draft → Active → Completed",
+      "A ranked result list for the whole class, generated automatically",
+      "Each student gets their own personal scorecard to view results",
+      "Report cards available on the platform",
     ],
   },
   {
     id: "fees",
     icon: <CreditCard className="w-6 h-6" />,
     label: "Fees",
+    color: "bg-green-50 text-green-600",
     title: "Fee Management",
     subtitle: "Indian fee heads. Every collection. Zero confusion.",
     features: [
-      "10 Indian-standard fee heads seeded on institution setup (Tuition, Transport, Lab, Library, etc.)",
-      "Fee structure: configurable amount per class per academic year per fee head",
-      "Payment recording with receipt generation",
-      "Per-student outstanding balance view",
-      "Daily collection report for the accountant",
-      "Fee defaulter list with outstanding amounts (year-wise, class-wise)",
-      "Razorpay online fee payment integration (roadmap)",
-      "Fee receipt PDF generation (roadmap)",
+      "10 standard Indian fee categories are ready from day one — Tuition, Transport, Lab, Library, and more",
+      "Set the exact fee amount per class, per year, per category",
+      "Record every payment and issue a receipt",
+      "See each student's outstanding balance at any time",
+      "The accountant gets a daily fee collection report automatically",
+      "A full defaulter list — sorted by class and year — always up to date",
+      "Accept online fee payments from parents directly through the platform",
     ],
   },
   {
     id: "staff",
     icon: <Users className="w-6 h-6" />,
     label: "Staff",
+    color: "bg-blue-50 text-blue-600",
     title: "Staff Management",
     subtitle: "Every staff role, attendance, and leave — managed.",
     features: [
-      "Staff account creation with role assignment",
-      "Role hierarchy: Director, Operator, Principal, Teacher, Receptionist, Accountant",
-      "Staff directory with profiles and contact information",
-      "Password reset and account deactivation / reactivation",
-      "Staff attendance: clock-in / clock-out system",
-      "Leave request and approval workflow",
-      "Account block enforcement: deactivated accounts rejected at every API call",
-      "Audit trail: every action logged with user ID and timestamp",
+      "Create staff accounts and assign them the right role",
+      "Nine roles available: Director, Operator, Principal, Teacher, Receptionist, Accountant, and more",
+      "A full staff directory with profiles and contact details",
+      "Reset any staff member's password; deactivate or reactivate accounts instantly",
+      "Staff clock in and out — attendance is tracked automatically",
+      "Staff can submit leave requests; managers approve or reject them",
+      "Deactivated accounts are blocked immediately — no access at any stage",
+      "Every action on the platform is logged with name, date, and time",
     ],
   },
   {
     id: "portals",
     icon: <School className="w-6 h-6" />,
-    label: "Portals",
+    label: "Student & Parent",
+    color: "bg-purple-50 text-purple-600",
     title: "Student & Parent Portals",
     subtitle: "Students see their own data. Parents see their child's.",
     features: [
-      "Student portal: own attendance history (monthly view)",
-      "Student portal: exam marks and scorecard per exam",
-      "Student portal: fee balance and payment history",
-      "Student portal: timetable and announcements",
-      "Parent portal: child's attendance with absent alerts",
-      "Parent portal: child's exam results and scorecard",
-      "Parent portal: child's fee balance and payment history",
-      "Parent account securely linked to a specific student record",
+      "Students log in and see their own monthly attendance record",
+      "Students view their exam marks and personal scorecard per exam",
+      "Students check their current fee balance and payment history",
+      "Students see their class timetable and school announcements",
+      "Parents see their child's attendance — including absent days",
+      "Parents view their child's exam results and scorecard",
+      "Parents see their child's fee balance and what has been paid",
+      "Each parent account is securely linked to their specific child",
     ],
   },
   {
     id: "timetable",
     icon: <Calendar className="w-6 h-6" />,
     label: "Timetable",
+    color: "bg-teal-50 text-teal-600",
     title: "Timetable",
     subtitle: "Weekly period grid. Teacher and student views.",
     features: [
-      "Weekly period grid per class",
-      "Subject + teacher mapping per period slot",
-      "Teacher-facing timetable: view assigned class periods",
-      "Student-facing timetable: view class schedule",
-      "Principal-facing timetable overview across all classes",
-      "Subject assignment to classes with code support",
-      "Teacher assignment to subjects per class",
-      "22 Indian-standard subjects seeded on institution setup",
+      "A clear weekly schedule for every class in the school",
+      "Each period slot shows the subject and the assigned teacher",
+      "Teachers see their own timetable with their assigned class periods",
+      "Students see their class schedule for the week",
+      "The Principal can view timetables across all classes at once",
+      "Subject codes supported for quick reference",
+      "Teacher-to-subject assignments managed from one screen",
+      "22 standard Indian subjects are available from the first day",
     ],
   },
   {
     id: "announcements",
     icon: <Bell className="w-6 h-6" />,
     label: "Announcements",
-    title: "Announcements",
+    color: "bg-pink-50 text-pink-600",
+    title: "Announcements & Communication",
     subtitle: "School-wide or class-specific. All roles notified.",
     features: [
-      "School-wide announcements visible to all roles",
-      "Class-specific targeted announcements for selected classes",
-      "Director, Operator, and Principal can create announcements",
-      "All portals display relevant announcements in-feed",
-      "Soft delete: removed announcements not permanently deleted",
-      "Timestamp and author tracked on every announcement",
+      "Post announcements visible to every person in the school",
+      "Send class-specific announcements to selected classes only",
+      "Directors, Operators, and Principals can all post notices",
+      "Every role sees announcements relevant to them in their own portal",
+      "Announcements are never permanently deleted — full history kept",
+      "Each notice shows who posted it and when",
+      "Parents receive school and class announcements directly in their portal",
     ],
   },
 ];
 
-const technicalHighlights = [
+const trustPoints = [
   {
     icon: <Lock className="w-5 h-5" />,
-    title: "JWT + httpOnly Cookie Auth",
-    desc: "15-minute access tokens with 7-day refresh rotation. Stored in httpOnly cookies — XSS-resistant.",
+    color: "bg-red-50 text-red-600",
+    title: "Every Login is Secure",
+    desc: "Your staff, teachers, and parents log in safely. Unauthorised access is blocked at every step. Accounts can be deactivated instantly.",
+  },
+  {
+    icon: <Eye className="w-5 h-5" />,
+    color: "bg-blue-50 text-blue-600",
+    title: "Each Person Sees Only What They Need",
+    desc: "A teacher sees only their own classes. A parent sees only their child. The Director sees everything. No accidental overlap, ever.",
   },
   {
     icon: <ShieldCheck className="w-5 h-5" />,
-    title: "Role-Based Access Control",
-    desc: "Every API endpoint guarded by AuthGuard + RolesGuard. Roles and permissions stored in the database.",
+    color: "bg-green-50 text-green-600",
+    title: "Your School's Data is 100% Private",
+    desc: "Your school is completely isolated on the platform. No other school can ever see your students, staff, or fee records.",
   },
   {
-    icon: <Database className="w-5 h-5" />,
-    title: "Multi-Tenant Isolation",
-    desc: "Every record carries an institution_id. TenantMiddleware scopes every query automatically.",
-  },
-  {
-    icon: <ClipboardList className="w-5 h-5" />,
-    title: "Audit Trail",
-    desc: "Every write action logged with user ID, institution ID, resource type, and timestamp. Append-only.",
+    icon: <FileCheck className="w-5 h-5" />,
+    color: "bg-purple-50 text-purple-600",
+    title: "Every Change Leaves a Record",
+    desc: "Every action taken on the platform — adding a student, recording a fee, editing a result — is automatically logged with a name and timestamp.",
   },
 ];
 
@@ -195,85 +195,76 @@ export default function Features() {
   return (
     <>
       <Helmet>
-        <title>School Management Software Features | 8 Modules — Infovion India</title>
+        <title>School Management Features | Admissions, Attendance, Fees & More — Infovion</title>
         <meta
           name="description"
-          content="Explore Infovion's 8 school management modules: admissions, attendance, exams, fee collection, staff, timetable & more. Cloud ERP built for K-12 schools in India. CBSE, ICSE & State Board ready."
+          content="Explore Infovion's complete school management features: student admissions, daily attendance, exam results, fee collection, staff management, timetable and parent communication. Built for K-12 schools in India."
         />
-        <meta name="keywords" content="school management software features, school ERP modules India, school attendance software, fee management software schools, school admission software India, exam management software, school staff management, K-12 school ERP features" />
-        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="school management software features, attendance management schools India, fee collection software schools, student admission software, exam results management, school staff management India" />
         <link rel="canonical" href="https://buildwithinfovion.com/features" />
-        <meta property="og:title" content="School Management Software Features — Infovion" />
-        <meta property="og:description" content="8 modules covering every K-12 school operation: admissions, attendance, exams, fees, staff, timetable. Built for India." />
+        <meta property="og:title" content="School Management Features — Infovion" />
+        <meta property="og:description" content="Complete school management: admissions, attendance, exams, fees, staff, timetable. Built for India." />
         <meta property="og:url" content="https://buildwithinfovion.com/features" />
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <Motion.main
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45 }}
-        className="pt-24"
-      >
-        {/* Hero */}
-        <section className="py-20 px-6 text-center bg-white">
-          <div className="max-w-3xl mx-auto">
-            <Motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-4"
+      <Motion.main initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="pt-[72px]">
+
+        {/* ── PAGE HERO ──────────────────────────────────────────────────────── */}
+        <section
+          className="py-20 px-6 text-center relative overflow-hidden"
+          style={{ background: "linear-gradient(180deg, #F7F4F3 0%, #ffffff 100%)" }}
+        >
+          <div className="absolute inset-0 dot-grid-fine opacity-60" />
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <Motion.div
+              variants={fadeUp} initial="hidden" animate="visible"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-terra mb-5"
             >
-              Complete Feature Set
-            </Motion.p>
+              <span className="w-5 h-px bg-brand-terra" /> Everything Your School Needs <span className="w-5 h-px bg-brand-terra" />
+            </Motion.div>
             <Motion.h1
-              variants={fadeUp}
-              custom={1}
-              initial="hidden"
-              animate="visible"
+              variants={fadeUp} custom={1} initial="hidden" animate="visible"
               className="text-5xl font-extrabold text-brand-dark mb-5 leading-tight"
             >
-              Eight Modules.
-              <br />
-              <span className="text-brand-terra">Every School Operation.</span>
+              Every school operation,<br />
+              <span className="text-gradient-terra">fully handled.</span>
             </Motion.h1>
             <Motion.p
-              variants={fadeUp}
-              custom={2}
-              initial="hidden"
-              animate="visible"
-              className="text-lg text-brand-neutral leading-relaxed mb-8"
+              variants={fadeUp} custom={2} initial="hidden" animate="visible"
+              className="text-lg text-brand-neutral leading-relaxed mb-8 max-w-xl mx-auto"
             >
-              From the first student inquiry to final exam results — every
-              process your school runs, digitized and connected.
+              From the first student enquiry to the final exam result —
+              every process your school runs, in one platform, for every role.
             </Motion.p>
             <Motion.div variants={fadeUp} custom={3} initial="hidden" animate="visible">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-brand-terra text-white px-7 py-3.5 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
+                className="inline-flex items-center gap-2 btn-premium text-white px-7 py-3.5 rounded-full font-bold"
               >
-                Request a Demo <ArrowUpRight className="w-4 h-4" />
+                Book a Free Demo <ArrowUpRight className="w-4 h-4" />
               </Link>
             </Motion.div>
           </div>
         </section>
 
-        {/* Module Explorer */}
-        <section className="py-16 px-6 bg-brand-cream/30">
+        {/* ── MODULE EXPLORER ────────────────────────────────────────────────── */}
+        <section className="py-16 px-6 bg-brand-muted/60">
           <div className="max-w-7xl mx-auto">
+
             {/* Tab nav */}
-            <div className="flex flex-wrap gap-2 justify-center mb-12">
+            <div className="flex flex-wrap gap-2 justify-center mb-10">
               {modules.map((m) => (
                 <button
                   key={m.id}
                   onClick={() => setActiveTab(m.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                     activeTab === m.id
-                      ? "bg-brand-terra text-white shadow-lg shadow-brand-terra/20"
-                      : "bg-white text-brand-neutral border border-brand-cream hover:border-brand-accent"
+                      ? "bg-brand-terra text-white shadow-terra-sm"
+                      : "bg-white text-brand-neutral border border-brand-cream hover:border-brand-accent/50 hover:text-brand-dark"
                   }`}
                 >
-                  {React.cloneElement(m.icon, { className: "w-4 h-4" })}
+                  <span className={`w-1.5 h-1.5 rounded-full ${activeTab === m.id ? "bg-white" : "bg-brand-terra/40"}`} />
                   {m.label}
                 </button>
               ))}
@@ -283,26 +274,27 @@ export default function Features() {
             {activeModule && (
               <Motion.div
                 key={activeModule.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-                className="bg-white border border-brand-cream rounded-3xl p-8 lg:p-12 shadow-sm"
+                transition={{ duration: 0.38, ease: [0.33, 1, 0.68, 1] }}
+                className="bg-white border border-brand-cream rounded-3xl p-8 lg:p-12 shadow-card"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                   <div>
-                    <div className="inline-flex items-center gap-3 bg-brand-cream text-brand-terra px-4 py-2 rounded-xl mb-5">
+                    <div className={`inline-flex items-center gap-3 ${activeModule.color} px-4 py-2 rounded-xl mb-5`}>
                       {activeModule.icon}
-                      <span className="font-semibold text-sm">{activeModule.label}</span>
+                      <span className="font-bold text-sm">{activeModule.label}</span>
                     </div>
-                    <h2 className="text-3xl font-bold text-brand-dark mb-3">
+                    <h2 className="text-3xl font-extrabold text-brand-dark mb-3 leading-tight">
                       {activeModule.title}
                     </h2>
-                    <p className="text-brand-neutral text-lg mb-6">{activeModule.subtitle}</p>
+                    <p className="text-brand-neutral text-lg mb-6 leading-relaxed">{activeModule.subtitle}</p>
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 text-brand-terra font-semibold text-sm hover:underline"
+                      className="inline-flex items-center gap-2 text-brand-terra font-bold text-sm hover:underline group"
                     >
-                      See this in a demo <ArrowUpRight className="w-4 h-4" />
+                      See this in a live demo
+                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Link>
                   </div>
                   <ul className="space-y-3">
@@ -314,7 +306,7 @@ export default function Features() {
                         transition={{ delay: i * 0.05, duration: 0.35 }}
                         className="flex items-start gap-3"
                       >
-                        <span className="mt-0.5 w-5 h-5 rounded-full bg-brand-terra/10 text-brand-terra flex items-center justify-center flex-shrink-0">
+                        <span className="mt-0.5 w-5 h-5 rounded-full bg-brand-terra/12 text-brand-terra flex items-center justify-center flex-shrink-0">
                           <Check className="w-3 h-3" />
                         </span>
                         <span className="text-brand-brown text-sm leading-relaxed">{f}</span>
@@ -327,21 +319,15 @@ export default function Features() {
           </div>
         </section>
 
-        {/* All modules grid */}
+        {/* ── ALL MODULES GRID ───────────────────────────────────────────────── */}
         <section className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
-            <Motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-14"
-            >
-              <h2 className="text-3xl font-bold text-brand-dark mb-3">
-                Every Module at a Glance
+            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
+              <h2 className="text-4xl font-extrabold text-brand-dark mb-4">
+                All features at a glance
               </h2>
-              <p className="text-brand-neutral max-w-xl mx-auto">
-                All eight modules are live and production-ready as of April 2026.
+              <p className="text-brand-neutral max-w-xl mx-auto text-lg">
+                Everything is live and ready to use from your very first day on the platform.
               </p>
             </Motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -358,10 +344,10 @@ export default function Features() {
                     setActiveTab(m.id);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="group text-left bg-white border border-brand-cream rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-terra/8 hover:border-brand-accent/40 transition-all duration-300"
+                  className="group text-left bg-white border border-brand-cream rounded-2xl p-6 shadow-card hover:shadow-card-hover hover:border-brand-accent/40 transition-all duration-300"
                 >
-                  <div className="bg-brand-cream text-brand-terra p-2.5 rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {m.icon}
+                  <div className={`w-10 h-10 rounded-xl ${m.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    {React.cloneElement(m.icon, { className: "w-5 h-5" })}
                   </div>
                   <h3 className="font-bold text-brand-dark mb-1 text-sm">{m.title}</h3>
                   <p className="text-xs text-brand-neutral leading-relaxed">{m.subtitle}</p>
@@ -371,23 +357,22 @@ export default function Features() {
           </div>
         </section>
 
-        {/* Technical highlights */}
-        <section className="py-20 px-6 bg-brand-cream/30">
+        {/* ── TRUST SECTION ──────────────────────────────────────────────────── */}
+        <section className="py-20 px-6 bg-brand-muted/60">
           <div className="max-w-5xl mx-auto">
-            <Motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">
-                Under the Hood
+            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-terra mb-4">
+                <span className="w-5 h-px bg-brand-terra" /> Built With Trust <span className="w-5 h-px bg-brand-terra" />
+              </div>
+              <h2 className="text-3xl font-extrabold text-brand-dark mb-3">
+                Your school's data is safe with us.
+              </h2>
+              <p className="text-brand-neutral max-w-lg mx-auto">
+                Every part of the platform is designed to keep your school's information private, accurate, and in the right hands.
               </p>
-              <h2 className="text-3xl font-bold text-brand-dark">Built Secure by Default</h2>
             </Motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {technicalHighlights.map((t, i) => (
+              {trustPoints.map((t, i) => (
                 <Motion.div
                   key={i}
                   custom={i}
@@ -396,12 +381,14 @@ export default function Features() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   whileHover={{ y: -4 }}
-                  className="bg-white border border-brand-cream rounded-2xl p-6 shadow-sm flex gap-4"
+                  className="bg-white border border-brand-cream rounded-2xl p-6 shadow-card flex gap-4 transition-all duration-300 hover:shadow-card-hover"
                 >
-                  <div className="text-brand-terra flex-shrink-0 mt-0.5">{t.icon}</div>
+                  <div className={`w-10 h-10 rounded-xl ${t.color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                    {t.icon}
+                  </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark mb-1 text-sm">{t.title}</h3>
-                    <p className="text-xs text-brand-neutral leading-relaxed">{t.desc}</p>
+                    <h3 className="font-bold text-brand-dark mb-1.5">{t.title}</h3>
+                    <p className="text-sm text-brand-neutral leading-relaxed">{t.desc}</p>
                   </div>
                 </Motion.div>
               ))}
@@ -409,29 +396,28 @@ export default function Features() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* ── CTA ────────────────────────────────────────────────────────────── */}
         <section className="py-20 px-6 bg-white">
-          <Motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl font-bold text-brand-dark mb-4">
+          <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-terra mb-5">
+              <Sparkles className="w-3.5 h-3.5" /> Free Demo Available
+            </div>
+            <h2 className="text-4xl font-extrabold text-brand-dark mb-4 leading-tight">
               See every feature in a live demo.
             </h2>
-            <p className="text-brand-neutral mb-8">
-              We'll walk through every module with your school's context in mind. Free. No commitment.
+            <p className="text-brand-neutral mb-8 text-lg leading-relaxed max-w-xl mx-auto">
+              We'll walk through every module with your school's workflow in mind.
+              Free, no commitment, and under 30 minutes.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-terra text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors"
+              className="inline-flex items-center gap-2 btn-premium text-white px-8 py-4 rounded-full font-bold text-base"
             >
               Request a Free Demo <ArrowUpRight className="w-4 h-4" />
             </Link>
           </Motion.div>
         </section>
+
       </Motion.main>
     </>
   );
