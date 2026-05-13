@@ -112,6 +112,74 @@ const FloatingShapes = () => {
   );
 };
 
+// ─── AURORA RAYS ──────────────────────────────────────────────────────────────
+const BEAMS = [
+  { w: 700, h: 100, top: "4%",  left: "-10%", angle: 30,  col: "rgba(190,109,86,0.10)",  dur: 22, delay: 0   },
+  { w: 900, h: 80,  top: "62%", left: "22%",  angle: -18, col: "rgba(209,171,131,0.07)", dur: 28, delay: 8   },
+  { w: 520, h: 120, top: "-6%", right: "6%",  angle: 44,  col: "rgba(201,148,58,0.08)",  dur: 19, delay: 4   },
+  { w: 420, h: 70,  top: "78%", left: "58%",  angle: -12, col: "rgba(190,109,86,0.06)",  dur: 32, delay: 13  },
+  { w: 620, h: 65,  top: "40%", left: "-18%", angle: 26,  col: "rgba(209,171,131,0.05)", dur: 26, delay: 17  },
+];
+
+const AuroraRays = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {BEAMS.map((b, i) => (
+      <Motion.div
+        key={i}
+        className="absolute rounded-full"
+        style={{
+          width: b.w, height: b.h,
+          top: b.top, left: b.left, right: b.right,
+          rotate: b.angle,
+          background: `radial-gradient(ellipse at 40% 50%, ${b.col} 0%, transparent 65%)`,
+          filter: "blur(38px)",
+        }}
+        animate={{ x: [0, 72, -28, 0], y: [0, -36, 18, 0], opacity: [0.5, 1, 0.65, 0.5] }}
+        transition={{ duration: b.dur, repeat: Infinity, ease: "easeInOut", delay: b.delay }}
+      />
+    ))}
+  </div>
+);
+
+// ─── STAR FIELD ───────────────────────────────────────────────────────────────
+const STARS = [
+  { top:"7%",  left:"12%", s:1.5, d:3.5, dl:0,   c:0 },
+  { top:"18%", left:"82%", s:1,   d:5,   dl:1.3, c:1 },
+  { top:"33%", left:"6%",  s:2,   d:4.5, dl:0.7, c:2 },
+  { top:"48%", left:"93%", s:1.5, d:6,   dl:2.1, c:0 },
+  { top:"65%", left:"28%", s:1,   d:3,   dl:0.4, c:1 },
+  { top:"78%", left:"74%", s:2,   d:5.5, dl:1.8, c:2 },
+  { top:"91%", left:"45%", s:1.5, d:4,   dl:3.2, c:0 },
+  { top:"11%", left:"57%", s:1,   d:7,   dl:0.9, c:1 },
+  { top:"25%", left:"39%", s:2.5, d:4,   dl:2.6, c:2 },
+  { top:"53%", left:"16%", s:1,   d:5,   dl:1.1, c:0 },
+  { top:"70%", left:"88%", s:1.5, d:3.5, dl:3.8, c:1 },
+  { top:"85%", left:"62%", s:1,   d:6,   dl:0.6, c:2 },
+  { top:"42%", left:"50%", s:2,   d:4.5, dl:2.4, c:0 },
+  { top:"15%", left:"25%", s:1,   d:5.5, dl:1.6, c:1 },
+  { top:"58%", left:"71%", s:1.5, d:3,   dl:4.2, c:2 },
+  { top:"95%", left:"10%", s:1,   d:4,   dl:0.2, c:0 },
+];
+const STAR_COLS = [
+  "rgba(209,171,131,0.9)",
+  "rgba(190,109,86,0.8)",
+  "rgba(255,255,255,0.55)",
+];
+
+const StarField = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {STARS.map((p, i) => (
+      <Motion.div
+        key={i}
+        className="absolute rounded-full"
+        style={{ width: p.s, height: p.s, top: p.top, left: p.left, background: STAR_COLS[p.c] }}
+        animate={{ opacity: [0.1, 0.85, 0.1], scale: [1, 1.9, 1] }}
+        transition={{ duration: p.d, repeat: Infinity, ease: "easeInOut", delay: p.dl }}
+      />
+    ))}
+  </div>
+);
+
 // ─── ANIMATED COUNTER ─────────────────────────────────────────────────────────
 const Counter = ({ value, suffix = "" }) => {
   const count = useMotionValue(0);
@@ -307,9 +375,13 @@ export default function Home() {
           onMouseEnter={() => setSpotVisible(true)}
           onMouseLeave={() => setSpotVisible(false)}
         >
-          <div className="absolute inset-0 dot-grid-dark opacity-50" />
+          <div className="absolute inset-0 bg-grid-animate opacity-60" />
+          <AuroraRays />
           <HeroOrbs />
           <FloatingShapes />
+          <StarField />
+          <div className="meteor-1" />
+          <div className="meteor-2" />
 
           {/* Spotlight */}
           <div
@@ -523,8 +595,10 @@ export default function Home() {
           className="py-16 px-6 relative overflow-hidden"
           style={{ background: "linear-gradient(135deg, #2C2A27 0%, #5A4A48 100%)" }}
         >
-          <div className="absolute inset-0 dot-grid-dark opacity-30" />
-          <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.12)" }} />
+          <div className="absolute inset-0 bg-grid-animate opacity-70" />
+          <AuroraRays />
+          <StarField />
+          <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.14)" }} />
           <div className="relative z-10 max-w-5xl mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
               {[
@@ -647,9 +721,11 @@ export default function Home() {
           className="py-24 px-6 relative overflow-hidden"
           style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 60%, #2C2A27 100%)" }}
         >
-          <div className="absolute inset-0 dot-grid-dark opacity-30" />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.12)" }} />
-          <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.08)" }} />
+          <div className="absolute inset-0 bg-grid-animate opacity-60" />
+          <AuroraRays />
+          <StarField />
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.14)" }} />
+          <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.10)" }} />
 
           <div className="relative z-10 max-w-6xl mx-auto">
             <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
@@ -732,9 +808,11 @@ export default function Home() {
               style={{ background: "linear-gradient(145deg, #BE6D56 0%, #5A4A48 100%)" }}
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 bg-grid-animate opacity-40" />
+                <AuroraRays />
+                <StarField />
                 <div className="absolute w-80 h-80 rounded-full blur-3xl -top-20 -right-20" style={{ background: "rgba(255,255,255,0.07)" }} />
                 <div className="absolute w-56 h-56 rounded-full blur-3xl -bottom-14 -left-14" style={{ background: "rgba(255,255,255,0.07)" }} />
-                <div className="absolute inset-0 dot-grid-dark opacity-20" />
               </div>
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 text-brand-cream/90 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">

@@ -213,4 +213,49 @@
     height: 1px;
     background: linear-gradient(90deg, rgba(190,109,86,0.4), rgba(209,171,131,0.2));
   }
+
+  /* ── ANIMATED GRID (dark sections) ────────────────────── */
+  .bg-grid-animate {
+    background-image:
+      linear-gradient(rgba(209,171,131,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(209,171,131,0.055) 1px, transparent 1px);
+    background-size: 72px 72px;
+    animation: gridDrift 50s linear infinite;
+  }
+  @keyframes gridDrift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 72px 72px; }
+  }
+
+  /* ── METEOR STREAKS ────────────────────────────────────── */
+  @keyframes meteorFall {
+    0%   { transform: translate(-120px, -120px) rotate(45deg); opacity: 0; }
+    8%   { opacity: 1; }
+    88%  { opacity: 0.5; }
+    100% { transform: translate(900px, 900px) rotate(45deg); opacity: 0; }
+  }
+  .meteor-1 {
+    position: absolute;
+    width: 160px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(209,171,131,0.7), transparent);
+    border-radius: 9999px;
+    animation: meteorFall 9s linear 4s infinite;
+    top: 20%;
+    left: 18%;
+    filter: blur(0.5px);
+    pointer-events: none;
+  }
+  .meteor-2 {
+    position: absolute;
+    width: 110px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(190,109,86,0.6), transparent);
+    border-radius: 9999px;
+    animation: meteorFall 12s linear 11s infinite;
+    top: 45%;
+    left: 52%;
+    filter: blur(0.5px);
+    pointer-events: none;
+  }
 }
