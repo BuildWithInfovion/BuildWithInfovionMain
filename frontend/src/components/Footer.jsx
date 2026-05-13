@@ -159,6 +159,22 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* MSME Certification */}
+            <div className="mt-5 space-y-2.5">
+              <p className="text-xs text-brand-neutral/40 uppercase tracking-wider font-medium">Certified By</p>
+              <div className="flex items-center gap-3 bg-white/[0.06] rounded-xl px-3.5 py-3 border border-brand-brown/30">
+                <img
+                  src="/msme-logo.png"
+                  alt="MSME Certified — Ministry of Micro, Small & Medium Enterprises, Government of India"
+                  className="h-10 w-auto flex-shrink-0"
+                />
+                <div>
+                  <p className="text-xs font-semibold text-white/80">MSME Certified</p>
+                  <p className="text-[10px] text-brand-neutral/45 leading-snug mt-0.5">Ministry of MSME<br />Government of India</p>
+                </div>
+              </div>
+            </div>
+
             {/* Quick contact */}
             <div className="mt-6 p-4 rounded-xl border border-brand-brown/40 bg-brand-brown/10">
               <p className="text-xs text-brand-neutral/50 mb-2 font-medium">Questions? Write to us</p>

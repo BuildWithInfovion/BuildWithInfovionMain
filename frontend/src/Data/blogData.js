@@ -290,4 +290,50 @@ export const blogPosts = [
       <p>The data is already there in your school — in the registers, in the ledgers, in the mark sheets. A school management system simply makes it visible, searchable, and actionable — for the person whose job it is to act on it.</p>
     `,
   },
+  {
+    id: 11,
+    slug: "infovion-msme-certified-school-erp-india",
+    title: "Infovion is MSME Certified: Why It Matters for Schools Choosing ERP Software",
+    excerpt:
+      "Infovion is registered under India's MSME scheme. Here's what that means for schools evaluating school management software — and why certification matters more than most buyers realise.",
+    category: "company",
+    author: "Infovion Team",
+    date: "2026-05-13",
+    readTime: "6 min read",
+    tags: ["MSME", "School ERP", "Certified Software", "India", "Make in India"],
+    featured: true,
+    image:
+      "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2673&auto=format&fit=crop",
+    content: `
+      <p>When a school chooses an ERP or management software, the conversation usually focuses on features — attendance, fees, admissions, exam results. Rarely does anyone ask: <em>is this vendor actually recognised by the Government of India?</em></p>
+      <p>Infovion Technologies is registered under the <strong>Ministry of Micro, Small & Medium Enterprises (MSME), Government of India</strong>. This post explains what that means, why it matters, and what it signals about how we operate as a company.</p>
+
+      <h2 class="text-2xl font-bold my-6 text-brand-dark">What Is MSME Certification?</h2>
+      <p>The MSME Act, 2006 defines and regulates small and medium businesses across India. Registration under the Udyam portal (the government's official MSME registration system) is voluntary but recognised by central and state government departments for procurement preferences, credit support, and policy benefits.</p>
+      <p>To be MSME registered, a company must meet investment and turnover thresholds defined by the Ministry. The registration is linked to the company's PAN and Aadhaar, making it a government-verified identity — not a self-declared badge.</p>
+
+      <h2 class="text-2xl font-bold my-6 text-brand-dark">Why It Matters When You're Buying School Software</h2>
+      <p>School directors and administrators evaluate software vendors primarily on product demos and price. But there are less visible factors that determine whether a vendor will still be around — and still be accountable — three years into your contract:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>Government traceability:</strong> An MSME-registered company has a verified identity in Indian government records. The PAN, Aadhaar, and business details are on file with the Ministry. This is a level of accountability that an unregistered vendor simply doesn't have.</li>
+        <li><strong>Commitment to operating in India:</strong> MSME registration is specific to Indian law. It signals that the company is building for and within the Indian regulatory environment — not a foreign vendor with a local reseller.</li>
+        <li><strong>Access to government schemes:</strong> MSME-registered companies have access to credit guarantee schemes, priority lending, and government procurement preferences. This improves the financial stability of the company — which directly affects the longevity of your software subscription.</li>
+        <li><strong>Support for Make in India:</strong> Choosing an MSME-certified Indian software vendor over an imported solution contributes directly to the government's Make in India and Digital India initiatives.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold my-6 text-brand-dark">What MSME Status Means for Infovion</h2>
+      <p>For Infovion, MSME registration is not a marketing checkbox. It reflects how we've structured our operations: as a lean, India-first company that is accountable to Indian law, building software that solves problems specific to Indian schools.</p>
+      <p>We are a Pune-based team. Our product decisions are driven by conversations with school directors, teachers, accountants, and principals across Maharashtra and beyond. Our pricing is structured for the Indian school budget — not the pricing model of a Western EdTech product adapted for export.</p>
+      <p>Being MSME certified means that when you sign a contract with Infovion, you are dealing with a legally identifiable, government-recognised Indian entity — with all the accountability that implies.</p>
+
+      <h2 class="text-2xl font-bold my-6 text-brand-dark">How to Verify a Vendor's MSME Status</h2>
+      <p>If a school software vendor claims MSME registration, you can verify it independently. The Government of India's Udyam Registration portal allows anyone to verify a Udyam Registration Number (URN). A genuine MSME registration will show the company's name, type of enterprise, and registration date. If a vendor cannot produce their URN, the claim cannot be verified.</p>
+      <p>Infovion's MSME registration details are available on request — write to us at <a href="mailto:infovion2025@gmail.com" class="text-brand-terra hover:underline">infovion2025@gmail.com</a> and we will share the certificate.</p>
+
+      <h2 class="text-2xl font-bold my-6 text-brand-dark">The Broader Point: Trust Signals in Edtech</h2>
+      <p>India's school software market has hundreds of vendors, many of which are unregistered, lightly capitalized, or operating without a clear legal identity. School directors have been burned by vendors who disappeared mid-year, stopped providing support after a fee hike, or simply could not deliver what was promised in the demo.</p>
+      <p>MSME certification is one trust signal among several. It sits alongside GST registration, incorporation under the Companies Act, and references from existing clients. Together, these signals give a school director a reasonable basis for trusting that the vendor they choose will be around — and accountable — for the long term.</p>
+      <p>Infovion is built to be one of those long-term vendors. MSME certification is part of how we demonstrate that commitment.</p>
+    `,
+  },
 ];
