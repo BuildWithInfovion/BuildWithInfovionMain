@@ -46,7 +46,7 @@ const ContactForm = () => {
       } else {
         throw new Error("Submission failed.");
       }
-    } catch (error) {
+    } catch {
       setFormMessage({
         text: "Something went wrong. Please WhatsApp or call us directly.",
         type: "error",

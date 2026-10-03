@@ -22,6 +22,8 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+        display: ['"Plus Jakarta Sans"', "Inter", "system-ui", "sans-serif"],
+        serif: ['"Instrument Serif"', "Georgia", "serif"],
       },
       backgroundImage: {
         "dot-warm":     "radial-gradient(circle, #9C928C 1px, transparent 1px)",

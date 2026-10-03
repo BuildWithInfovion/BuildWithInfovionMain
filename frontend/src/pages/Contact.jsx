@@ -17,9 +17,9 @@ const contactMethods = [
   {
     icon: <Mail className="w-5 h-5" />,
     title: "Email",
-    value: "infovion2025@gmail.com",
+    value: "contact@buildwithinfovion.com",
     sub: "Response within 2 hours",
-    href: "mailto:infovion2025@gmail.com",
+    href: "mailto:contact@buildwithinfovion.com",
   },
   {
     icon: <Phone className="w-5 h-5" />,

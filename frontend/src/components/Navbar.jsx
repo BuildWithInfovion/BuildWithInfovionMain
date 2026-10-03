@@ -5,8 +5,7 @@ import { Sparkles } from "lucide-react";
 import logo from "/src/assets/logo.png";
 
 const navLinks = [
-  { to: "/",          label: "Home" },
-  { to: "/features",  label: "Features" },
+  { to: "/features",  label: "Product" },
   { to: "/portals",   label: "Portals" },
   { to: "/for-schools", label: "For Schools" },
   { to: "/pricing",   label: "Pricing" },
@@ -107,26 +106,17 @@ export default function Navbar() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
-              {/* Demo CTA — desktop */}
-              <Motion.div
-                whileHover={{ scale: 1.04, y: -1 }}
-                whileTap={{ scale: 0.96 }}
-                className="hidden lg:block"
-              >
+              {/* CTAs — desktop */}
+              <Link to="/contact" className="hidden lg:inline-flex px-3 py-2 text-sm font-semibold text-gray-300/90 hover:text-white transition-colors">
+                Book a demo
+              </Link>
+              <Motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.97 }} className="hidden sm:block">
                 <Link
-                  to="/contact"
-                  className="relative inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white rounded-full overflow-hidden group"
-                  style={{
-                    background: "linear-gradient(135deg, #BE6D56 0%, #A85D48 100%)",
-                    boxShadow: "0 4px 18px rgba(190,109,86,0.38), inset 0 1px 0 rgba(255,255,255,0.15)",
-                  }}
+                  to="/free-trial"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-terra px-5 py-2.5 text-sm font-bold text-white shadow-terra-md transition-colors hover:bg-brand-terra2"
                 >
-                  {/* Shine sweep on hover */}
-                  <span
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"
-                  />
                   <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
-                  Free Demo
+                  Free trial
                 </Link>
               </Motion.div>
 
@@ -209,24 +199,25 @@ export default function Navbar() {
                 variants={{ open: { y: 0, opacity: 1 }, closed: { y: 20, opacity: 0 } }}
                 className="mt-8"
               >
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-full"
-                  style={{
-                    background: "linear-gradient(135deg, #BE6D56 0%, #A85D48 100%)",
-                    boxShadow: "0 8px 32px rgba(190,109,86,0.4)",
-                  }}
-                >
-                  <Sparkles className="w-5 h-5" />
-                  Book a Free Demo
-                </Link>
+                <div className="flex flex-col items-center gap-4">
+                  <Link
+                    to="/free-trial"
+                    className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-full bg-brand-terra shadow-terra-lg"
+                  >
+                    <Sparkles className="w-5 h-5" />
+                    Start 30-day free trial
+                  </Link>
+                  <Link to="/contact" className="text-base font-semibold text-white/80 hover:text-white">
+                    Book a live demo
+                  </Link>
+                </div>
               </Motion.div>
 
               <Motion.p
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 className="text-brand-neutral/50 text-xs mt-4"
               >
-                infovion2025@gmail.com
+                contact@buildwithinfovion.com
               </Motion.p>
             </Motion.nav>
           </Motion.div>

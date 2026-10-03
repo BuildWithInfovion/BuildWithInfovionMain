@@ -1,862 +1,408 @@
-import React, { useRef, useState, useEffect } from "react";
-import {
-  motion as Motion,
-  useMotionValue,
-  useTransform,
-  animate,
-  useInView,
-} from "framer-motion";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { motion as Motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
-  ArrowRight, ArrowUpRight, CheckCircle,
-  UserCheck, ClipboardList, BookOpen, CreditCard,
-  Users, Bell, Calendar, LayoutGrid,
-  IndianRupee, School, AlertCircle, Eye,
-  FileWarning, Star, ChevronRight, Phone,
-  Sparkles, Shield, Zap, TrendingUp, Heart,
-  MessageSquare, FileCheck, Clock,
+  ArrowRight, Play, Check, ChevronDown, FileSpreadsheet, Languages, Bus, Wallet, Smartphone, History,
+  ShieldCheck, Lock, KeyRound, ScrollText, Users, BadgeCheck, MessageCircle, Sparkles,
 } from "lucide-react";
+import { BrowserFrame, PhoneFrame, LoopVideo } from "../components/product/Frames";
+import TourVideo from "../components/product/TourVideo";
+import ProductTabs from "../components/product/ProductTabs";
+import PriceCalculator from "../components/PriceCalculator";
 
-// ─── WORD SLIDE-UP ────────────────────────────────────────────────────────────
-const WordSlideUp = ({ text, className = "", delay = 0 }) => (
-  <span className={className}>
-    {text.split(" ").map((word, i) => (
-      <span key={i} className="inline-block overflow-hidden">
-        <Motion.span
-          className="inline-block"
-          initial={{ y: "110%" }}
-          animate={{ y: 0 }}
-          transition={{ delay: delay + i * 0.08, duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-        >
-          {word}{i < text.split(" ").length - 1 ? " " : ""}
-        </Motion.span>
-      </span>
-    ))}
-  </span>
-);
+const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I'd like to see Infovion for my school.");
 
-// ─── HERO ORBS ────────────────────────────────────────────────────────────────
-const HeroOrbs = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <Motion.div
-      className="absolute w-[800px] h-[800px] rounded-full blur-3xl"
-      style={{ background: "radial-gradient(circle, rgba(190,109,86,0.20) 0%, transparent 65%)", top: "-25%", right: "-15%" }}
-      animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
-      transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <Motion.div
-      className="absolute w-[550px] h-[550px] rounded-full blur-3xl"
-      style={{ background: "radial-gradient(circle, rgba(209,171,131,0.16) 0%, transparent 70%)", bottom: "-5%", left: "-10%" }}
-      animate={{ x: [0, -40, 0], y: [0, 50, 0] }}
-      transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <Motion.div
-      className="absolute w-[350px] h-[350px] rounded-full blur-2xl"
-      style={{ background: "radial-gradient(circle, rgba(201,148,58,0.18) 0%, transparent 70%)", top: "40%", left: "38%" }}
-      animate={{ x: [0, 35, -20, 0], y: [0, -25, 35, 0] }}
-      transition={{ duration: 36, repeat: Infinity, ease: "easeInOut" }}
-    />
-    {/* Extra subtle orb for depth */}
-    <Motion.div
-      className="absolute w-[250px] h-[250px] rounded-full blur-2xl"
-      style={{ background: "radial-gradient(circle, rgba(190,109,86,0.12) 0%, transparent 70%)", top: "15%", left: "25%" }}
-      animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
-      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-    />
-  </div>
-);
+const FAQ = [
+  {
+    q: "How does the 30-day free trial work?",
+    a: "Tell us your school's name and we set up a trial school for you — usually the same day. You get every module with up to 50 students and 10 staff logins, so you can try fees, attendance, certificates and the parent app with real data. No card, no commitment. If you continue, everything you entered carries over.",
+  },
+  {
+    q: "What does it cost after the trial?",
+    a: "₹50 per student per year, plus GST — every module and every portal included. A school of 600 students pays ₹30,000 a year. There is no setup fee, and data import from your old records is included.",
+  },
+  {
+    q: "We have years of records in Excel and old ledgers. Can we bring them in?",
+    a: "Yes. Students, staff and parents come in from Excel — even messy files; anything that can't be read is listed so nothing is silently lost. Fees already paid before you joined are entered as opening balances, so parents are never asked to pay twice.",
+  },
+  {
+    q: "Do parents and teachers need to install an app?",
+    a: "No. Infovion works in any phone browser — teachers mark attendance and parents check fees, attendance and results from the same link. It can also be added to the home screen like an app.",
+  },
+  {
+    q: "Can parents pay fees online?",
+    a: "Yes, by UPI, card or net banking. Payments go straight into the school's own Razorpay account — Infovion never holds the money — and the receipt is created automatically. The school can switch online payments on or off at any time.",
+  },
+  {
+    q: "Is our school's data safe and private?",
+    a: "Each school's data is kept separate and is only visible to the people the school gives access to, by role. Passwords are encrypted, two-step sign-in is available, every change is logged, and the school owns its data — ask for a full export at any time. We sign a Data Processing Agreement under India's DPDP Act, 2023.",
+  },
+];
 
-// ─── FLOATING SHAPES ──────────────────────────────────────────────────────────
-const FloatingShapes = () => {
-  const shapes = [
-    { w: 42, h: 54, top: "12%",  left: "7%",   rot: -14, delay: 0 },
-    { w: 30, h: 38, top: "72%",  left: "4%",   rot:  9,  delay: 3 },
-    { w: 50, h: 62, top: "18%",  right: "10%", rot:  16, delay: 1.5 },
-    { w: 26, h: 34, top: "62%",  right: "7%",  rot: -9,  delay: 4 },
-    { w: 38, h: 48, top: "46%",  left: "13%",  rot:  6,  delay: 2 },
-  ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+
+const fade = {
+  hidden: { opacity: 0, y: 24 },
+  show: (d = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.7, delay: d, ease: [0.22, 1, 0.36, 1] } }),
+};
+
+function Eyebrow({ children, light = false }) {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {shapes.map((s, i) => (
-        <Motion.div
-          key={i}
-          className="absolute rounded"
-          style={{
-            width: s.w, height: s.h,
-            top: s.top, left: s.left, right: s.right,
-            rotate: s.rot,
-            background: "rgba(209,171,131,0.05)",
-            border: "1px solid rgba(209,171,131,0.15)",
-          }}
-          animate={{ y: [0, -16, 0], rotate: [s.rot, s.rot + 3, s.rot] }}
-          transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: s.delay }}
-        />
-      ))}
-      {[
-        { top: "22%", left: "22%", delay: 0 },
-        { top: "58%", left: "77%", delay: 1.5 },
-        { top: "82%", left: "32%", delay: 3 },
-        { top: "14%", left: "62%", delay: 2 },
-        { top: "38%", left: "88%", delay: 0.8 },
-      ].map((d, i) => (
-        <Motion.div
-          key={`dot-${i}`}
-          className="absolute w-1.5 h-1.5 rounded-full bg-brand-accent/40"
-          style={{ top: d.top, left: d.left }}
-          animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: d.delay }}
-        />
-      ))}
+    <p className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] ${light ? "text-brand-accent" : "text-brand-terra"}`}>
+      <span className={`h-px w-6 ${light ? "bg-brand-accent/60" : "bg-brand-terra/60"}`} />
+      {children}
+    </p>
+  );
+}
+
+function SectionTitle({ eyebrow, title, accent, sub, light = false, center = false }) {
+  return (
+    <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
+      <Eyebrow light={light}>{eyebrow}</Eyebrow>
+      <h2 className={`mt-4 font-display text-3xl sm:text-[2.6rem] font-extrabold leading-[1.08] tracking-tight ${light ? "text-white" : "text-brand-darker"}`}>
+        {title} {accent && <span className={`font-serif italic font-normal ${light ? "text-brand-accent2" : "text-brand-terra"}`}>{accent}</span>}
+      </h2>
+      {sub && <p className={`mt-4 max-w-2xl ${center ? "mx-auto" : ""} text-base sm:text-lg leading-relaxed ${light ? "text-white/60" : "text-brand-brown/80"}`}>{sub}</p>}
     </div>
   );
-};
+}
 
-// ─── AURORA RAYS ──────────────────────────────────────────────────────────────
-const BEAMS = [
-  { w: 700, h: 100, top: "4%",  left: "-10%", angle: 30,  col: "rgba(190,109,86,0.10)",  dur: 22, delay: 0   },
-  { w: 900, h: 80,  top: "62%", left: "22%",  angle: -18, col: "rgba(209,171,131,0.07)", dur: 28, delay: 8   },
-  { w: 520, h: 120, top: "-6%", right: "6%",  angle: 44,  col: "rgba(201,148,58,0.08)",  dur: 19, delay: 4   },
-  { w: 420, h: 70,  top: "78%", left: "58%",  angle: -12, col: "rgba(190,109,86,0.06)",  dur: 32, delay: 13  },
-  { w: 620, h: 65,  top: "40%", left: "-18%", angle: 26,  col: "rgba(209,171,131,0.05)", dur: 26, delay: 17  },
+// ── Hero ──────────────────────────────────────────────────────────────────────
+function Hero() {
+  const reduce = useReducedMotion();
+  const { scrollY } = useScroll();
+  const tilt = useTransform(scrollY, [0, 500], [reduce ? 0 : 14, 0]);
+  const lift = useTransform(scrollY, [0, 500], [0, reduce ? 0 : -40]);
+
+  return (
+    <section className="relative overflow-hidden bg-[#161412] pt-32 sm:pt-40 pb-16">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-[-18%] h-[720px] w-[1100px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, rgba(190,109,86,0.38), rgba(209,171,131,0.10) 55%, transparent)" }} />
+        <div className="absolute inset-0 opacity-[0.07]"
+          style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)", backgroundSize: "64px 64px", maskImage: "radial-gradient(ellipse at 50% 20%, black 20%, transparent 70%)", WebkitMaskImage: "radial-gradient(ellipse at 50% 20%, black 20%, transparent 70%)" }} />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-6 text-center">
+        <Motion.div variants={fade} initial="hidden" animate="show">
+          <Link to="/free-trial" className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3 py-1.5 text-xs font-medium text-white/80 ring-1 ring-white/10 hover:bg-white/10">
+            <span className="rounded-full bg-brand-terra px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">New</span>
+            30-day free trial — set up the same day <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </Motion.div>
+
+        <Motion.h1 variants={fade} custom={0.08} initial="hidden" animate="show"
+          className="mx-auto mt-7 max-w-4xl font-display text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[4.6rem] font-extrabold tracking-tight text-white">
+          Run your school.<br />
+          <span className="font-serif font-normal italic text-brand-accent2">Not spreadsheets.</span>
+        </Motion.h1>
+
+        <Motion.p variants={fade} custom={0.16} initial="hidden" animate="show"
+          className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-white/65">
+          Fees and receipts, attendance, exams, transport and certificates — with a parent app, in one system built for
+          Indian K-12 schools. Your office, teachers and parents on the same page, on any phone.
+        </Motion.p>
+
+        <Motion.div variants={fade} custom={0.24} initial="hidden" animate="show" className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Link to="/free-trial"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-brand-terra px-7 py-4 text-sm font-bold text-white shadow-terra-lg transition-all hover:bg-brand-terra2 hover:-translate-y-0.5">
+            Start your free trial <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+          <a href="#tour"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white/[0.06] px-7 py-4 text-sm font-semibold text-white ring-1 ring-white/15 transition-colors hover:bg-white/10">
+            <Play className="h-4 w-4" fill="currentColor" /> Watch the tour
+          </a>
+        </Motion.div>
+        <Motion.p variants={fade} custom={0.3} initial="hidden" animate="show" className="mt-4 text-xs text-white/40">
+          No card needed · ₹50 per student per year after the trial · <Link to="/contact" className="underline decoration-white/30 hover:text-white/70">or book a live demo</Link>
+        </Motion.p>
+      </div>
+
+      <div className="relative mx-auto mt-14 sm:mt-16 max-w-6xl px-5 sm:px-6" style={{ perspective: 1600 }}>
+        <Motion.div style={{ rotateX: tilt, y: lift, transformOrigin: "50% 0%" }}
+          initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}>
+          <BrowserFrame dark>
+            <img src="/product/dashboard.webp" alt="Infovion school dashboard showing students, today's fee collection, outstanding dues and attendance"
+              className="block w-full" width="1800" height="1125" fetchpriority="high" />
+          </BrowserFrame>
+        </Motion.div>
+
+        <Motion.div
+          initial={{ opacity: 0, y: 40, rotate: 4 }} animate={{ opacity: 1, y: 0, rotate: 2 }} transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute -bottom-10 right-2 sm:right-8 lg:-right-6 w-[34%] sm:w-[25%] lg:w-[21%]">
+          <PhoneFrame>
+            <LoopVideo src="/product/parent-app.mp4" poster="/product/parent-app-poster.webp" label="The parent app: attendance and fees on a phone" />
+          </PhoneFrame>
+          <p className="mt-3 hidden sm:block text-center text-[11px] font-medium text-white/45">The parent app</p>
+        </Motion.div>
+      </div>
+    </section>
+  );
+}
+
+// ── Trust strip ───────────────────────────────────────────────────────────────
+function TrustStrip() {
+  const items = [
+    [BadgeCheck, "MSME registered, made in Pune"],
+    [ScrollText, "CBSE, ICSE & State Boards"],
+    [Languages, "Certificates in English, मराठी & हिंदी"],
+    [ShieldCheck, "DPDP Act–ready agreements"],
+    [Wallet, "UPI fees to the school's own account"],
+  ];
+  return (
+    <section className="border-b border-brand-cream bg-white pt-20 pb-8">
+      <ul className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
+        {items.map((item) => {
+          const [Icon, t] = item;
+          return (
+            <li key={t} className="flex items-center gap-2 text-sm font-medium text-brand-brown/80">
+              <Icon className="h-4 w-4 text-brand-terra" /> {t}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+// ── Built for Indian schools ─────────────────────────────────────────────────
+const DIFFERENT = [
+  { icon: FileSpreadsheet, title: "Starts from your messy Excel", body: "Bring in students, parents and staff from the files you already have. Rows that can't be read are listed, never silently dropped.", span: "lg:col-span-2" },
+  { icon: History, title: "Your old ledger, carried over", body: "Fees paid before you joined become opening balances — no parent is asked to pay twice." },
+  { icon: Languages, title: "LC in Marathi. TC in Hindi.", body: "Transfer and leaving certificates in the formats your board and state expect, on one page." },
+  { icon: Bus, title: "Transport, run properly", body: "Routes, stops and per-stop fares billed monthly — even when a separate operator runs the buses." },
+  { icon: Smartphone, title: "Works on the phones you have", body: "No app to install. Teachers and parents use it in the browser on any phone." },
+  { icon: Wallet, title: "Online fees, straight to the school", body: "Parents pay by UPI, card or net banking into the school's own Razorpay account. Infovion never holds the money — receipts appear on their own, and the office can switch it off any time.", span: "sm:col-span-2 lg:col-span-3" },
 ];
 
-const AuroraRays = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {BEAMS.map((b, i) => (
-      <Motion.div
-        key={i}
-        className="absolute rounded-full"
-        style={{
-          width: b.w, height: b.h,
-          top: b.top, left: b.left, right: b.right,
-          rotate: b.angle,
-          background: `radial-gradient(ellipse at 40% 50%, ${b.col} 0%, transparent 65%)`,
-          filter: "blur(38px)",
-        }}
-        animate={{ x: [0, 72, -28, 0], y: [0, -36, 18, 0], opacity: [0.5, 1, 0.65, 0.5] }}
-        transition={{ duration: b.dur, repeat: Infinity, ease: "easeInOut", delay: b.delay }}
-      />
-    ))}
-  </div>
-);
+function BuiltForIndia() {
+  return (
+    <section className="bg-brand-muted py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <SectionTitle eyebrow="Built for how Indian schools work" title="Not a foreign ERP with a rupee sign." accent="Made for your school office."
+          sub="Every feature came from sitting with school offices — the clerk with the fee register, the principal chasing attendance, the parent asking for a TC." />
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {DIFFERENT.map((d, i) => {
+            const Icon = d.icon;
+            return (
+              <Motion.div key={d.title} variants={fade} custom={i * 0.05} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }}
+                className={`group relative overflow-hidden rounded-3xl bg-white p-7 ring-1 ring-brand-cream transition-shadow hover:shadow-card-hover ${d.span ?? ""}`}>
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-terra/10 text-brand-terra">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 font-display text-xl font-bold text-brand-darker">{d.title}</h3>
+                <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-brand-brown/80">{d.body}</p>
+                <div className="pointer-events-none absolute -right-16 -bottom-16 h-44 w-44 rounded-full bg-brand-accent/10 blur-2xl opacity-60 transition-opacity group-hover:opacity-100" />
+              </Motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-// ─── STAR FIELD ───────────────────────────────────────────────────────────────
-const STARS = [
-  { top:"7%",  left:"12%", s:1.5, d:3.5, dl:0,   c:0 },
-  { top:"18%", left:"82%", s:1,   d:5,   dl:1.3, c:1 },
-  { top:"33%", left:"6%",  s:2,   d:4.5, dl:0.7, c:2 },
-  { top:"48%", left:"93%", s:1.5, d:6,   dl:2.1, c:0 },
-  { top:"65%", left:"28%", s:1,   d:3,   dl:0.4, c:1 },
-  { top:"78%", left:"74%", s:2,   d:5.5, dl:1.8, c:2 },
-  { top:"91%", left:"45%", s:1.5, d:4,   dl:3.2, c:0 },
-  { top:"11%", left:"57%", s:1,   d:7,   dl:0.9, c:1 },
-  { top:"25%", left:"39%", s:2.5, d:4,   dl:2.6, c:2 },
-  { top:"53%", left:"16%", s:1,   d:5,   dl:1.1, c:0 },
-  { top:"70%", left:"88%", s:1.5, d:3.5, dl:3.8, c:1 },
-  { top:"85%", left:"62%", s:1,   d:6,   dl:0.6, c:2 },
-  { top:"42%", left:"50%", s:2,   d:4.5, dl:2.4, c:0 },
-  { top:"15%", left:"25%", s:1,   d:5.5, dl:1.6, c:1 },
-  { top:"58%", left:"71%", s:1.5, d:3,   dl:4.2, c:2 },
-  { top:"95%", left:"10%", s:1,   d:4,   dl:0.2, c:0 },
-];
-const STAR_COLS = [
-  "rgba(209,171,131,0.9)",
-  "rgba(190,109,86,0.8)",
-  "rgba(255,255,255,0.55)",
-];
+// ── Everyone gets their own portal ────────────────────────────────────────────
+const ROLES = ["Director", "Principal", "Operator", "Accountant", "Reception", "Teacher", "Non-teaching staff", "Parent", "Student"];
 
-const StarField = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {STARS.map((p, i) => (
-      <Motion.div
-        key={i}
-        className="absolute rounded-full"
-        style={{ width: p.s, height: p.s, top: p.top, left: p.left, background: STAR_COLS[p.c] }}
-        animate={{ opacity: [0.1, 0.85, 0.1], scale: [1, 1.9, 1] }}
-        transition={{ duration: p.d, repeat: Infinity, ease: "easeInOut", delay: p.dl }}
-      />
-    ))}
-  </div>
-);
+function Portals() {
+  return (
+    <section className="relative overflow-hidden bg-[#161412] py-24 sm:py-28">
+      <div className="pointer-events-none absolute right-[-10%] top-[-20%] h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
+        style={{ background: "radial-gradient(closest-side, rgba(190,109,86,0.35), transparent)" }} />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-2">
+        <div>
+          <SectionTitle light eyebrow="Nine portals, one school" title="Everyone sees exactly" accent="what they need."
+            sub="The accountant sees fees, the teacher sees their classes, the parent sees their own child — and nothing else. Each login opens to the right screen." />
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {ROLES.map((r) => (
+              <li key={r} className="rounded-full bg-white/[0.06] px-3.5 py-1.5 text-sm text-white/80 ring-1 ring-white/10">{r}</li>
+            ))}
+          </ul>
+          <ul className="mt-8 space-y-3">
+            {[
+              "Parents: today's attendance, fees due, receipts, results and the school bus",
+              "Teachers: mark attendance and enter marks from their phone in seconds",
+              "Director: collections, dues and which classes haven't marked attendance",
+            ].map((t) => (
+              <li key={t} className="flex gap-3 text-[15px] text-white/70"><Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-accent" />{t}</li>
+            ))}
+          </ul>
+          <Link to="/portals" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-accent hover:text-brand-accent2">
+            What each portal can do <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
 
-// ─── ANIMATED COUNTER ─────────────────────────────────────────────────────────
-const Counter = ({ value, suffix = "" }) => {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, Math.round);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  useEffect(() => {
-    if (inView) animate(count, value, { duration: 2.4, ease: "easeOut" });
-  }, [inView, count, value]);
-  return <span ref={ref}><Motion.span>{rounded}</Motion.span>{suffix}</span>;
-};
+        <div className="relative mx-auto flex w-full max-w-[520px] items-end justify-center gap-4 pb-12 sm:gap-5">
+          {[
+            ["/product/teacher-home.webp", "Teacher portal on a phone", "Teacher", "translate-y-8"],
+            ["/product/parent-home.webp", "Parent app home screen", "Parent", ""],
+            ["/product/parent-fees.webp", "Parent app fee status", "Fees", "translate-y-12"],
+          ].map(([src, alt, label, off]) => (
+            <Motion.div key={src} variants={fade} initial="hidden" whileInView="show" viewport={{ once: true }} className={`w-1/3 ${off}`}>
+              <PhoneFrame>
+                <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover object-top" />
+              </PhoneFrame>
+              <p className="mt-3 text-center text-xs font-medium text-white/45">{label}</p>
+            </Motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-// ─── FADE UP ──────────────────────────────────────────────────────────────────
-const fadeUp = {
-  hidden:  { opacity: 0, y: 32 },
-  visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.09, duration: 0.65, ease: [0.33, 1, 0.68, 1] },
-  }),
-};
+// ── Trust & security ──────────────────────────────────────────────────────────
+function Security() {
+  const items = [
+    [Lock, "Your data stays yours", "Each school's records are kept separate, and you can ask for a full export at any time."],
+    [Users, "Access by role", "Staff see only what their role needs. Parents see only their own children."],
+    [KeyRound, "Secure sign-in", "Encrypted passwords, forced change of temporary passwords, optional two-step sign-in."],
+    [History, "Every change logged", "Who changed what and when — fees, marks, certificates, settings."],
+  ];
+  return (
+    <section className="bg-white py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+          <SectionTitle eyebrow="Trust" title="Children's data deserves" accent="serious care."
+            sub="We act as your data processor under India's DPDP Act, 2023, with a signed Data Processing Agreement — and a ready privacy notice for your parents." />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {items.map((item) => {
+              const [Icon, t, b] = item;
+              return (
+                <div key={t} className="rounded-2xl border border-brand-cream p-6">
+                  <Icon className="h-5 w-5 text-brand-terra" />
+                  <h3 className="mt-4 font-display font-bold text-brand-darker">{t}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-brand-brown/80">{b}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-// ─── SECTION LABEL ────────────────────────────────────────────────────────────
-const SectionLabel = ({ text, light = false }) => (
-  <div className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4 ${light ? "text-brand-accent" : "text-brand-terra"}`}>
-    <span className={`w-6 h-px ${light ? "bg-brand-accent" : "bg-brand-terra"}`} />
-    {text}
-    <span className={`w-6 h-px ${light ? "bg-brand-accent" : "bg-brand-terra"}`} />
-  </div>
-);
+// ── Pricing ───────────────────────────────────────────────────────────────────
+function PricingTeaser() {
+  return (
+    <section className="bg-brand-muted py-24 sm:py-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-2">
+        <div>
+          <SectionTitle eyebrow="Simple pricing" title="₹50 per student," accent="per year."
+            sub="One price, every module, every portal. No setup fee, no per-module charges, no surprise invoices. Data import and onboarding included." />
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {["All 9 portals", "Fees, receipts & online payments", "Attendance, exams & report cards", "Transport & bus tracking", "Certificates & ID cards", "Onboarding & data import", "Email & WhatsApp support", "30-day free trial"].map((t) => (
+              <li key={t} className="flex items-center gap-2 text-sm text-brand-brown"><Check className="h-4 w-4 text-brand-terra" /> {t}</li>
+            ))}
+          </ul>
+          <Link to="/pricing" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-terra hover:text-brand-terra2">
+            See full pricing <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <PriceCalculator />
+      </div>
+    </section>
+  );
+}
 
-// ─── MAIN ─────────────────────────────────────────────────────────────────────
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+function Faq() {
+  const [open, setOpen] = useState(0);
+  return (
+    <section className="bg-white py-24 sm:py-28">
+      <div className="mx-auto max-w-3xl px-5 sm:px-6">
+        <SectionTitle center eyebrow="Questions" title="What schools ask us" accent="before they start." />
+        <div className="mt-12 divide-y divide-brand-cream border-y border-brand-cream">
+          {FAQ.map((f, i) => (
+            <div key={f.q}>
+              <button type="button" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}
+                className="flex w-full items-center justify-between gap-6 py-5 text-left">
+                <span className="font-display text-[17px] font-bold text-brand-darker">{f.q}</span>
+                <ChevronDown className={`h-5 w-5 flex-shrink-0 text-brand-terra transition-transform ${open === i ? "rotate-180" : ""}`} />
+              </button>
+              <Motion.div initial={false} animate={{ height: open === i ? "auto" : 0, opacity: open === i ? 1 : 0 }} className="overflow-hidden">
+                <p className="pb-6 pr-10 text-[15px] leading-relaxed text-brand-brown/85">{f.a}</p>
+              </Motion.div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Final call to action ──────────────────────────────────────────────────────
+function FinalCta() {
+  return (
+    <section className="bg-white px-5 pb-24 sm:px-6">
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-[#161412] px-6 py-16 text-center sm:px-16 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 opacity-70"
+          style={{ background: "radial-gradient(60% 80% at 50% 0%, rgba(190,109,86,0.45), transparent 70%)" }} />
+        <div className="relative">
+          <Sparkles className="mx-auto h-6 w-6 text-brand-accent" />
+          <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-white">
+            Try it with your own school <span className="font-serif font-normal italic text-brand-accent2">for 30 days.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-white/60">
+            We set up your trial school, help you bring in a class or two, and show your office around. If it isn't right for you, you walk away — no card, no contract.
+          </p>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link to="/free-trial" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-brand-terra px-7 py-4 text-sm font-bold text-white shadow-terra-lg hover:bg-brand-terra2">
+              Start your free trial <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white/[0.06] px-7 py-4 text-sm font-semibold text-white ring-1 ring-white/15 hover:bg-white/10">
+              <MessageCircle className="h-4 w-4" /> Ask on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
-  const heroRef = useRef(null);
-  const [spotPos, setSpotPos] = useState({ x: 0, y: 0 });
-  const [spotVisible, setSpotVisible] = useState(false);
-
-  const problems = [
-    {
-      icon: <AlertCircle className="w-5 h-5" />,
-      title: "Admission Records on Paper",
-      color: "text-red-500",
-      bg: "bg-red-50",
-      desc: "Inquiries tracked in notebooks, student files missing critical details, no way to quickly look up a student's history.",
-    },
-    {
-      icon: <ClipboardList className="w-5 h-5" />,
-      title: "Attendance Still Paper-Based",
-      color: "text-orange-500",
-      bg: "bg-orange-50",
-      desc: "Teachers mark registers every morning. Parents find out about absences days later, sometimes never.",
-    },
-    {
-      icon: <FileWarning className="w-5 h-5" />,
-      title: "Exam Results in Spreadsheets",
-      color: "text-yellow-600",
-      bg: "bg-yellow-50",
-      desc: "Marks shared over email. No unified results view. Students and parents wait weeks for printed report cards.",
-    },
-    {
-      icon: <CreditCard className="w-5 h-5" />,
-      title: "Fee Collection in Ledgers",
-      color: "text-brand-terra",
-      bg: "bg-orange-50/60",
-      desc: "Manual receipts, no live view of who has paid and who hasn't. Defaulter lists compiled by hand every month.",
-    },
-    {
-      icon: <Eye className="w-5 h-5" />,
-      title: "Parents Kept in the Dark",
-      color: "text-purple-600",
-      bg: "bg-purple-50",
-      desc: "Parents call the school for everything — attendance, marks, fee balance. There is no portal for them to check on their own.",
-    },
-  ];
-
-  const modules = [
-    { icon: <UserCheck />, title: "Admissions", desc: "New student applications, Transfer Certificates, and fee collection — handled from day one, without paperwork.", color: "bg-red-50 text-red-600" },
-    { icon: <ClipboardList />, title: "Attendance", desc: "Teachers mark attendance in seconds. Parents see it the same day. Defaulter lists generate themselves.", color: "bg-orange-50 text-orange-600" },
-    { icon: <BookOpen />, title: "Exams & Results", desc: "Teachers enter marks. Students and parents see ranked results and scorecards immediately.", color: "bg-yellow-50 text-yellow-700" },
-    { icon: <CreditCard />, title: "Fee Management", desc: "Customised fee plans, installment schedules, online payment, and a daily collection report for your accountant.", color: "bg-green-50 text-green-600" },
-    { icon: <Users />, title: "Staff Management", desc: "Track every staff member's attendance, leave, salary, and role assignment — all in one place.", color: "bg-blue-50 text-blue-600" },
-    { icon: <MessageSquare />, title: "Parent Communication", desc: "Parents message teachers directly. School announcements reach every role automatically.", color: "bg-purple-50 text-purple-600" },
-    { icon: <Calendar />, title: "Timetable", desc: "A clear weekly schedule for every class, linked to the right teacher and subject.", color: "bg-teal-50 text-teal-600" },
-    { icon: <Bell />, title: "Announcements", desc: "Important notices reach every parent, teacher, and staff member — instantly and clearly.", color: "bg-pink-50 text-pink-600" },
-  ];
-
-  const stats = [
-    { value: 9,   suffix: "",  label: "Dedicated Role Portals",  icon: <LayoutGrid className="w-5 h-5" /> },
-    { value: 20,  suffix: "+", label: "Ready-to-Use Features",   icon: <Sparkles className="w-5 h-5" /> },
-    { value: 0,   suffix: "",  label: "Setup Cost",              icon: <IndianRupee className="w-5 h-5" />, prefix: "₹" },
-    { value: 100, suffix: "%", label: "Built for Indian Schools", icon: <Heart className="w-5 h-5" /> },
-  ];
-
-  const portals = [
-    { role: "Director",           desc: "Full school overview — students, staff, fees, reports.", badge: "bg-purple-100 text-purple-700", icon: "🏛️" },
-    { role: "Principal",          desc: "Attendance defaulters, fee status, and staff at a glance.", badge: "bg-blue-100 text-blue-700", icon: "👨‍💼" },
-    { role: "Teacher",            desc: "Mark attendance and enter marks — only for their classes.", badge: "bg-green-100 text-green-700", icon: "👩‍🏫" },
-    { role: "Student",            desc: "Own attendance, marks, fee balance, and timetable.", badge: "bg-cyan-100 text-cyan-700", icon: "🎓" },
-    { role: "Parent",             desc: "Child's attendance, results, and fee status — live.", badge: "bg-teal-100 text-teal-700", icon: "👪" },
-    { role: "Accountant",         desc: "Daily fee collection, defaulters, payment recording.", badge: "bg-orange-100 text-orange-700", icon: "💼" },
-    { role: "Operator",           desc: "Admissions, student directory, staff, and exams.", badge: "bg-indigo-100 text-indigo-700", icon: "⚙️" },
-    { role: "Receptionist",       desc: "Capture walk-in inquiries and student lookups.", badge: "bg-pink-100 text-pink-700", icon: "📞" },
-    { role: "Non-Teaching Staff", desc: "View announcements and track own attendance.", badge: "bg-gray-100 text-gray-600", icon: "🧑‍🔧" },
-  ];
-
-  const steps = [
-    {
-      num: "01",
-      icon: <Phone className="w-6 h-6" />,
-      title: "Book a Free Demo",
-      desc: "Talk to us for 30 minutes. We'll show you how the whole system works using examples from real Indian schools — no pressure.",
-      color: "bg-brand-terra/10 text-brand-terra",
-    },
-    {
-      num: "02",
-      icon: <Zap className="w-6 h-6" />,
-      title: "We Set Up Everything",
-      desc: "No IT department needed. We configure your classes, subjects, fee heads, and staff accounts. You're ready in 24 hours.",
-      color: "bg-blue-50 text-blue-600",
-    },
-    {
-      num: "03",
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Your School Goes Digital",
-      desc: "Every teacher, parent, and staff member logs into their own portal. Attendance, fees, exams — all running from day one.",
-      color: "bg-green-50 text-green-600",
-    },
-  ];
-
-  const differentiators = [
-    {
-      icon: <IndianRupee className="w-6 h-6" />,
-      title: "Designed for Indian Schools",
-      desc: "Aadhar records, Transfer Certificates, Indian board support, and fees structured the Indian way — built in from the start, not added as an afterthought.",
-      accent: "border-brand-terra/30",
-    },
-    {
-      icon: <LayoutGrid className="w-6 h-6" />,
-      title: "9 Separate Portals",
-      desc: "Every role in your school gets their own private login. The director sees the whole school. The teacher sees only their class. No confusion, no overlap.",
-      accent: "border-blue-400/30",
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      title: "Secure & 100% Private",
-      desc: "Your school's data belongs to your school — no one else. Every login is protected. Every action is logged. Full accountability, always.",
-      accent: "border-green-400/30",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "School Director",
-      org: "K-12 Private School, Pune",
-      quote: "We went from tracking admissions in WhatsApp groups to having every inquiry, Transfer Certificate, and student record in one place. The director portal gives me the whole school at a glance.",
-      initial: "D",
-      color: "bg-purple-100 text-purple-700",
-    },
-    {
-      name: "School Principal",
-      org: "CBSE School, Nashik",
-      quote: "The attendance defaulter list used to take half a day to put together every month. Now it's live on my screen the moment I log in. I know which students are falling behind before their parents do.",
-      initial: "P",
-      color: "bg-blue-100 text-blue-700",
-    },
-    {
-      name: "School Accountant",
-      org: "State Board School, Aurangabad",
-      quote: "The daily fee collection report is the first thing I check every morning. No more reconciling the ledger at the end of the day. Every payment is recorded and visible immediately.",
-      initial: "A",
-      color: "bg-green-100 text-green-700",
-    },
-  ];
-
   return (
     <>
       <Helmet>
-        <title>Infovion — School Management Software for Indian K-12 Schools</title>
-        <meta name="description" content="Infovion is a complete school management platform for K-12 schools in India. Manage admissions, attendance, exams, fees and staff with 9 dedicated portals. CBSE, ICSE and State Board ready." />
+        <title>Infovion — School Management Software for Indian Schools | 30-day free trial</title>
+        <meta name="description" content="Fees and receipts, attendance, exams, transport, TC/LC certificates and a parent app — one school management system for Indian K-12 schools. ₹50 per student per year. Start a 30-day free trial." />
         <link rel="canonical" href="https://buildwithinfovion.com/" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      <Motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+      <Hero />
+      <TrustStrip />
 
-        {/* ── HERO ───────────────────────────────────────────────────────────── */}
-        <section
-          ref={heroRef}
-          className="relative min-h-screen flex items-center justify-center overflow-hidden"
-          style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 55%, #2C2A27 100%)" }}
-          onMouseMove={(e) => {
-            const r = heroRef.current?.getBoundingClientRect();
-            if (r) setSpotPos({ x: e.clientX - r.left, y: e.clientY - r.top });
-          }}
-          onMouseEnter={() => setSpotVisible(true)}
-          onMouseLeave={() => setSpotVisible(false)}
-        >
-          <div className="absolute inset-0 bg-grid-animate opacity-60" />
-          <AuroraRays />
-          <HeroOrbs />
-          <FloatingShapes />
-          <StarField />
-          <div className="meteor-1" />
-          <div className="meteor-2" />
+      <section id="tour" className="scroll-mt-20 bg-[#161412] py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          <SectionTitle light eyebrow="See it in action" title="A normal school morning," accent="in 48 seconds."
+            sub="A real screen recording of a demo school — collecting a fee, checking attendance, transport and the director's view. Click a chapter to jump." />
+          <div className="mt-12"><TourVideo /></div>
+        </div>
+      </section>
 
-          {/* Spotlight */}
-          <div
-            className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-700"
-            style={{
-              opacity: spotVisible ? 1 : 0,
-              background: `radial-gradient(900px circle at ${spotPos.x}px ${spotPos.y}px, rgba(209,171,131,0.06), transparent 40%)`,
-            }}
-          />
+      <section className="bg-[#fbf9f8] py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          <SectionTitle eyebrow="The product" title="Everything your office does," accent="in one place."
+            sub="Real screens, not mock-ups. Pick an area to see how it works." />
+          <div className="mt-12"><ProductTabs /></div>
+        </div>
+      </section>
 
-          <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-28 pb-24">
-
-            {/* Badge */}
-            <Motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-              className="inline-flex items-center gap-2.5 border border-brand-accent/35 bg-brand-accent/10 text-brand-accent text-sm font-semibold px-5 py-2.5 rounded-full mb-10"
-            >
-              <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
-              India's Most Complete School Management Platform
-              <ChevronRight className="w-3.5 h-3.5 opacity-60" />
-            </Motion.div>
-
-            {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.05] tracking-tight">
-              <WordSlideUp text="Run Your School." className="block" delay={0.12} />
-              <WordSlideUp text="Not Spreadsheets." className="block text-brand-accent" delay={0.3} />
-            </h1>
-
-            <Motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.88, duration: 0.6 }}
-              className="text-lg sm:text-xl text-brand-cream/75 max-w-2xl mx-auto mb-10 leading-relaxed"
-            >
-              Infovion gives every person in your school their own private portal —
-              from the Director to the Receptionist. Admissions, attendance,
-              exams, fees, and parent communication. All in one place.
-            </Motion.p>
-
-            {/* CTAs */}
-            <Motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.04, duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
-            >
-              <Motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 btn-premium text-white px-8 py-4 rounded-full font-bold text-base"
-                >
-                  Book a Free Demo <ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </Motion.div>
-              <Motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-                <Link
-                  to="/features"
-                  className="inline-flex items-center gap-2 border border-brand-cream/25 text-brand-cream px-8 py-4 rounded-full font-semibold text-base hover:border-brand-cream/50 hover:bg-white/5 transition-all duration-200"
-                >
-                  See All Features <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Motion.div>
-            </Motion.div>
-
-            {/* Trust chips */}
-            <Motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-5 text-sm text-brand-neutral mb-14"
-            >
-              {["Free Demo", "No Setup Fee", "No Contract", "India-First Design"].map((item) => (
-                <span key={item} className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4 text-brand-accent" /> {item}
-                </span>
-              ))}
-            </Motion.div>
-
-            {/* Stats */}
-            <Motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.6 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-4"
-            >
-              {stats.map((s, i) => (
-                <Motion.div
-                  key={i}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="glass-card-dark rounded-2xl p-5 text-center border border-brand-accent/15 hover:border-brand-accent/35 transition-all duration-300"
-                >
-                  <div className="text-brand-terra flex justify-center mb-2">{s.icon}</div>
-                  <div className="text-3xl font-extrabold text-white mb-1">
-                    {s.prefix && <span>{s.prefix}</span>}
-                    <Counter value={s.value} suffix={s.suffix} />
-                  </div>
-                  <div className="text-xs text-brand-neutral font-medium leading-tight">{s.label}</div>
-                </Motion.div>
-              ))}
-            </Motion.div>
-          </div>
-
-          {/* Scroll indicator */}
-          <Motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <span className="text-brand-neutral/50 text-xs uppercase tracking-widest">Scroll</span>
-            <div className="w-5 h-9 rounded-full border border-brand-accent/30 flex items-start justify-center pt-1.5">
-              <div className="w-1 h-2 rounded-full bg-brand-accent/50" />
-            </div>
-          </Motion.div>
-        </section>
-
-        {/* ── PROBLEM SECTION ───────────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-brand-muted relative overflow-hidden">
-          <div className="absolute inset-0 dot-grid-fine opacity-70" />
-          <div className="relative z-10 max-w-7xl mx-auto">
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="The Problem" />
-              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
-                Most Indian schools are still<br className="hidden sm:block" /> running on outdated systems.
-              </h2>
-              <p className="text-brand-neutral max-w-2xl mx-auto text-lg leading-relaxed">
-                The same chaos appears in every school — big or small, CBSE or State Board.
-              </p>
-            </Motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {problems.map((p, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-brand-cream"
-                >
-                  <div className={`w-9 h-9 rounded-xl ${p.bg} ${p.color} flex items-center justify-center mb-4`}>
-                    {p.icon}
-                  </div>
-                  <h3 className="font-bold text-brand-dark mb-2 text-sm leading-snug">{p.title}</h3>
-                  <p className="text-xs text-brand-neutral leading-relaxed">{p.desc}</p>
-                </Motion.div>
-              ))}
-            </div>
-
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-14 text-center">
-              <div className="inline-block bg-white rounded-2xl px-8 py-5 shadow-card border border-brand-cream">
-                <p className="text-xl sm:text-2xl font-bold text-brand-dark">
-                  Infovion fixes all of this.{" "}
-                  <span className="text-gradient-terra">One platform. Every operation. Every role.</span>
-                </p>
-              </div>
-            </Motion.div>
-          </div>
-        </section>
-
-        {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-              <SectionLabel text="How It Works" />
-              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
-                Up and running in{" "}
-                <span className="text-gradient-terra">3 simple steps.</span>
-              </h2>
-              <p className="text-brand-neutral max-w-xl mx-auto text-lg">
-                No IT team needed. No weeks of training. Your school is fully set up within 24 hours of your demo.
-              </p>
-            </Motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-              {/* Connector lines (desktop only) */}
-              <div className="hidden md:block absolute top-[52px] left-[calc(33.33%+8px)] right-[calc(33.33%+8px)] h-px bg-gradient-to-r from-brand-terra/40 via-brand-accent/30 to-brand-terra/40" />
-
-              {steps.map((s, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -6 }}
-                  className="relative text-center"
-                >
-                  {/* Step number */}
-                  <div className="relative inline-flex items-center justify-center mb-6">
-                    <div className={`w-16 h-16 rounded-2xl ${s.color} flex items-center justify-center shadow-card relative z-10`}>
-                      {s.icon}
-                    </div>
-                    <span className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-brand-dark text-white text-xs font-bold flex items-center justify-center z-20">
-                      {s.num}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-brand-dark mb-3">{s.title}</h3>
-                  <p className="text-sm text-brand-neutral leading-relaxed max-w-xs mx-auto">{s.desc}</p>
-                </Motion.div>
-              ))}
-            </div>
-
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-12">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 btn-premium text-white px-8 py-4 rounded-full font-bold text-base"
-              >
-                Start with a Free Demo <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </Motion.div>
-          </div>
-        </section>
-
-        {/* ── STATS BAND ────────────────────────────────────────────────────── */}
-        <section
-          className="py-16 px-6 relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #2C2A27 0%, #5A4A48 100%)" }}
-        >
-          <div className="absolute inset-0 bg-grid-animate opacity-70" />
-          <AuroraRays />
-          <StarField />
-          <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.14)" }} />
-          <div className="relative z-10 max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-              {[
-                { value: 9, suffix: "", label: "Role Portals", sub: "Every person has their own space" },
-                { value: 20, suffix: "+", label: "Features", sub: "All live and ready to use" },
-                { value: 30, suffix: " min", label: "Demo Session", sub: "See everything in one sitting" },
-                { value: 24, suffix: "hrs", label: "Setup Time", sub: "From demo to fully live" },
-              ].map((s, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  className="text-center py-4"
-                >
-                  <div className="text-4xl lg:text-5xl font-extrabold text-white mb-1">
-                    <Counter value={s.value} suffix={s.suffix} />
-                  </div>
-                  <div className="text-brand-accent font-semibold text-sm mb-1">{s.label}</div>
-                  <div className="text-brand-neutral/70 text-xs">{s.sub}</div>
-                </Motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── FEATURES GRID ─────────────────────────────────────────────────── */}
-        <section
-          className="py-24 px-6 bg-brand-cream/40 relative"
-          onMouseMove={(e) => {
-            const r = e.currentTarget.getBoundingClientRect();
-            const el = e.currentTarget.querySelector(".spotlight-layer");
-            if (el) el.style.background = `radial-gradient(600px circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(190,109,86,0.04), transparent 40%)`;
-          }}
-        >
-          <div className="spotlight-layer absolute inset-0 pointer-events-none" />
-          <div className="relative z-10 max-w-7xl mx-auto">
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="What It Does" />
-              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
-                Everything your school needs,<br className="hidden sm:block" /> in one platform.
-              </h2>
-              <p className="text-brand-neutral max-w-xl mx-auto text-lg">
-                From the first student enquiry to the final exam result — completely handled.
-              </p>
-            </Motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {modules.map((m, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="group bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-brand-cream"
-                >
-                  <div className={`w-10 h-10 rounded-xl ${m.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {React.cloneElement(m.icon, { className: "w-5 h-5" })}
-                  </div>
-                  <h3 className="font-bold text-brand-dark mb-2">{m.title}</h3>
-                  <p className="text-sm text-brand-neutral leading-relaxed">{m.desc}</p>
-                </Motion.div>
-              ))}
-            </div>
-
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
-              <Link to="/features" className="inline-flex items-center gap-2 text-brand-terra font-semibold hover:underline text-sm group">
-                See every feature in detail
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Motion.div>
-          </div>
-        </section>
-
-        {/* ── PORTALS ───────────────────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="Role Portals" />
-              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-5">
-                Every person in your school<br className="hidden sm:block" /> gets their own private portal.
-              </h2>
-              <p className="text-brand-neutral max-w-2xl mx-auto text-lg leading-relaxed">
-                Not one admin panel with hidden buttons. Nine separate logins, each designed
-                for exactly what that person needs to do — nothing more, nothing less.
-              </p>
-            </Motion.div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {portals.slice(0, 5).map((p, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -6 }}
-                  className="bg-brand-muted rounded-2xl p-5 border border-brand-cream hover:border-brand-accent/40 hover:shadow-terra-sm transition-all duration-300"
-                >
-                  <div className="text-2xl mb-3">{p.icon}</div>
-                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-2 ${p.badge}`}>{p.role}</span>
-                  <p className="text-xs text-brand-neutral leading-relaxed">{p.desc}</p>
-                </Motion.div>
-              ))}
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
-              {portals.slice(5).map((p, i) => (
-                <Motion.div
-                  key={i} custom={i + 5} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -6 }}
-                  className="bg-brand-muted rounded-2xl p-5 border border-brand-cream hover:border-brand-accent/40 hover:shadow-terra-sm transition-all duration-300"
-                >
-                  <div className="text-2xl mb-3">{p.icon}</div>
-                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-2 ${p.badge}`}>{p.role}</span>
-                  <p className="text-xs text-brand-neutral leading-relaxed">{p.desc}</p>
-                </Motion.div>
-              ))}
-            </div>
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
-              <Link to="/portals" className="inline-flex items-center gap-2 text-brand-terra font-semibold hover:underline text-sm group">
-                See what each portal can do
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Motion.div>
-          </div>
-        </section>
-
-        {/* ── WHY INFOVION ──────────────────────────────────────────────────── */}
-        <section
-          className="py-24 px-6 relative overflow-hidden"
-          style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 60%, #2C2A27 100%)" }}
-        >
-          <div className="absolute inset-0 bg-grid-animate opacity-60" />
-          <AuroraRays />
-          <StarField />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.14)" }} />
-          <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.10)" }} />
-
-          <div className="relative z-10 max-w-6xl mx-auto">
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="Why Infovion" light />
-              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-5">
-                Not just another school app.
-              </h2>
-              <p className="text-brand-cream/65 max-w-xl mx-auto text-lg">
-                Most school software is built for Western schools and poorly adapted for India. Infovion is built ground-up for the way Indian schools actually work.
-              </p>
-            </Motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {differentiators.map((d, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
-                  className={`rounded-2xl p-8 border ${d.accent} hover:border-brand-accent/50 transition-all duration-300`}
-                  style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(8px)" }}
-                >
-                  <div className="inline-flex p-3 rounded-xl bg-brand-terra/20 text-brand-accent mb-5">{d.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{d.title}</h3>
-                  <p className="text-brand-cream/65 leading-relaxed text-sm">{d.desc}</p>
-                </Motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── TESTIMONIALS ──────────────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-brand-muted relative overflow-hidden">
-          <div className="absolute inset-0 dot-grid-fine opacity-60" />
-          <div className="relative z-10 max-w-6xl mx-auto">
-            <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
-              <SectionLabel text="What Schools Say" />
-              <h2 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-3">
-                Trusted by school administrators.
-              </h2>
-              <p className="text-brand-neutral text-lg">Real feedback from real schools.</p>
-            </Motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((t, i) => (
-                <Motion.div
-                  key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                  className="bg-white rounded-2xl p-7 shadow-card hover:shadow-card-hover transition-all duration-300 border border-brand-cream flex flex-col"
-                >
-                  {/* Stars */}
-                  <div className="flex gap-0.5 mb-5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-brand-accent text-brand-accent" />
-                    ))}
-                  </div>
-                  {/* Quote */}
-                  <div className="flex-1 mb-5">
-                    <p className="text-xl text-brand-neutral/30 font-serif leading-none mb-2">"</p>
-                    <p className="text-brand-dark/80 text-sm leading-relaxed">{t.quote}</p>
-                  </div>
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-brand-cream">
-                    <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center font-bold text-sm flex-shrink-0`}>
-                      {t.initial}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-brand-dark text-sm">{t.name}</p>
-                      <p className="text-xs text-brand-neutral">{t.org}</p>
-                    </div>
-                  </div>
-                </Motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
-        <section className="py-24 px-6 bg-white">
-          <Motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="max-w-4xl mx-auto">
-            <div
-              className="relative rounded-3xl p-12 lg:p-16 text-center overflow-hidden"
-              style={{ background: "linear-gradient(145deg, #BE6D56 0%, #5A4A48 100%)" }}
-            >
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute inset-0 bg-grid-animate opacity-40" />
-                <AuroraRays />
-                <StarField />
-                <div className="absolute w-80 h-80 rounded-full blur-3xl -top-20 -right-20" style={{ background: "rgba(255,255,255,0.07)" }} />
-                <div className="absolute w-56 h-56 rounded-full blur-3xl -bottom-14 -left-14" style={{ background: "rgba(255,255,255,0.07)" }} />
-              </div>
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 text-brand-cream/90 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
-                  Free Demo — No Commitment
-                </div>
-                <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-5 leading-tight">
-                  Ready to modernise<br className="hidden sm:block" /> your school?
-                </h2>
-                <p className="text-brand-cream/75 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-                  See every module and portal in a 30-minute live demo.
-                  We'll walk through your school's exact workflow — admissions, attendance, fees, and more.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center gap-2 bg-white text-brand-terra px-8 py-4 rounded-full font-bold text-base shadow-lg hover:bg-brand-cream transition-colors"
-                    >
-                      Schedule a Free Demo <ArrowUpRight className="w-4 h-4" />
-                    </Link>
-                  </Motion.div>
-                  <Motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-                    <Link
-                      to="/for-schools"
-                      className="inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-white/10 transition-colors"
-                    >
-                      See How It Works <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Motion.div>
-                </div>
-                {/* Email line */}
-                <p className="mt-8 text-brand-cream/50 text-sm">
-                  Or email us at{" "}
-                  <a href="mailto:infovion2025@gmail.com" className="text-brand-cream/80 underline underline-offset-2 hover:text-white transition-colors">
-                    infovion2025@gmail.com
-                  </a>
-                </p>
-              </div>
-            </div>
-          </Motion.div>
-        </section>
-
-      </Motion.main>
+      <BuiltForIndia />
+      <Portals />
+      <PricingTeaser />
+      <Security />
+      <Faq />
+      <FinalCta />
     </>
   );
 }

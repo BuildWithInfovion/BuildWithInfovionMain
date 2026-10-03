@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
+import { Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
 import logo from "/src/assets/logo.png";
 
 const productLinks = [
@@ -21,8 +21,6 @@ const companyLinks = [
 
 const socialLinks = [
   { href: "https://www.linkedin.com/company/112026919/", label: "LinkedIn",    icon: <Linkedin className="w-4 h-4" /> },
-  { href: "#",                                           label: "Twitter (X)", icon: <Twitter className="w-4 h-4" /> },
-  { href: "#",                                           label: "Instagram",   icon: <Instagram className="w-4 h-4" /> },
 ];
 
 const FooterLink = ({ to, label }) => (
@@ -37,11 +35,14 @@ const FooterLink = ({ to, label }) => (
 );
 
 export default function Footer() {
+  // The home and trial pages end with their own call to action
+  const { pathname } = useLocation();
+  const showStrip = !["/", "/free-trial"].includes(pathname);
   return (
     <footer className="bg-brand-darker">
 
       {/* ── CTA STRIP ──────────────────────────────────────────────────────── */}
-      <div
+      {showStrip && <div
         className="relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #BE6D56 0%, #5A4A48 100%)" }}
       >
@@ -49,19 +50,19 @@ export default function Footer() {
         <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(255,255,255,0.06)" }} />
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-5 relative z-10">
           <div>
-            <p className="font-bold text-white text-lg">Ready to modernise your school?</p>
-            <p className="text-brand-cream/70 text-sm mt-0.5">Free demo · No setup fee · No long-term contract</p>
+            <p className="font-bold text-white text-lg">Try Infovion with your own school</p>
+            <p className="text-brand-cream/70 text-sm mt-0.5">30 days free · No card needed · Set up the same day</p>
           </div>
           <Motion.div whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.96 }} className="flex-shrink-0">
             <Link
-              to="/contact"
+              to="/free-trial"
               className="inline-flex items-center gap-2 bg-white text-brand-terra px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-black/20 hover:bg-brand-cream transition-colors"
             >
-              Schedule a Free Demo <ArrowUpRight className="w-4 h-4" />
+              Start your free trial <ArrowUpRight className="w-4 h-4" />
             </Link>
           </Motion.div>
         </div>
-      </div>
+      </div>}
 
       {/* ── MAIN FOOTER ────────────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -88,13 +89,13 @@ export default function Footer() {
 
             <div className="space-y-2.5">
               <a
-                href="mailto:infovion2025@gmail.com"
+                href="mailto:contact@buildwithinfovion.com"
                 className="flex items-center gap-2.5 text-sm text-brand-neutral/65 hover:text-brand-accent transition-colors group"
               >
                 <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-terra/20 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </span>
-                infovion2025@gmail.com
+                contact@buildwithinfovion.com
               </a>
               <div className="flex items-center gap-2.5 text-sm text-brand-neutral/65">
                 <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0">
@@ -178,8 +179,8 @@ export default function Footer() {
             {/* Quick contact */}
             <div className="mt-6 p-4 rounded-xl border border-brand-brown/40 bg-brand-brown/10">
               <p className="text-xs text-brand-neutral/50 mb-2 font-medium">Questions? Write to us</p>
-              <a href="mailto:infovion2025@gmail.com" className="text-xs text-brand-accent/80 hover:text-brand-accent transition-colors">
-                infovion2025@gmail.com
+              <a href="mailto:contact@buildwithinfovion.com" className="text-xs text-brand-accent/80 hover:text-brand-accent transition-colors">
+                contact@buildwithinfovion.com
               </a>
             </div>
           </div>

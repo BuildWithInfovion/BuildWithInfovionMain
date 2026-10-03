@@ -1,20 +1,21 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Features from "./pages/Features";
-import Portals from "./pages/Portals";
-import ForSchools from "./pages/ForSchools";
-import Pricing from "./pages/Pricing";
-import Contact from "./pages/Contact";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
+const About = lazy(() => import("./pages/About"));
+const Features = lazy(() => import("./pages/Features"));
+const Portals = lazy(() => import("./pages/Portals"));
+const ForSchools = lazy(() => import("./pages/ForSchools"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Contact = lazy(() => import("./pages/Contact"));
+const FreeTrial = lazy(() => import("./pages/FreeTrial"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 
@@ -30,13 +31,13 @@ const globalSchema = {
       url: DOMAIN,
       logo: {
         "@type": "ImageObject",
-        url: `${DOMAIN}/src/assets/logo.png`,
+        url: `${DOMAIN}/logo.png`,
         width: 512,
         height: 512,
       },
       description:
         "Infovion Technologies is a Pune-based company building school management software for K-12 schools across India.",
-      email: "infovion2025@gmail.com",
+      email: "contact@buildwithinfovion.com",
       telephone: "+919309193613",
       address: {
         "@type": "PostalAddress",
@@ -61,7 +62,7 @@ const globalSchema = {
         },
         {
           "@type": "ContactPoint",
-          email: "infovion2025@gmail.com",
+          email: "contact@buildwithinfovion.com",
           contactType: "customer support",
           areaServed: "IN",
         },
@@ -158,13 +159,13 @@ function App() {
         <meta property="og:url" content={DOMAIN} />
         <meta property="og:site_name" content="Infovion" />
         <meta property="og:locale" content="en_IN" />
-        <meta property="og:image" content={`${DOMAIN}/src/assets/logo.png`} />
+        <meta property="og:image" content={`${DOMAIN}/og-image.jpg`} />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Infovion — School Management Software India" />
         <meta name="twitter:description" content="School management software for K-12 India. Admissions, attendance, exams, fees, 9 role portals. Free demo." />
-        <meta name="twitter:image" content={`${DOMAIN}/src/assets/logo.png`} />
+        <meta name="twitter:image" content={`${DOMAIN}/og-image.jpg`} />
 
         <meta name="theme-color" content="#BE6D56" />
 
@@ -176,6 +177,7 @@ function App() {
         <ScrollToTop />
         <WhatsAppButton />
         <MainLayout>
+          <Suspense fallback={<div className="min-h-screen bg-[#161412]" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
@@ -186,6 +188,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/free-trial" element={<FreeTrial />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route
@@ -206,6 +209,7 @@ function App() {
               }
             />
           </Routes>
+          </Suspense>
         </MainLayout>
       </Router>
     </HelmetProvider>

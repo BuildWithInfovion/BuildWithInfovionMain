@@ -361,10 +361,10 @@ export default function About() {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-brand-terra flex-shrink-0" />
                 <a
-                  href="mailto:infovion2025@gmail.com"
+                  href="mailto:contact@buildwithinfovion.com"
                   className="text-brand-brown hover:text-brand-terra transition-colors text-sm"
                 >
-                  infovion2025@gmail.com
+                  contact@buildwithinfovion.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
