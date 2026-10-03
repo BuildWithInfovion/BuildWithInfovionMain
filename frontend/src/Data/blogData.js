@@ -21,7 +21,7 @@ export const blogPosts = [
       <p>Beyond time, paper registers have no parent notification system. If a child is absent, a parent only finds out if the school calls them — and most schools don't have the bandwidth to do that consistently. Digital attendance systems solve both problems: marking is faster, and parent alerts can be automated.</p>
       <h2 class="text-2xl font-bold my-6 text-brand-dark">What to Look For in a Digital Attendance System</h2>
       <p>When evaluating attendance software for your school, look for: one-tap marking with bulk options (All Present, All Absent), a defaulter list that auto-calculates students below a threshold like 75%, monthly reports per student, and ideally, parent SMS or push notifications on absence.</p>
-      <p>Infovion's attendance module includes all of these — built specifically for Indian K-12 schools, where class sizes and reporting expectations are well understood.</p>
+      <p>Infovion's attendance module covers the essentials — one-tap and bulk marking on any phone, automatic below-75% lists and monthly reports — and parents see their child's attendance in the parent portal the same day. It is built for Indian K-12 schools, where class sizes and reporting expectations are well understood.</p>
     `,
   },
   {
@@ -83,13 +83,13 @@ export const blogPosts = [
     tags: ["Admissions", "Transfer Certificate", "India"],
     featured: false,
     image:
-      "https://images.unsplash.com/photo-1568667256549-094345857aba?q=80&w=2215&auto=format&fit=crop",
+      "/film/documents.webp",
     content: `
       <p>The Transfer Certificate (TC) is one of the most uniquely Indian aspects of school administration. A student transferring from another school must present their TC before enrollment can be completed — and schools must maintain records of TCs received and issued. This is a regulatory requirement, not a nice-to-have.</p>
       <p>Yet in most schools, TC verification is a manual process: the admissions officer checks the physical document, makes a copy, and files it. There's no system tracking which TCs have been received, which students required one (Class 1 students typically don't), or when one was issued to an outgoing student.</p>
       <h2 class="text-2xl font-bold my-6 text-brand-dark">What a Digital TC Workflow Looks Like</h2>
       <p>In Infovion, TC validation is built into the admission flow. For Class 1 admissions, the TC requirement is automatically skipped. For Class 2 and above, the system enforces TC capture before completing enrollment. This means no student can be enrolled without the compliance step being acknowledged.</p>
-      <p>For outgoing students, TC generation (including the standardized format used by Indian boards) is part of the roadmap — allowing schools to issue TCs digitally with all required fields pre-filled from the student record.</p>
+      <p>For outgoing students, TC generation is built in: parents apply online, the principal approves the request, and the office issues a one-page TC in the school's own format — CBSE-style English, the Maharashtra Leaving Certificate in Marathi, or Hindi — filled from the student record. The student then moves to the former-students list automatically, with every certificate kept in a register.</p>
     `,
   },
   {

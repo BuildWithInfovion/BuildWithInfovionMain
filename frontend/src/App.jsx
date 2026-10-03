@@ -86,7 +86,7 @@ const globalSchema = {
       operatingSystem: "Web, iOS, Android",
       url: DOMAIN,
       description:
-        "School management software for K-12 schools in India. Covers admissions, attendance, examinations, fee collection, staff management, timetable, and announcements — with 9 role-specific portals for Director, Principal, Teacher, Student, Parent, Accountant, Operator, Receptionist, and Non-Teaching Staff.",
+        "School management software for K-12 schools in India. Covers admissions, attendance, examinations, fee collection, staff management, timetable, and announcements — with 8 role-specific portals for Director, Principal, Operator, Accountant, Receptionist, Teacher, Non-Teaching Staff and Parent.",
       offers: {
         "@type": "Offer",
         priceCurrency: "INR",
@@ -108,7 +108,7 @@ const globalSchema = {
         "Examination & Results Management with rank lists",
         "Fee Management with Indian fee head standards",
         "Staff Management with role-based access",
-        "Student Portal and Parent Portal",
+        "Parent Portal with attendance, fees, results and bus tracking",
         "Weekly Timetable Management",
         "School Announcements",
         "Transfer Certificate (TC) Validation",
@@ -158,7 +158,7 @@ export function AppRoutes() {
         <title>Infovion — School Management Software for K-12 Schools in India</title>
         <meta
           name="description"
-          content="School management software for K-12 schools in India. Manage admissions, attendance, exams, fees & staff with 9 role-specific portals. CBSE, ICSE & State Board ready. Free demo."
+          content="School management software for K-12 schools in India. Manage admissions, attendance, exams, fees & staff with 8 role-specific portals. CBSE, ICSE & State Board ready. Free demo."
         />
         <meta
           name="keywords"
@@ -173,7 +173,7 @@ export function AppRoutes() {
 
         {/* Open Graph */}
         <meta property="og:title" content="Infovion — School Management Software for K-12 India" />
-        <meta property="og:description" content="School management software for India. Admissions, attendance, exams, fees, staff — 9 role-specific portals. CBSE, ICSE & State Board. Free demo." />
+        <meta property="og:description" content="School management software for India. Admissions, attendance, exams, fees, staff — 8 role-specific portals. CBSE, ICSE & State Board. Free demo." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url || DOMAIN} />
         <meta property="og:site_name" content="Infovion" />
@@ -183,7 +183,7 @@ export function AppRoutes() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Infovion — School Management Software India" />
-        <meta name="twitter:description" content="School management software for K-12 India. Admissions, attendance, exams, fees, 9 role portals. Free demo." />
+        <meta name="twitter:description" content="School management software for K-12 India. Admissions, attendance, exams, fees, 8 role portals. Free demo." />
         <meta name="twitter:image" content={`${DOMAIN}/og-image.jpg`} />
 
         <meta name="theme-color" content="#0D9488" />

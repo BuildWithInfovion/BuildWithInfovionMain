@@ -42,7 +42,7 @@ const values = [
   {
     icon: <Smartphone className="w-6 h-6" />,
     title: "Mobile-First Reality",
-    desc: "All 9 portals work on any smartphone. Designed for Tier 2 and Tier 3 India where mobile is the primary — and often only — internet device.",
+    desc: "All 8 portals work on any smartphone. Designed for Tier 2 and Tier 3 India where mobile is the primary — and often only — internet device.",
   },
 ];
 
@@ -211,7 +211,7 @@ export default function About() {
                 The Solution
               </p>
               <h2 className="text-4xl font-bold text-brand-dark mb-5">
-                Eight modules. Nine portals. One platform.
+                Eight modules. Eight portals. One platform.
               </h2>
               <p className="text-brand-neutral leading-relaxed max-w-2xl mx-auto">
                 Infovion covers every operation a K-12 school runs — from the first student inquiry

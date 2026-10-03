@@ -85,7 +85,7 @@ const indiaFeatures = [
   {
     icon: <Smartphone className="w-5 h-5" />,
     title: "Works on Any Smartphone",
-    desc: "All 9 portals are fully mobile-responsive. Designed for Tier 2 and Tier 3 India where mobile is the primary internet connection for most staff and parents.",
+    desc: "All 8 portals are fully mobile-responsive. Designed for Tier 2 and Tier 3 India where mobile is the primary internet connection for most staff and parents.",
   },
   {
     icon: <IndianRupee className="w-5 h-5" />,
@@ -99,7 +99,7 @@ const schoolTypes = [
     type: "Private K-12 Schools",
     boards: "CBSE · ICSE · State Board",
     size: "200 to 3,000 students",
-    fit: "Primary target — all 9 portals and all 8 modules are built for this segment.",
+    fit: "Primary target — all 8 portals and all 8 modules are built for this segment.",
     badge: "Best Fit",
     highlight: true,
   },

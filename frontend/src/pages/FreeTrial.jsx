@@ -14,7 +14,7 @@ const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I'
 
 const INCLUDED = [
   "Every module: fees, attendance, exams, transport, certificates",
-  "All 9 portals, including the parent portal",
+  "All 8 portals, including the parent portal",
   "Up to 50 students — sample data already loaded",
   "Bring in a class from Excel whenever you're ready",
   "A guided walkthrough for your office, if you'd like one",

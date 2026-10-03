@@ -333,3 +333,21 @@
 @media (prefers-reduced-motion: reduce) {
   .aurora-a, .aurora-b, .aurora-c, .marquee, .float-y, .float-y-slow, .beam-dash, .text-gradient-aurora, .glow-border::before { animation: none !important; }
 }
+
+/* Blog articles on the dark theme (content HTML comes from Data/blogData.js) */
+.article-dark { color: #cbd5e1; font-size: 17px; line-height: 1.85; }
+.article-dark p { margin: 0 0 1.25em; color: #cbd5e1 !important; }
+.article-dark h2 { margin: 2em 0 .7em !important; font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 1.6rem !important; line-height: 1.25; font-weight: 800; color: #fff !important; letter-spacing: -0.01em; }
+.article-dark h3 { margin: 1.6em 0 .5em !important; font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 1.25rem !important; font-weight: 700; color: #fff !important; }
+.article-dark ul, .article-dark ol { margin: 0 0 1.25em 1.3em; }
+.article-dark ul { list-style: disc; } .article-dark ol { list-style: decimal; }
+.article-dark li { margin: .35em 0; color: #cbd5e1 !important; }
+.article-dark li::marker { color: #5eead4; }
+.article-dark strong, .article-dark b { color: #fff !important; }
+.article-dark a { color: #5eead4 !important; text-decoration: underline; text-underline-offset: 3px; }
+.article-dark blockquote { border-left: 3px solid #2dd4bf; padding: .4em 1em; margin: 1.5em 0; color: #e2e8f0; background: rgba(255,255,255,.03); border-radius: 0 12px 12px 0; }
+.article-dark table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; }
+.article-dark th, .article-dark td { border: 1px solid rgba(148,163,184,.18); padding: .6em .8em; text-align: left; color: #cbd5e1 !important; }
+.article-dark th { color: #fff !important; background: rgba(255,255,255,.04); }
+.article-dark [class*="bg-"] { background-color: rgba(255,255,255,.04) !important; }
+.article-dark [class*="border-"] { border-color: rgba(148,163,184,.18) !important; }

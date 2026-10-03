@@ -96,7 +96,7 @@ function Hero() {
 
 function Stats() {
   const items = [
-    [<CountUp key="a" to={9} />, "role portals, one login each"],
+    [<CountUp key="a" to={8} />, "role portals, one login each"],
     [<CountUp key="b" to={12} suffix="+" />, "modules, all included"],
     [<CountUp key="c" to={50} prefix="₹" />, "per student, per year"],
     [<CountUp key="d" to={30} />, "day free trial, no card"],
@@ -160,7 +160,7 @@ function Portals() {
       <Aurora />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-6 lg:grid-cols-[1fr_1.1fr]">
         <div>
-          <SectionHead kicker="Nine portals · one school" title="Everyone sees exactly" accent="what they need."
+          <SectionHead kicker="Eight portals · one school" title="Everyone sees exactly" accent="what they need."
             sub="The accountant sees fees, the teacher sees their classes, the parent sees their own child — and nothing else. Each login opens to the right screen." />
           <ul className="mt-8 space-y-3">
             {[
@@ -201,7 +201,7 @@ function PricingTeaser() {
           <SectionHead kicker="Simple pricing" title="₹50 per student," accent="per year."
             sub="One price, every module, every portal. No setup fee, no per-module charges, no surprise invoices. Data import and onboarding included." />
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {["All 9 portals", "Fees, receipts & online payments", "Attendance, exams & report cards", "Transport & live bus", "Certificates & ID cards", "Onboarding & data import", "Email & WhatsApp support", "30-day free trial"].map((t) => (
+            {["All 8 portals", "Fees, receipts & online payments", "Attendance, exams & report cards", "Transport & live bus", "Certificates & ID cards", "Onboarding & data import", "Email & WhatsApp support", "30-day free trial"].map((t) => (
               <li key={t} className="flex items-center gap-2 text-sm text-slate-300"><Check className="h-4 w-4 text-teal-300" /> {t}</li>
             ))}
           </ul>

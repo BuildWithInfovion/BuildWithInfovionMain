@@ -17,7 +17,7 @@ const INCLUDED = [
   ["Transport", "Routes, stops, fares, bus attendance, live bus location, vehicle documents"],
   ["Certificates", "TC / LC (English, Marathi, Hindi), bonafide, character certificate, ID cards"],
   ["Staff", "Staff records, staff attendance, leave and salaries"],
-  ["All 9 portals", "Director, Principal, Operator, Accountant, Reception, Teacher, Staff, Parent, Student"],
+  ["All 8 portals", "Director, Principal, Operator, Accountant, Reception, Teacher, Non-teaching staff, Parent"],
   ["Onboarding", "Set-up, data import from Excel, training for your office, email & WhatsApp support"],
 ];
 

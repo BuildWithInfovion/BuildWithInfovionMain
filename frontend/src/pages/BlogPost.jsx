@@ -1,31 +1,14 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { blogPosts } from "../Data/blogData";
-import { Calendar, Clock, User, ArrowLeft, ArrowRight, Tag } from "lucide-react";
+import { CATEGORY_LABEL } from "../Data/blogCategories";
+import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
 
-const formatDate = (dateString) => {
-  return new Date(dateString).toLocaleDateString("en-IN", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
-const categoryLabel = {
-  attendance: "Attendance",
-  fees:       "Fee Management",
-  portals:    "Portals",
-  admissions: "Admissions",
-};
-
-const categoryStyle = {
-  attendance: "bg-blue-50 text-blue-700",
-  fees:       "bg-green-50 text-green-700",
-  portals:    "bg-purple-50 text-purple-700",
-  admissions: "bg-orange-50 text-orange-700",
-};
+const DOMAIN = "https://buildwithinfovion.com";
+const abs = (u) => (u.startsWith("http") ? u : `${DOMAIN}${u}`);
+const fmt = (d) => new Date(d).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" });
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -33,201 +16,101 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="pt-24 text-center py-20 px-6">
-        <h1 className="text-4xl font-bold text-brand-dark mb-4">Article not found</h1>
-        <p className="text-brand-neutral mb-8">This article may have been moved or removed.</p>
-        <Link to="/blog" className="btn-premium inline-flex items-center gap-2 text-white px-6 py-3 rounded-full font-bold text-sm">
-          <ArrowLeft className="w-4 h-4" /> Back to Blog
-        </Link>
+      <div className="bg-ink px-6 pb-24 pt-40 text-center">
+        <h1 className="font-display text-4xl font-extrabold text-white">Article not found</h1>
+        <p className="mt-3 text-slate-400">This article may have been moved or removed.</p>
+        <Link to="/blog" className="mt-8 inline-flex items-center gap-2 text-teal-300"><ArrowLeft className="h-4 w-4" /> Back to the blog</Link>
       </div>
     );
   }
 
-  const relatedPosts = blogPosts
-    .filter((p) => p.category === post.category && p.id !== post.id)
-    .slice(0, 2);
-
-  const absoluteUrl = `https://buildwithinfovion.com/blog/${slug}`;
-
+  const url = `${DOMAIN}/blog/${slug}`;
+  const sameCat = blogPosts.filter((p) => p.category === post.category && p.slug !== post.slug);
+  const related = [...sameCat, ...blogPosts.filter((p) => p.category !== post.category && p.slug !== post.slug)].slice(0, 3);
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
     headline: post.title,
-    image: [post.image],
+    image: [abs(post.image)],
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      "@type": "Organization",
-      name: "Infovion Technologies",
-      url: "https://buildwithinfovion.com",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Infovion Technologies",
-      url: "https://buildwithinfovion.com",
-      logo: { "@type": "ImageObject", url: "https://buildwithinfovion.com/src/assets/logo.png" },
-    },
+    author: { "@type": "Organization", name: "Infovion", url: DOMAIN },
+    publisher: { "@type": "Organization", name: "Infovion", url: DOMAIN, logo: { "@type": "ImageObject", url: `${DOMAIN}/logo.png` } },
     description: post.excerpt,
   };
 
   return (
-    <>
+    <div className="bg-ink">
       <Helmet>
-        <title>{post.title} | Infovion School Management Blog</title>
+        <title>{`${post.title} | Infovion Blog`}</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={absoluteUrl} />
+        <link rel="canonical" href={url} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content={post.image} />
-        <meta property="og:url" content={absoluteUrl} />
+        <meta property="og:image" content={abs(post.image)} />
+        <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
 
-      <Motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="pt-24"
-      >
-        {/* Article header */}
-        <header className="py-16 px-6 bg-brand-dark relative overflow-hidden">
-          <div className="absolute inset-0 dot-grid-dark opacity-20 pointer-events-none" />
-          <div className="max-w-3xl mx-auto text-center relative z-10">
-            <Motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
-              className="flex items-center justify-center gap-3 mb-5"
-            >
-              <Link
-                to="/blog"
-                className="flex items-center gap-1.5 text-xs text-brand-neutral/60 hover:text-brand-accent transition-colors font-medium"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" /> Blog
-              </Link>
-              <span className="text-brand-neutral/30">/</span>
-              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${categoryStyle[post.category] || "bg-brand-cream text-brand-brown"}`}>
-                {categoryLabel[post.category] || post.category}
-              </span>
-            </Motion.div>
-            <Motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
-              className="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight"
-            >
-              {post.title}
-            </Motion.h1>
-            <Motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
-              className="flex justify-center items-center flex-wrap gap-x-6 gap-y-2 text-sm text-brand-neutral/70"
-            >
-              <span className="flex items-center gap-1.5">
-                <User className="w-4 h-4" /> {post.author}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4" /> {formatDate(post.date)}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4" /> {post.readTime}
-              </span>
-            </Motion.div>
+      <header className="noise relative overflow-hidden pb-14 pt-32 sm:pt-40">
+        <img src={post.image} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-15 blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05070d]/60 via-[#05070d]/85 to-[#05070d]" />
+        <Aurora />
+        <div className="relative mx-auto max-w-3xl px-5 sm:px-6">
+          <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"><ArrowLeft className="h-4 w-4" /> Blog</Link>
+          <div className="mt-5"><Kicker>{CATEGORY_LABEL[post.category] ?? post.category}</Kicker></div>
+          <h1 className="mt-5 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl">{post.title}</h1>
+          <p className="mt-5 text-lg leading-relaxed text-slate-400">{post.excerpt}</p>
+          <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500">
+            <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {fmt(post.date)}</span>
+            <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.readTime}</span>
+            <span>By {post.author}</span>
+          </p>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-3xl px-5 sm:px-6">
+        <div className="overflow-hidden rounded-3xl ring-1 ring-white/10">
+          <img src={post.image} alt={post.title} className="aspect-[16/8] w-full object-cover" />
+        </div>
+        <article className="article-dark mt-12" dangerouslySetInnerHTML={{ __html: post.content }} />
+
+        {post.tags?.length > 0 && (
+          <div className="mt-10 flex flex-wrap gap-2">
+            {post.tags.map((t) => <span key={t} className="rounded-full glass px-3 py-1 text-xs text-slate-300">#{t}</span>)}
           </div>
-        </header>
-
-        {/* Featured image */}
-        <Motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.5 } }}
-          className="max-w-4xl mx-auto px-6 -mt-8 relative z-10 mb-12"
-        >
-          <div className="h-80 sm:h-96 w-full rounded-3xl shadow-xl overflow-hidden">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </Motion.div>
-
-        {/* Article content */}
-        <article className="max-w-3xl mx-auto px-6 pb-16">
-          <Motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 0.5 } }}
-            className="article-content text-brand-brown leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-
-          {/* Tags */}
-          <div className="mt-12 pt-8 border-t border-brand-cream flex flex-wrap items-center gap-2">
-            <Tag className="w-4 h-4 text-brand-neutral/50" />
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-brand-cream text-brand-brown text-xs font-semibold rounded-full border border-brand-cream"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </article>
-
-        {/* Related articles */}
-        {relatedPosts.length > 0 && (
-          <aside className="py-16 px-6 bg-brand-cream/30 border-t border-brand-cream">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xs font-bold text-brand-terra uppercase tracking-widest mb-8 text-center">Related Articles</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {relatedPosts.map((relatedPost) => (
-                  <Link
-                    to={`/blog/${relatedPost.slug}`}
-                    key={relatedPost.id}
-                    className="group bg-white border border-brand-cream rounded-2xl overflow-hidden hover:border-brand-accent/40 hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="overflow-hidden h-40">
-                      <img
-                        src={relatedPost.image}
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="text-sm font-bold text-brand-dark group-hover:text-brand-terra transition-colors leading-snug mb-1">
-                        {relatedPost.title}
-                      </h3>
-                      <p className="text-xs text-brand-neutral leading-relaxed line-clamp-2">{relatedPost.excerpt}</p>
-                      <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-terra group-hover:gap-2 transition-all">
-                        Read <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </aside>
         )}
 
-        {/* CTA */}
-        <section className="py-16 px-6 bg-white">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-brand-terra font-semibold text-xs uppercase tracking-widest mb-3">See It in Your School</p>
-            <h2 className="text-2xl font-bold text-brand-dark mb-4">
-              Ready to modernise your school's operations?
-            </h2>
-            <p className="text-brand-neutral mb-8">
-              Everything in this article is already built into Infovion. Free demo — no commitment.
-            </p>
-            <Link
-              to="/contact"
-              className="btn-premium inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full font-bold"
-            >
-              Schedule a Free Demo <ArrowRight className="w-4 h-4" />
-            </Link>
+        <div className="noise relative mt-14 overflow-hidden rounded-[2rem] border border-white/10 p-8 text-center">
+          <Aurora strong />
+          <div className="relative">
+            <Sparkles className="mx-auto h-6 w-6 text-teal-300" />
+            <h2 className="mt-4 font-display text-2xl font-extrabold text-white sm:text-3xl">See it working in your own school</h2>
+            <p className="mx-auto mt-2 max-w-md text-slate-400">Infovion's free trial opens with sample data in two minutes. No card, no contract.</p>
+            <div className="mt-6 flex justify-center"><GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton></div>
           </div>
-        </section>
-      </Motion.main>
-    </>
+        </div>
+      </div>
+
+      <section className="mx-auto max-w-6xl px-5 pb-28 pt-20 sm:px-6">
+        <h2 className="font-display text-2xl font-extrabold text-white">Keep reading</h2>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {related.map((p) => (
+            <Link key={p.slug} to={`/blog/${p.slug}`} className="group overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] transition-colors hover:border-teal-400/40">
+              <div className="relative h-40 overflow-hidden">
+                <img src={p.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] to-transparent" />
+              </div>
+              <div className="p-5">
+                <p className="text-xs text-teal-300">{CATEGORY_LABEL[p.category] ?? p.category}</p>
+                <h3 className="mt-2 line-clamp-2 font-display font-bold text-white group-hover:text-teal-200">{p.title}</h3>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

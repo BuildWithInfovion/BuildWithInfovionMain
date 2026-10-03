@@ -1,5 +1,5 @@
 import React from "react";
-import { BadgeCheck, BookOpen, Briefcase, Calculator, Crown, GraduationCap, Headset, Home, Wrench } from "lucide-react";
+import { BadgeCheck, BookOpen, Briefcase, Calculator, Crown, Headset, Home, Wrench } from "lucide-react";
 
 const NODES = [
   { label: "Director", icon: Crown },
@@ -10,10 +10,9 @@ const NODES = [
   { label: "Teacher", icon: BookOpen },
   { label: "Staff", icon: Wrench },
   { label: "Parent", icon: Home },
-  { label: "Student", icon: GraduationCap },
 ];
 
-/** Nine role portals wired to one school core, with light travelling along the wires. */
+/** Eight role portals wired to one school core, with light travelling along the wires. */
 export default function PortalHub() {
   const W = 640, H = 420, cx = W / 2, cy = H / 2, rx = 255, ry = 165;
   const pts = NODES.map((n, i) => {
