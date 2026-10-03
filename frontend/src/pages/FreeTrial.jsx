@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, CheckCircle2, Clock, CreditCard, Database, Loader2, Mail, MessageCircle, Sparkles } from "lucide-react";
 import { PhoneFrame, LoopVideo } from "../components/product/Frames";
 import { Aurora, Kicker } from "../components/fx/Fx";
+import { firstTouch, track } from "../lib/analytics";
 
 const API = (import.meta.env.VITE_API_URL || "https://api.buildwithinfovion.com").replace(/\/+$/, "");
 const APP = "https://app.buildwithinfovion.com";
@@ -101,6 +102,7 @@ export default function FreeTrial() {
     const body = {
       name: form.name.trim(), role: form.role, schoolName: form.schoolName.trim(), city: form.city.trim(), board: form.board,
       students: form.students, phone: form.phone.trim(), email: form.email.trim(), consent: true, website: form.website,
+      source: firstTouch() || undefined,
       ...(google ? { googleCredential: google.credential } : {}),
     };
     try {
@@ -109,7 +111,8 @@ export default function FreeTrial() {
       if (res.ok) {
         setResult(data);
         setState("done");
-        if (typeof window.gtag === "function") window.gtag("event", "sign_up", { method: google ? "google" : "form" });
+        track("sign_up", { method: google ? "google" : "form" });
+        track("generate_lead", { form: "free_trial" });
         return;
       }
       if (res.status === 409) { setState("exists"); setMessage(data?.message ?? ""); return; }

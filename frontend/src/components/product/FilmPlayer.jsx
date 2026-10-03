@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Play, Volume2 } from "lucide-react";
+import { track } from "../../lib/analytics";
 
 /** Chapter times of the Infovion product film (brag.mp4 timeline). */
 const CHAPTERS = [
@@ -40,6 +41,7 @@ export default function FilmPlayer() {
     const v = ref.current;
     if (!v) return;
     v.muted = false; // the visitor clicked, so sound is allowed
+    track("film_play", { from_seconds: Math.round(t) });
     v.currentTime = t;
     void v.play();
     setStarted(true);

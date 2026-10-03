@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
@@ -12,12 +12,21 @@ const ForSchools = lazy(() => import("./pages/ForSchools"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Contact = lazy(() => import("./pages/Contact"));
 const FreeTrial = lazy(() => import("./pages/FreeTrial"));
+const MaharashtraPage = lazy(() => import("./pages/landing/Landing").then((m) => ({ default: m.MaharashtraPage })));
+const FeesPage = lazy(() => import("./pages/landing/Landing").then((m) => ({ default: m.FeesPage })));
+const AttendancePage = lazy(() => import("./pages/landing/Landing").then((m) => ({ default: m.AttendancePage })));
+const TransportPage = lazy(() => import("./pages/landing/Landing").then((m) => ({ default: m.TransportPage })));
+const ToolsIndex = lazy(() => import("./pages/tools/ToolPages").then((m) => ({ default: m.ToolsIndex })));
+const LeavingCertificateTool = lazy(() => import("./pages/tools/ToolPages").then((m) => ({ default: m.LeavingCertificateTool })));
+const TransferCertificateTool = lazy(() => import("./pages/tools/ToolPages").then((m) => ({ default: m.TransferCertificateTool })));
+const BonafideCertificateTool = lazy(() => import("./pages/tools/ToolPages").then((m) => ({ default: m.BonafideCertificateTool })));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
+import { captureFirstTouch, track } from "./lib/analytics";
 
 const DOMAIN = "https://buildwithinfovion.com";
 
@@ -132,9 +141,19 @@ const globalSchema = {
   ],
 };
 
-function App() {
+/** Everything inside the router — shared by the browser app and the build-time prerender. */
+export function AppRoutes() {
+  const { pathname } = useLocation();
+  React.useEffect(() => { captureFirstTouch(); }, []);
+  // GA4 page views for in-app navigation (the first one is sent by the gtag snippet)
+  const first = React.useRef(true);
+  React.useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    track("page_view", { page_path: pathname });
+  }, [pathname]);
+  const url = DOMAIN + (pathname === "/" ? "/" : pathname.replace(/\/+$/, ""));
   return (
-    <HelmetProvider>
+    <>
       <Helmet>
         <title>Infovion — School Management Software for K-12 Schools in India</title>
         <meta
@@ -150,13 +169,13 @@ function App() {
         <meta name="geo.region" content="IN-MH" />
         <meta name="geo.placename" content="Pune, Maharashtra, India" />
         <meta name="google" content="notranslate" />
-        <link rel="canonical" href={DOMAIN} />
+        <link rel="canonical" href={url || DOMAIN} />
 
         {/* Open Graph */}
         <meta property="og:title" content="Infovion — School Management Software for K-12 India" />
         <meta property="og:description" content="School management software for India. Admissions, attendance, exams, fees, staff — 9 role-specific portals. CBSE, ICSE & State Board. Free demo." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={DOMAIN} />
+        <meta property="og:url" content={url || DOMAIN} />
         <meta property="og:site_name" content="Infovion" />
         <meta property="og:locale" content="en_IN" />
         <meta property="og:image" content={`${DOMAIN}/og-image.jpg`} />
@@ -173,7 +192,6 @@ function App() {
         <script type="application/ld+json">{JSON.stringify(globalSchema)}</script>
       </Helmet>
 
-      <Router>
         <ScrollToTop />
         <WhatsAppButton />
         <MainLayout>
@@ -189,6 +207,14 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/free-trial" element={<FreeTrial />} />
+            <Route path="/free-tools" element={<ToolsIndex />} />
+            <Route path="/school-management-software-maharashtra" element={<MaharashtraPage />} />
+            <Route path="/fee-management-software-for-schools" element={<FeesPage />} />
+            <Route path="/school-attendance-app" element={<AttendancePage />} />
+            <Route path="/school-transport-management-software" element={<TransportPage />} />
+            <Route path="/free-tools/school-leaving-certificate-marathi" element={<LeavingCertificateTool />} />
+            <Route path="/free-tools/transfer-certificate" element={<TransferCertificateTool />} />
+            <Route path="/free-tools/bonafide-certificate" element={<BonafideCertificateTool />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route
@@ -211,6 +237,15 @@ function App() {
           </Routes>
           </Suspense>
         </MainLayout>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <HelmetProvider>
+      <Router>
+        <AppRoutes />
       </Router>
     </HelmetProvider>
   );

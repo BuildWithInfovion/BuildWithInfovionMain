@@ -9,12 +9,20 @@ const productLinks = [
   { to: "/portals",     label: "Role Portals" },
   { to: "/for-schools", label: "For Schools" },
   { to: "/pricing",     label: "Pricing" },
+  { to: "/free-trial",  label: "Free trial" },
+  { to: "/free-tools/school-leaving-certificate-marathi", label: "Leaving Certificate (Marathi)" },
+  { to: "/free-tools/transfer-certificate", label: "TC generator" },
+  { to: "/free-tools/bonafide-certificate", label: "Bonafide generator" },
 ];
 
 const companyLinks = [
   { to: "/about",            label: "About Us" },
   { to: "/blog",             label: "Blog" },
   { to: "/contact",          label: "Contact" },
+  { to: "/school-management-software-maharashtra", label: "For Maharashtra schools" },
+  { to: "/fee-management-software-for-schools", label: "Fee management" },
+  { to: "/school-attendance-app", label: "Attendance app" },
+  { to: "/school-transport-management-software", label: "School transport" },
   { to: "/privacy-policy",   label: "Privacy Policy" },
   { to: "/terms-of-service", label: "Terms of Service" },
 ];

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion as Motion } from "framer-motion";
+import { track } from "../lib/analytics";
 
 const WHATSAPP_NUMBER = "919309193613"; // country code + number
 const WHATSAPP_MESSAGE = "Hi! I'd like to know more about Infovion Academic ERP for my school.";
@@ -13,6 +14,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
+      onClick={() => track("whatsapp_click", { place: "floating" })}
       className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 bg-[#25D366] text-white p-3.5 sm:pl-3 sm:pr-4 sm:py-3 rounded-full shadow-2xl shadow-[#25D366]/40"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

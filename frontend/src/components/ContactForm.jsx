@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle, AlertTriangle } from "lucide-react";
+import { firstTouch, track } from "../lib/analytics";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -34,10 +35,11 @@ const ContactForm = () => {
       const response = await fetch("https://formspree.io/f/xnngvgpd", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source: firstTouch() }),
       });
 
       if (response.ok) {
+        track("generate_lead", { form: "demo" });
         setFormMessage({
           text: "Thanks! We'll reach out within 2 hours to schedule your demo.",
           type: "success",

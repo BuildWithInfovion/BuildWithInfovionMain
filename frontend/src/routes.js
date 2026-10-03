@@ -1,0 +1,22 @@
+// Public pages written out as static HTML at build time (blog posts are added automatically).
+export const PRERENDER_ROUTES = [
+  "/",
+  "/features",
+  "/portals",
+  "/for-schools",
+  "/pricing",
+  "/about",
+  "/blog",
+  "/contact",
+  "/free-trial",
+  "/free-tools",
+  "/school-management-software-maharashtra",
+  "/fee-management-software-for-schools",
+  "/school-attendance-app",
+  "/school-transport-management-software",
+  "/free-tools/school-leaving-certificate-marathi",
+  "/free-tools/transfer-certificate",
+  "/free-tools/bonafide-certificate",
+  "/privacy-policy",
+  "/terms-of-service",
+];
