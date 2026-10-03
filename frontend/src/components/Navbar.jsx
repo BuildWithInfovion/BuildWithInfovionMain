@@ -36,15 +36,15 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50"
         animate={{
           backgroundColor: isScrolled
-            ? "rgba(44, 42, 39, 0.97)"
-            : "rgba(44, 42, 39, 0.82)",
+            ? "rgba(5,7,13, 0.82)"
+            : "rgba(5,7,13, 0.35)",
         }}
         transition={{ duration: 0.35 }}
         style={{
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
           borderBottom: isScrolled
-            ? "1px solid rgba(209, 171, 131, 0.14)"
+            ? "1px solid rgba(94,234,212, 0.14)"
             : "1px solid transparent",
           boxShadow: isScrolled
             ? "0 4px 32px rgba(0,0,0,0.28)"
@@ -113,7 +113,7 @@ export default function Navbar() {
               <Motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.97 }} className="hidden sm:block">
                 <Link
                   to="/free-trial"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-terra px-5 py-2.5 text-sm font-bold text-white shadow-terra-md transition-colors hover:bg-brand-terra2"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-5 py-2.5 text-sm font-bold text-[#04121a] shadow-[0_0_30px_-6px_rgba(45,212,191,0.8)] transition hover:brightness-110"
                 >
                   <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
                   Free trial
@@ -159,11 +159,11 @@ export default function Navbar() {
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.32, ease: [0.33, 1, 0.68, 1] }}
             className="lg:hidden fixed inset-0 z-40"
-            style={{ background: "linear-gradient(145deg, #2C2A27 0%, #4A3835 100%)" }}
+            style={{ background: "linear-gradient(145deg, #0B1220 0%, #0F1A2E 100%)" }}
           >
             {/* BG orb */}
-            <div className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(190,109,86,0.14)" }} />
-            <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(209,171,131,0.08)" }} />
+            <div className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(20,184,166,0.14)" }} />
+            <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(94,234,212,0.08)" }} />
             <div className="absolute inset-0 dot-grid-dark opacity-30" />
 
             <Motion.nav
@@ -202,7 +202,7 @@ export default function Navbar() {
                 <div className="flex flex-col items-center gap-4">
                   <Link
                     to="/free-trial"
-                    className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-white rounded-full bg-brand-terra shadow-terra-lg"
+                    className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold text-[#04121a] rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400"
                   >
                     <Sparkles className="w-5 h-5" />
                     Start 30-day free trial

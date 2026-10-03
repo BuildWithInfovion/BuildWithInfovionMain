@@ -86,7 +86,7 @@ export default function About() {
             className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none opacity-20"
             style={{
               background:
-                "radial-gradient(circle, #BE6D56 0%, transparent 70%)",
+                "radial-gradient(circle, #0D9488 0%, transparent 70%)",
               transform: "translate(30%, -30%)",
             }}
           />
@@ -94,7 +94,7 @@ export default function About() {
             className="absolute bottom-0 left-0 w-72 h-72 rounded-full pointer-events-none opacity-15"
             style={{
               background:
-                "radial-gradient(circle, #D1AB83 0%, transparent 70%)",
+                "radial-gradient(circle, #5EEAD4 0%, transparent 70%)",
               transform: "translate(-30%, 30%)",
             }}
           />

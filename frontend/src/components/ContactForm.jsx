@@ -149,7 +149,7 @@ const ContactForm = () => {
 
       <Motion.button
         type="submit"
-        className="w-full flex items-center justify-center gap-2 bg-brand-terra text-white py-3.5 px-6 rounded-full font-semibold text-sm shadow-lg shadow-brand-terra/25 hover:bg-[#a85d48] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full flex items-center justify-center gap-2 bg-brand-terra text-white py-3.5 px-6 rounded-full font-semibold text-sm shadow-lg shadow-brand-terra/25 hover:bg-[#0F766E] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
         whileTap={{ scale: 0.97 }}
         disabled={isSubmitting}

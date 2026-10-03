@@ -11,10 +11,10 @@ export default function PriceCalculator({ dark = false }) {
   const [students, setStudents] = useState(600);
   const base = students * PRICE_PER_STUDENT;
   const total = base * (1 + GST);
-  const muted = dark ? "text-white/55" : "text-brand-neutral";
+  const muted = dark ? "text-slate-400" : "text-brand-neutral";
   const strong = dark ? "text-white" : "text-brand-darker";
   return (
-    <div className={`rounded-3xl p-6 sm:p-8 ${dark ? "bg-white/[0.04] ring-1 ring-white/10" : "bg-white ring-1 ring-brand-cream shadow-card"}`}>
+    <div className={`rounded-3xl p-6 sm:p-8 ${dark ? "glass shadow-[0_40px_120px_-40px_rgba(45,212,191,0.45)]" : "bg-white ring-1 ring-brand-cream shadow-card"}`}>
       <div className="flex items-baseline justify-between gap-4">
         <label htmlFor="students" className={`text-sm font-semibold ${strong}`}>Students in your school</label>
         <span className={`font-display text-2xl font-extrabold ${strong}`}>{students.toLocaleString("en-IN")}</span>
@@ -27,7 +27,7 @@ export default function PriceCalculator({ dark = false }) {
         step={50}
         value={students}
         onChange={(e) => setStudents(Number(e.target.value))}
-        className="mt-4 w-full accent-[#BE6D56]"
+        className={`mt-4 w-full ${dark ? "accent-[#2dd4bf]" : "accent-[#0D9488]"}`}
       />
       <div className={`mt-1 flex justify-between text-[11px] ${muted}`}><span>50</span><span>3,000+</span></div>
 
@@ -45,7 +45,7 @@ export default function PriceCalculator({ dark = false }) {
       </div>
       <Link
         to="/free-trial"
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-terra px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-terra2"
+        className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition-all ${dark ? "bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 text-[#04121a] hover:brightness-110" : "bg-brand-terra text-white hover:bg-brand-terra2"}`}
       >
         Try it free for 30 days <ArrowRight className="h-4 w-4" />
       </Link>

@@ -258,7 +258,7 @@ export default function Portals() {
                       ? "border-brand-terra/40 bg-brand-terra/8 shadow-lg shadow-brand-terra/10"
                       : "border-brand-cream bg-white hover:border-brand-accent/40"
                   }`}
-                  style={selected === p.id ? { backgroundColor: "rgba(190,109,86,0.06)" } : {}}
+                  style={selected === p.id ? { backgroundColor: "rgba(20,184,166,0.06)" } : {}}
                 >
                   <div
                     className={`p-2 rounded-xl transition-colors ${

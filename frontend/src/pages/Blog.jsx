@@ -147,7 +147,7 @@ export default function Blog() {
           <div className="absolute inset-0 dot-grid-dark opacity-20 pointer-events-none" />
           <div
             className="absolute top-0 right-0 w-80 h-80 rounded-full pointer-events-none opacity-15"
-            style={{ background: "radial-gradient(circle, #BE6D56 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
+            style={{ background: "radial-gradient(circle, #0D9488 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
           />
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <Motion.p
@@ -272,7 +272,7 @@ export default function Blog() {
         {/* CTA */}
         <section
           className="py-20 px-6 relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #BE6D56 0%, #5A4A48 100%)" }}
+          style={{ background: "linear-gradient(135deg, #0D9488 0%, #1E293B 100%)" }}
         >
           <div className="absolute inset-0 dot-grid-dark opacity-20 pointer-events-none" />
           <Motion.div

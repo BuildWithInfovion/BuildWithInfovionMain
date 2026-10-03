@@ -213,7 +213,7 @@ export default function Features() {
         {/* ── PAGE HERO ──────────────────────────────────────────────────────── */}
         <section
           className="py-20 px-6 text-center relative overflow-hidden"
-          style={{ background: "linear-gradient(180deg, #F7F4F3 0%, #ffffff 100%)" }}
+          style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #ffffff 100%)" }}
         >
           <div className="absolute inset-0 dot-grid-fine opacity-60" />
           <div className="relative z-10 max-w-3xl mx-auto">

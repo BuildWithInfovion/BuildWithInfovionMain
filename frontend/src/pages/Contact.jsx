@@ -103,7 +103,7 @@ export default function Contact() {
         <section className="py-20 px-6 bg-brand-dark relative overflow-hidden">
           <div
             className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none opacity-20"
-            style={{ background: "radial-gradient(circle, #BE6D56 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
+            style={{ background: "radial-gradient(circle, #0D9488 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
           />
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <Motion.p
@@ -202,7 +202,7 @@ export default function Contact() {
                     { step: "04", text: "No pressure. No contract. You decide if Infovion is right for your school." },
                   ].map((item) => (
                     <li key={item.step} className="flex gap-4 items-start">
-                      <span className="text-2xl font-extrabold text-brand-cream" style={{ WebkitTextStroke: "1px #BE6D56", flexShrink: 0 }}>
+                      <span className="text-2xl font-extrabold text-brand-cream" style={{ WebkitTextStroke: "1px #0D9488", flexShrink: 0 }}>
                         {item.step}
                       </span>
                       <p className="text-brand-neutral text-sm leading-relaxed pt-1">{item.text}</p>
@@ -220,7 +220,7 @@ export default function Contact() {
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a href="tel:+919309193613"
-                  className="flex items-center justify-between gap-3 bg-brand-terra text-white px-5 py-3 rounded-full font-semibold text-sm hover:bg-[#a85d48] transition-colors">
+                  className="flex items-center justify-between gap-3 bg-brand-terra text-white px-5 py-3 rounded-full font-semibold text-sm hover:bg-[#0F766E] transition-colors">
                   <span>Call +91 9309193613</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>

@@ -44,7 +44,7 @@ export default function Footer() {
       {/* ── CTA STRIP ──────────────────────────────────────────────────────── */}
       {showStrip && <div
         className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #BE6D56 0%, #5A4A48 100%)" }}
+        style={{ background: "linear-gradient(135deg, #0D9488 0%, #1E293B 100%)" }}
       >
         <div className="absolute inset-0 dot-grid-dark opacity-20 pointer-events-none" />
         <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(255,255,255,0.06)" }} />

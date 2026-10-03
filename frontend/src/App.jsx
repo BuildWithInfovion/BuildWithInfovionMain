@@ -167,7 +167,7 @@ function App() {
         <meta name="twitter:description" content="School management software for K-12 India. Admissions, attendance, exams, fees, 9 role portals. Free demo." />
         <meta name="twitter:image" content={`${DOMAIN}/og-image.jpg`} />
 
-        <meta name="theme-color" content="#BE6D56" />
+        <meta name="theme-color" content="#0D9488" />
 
         {/* Global Schema (@graph) */}
         <script type="application/ld+json">{JSON.stringify(globalSchema)}</script>
@@ -177,7 +177,7 @@ function App() {
         <ScrollToTop />
         <WhatsAppButton />
         <MainLayout>
-          <Suspense fallback={<div className="min-h-screen bg-[#161412]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#05070D]" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
@@ -196,11 +196,11 @@ function App() {
               element={
                 <div className="min-h-screen flex items-center justify-center bg-brand-cream/30">
                   <div className="text-center px-6">
-                    <h1 className="text-8xl font-extrabold text-brand-cream mb-4" style={{ WebkitTextStroke: "2px #BE6D56" }}>404</h1>
+                    <h1 className="text-8xl font-extrabold text-brand-cream mb-4" style={{ WebkitTextStroke: "2px #0D9488" }}>404</h1>
                     <p className="text-xl text-brand-neutral mb-8">This page doesn't exist.</p>
                     <Link
                       to="/"
-                      className="inline-flex items-center gap-2 bg-brand-terra text-white px-6 py-3 rounded-full font-semibold hover:bg-[#a85d48] transition-colors"
+                      className="inline-flex items-center gap-2 bg-brand-terra text-white px-6 py-3 rounded-full font-semibold hover:bg-[#0F766E] transition-colors"
                     >
                       Go to Homepage
                     </Link>
