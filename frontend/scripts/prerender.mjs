@@ -10,7 +10,10 @@ const { render } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry
 const { blogPosts } = await import(pathToFileURL(path.join(root, "src", "Data", "blogData.js")).href).catch(() => ({ blogPosts: [] }));
 const { PRERENDER_ROUTES } = await import(pathToFileURL(path.join(root, "src", "routes.js")).href);
 
-const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
+// The page is already in the HTML, so the app bundle (needed only to hydrate it)
+// shouldn't compete with the stylesheet and images for the first paint
+const template = fs.readFileSync(path.join(dist, "index.html"), "utf8")
+  .replace('<script type="module" crossorigin', '<script type="module" fetchpriority="low" crossorigin');
 
 // Head tags the pages manage themselves: drop the template's copies to avoid duplicates
 const stripHead = (h) => h
