@@ -50,29 +50,34 @@ export function PhoneFrame({ children, className = "", time = "9:41" }) {
   );
 }
 
-/** Autoplaying, muted, looping clip. */
+/** Muted, looping clip that only downloads and plays while it is on screen. */
 export function LoopVideo({ src, poster, label, className = "" }) {
   const ref = useRef(null);
   useEffect(() => {
-    // React doesn't write the `muted` attribute, which browsers need before they allow autoplay
     const v = ref.current;
     if (!v) return;
+    // React doesn't write the `muted` attribute, which browsers need before they allow autoplay
     v.muted = true;
     v.defaultMuted = true;
-    const p = v.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
+    const play = () => {
+      if (!v.getAttribute("src")) v.setAttribute("src", src);
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    if (typeof IntersectionObserver === "undefined") { play(); return; }
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? play() : v.pause()), { rootMargin: "200px" });
+    io.observe(v);
+    return () => io.disconnect();
   }, [src]);
   return (
     <video
       ref={ref}
       className={`block h-full w-full object-cover object-top ${className}`}
-      src={src}
       poster={poster}
-      autoPlay
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none"
       aria-label={label}
     />
   );

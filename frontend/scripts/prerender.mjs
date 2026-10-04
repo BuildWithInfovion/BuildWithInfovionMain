@@ -32,7 +32,7 @@ for (const url of routes) {
       : "";
     let page = stripHead(template).replace("</head>", `    ${head}\n  </head>`);
     // In the built index.html the scripts live in <head>, so #root runs to </body>
-    page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root">${html}</div>\n  </body>`);
+    page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root" data-ssr="${url}">${html}</div>\n  </body>`);
     const out = url === "/" ? path.join(dist, "index.html") : path.join(dist, url.replace(/^\//, ""), "index.html");
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.writeFileSync(out, page);

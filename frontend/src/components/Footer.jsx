@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
-import logo from "/src/assets/logo.png";
+const logo = "/logo-112.webp";
 
 const productLinks = [
   { to: "/features",    label: "Features" },
@@ -34,7 +34,7 @@ const socialLinks = [
 const FooterLink = ({ to, label }) => (
   <li>
     <Motion.div whileHover={{ x: 4 }} transition={{ duration: 0.15 }}>
-      <Link to={to} className="text-sm text-brand-neutral/75 hover:text-brand-accent transition-colors duration-200 flex items-center gap-1 group">
+      <Link to={to} className="text-sm text-slate-300 hover:text-brand-accent transition-colors duration-200 flex items-center gap-1 group">
         <span className="w-3 h-px bg-brand-neutral/30 group-hover:bg-brand-accent/60 transition-colors duration-200 flex-shrink-0" />
         {label}
       </Link>
@@ -45,7 +45,7 @@ const FooterLink = ({ to, label }) => (
 export default function Footer() {
   // The home and trial pages end with their own call to action
   const { pathname } = useLocation();
-  const showStrip = !["/", "/free-trial"].includes(pathname);
+  const showStrip = !["/", "/free-trial"].includes(pathname.replace(/(.)\/+$/, "$1"));
   return (
     <footer className="bg-brand-darker">
 
@@ -79,18 +79,18 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-5 group">
-              <img src={logo} alt="Infovion" className="h-11 w-auto group-hover:opacity-90 transition-opacity" />
+              <img src={logo} alt="Infovion" width="44" height="44" loading="lazy" className="h-11 w-auto group-hover:opacity-90 transition-opacity" />
               <div className="flex flex-col leading-none">
                 <span className="text-xl font-extrabold text-white tracking-tight">
                   Info<span className="text-brand-accent">vion</span>
                 </span>
-                <span className="text-[9px] text-brand-neutral/50 tracking-[0.2em] uppercase mt-0.5">
+                <span className="text-[9px] text-slate-400 tracking-[0.2em] uppercase mt-0.5">
                   School Management
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-brand-neutral/65 leading-relaxed mb-6">
+            <p className="text-sm text-slate-300 leading-relaxed mb-6">
               The complete school management platform for K-12 schools in India.
               Built from the ground up for the way Indian schools actually work.
             </p>
@@ -98,14 +98,14 @@ export default function Footer() {
             <div className="space-y-2.5">
               <a
                 href="mailto:contact@buildwithinfovion.com"
-                className="flex items-center gap-2.5 text-sm text-brand-neutral/65 hover:text-brand-accent transition-colors group"
+                className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-brand-accent transition-colors group"
               >
                 <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-terra/20 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </span>
                 contact@buildwithinfovion.com
               </a>
-              <div className="flex items-center gap-2.5 text-sm text-brand-neutral/65">
+              <div className="flex items-center gap-2.5 text-sm text-slate-300">
                 <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-3.5 h-3.5" />
                 </span>
@@ -116,9 +116,9 @@ export default function Footer() {
 
           {/* Product Links */}
           <nav aria-labelledby="footer-product">
-            <h4 id="footer-product" className="text-xs font-bold text-white/50 uppercase tracking-[0.18em] mb-6">
+            <h2 id="footer-product" className="text-xs font-bold text-slate-300 uppercase tracking-[0.18em] mb-6">
               Product
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {productLinks.map((l) => <FooterLink key={l.to} {...l} />)}
             </ul>
@@ -126,9 +126,9 @@ export default function Footer() {
 
           {/* Company Links */}
           <nav aria-labelledby="footer-company">
-            <h4 id="footer-company" className="text-xs font-bold text-white/50 uppercase tracking-[0.18em] mb-6">
+            <h2 id="footer-company" className="text-xs font-bold text-slate-300 uppercase tracking-[0.18em] mb-6">
               Company
-            </h4>
+            </h2>
             <ul className="space-y-3">
               {companyLinks.map((l) => <FooterLink key={l.to} {...l} />)}
             </ul>
@@ -136,9 +136,9 @@ export default function Footer() {
 
           {/* Social + Boards */}
           <div>
-            <h4 className="text-xs font-bold text-white/50 uppercase tracking-[0.18em] mb-6">
+            <h2 className="text-xs font-bold text-slate-300 uppercase tracking-[0.18em] mb-6">
               Follow Us
-            </h4>
+            </h2>
             <div className="flex gap-2.5 mb-8">
               {socialLinks.map((link) => (
                 <Motion.a
@@ -147,7 +147,7 @@ export default function Footer() {
                   aria-label={link.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-brand-brown/30 text-brand-neutral/65 hover:bg-brand-terra/25 hover:text-brand-accent flex items-center justify-center transition-all duration-200"
+                  className="w-9 h-9 rounded-xl bg-brand-brown/30 text-slate-300 hover:bg-brand-terra/25 hover:text-brand-accent flex items-center justify-center transition-all duration-200"
                   whileHover={{ scale: 1.12, y: -2 }}
                   whileTap={{ scale: 0.92 }}
                 >
@@ -158,10 +158,10 @@ export default function Footer() {
 
             {/* Board compatibility */}
             <div className="space-y-3">
-              <p className="text-xs text-brand-neutral/40 uppercase tracking-wider font-medium">Supports</p>
+              <p className="text-xs text-slate-400 uppercase tracking-wider font-medium">Supports</p>
               <div className="flex flex-wrap gap-2">
                 {["CBSE", "ICSE", "State Board"].map((b) => (
-                  <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-brand-brown/60 text-brand-neutral/50 font-medium">
+                  <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-brand-brown/60 text-slate-400 font-medium">
                     {b}
                   </span>
                 ))}
@@ -170,23 +170,26 @@ export default function Footer() {
 
             {/* MSME Certification */}
             <div className="mt-5 space-y-2.5">
-              <p className="text-xs text-brand-neutral/40 uppercase tracking-wider font-medium">Certified By</p>
+              <p className="text-xs text-slate-400 uppercase tracking-wider font-medium">Certified By</p>
               <div className="flex items-center gap-3 bg-white/[0.06] rounded-xl px-3.5 py-3 border border-brand-brown/30">
                 <img
-                  src="/msme-logo.png"
+                  src="/msme-logo.webp"
+                  width="60"
+                  height="40"
+                  loading="lazy"
                   alt="MSME Certified — Ministry of Micro, Small & Medium Enterprises, Government of India"
-                  className="h-10 w-auto flex-shrink-0"
+                  className="h-11 w-auto flex-shrink-0 rounded-lg bg-white p-1"
                 />
                 <div>
                   <p className="text-xs font-semibold text-white/80">MSME Certified</p>
-                  <p className="text-[10px] text-brand-neutral/45 leading-snug mt-0.5">Ministry of MSME<br />Government of India</p>
+                  <p className="text-[10px] text-slate-400 leading-snug mt-0.5">Ministry of MSME<br />Government of India</p>
                 </div>
               </div>
             </div>
 
             {/* Quick contact */}
             <div className="mt-6 p-4 rounded-xl border border-brand-brown/40 bg-brand-brown/10">
-              <p className="text-xs text-brand-neutral/50 mb-2 font-medium">Questions? Write to us</p>
+              <p className="text-xs text-slate-400 mb-2 font-medium">Questions? Write to us</p>
               <a href="mailto:contact@buildwithinfovion.com" className="text-xs text-brand-accent/80 hover:text-brand-accent transition-colors">
                 contact@buildwithinfovion.com
               </a>
@@ -196,10 +199,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 pt-6 border-t border-brand-brown/30 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-brand-neutral/40">
+          <p className="text-sm text-slate-400">
             © {new Date().getFullYear()} Infovion Technologies. All rights reserved.
           </p>
-          <p className="text-sm text-brand-neutral/40">
+          <p className="text-sm text-slate-400">
             School Management Software · Built for India · K-12
           </p>
         </div>

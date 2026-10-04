@@ -53,35 +53,34 @@ function Hero() {
     <section className="noise relative overflow-hidden bg-ink pb-24 pt-32 sm:pt-40">
       <Aurora strong />
       <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-6">
-        <Motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        {/* The hero text is painted straight from the prerendered HTML (CSS rise, never hidden) so it is not waiting on JavaScript */}
+        <div className="rise">
           <Link to="/free-trial" className="inline-flex"><Kicker>New · Free trial, ready in 2 minutes</Kicker></Link>
-        </Motion.div>
-        <Motion.h1
-          initial={{ opacity: 0, y: 24, filter: "blur(10px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-7 max-w-5xl font-display text-[2.7rem] font-extrabold leading-[1] tracking-tight text-white sm:text-7xl lg:text-[5.4rem]">
+        </div>
+        <h1
+          className="rise mx-auto mt-7 max-w-5xl font-display text-[2.7rem] font-extrabold leading-[1] tracking-tight text-white sm:text-7xl lg:text-[5.4rem]">
           Run your school.<br /><span className="text-gradient-aurora">Not spreadsheets.</span>
-        </Motion.h1>
-        <Motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}
-          className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
+        </h1>
+        <p
+          className="rise mx-auto mt-7 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
           Fees, attendance, exams, transport, certificates and a parent app — one platform built for Indian K-12 schools.
           Your office, teachers and parents on the same page, on any phone.
-        </Motion.p>
-        <Motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35 }}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        </p>
+        <div
+          className="rise mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
           <GhostButton href="#film" className="w-full sm:w-auto"><Play className="h-4 w-4" fill="currentColor" /> Watch the film</GhostButton>
-        </Motion.div>
-        <p className="mt-5 text-xs text-slate-500">No card needed · ₹50 per student per year after the trial · <Link to="/contact" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
+        </div>
+        <p className="mt-5 text-xs text-slate-400">No card needed · ₹50 per student per year after the trial · <Link to="/contact" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
       </div>
 
-      <Motion.div initial={{ opacity: 0, y: 70 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto mt-16 max-w-6xl px-5 sm:px-6">
+      <div className="rise relative mx-auto mt-16 max-w-6xl px-5 sm:px-6">
         <FloatChip icon={IndianRupee} title="₹1,37,400 collected" sub="Today · 42 receipts" className="-left-2 top-16 lg:-left-10" />
         <FloatChip icon={CalendarCheck} title="Attendance 8/10 classes" sub="Marked by teachers · 9:20 am" className="-right-2 top-40 lg:-right-12" slow />
         <FloatChip icon={ReceiptText} title="Receipt sent to parent" sub="FRC-2026-00342 · UPI" className="bottom-24 -left-2 lg:-left-14" slow />
         <Tilt>
           <BrowserFrame>
-            <img src="/product/dashboard.webp" alt="Infovion school dashboard: students, today's fee collection, outstanding dues and attendance" className="block w-full" width="1800" height="1125" fetchpriority="high" />
+            <img src="/product/dashboard.webp" srcSet="/product/dashboard-900.webp 900w, /product/dashboard.webp 1800w" sizes="(min-width: 1152px) 1100px, 94vw" alt="Infovion school dashboard: students, today's fee collection, outstanding dues and attendance" className="block w-full" width="1800" height="1125" fetchpriority="high" />
           </BrowserFrame>
         </Tilt>
         <div className="absolute -bottom-14 right-4 z-30 w-[32%] sm:right-10 sm:w-[22%] lg:-right-4 lg:w-[19%]">
@@ -89,7 +88,7 @@ function Hero() {
             <LoopVideo src="/product/parent-app.mp4" poster="/product/parent-app-poster.webp" label="The parent app: attendance and fees on a phone" />
           </PhoneFrame>
         </div>
-      </Motion.div>
+      </div>
     </section>
   );
 }
@@ -183,9 +182,9 @@ function Portals() {
         ].map(([src, alt, label, off], i) => (
           <Reveal key={src} delay={i * 0.1} className={off}>
             <PhoneFrame>
-              <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover object-top" />
+              <img src={src.replace(".webp", "-360.webp")} alt={alt} loading="lazy" width="360" height="779" className="h-full w-full object-cover object-top" />
             </PhoneFrame>
-            <p className="mt-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{label}</p>
+            <p className="mt-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{label}</p>
           </Reveal>
         ))}
       </div>
@@ -283,7 +282,7 @@ function FinalCta() {
             <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
             <GhostButton href={WHATSAPP} className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> Ask on WhatsApp</GhostButton>
           </div>
-          <p className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-500"><ShieldCheck className="h-3.5 w-3.5" /> DPDP-ready · MSME registered · Made in Pune</p>
+          <p className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-400"><ShieldCheck className="h-3.5 w-3.5" /> DPDP-ready · MSME registered · Made in Pune</p>
         </div>
       </div>
     </section>

@@ -28,23 +28,40 @@ export default function FeatureFilms() {
   const [auto, setAuto] = useState(true);
   const [muted, setMuted] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [seen, setSeen] = useState(false);
   const ref = useRef(null);
+  const box = useRef(null);
   const f = FEATURES[i];
+
+  // Nothing downloads until the section is near the screen, and it pauses when scrolled away
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") { setVisible(true); setSeen(true); return; }
+    const io = new IntersectionObserver(([e]) => {
+      setVisible(e.isIntersecting);
+      if (e.isIntersecting) setSeen(true);
+    }, { rootMargin: "200px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const v = ref.current;
-    if (!v) return;
+    if (!v || !seen) return;
     v.muted = muted;
     v.defaultMuted = muted;
+    if (!visible) { v.pause(); return; }
     const p = v.play();
     if (p && typeof p.catch === "function") p.catch(() => {});
-  }, [i, muted]);
+  }, [i, muted, visible, seen]);
 
   const pick = (idx) => { setI(idx); setAuto(false); setProgress(0); };
   const onEnded = () => { setProgress(0); setI((x) => (auto ? (x + 1) % FEATURES.length : x)); };
 
   return (
-    <div className="grid items-start gap-8 lg:grid-cols-[330px_minmax(0,1fr)]">
+    <div ref={box} className="grid items-start gap-8 lg:grid-cols-[330px_minmax(0,1fr)]">
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-1" role="tablist" aria-label="Features">
         {FEATURES.map((x, idx) => {
           const Icon = x.icon;
@@ -72,12 +89,11 @@ export default function FeatureFilms() {
                 key={f.id}
                 ref={ref}
                 className="h-full w-full object-cover"
-                src={`/film/${f.id}.mp4`}
+                src={seen ? `/film/${f.id}.mp4` : undefined}
                 poster={`/film/${f.id}.webp`}
-                autoPlay
                 muted
                 playsInline
-                preload="metadata"
+                preload="none"
                 onEnded={onEnded}
                 onTimeUpdate={(e) => setProgress(e.currentTarget.duration ? e.currentTarget.currentTime / e.currentTarget.duration : 0)}
                 initial={{ opacity: 0 }}

@@ -41,7 +41,7 @@ export default function PortalHub() {
         ))}
       </svg>
       <div className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-3xl glass ring-1 ring-teal-400/40 shadow-[0_0_60px_-5px_rgba(45,212,191,0.6)]">
-        <img src="/logo.png" alt="" className="h-14 w-auto drop-shadow-[0_0_12px_rgba(94,234,212,0.6)]" />
+        <img src="/logo-112.webp" alt="" width="56" height="56" loading="lazy" className="h-14 w-auto drop-shadow-[0_0_12px_rgba(94,234,212,0.6)]" />
         <span className="mt-1 text-[11px] font-bold tracking-wide text-white">Infovion</span>
       </div>
       {pts.map((p) => {

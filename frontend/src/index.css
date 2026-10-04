@@ -351,3 +351,8 @@
 .article-dark th { color: #fff !important; background: rgba(255,255,255,.04); }
 .article-dark [class*="bg-"] { background-color: rgba(255,255,255,.04) !important; }
 .article-dark [class*="border-"] { border-color: rgba(148,163,184,.18) !important; }
+
+/* Hero entrance: transform only, so the text is visible (and counts for LCP) from the first paint */
+.rise { animation: rise .7s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rise { animation: none; } }

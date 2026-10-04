@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import logo from "/src/assets/logo.png";
+const logo = "/logo-112.webp";
 
 const navLinks = [
   { to: "/features",  label: "Product" },
@@ -59,6 +59,8 @@ export default function Navbar() {
               <Motion.img
                 src={logo}
                 alt="Infovion"
+                width="48"
+                height="48"
                 className="h-12 w-auto"
                 whileHover={{ scale: 1.06 }}
                 transition={{ duration: 0.25 }}
