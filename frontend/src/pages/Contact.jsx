@@ -24,9 +24,9 @@ const contactMethods = [
   {
     icon: <Phone className="w-5 h-5" />,
     title: "Phone",
-    value: "+91 9309193613",
+    value: "+91 91563 02024",
     sub: "Mon – Sun, 9 am – 10 pm",
-    href: "tel:+919309193613",
+    href: "tel:+919156302024",
   },
   {
     icon: <MessageCircle className="w-5 h-5" />,
@@ -219,9 +219,9 @@ export default function Contact() {
                   <span>WhatsApp us now</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
-                <a href="tel:+919309193613"
+                <a href="tel:+919156302024"
                   className="flex items-center justify-between gap-3 bg-brand-terra text-white px-5 py-3 rounded-full font-semibold text-sm hover:bg-[#0F766E] transition-colors">
-                  <span>Call +91 9309193613</span>
+                  <span>Call +91 91563 02024</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>

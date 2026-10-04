@@ -50,7 +50,7 @@ const globalSchema = {
       foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
       knowsAbout: ["School management software", "School ERP", "Fee management for schools", "School attendance", "Transfer certificates", "Indian K-12 education"],
       email: "contact@buildwithinfovion.com",
-      telephone: "+919309193613",
+      telephone: "+919156302024",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Pune",
@@ -69,7 +69,7 @@ const globalSchema = {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          telephone: "+919309193613",
+          telephone: "+919156302024",
           contactType: "sales",
           areaServed: "IN",
           availableLanguage: ["English", "Hindi", "Marathi"],

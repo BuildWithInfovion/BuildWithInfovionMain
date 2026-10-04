@@ -79,7 +79,7 @@ Then submit it, one honest pull request each, to lists where it genuinely fits:
 ## 4. Copy to paste into every listing
 
 **Name:** Infovion (company: Infovion Technologies) · **Product:** Infovion Academic ERP
-**Website:** https://buildwithinfovion.com · **Email:** contact@buildwithinfovion.com · **Phone:** +91 93091 93613 · **Location:** Pune, Maharashtra, India
+**Website:** https://buildwithinfovion.com · **Email:** contact@buildwithinfovion.com · **Phone:** +91 91563 02024 (WhatsApp +91 93091 93613) · **Location:** Pune, Maharashtra, India
 **Category:** School Management Software / School ERP / Student Information System
 **Pricing:** ₹50 per student per year + GST, every module included · 30-day free trial, no card
 
