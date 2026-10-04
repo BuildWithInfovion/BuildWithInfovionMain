@@ -64,6 +64,7 @@ const globalSchema = {
       sameAs: [
         "https://www.linkedin.com/company/112026919/",
         "https://www.instagram.com/infoviontech/",
+        "https://www.facebook.com/profile.php?id=61595050592821",
       ],
       contactPoint: [
         {
