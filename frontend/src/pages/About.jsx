@@ -11,6 +11,7 @@ import {
   Users,
   Mail,
   MapPin,
+  Instagram,
   Linkedin,
 } from "lucide-react";
 
@@ -380,6 +381,17 @@ export default function About() {
                   className="text-brand-brown hover:text-brand-terra transition-colors text-sm"
                 >
                   linkedin.com/company/Infovion
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Instagram className="w-5 h-5 text-brand-terra flex-shrink-0" />
+                <a
+                  href="https://www.instagram.com/infoviontech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-brown hover:text-brand-terra transition-colors text-sm"
+                >
+                  instagram.com/infoviontech
                 </a>
               </div>
             </Motion.div>

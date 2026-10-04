@@ -20,6 +20,7 @@ const FACTS = `# Infovion
 - Online fee payments: parents pay by UPI, card or net banking into the school's own Razorpay account; Infovion never holds the money and adds no fee.
 - Data: each school's data is kept separate; role-based access, encrypted passwords, optional two-step sign-in, audit log of every change; full data export on request.
 - Contact: contact@buildwithinfovion.com · +91 93091 93613 · ${D}/contact
+- Social: LinkedIn https://www.linkedin.com/company/112026919/ · Instagram https://www.instagram.com/infoviontech/
 
 ## Modules
 

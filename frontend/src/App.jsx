@@ -63,6 +63,7 @@ const globalSchema = {
       },
       sameAs: [
         "https://www.linkedin.com/company/112026919/",
+        "https://www.instagram.com/infoviontech/",
       ],
       contactPoint: [
         {
