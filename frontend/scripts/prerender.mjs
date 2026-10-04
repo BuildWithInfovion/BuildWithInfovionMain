@@ -60,3 +60,10 @@ ${routes
 `;
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 console.log(`sitemap: ${sitemap.match(/<url>/g).length} urls`);
+
+// llms.txt / llms-full.txt for AI assistants, from the same blog data
+const { llmsTxt, llmsFullTxt } = await import("./llms.mjs");
+const posts = [...(blogPosts || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
+fs.writeFileSync(path.join(dist, "llms.txt"), llmsTxt(posts));
+fs.writeFileSync(path.join(dist, "llms-full.txt"), llmsFullTxt(posts));
+console.log(`llms.txt: ${posts.length} guides`);

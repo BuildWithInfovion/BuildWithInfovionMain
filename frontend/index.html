@@ -46,56 +46,7 @@
 
     <meta name="theme-color" content="#0D9488" />
 
-    <!-- Inline schema — Google reads this without executing JS -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://buildwithinfovion.com/#organization",
-          "name": "Infovion Technologies",
-          "url": "https://buildwithinfovion.com",
-          "description": "Infovion Technologies is a Pune-based company building cloud-native Academic ERP software for K-12 schools across India.",
-          "email": "contact@buildwithinfovion.com",
-          "telephone": "+919309193613",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Pune",
-            "addressRegion": "Maharashtra",
-            "addressCountry": "IN"
-          },
-          "areaServed": { "@type": "Country", "name": "India" },
-          "award": "MSME Registered — Ministry of Micro, Small & Medium Enterprises, Government of India",
-          "sameAs": ["https://www.linkedin.com/company/112026919/"]
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Infovion Academic ERP",
-          "applicationCategory": "EducationApplication",
-          "applicationSubCategory": "School Management Software",
-          "operatingSystem": "Web",
-          "url": "https://buildwithinfovion.com",
-          "description": "Cloud-based school management ERP for K-12 schools in India. Admissions, attendance, examinations, fee collection, staff management — with 8 role-specific portals.",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock"
-          },
-          "author": { "@id": "https://buildwithinfovion.com/#organization" },
-          "areaServed": { "@type": "Country", "name": "India" }
-        },
-        {
-          "@type": "WebSite",
-          "url": "https://buildwithinfovion.com",
-          "name": "Infovion",
-          "description": "School Management Software for K-12 Schools in India",
-          "publisher": { "@id": "https://buildwithinfovion.com/#organization" },
-          "inLanguage": "en-IN"
-        }
-      ]
-    }
-    </script>
+    <!-- Structured data (Organization, SoftwareApplication, WebSite) is added per page by the prerender -->
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

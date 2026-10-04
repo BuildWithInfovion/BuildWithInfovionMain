@@ -3,8 +3,21 @@
 User-agent: *
 Allow: /
 
-# Block utility paths if added later
-# Disallow: /admin/
-# Disallow: /dashboard/
+# AI assistants and answer engines are welcome to read and cite this site.
+# A plain-text summary for them: https://buildwithinfovion.com/llms.txt
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: meta-externalagent
+User-agent: CCBot
+Allow: /
 
 Sitemap: https://buildwithinfovion.com/sitemap.xml

@@ -37,6 +37,7 @@ const globalSchema = {
       "@type": "Organization",
       "@id": `${DOMAIN}/#organization`,
       name: "Infovion Technologies",
+      alternateName: ["Infovion", "Build With Infovion"],
       url: DOMAIN,
       logo: {
         "@type": "ImageObject",
@@ -45,7 +46,9 @@ const globalSchema = {
         height: 512,
       },
       description:
-        "Infovion Technologies is a Pune-based company building school management software for K-12 schools across India.",
+        "Infovion Technologies is a Pune-based, MSME-registered company building school management software (school ERP) for K-12 schools across India.",
+      foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
+      knowsAbout: ["School management software", "School ERP", "Fee management for schools", "School attendance", "Transfer certificates", "Indian K-12 education"],
       email: "contact@buildwithinfovion.com",
       telephone: "+919309193613",
       address: {
@@ -81,15 +84,25 @@ const globalSchema = {
       "@type": "SoftwareApplication",
       "@id": `${DOMAIN}/#software`,
       name: "Infovion Academic ERP",
+      alternateName: ["Infovion", "Infovion School ERP", "Infovion School Management Software"],
       applicationCategory: "EducationApplication",
       applicationSubCategory: "School Management Software",
-      operatingSystem: "Web, iOS, Android",
+      operatingSystem: "Any web browser (Android, iOS, Windows, macOS)",
       url: DOMAIN,
       description:
         "School management software for K-12 schools in India. Covers admissions, attendance, examinations, fee collection, staff management, timetable, and announcements — with 8 role-specific portals for Director, Principal, Operator, Accountant, Receptionist, Teacher, Non-Teaching Staff and Parent.",
       offers: {
         "@type": "Offer",
+        price: "50",
         priceCurrency: "INR",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "50",
+          priceCurrency: "INR",
+          unitText: "per student per academic year, plus GST",
+          valueAddedTaxIncluded: false,
+        },
+        url: `${DOMAIN}/pricing`,
         availability: "https://schema.org/InStock",
         seller: { "@id": `${DOMAIN}/#organization` },
       },
