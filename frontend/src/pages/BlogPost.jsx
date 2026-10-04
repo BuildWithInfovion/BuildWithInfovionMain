@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { blogPosts } from "../Data/blogData";
 import { CATEGORY_LABEL } from "../Data/blogCategories";
 import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
+import PreferredSourceBadge from "../components/PreferredSourceBadge";
 
 const DOMAIN = "https://buildwithinfovion.com";
 const abs = (u) => (u.startsWith("http") ? u : `${DOMAIN}${u}`);
@@ -82,6 +83,11 @@ export default function BlogPost() {
             {post.tags.map((t) => <span key={t} className="rounded-full glass px-3 py-1 text-xs text-slate-300">#{t}</span>)}
           </div>
         )}
+
+        <div className="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm leading-relaxed text-slate-300">Found this useful? See more guides like this in your Google results.</p>
+          <PreferredSourceBadge from="blog_post" className="flex-shrink-0" />
+        </div>
 
         <div className="noise relative mt-14 overflow-hidden rounded-[2rem] border border-white/10 p-8 text-center">
           <Aurora strong />

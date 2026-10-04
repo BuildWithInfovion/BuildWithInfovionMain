@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
+import PreferredSourceBadge from "./PreferredSourceBadge";
 const logo = "/logo-112.webp";
 
 const productLinks = [
@@ -155,6 +156,7 @@ export default function Footer() {
                 </Motion.a>
               ))}
             </div>
+            <PreferredSourceBadge from="footer" className="-mt-4 mb-8" />
 
             {/* Board compatibility */}
             <div className="space-y-3">
