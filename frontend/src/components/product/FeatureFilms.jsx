@@ -90,7 +90,7 @@ export default function FeatureFilms() {
                 ref={ref}
                 className="h-full w-full object-cover"
                 src={seen ? `/film/${f.id}.mp4` : undefined}
-                poster={`/film/${f.id}.webp`}
+                poster={seen ? `/film/${f.id}.webp` : undefined}
                 muted
                 playsInline
                 preload="none"

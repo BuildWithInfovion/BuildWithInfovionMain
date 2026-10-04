@@ -56,12 +56,13 @@ export default function FilmPlayer() {
             ref={ref}
             className="h-full w-full"
             src="/film/infovion-film.mp4"
-            poster="/film/infovion-film-poster.webp"
             playsInline
             controls={started}
             preload="none"
             onEnded={() => setStarted(false)}
           />
+          {/* the cover is a lazy image rather than a video poster, so it doesn't load with the page */}
+          {!started && <img src="/film/infovion-film-poster.webp" alt="" loading="lazy" width="1280" height="720" className="absolute inset-0 h-full w-full object-cover" />}
           {!started && (
             <button type="button" onClick={() => play(0)} aria-label="Play the Infovion film with sound"
               className="group absolute inset-0 flex flex-col items-center justify-center gap-5 bg-gradient-to-t from-[#05070d]/80 via-[#05070d]/20 to-transparent">
