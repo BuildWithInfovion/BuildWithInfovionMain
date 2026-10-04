@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
+import { Facebook, Instagram, Youtube, Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
 const logo = "/logo-112.webp";
 
@@ -32,6 +32,7 @@ const socialLinks = [
   { href: "https://www.linkedin.com/company/112026919/", label: "LinkedIn",    icon: <Linkedin className="w-4 h-4" /> },
   { href: "https://www.instagram.com/infoviontech/", label: "Instagram", icon: <Instagram className="w-4 h-4" /> },
   { href: "https://www.facebook.com/profile.php?id=61595050592821", label: "Facebook", icon: <Facebook className="w-4 h-4" /> },
+  { href: "https://www.youtube.com/@Infovion_tech", label: "YouTube", icon: <Youtube className="w-4 h-4" /> },
 ];
 
 const FooterLink = ({ to, label }) => (
