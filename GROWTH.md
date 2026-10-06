@@ -58,7 +58,7 @@ Add `?utm_source=…&utm_campaign=…` to every link you share. The trial lead e
 
 **WhatsApp message (English):**
 > Hello Sir/Ma'am, a free tool your office can use today — make a Transfer Certificate or Leaving Certificate in seconds: https://buildwithinfovion.com/free-tools?utm_source=whatsapp
-> If you'd like fees, attendance, certificates and a parent app in one system, try Infovion free for 30 days (₹50 per student per year after).
+> If you'd like fees, attendance, certificates and a parent app in one system, try Infovion free for 30 days (₹150 per student per year after).
 
 **Referral offer (suggested — your decision):** "Refer a school that subscribes, get 2 months free." Schools trust other schools more than ads.
 

@@ -96,11 +96,11 @@ const globalSchema = {
         "School management software for K-12 schools in India. Covers admissions, attendance, examinations, fee collection, staff management, timetable, and announcements — with 8 role-specific portals for Director, Principal, Operator, Accountant, Receptionist, Teacher, Non-Teaching Staff and Parent.",
       offers: {
         "@type": "Offer",
-        price: "50",
+        price: "150",
         priceCurrency: "INR",
         priceSpecification: {
           "@type": "UnitPriceSpecification",
-          price: "50",
+          price: "150",
           priceCurrency: "INR",
           unitText: "per student per academic year, plus GST",
           valueAddedTaxIncluded: false,

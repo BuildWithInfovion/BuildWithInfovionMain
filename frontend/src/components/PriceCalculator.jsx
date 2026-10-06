@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-export const PRICE_PER_STUDENT = 50; // ₹ per student per academic year, before GST
+export const PRICE_PER_STUDENT = 150; // ₹ per student per academic year, before GST
 const GST = 0.18;
 const inr = (n) => "₹" + Math.round(n).toLocaleString("en-IN");
 

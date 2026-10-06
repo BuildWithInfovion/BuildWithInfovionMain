@@ -24,7 +24,7 @@ const INCLUDED = [
 const NOT = ["Setup or installation fee", "Per-module or per-user charges", "Charges for parent or teacher logins", "Long lock-in contracts"];
 
 const FAQ = [
-  ["How is the price calculated?", "₹50 for each student enrolled, per academic year, plus 18% GST. Staff, teachers and parent logins are free. A school with 600 students pays ₹30,000 + GST for the year."],
+  ["How is the price calculated?", "₹150 for each student enrolled, per academic year, plus 18% GST. Staff, teachers and parent logins are free. A school with 600 students pays ₹90,000 + GST for the year."],
   ["Is there a free trial?", "Yes — 30 days with your own trial school, every module, up to 50 students and 10 staff logins. No card needed. If you continue, the data you entered stays."],
   ["What if our student count changes during the year?", "You subscribe for an estimated number of students. New admissions during the year are billed pro rata; we don't charge back for students who leave mid-year."],
   ["How do we pay?", "By bank transfer or UPI against a GST invoice, once a year. Payment is due within 15 days of the invoice."],
@@ -44,8 +44,8 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing — ₹50 per student per year | Infovion School Management Software</title>
-        <meta name="description" content="Simple pricing for Indian schools: ₹50 per student per year + GST, every module and portal included. No setup fee. 30-day free trial." />
+        <title>Pricing — ₹150 per student per year | Infovion School Management Software</title>
+        <meta name="description" content="Simple pricing for Indian schools: ₹150 per student per year + GST, every module and portal included. No setup fee. 30-day free trial." />
         <link rel="canonical" href="https://buildwithinfovion.com/pricing" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -71,7 +71,7 @@ export default function Pricing() {
             className="relative glass rounded-3xl p-8 shadow-[0_50px_140px_-50px_rgba(45,212,191,0.5)] sm:p-10">
             <p className="text-sm font-semibold text-teal-300">Infovion School</p>
             <p className="mt-3 flex items-baseline gap-2">
-              <span className="font-display text-6xl font-extrabold tracking-tight text-white">₹50</span>
+              <span className="font-display text-6xl font-extrabold tracking-tight text-white">₹150</span>
               <span className="text-slate-400">per student / year</span>
             </p>
             <p className="mt-1 text-sm text-slate-400">+ 18% GST · billed yearly · staff & parent logins free</p>

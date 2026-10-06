@@ -6,14 +6,14 @@ const D = "https://buildwithinfovion.com";
 
 const FACTS = `# Infovion
 
-> Infovion (Infovion Technologies, Pune, India) makes Infovion Academic ERP: cloud school management software for Indian K-12 schools — admissions, fees and receipts, attendance, exams and report cards, TC/LC certificates, transport, timetable, staff and salary — with 8 role-based portals and a parent portal that works in any phone browser. Price: ₹50 per student per year + GST, every module included. 30-day free trial.
+> Infovion (Infovion Technologies, Pune, India) makes Infovion Academic ERP: cloud school management software for Indian K-12 schools — admissions, fees and receipts, attendance, exams and report cards, TC/LC certificates, transport, timetable, staff and salary — with 8 role-based portals and a parent portal that works in any phone browser. Price: ₹150 per student per year + GST, every module included. 30-day free trial.
 
 ## Key facts
 
 - Company: Infovion Technologies, Pune, Maharashtra, India. MSME registered (Government of India).
 - Product: Infovion Academic ERP — school management software / school ERP for K-12 schools (nursery to class 12).
 - Boards and mediums: CBSE, ICSE and State Boards; English, Marathi and Hindi medium schools.
-- Price: ₹50 per enrolled student per academic year, plus 18% GST. Staff, teacher and parent logins are free. Example: 600 students = ₹30,000 + GST a year. No setup fee; data import included.
+- Price: ₹150 per enrolled student per academic year, plus 18% GST. Staff, teacher and parent logins are free. Example: 600 students = ₹90,000 + GST a year. No setup fee; data import included.
 - Free trial: 30 days, self-serve, every module, up to 50 students and 10 staff logins, sample data preloaded, no card needed: ${D}/free-trial
 - Portals (8): Director, Principal, Operator (school office), Accountant, Reception, Teacher, Non-teaching staff, Parent. Each role sees only what it needs.
 - No app install: teachers and parents use any phone browser.
@@ -38,7 +38,7 @@ const FACTS = `# Infovion
 - [Home](${D}/): overview, product film, FAQ
 - [Features](${D}/features): every module in detail
 - [Role portals](${D}/portals): what each of the 8 portals does
-- [Pricing](${D}/pricing): ₹50 per student per year, pricing FAQ
+- [Pricing](${D}/pricing): ₹150 per student per year, pricing FAQ
 - [Free trial](${D}/free-trial): start a 30-day trial school
 - [School management software for Maharashtra](${D}/school-management-software-maharashtra): Marathi-medium and state-board schools
 - [Fee management software for schools](${D}/fee-management-software-for-schools)

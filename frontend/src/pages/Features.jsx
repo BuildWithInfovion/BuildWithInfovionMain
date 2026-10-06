@@ -112,7 +112,7 @@ export default function Features() {
           <div className="relative">
             <Megaphone className="mx-auto h-7 w-7 text-teal-300" />
             <h2 className="mx-auto mt-5 max-w-2xl font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Try every module <span className="text-gradient-aurora">free for 30 days.</span></h2>
-            <p className="mx-auto mt-4 max-w-xl text-slate-400">Your own trial school opens with sample data in two minutes. ₹50 per student per year after — everything included.</p>
+            <p className="mx-auto mt-4 max-w-xl text-slate-400">Your own trial school opens with sample data in two minutes. ₹150 per student per year after — everything included.</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
               <GhostButton to="/pricing">See pricing</GhostButton>

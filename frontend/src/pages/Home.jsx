@@ -17,7 +17,7 @@ const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I'
 
 const FAQ = [
   ["How does the 30-day free trial work?", "Fill in the short form. Your own trial school is created on the spot with a little sample data, and the sign-in details arrive in your email within a minute. You get every module for up to 50 students — no card, no commitment. If you continue, everything you entered stays."],
-  ["What does it cost after the trial?", "₹50 per student per year, plus GST — every module and every portal included. A school of 600 students pays ₹30,000 a year. No setup fee; data import from your old records is included."],
+  ["What does it cost after the trial?", "₹150 per student per year, plus GST — every module and every portal included. A school of 600 students pays ₹90,000 a year. No setup fee; data import from your old records is included."],
   ["We have years of records in Excel and old ledgers. Can we bring them in?", "Yes. Students, staff and parents come in from Excel — even messy files; rows that can't be read are listed so nothing is silently lost. Fees paid before you joined are entered as opening balances, so parents are never asked to pay twice."],
   ["Do parents and teachers need to install an app?", "No. Infovion works in any phone browser — teachers mark attendance and parents check fees, attendance and results from the same link."],
   ["Can parents pay fees online?", "Yes, by UPI, card or net banking. Payments go straight into the school's own Razorpay account — Infovion never holds the money — and the receipt is created automatically. The school can switch online payments on or off any time."],
@@ -71,7 +71,7 @@ function Hero() {
           <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
           <GhostButton href="#film" className="w-full sm:w-auto"><Play className="h-4 w-4" fill="currentColor" /> Watch the film</GhostButton>
         </div>
-        <p className="mt-5 text-xs text-slate-400">No card needed · ₹50 per student per year after the trial · <Link to="/contact" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
+        <p className="mt-5 text-xs text-slate-400">No card needed · ₹150 per student per year after the trial · <Link to="/contact" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
       </div>
 
       <div className="rise relative mx-auto mt-16 max-w-6xl px-5 sm:px-6">
@@ -197,7 +197,7 @@ function PricingTeaser() {
     <section className="relative bg-ink py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-2">
         <div>
-          <SectionHead kicker="Simple pricing" title="₹50 per student," accent="per year."
+          <SectionHead kicker="Simple pricing" title="₹150 per student," accent="per year."
             sub="One price, every module, every portal. No setup fee, no per-module charges, no surprise invoices. Data import and onboarding included." />
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {["All 8 portals", "Fees, receipts & online payments", "Attendance, exams & report cards", "Transport & live bus", "Certificates & ID cards", "Onboarding & data import", "Email & WhatsApp support", "30-day free trial"].map((t) => (
@@ -294,7 +294,7 @@ export default function Home() {
     <div className="bg-ink">
       <Helmet>
         <title>Infovion — School Management Software for Indian Schools | Free trial</title>
-        <meta name="description" content="Fees and receipts, attendance, exams, transport, TC/LC certificates and a parent app — one school management platform for Indian K-12 schools. ₹50 per student per year. Start a 30-day free trial in two minutes." />
+        <meta name="description" content="Fees and receipts, attendance, exams, transport, TC/LC certificates and a parent app — one school management platform for Indian K-12 schools. ₹150 per student per year. Start a 30-day free trial in two minutes." />
         <link rel="canonical" href="https://buildwithinfovion.com/" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>

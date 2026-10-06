@@ -36,7 +36,7 @@ function Landing({ c }) {
               <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
               <GhostButton to="/contact" className="w-full sm:w-auto">Book a live demo</GhostButton>
             </div>
-            <p className="mt-4 text-xs text-slate-500">30 days free · no card · ₹50 per student per year after</p>
+            <p className="mt-4 text-xs text-slate-500">30 days free · no card · ₹150 per student per year after</p>
           </div>
           <Reveal>
             {c.phone ? (
@@ -133,7 +133,7 @@ const MarathiBlock = (
           जन्मतारीख अक्षरी आपोआप लिहिली जाते. जुन्या रजिस्टर किंवा Excel मधील माहिती सहज आणता येते, आणि आधी भरलेली फी ओपनिंग बॅलन्स म्हणून नोंदवता येते.
         </p>
         <p className="mt-4 leading-relaxed text-slate-300">
-          किंमत: प्रति विद्यार्थी वर्षाला ₹50 (+ GST), सर्व मॉड्यूल्ससह. 30 दिवसांची मोफत ट्रायल — कार्डची गरज नाही.
+          किंमत: प्रति विद्यार्थी वर्षाला ₹150 (+ GST), सर्व मॉड्यूल्ससह. 30 दिवसांची मोफत ट्रायल — कार्डची गरज नाही.
         </p>
         <div className="mt-6"><GlowButton to="/free-trial">मोफत ट्रायल सुरू करा <ArrowRight className="h-4 w-4" /></GlowButton></div>
       </div>
@@ -145,7 +145,7 @@ const PAGES = {
   maharashtra: {
     slug: "school-management-software-maharashtra",
     title: "School Management Software for Maharashtra Schools (Marathi LC, State Board) | Infovion",
-    description: "School ERP built for Maharashtra: Marathi school leaving certificate with G.R. No., State Board & Marathi-medium ready, fees and receipts, attendance, parent portal. ₹50/student/year. Free 30-day trial.",
+    description: "School ERP built for Maharashtra: Marathi school leaving certificate with G.R. No., State Board & Marathi-medium ready, fees and receipts, attendance, parent portal. ₹150/student/year. Free 30-day trial.",
     kicker: "Made in Pune, for Maharashtra",
     h1: "School management software for",
     h1Accent: "Maharashtra schools.",
@@ -172,7 +172,7 @@ const PAGES = {
     faq: [
       ["Does Infovion support the Maharashtra school leaving certificate?", "Yes. The LC (शाळा सोडल्याचा दाखला) follows the Maharashtra format with the General Register number and is printed in Marathi or Marathi + English, on one page. You can also try our free LC generator."],
       ["Is it suitable for State Board and Marathi-medium schools?", "Yes. Infovion works for State Board, CBSE and ICSE schools, in Marathi, English or semi-English medium."],
-      ["How much does it cost?", "₹50 per student per year plus GST, with every module included. There is a 30-day free trial."],
+      ["How much does it cost?", "₹150 per student per year plus GST, with every module included. There is a 30-day free trial."],
       ["Can we bring our existing data?", "Yes — students, parents and staff from Excel, and fees already paid as opening balances, so nobody is asked to pay twice."],
     ],
     ctaTitle: "Run your Maharashtra school on Infovion.",
@@ -208,7 +208,7 @@ const PAGES = {
       ["Can parents pay school fees online?", "Yes. Payments go straight to the school's own Razorpay account — Infovion never holds the money — and the receipt is created automatically. The school can switch online payments on or off any time."],
       ["Does it handle transport and other fees?", "Yes — tuition, development, exam and transport fees, each with its own instalments and receipts, including transport run by a separate operator."],
       ["Can we see who hasn't paid?", "The defaulter list is always live, by class and by instalment, with the outstanding amount for each student."],
-      ["How much does it cost?", "₹50 per student per year plus GST, everything included. 30-day free trial."],
+      ["How much does it cost?", "₹150 per student per year plus GST, everything included. 30-day free trial."],
     ],
     ctaTitle: "Collect fees the easy way.",
     related: [["/school-attendance-app", "Attendance app"], ["/school-management-software-maharashtra", "For Maharashtra schools"], ["/pricing", "Pricing"]],
@@ -243,7 +243,7 @@ const PAGES = {
       ["Do teachers need to install an app?", "No. Infovion works in any phone browser; it can be added to the home screen like an app."],
       ["Can parents see attendance?", "Yes, day by day and as a monthly percentage, in the parent portal."],
       ["Is staff attendance included?", "Yes — staff attendance and leave requests are part of Infovion too."],
-      ["How much does it cost?", "₹50 per student per year plus GST, all modules included. 30-day free trial."],
+      ["How much does it cost?", "₹150 per student per year plus GST, all modules included. 30-day free trial."],
     ],
     ctaTitle: "Try attendance on your own classes.",
     related: [["/fee-management-software-for-schools", "Fee management"], ["/school-transport-management-software", "School transport"], ["/pricing", "Pricing"]],
@@ -276,7 +276,7 @@ const PAGES = {
     faq: [
       ["Can transport be billed by a separate operator?", "Yes. A route can be billed under a separate operator, with its own receipt series, while the school still sees everything."],
       ["Do parents see the bus location?", "Yes, during the trip, in the parent portal. The child's own location is never tracked — only the bus."],
-      ["Is it included in the price?", "Yes — transport is part of the ₹50 per student per year, no add-on."],
+      ["Is it included in the price?", "Yes — transport is part of the ₹150 per student per year, no add-on."],
       ["Is there a free trial?", "Yes, 30 days with every module, no card."],
     ],
     ctaTitle: "Put your buses on Infovion.",

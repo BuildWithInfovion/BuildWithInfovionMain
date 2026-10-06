@@ -292,7 +292,7 @@ export default function FreeTrial() {
                   <li key={t} className="flex gap-2.5 text-sm text-slate-300"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-300" />{t}</li>
                 ))}
               </ul>
-              <p className="mt-4 text-xs text-slate-500">Online fee payments switch on when you subscribe. After the trial: ₹50 per student per year + GST.</p>
+              <p className="mt-4 text-xs text-slate-500">Online fee payments switch on when you subscribe. After the trial: ₹150 per student per year + GST.</p>
             </div>
             <div className="hidden justify-center pt-2 lg:flex">
               <div className="w-[220px] -rotate-3">

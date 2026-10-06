@@ -19,7 +19,7 @@ So the job has two parts: (1) the website states the facts clearly (done), and (
 | `llms.txt`: a plain-text summary for AI (facts, pricing, modules, all pages, all guides), rebuilt on every deploy | https://buildwithinfovion.com/llms.txt |
 | `llms-full.txt`: the same plus the full text of every guide | https://buildwithinfovion.com/llms-full.txt |
 | `robots.txt` explicitly welcomes GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot and others | /robots.txt |
-| Structured data: Organization (alternate names, MSME, Pune), SoftwareApplication with the real price (₹50 per student per year + GST), FAQ schema on key pages; one consistent copy instead of two conflicting ones | every page |
+| Structured data: Organization (alternate names, MSME, Pune), SoftwareApplication with the real price (₹150 per student per year + GST), FAQ schema on key pages; one consistent copy instead of two conflicting ones | every page |
 | Every page prerendered as full HTML | every page |
 | Open-source repo `indian-school-certificates` prepared, ready to publish (see 3) | `Desktop/indian-school-certificates` |
 
@@ -81,16 +81,16 @@ Then submit it, one honest pull request each, to lists where it genuinely fits:
 **Name:** Infovion (company: Infovion Technologies) · **Product:** Infovion Academic ERP
 **Website:** https://buildwithinfovion.com · **Email:** contact@buildwithinfovion.com · **Phone:** +91 91563 02024 (WhatsApp +91 93091 93613) · **Location:** Pune, Maharashtra, India
 **Category:** School Management Software / School ERP / Student Information System
-**Pricing:** ₹50 per student per year + GST, every module included · 30-day free trial, no card
+**Pricing:** ₹150 per student per year + GST, every module included · 30-day free trial, no card
 
 **One line (≤ 80 chars):**
-School management software for Indian K-12 schools — ₹50/student/year.
+School management software for Indian K-12 schools — ₹150/student/year.
 
 **Short (≤ 160 chars):**
-Cloud school ERP for Indian schools: fees, attendance, exams, TC, transport and a parent portal. 8 role portals. ₹50/student/year. 30-day free trial.
+Cloud school ERP for Indian schools: fees, attendance, exams, TC, transport and a parent portal. 8 role portals. ₹150/student/year. 30-day free trial.
 
 **Long (about 120 words):**
-Infovion is school management software built in Pune for Indian K-12 schools — CBSE, ICSE and State Board, English, Marathi and Hindi medium. It covers admissions, fee collection with instant receipts and defaulter lists, attendance marked by teachers on any phone, exams and report cards on the school letterhead, Transfer and Leaving Certificates with a parent-request and principal-approval workflow, school transport with live bus location, timetable, staff and salary. Eight role-based portals (Director, Principal, Operator, Accountant, Reception, Teacher, Non-teaching staff and Parent) mean each person sees only what they need, and nothing has to be installed. Parents can pay fees online straight into the school's own Razorpay account. Pricing is ₹50 per student per year with every module included, and there is a 30-day free trial.
+Infovion is school management software built in Pune for Indian K-12 schools — CBSE, ICSE and State Board, English, Marathi and Hindi medium. It covers admissions, fee collection with instant receipts and defaulter lists, attendance marked by teachers on any phone, exams and report cards on the school letterhead, Transfer and Leaving Certificates with a parent-request and principal-approval workflow, school transport with live bus location, timetable, staff and salary. Eight role-based portals (Director, Principal, Operator, Accountant, Reception, Teacher, Non-teaching staff and Parent) mean each person sees only what they need, and nothing has to be installed. Parents can pay fees online straight into the school's own Razorpay account. Pricing is ₹150 per student per year with every module included, and there is a 30-day free trial.
 
 **Key features (for "features" fields):**
 Admissions & inquiries · Fee management & receipts · Online fee payments (UPI/card) · Attendance app · Exams & report cards · TC / Leaving certificate · Transport & live bus location · Timetable & substitutes · Staff & salary slips · Parent portal · 8 role-based portals · Excel import · Audit log · Two-step sign-in
