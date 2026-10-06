@@ -1,0 +1,47 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Infovion",
+    "documentationUrl": "https://buildwithinfovion.com/llms.txt",
+    "logoUrl": "https://buildwithinfovion.com/logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:buildwithinfovion.com:docs:llms-txt",
+      "displayName": "Infovion school management software — summary for AI assistants",
+      "type": "text/markdown",
+      "url": "https://buildwithinfovion.com/llms.txt",
+      "description": "Plain-text facts about Infovion, a school ERP for Indian schools: pricing (Rs 50 per student per year), free trial, portals for every role, and modules (admissions, fees, attendance, exams, transport, hostel, gate register).",
+      "tags": ["school management software", "school ERP", "India", "education"],
+      "representativeQueries": [
+        "school management software for Indian schools",
+        "how much does Infovion school ERP cost",
+        "which school ERP has fee collection, attendance and a parent app"
+      ]
+    },
+    {
+      "identifier": "urn:air:buildwithinfovion.com:docs:llms-full-txt",
+      "displayName": "Infovion guides for school owners and principals (full text)",
+      "type": "text/markdown",
+      "url": "https://buildwithinfovion.com/llms-full.txt",
+      "description": "Full text of every Infovion guide on running a school: fees, admissions, attendance, certificates and compliance.",
+      "tags": ["school administration", "guides"],
+      "representativeQueries": [
+        "how to collect school fees online in India",
+        "how to issue a transfer certificate"
+      ]
+    },
+    {
+      "identifier": "urn:air:buildwithinfovion.com:docs:user-guide",
+      "displayName": "Infovion user guide for school staff and parents",
+      "type": "text/html",
+      "url": "https://app.buildwithinfovion.com/help",
+      "description": "Step-by-step guides per role: operator, principal, director, teacher, accountant, receptionist, gatekeeper, hostel, transport and parents.",
+      "tags": ["help", "user guide"],
+      "representativeQueries": [
+        "how do teachers mark attendance in Infovion",
+        "how do parents sign in to the Infovion app"
+      ]
+    }
+  ]
+}
