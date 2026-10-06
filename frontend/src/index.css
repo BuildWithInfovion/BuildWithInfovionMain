@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted (was Google Fonts): same-origin fonts avoid two extra connections
+   that phones pay for before the first paint. Variable fonts, latin + latin-ext
+   (latin-ext carries the ₹ sign). Regenerate from fonts.googleapis.com if weights change. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/inter-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/inter-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url(/fonts/plus-jakarta-sans-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url(/fonts/plus-jakarta-sans-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+/* Size-matched stand-ins shown until the web fonts arrive, so the swap does not
+   move the page (no layout shift). Ratios measured in Chrome against Arial at the
+   weights the site uses; Liberation Sans is Arial-compatible (Linux). */
+@font-face { font-family: 'Inter Fallback'; font-weight: 400 500; src: local('Arial'), local('ArialMT'), local('Liberation Sans');
+  size-adjust: 106.24%; ascent-override: 91.19%; descent-override: 22.70%; line-gap-override: 0%; }
+@font-face { font-family: 'Inter Fallback'; font-weight: 600 700; src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold');
+  size-adjust: 101.20%; ascent-override: 95.73%; descent-override: 23.84%; line-gap-override: 0%; }
+@font-face { font-family: 'Jakarta Fallback'; font-weight: 600 700; src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold');
+  size-adjust: 101.10%; ascent-override: 102.67%; descent-override: 21.96%; line-gap-override: 0%; }
+@font-face { font-family: 'Jakarta Fallback'; font-weight: 800 900; src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold');
+  size-adjust: 88.70%; ascent-override: 117.02%; descent-override: 25.03%; line-gap-override: 0%; }
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -269,15 +318,17 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: auroraText 7s linear infinite;
+    /* Static on purpose: animating background-position repaints the text every frame,
+       and this is the hero headline (the page's largest paint) */
   }
   @keyframes auroraText { to { background-position: 200% center; } }
 
   /* Drifting aurora blobs */
-  .aurora-blob { position: absolute; border-radius: 9999px; filter: blur(70px); opacity: .55; mix-blend-mode: screen; will-change: transform; }
-  .aurora-a { background: radial-gradient(closest-side, rgba(20,184,166,.9), transparent); animation: auroraA 16s ease-in-out infinite alternate; }
-  .aurora-b { background: radial-gradient(closest-side, rgba(99,102,241,.85), transparent); animation: auroraB 19s ease-in-out infinite alternate; }
-  .aurora-c { background: radial-gradient(closest-side, rgba(34,211,238,.75), transparent); animation: auroraC 13s ease-in-out infinite alternate; }
+  /* Soft edges come from the gradient itself: a blur() filter or blend mode here cost seconds of paint on phones */
+  .aurora-blob { position: absolute; border-radius: 9999px; opacity: .55; will-change: transform; }
+  .aurora-a { background: radial-gradient(closest-side, rgba(20,184,166,.9), rgba(20,184,166,.35) 40%, transparent); animation: auroraA 16s ease-in-out infinite alternate; }
+  .aurora-b { background: radial-gradient(closest-side, rgba(99,102,241,.85), rgba(99,102,241,.35) 40%, transparent); animation: auroraB 19s ease-in-out infinite alternate; }
+  .aurora-c { background: radial-gradient(closest-side, rgba(34,211,238,.75), rgba(34,211,238,.35) 40%, transparent); animation: auroraC 13s ease-in-out infinite alternate; }
   @keyframes auroraA { from { transform: translate(-10%, -6%) scale(1); } to { transform: translate(12%, 8%) scale(1.15); } }
   @keyframes auroraB { from { transform: translate(8%, 4%) scale(1.1); } to { transform: translate(-14%, -8%) scale(.95); } }
   @keyframes auroraC { from { transform: translate(0, 10%) scale(.9); } to { transform: translate(6%, -10%) scale(1.2); } }
@@ -337,8 +388,8 @@
 /* Blog articles on the dark theme (content HTML comes from Data/blogData.js) */
 .article-dark { color: #cbd5e1; font-size: 17px; line-height: 1.85; }
 .article-dark p { margin: 0 0 1.25em; color: #cbd5e1 !important; }
-.article-dark h2 { margin: 2em 0 .7em !important; font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 1.6rem !important; line-height: 1.25; font-weight: 800; color: #fff !important; letter-spacing: -0.01em; }
-.article-dark h3 { margin: 1.6em 0 .5em !important; font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 1.25rem !important; font-weight: 700; color: #fff !important; }
+.article-dark h2 { margin: 2em 0 .7em !important; font-family: "Plus Jakarta Sans", "Jakarta Fallback", Inter, sans-serif; font-size: 1.6rem !important; line-height: 1.25; font-weight: 800; color: #fff !important; letter-spacing: -0.01em; }
+.article-dark h3 { margin: 1.6em 0 .5em !important; font-family: "Plus Jakarta Sans", "Jakarta Fallback", Inter, sans-serif; font-size: 1.25rem !important; font-weight: 700; color: #fff !important; }
 .article-dark ul, .article-dark ol { margin: 0 0 1.25em 1.3em; }
 .article-dark ul { list-style: disc; } .article-dark ol { list-style: decimal; }
 .article-dark li { margin: .35em 0; color: #cbd5e1 !important; }

@@ -11,9 +11,17 @@ const { blogPosts } = await import(pathToFileURL(path.join(root, "src", "Data", 
 const { PRERENDER_ROUTES } = await import(pathToFileURL(path.join(root, "src", "routes.js")).href);
 
 // The page is already in the HTML, so the app bundle (needed only to hydrate it)
-// shouldn't compete with the stylesheet and images for the first paint
+// must not hold up the first paint: it is requested only once the browser has
+// painted. Downloading it earlier takes bandwidth from the first paint on a slow
+// phone, and a module script in <head> may even run before the first frame.
+let bundleSrc = "";
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8")
-  .replace('<script type="module" crossorigin', '<script type="module" fetchpriority="low" crossorigin');
+  .replace(/<script type="module" crossorigin src="([^"]+)"><\/script>/, (_, src) => {
+    bundleSrc = src;
+    return "";
+  });
+if (!bundleSrc) throw new Error("prerender: app bundle <script> not found in dist/index.html");
+const loader = `<script>requestAnimationFrame(function(){setTimeout(function(){var s=document.createElement("script");s.type="module";s.crossOrigin="";s.src=${JSON.stringify(bundleSrc)};document.body.appendChild(s)},0)})</script>`;
 
 // Head tags the pages manage themselves: drop the template's copies to avoid duplicates
 const stripHead = (h) => h
@@ -35,7 +43,10 @@ for (const url of routes) {
       : "";
     let page = stripHead(template).replace("</head>", `    ${head}\n  </head>`);
     // In the built index.html the scripts live in <head>, so #root runs to </body>
-    page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root" data-ssr="${url}">${html}</div>\n  </body>`);
+    page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root" data-ssr="${url}">${html}</div>\n    ${loader}\n  </body>`);
+    // Cloudflare's email obfuscation would rewrite the addresses (breaking hydration)
+    // and inject a render-blocking decoder script; these markers switch it off.
+    page = page.replace("<head>", "<head>\n    <!--email_off-->").replace("</body>", "<!--/email_off-->\n  </body>");
     const out = url === "/" ? path.join(dist, "index.html") : path.join(dist, url.replace(/^\//, ""), "index.html");
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.writeFileSync(out, page);

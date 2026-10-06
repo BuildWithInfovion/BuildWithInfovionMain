@@ -21,8 +21,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ['"Plus Jakarta Sans"', "Inter", "system-ui", "sans-serif"],
+        sans: ["Inter", '"Inter Fallback"', "system-ui", "sans-serif"],
+        display: ['"Plus Jakarta Sans"', '"Jakarta Fallback"', "Inter", "system-ui", "sans-serif"],
         serif: ['"Instrument Serif"', "Georgia", "serif"],
       },
       backgroundImage: {

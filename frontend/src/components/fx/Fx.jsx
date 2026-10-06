@@ -2,26 +2,28 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion, useInView, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
-/** Drifting teal / indigo / cyan light behind a dark section. */
+/** Drifting teal / indigo / cyan light behind a dark section.
+ *  Offsets are in px, not %: a %-top moves with the section's height, so the web font
+ *  swapping in (and re-wrapping the text) would count as a layout shift. */
 export function Aurora({ className = "", strong = false }) {
   return (
     <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
-      <div className={`aurora-blob aurora-a left-[5%] top-[-15%] h-[520px] w-[620px] ${strong ? "opacity-70" : ""}`} />
+      <div className={`aurora-blob aurora-a left-[5%] top-[-90px] h-[520px] w-[620px] ${strong ? "opacity-70" : ""}`} />
       <div className={`aurora-blob aurora-b right-[0%] top-[0%] h-[480px] w-[560px] ${strong ? "opacity-60" : ""}`} />
-      <div className="aurora-blob aurora-c left-[35%] top-[25%] h-[380px] w-[480px] opacity-40" />
+      <div className="aurora-blob aurora-c left-[35%] top-[160px] h-[380px] w-[480px] opacity-40" />
       <div className="absolute inset-0 grid-floor opacity-60" />
     </div>
   );
 }
 
-/** Text revealed with a soft blur-in when scrolled into view. */
+/** Text that fades and slides in when scrolled into view (no blur filter: too costly on phones). */
 export function Reveal({ children, delay = 0, y = 22, className = "", as = "div" }) {
   const M = Motion[as] ?? Motion.div;
   return (
     <M
       className={className}
-      initial={{ opacity: 0, y, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
     >

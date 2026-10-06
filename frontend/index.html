@@ -48,12 +48,10 @@
 
     <!-- Structured data (Organization, SoftwareApplication, WebSite) is added per page by the prerender -->
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fonts load without blocking the first paint; text shows in the system font until they arrive -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" /></noscript>
+    <!-- Fonts are self-hosted (src/index.css, public/fonts); the two used above the fold are
+         fetched straight away so they are normally ready for the first paint (no swap, no shift) -->
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Google Analytics 4 -->
     <!-- gtag() queues events at once; the library itself loads after the page has finished loading -->
