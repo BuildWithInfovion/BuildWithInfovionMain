@@ -8,7 +8,7 @@ import { PhoneFrame, LoopVideo } from "../../components/product/Frames";
 /** Search-intent landing page: one problem, how Infovion solves it, proof, FAQ, trial. */
 function Landing({ c }) {
   const [open, setOpen] = useState(0);
-  const url = `https://buildwithinfovion.com/${c.slug}`;
+  const url = `https://infovion.in/${c.slug}`;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

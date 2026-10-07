@@ -219,7 +219,7 @@ export default function Navbar() {
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 className="text-brand-neutral/50 text-xs mt-4"
               >
-                contact@buildwithinfovion.com
+                contact@infovion.in
               </Motion.p>
             </Motion.nav>
           </Motion.div>

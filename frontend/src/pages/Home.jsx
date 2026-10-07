@@ -295,7 +295,7 @@ export default function Home() {
       <Helmet>
         <title>Infovion — School Management Software for Indian Schools | Free trial</title>
         <meta name="description" content="Fees and receipts, attendance, exams, transport, TC/LC certificates and a parent app — one school management platform for Indian K-12 schools. ₹150 per student per year. Start a 30-day free trial in two minutes." />
-        <link rel="canonical" href="https://buildwithinfovion.com/" />
+        <link rel="canonical" href="https://infovion.in/" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 

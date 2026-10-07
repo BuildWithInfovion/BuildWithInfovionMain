@@ -17,9 +17,9 @@ const contactMethods = [
   {
     icon: <Mail className="w-5 h-5" />,
     title: "Email",
-    value: "contact@buildwithinfovion.com",
+    value: "contact@infovion.in",
     sub: "Response within 2 hours",
-    href: "mailto:contact@buildwithinfovion.com",
+    href: "mailto:contact@infovion.in",
   },
   {
     icon: <Phone className="w-5 h-5" />,
@@ -86,10 +86,10 @@ export default function Contact() {
         />
         <meta name="keywords" content="contact Infovion, school ERP demo India, school management software demo, Infovion Pune contact, school software inquiry India" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://buildwithinfovion.com/contact" />
+        <link rel="canonical" href="https://infovion.in/contact" />
         <meta property="og:title" content="Contact Infovion — Free School ERP Demo" />
         <meta property="og:description" content="Schedule a free demo of Infovion school management software. We walk through every module with your school's context in mind." />
-        <meta property="og:url" content="https://buildwithinfovion.com/contact" />
+        <meta property="og:url" content="https://infovion.in/contact" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 

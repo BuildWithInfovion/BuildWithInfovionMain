@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 /** A dark browser window around a product screenshot or video. */
-export function BrowserFrame({ children, url = "app.buildwithinfovion.com", className = "" }) {
+export function BrowserFrame({ children, url = "app.infovion.in", className = "" }) {
   return (
     <div
       className={`relative overflow-hidden rounded-2xl bg-[#0b1220] ring-1 ring-white/10 ${className}`}

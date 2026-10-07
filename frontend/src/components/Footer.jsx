@@ -101,13 +101,13 @@ export default function Footer() {
 
             <div className="space-y-2.5">
               <a
-                href="mailto:contact@buildwithinfovion.com"
+                href="mailto:contact@infovion.in"
                 className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-brand-accent transition-colors group"
               >
                 <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-terra/20 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </span>
-                contact@buildwithinfovion.com
+                contact@infovion.in
               </a>
               <div className="flex items-center gap-2.5 text-sm text-slate-300">
                 <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0">
@@ -195,8 +195,8 @@ export default function Footer() {
             {/* Quick contact */}
             <div className="mt-6 p-4 rounded-xl border border-brand-brown/40 bg-brand-brown/10">
               <p className="text-xs text-slate-400 mb-2 font-medium">Questions? Write to us</p>
-              <a href="mailto:contact@buildwithinfovion.com" className="text-xs text-brand-accent/80 hover:text-brand-accent transition-colors">
-                contact@buildwithinfovion.com
+              <a href="mailto:contact@infovion.in" className="text-xs text-brand-accent/80 hover:text-brand-accent transition-colors">
+                contact@infovion.in
               </a>
             </div>
           </div>

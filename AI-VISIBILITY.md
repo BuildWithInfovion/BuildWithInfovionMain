@@ -16,8 +16,8 @@ So the job has two parts: (1) the website states the facts clearly (done), and (
 
 | What | Where |
 |---|---|
-| `llms.txt`: a plain-text summary for AI (facts, pricing, modules, all pages, all guides), rebuilt on every deploy | https://buildwithinfovion.com/llms.txt |
-| `llms-full.txt`: the same plus the full text of every guide | https://buildwithinfovion.com/llms-full.txt |
+| `llms.txt`: a plain-text summary for AI (facts, pricing, modules, all pages, all guides), rebuilt on every deploy | https://infovion.in/llms.txt |
+| `llms-full.txt`: the same plus the full text of every guide | https://infovion.in/llms-full.txt |
 | `robots.txt` explicitly welcomes GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot and others | /robots.txt |
 | Structured data: Organization (alternate names, MSME, Pune), SoftwareApplication with the real price (₹150 per student per year + GST), FAQ schema on key pages; one consistent copy instead of two conflicting ones | every page |
 | Every page prerendered as full HTML | every page |
@@ -58,14 +58,14 @@ Each is free, takes 15–30 minutes, and gives a trusted page that links to us.
 - Marathi Leaving Certificate (शाळा सोडल्याचा दाखला), TC and bonafide;
 - date of birth in words in English, Marathi and Hindi.
 
-It's tested and committed locally, not yet published. Its README links to buildwithinfovion.com.
+It's tested and committed locally, not yet published. Its README links to infovion.in.
 
 To publish:
 1. On GitHub (BuildWithInfovion account) → **New repository** → name `indian-school-certificates` → Public → no README (we have one).
 2. Tell me when that's done and I'll push it, or run:
    `git remote add origin https://github.com/BuildWithInfovion/indian-school-certificates.git && git push -u origin main`
 3. Repo settings → **About**:
-   - Website: `https://buildwithinfovion.com/free-tools`
+   - Website: `https://infovion.in/free-tools`
    - Topics: `school`, `india`, `marathi`, `certificate-generator`, `transfer-certificate`, `leaving-certificate`, `school-management`, `education`
 4. Settings → Pages → deploy from `main`, which gives it a free live demo.
 
@@ -79,7 +79,7 @@ Then submit it, one honest pull request each, to lists where it genuinely fits:
 ## 4. Copy to paste into every listing
 
 **Name:** Infovion (company: Infovion Technologies) · **Product:** Infovion Academic ERP
-**Website:** https://buildwithinfovion.com · **Email:** contact@buildwithinfovion.com · **Phone:** +91 91563 02024 (WhatsApp +91 93091 93613) · **Location:** Pune, Maharashtra, India
+**Website:** https://infovion.in · **Email:** contact@infovion.in · **Phone:** +91 91563 02024 (WhatsApp +91 93091 93613) · **Location:** Pune, Maharashtra, India
 **Category:** School Management Software / School ERP / Student Information System
 **Pricing:** ₹150 per student per year + GST, every module included · 30-day free trial, no card
 

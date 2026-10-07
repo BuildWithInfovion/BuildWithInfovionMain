@@ -28,7 +28,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { captureFirstTouch, track } from "./lib/analytics";
 
-const DOMAIN = "https://buildwithinfovion.com";
+const DOMAIN = "https://infovion.in";
 
 const globalSchema = {
   "@context": "https://schema.org",
@@ -49,7 +49,7 @@ const globalSchema = {
         "Infovion Technologies is a Pune-based, MSME-registered company building school management software (school ERP) for K-12 schools across India.",
       foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
       knowsAbout: ["School management software", "School ERP", "Fee management for schools", "School attendance", "Transfer certificates", "Indian K-12 education"],
-      email: "contact@buildwithinfovion.com",
+      email: "contact@infovion.in",
       telephone: "+919156302024",
       address: {
         "@type": "PostalAddress",
@@ -77,7 +77,7 @@ const globalSchema = {
         },
         {
           "@type": "ContactPoint",
-          email: "contact@buildwithinfovion.com",
+          email: "contact@infovion.in",
           contactType: "customer support",
           areaServed: "IN",
         },

@@ -68,10 +68,10 @@ export default function About() {
         />
         <meta name="keywords" content="Infovion Technologies Pune, school ERP company India, school management software company Pune, academic ERP India, school software startup India" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://buildwithinfovion.com/about" />
+        <link rel="canonical" href="https://infovion.in/about" />
         <meta property="og:title" content="About Infovion Technologies — School ERP Company, Pune" />
         <meta property="og:description" content="Pune-based startup building school management software for K-12 schools across India. Learn who we are and why we built Infovion." />
-        <meta property="og:url" content="https://buildwithinfovion.com/about" />
+        <meta property="og:url" content="https://infovion.in/about" />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -363,10 +363,10 @@ export default function About() {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-brand-terra flex-shrink-0" />
                 <a
-                  href="mailto:contact@buildwithinfovion.com"
+                  href="mailto:contact@infovion.in"
                   className="text-brand-brown hover:text-brand-terra transition-colors text-sm"
                 >
-                  contact@buildwithinfovion.com
+                  contact@infovion.in
                 </a>
               </div>
               <div className="flex items-center gap-3">

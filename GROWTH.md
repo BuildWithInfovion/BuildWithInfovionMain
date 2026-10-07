@@ -9,11 +9,11 @@ The steps below are the ones only you can do.
 
 ## Week 1 — get Google to re-read the site (most important)
 
-Google still shows the old agency description of buildwithinfovion.com ("Web Development, UI/UX & AI Solutions Agency"). Until that changes, almost no school will find you.
+Google still shows the old agency description of infovion.in ("Web Development, UI/UX & AI Solutions Agency"). Until that changes, almost no school will find you.
 
 1. **Google Search Console** → https://search.google.com/search-console
-   - Add the property `buildwithinfovion.com` (Domain property, verified by DNS TXT record at your domain registrar).
-   - **Sitemaps** → submit `https://buildwithinfovion.com/sitemap.xml`. It now lists ~28 pages and is regenerated on every deploy.
+   - Add the property `infovion.in` (Domain property, verified by DNS TXT record at your domain registrar).
+   - **Sitemaps** → submit `https://infovion.in/sitemap.xml`. It now lists ~28 pages and is regenerated on every deploy.
    - **URL inspection** → request indexing for these pages, one by one:
      - `/`
      - `/free-tools/school-leaving-certificate-marathi`
@@ -32,7 +32,7 @@ Google still shows the old agency description of buildwithinfovion.com ("Web Dev
    - Other events now sent: `whatsapp_click`, `film_play`, `tool_print`, `tool_cta`.
 4. **YouTube**
    - Upload the 4-minute film (`brag.mp4`) as "Infovion — School Management Software for Indian Schools".
-   - Put the trial link first in the description: `https://buildwithinfovion.com/free-trial?utm_source=youtube`.
+   - Put the trial link first in the description: `https://infovion.in/free-trial?utm_source=youtube`.
    - Upload the 11 feature clips as Shorts.
 
 ## Track every channel
@@ -41,10 +41,10 @@ Add `?utm_source=…&utm_campaign=…` to every link you share. The trial lead e
 
 | Where | Link |
 |---|---|
-| WhatsApp broadcast | `https://buildwithinfovion.com/free-trial?utm_source=whatsapp&utm_campaign=oct-broadcast` |
-| Visiting card / brochure QR | `https://buildwithinfovion.com/free-trial?utm_source=print&utm_campaign=visiting-card` |
-| Referral by a school | `https://buildwithinfovion.com/free-trial?ref=SCHOOLCODE` |
-| Instagram / Facebook bio | `https://buildwithinfovion.com/?utm_source=instagram` |
+| WhatsApp broadcast | `https://infovion.in/free-trial?utm_source=whatsapp&utm_campaign=oct-broadcast` |
+| Visiting card / brochure QR | `https://infovion.in/free-trial?utm_source=print&utm_campaign=visiting-card` |
+| Referral by a school | `https://infovion.in/free-trial?ref=SCHOOLCODE` |
+| Instagram / Facebook bio | `https://infovion.in/?utm_source=instagram` |
 
 ## Outreach that works for school software in India
 
@@ -53,11 +53,11 @@ Add `?utm_source=…&utm_campaign=…` to every link you share. The trial lead e
 **Free tools first, product second.** Send school offices the free LC / TC generator. It is useful to them on day one, and the certificate footer points back to Infovion.
 
 **WhatsApp message (Marathi):**
-> नमस्कार सर/मॅडम, शाळा सोडल्याचा दाखला मराठीत काही सेकंदात तयार करण्यासाठी आमचं मोफत टूल वापरून पहा — जन्मतारीख अक्षरी आपोआप लिहिली जाते: https://buildwithinfovion.com/free-tools/school-leaving-certificate-marathi?utm_source=whatsapp
+> नमस्कार सर/मॅडम, शाळा सोडल्याचा दाखला मराठीत काही सेकंदात तयार करण्यासाठी आमचं मोफत टूल वापरून पहा — जन्मतारीख अक्षरी आपोआप लिहिली जाते: https://infovion.in/free-tools/school-leaving-certificate-marathi?utm_source=whatsapp
 > संपूर्ण शाळेची फी, हजेरी, दाखले आणि पालक पोर्टल एकाच ठिकाणी हवं असेल तर 30 दिवस मोफत वापरून पहा. — इन्फोव्हियन, पुणे
 
 **WhatsApp message (English):**
-> Hello Sir/Ma'am, a free tool your office can use today — make a Transfer Certificate or Leaving Certificate in seconds: https://buildwithinfovion.com/free-tools?utm_source=whatsapp
+> Hello Sir/Ma'am, a free tool your office can use today — make a Transfer Certificate or Leaving Certificate in seconds: https://infovion.in/free-tools?utm_source=whatsapp
 > If you'd like fees, attendance, certificates and a parent app in one system, try Infovion free for 30 days (₹150 per student per year after).
 
 **Referral offer (suggested — your decision):** "Refer a school that subscribes, get 2 months free." Schools trust other schools more than ads.

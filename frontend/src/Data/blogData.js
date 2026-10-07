@@ -328,7 +328,7 @@ export const blogPosts = [
 
       <h2 class="text-2xl font-bold my-6 text-brand-dark">How to Verify a Vendor's MSME Status</h2>
       <p>If a school software vendor claims MSME registration, you can verify it independently. The Government of India's Udyam Registration portal allows anyone to verify a Udyam Registration Number (URN). A genuine MSME registration will show the company's name, type of enterprise, and registration date. If a vendor cannot produce their URN, the claim cannot be verified.</p>
-      <p>Infovion's MSME registration details are available on request — write to us at <a href="mailto:contact@buildwithinfovion.com" class="text-brand-terra hover:underline">contact@buildwithinfovion.com</a> and we will share the certificate.</p>
+      <p>Infovion's MSME registration details are available on request — write to us at <a href="mailto:contact@infovion.in" class="text-brand-terra hover:underline">contact@infovion.in</a> and we will share the certificate.</p>
 
       <h2 class="text-2xl font-bold my-6 text-brand-dark">The Broader Point: Trust Signals in Edtech</h2>
       <p>India's school software market has hundreds of vendors, many of which are unregistered, lightly capitalized, or operating without a clear legal identity. School directors have been burned by vendors who disappeared mid-year, stopped providing support after a fee hike, or simply could not deliver what was promised in the demo.</p>

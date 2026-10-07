@@ -163,7 +163,7 @@ ${tool.declaration ? `<div class="decl">${esc(pick(tool.declaration, L))}</div>`
 <div class="place"><span>${L === "mr" ? "ठिकाण" : "Place"} : ${esc(values.place || "")}</span><span>${L === "mr" ? "दिनांक" : "Date"} : ${esc(values.issueDate ? dateFigures(values.issueDate) : today)}</span></div>
 <div class="sigs">${sigs}</div>
 ${pick(tool.footer || {}, L) ? `<div class="foot">${esc(pick(tool.footer, L))}</div>` : ""}
-<div class="brand">Made with the free tool at buildwithinfovion.com — Infovion issues these for every student automatically.</div>
+<div class="brand">Made with the free tool at infovion.in — Infovion issues these for every student automatically.</div>
 </div></body></html>`;
 }
 

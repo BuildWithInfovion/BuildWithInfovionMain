@@ -17,7 +17,7 @@ export function captureFirstTouch() {
     const utm = ["utm_source", "utm_medium", "utm_campaign"].map((k) => q.get(k)).filter(Boolean).join(" / ");
     let ref = "";
     try { ref = document.referrer ? new URL(document.referrer).hostname : ""; } catch { ref = ""; }
-    if (ref && ref.endsWith("buildwithinfovion.com")) ref = "";
+    if (ref && ref.endsWith("infovion.in")) ref = "";
     const src = utm || (q.get("gclid") ? "google ads" : "") || (q.get("ref") ? `ref: ${q.get("ref")}` : "") || ref || "direct";
     localStorage.setItem(KEY, JSON.stringify({ src, landing: window.location.pathname, at: new Date().toISOString().slice(0, 10) }));
   } catch { /* storage unavailable */ }

@@ -6,8 +6,8 @@ import { PhoneFrame, LoopVideo } from "../components/product/Frames";
 import { Aurora, Kicker } from "../components/fx/Fx";
 import { firstTouch, track } from "../lib/analytics";
 
-const API = (import.meta.env.VITE_API_URL || "https://api.buildwithinfovion.com").replace(/\/+$/, "");
-const APP = "https://app.buildwithinfovion.com";
+const API = (import.meta.env.VITE_API_URL || "https://api.infovion.in").replace(/\/+$/, "");
+const APP = "https://app.infovion.in";
 // Backup only: if our API can't be reached, the request still reaches us by email
 const FORMSPREE = "https://formspree.io/f/xnngvgpd";
 const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I'd like to start the 30-day free trial for my school.");
@@ -141,7 +141,7 @@ export default function FreeTrial() {
       <Helmet>
         <title>Start a 30-day free trial — Infovion School Management Software</title>
         <meta name="description" content="Your own Infovion trial school in two minutes: fees, attendance, exams, transport, certificates and the parent portal. Sign-in details by email. No card needed." />
-        <link rel="canonical" href="https://buildwithinfovion.com/free-trial" />
+        <link rel="canonical" href="https://infovion.in/free-trial" />
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-36 pt-32 sm:pt-40">

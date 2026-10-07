@@ -11,7 +11,7 @@ const TermsOfService = () => {
           name="description"
           content="Read the Terms of Service for BuildWithInfovion. Understand the rules and guidelines for using our website and services."
         />
-        <link rel="canonical" href="https://buildwithinfovion.com/terms-of-service" />
+        <link rel="canonical" href="https://infovion.in/terms-of-service" />
       </Helmet>
       <Motion.div
         initial={{ opacity: 0, y: 20 }}

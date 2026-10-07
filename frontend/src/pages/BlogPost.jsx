@@ -7,7 +7,7 @@ import { CATEGORY_LABEL } from "../Data/blogCategories";
 import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
 import PreferredSourceBadge from "../components/PreferredSourceBadge";
 
-const DOMAIN = "https://buildwithinfovion.com";
+const DOMAIN = "https://infovion.in";
 const abs = (u) => (u.startsWith("http") ? u : `${DOMAIN}${u}`);
 const fmt = (d) => new Date(d).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" });
 

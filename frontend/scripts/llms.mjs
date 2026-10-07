@@ -2,7 +2,7 @@
 // and answer engines, plus llms-full.txt with every blog article as text.
 // Facts here must match the site (pricing, trial, portals) — update both together.
 
-const D = "https://buildwithinfovion.com";
+const D = "https://infovion.in";
 
 const FACTS = `# Infovion
 
@@ -19,7 +19,7 @@ const FACTS = `# Infovion
 - No app install: teachers and parents use any phone browser.
 - Online fee payments: parents pay by UPI, card or net banking into the school's own Razorpay account; Infovion never holds the money and adds no fee.
 - Data: each school's data is kept separate; role-based access, encrypted passwords, optional two-step sign-in, audit log of every change; full data export on request.
-- Contact: contact@buildwithinfovion.com · +91 91563 02024 (WhatsApp +91 93091 93613) · ${D}/contact
+- Contact: contact@infovion.in · +91 91563 02024 (WhatsApp +91 93091 93613) · ${D}/contact
 - Social: LinkedIn https://www.linkedin.com/company/112026919/ · Instagram https://www.instagram.com/infoviontech/ · Facebook https://www.facebook.com/profile.php?id=61595050592821 · YouTube https://www.youtube.com/@Infovion_tech
 
 ## Modules

@@ -145,7 +145,7 @@ export default function Portals() {
       <Helmet>
         <title>8 Role-Based Portals — Director, Principal, Teacher, Parent & More | Infovion</title>
         <meta name="description" content="Infovion gives every role in an Indian school its own portal: Director, Principal, Operator, Accountant, Reception, Teacher, Non-teaching staff and Parent. Each sees only what they need." />
-        <link rel="canonical" href="https://buildwithinfovion.com/portals" />
+        <link rel="canonical" href="https://infovion.in/portals" />
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-20 pt-32 sm:pt-40">

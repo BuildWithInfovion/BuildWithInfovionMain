@@ -1,7 +1,7 @@
 import React from "react";
 import { track } from "../lib/analytics";
 
-const URL = "https://www.google.com/preferences/source?q=buildwithinfovion.com";
+const URL = "https://www.google.com/preferences/source?q=infovion.in";
 
 /**
  * Google's official "Add as a preferred source on Google" badge. Readers who
