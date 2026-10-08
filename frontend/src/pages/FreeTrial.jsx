@@ -20,6 +20,21 @@ const INCLUDED = [
   "A guided walkthrough for your office, if you'd like one",
 ];
 
+/** "What do you need?" — the trial shows these first (everything else stays one click away). */
+const NEEDS = [
+  ["homework", "Homework & diary"],
+  ["online_payments", "Online fee payment"],
+  ["transport", "School buses"],
+  ["hostel", "Hostel"],
+  ["library", "Library"],
+  ["syllabus", "Lesson plans & syllabus"],
+  ["expenses", "Expenses & Tally"],
+  ["payroll", "Staff salaries"],
+  ["inventory", "Store / uniforms"],
+  ["gate", "Gate & visitors"],
+  ["online_admissions", "Online admission form"],
+];
+
 const field =
   "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-teal-400/60 focus:bg-white/[0.06] focus:ring-4 focus:ring-teal-400/10";
 const label = "mb-1.5 block text-sm font-medium text-slate-300";
@@ -66,6 +81,7 @@ function GoogleButton({ onCredential }) {
 
 export default function FreeTrial() {
   const [form, setForm] = useState({ name: "", role: "", schoolName: "", city: "", board: "", students: "", phone: "", email: "", consent: false, website: "" });
+  const [needs, setNeeds] = useState([]);
   const [google, setGoogle] = useState(null); // { credential, email, name }
   const [errors, setErrors] = useState({});
   const [state, setState] = useState("idle"); // idle | sending | done | exists | error
@@ -102,6 +118,7 @@ export default function FreeTrial() {
     const body = {
       name: form.name.trim(), role: form.role, schoolName: form.schoolName.trim(), city: form.city.trim(), board: form.board,
       students: form.students, phone: form.phone.trim(), email: form.email.trim(), consent: true, website: form.website,
+      ...(needs.length ? { interests: needs } : {}),
       source: firstTouch() || undefined,
       ...(google ? { googleCredential: google.credential } : {}),
     };
@@ -259,6 +276,21 @@ export default function FreeTrial() {
                   )}
                   <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={set("website")} className="hidden" aria-hidden="true" />
                 </div>
+
+                <fieldset>
+                  <legend className={label}>What do you need? <span className="font-normal text-slate-500">— optional; fees, attendance, exams and the parent app are always included</span></legend>
+                  <div className="mt-1 flex flex-wrap gap-2">
+                    {NEEDS.map(([k, l]) => {
+                      const on = needs.includes(k);
+                      return (
+                        <button key={k} type="button" aria-pressed={on} onClick={() => setNeeds((n) => (on ? n.filter((x) => x !== k) : [...n, k]))}
+                          className={`rounded-full border px-3 py-1.5 text-xs transition ${on ? "border-teal-400/70 bg-teal-400/15 text-teal-200" : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25"}`}>
+                          {on ? "✓ " : ""}{l}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </fieldset>
 
                 <label className="flex items-start gap-3 text-sm text-slate-400">
                   <input type="checkbox" className="mt-0.5 h-4 w-4 accent-[#2dd4bf]" checked={form.consent} onChange={set("consent")} />
