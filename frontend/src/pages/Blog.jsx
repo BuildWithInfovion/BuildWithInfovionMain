@@ -48,7 +48,7 @@ export default function Blog() {
       <Helmet>
         <title>Blog — Guides for Indian School Directors & Principals | Infovion</title>
         <meta name="description" content="Practical guides for Indian schools: attendance, fee management, admissions, certificates, parent portals and choosing school ERP software." />
-        <link rel="canonical" href="https://infovion.in/blog" />
+        <link rel="canonical" href="https://www.infovion.in/blog" />
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-14 pt-32 sm:pt-40">

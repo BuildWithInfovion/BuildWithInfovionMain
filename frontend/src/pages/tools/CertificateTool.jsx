@@ -52,7 +52,7 @@ export default function CertificateTool({ toolKey, seo }) {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: seo.h1,
-    url: `https://infovion.in/free-tools/${tool.slug}`,
+    url: `https://www.infovion.in/free-tools/${tool.slug}`,
     applicationCategory: "EducationalApplication",
     operatingSystem: "Any (web browser)",
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
@@ -64,7 +64,7 @@ export default function CertificateTool({ toolKey, seo }) {
       <Helmet>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
-        <link rel="canonical" href={`https://infovion.in/free-tools/${tool.slug}`} />
+        <link rel="canonical" href={`https://www.infovion.in/free-tools/${tool.slug}`} />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
       </Helmet>

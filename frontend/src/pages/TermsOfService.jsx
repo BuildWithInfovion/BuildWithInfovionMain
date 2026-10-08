@@ -6,12 +6,12 @@ const TermsOfService = () => {
   return (
     <>
       <Helmet>
-        <title>Terms of Service — Infovion School Management Software</title>
+        <title>Terms of Service â€” Infovion School Management Software</title>
         <meta
           name="description"
-          content="Read the Terms of Service for BuildWithInfovion. Understand the rules and guidelines for using our website and services."
+          content="Read the Terms of Service for Infovion. Understand the rules and guidelines for using our website and services."
         />
-        <link rel="canonical" href="https://infovion.in/terms-of-service" />
+        <link rel="canonical" href="https://www.infovion.in/terms-of-service" />
       </Helmet>
       <Motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -30,8 +30,8 @@ const TermsOfService = () => {
         <div className="mt-12 text-brand-brown space-y-8">
           <p>
             Please read these Terms of Service ("Terms", "Terms of Service")
-            carefully before using the BuildWithInfovion website (the "Service")
-            operated by BuildWithInfovion ("us", "we", or "our"). Your access to
+            carefully before using the Infovion website (the "Service")
+            operated by Infovion ("us", "we", or "our"). Your access to
             and use of the Service is conditioned on your acceptance of and
             compliance with these Terms.
           </p>
@@ -53,7 +53,7 @@ const TermsOfService = () => {
             </h2>
             <p>
               The Service and its original content, features, and functionality
-              are and will remain the exclusive property of BuildWithInfovion
+              are and will remain the exclusive property of Infovion
               and its licensors.
             </p>
           </section>
@@ -64,7 +64,7 @@ const TermsOfService = () => {
             </h2>
             <p>
               Our Service may contain links to third-party web sites or services
-              that are not owned or controlled by BuildWithInfovion. We have no
+              that are not owned or controlled by Infovion. We have no
               control over, and assume no responsibility for, the content,
               privacy policies, or practices of any third party web sites or
               services.
@@ -76,7 +76,7 @@ const TermsOfService = () => {
               4. Limitation Of Liability
             </h2>
             <p>
-              In no event shall BuildWithInfovion, nor its directors, employees,
+              In no event shall Infovion, nor its directors, employees,
               partners, agents, suppliers, or affiliates, be liable for any
               indirect, incidental, special, consequential or punitive damages,
               including without limitation, loss of profits, data, use,

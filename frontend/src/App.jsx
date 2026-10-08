@@ -28,7 +28,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { captureFirstTouch, track } from "./lib/analytics";
 
-const DOMAIN = "https://infovion.in";
+const DOMAIN = "https://www.infovion.in";
 
 const globalSchema = {
   "@context": "https://schema.org",

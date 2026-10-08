@@ -46,7 +46,7 @@ export default function Pricing() {
       <Helmet>
         <title>Pricing — ₹150 per student per year | Infovion School Management Software</title>
         <meta name="description" content="Simple pricing for Indian schools: ₹150 per student per year + GST, every module and portal included. No setup fee. 30-day free trial." />
-        <link rel="canonical" href="https://infovion.in/pricing" />
+        <link rel="canonical" href="https://www.infovion.in/pricing" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 

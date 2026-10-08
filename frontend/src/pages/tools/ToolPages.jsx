@@ -105,7 +105,7 @@ export function ToolsIndex() {
       <Helmet>
         <title>Free Tools for Schools — LC, TC & Bonafide Certificate Generators | Infovion</title>
         <meta name="description" content="Free certificate generators for Indian schools: Marathi school leaving certificate (शाळा सोडल्याचा दाखला), transfer certificate (TC) and bonafide certificate. Print or save as PDF — no sign-up." />
-        <link rel="canonical" href="https://infovion.in/free-tools" />
+        <link rel="canonical" href="https://www.infovion.in/free-tools" />
       </Helmet>
       <section className="noise relative overflow-hidden pb-24 pt-32 sm:pt-40">
         <Aurora strong />

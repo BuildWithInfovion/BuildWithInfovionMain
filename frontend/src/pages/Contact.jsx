@@ -86,10 +86,10 @@ export default function Contact() {
         />
         <meta name="keywords" content="contact Infovion, school ERP demo India, school management software demo, Infovion Pune contact, school software inquiry India" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://infovion.in/contact" />
+        <link rel="canonical" href="https://www.infovion.in/contact" />
         <meta property="og:title" content="Contact Infovion — Free School ERP Demo" />
         <meta property="og:description" content="Schedule a free demo of Infovion school management software. We walk through every module with your school's context in mind." />
-        <meta property="og:url" content="https://infovion.in/contact" />
+        <meta property="og:url" content="https://www.infovion.in/contact" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 

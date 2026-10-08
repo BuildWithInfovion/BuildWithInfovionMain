@@ -6,12 +6,12 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy — Infovion School Management Software</title>
+        <title>Privacy Policy â€” Infovion School Management Software</title>
         <meta
           name="description"
-          content="Read the Privacy Policy for BuildWithInfovion. Understand how we collect, use, and protect your data."
+          content="Read the Privacy Policy for Infovion. Understand how we collect, use, and protect your data."
         />
-        <link rel="canonical" href="https://infovion.in/privacy-policy" />
+        <link rel="canonical" href="https://www.infovion.in/privacy-policy" />
       </Helmet>
       <Motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -29,8 +29,8 @@ const PrivacyPolicy = () => {
         </div>
         <div className="mt-12 text-brand-brown space-y-8">
           <p>
-            BuildWithInfovion ("us", "we", or "our") operates the
-            BuildWithInfovion website (the "Service"). This page informs you of
+            Infovion ("us", "we", or "our") operates the
+            Infovion website (the "Service"). This page informs you of
             our policies regarding the collection, use, and disclosure of
             personal data when you use our Service and the choices you have
             associated with that data.
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
               Use of Data
             </h2>
             <p>
-              BuildWithInfovion uses the collected data for various purposes: to
+              Infovion uses the collected data for various purposes: to
               provide and maintain the Service, to notify you about changes to
               our Service, to provide customer care and support, and to gather
               analysis or valuable information so that we can improve the

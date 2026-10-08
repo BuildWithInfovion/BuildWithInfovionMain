@@ -132,10 +132,10 @@ export default function ForSchools() {
         />
         <meta name="keywords" content="school ERP for Indian schools, CBSE school management software, ICSE school ERP, state board school software India, school management software Pune, K-12 school ERP India, school administration software India, school software Tier 2 Tier 3 India" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://infovion.in/for-schools" />
+        <link rel="canonical" href="https://www.infovion.in/for-schools" />
         <meta property="og:title" content="School ERP Built for Indian K-12 Schools — Infovion" />
         <meta property="og:description" content="CBSE, ICSE & State Board ready. Aadhar fields, TC validation, Indian fee heads. School management software built for India, not adapted." />
-        <meta property="og:url" content="https://infovion.in/for-schools" />
+        <meta property="og:url" content="https://www.infovion.in/for-schools" />
         <meta property="og:type" content="website" />
       </Helmet>
 

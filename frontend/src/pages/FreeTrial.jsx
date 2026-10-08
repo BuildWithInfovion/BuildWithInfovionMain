@@ -141,7 +141,7 @@ export default function FreeTrial() {
       <Helmet>
         <title>Start a 30-day free trial — Infovion School Management Software</title>
         <meta name="description" content="Your own Infovion trial school in two minutes: fees, attendance, exams, transport, certificates and the parent portal. Sign-in details by email. No card needed." />
-        <link rel="canonical" href="https://infovion.in/free-trial" />
+        <link rel="canonical" href="https://www.infovion.in/free-trial" />
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-36 pt-32 sm:pt-40">

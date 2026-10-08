@@ -68,10 +68,10 @@ export default function About() {
         />
         <meta name="keywords" content="Infovion Technologies Pune, school ERP company India, school management software company Pune, academic ERP India, school software startup India" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://infovion.in/about" />
+        <link rel="canonical" href="https://www.infovion.in/about" />
         <meta property="og:title" content="About Infovion Technologies — School ERP Company, Pune" />
         <meta property="og:description" content="Pune-based startup building school management software for K-12 schools across India. Learn who we are and why we built Infovion." />
-        <meta property="og:url" content="https://infovion.in/about" />
+        <meta property="og:url" content="https://www.infovion.in/about" />
         <meta property="og:type" content="website" />
       </Helmet>
 

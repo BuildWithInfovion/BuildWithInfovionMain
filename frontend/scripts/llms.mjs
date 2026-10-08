@@ -2,7 +2,7 @@
 // and answer engines, plus llms-full.txt with every blog article as text.
 // Facts here must match the site (pricing, trial, portals) — update both together.
 
-const D = "https://infovion.in";
+const D = "https://www.infovion.in";
 
 const FACTS = `# Infovion
 

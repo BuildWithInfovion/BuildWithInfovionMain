@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # AI assistants and answer engines are welcome to read and cite this site.
-# A plain-text summary for them: https://infovion.in/llms.txt
+# A plain-text summary for them: https://www.infovion.in/llms.txt
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -20,4 +20,4 @@ User-agent: meta-externalagent
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://infovion.in/sitemap.xml
+Sitemap: https://www.infovion.in/sitemap.xml

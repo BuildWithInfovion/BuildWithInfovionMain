@@ -2,15 +2,15 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "Infovion",
-    "documentationUrl": "https://infovion.in/llms.txt",
-    "logoUrl": "https://infovion.in/logo.png"
+    "documentationUrl": "https://www.infovion.in/llms.txt",
+    "logoUrl": "https://www.infovion.in/logo.png"
   },
   "entries": [
     {
       "identifier": "urn:air:infovion.in:docs:llms-txt",
       "displayName": "Infovion school management software — summary for AI assistants",
       "type": "text/markdown",
-      "url": "https://infovion.in/llms.txt",
+      "url": "https://www.infovion.in/llms.txt",
       "description": "Plain-text facts about Infovion, a school ERP for Indian schools: pricing (Rs 150 per student per year), free trial, portals for every role, and modules (admissions, fees, attendance, exams, transport, hostel, gate register).",
       "tags": ["school management software", "school ERP", "India", "education"],
       "representativeQueries": [
@@ -23,7 +23,7 @@
       "identifier": "urn:air:infovion.in:docs:llms-full-txt",
       "displayName": "Infovion guides for school owners and principals (full text)",
       "type": "text/markdown",
-      "url": "https://infovion.in/llms-full.txt",
+      "url": "https://www.infovion.in/llms-full.txt",
       "description": "Full text of every Infovion guide on running a school: fees, admissions, attendance, certificates and compliance.",
       "tags": ["school administration", "guides"],
       "representativeQueries": [
