@@ -42,7 +42,7 @@ const globalSchema = {
       url: DOMAIN,
       logo: {
         "@type": "ImageObject",
-        url: `${DOMAIN}/logo.png`,
+        url: `${DOMAIN}/icon-512.png`,
         width: 512,
         height: 512,
       },
