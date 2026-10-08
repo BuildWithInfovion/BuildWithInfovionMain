@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { BrowserFrame, PhoneFrame, LoopVideo } from "../components/product/Frames";
 import FilmPlayer from "../components/product/FilmPlayer";
+import { FILM_TRANSCRIPT } from "../Data/filmTranscript";
 import FeatureFilms from "../components/product/FeatureFilms";
 import PortalHub from "../components/product/PortalHub";
 import PriceCalculator from "../components/PriceCalculator";
@@ -23,6 +24,20 @@ const FAQ = [
   ["Can parents pay fees online?", "Yes, by UPI, card or net banking. Payments go straight into the school's own Razorpay account — Infovion never holds the money — and the receipt is created automatically. The school can switch online payments on or off any time."],
   ["Is our school's data safe and private?", "Each school's data is kept separate and visible only to the people the school gives access to, by role. Passwords are encrypted, two-step sign-in is available, every change is logged, and the school owns its data. We sign a Data Processing Agreement under India's DPDP Act, 2023."],
 ];
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Infovion — a whole school run on one platform (4-minute product film)",
+  description: "Admissions, attendance, timetable, exams and report cards, fees, the parent portal, certificates, staff salaries and principal dashboards in Infovion, school management software for Indian K-12 schools. Every screen is real.",
+  thumbnailUrl: ["https://www.infovion.in/film/infovion-film-poster.webp", "https://www.infovion.in/og-image.jpg"],
+  uploadDate: "2026-09-29T00:00:00+05:30",
+  duration: "PT4M29S",
+  contentUrl: "https://www.infovion.in/film/infovion-film-v2.mp4",
+  inLanguage: "en-IN",
+  publisher: { "@id": "https://www.infovion.in/#organization" },
+  transcript: FILM_TRANSCRIPT,
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -223,7 +238,7 @@ function Security() {
     <section className="relative bg-ink py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:items-start">
         <SectionHead kicker="Trust" title="Children's data deserves" accent="serious care."
-          sub="We act as your data processor under India's DPDP Act, 2023, with a signed Data Processing Agreement — and a ready privacy notice for your parents." />
+          sub="We are your data processor under India's DPDP Act, 2023, with a signed Data Processing Agreement — and a ready privacy notice for your parents." />
         <div className="grid gap-4 sm:grid-cols-2">
           {items.map((it, i) => {
             const [Icon, t, b] = it;
@@ -297,6 +312,7 @@ export default function Home() {
         <meta name="description" content="Fees and receipts, attendance, exams, transport, TC/LC certificates and a parent app — one school management platform for Indian K-12 schools. ₹150 per student per year. Start a 30-day free trial in two minutes." />
         <link rel="canonical" href="https://www.infovion.in/" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(videoSchema)}</script>
       </Helmet>
 
       <Hero />

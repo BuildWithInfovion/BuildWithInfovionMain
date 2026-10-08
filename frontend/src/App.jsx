@@ -1,3 +1,4 @@
+/* global __BUILD_DATE__ */
 import React, { Suspense, lazy } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
@@ -141,6 +142,7 @@ const globalSchema = {
       "@type": "WebSite",
       "@id": `${DOMAIN}/#website`,
       url: DOMAIN,
+      dateModified: __BUILD_DATE__,
       name: "Infovion",
       description: "School Management Software for K-12 Schools in India",
       publisher: { "@id": `${DOMAIN}/#organization` },

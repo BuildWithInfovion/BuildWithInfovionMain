@@ -55,12 +55,15 @@ export default function FilmPlayer() {
           <video
             ref={ref}
             className="h-full w-full"
-            src="/film/infovion-film.mp4"
+            src="/film/infovion-film-v2.mp4"
             playsInline
             controls={started}
             preload="none"
             onEnded={() => setStarted(false)}
-          />
+          >
+            {/* captions are burned in; this text track is for screen readers, search and AI engines */}
+            <track kind="captions" srcLang="en" label="English" src="/film/infovion-film-v2.vtt" />
+          </video>
           {/* the cover is a lazy image rather than a video poster, so it doesn't load with the page */}
           {!started && <img src="/film/infovion-film-poster.webp" alt="" loading="lazy" width="1280" height="720" className="absolute inset-0 h-full w-full object-cover" />}
           {!started && (

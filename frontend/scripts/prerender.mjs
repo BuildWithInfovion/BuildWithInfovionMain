@@ -78,3 +78,29 @@ const posts = [...(blogPosts || [])].sort((a, b) => new Date(b.date) - new Date(
 fs.writeFileSync(path.join(dist, "llms.txt"), llmsTxt(posts));
 fs.writeFileSync(path.join(dist, "llms-full.txt"), llmsFullTxt(posts));
 console.log(`llms.txt: ${posts.length} guides`);
+
+// RSS feed of the guides, for feed readers and AI discovery
+const xml = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const rfc822 = (d) => new Date(`${d}T09:00:00+05:30`).toUTCString();
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infovion — guides for Indian schools</title>
+    <link>https://www.infovion.in/blog</link>
+    <atom:link href="https://www.infovion.in/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Practical guides on school management software, fees, attendance, admissions and certificates for Indian K-12 schools.</description>
+    <language>en-in</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${posts.map((p) => `    <item>
+      <title>${xml(p.title)}</title>
+      <link>https://www.infovion.in/blog/${p.slug}</link>
+      <guid isPermaLink="true">https://www.infovion.in/blog/${p.slug}</guid>
+      <pubDate>${rfc822(p.date)}</pubDate>
+      <description>${xml(p.excerpt)}</description>
+${(p.tags || []).map((t) => `      <category>${xml(t)}</category>`).join("\n")}
+    </item>`).join("\n")}
+  </channel>
+</rss>
+`;
+fs.writeFileSync(path.join(dist, "rss.xml"), rss);
+console.log(`rss.xml: ${posts.length} items`);
