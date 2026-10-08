@@ -79,7 +79,7 @@ export default function About() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
-        className="pt-24"
+        className="pt-[72px]"
       >
         {/* Hero */}
         <section className="py-24 px-6 bg-brand-dark relative overflow-hidden">

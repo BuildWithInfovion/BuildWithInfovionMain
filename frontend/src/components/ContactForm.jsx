@@ -1,188 +1,105 @@
-import React, { useState, useEffect } from "react";
-import { motion as Motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle, AlertTriangle } from "lucide-react";
+import React, { useState } from "react";
+import { CheckCircle2, AlertTriangle, Loader2, Send } from "lucide-react";
 import { firstTouch, track } from "../lib/analytics";
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    schoolName: "",
-    message: "",
-  });
-  const [formMessage, setFormMessage] = useState({ text: "", type: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+const FORMSPREE = "https://formspree.io/f/xnngvgpd";
 
-  useEffect(() => {
-    if (formMessage.text) {
-      const timer = setTimeout(() => setFormMessage({ text: "", type: "" }), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [formMessage]);
+const field =
+  "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-teal-400/60 focus:bg-white/[0.06] focus:ring-4 focus:ring-teal-400/10";
+const label = "mb-1.5 block text-sm font-medium text-slate-300";
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+const EMPTY = { name: "", schoolName: "", email: "", phone: "", message: "", website: "" };
+
+/** Demo request form (dark theme, same look as the free-trial form). */
+export default function ContactForm() {
+  const [form, setForm] = useState(EMPTY);
+  const [errors, setErrors] = useState({});
+  const [state, setState] = useState("idle"); // idle | sending | done | error
+
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const validate = () => {
+    const e = {};
+    if (form.name.trim().length < 2) e.name = "Your name";
+    if (form.schoolName.trim().length < 3) e.schoolName = "Your school's name";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = "A valid email";
+    if (!/^[6-9]\d{9}$/.test(form.phone.replace(/\D/g, "").slice(-10))) e.phone = "A 10-digit mobile number";
+    setErrors(e);
+    return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormMessage({ text: "", type: "" });
-
+  const submit = async (ev) => {
+    ev.preventDefault();
+    if (form.website) { setState("done"); return; } // bot trap
+    if (!validate()) return;
+    setState("sending");
     try {
-      const response = await fetch("https://formspree.io/f/xnngvgpd", {
+      const { website: _bot, ...data } = form;
+      const res = await fetch(FORMSPREE, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, source: firstTouch() }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ _subject: `Demo request — ${data.schoolName}`, ...data, source: firstTouch() }),
       });
-
-      if (response.ok) {
-        track("generate_lead", { form: "demo" });
-        setFormMessage({
-          text: "Thanks! We'll reach out within 2 hours to schedule your demo.",
-          type: "success",
-        });
-        setFormData({ name: "", email: "", phone: "", schoolName: "", message: "" });
-      } else {
-        throw new Error("Submission failed.");
-      }
+      if (!res.ok) throw new Error("failed");
+      track("generate_lead", { form: "demo" });
+      setState("done");
+      setForm(EMPTY);
     } catch {
-      setFormMessage({
-        text: "Something went wrong. Please WhatsApp or call us directly.",
-        type: "error",
-      });
-    } finally {
-      setIsSubmitting(false);
+      setState("error");
     }
   };
 
-  const inputClasses =
-    "w-full bg-white border border-brand-cream rounded-xl px-4 py-3 text-brand-dark placeholder-brand-neutral/60 text-sm transition-colors duration-200 focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra/20";
-
-  const labelClasses = "block text-sm font-medium text-brand-brown mb-1.5";
+  if (state === "done") {
+    return (
+      <div className="py-10 text-center">
+        <CheckCircle2 className="mx-auto h-14 w-14 text-teal-300" />
+        <h3 className="mt-5 font-display text-2xl font-extrabold text-white">Thank you — we'll call you soon</h3>
+        <p className="mx-auto mt-3 max-w-sm text-slate-400">We'll reach out within 2 hours (9 am – 10 pm) to fix a demo time that suits you.</p>
+        <button type="button" onClick={() => setState("idle")} className="mt-6 text-sm text-teal-300 underline">Send another request</button>
+      </div>
+    );
+  }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <form onSubmit={submit} noValidate className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className={labelClasses}>
-            Your Name <span className="text-brand-terra">*</span>
-          </label>
-          <input
-            autoComplete="name"
-            type="text"
-            id="name"
-            name="name"
-            placeholder="e.g. Rajesh Sharma"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className={inputClasses}
-          />
+          <label htmlFor="name" className={label}>Your name *</label>
+          <input id="name" className={field} value={form.name} onChange={set("name")} autoComplete="name" placeholder="e.g. Rajesh Kulkarni" />
+          {errors.name && <p className="mt-1 text-xs text-rose-400">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="schoolName" className={labelClasses}>
-            School Name <span className="text-brand-terra">*</span>
-          </label>
-          <input
-            type="text"
-            id="schoolName"
-            name="schoolName"
-            placeholder="e.g. St. Mary's High School"
-            value={formData.schoolName}
-            onChange={handleChange}
-            required
-            className={inputClasses}
-          />
+          <label htmlFor="schoolName" className={label}>School name *</label>
+          <input id="schoolName" className={field} value={form.schoolName} onChange={set("schoolName")} autoComplete="organization" placeholder="e.g. Gyan Ganga Vidyalaya" />
+          {errors.schoolName && <p className="mt-1 text-xs text-rose-400">{errors.schoolName}</p>}
         </div>
+        <div>
+          <label htmlFor="email" className={label}>Email *</label>
+          <input id="email" type="email" className={field} value={form.email} onChange={set("email")} autoComplete="email" placeholder="office@yourschool.edu.in" />
+          {errors.email && <p className="mt-1 text-xs text-rose-400">{errors.email}</p>}
+        </div>
+        <div>
+          <label htmlFor="phone" className={label}>Mobile / WhatsApp *</label>
+          <input id="phone" type="tel" className={field} value={form.phone} onChange={set("phone")} inputMode="tel" autoComplete="tel" placeholder="98765 43210" />
+          {errors.phone && <p className="mt-1 text-xs text-rose-400">{errors.phone}</p>}
+        </div>
+        <div className="sm:col-span-2">
+          <label htmlFor="message" className={label}>Tell us about your school <span className="font-normal text-slate-500">(optional)</span></label>
+          <textarea id="message" rows={4} className={field} value={form.message} onChange={set("message")} placeholder="Board, number of students, what's hardest in your office today…" />
+        </div>
+        <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={set("website")} className="hidden" aria-hidden="true" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="email" className={labelClasses}>
-            Email <span className="text-brand-terra">*</span>
-          </label>
-          <input
-            autoComplete="email"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@school.com"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className={inputClasses}
-          />
+      {state === "error" && (
+        <div className="flex items-start gap-2 rounded-xl border border-rose-400/30 bg-rose-400/[0.07] px-4 py-3 text-sm text-rose-200">
+          <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0" /> Something went wrong. Please WhatsApp +91 93091 93613 or call +91 91563 02024.
         </div>
-        <div>
-          <label htmlFor="phone" className={labelClasses}>
-            Phone / WhatsApp <span className="text-brand-terra">*</span>
-          </label>
-          <input
-            autoComplete="tel"
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+91 98765 43210"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className={inputClasses}
-          />
-        </div>
-      </div>
+      )}
 
-      <div>
-        <label htmlFor="message" className={labelClasses}>
-          Tell us about your school <span className="text-brand-neutral font-normal">(optional)</span>
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Board (CBSE/ICSE/State), number of students, current pain points..."
-          value={formData.message}
-          onChange={handleChange}
-          className={inputClasses}
-        />
-      </div>
-
-      <Motion.button
-        type="submit"
-        className="w-full flex items-center justify-center gap-2 bg-brand-terra text-white py-3.5 px-6 rounded-full font-semibold text-sm shadow-lg shadow-brand-terra/25 hover:bg-[#0F766E] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-        whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-        whileTap={{ scale: 0.97 }}
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Sending..." : "Request Free Demo"}
-        {!isSubmitting && <Send className="w-4 h-4" />}
-      </Motion.button>
-
-      <AnimatePresence>
-        {formMessage.text && (
-          <Motion.div
-            className={`p-4 rounded-xl flex items-start gap-3 text-sm font-medium ${
-              formMessage.type === "success"
-                ? "bg-brand-terra/10 text-brand-terra border border-brand-terra/20"
-                : "bg-red-50 text-red-600 border border-red-100"
-            }`}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-          >
-            {formMessage.type === "success" ? (
-              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-            ) : (
-              <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-            )}
-            {formMessage.text}
-          </Motion.div>
-        )}
-      </AnimatePresence>
+      <button type="submit" disabled={state === "sending"}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-6 py-4 text-sm font-bold text-[#04121a] shadow-[0_0_50px_-10px_rgba(45,212,191,0.8)] transition hover:brightness-110 disabled:opacity-60">
+        {state === "sending" ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : <><Send className="h-4 w-4" /> Book my free demo</>}
+      </button>
     </form>
   );
-};
-
-export default ContactForm;
+}

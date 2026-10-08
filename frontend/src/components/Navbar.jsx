@@ -4,6 +4,9 @@ import { motion as Motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 const logo = "/logo-112.webp";
 
+// Pages that still have a light top: the glass bar must be solid there or it turns grey
+const LIGHT_PAGES = ["/about", "/for-schools", "/privacy-policy", "/terms-of-service"];
+
 const navLinks = [
   { to: "/features",  label: "Product" },
   { to: "/portals",   label: "Portals" },
@@ -30,23 +33,28 @@ export default function Navbar() {
 
   useEffect(() => { setIsOpen(false); }, [location.pathname]);
 
+  const onLight = LIGHT_PAGES.some((p) => location.pathname === p || location.pathname.startsWith(`${p}/`));
+  const solid = isScrolled || onLight;
+
   return (
     <>
       <Motion.header
         className="fixed top-0 left-0 right-0 z-50"
         animate={{
-          backgroundColor: isScrolled
-            ? "rgba(5,7,13, 0.82)"
-            : "rgba(5,7,13, 0.35)",
+          backgroundColor: onLight
+            ? "rgba(5,7,13, 0.95)"
+            : isScrolled
+              ? "rgba(5,7,13, 0.82)"
+              : "rgba(5,7,13, 0.35)",
         }}
         transition={{ duration: 0.35 }}
         style={{
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
-          borderBottom: isScrolled
+          borderBottom: solid
             ? "1px solid rgba(94,234,212, 0.14)"
             : "1px solid transparent",
-          boxShadow: isScrolled
+          boxShadow: solid
             ? "0 4px 32px rgba(0,0,0,0.28)"
             : "none",
         }}
