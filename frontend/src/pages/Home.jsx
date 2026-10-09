@@ -12,6 +12,7 @@ import { FILM_TRANSCRIPT } from "../Data/filmTranscript";
 import FeatureFilms from "../components/product/FeatureFilms";
 import PortalHub from "../components/product/PortalHub";
 import PriceCalculator from "../components/PriceCalculator";
+import ProductHuntBadge from "../components/ProductHuntBadge";
 import { Aurora, CountUp, GhostButton, GlowButton, Kicker, Marquee, Reveal, SectionHead, SpotlightCard, Tilt } from "../components/fx/Fx";
 
 const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I'd like to see Infovion for my school.");
@@ -87,6 +88,7 @@ function Hero() {
           <GhostButton href="#film" className="w-full sm:w-auto"><Play className="h-4 w-4" fill="currentColor" /> Watch the film</GhostButton>
         </div>
         <p className="mt-5 text-xs text-slate-400">No card needed · ₹150 per student per year after the trial · <Link to="/contact" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
+        <ProductHuntBadge from="home_hero" className="mt-6" />
       </div>
 
       <div className="rise relative mx-auto mt-16 max-w-6xl px-5 sm:px-6">

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { Facebook, Instagram, Youtube, Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
+import ProductHuntBadge from "./ProductHuntBadge";
 const logo = "/logo-112.webp";
 
 const productLinks = [
@@ -159,7 +160,8 @@ export default function Footer() {
                 </Motion.a>
               ))}
             </div>
-            <PreferredSourceBadge from="footer" className="-mt-4 mb-8" />
+            <PreferredSourceBadge from="footer" className="-mt-4 mb-4" />
+            <ProductHuntBadge from="footer" className="mb-8" />
 
             {/* Board compatibility */}
             <div className="space-y-3">
