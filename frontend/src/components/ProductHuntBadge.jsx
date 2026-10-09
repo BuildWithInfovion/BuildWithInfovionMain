@@ -2,8 +2,8 @@ import React from "react";
 import { track } from "../lib/analytics";
 
 // From Product Hunt → your launch → "Place an embed on your site" (the post_id in the embed code).
-export const PH_POST_ID = "";
-const PH_URL = "https://www.producthunt.com/posts/infovion";
+export const PH_POST_ID = "1271947";
+const PH_URL = "https://www.producthunt.com/products/infovion";
 
 /**
  * Product Hunt's official "Find us on Product Hunt" badge (live upvote count).
@@ -11,7 +11,7 @@ const PH_URL = "https://www.producthunt.com/posts/infovion";
  */
 export default function ProductHuntBadge({ from, className = "" }) {
   if (!PH_POST_ID) return null;
-  const href = `${PH_URL}?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=${from}`;
+  const href = `${PH_URL}?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-infovion`;
   return (
     <a
       href={href}
@@ -22,7 +22,7 @@ export default function ProductHuntBadge({ from, className = "" }) {
     >
       <img
         src={`https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=${PH_POST_ID}&theme=dark`}
-        alt="Infovion on Product Hunt"
+        alt="Infovion - Run your whole school from one app, ₹150/student/year | Product Hunt"
         width="250"
         height="54"
         loading="lazy"
