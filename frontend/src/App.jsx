@@ -22,6 +22,8 @@ const LeavingCertificateTool = lazy(() => import("./pages/tools/ToolPages").then
 const TransferCertificateTool = lazy(() => import("./pages/tools/ToolPages").then((m) => ({ default: m.TransferCertificateTool })));
 const BonafideCertificateTool = lazy(() => import("./pages/tools/ToolPages").then((m) => ({ default: m.BonafideCertificateTool })));
 const Blog = lazy(() => import("./pages/Blog"));
+const VideosIndex = lazy(() => import("./pages/Videos").then((m) => ({ default: m.VideosIndex })));
+const VideoWatch = lazy(() => import("./pages/Videos").then((m) => ({ default: m.VideoWatch })));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
@@ -223,6 +225,8 @@ export function AppRoutes() {
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/videos" element={<VideosIndex />} />
+            <Route path="/videos/:slug" element={<VideoWatch />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/free-trial" element={<FreeTrial />} />
             <Route path="/free-tools" element={<ToolsIndex />} />

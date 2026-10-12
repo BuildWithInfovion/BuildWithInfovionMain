@@ -9,6 +9,7 @@ const dist = path.join(root, "dist");
 const { render } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
 const { blogPosts } = await import(pathToFileURL(path.join(root, "src", "Data", "blogData.js")).href).catch(() => ({ blogPosts: [] }));
 const { PRERENDER_ROUTES } = await import(pathToFileURL(path.join(root, "src", "routes.js")).href);
+const { VIDEOS, videoFile, videoPoster } = await import(pathToFileURL(path.join(root, "src", "Data", "videos.js")).href);
 
 // The page is already in the HTML, so the app bundle (needed only to hydrate it)
 // must not hold up the first paint: it is requested only once the browser has
@@ -33,7 +34,8 @@ const stripHead = (h) => h
   .replace(/<meta\s+name="twitter:(title|description)"[^>]*\/>/gi, "");
 
 const slugs = (blogPosts || []).map((p) => `/blog/${p.slug}`);
-const routes = [...new Set([...PRERENDER_ROUTES, ...slugs])];
+const videoRoutes = VIDEOS.map((v) => `/videos/${v.slug}`);
+const routes = [...new Set([...PRERENDER_ROUTES, ...slugs, ...videoRoutes])];
 let ok = 0;
 for (const url of routes) {
   try {
@@ -41,7 +43,10 @@ for (const url of routes) {
     const head = helmet
       ? [helmet.title, helmet.meta, helmet.link, helmet.script].map((x) => x?.toString() ?? "").join("\n    ")
       : "";
-    let page = stripHead(template).replace("</head>", `    ${head}\n  </head>`);
+    let base = stripHead(template);
+    if (/property="og:image"/.test(head)) base = base.replace(/<meta\s+property="og:image(:width|:height)?"[^>]*\/>/gi, "");
+    if (/property="og:type"/.test(head)) base = base.replace(/<meta\s+property="og:type"[^>]*\/>/i, "");
+    let page = base.replace("</head>", `    ${head}\n  </head>`);
     // In the built index.html the scripts live in <head>, so #root runs to </body>
     page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root" data-ssr="${url}">${html}</div>\n    ${loader}\n  </body>`);
     // Cloudflare's email obfuscation would rewrite the addresses (breaking hydration)
@@ -78,12 +83,19 @@ console.log(`prerendered ${ok}/${routes.length} pages`);
 // Sitemap from the same route list, so every new page is submitted automatically
 const today = new Date().toISOString().slice(0, 10);
 const LEGAL = ["/privacy-policy", "/terms-of-service"];
+// Google video sitemap entry for each watch page
+const xmlText = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const videoTag = (u) => {
+  const v = VIDEOS.find((x) => `/videos/${x.slug}` === u);
+  if (!v) return "";
+  return `<video:video><video:thumbnail_loc>https://www.infovion.in${videoPoster(v)}</video:thumbnail_loc><video:title>${xmlText(v.title)}</video:title><video:description>${xmlText(v.description)}</video:description><video:content_loc>https://www.infovion.in${videoFile(v)}</video:content_loc><video:duration>${v.seconds}</video:duration><video:publication_date>${v.uploadDate}T00:00:00+05:30</video:publication_date><video:family_friendly>yes</video:family_friendly></video:video>`;
+};
 const prio = (u) => (u === "/" ? "1.0" : u === "/free-trial" || u === "/pricing" ? "0.9" : LEGAL.includes(u) ? "0.3" : u.startsWith("/free-tools") || !u.startsWith("/blog") ? "0.8" : "0.6");
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${routes
   // Legal pages are listed too (low priority): they are trust pages Google should know
-  .map((u) => `  <url><loc>https://www.infovion.in${u === "/" ? "/" : u}</loc><lastmod>${today}</lastmod><priority>${prio(u)}</priority></url>`)
+  .map((u) => `  <url><loc>https://www.infovion.in${u === "/" ? "/" : u}</loc><lastmod>${today}</lastmod><priority>${prio(u)}</priority>${videoTag(u)}</url>`)
   .join("\n")}
 </urlset>
 `;

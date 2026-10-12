@@ -3,6 +3,8 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import {
   UserPlus, CalendarCheck, Clock3, FileBarChart, IndianRupee, Users, Megaphone, FileText, BriefcaseBusiness, LineChart, ShieldCheck, Volume2, VolumeX,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { VIDEOS } from "../../Data/videos";
 
 const FEATURES = [
   { id: "fees", icon: IndianRupee, title: "Fees", line: "Plans, concessions, every payment mode, receipts and defaulters." },
@@ -108,7 +110,8 @@ export default function FeatureFilms() {
             </button>
           </div>
         </div>
-        <p className="mt-4 text-sm text-slate-400"><span className="font-semibold text-white">{f.title}.</span> {f.line}</p>
+        <p className="mt-4 text-sm text-slate-400"><span className="font-semibold text-white">{f.title}.</span> {f.line}{" "}
+          {VIDEOS.find((v) => v.file === f.id) && <Link to={`/videos/${VIDEOS.find((v) => v.file === f.id).slug}`} className="font-semibold text-teal-300 hover:text-teal-200">Watch with sound →</Link>}</p>
       </div>
     </div>
   );

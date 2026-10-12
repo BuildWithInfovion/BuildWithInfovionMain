@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { Aurora, GhostButton, GlowButton, Kicker, Reveal, SectionHead, SpotlightCard } from "../../components/fx/Fx";
 import { PhoneFrame, LoopVideo } from "../../components/product/Frames";
+import { VIDEOS } from "../../Data/videos";
 
 /** Search-intent landing page: one problem, how Infovion solves it, proof, FAQ, trial. */
 function Landing({ c }) {
@@ -47,6 +48,9 @@ function Landing({ c }) {
               <div className="overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-[0_50px_140px_-50px_rgba(45,212,191,0.55)]">
                 <LoopVideo src={`/film/${c.clip}.mp4`} poster={`/film/${c.clip}.webp`} label={c.clipLabel} className="aspect-video" />
               </div>
+            )}
+            {!c.phone && VIDEOS.find((v) => v.file === c.clip) && (
+              <Link to={`/videos/${VIDEOS.find((v) => v.file === c.clip).slug}`} className="mt-3 inline-block text-sm font-semibold text-teal-300 hover:text-teal-200">Watch this demo with sound →</Link>
             )}
           </Reveal>
         </div>

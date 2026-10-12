@@ -20,6 +20,7 @@ const productLinks = [
 const companyLinks = [
   { to: "/about",            label: "About Us" },
   { to: "/blog",             label: "Blog" },
+  { to: "/videos",           label: "Videos" },
   { to: "/contact",          label: "Contact" },
   { to: "/school-management-software-maharashtra", label: "For Maharashtra schools" },
   { to: "/fee-management-software-for-schools", label: "Fee management" },

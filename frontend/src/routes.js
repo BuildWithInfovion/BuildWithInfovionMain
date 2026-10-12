@@ -7,6 +7,7 @@ export const PRERENDER_ROUTES = [
   "/pricing",
   "/about",
   "/blog",
+  "/videos",
   "/contact",
   "/free-trial",
   "/free-tools",
