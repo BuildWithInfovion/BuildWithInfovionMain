@@ -58,13 +58,31 @@ for (const url of routes) {
 }
 console.log(`prerendered ${ok}/${routes.length} pages`);
 
+// A real 404 page. Vercel serves dist/404.html with status 404 for any path that
+// is not a file — before, every unknown URL returned the homepage with status 200
+// (a "soft 404" that Google files as a duplicate of the homepage).
+{
+  const { html } = await render("/__page-not-found__");
+  let page = stripHead(template)
+    .replace(/<meta\s+name="robots"[^>]*\/>/i, "")
+    .replace("</head>", `    <title>Page not found — Infovion</title>
+    <meta name="robots" content="noindex" />
+  </head>`);
+  page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root">${html}</div>
+    ${loader}
+  </body>`);
+  fs.writeFileSync(path.join(dist, "404.html"), page);
+  console.log("404.html written");
+}
+
 // Sitemap from the same route list, so every new page is submitted automatically
 const today = new Date().toISOString().slice(0, 10);
-const prio = (u) => (u === "/" ? "1.0" : u === "/free-trial" || u === "/pricing" ? "0.9" : u.startsWith("/free-tools") || !u.startsWith("/blog") ? "0.8" : "0.6");
+const LEGAL = ["/privacy-policy", "/terms-of-service"];
+const prio = (u) => (u === "/" ? "1.0" : u === "/free-trial" || u === "/pricing" ? "0.9" : LEGAL.includes(u) ? "0.3" : u.startsWith("/free-tools") || !u.startsWith("/blog") ? "0.8" : "0.6");
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes
-  .filter((u) => !["/privacy-policy", "/terms-of-service"].includes(u))
+  // Legal pages are listed too (low priority): they are trust pages Google should know
   .map((u) => `  <url><loc>https://www.infovion.in${u === "/" ? "/" : u}</loc><lastmod>${today}</lastmod><priority>${prio(u)}</priority></url>`)
   .join("\n")}
 </urlset>
