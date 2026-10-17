@@ -1,4 +1,6 @@
-export const blogPosts = [
+import { companyPosts } from "./blogCompany.js";
+
+const schoolPosts = [
   {
     id: 1,
     slug: "how-indian-schools-can-replace-paper-attendance-registers",
@@ -337,3 +339,5 @@ export const blogPosts = [
     `,
   },
 ];
+
+export const blogPosts = [...companyPosts, ...schoolPosts];

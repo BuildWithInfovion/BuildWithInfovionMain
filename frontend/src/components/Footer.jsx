@@ -1,217 +1,145 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
-import { Facebook, Instagram, Youtube, Linkedin, Mail, MapPin, ArrowUpRight, Phone } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
 import ProductHuntBadge from "./ProductHuntBadge";
+import { SERVICES } from "../Data/services";
+import { COMPANY, fullAddress } from "../Data/company";
+import { productOf } from "../lib/sections";
+
 const logo = "/logo-112.webp";
 
-const productLinks = [
-  { to: "/features",    label: "Features" },
-  { to: "/portals",     label: "Role Portals" },
-  { to: "/for-schools", label: "For Schools" },
-  { to: "/pricing",     label: "Pricing" },
-  { to: "/free-trial",  label: "Free trial" },
-  { to: "/free-tools/school-leaving-certificate-marathi", label: "Leaving Certificate (Marathi)" },
-  { to: "/free-tools/transfer-certificate", label: "TC generator" },
-  { to: "/free-tools/bonafide-certificate", label: "Bonafide generator" },
+const PRODUCT_LINKS = [
+  ["/school-management-software", "Infovion School ERP", true],
+  ["/school-management-software/features", "Features"],
+  ["/school-management-software/pricing", "Pricing"],
+  ["/free-trial", "Free trial"],
+  ["/free-tools", "Free certificate tools"],
+  ["/school-management-software-maharashtra", "For Maharashtra schools"],
+  ["/fee-management-software-for-schools", "Fee management"],
+  ["/school-attendance-app", "Attendance app"],
+  ["/school-transport-management-software", "School transport"],
+  ["/jewellery-management-software", "Infovion JMS", true],
+  ["/jewellery-billing-software", "Jewellery billing software"],
+  ["/girvi-software", "Girvi software"],
 ];
 
-const companyLinks = [
-  { to: "/about",            label: "About Us" },
-  { to: "/blog",             label: "Blog" },
-  { to: "/videos",           label: "Videos" },
-  { to: "/contact",          label: "Contact" },
-  { to: "/school-management-software-maharashtra", label: "For Maharashtra schools" },
-  { to: "/fee-management-software-for-schools", label: "Fee management" },
-  { to: "/school-attendance-app", label: "Attendance app" },
-  { to: "/school-transport-management-software", label: "School transport" },
-  { to: "/privacy-policy",   label: "Privacy Policy" },
-  { to: "/terms-of-service", label: "Terms of Service" },
+const COMPANY_LINKS = [
+  ["/about", "About us"],
+  ["/how-we-work", "How we work"],
+  ["/case-studies", "Case studies"],
+  ["/industries", "Industries"],
+  ["/government", "Government"],
+  ["/company-profile", "Company profile"],
+  ["/blog", "Blog"],
+  ["/videos", "Videos"],
+  ["/contact", "Contact"],
 ];
 
-const socialLinks = [
-  { href: "https://www.linkedin.com/company/112026919/", label: "LinkedIn",    icon: <Linkedin className="w-4 h-4" /> },
-  { href: "https://www.instagram.com/infoviontech/", label: "Instagram", icon: <Instagram className="w-4 h-4" /> },
-  { href: "https://www.facebook.com/profile.php?id=61595050592821", label: "Facebook", icon: <Facebook className="w-4 h-4" /> },
-  { href: "https://www.youtube.com/@Infovion_tech", label: "YouTube", icon: <Youtube className="w-4 h-4" /> },
+const SOCIAL = [
+  [COMPANY.socials.linkedin, "LinkedIn", Linkedin],
+  [COMPANY.socials.instagram, "Instagram", Instagram],
+  [COMPANY.socials.facebook, "Facebook", Facebook],
+  [COMPANY.socials.youtube, "YouTube", Youtube],
 ];
 
-const FooterLink = ({ to, label }) => (
-  <li>
-    <Motion.div whileHover={{ x: 4 }} transition={{ duration: 0.15 }}>
-      <Link to={to} className="text-sm text-slate-300 hover:text-brand-accent transition-colors duration-200 flex items-center gap-1 group">
-        <span className="w-3 h-px bg-brand-neutral/30 group-hover:bg-brand-accent/60 transition-colors duration-200 flex-shrink-0" />
-        {label}
-      </Link>
-    </Motion.div>
-  </li>
-);
+// The call to action above the footer depends on which part of the site the visitor is in
+const STRIPS = {
+  school: ["Try Infovion School ERP with your own school", "30 days free · No card needed · Set up the same day", ["/free-trial", "Start your free trial"]],
+  jms: ["See Infovion JMS with your own items", "Free demo · Online or at your store in Pune", ["/contact?interest=jms", "Book a free demo"]],
+  company: ["Have a software project in mind?", "Free consultation · Fixed quote in about 48 hours · You own the code", ["/contact", "Get a free quote"]],
+};
+const NO_STRIP = ["/", "/free-trial", "/contact", "/company-profile"];
+
+function Col({ id, title, links }) {
+  return (
+    <nav aria-labelledby={id}>
+      <h2 id={id} className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-slate-300">{title}</h2>
+      <ul className="space-y-2.5">
+        {links.map(([to, label, strong]) => (
+          <li key={to}>
+            <Link to={to} className={`text-sm transition-colors hover:text-brand-accent ${strong ? "font-semibold text-white" : "text-slate-400"}`}>{label}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 
 export default function Footer() {
-  // The home and trial pages end with their own call to action
   const { pathname } = useLocation();
-  const showStrip = !["/", "/free-trial"].includes(pathname.replace(/(.)\/+$/, "$1"));
+  const path = pathname.replace(/(.)\/+$/, "$1");
+  const strip = NO_STRIP.includes(path) || path.startsWith("/services/") ? null : STRIPS[productOf(path) ?? "company"];
   return (
-    <footer className="bg-brand-darker">
-
-      {/* ── CTA STRIP ──────────────────────────────────────────────────────── */}
-      {showStrip && <div
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #0D9488 0%, #1E293B 100%)" }}
-      >
-        <div className="absolute inset-0 dot-grid-dark opacity-20 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(255,255,255,0.06)" }} />
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-5 relative z-10">
-          <div>
-            <p className="font-bold text-white text-lg">Try Infovion with your own school</p>
-            <p className="text-brand-cream/70 text-sm mt-0.5">30 days free · No card needed · Set up the same day</p>
-          </div>
-          <Motion.div whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.96 }} className="flex-shrink-0">
-            <Link
-              to="/free-trial"
-              className="inline-flex items-center gap-2 bg-white text-brand-terra px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-black/20 hover:bg-brand-cream transition-colors"
-            >
-              Start your free trial <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </Motion.div>
-        </div>
-      </div>}
-
-      {/* ── MAIN FOOTER ────────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-14">
-
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-5 group">
-              <img src={logo} alt="Infovion" width="44" height="44" loading="lazy" className="h-11 w-auto group-hover:opacity-90 transition-opacity" />
-              <div className="flex flex-col leading-none">
-                <span className="text-xl font-extrabold text-white tracking-tight">
-                  Info<span className="text-brand-accent">vion</span>
-                </span>
-                <span className="text-[9px] text-slate-400 tracking-[0.2em] uppercase mt-0.5">
-                  School Management
-                </span>
-              </div>
-            </Link>
-
-            <p className="text-sm text-slate-300 leading-relaxed mb-6">
-              The complete school management platform for K-12 schools in India.
-              Built from the ground up for the way Indian schools actually work.
-            </p>
-
-            <div className="space-y-2.5">
-              <a
-                href="mailto:contact@infovion.in"
-                className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-brand-accent transition-colors group"
-              >
-                <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-terra/20 transition-colors">
-                  <Mail className="w-3.5 h-3.5" />
-                </span>
-                contact@infovion.in
-              </a>
-              <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                <span className="w-7 h-7 rounded-lg bg-brand-brown/30 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-3.5 h-3.5" />
-                </span>
-                Pune, Maharashtra, India
-              </div>
+    <footer className="bg-brand-darker print:hidden">
+      {strip && (
+        <div className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0D9488 0%, #1E293B 100%)" }}>
+          <div className="pointer-events-none absolute inset-0 dot-grid-dark opacity-20" />
+          <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-8 sm:flex-row">
+            <div>
+              <p className="text-lg font-bold text-white">{strip[0]}</p>
+              <p className="mt-0.5 text-sm text-brand-cream/80">{strip[1]}</p>
             </div>
+            <Link to={strip[2][0]} className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-terra2 shadow-lg shadow-black/20 transition-colors hover:bg-brand-cream">
+              {strip[2][1]} <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
+        </div>
+      )}
 
-          {/* Product Links */}
-          <nav aria-labelledby="footer-product">
-            <h2 id="footer-product" className="text-xs font-bold text-slate-300 uppercase tracking-[0.18em] mb-6">
-              Product
-            </h2>
-            <ul className="space-y-3">
-              {productLinks.map((l) => <FooterLink key={l.to} {...l} />)}
-            </ul>
-          </nav>
-
-          {/* Company Links */}
-          <nav aria-labelledby="footer-company">
-            <h2 id="footer-company" className="text-xs font-bold text-slate-300 uppercase tracking-[0.18em] mb-6">
-              Company
-            </h2>
-            <ul className="space-y-3">
-              {companyLinks.map((l) => <FooterLink key={l.to} {...l} />)}
-            </ul>
-          </nav>
-
-          {/* Social + Boards */}
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.9fr]">
           <div>
-            <h2 className="text-xs font-bold text-slate-300 uppercase tracking-[0.18em] mb-6">
-              Follow Us
-            </h2>
-            <div className="flex gap-2.5 mb-8">
-              {socialLinks.map((link) => (
-                <Motion.a
-                  key={link.label}
-                  href={link.href}
-                  aria-label={link.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-brand-brown/30 text-slate-300 hover:bg-brand-terra/25 hover:text-brand-accent flex items-center justify-center transition-all duration-200"
-                  whileHover={{ scale: 1.12, y: -2 }}
-                  whileTap={{ scale: 0.92 }}
-                >
-                  {link.icon}
-                </Motion.a>
+            <Link to="/" className="mb-5 flex items-center gap-3">
+              <img src={logo} alt="" width="44" height="44" loading="lazy" className="h-11 w-auto" />
+              <span className="flex flex-col leading-none">
+                <span className="text-xl font-extrabold tracking-tight text-white">Info<span className="text-brand-accent">vion</span></span>
+                <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-slate-400">Technologies</span>
+              </span>
+            </Link>
+            <p className="mb-6 max-w-sm text-sm leading-relaxed text-slate-300">
+              Software development company in Pune, India — custom software, web and mobile apps, ERP, SaaS and AI automation,
+              and the makers of Infovion School ERP and Infovion JMS.
+            </p>
+            <address className="space-y-2.5 not-italic">
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-brand-accent"><Mail className="h-4 w-4 flex-shrink-0 text-teal-300" />{COMPANY.email}</a>
+              <a href={COMPANY.phoneHref} className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-brand-accent"><Phone className="h-4 w-4 flex-shrink-0 text-teal-300" />{COMPANY.phone}</a>
+              <p className="flex items-start gap-2.5 text-sm text-slate-400"><MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-300" />{fullAddress()}</p>
+            </address>
+            <div className="mt-6 flex gap-2.5">
+              {SOCIAL.map(([href, label, I]) => (
+                <a key={label} href={href} aria-label={`Infovion on ${label}`} target="_blank" rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-brown/40 text-slate-300 transition-colors hover:bg-brand-terra/25 hover:text-brand-accent">
+                  <I className="h-4 w-4" />
+                </a>
               ))}
             </div>
-            <PreferredSourceBadge from="footer" className="-mt-4 mb-4" />
-            <ProductHuntBadge from="footer" className="mb-8" />
+            <div className="mt-6 flex items-center gap-3 rounded-xl border border-brand-brown/40 bg-white/[0.04] px-3.5 py-3">
+              <img src="/msme-logo.webp" width="60" height="40" loading="lazy" alt="MSME — Ministry of Micro, Small & Medium Enterprises, Government of India" className="h-10 w-auto flex-shrink-0 rounded-lg bg-white p-1" />
+              <div>
+                <p className="text-xs font-semibold text-white/85">MSME registered</p>
+                <p className="mt-0.5 font-mono text-[10px] text-slate-400">{COMPANY.udyam}</p>
+              </div>
+            </div>
+          </div>
 
-            {/* Board compatibility */}
+          <Col id="footer-services" title="Services" links={[...SERVICES.map((s) => [`/services/${s.slug}`, s.name]), ["/government", "E-governance"]]} />
+          <Col id="footer-products" title="Products" links={PRODUCT_LINKS} />
+          <div className="space-y-8">
+            <Col id="footer-company" title="Company" links={COMPANY_LINKS} />
             <div className="space-y-3">
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-medium">Supports</p>
-              <div className="flex flex-wrap gap-2">
-                {["CBSE", "ICSE", "State Board"].map((b) => (
-                  <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-brand-brown/60 text-slate-400 font-medium">
-                    {b}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* MSME Certification */}
-            <div className="mt-5 space-y-2.5">
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-medium">Certified By</p>
-              <div className="flex items-center gap-3 bg-white/[0.06] rounded-xl px-3.5 py-3 border border-brand-brown/30">
-                <img
-                  src="/msme-logo.webp"
-                  width="60"
-                  height="40"
-                  loading="lazy"
-                  alt="MSME Certified — Ministry of Micro, Small & Medium Enterprises, Government of India"
-                  className="h-11 w-auto flex-shrink-0 rounded-lg bg-white p-1"
-                />
-                <div>
-                  <p className="text-xs font-semibold text-white/80">MSME Certified</p>
-                  <p className="text-[10px] text-slate-400 leading-snug mt-0.5">Ministry of MSME<br />Government of India</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick contact */}
-            <div className="mt-6 p-4 rounded-xl border border-brand-brown/40 bg-brand-brown/10">
-              <p className="text-xs text-slate-400 mb-2 font-medium">Questions? Write to us</p>
-              <a href="mailto:contact@infovion.in" className="text-xs text-brand-accent/80 hover:text-brand-accent transition-colors">
-                contact@infovion.in
-              </a>
+              <PreferredSourceBadge from="footer" />
+              <ProductHuntBadge from="footer" />
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-brand-brown/30 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-slate-400">
-            © {new Date().getFullYear()} Infovion Technologies. All rights reserved.
-          </p>
-          <p className="text-sm text-slate-400">
-            School Management Software · Built for India · K-12
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-brand-brown/30 pt-6 text-sm text-slate-400 sm:flex-row">
+          <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
+          <p className="flex gap-5">
+            <Link to="/privacy-policy" className="hover:text-white">Privacy</Link>
+            <Link to="/terms-of-service" className="hover:text-white">Terms</Link>
+            <a href="/sitemap.xml" className="hover:text-white">Sitemap</a>
           </p>
         </div>
       </div>

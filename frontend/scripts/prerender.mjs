@@ -10,6 +10,8 @@ const { render } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry
 const { blogPosts } = await import(pathToFileURL(path.join(root, "src", "Data", "blogData.js")).href).catch(() => ({ blogPosts: [] }));
 const { PRERENDER_ROUTES } = await import(pathToFileURL(path.join(root, "src", "routes.js")).href);
 const { VIDEOS, videoFile, videoPoster } = await import(pathToFileURL(path.join(root, "src", "Data", "videos.js")).href);
+const { SERVICES } = await import(pathToFileURL(path.join(root, "src", "Data", "services.js")).href);
+const { CASE_STUDIES } = await import(pathToFileURL(path.join(root, "src", "Data", "caseStudies.js")).href);
 
 // The page is already in the HTML, so the app bundle (needed only to hydrate it)
 // must not hold up the first paint: it is requested only once the browser has
@@ -29,13 +31,16 @@ const stripHead = (h) => h
   .replace(/<title>[\s\S]*?<\/title>/i, "")
   .replace(/<meta\s+name="description"[\s\S]*?\/>/i, "")
   .replace(/<meta\s+name="keywords"[\s\S]*?\/>/i, "")
+  .replace(/<meta\s+name="robots"[^>]*\/>/i, "")
   .replace(/<link\s+rel="canonical"[^>]*\/>/i, "")
   .replace(/<meta\s+property="og:(title|description|url)"[^>]*\/>/gi, "")
   .replace(/<meta\s+name="twitter:(title|description)"[^>]*\/>/gi, "");
 
 const slugs = (blogPosts || []).map((p) => `/blog/${p.slug}`);
 const videoRoutes = VIDEOS.map((v) => `/videos/${v.slug}`);
-const routes = [...new Set([...PRERENDER_ROUTES, ...slugs, ...videoRoutes])];
+const serviceRoutes = SERVICES.map((s) => `/services/${s.slug}`);
+const caseRoutes = CASE_STUDIES.map((c) => `/case-studies/${c.slug}`);
+const routes = [...new Set([...PRERENDER_ROUTES, ...serviceRoutes, ...caseRoutes, ...slugs, ...videoRoutes])];
 let ok = 0;
 for (const url of routes) {
   try {
@@ -70,7 +75,7 @@ console.log(`prerendered ${ok}/${routes.length} pages`);
   const { html } = await render("/__page-not-found__");
   let page = stripHead(template)
     .replace(/<meta\s+name="robots"[^>]*\/>/i, "")
-    .replace("</head>", `    <title>Page not found — Infovion</title>
+    .replace("</head>", `    <title>Page not found — Infovion Technologies</title>
     <meta name="robots" content="noindex" />
   </head>`);
   page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root">${html}</div>
@@ -90,7 +95,14 @@ const videoTag = (u) => {
   if (!v) return "";
   return `<video:video><video:thumbnail_loc>https://www.infovion.in${videoPoster(v)}</video:thumbnail_loc><video:title>${xmlText(v.title)}</video:title><video:description>${xmlText(v.description)}</video:description><video:content_loc>https://www.infovion.in${videoFile(v)}</video:content_loc><video:duration>${v.seconds}</video:duration><video:publication_date>${v.uploadDate}T00:00:00+05:30</video:publication_date><video:family_friendly>yes</video:family_friendly></video:video>`;
 };
-const prio = (u) => (u === "/" ? "1.0" : u === "/free-trial" || u === "/pricing" ? "0.9" : LEGAL.includes(u) ? "0.3" : u.startsWith("/free-tools") || !u.startsWith("/blog") ? "0.8" : "0.6");
+// Highest for the company home, the service hub/pages and the two product homes
+const TOP = ["/services", "/school-management-software", "/jewellery-management-software", "/contact", "/government"];
+const prio = (u) =>
+  u === "/" ? "1.0"
+  : TOP.includes(u) || u.startsWith("/services/") || u === "/free-trial" ? "0.9"
+  : LEGAL.includes(u) ? "0.3"
+  : u.startsWith("/blog/") || u.startsWith("/videos/") ? "0.6"
+  : "0.8";
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${routes
@@ -115,10 +127,10 @@ const rfc822 = (d) => new Date(`${d}T09:00:00+05:30`).toUTCString();
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Infovion — guides for Indian schools</title>
+    <title>Infovion Technologies — insights and guides</title>
     <link>https://www.infovion.in/blog</link>
     <atom:link href="https://www.infovion.in/rss.xml" rel="self" type="application/rss+xml" />
-    <description>Practical guides on school management software, fees, attendance, admissions and certificates for Indian K-12 schools.</description>
+    <description>Practical guides on software development, school management, jewellery billing and e-governance from Infovion Technologies, Pune.</description>
     <language>en-in</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${posts.map((p) => `    <item>

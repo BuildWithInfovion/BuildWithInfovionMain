@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { blogPosts } from "../Data/blogData";
-import { CATEGORY_LABEL } from "../Data/blogCategories";
+import { CATEGORY_LABEL, CTA, audienceOf } from "../Data/blogCategories";
 import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
 import PreferredSourceBadge from "../components/PreferredSourceBadge";
 
@@ -26,6 +26,7 @@ export default function BlogPost() {
   }
 
   const url = `${DOMAIN}/blog/${slug}`;
+  const cta = CTA[audienceOf(post.category)];
   const sameCat = blogPosts.filter((p) => p.category === post.category && p.slug !== post.slug);
   const related = [...sameCat, ...blogPosts.filter((p) => p.category !== post.category && p.slug !== post.slug)].slice(0, 3);
   const articleSchema = {
@@ -35,16 +36,18 @@ export default function BlogPost() {
     headline: post.title,
     image: [abs(post.image)],
     datePublished: post.date,
-    dateModified: post.date,
-    author: { "@type": "Organization", name: "Infovion", url: DOMAIN },
-    publisher: { "@type": "Organization", name: "Infovion", url: DOMAIN, logo: { "@type": "ImageObject", url: `${DOMAIN}/logo.png` } },
+    dateModified: post.updated || post.date,
+    author: post.authorName ? { "@type": "Person", name: post.authorName, worksFor: { "@id": `${DOMAIN}/#organization` } } : { "@id": `${DOMAIN}/#organization` },
+    publisher: { "@id": `${DOMAIN}/#organization` },
+    articleSection: CATEGORY_LABEL[post.category] ?? post.category,
+    keywords: (post.tags || []).join(", "),
     description: post.excerpt,
   };
 
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>{`${post.title} | Infovion Blog`}</title>
+        <title>{`${post.title} | Infovion`}</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={post.title} />
@@ -60,7 +63,7 @@ export default function BlogPost() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#05070d]/60 via-[#05070d]/85 to-[#05070d]" />
         <Aurora />
         <div className="relative mx-auto max-w-3xl px-5 sm:px-6">
-          <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"><ArrowLeft className="h-4 w-4" /> Blog</Link>
+          <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"><ArrowLeft className="h-4 w-4" /> Insights</Link>
           <div className="mt-5"><Kicker>{CATEGORY_LABEL[post.category] ?? post.category}</Kicker></div>
           <h1 className="mt-5 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl">{post.title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-400">{post.excerpt}</p>
@@ -93,9 +96,9 @@ export default function BlogPost() {
           <Aurora strong />
           <div className="relative">
             <Sparkles className="mx-auto h-6 w-6 text-teal-300" />
-            <h2 className="mt-4 font-display text-2xl font-extrabold text-white sm:text-3xl">See it working in your own school</h2>
-            <p className="mx-auto mt-2 max-w-md text-slate-400">Infovion's free trial opens with sample data in two minutes. No card, no contract.</p>
-            <div className="mt-6 flex justify-center"><GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton></div>
+            <h2 className="mt-4 font-display text-2xl font-extrabold text-white sm:text-3xl">{cta.title}</h2>
+            <p className="mx-auto mt-2 max-w-md text-slate-400">{cta.body}</p>
+            <div className="mt-6 flex justify-center"><GlowButton to={cta.to}>{cta.label} <ArrowRight className="h-4 w-4" /></GlowButton></div>
           </div>
         </div>
       </div>

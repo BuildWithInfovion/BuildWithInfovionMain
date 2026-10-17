@@ -46,19 +46,19 @@ export default function Blog() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>Blog — Guides for Indian School Directors & Principals | Infovion</title>
-        <meta name="description" content="Practical guides for Indian schools: attendance, fee management, admissions, certificates, parent portals and choosing school ERP software." />
+        <title>Insights — Software Development, School ERP, Jewellery & Government IT Guides | Infovion</title>
+        <meta name="description" content="Practical guides from Infovion Technologies: software development costs and choosing a partner, school management, jewellery billing and girvi, and government website standards." />
         <link rel="canonical" href="https://www.infovion.in/blog" />
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-14 pt-32 sm:pt-40">
         <Aurora strong />
         <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-6">
-          <Kicker>School management insights</Kicker>
+          <Kicker>Insights & guides</Kicker>
           <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-extrabold leading-[1.03] tracking-tight text-white sm:text-6xl">
-            Tips for running <span className="text-gradient-aurora">a better school.</span>
+            Practical guides for <span className="text-gradient-aurora">building and running better.</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">Practical guides for school directors, principals and offices — attendance, fees, admissions and going digital.</p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">Software projects and what they cost, school management, jewellery billing and girvi, and government IT — written plainly, with sources.</p>
           <div className="relative mx-auto mt-8 max-w-md">
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search articles…" aria-label="Search articles"
@@ -90,10 +90,10 @@ export default function Blog() {
       <section className="px-5 pb-28 sm:px-6">
         <div className="glass mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-[2rem] p-8 text-center md:flex-row md:text-left">
           <div>
-            <h2 className="font-display text-2xl font-extrabold text-white">Everything in these articles is already in Infovion.</h2>
-            <p className="mt-2 text-slate-400">Try it with your own school — free for 30 days, no card.</p>
+            <h2 className="font-display text-2xl font-extrabold text-white">Have a project or a question?</h2>
+            <p className="mt-2 text-slate-400">Talk to the team that writes these guides — free consultation, fixed quotes.</p>
           </div>
-          <GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
+          <GlowButton to="/contact">Get in touch <ArrowRight className="h-4 w-4" /></GlowButton>
         </div>
       </section>
     </div>

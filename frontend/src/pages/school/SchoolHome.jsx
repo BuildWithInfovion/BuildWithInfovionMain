@@ -6,14 +6,16 @@ import {
   ArrowRight, Play, Check, ChevronDown, FileSpreadsheet, Languages, Bus, Wallet, Smartphone, History, Lock, KeyRound, Users,
   IndianRupee, CalendarCheck, ReceiptText, Sparkles, MessageCircle, ShieldCheck,
 } from "lucide-react";
-import { BrowserFrame, PhoneFrame, LoopVideo } from "../components/product/Frames";
-import FilmPlayer from "../components/product/FilmPlayer";
-import { FILM_TRANSCRIPT } from "../Data/filmTranscript";
-import FeatureFilms from "../components/product/FeatureFilms";
-import PortalHub from "../components/product/PortalHub";
-import PriceCalculator from "../components/PriceCalculator";
-import ProductHuntBadge from "../components/ProductHuntBadge";
-import { Aurora, CountUp, GhostButton, GlowButton, Kicker, Marquee, Reveal, SectionHead, SpotlightCard, Tilt } from "../components/fx/Fx";
+import { BrowserFrame, PhoneFrame, LoopVideo } from "../../components/product/Frames";
+import FilmPlayer from "../../components/product/FilmPlayer";
+import { FILM_TRANSCRIPT } from "../../Data/filmTranscript";
+import FeatureFilms from "../../components/product/FeatureFilms";
+import PortalHub from "../../components/product/PortalHub";
+import PriceCalculator from "../../components/PriceCalculator";
+import ProductHuntBadge from "../../components/ProductHuntBadge";
+import { schoolSoftwareSchema } from "../../Data/schoolSchema";
+import { breadcrumbSchema } from "../../lib/seo";
+import { Aurora, CountUp, GhostButton, GlowButton, Kicker, Marquee, Reveal, SectionHead, SpotlightCard, Tilt } from "../../components/fx/Fx";
 
 const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I'd like to see Infovion for my school.");
 
@@ -87,7 +89,7 @@ function Hero() {
           <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
           <GhostButton href="#film" className="w-full sm:w-auto"><Play className="h-4 w-4" fill="currentColor" /> Watch the film</GhostButton>
         </div>
-        <p className="mt-5 text-xs text-slate-400">No card needed · ₹150 per student per year after the trial · <Link to="/contact" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
+        <p className="mt-5 text-xs text-slate-400">No card needed · ₹150 per student per year after the trial · <Link to="/contact?interest=school" className="underline decoration-slate-600 hover:text-slate-300">or book a live demo</Link></p>
         <ProductHuntBadge from="home_hero" className="mt-6" />
       </div>
 
@@ -114,7 +116,7 @@ function Stats() {
   const items = [
     [<CountUp key="a" to={8} />, "role portals, one login each"],
     [<CountUp key="b" to={12} suffix="+" />, "modules, all included"],
-    [<CountUp key="c" to={50} prefix="₹" />, "per student, per year"],
+    [<CountUp key="c" to={150} prefix="₹" />, "per student, per year"],
     [<CountUp key="d" to={30} />, "day free trial, no card"],
   ];
   return (
@@ -221,7 +223,7 @@ function PricingTeaser() {
               <li key={t} className="flex items-center gap-2 text-sm text-slate-300"><Check className="h-4 w-4 text-teal-300" /> {t}</li>
             ))}
           </ul>
-          <Link to="/pricing" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-300 hover:text-teal-200">See full pricing <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/school-management-software/pricing" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-300 hover:text-teal-200">See full pricing <ArrowRight className="h-4 w-4" /></Link>
         </div>
         <Reveal><PriceCalculator dark /></Reveal>
       </div>
@@ -306,13 +308,17 @@ function FinalCta() {
   );
 }
 
-export default function Home() {
+export default function SchoolHome() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>Infovion — School Management Software for Indian Schools | Free trial</title>
+        <title>School Management Software for Indian Schools — Infovion School ERP | Free trial</title>
         <meta name="description" content="Fees and receipts, attendance, exams, transport, TC/LC certificates and a parent app — one school management platform for Indian K-12 schools. ₹150 per student per year. Start a 30-day free trial in two minutes." />
-        <link rel="canonical" href="https://www.infovion.in/" />
+        <link rel="canonical" href="https://www.infovion.in/school-management-software" />
+        <meta property="og:title" content="Infovion School ERP — school management software for Indian schools" />
+        <meta property="og:url" content="https://www.infovion.in/school-management-software" />
+        <script type="application/ld+json">{JSON.stringify(schoolSoftwareSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([["Products", "/products"], ["School management software", "/school-management-software"]]))}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(videoSchema)}</script>
       </Helmet>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { breadcrumbSchema } from "../../lib/seo";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Bus, CalendarCheck, CalendarDays, ClipboardList, FileBadge2, FileBarChart, GraduationCap, History, IndianRupee,
   Megaphone, ShieldCheck, Smartphone, UserCog, Users, Wallet,
 } from "lucide-react";
-import { Aurora, GhostButton, GlowButton, Kicker, Marquee, Reveal, SectionHead, SpotlightCard } from "../components/fx/Fx";
-import FeatureFilms from "../components/product/FeatureFilms";
+import { Aurora, GhostButton, GlowButton, Kicker, Marquee, Reveal, SectionHead, SpotlightCard } from "../../components/fx/Fx";
+import FeatureFilms from "../../components/product/FeatureFilms";
 
 const MODULES = [
   { icon: ClipboardList, title: "Admissions & inquiries", points: ["Inquiry pipeline from first call to admission", "Admission form with all demographic fields", "Automatic admission and roll numbers", "Students, parents and staff imported from Excel"] },
@@ -31,7 +32,8 @@ export default function Features() {
       <Helmet>
         <title>School Management Software Features — Fees, Attendance, Exams, Transport, Certificates | Infovion</title>
         <meta name="description" content="Every Infovion module: admissions, fees and receipts, online payments, attendance, exams and report cards, TC/LC certificates, transport, timetable, staff and salary, parent portal and 8 role-based portals." />
-        <link rel="canonical" href="https://www.infovion.in/features" />
+        <link rel="canonical" href="https://www.infovion.in/school-management-software/features" />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([["School management software", "/school-management-software"], ["Features", "/school-management-software/features"]]))}</script>
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-16 pt-32 sm:pt-40">
@@ -115,7 +117,7 @@ export default function Features() {
             <p className="mx-auto mt-4 max-w-xl text-slate-400">Your own trial school opens with sample data in two minutes. ₹150 per student per year after — everything included.</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
-              <GhostButton to="/pricing">See pricing</GhostButton>
+              <GhostButton to="/school-management-software/pricing">See pricing</GhostButton>
             </div>
           </div>
         </div>

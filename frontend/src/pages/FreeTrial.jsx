@@ -310,7 +310,7 @@ export default function FreeTrial() {
                   {state === "sending" ? <><Loader2 className="h-4 w-4 animate-spin" /> Creating your school…</> : <><Sparkles className="h-4 w-4" /> Create my trial school</>}
                 </button>
                 <p className="text-center text-xs text-slate-500">
-                  Prefer to talk first? <Link to="/contact" className="text-teal-300 underline">Book a live demo</Link> or <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="text-teal-300 underline">WhatsApp us</a>.
+                  Prefer to talk first? <Link to="/contact?interest=school" className="text-teal-300 underline">Book a live demo</Link> or <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="text-teal-300 underline">WhatsApp us</a>.
                 </p>
               </form>
             )}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { breadcrumbSchema } from "../../lib/seo";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { ArrowRight, Check, ChevronDown, MessageCircle, X } from "lucide-react";
-import PriceCalculator from "../components/PriceCalculator";
-import { Aurora } from "../components/fx/Fx";
+import PriceCalculator from "../../components/PriceCalculator";
+import { Aurora } from "../../components/fx/Fx";
 
 const WHATSAPP = "https://wa.me/919309193613?text=" + encodeURIComponent("Hi! I have a question about Infovion pricing for my school.");
 
@@ -46,7 +47,8 @@ export default function Pricing() {
       <Helmet>
         <title>Pricing — ₹150 per student per year | Infovion School Management Software</title>
         <meta name="description" content="Simple pricing for Indian schools: ₹150 per student per year + GST, every module and portal included. No setup fee. 30-day free trial." />
-        <link rel="canonical" href="https://www.infovion.in/pricing" />
+        <link rel="canonical" href="https://www.infovion.in/school-management-software/pricing" />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([["School management software", "/school-management-software"], ["Pricing", "/school-management-software/pricing"]]))}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
@@ -79,7 +81,7 @@ export default function Pricing() {
               className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-6 py-4 text-sm font-bold text-[#04121a] hover:brightness-110">
               Start a 30-day free trial <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/contact" className="mt-3 block text-center text-sm font-semibold text-slate-300 hover:text-teal-200">or book a live demo</Link>
+            <Link to="/contact?interest=school" className="mt-3 block text-center text-sm font-semibold text-slate-300 hover:text-teal-200">or book a live demo</Link>
             <div className="mt-8 border-t border-white/10 pt-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">You never pay for</p>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">

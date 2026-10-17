@@ -35,7 +35,7 @@ function Landing({ c }) {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">{c.intro}</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
-              <GhostButton to="/contact" className="w-full sm:w-auto">Book a live demo</GhostButton>
+              <GhostButton to="/contact?interest=school" className="w-full sm:w-auto">Book a live demo</GhostButton>
             </div>
             <p className="mt-4 text-xs text-slate-500">30 days free · no card · ₹150 per student per year after</p>
           </div>
@@ -180,7 +180,7 @@ const PAGES = {
       ["Can we bring our existing data?", "Yes — students, parents and staff from Excel, and fees already paid as opening balances, so nobody is asked to pay twice."],
     ],
     ctaTitle: "Run your Maharashtra school on Infovion.",
-    related: [["/free-tools/school-leaving-certificate-marathi", "Free Marathi LC generator"], ["/fee-management-software-for-schools", "Fee management"], ["/pricing", "Pricing"]],
+    related: [["/free-tools/school-leaving-certificate-marathi", "Free Marathi LC generator"], ["/fee-management-software-for-schools", "Fee management"], ["/school-management-software/pricing", "Pricing"]],
   },
   fees: {
     slug: "fee-management-software-for-schools",
@@ -215,7 +215,7 @@ const PAGES = {
       ["How much does it cost?", "₹150 per student per year plus GST, everything included. 30-day free trial."],
     ],
     ctaTitle: "Collect fees the easy way.",
-    related: [["/school-attendance-app", "Attendance app"], ["/school-management-software-maharashtra", "For Maharashtra schools"], ["/pricing", "Pricing"]],
+    related: [["/school-attendance-app", "Attendance app"], ["/school-management-software-maharashtra", "For Maharashtra schools"], ["/school-management-software/pricing", "Pricing"]],
   },
   attendance: {
     slug: "school-attendance-app",
@@ -250,7 +250,7 @@ const PAGES = {
       ["How much does it cost?", "₹150 per student per year plus GST, all modules included. 30-day free trial."],
     ],
     ctaTitle: "Try attendance on your own classes.",
-    related: [["/fee-management-software-for-schools", "Fee management"], ["/school-transport-management-software", "School transport"], ["/pricing", "Pricing"]],
+    related: [["/fee-management-software-for-schools", "Fee management"], ["/school-transport-management-software", "School transport"], ["/school-management-software/pricing", "Pricing"]],
   },
   transport: {
     slug: "school-transport-management-software",
@@ -284,7 +284,7 @@ const PAGES = {
       ["Is there a free trial?", "Yes, 30 days with every module, no card."],
     ],
     ctaTitle: "Put your buses on Infovion.",
-    related: [["/fee-management-software-for-schools", "Fee management"], ["/school-attendance-app", "Attendance app"], ["/pricing", "Pricing"]],
+    related: [["/fee-management-software-for-schools", "Fee management"], ["/school-attendance-app", "Attendance app"], ["/school-management-software/pricing", "Pricing"]],
   },
 };
 

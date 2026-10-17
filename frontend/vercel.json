@@ -1,4 +1,23 @@
 {
+  "redirects": [
+    { "source": "/features", "destination": "/school-management-software/features", "permanent": true },
+    { "source": "/portals", "destination": "/school-management-software/portals", "permanent": true },
+    { "source": "/pricing", "destination": "/school-management-software/pricing", "permanent": true },
+    { "source": "/for-schools", "destination": "/school-management-software", "permanent": true },
+    { "source": "/school", "destination": "/school-management-software", "permanent": true },
+    { "source": "/schools", "destination": "/school-management-software", "permanent": true },
+    { "source": "/school-erp", "destination": "/school-management-software", "permanent": true },
+    { "source": "/jms", "destination": "/jewellery-management-software", "permanent": true },
+    { "source": "/jewellery", "destination": "/jewellery-management-software", "permanent": true },
+    { "source": "/jewelry", "destination": "/jewellery-management-software", "permanent": true },
+    { "source": "/jewelry-management-software", "destination": "/jewellery-management-software", "permanent": true },
+    { "source": "/gahan-software", "destination": "/girvi-software", "permanent": true },
+    { "source": "/services/website-development", "destination": "/services/web-development", "permanent": true },
+    { "source": "/work", "destination": "/case-studies", "permanent": true },
+    { "source": "/portfolio", "destination": "/case-studies", "permanent": true },
+    { "source": "/e-governance", "destination": "/government", "permanent": true },
+    { "source": "/profile", "destination": "/company-profile", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -9,7 +28,7 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
     },
     {
-      "source": "/(.*)\\.(webp|png|jpg|ico|svg|woff2)",
+      "source": "/(.*)\.(webp|png|jpg|ico|svg|woff2)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
     }
   ]

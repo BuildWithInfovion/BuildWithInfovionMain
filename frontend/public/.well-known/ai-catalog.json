@@ -1,34 +1,52 @@
 {
   "specVersion": "1.0",
   "host": {
-    "displayName": "Infovion",
+    "displayName": "Infovion Technologies",
     "documentationUrl": "https://www.infovion.in/llms.txt",
     "logoUrl": "https://www.infovion.in/logo.png"
   },
   "entries": [
     {
       "identifier": "urn:air:infovion.in:docs:llms-txt",
-      "displayName": "Infovion school management software — summary for AI assistants",
+      "displayName": "Infovion Technologies — summary for AI assistants",
       "type": "text/markdown",
       "url": "https://www.infovion.in/llms.txt",
-      "description": "Plain-text facts about Infovion, a school ERP for Indian schools: pricing (Rs 150 per student per year), free trial, portals for every role, and modules (admissions, fees, attendance, exams, transport, hostel, gate register).",
-      "tags": ["school management software", "school ERP", "India", "education"],
+      "description": "Plain-text facts about Infovion Technologies, a software development company in Pune, India: services (custom software, web and mobile apps, ERP and CRM, SaaS, AI automation, e-governance), typical costs, how projects run, and its products Infovion School ERP (Rs 150 per student per year, free trial) and Infovion JMS jewellery management software (billing, GST, girvi, udhaar, Tally export).",
+      "tags": [
+        "software development company",
+        "Pune",
+        "India",
+        "custom software",
+        "school management software",
+        "jewellery management software",
+        "e-governance"
+      ],
       "representativeQueries": [
+        "software development company in Pune",
+        "how much does custom software development cost in India",
         "school management software for Indian schools",
-        "how much does Infovion school ERP cost",
-        "which school ERP has fee collection, attendance and a parent app"
+        "jewellery billing software with Tally export",
+        "government website development company GIGW"
       ]
     },
     {
       "identifier": "urn:air:infovion.in:docs:llms-full-txt",
-      "displayName": "Infovion guides for school owners and principals (full text)",
+      "displayName": "Infovion guides and articles (full text)",
       "type": "text/markdown",
       "url": "https://www.infovion.in/llms-full.txt",
-      "description": "Full text of every Infovion guide on running a school: fees, admissions, attendance, certificates and compliance.",
-      "tags": ["school administration", "guides"],
+      "description": "Full text of every Infovion article: software development costs and choosing a vendor, school management, jewellery billing and girvi, and GIGW 3.0 for government websites.",
+      "tags": [
+        "guides",
+        "software development",
+        "school administration",
+        "jewellery",
+        "e-governance"
+      ],
       "representativeQueries": [
-        "how to collect school fees online in India",
-        "how to issue a transfer certificate"
+        "how to choose a software development company",
+        "how is GST calculated on jewellery",
+        "what is GIGW 3.0",
+        "how to collect school fees online in India"
       ]
     },
     {
@@ -37,7 +55,10 @@
       "type": "text/html",
       "url": "https://app.infovion.in/help",
       "description": "Step-by-step guides per role: operator, principal, director, teacher, accountant, receptionist, gatekeeper, hostel, transport and parents.",
-      "tags": ["help", "user guide"],
+      "tags": [
+        "help",
+        "user guide"
+      ],
       "representativeQueries": [
         "how do teachers mark attendance in Infovion",
         "how do parents sign in to the Infovion app"

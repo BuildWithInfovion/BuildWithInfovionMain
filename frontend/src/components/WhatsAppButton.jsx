@@ -1,12 +1,21 @@
 import React from "react";
 import { motion as Motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import { track } from "../lib/analytics";
+import { wa } from "../Data/company";
+import { productOf } from "../lib/sections";
 
-const WHATSAPP_NUMBER = "919309193613"; // country code + number
-const WHATSAPP_MESSAGE = "Hi! I'd like to know more about Infovion Academic ERP for my school.";
+// The opening message matches the page the visitor is on
+const MESSAGES = {
+  school: "Hi! I'd like to know more about Infovion School ERP for my school.",
+  jms: "Hi! I'd like a demo of Infovion JMS for my jewellery store.",
+  government: "Hello Infovion, I'd like to discuss a government IT requirement.",
+  company: "Hi Infovion! I'd like to discuss a software project.",
+};
 
 export default function WhatsAppButton() {
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const { pathname } = useLocation();
+  const url = wa(MESSAGES[pathname.startsWith("/government") ? "government" : productOf(pathname) ?? "company"]);
 
   return (
     <Motion.a
@@ -14,8 +23,8 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      onClick={() => track("whatsapp_click", { place: "floating" })}
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 bg-[#25D366] text-[#052e16] p-3.5 sm:pl-3 sm:pr-4 sm:py-3 rounded-full shadow-2xl shadow-[#25D366]/40"
+      onClick={() => track("whatsapp_click", { place: "floating", page: pathname })}
+      className="print:hidden fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 bg-[#25D366] text-[#052e16] p-3.5 sm:pl-3 sm:pr-4 sm:py-3 rounded-full shadow-2xl shadow-[#25D366]/40"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}

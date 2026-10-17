@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { breadcrumbSchema } from "../../lib/seo";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, BookOpen, Briefcase, Calculator, Check, Crown, Headset, Home, Lock, Wrench } from "lucide-react";
-import { Aurora, GhostButton, GlowButton, Kicker, Reveal, SectionHead, SpotlightCard } from "../components/fx/Fx";
-import { BrowserFrame, PhoneFrame, LoopVideo } from "../components/product/Frames";
-import PortalHub from "../components/product/PortalHub";
+import { Aurora, GhostButton, GlowButton, Kicker, Reveal, SectionHead, SpotlightCard } from "../../components/fx/Fx";
+import { BrowserFrame, PhoneFrame, LoopVideo } from "../../components/product/Frames";
+import PortalHub from "../../components/product/PortalHub";
 
 const PORTALS = [
   {
@@ -145,7 +146,8 @@ export default function Portals() {
       <Helmet>
         <title>8 Role-Based Portals — Director, Principal, Teacher, Parent & More | Infovion</title>
         <meta name="description" content="Infovion gives every role in an Indian school its own portal: Director, Principal, Operator, Accountant, Reception, Teacher, Non-teaching staff and Parent. Each sees only what they need." />
-        <link rel="canonical" href="https://www.infovion.in/portals" />
+        <link rel="canonical" href="https://www.infovion.in/school-management-software/portals" />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([["School management software", "/school-management-software"], ["Role portals", "/school-management-software/portals"]]))}</script>
       </Helmet>
 
       <section className="noise relative overflow-hidden pb-20 pt-32 sm:pt-40">
@@ -233,7 +235,7 @@ export default function Portals() {
             <p className="mx-auto mt-4 max-w-xl text-slate-400">The free trial opens with sample data, so you can sign in as the office and try each screen.</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
-              <GhostButton to="/contact">Book a live demo</GhostButton>
+              <GhostButton to="/contact?interest=school">Book a live demo</GhostButton>
             </div>
           </div>
         </div>

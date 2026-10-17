@@ -407,3 +407,20 @@
 .rise { animation: rise .7s cubic-bezier(.22, 1, .36, 1) both; }
 @keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .rise { animation: none; } }
+
+/* Horizontal scrollers without a visible scrollbar (product sub-navigation) */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Printing (company profile): plain white page, no site chrome */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  html, body { background: #fff !important; }
+}
+
+/* Article tables scroll sideways on phones instead of widening the page */
+@media (max-width: 640px) {
+  .article-dark table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+.article-dark small { display: block; font-size: 13px; line-height: 1.6; color: #94a3b8; }
+.article-dark h3 { scroll-margin-top: 7rem; }

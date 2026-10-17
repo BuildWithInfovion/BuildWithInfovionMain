@@ -15,7 +15,7 @@ export const VIDEOS = [
     seconds: 269,
     uploadDate: "2026-09-29",
     transcript: FILM_TRANSCRIPT,
-    related: ["/features", "Every module in detail"],
+    related: ["/school-management-software/features", "Every module in detail"],
   },
   {
     slug: "school-attendance-app-demo",
@@ -45,7 +45,7 @@ export const VIDEOS = [
     seconds: 15,
     uploadDate: "2026-10-03",
     transcript: "It starts at admission. Track every inquiry as a lead, from the first call to an enrolled student. Admit students in minutes, or bring your whole school in at once with a CSV import.",
-    related: ["/features", "Admissions and every other module"],
+    related: ["/school-management-software/features", "Admissions and every other module"],
   },
   {
     slug: "parent-portal-for-schools-demo",
@@ -55,7 +55,7 @@ export const VIDEOS = [
     seconds: 13,
     uploadDate: "2026-10-03",
     transcript: "Parents get their own portal, with attendance, marks, fee status and announcements, the same day. They can message the class teacher directly, without sharing personal phone numbers.",
-    related: ["/portals", "All eight portals"],
+    related: ["/school-management-software/portals", "All eight portals"],
   },
   {
     slug: "exam-marks-and-report-cards-demo",
@@ -65,7 +65,7 @@ export const VIDEOS = [
     seconds: 10,
     uploadDate: "2026-10-03",
     transcript: "Create exams and enter marks subject by subject. Report cards are generated automatically, on your school's own letterhead.",
-    related: ["/features", "Exams, report cards and more"],
+    related: ["/school-management-software/features", "Exams, report cards and more"],
   },
   {
     slug: "transfer-certificate-and-id-cards-demo",
@@ -85,7 +85,7 @@ export const VIDEOS = [
     seconds: 8,
     uploadDate: "2026-10-03",
     transcript: "Build the weekly timetable once. When a teacher is absent, assign a substitute cover in seconds.",
-    related: ["/features", "Timetable and every other module"],
+    related: ["/school-management-software/features", "Timetable and every other module"],
   },
   {
     slug: "school-announcements-and-calendar-demo",
@@ -95,7 +95,7 @@ export const VIDEOS = [
     seconds: 9,
     uploadDate: "2026-10-03",
     transcript: "Send an announcement to every portal at once. And keep holidays, exams and events on one shared school calendar.",
-    related: ["/portals", "Parent, teacher and staff portals"],
+    related: ["/school-management-software/portals", "Parent, teacher and staff portals"],
   },
   {
     slug: "staff-attendance-and-salary-slips-demo",
@@ -105,7 +105,7 @@ export const VIDEOS = [
     seconds: 11,
     uploadDate: "2026-10-03",
     transcript: "Track staff attendance and set salary structures for every employee. Monthly salary slips are generated for you. No spreadsheets needed.",
-    related: ["/features", "Staff, salary and every other module"],
+    related: ["/school-management-software/features", "Staff, salary and every other module"],
   },
   {
     slug: "principal-dashboard-demo",
@@ -115,7 +115,7 @@ export const VIDEOS = [
     seconds: 12,
     uploadDate: "2026-10-03",
     transcript: "Principals and directors see the whole school at a glance. Today's attendance, pending requests, class-wise exam averages, and which teachers haven't marked attendance yet.",
-    related: ["/for-schools", "Infovion for school leaders"],
+    related: ["/school-management-software", "Infovion School ERP for school leaders"],
   },
   {
     slug: "school-erp-roles-and-security-demo",
@@ -125,7 +125,7 @@ export const VIDEOS = [
     seconds: 12,
     uploadDate: "2026-10-03",
     transcript: "There are eight dedicated portals, one for every role in your school. Every change is recorded in the audit log, and two-factor login keeps accounts secure.",
-    related: ["/portals", "The eight portals"],
+    related: ["/school-management-software/portals", "The eight portals"],
   },
 ];
 
