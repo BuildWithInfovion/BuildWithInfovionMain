@@ -93,7 +93,7 @@ export default function Footer() {
             <Link to="/" className="mb-5 flex items-center gap-3">
               <img src={logo} alt="" width="44" height="44" loading="lazy" className="h-11 w-auto" />
               <span className="flex flex-col leading-none">
-                <span className="text-xl font-extrabold tracking-tight text-white">Info<span className="text-brand-accent">vion</span></span>
+                <span className="text-xl font-extrabold tracking-tight text-white">Info<span className="text-brand-accent">vion</span></span>{" "}
                 <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-slate-400">Technologies</span>
               </span>
             </Link>

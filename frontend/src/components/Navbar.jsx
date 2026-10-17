@@ -132,10 +132,10 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex h-[72px] items-center justify-between gap-4">
-            <Link to="/" className="group flex flex-shrink-0 items-center gap-3" aria-label="Infovion Technologies — home">
+            <Link to="/" className="group flex flex-shrink-0 items-center gap-3">
               <img src={logo} alt="" width="48" height="48" className="h-11 w-auto transition-transform group-hover:scale-105 sm:h-12" />
               <span className="flex flex-col leading-none">
-                <span className="text-[21px] font-extrabold leading-none tracking-tight text-white">Info<span className="text-brand-accent">vion</span></span>
+                <span className="text-[21px] font-extrabold leading-none tracking-tight text-white">Info<span className="text-brand-accent">vion</span></span>{" "}
                 <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-slate-400">Technologies</span>
               </span>
             </Link>
