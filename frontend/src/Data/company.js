@@ -68,15 +68,15 @@ export const PRODUCTS = [
     name: "Infovion School ERP",
     short: "School management software",
     to: "/school-management-software",
-    blurb: "Fees, attendance, exams, transport, certificates and a parent app for Indian K-12 schools — 8 role-based portals, ₹150 per student per year.",
-    status: "Live in production · 30-day free trial",
+    blurb: "Fees, attendance, examinations, transport, certificates and parent access for K-12 schools, with portals for eight roles. ₹150 per student per year.",
+    status: "In production, with a 30-day free trial",
   },
   {
     slug: "jms",
     name: "Infovion JMS",
     short: "Jewellery management software",
     to: "/jewellery-management-software",
-    blurb: "Billing by weight and purity, making charges, old-gold exchange, GST invoices, girvi (gold loans), udhaar, stock and a Tally export for the CA — for jewellery stores.",
+    blurb: "Billing by weight and purity, making charges, old-gold exchange, GST invoices, girvi loans, customer credit, stock and Tally export, for jewellery retailers.",
     status: "In use at a jewellery store in Maharashtra",
   },
 ];

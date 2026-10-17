@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Gem, GraduationCap, Landmark, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Gem, GraduationCap, Landmark } from "lucide-react";
 import { SERVICES } from "../Data/services";
 import { COMPANY, PRODUCTS } from "../Data/company";
 import { productOf } from "../lib/sections";
 import { Icon } from "./site/Ui";
 
-const logo = "/logo-112.webp";
 
 // Pages that still have a light top: the bar must be solid there
 const LIGHT_PAGES = ["/privacy-policy", "/terms-of-service"];
@@ -27,7 +26,7 @@ const SUBNAV = {
   school: {
     name: "Infovion School ERP", icon: GraduationCap, home: "/school-management-software",
     links: [["/school-management-software", "Overview"], ["/school-management-software/features", "Features"], ["/school-management-software/portals", "Portals"], ["/school-management-software/pricing", "Pricing"], ["/free-tools", "Free tools"], ["/videos", "Videos"]],
-    cta: ["/free-trial", "Start free trial"],
+    cta: ["/free-trial", "Free trial"],
   },
   jms: {
     name: "Infovion JMS", icon: Gem, home: "/jewellery-management-software",
@@ -48,7 +47,7 @@ function Dropdown({ id, open, children, className = "" }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 6 }}
           transition={{ duration: 0.18 }}
-          className={`absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-3xl border border-white/10 bg-[#0a0f1c]/[0.98] p-5 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl ${className}`}
+          className={`absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-xl border border-white/10 bg-[#04070f]/[0.98] p-5 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl ${className}`}
         >
           {children}
         </Motion.div>
@@ -68,7 +67,7 @@ export default function Navbar() {
 
   const section = productOf(location.pathname);
   const sub = section ? SUBNAV[section] : null;
-  const cta = sub ? sub.cta : ["/contact", "Get a free quote"];
+  const cta = sub ? sub.cta : ["/contact", "Contact us"];
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
@@ -123,21 +122,18 @@ export default function Navbar() {
         ref={navRef}
         className="fixed left-0 right-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 print:hidden"
         style={{
-          backgroundColor: onLight || menu ? "rgba(5,7,13,0.97)" : isScrolled ? "rgba(5,7,13,0.85)" : "rgba(5,7,13,0.35)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          borderBottom: solid ? "1px solid rgba(94,234,212,0.14)" : "1px solid transparent",
+          backgroundColor: onLight || menu ? "rgba(2,4,9,0.97)" : isScrolled ? "rgba(2,4,9,0.86)" : "rgba(2,4,9,0)",
+          backdropFilter: isScrolled || menu ? "blur(18px)" : "none",
+          WebkitBackdropFilter: isScrolled || menu ? "blur(18px)" : "none",
+          borderBottom: solid ? "1px solid rgba(148,163,184,0.14)" : "1px solid transparent",
           boxShadow: solid ? "0 4px 32px rgba(0,0,0,0.28)" : "none",
         }}
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex h-[72px] items-center justify-between gap-4">
-            <Link to="/" className="group flex flex-shrink-0 items-center gap-3">
-              <img src={logo} alt="" width="48" height="48" className="h-11 w-auto transition-transform group-hover:scale-105 sm:h-12" />
-              <span className="flex flex-col leading-none">
-                <span className="text-[21px] font-extrabold leading-none tracking-tight text-white">Info<span className="text-brand-accent">vion</span></span>{" "}
-                <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-slate-400">Technologies</span>
-              </span>
+            {/* Official logo artwork (mark + wordmark), see public/brand */}
+            <Link to="/" className="flex flex-shrink-0 items-center" aria-label="Infovion Technologies, home">
+              <img src="/brand/infovion-lockup-h.webp" alt="Infovion" width="427" height="120" className="h-9 w-auto sm:h-10" />
             </Link>
 
             <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
@@ -146,10 +142,10 @@ export default function Navbar() {
                 <Dropdown id="services" open={menu === "services"} className="w-[760px]">
                   <div className="grid grid-cols-2 gap-1">
                     {SERVICES.map((s) => (
-                      <Link key={s.slug} to={`/services/${s.slug}`} className="group flex gap-3 rounded-2xl p-3 transition-colors hover:bg-white/[0.05] focus-visible:bg-white/[0.05]">
-                        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-teal-400/10 text-teal-300"><Icon name={s.icon} className="h-4 w-4" /></span>
+                      <Link key={s.slug} to={`/services/${s.slug}`} className="group flex gap-3 rounded-lg p-3 transition-colors hover:bg-white/[0.05] focus-visible:bg-white/[0.05]">
+                        <Icon name={s.icon} className="mt-0.5 h-5 w-5 flex-shrink-0 text-sky-300" />
                         <span>
-                          <span className="block text-sm font-semibold text-white group-hover:text-teal-200">{s.name}</span>
+                          <span className="block text-sm font-semibold text-white group-hover:text-sky-200">{s.name}</span>
                           <span className="mt-0.5 line-clamp-1 block text-xs text-slate-400">{s.card}</span>
                         </span>
                       </Link>
@@ -169,8 +165,8 @@ export default function Navbar() {
                     {PRODUCTS.map((p) => {
                       const I = p.slug === "school" ? GraduationCap : Gem;
                       return (
-                        <Link key={p.slug} to={p.to} className="group flex gap-4 rounded-2xl p-3.5 transition-colors hover:bg-white/[0.05]">
-                          <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-teal-400/10 text-teal-300"><I className="h-5 w-5" /></span>
+                        <Link key={p.slug} to={p.to} className="group flex gap-4 rounded-lg p-3.5 transition-colors hover:bg-white/[0.05]">
+                          <I className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky-300" strokeWidth={1.6} />
                           <span>
                             <span className="block font-semibold text-white group-hover:text-teal-200">{p.name}</span>
                             <span className="block text-xs uppercase tracking-[0.14em] text-slate-500">{p.short}</span>
@@ -193,7 +189,7 @@ export default function Navbar() {
                 {trigger("company", "Company")}
                 <Dropdown id="company" open={menu === "company"} className="w-[340px]">
                   {COMPANY_LINKS.map(([to, t, d]) => (
-                    <Link key={to} to={to} className="block rounded-2xl px-3.5 py-2.5 transition-colors hover:bg-white/[0.05]">
+                    <Link key={to} to={to} className="block rounded-lg px-3.5 py-2.5 transition-colors hover:bg-white/[0.05]">
                       <span className="block text-sm font-semibold text-white">{t}</span>
                       <span className="block text-xs text-slate-400">{d}</span>
                     </Link>
@@ -203,8 +199,7 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <Link to={cta[0]} className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-5 py-2.5 text-sm font-bold text-[#04121a] shadow-[0_0_30px_-6px_rgba(45,212,191,0.8)] transition hover:brightness-110 sm:inline-flex">
-                <Sparkles className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+              <Link to={cta[0]} className="hidden items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 sm:inline-flex">
                 {cta[1]}
               </Link>
               <button
@@ -228,7 +223,7 @@ export default function Navbar() {
         {sub && (
           <div className="border-t border-white/[0.06] bg-[#05070d]/70">
             <div className="mx-auto flex h-10 max-w-7xl items-center gap-4 px-5 sm:px-6">
-              <Link to={sub.home} className="flex flex-shrink-0 items-center gap-2 text-xs font-bold text-white">
+              <Link to={sub.home} aria-label={sub.name} className="flex flex-shrink-0 items-center gap-2 text-xs font-semibold text-white">
                 <sub.icon className="h-4 w-4 text-teal-300" aria-hidden="true" /> <span className="hidden sm:inline">{sub.name}</span>
               </Link>
               <nav aria-label={`${sub.name} pages`} className="no-scrollbar flex flex-1 items-center gap-1 overflow-x-auto">
@@ -236,7 +231,7 @@ export default function Navbar() {
                   <NavLink key={to} to={to} end className={({ isActive }) => `whitespace-nowrap rounded-full px-3 py-1 text-xs font-medium transition-colors ${isActive ? "bg-teal-400/10 text-teal-200" : "text-slate-300 hover:text-white"}`}>{label}</NavLink>
                 ))}
               </nav>
-              <Link to={sub.cta[0]} className="hidden flex-shrink-0 text-xs font-semibold text-teal-300 hover:text-teal-200 md:inline">{sub.cta[1]} →</Link>
+              <Link to={sub.cta[0]} className="hidden flex-shrink-0 text-xs font-semibold text-teal-300 hover:text-teal-200 md:inline">{sub.cta[1]}</Link>
             </div>
           </div>
         )}
@@ -265,7 +260,7 @@ export default function Navbar() {
                       {m === "services" && [...SERVICES.map((s) => [`/services/${s.slug}`, s.name]), ["/government", "Government & e-governance"], ["/services", "All services →"]].map(([to, t]) => (
                         <Link key={to} to={to} className="block rounded-xl px-3 py-2.5 text-[15px] text-slate-200 active:bg-white/10">{t}</Link>
                       ))}
-                      {m === "products" && [...PRODUCTS.map((p) => [p.to, `${p.name} — ${p.short}`]), ["/products", "All products →"]].map(([to, t]) => (
+                      {m === "products" && [...PRODUCTS.map((p) => [p.to, `${p.name}: ${p.short}`]), ["/products", "All products"]].map(([to, t]) => (
                         <Link key={to} to={to} className="block rounded-xl px-3 py-2.5 text-[15px] text-slate-200 active:bg-white/10">{t}</Link>
                       ))}
                       {m === "company" && COMPANY_LINKS.map(([to, t]) => (
@@ -279,8 +274,8 @@ export default function Navbar() {
                 <Link key={to} to={to} className="block border-b border-white/[0.07] py-4 font-display text-xl font-extrabold text-white">{t}</Link>
               ))}
               <div className="mt-8 flex flex-col gap-3">
-                <Link to={cta[0]} className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-8 py-4 text-base font-bold text-[#04121a]">
-                  <Sparkles className="h-5 w-5" aria-hidden="true" /> {cta[1]}
+                <Link to={cta[0]} className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-[#020409]">
+                  {cta[1]}
                 </Link>
                 <a href={COMPANY.phoneHref} className="text-center text-sm font-semibold text-slate-300">Call {COMPANY.phone}</a>
               </div>

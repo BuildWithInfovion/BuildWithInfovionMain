@@ -1,92 +1,94 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Check, FileLock2, GitBranch, KeyRound, LifeBuoy, MessageCircle, ShieldCheck, TestTube2 } from "lucide-react";
+import { Check } from "lucide-react";
 import { Reveal } from "../../components/fx/Fx";
 import { CtaBand, FaqList, PageHero, Section } from "../../components/site/Ui";
 import { ENGAGEMENT, PROCESS } from "../../Data/services";
 import { SITE, TECH } from "../../Data/company";
 
-const PROMISES = [
-  [FileLock2, "NDA first", "A mutual non-disclosure agreement before you share business details."],
-  [KeyRound, "You own everything", "Source code, database, domain, cloud and app-store accounts in your name."],
-  [MessageCircle, "One named contact", "On WhatsApp, phone and email, with a weekly written update."],
-  [GitBranch, "Your code in your repository", "Every change in Git, reviewed before it is merged, with a staging link you can open any time."],
-  [TestTube2, "Tested before you see it", "Automated and manual testing each sprint; you approve each release in acceptance testing."],
-  [ShieldCheck, "Secure by default", "HTTPS, role-based access, encrypted passwords, audit logs, backups and dependency updates."],
-  [LifeBuoy, "30 days of free support", "Bug fixes and small adjustments for 30 days after launch, then an optional maintenance plan."],
+const COMMITMENTS = [
+  ["Confidentiality", "A mutual non-disclosure agreement is signed before any business information is shared."],
+  ["Ownership", "Source code, database, domain, cloud and app store accounts are held in the client's name."],
+  ["Communication", "A named project lead, reachable by phone, email and WhatsApp, with a written progress update every week."],
+  ["Version control", "All work is kept in a Git repository, every change is reviewed before it is merged, and a staging environment is available throughout."],
+  ["Quality assurance", "Automated and manual testing in each sprint. Each release is approved by the client through acceptance testing."],
+  ["Security", "HTTPS, role-based access, hashed passwords, audit logs, automated backups and regular dependency updates."],
+  ["Post-launch support", "Thirty days of fixes and minor adjustments after go-live, followed by an optional maintenance contract."],
 ];
 
 const FAQ = [
-  ["How do payments work?", "For fixed-price projects we usually take an advance and the rest against agreed milestones, with the final payment on acceptance. Dedicated-team and time-and-material work is billed monthly. Every invoice is a proper tax invoice."],
-  ["What if requirements change during the project?", "They usually do, and that's fine. Small changes are absorbed within a sprint; larger ones are written up with their cost and time impact, and we only proceed when you approve."],
-  ["How will we know the project is on track?", "You get a staging link that always shows the latest working version, a demo every two weeks and a short written update every week, including any risks."],
-  ["Do you work with in-house teams?", "Yes. We can work alongside your developers, follow your code standards and tools, and hand over cleanly with documentation."],
-  ["What do you need from us to start?", "A person who can make decisions, 30–45 minutes for the discovery call, and access to the process owners we need to talk to. Sample documents, reports or spreadsheets help a lot."],
+  ["How are payments structured?", "For fixed-price projects we usually invoice an advance, followed by payments against agreed milestones, with the final payment on acceptance. Dedicated team and time and materials engagements are invoiced monthly. All invoices are issued as tax invoices."],
+  ["What happens if requirements change during the project?", "Minor changes are accommodated within a sprint. Larger changes are documented with their effect on cost and timeline, and work proceeds only after written approval."],
+  ["How do we monitor progress?", "Through a staging environment that always shows the latest working version, a review at the end of every two-week sprint, and a written update each week that includes any risks."],
+  ["Do you work alongside in-house teams?", "Yes. We can work with your developers, follow your coding standards and tools, and hand over with complete documentation."],
+  ["What do you need from us to begin?", "A decision-maker for the project, thirty to forty-five minutes for the initial consultation, and access to the people who own the processes concerned. Sample documents, reports and spreadsheets are very useful."],
 ];
 
 export default function HowWeWork() {
   return (
-    <div className="bg-ink">
+    <>
       <Helmet>
-        <title>How We Work — Process, Engagement Models & Guarantees | Infovion Technologies</title>
-        <meta name="description" content="Infovion's software delivery process: free discovery, fixed written quote, prototype, two-week sprints, testing, launch and support. Fixed-price, dedicated-team and time-and-material models. You own the code." />
+        <title>How We Work | Delivery Process and Engagement Models | Infovion Technologies</title>
+        <meta name="description" content="How Infovion Technologies delivers software: discovery, fixed-price proposal, design, fortnightly development sprints, testing, launch and support. Fixed price, dedicated team and time and materials engagement models." />
         <link rel="canonical" href={`${SITE}/how-we-work`} />
         <meta property="og:url" content={`${SITE}/how-we-work`} />
       </Helmet>
-      <PageHero trail={[["How we work", "/how-we-work"]]} kicker="How we work" title="Predictable projects," accent="from first call to years of support."
-        sub="A clear scope, a fixed quote, working software every two weeks and nothing hidden. Here's exactly what working with Infovion looks like." />
+      <PageHero trail={[["How we work", "/how-we-work"]]} kicker="How we work" title="Our delivery process"
+        sub="Every engagement follows the same structure: an agreed scope and price, a reviewed design, working software every two weeks, and support after launch." />
 
-      <Section kicker="Process" title="Six steps," accent="every project.">
-        <ol className="mt-10 space-y-4">
+      <Section kicker="Process" title="Six stages of delivery" className="pt-0">
+        <ol className="mt-10 border-t border-white/10">
           {PROCESS.map(([t, b, when], i) => (
-            <Reveal as="li" key={t} className="grid gap-4 rounded-3xl border border-white/[0.07] bg-white/[0.02] p-6 sm:grid-cols-[80px_1fr_auto] sm:items-center">
-              <span className="font-display text-4xl font-extrabold text-white/15">0{i + 1}</span>
-              <div><h3 className="font-display text-lg font-bold text-white">{t}</h3><p className="mt-1 text-[15px] leading-relaxed text-slate-300">{b}</p></div>
-              <span className="w-fit rounded-full bg-teal-400/10 px-3 py-1 text-xs font-semibold text-teal-200">{when}</span>
-            </Reveal>
+            <li key={t} className="grid gap-3 border-b border-white/10 py-7 sm:grid-cols-[4rem_1fr_10rem] sm:items-baseline">
+              <span className="font-display text-sm font-semibold text-sky-300">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="font-display text-lg font-semibold text-white">{t}</h3>
+                <p className="mt-1.5 max-w-2xl text-[15px] leading-relaxed text-slate-300">{b}</p>
+              </div>
+              <span className="text-sm text-slate-400 sm:text-right">{when}</span>
+            </li>
           ))}
         </ol>
       </Section>
 
-      <Section kicker="Engagement models" title="Pick the model" accent="that fits your project.">
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {ENGAGEMENT.map(([t, b, pts]) => (
-            <div key={t} className="glass h-full rounded-3xl p-7">
-              <h3 className="font-display text-xl font-bold text-white">{t}</h3>
-              <p className="mt-2 text-sm text-slate-300">{b}</p>
-              <ul className="mt-5 space-y-2">{pts.map((p) => <li key={p} className="flex gap-2 text-sm text-slate-200"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-300" />{p}</li>)}</ul>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section kicker="Our commitments" title="What every client gets," accent="in writing.">
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PROMISES.map(([I, t, b], i) => (
-            <Reveal key={t} delay={(i % 4) * 0.04}>
-              <div className="h-full rounded-3xl border border-white/[0.07] bg-white/[0.02] p-6">
-                <I className="h-5 w-5 text-teal-300" />
-                <h3 className="mt-4 font-display font-bold text-white">{t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
+      <Section kicker="Engagement models" title="Choosing an engagement model">
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {ENGAGEMENT.map(([t, b, pts], i) => (
+            <Reveal key={t} delay={i * 0.05}>
+              <div className="panel h-full rounded-xl p-7">
+                <h3 className="font-display text-xl font-semibold text-white">{t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{b}</p>
+                <ul className="mt-5 space-y-2">{pts.map((p) => <li key={p} className="flex gap-2.5 text-sm text-slate-200"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />{p}</li>)}</ul>
               </div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      <Section kicker="Technology" title="Our everyday stack">
-        <div className="mt-10 grid gap-3 md:grid-cols-2">
-          {TECH.map(([group, items]) => (
-            <div key={group} className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">{group}</p>
-              <div className="mt-3 flex flex-wrap gap-2">{items.map((t) => <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-200">{t}</span>)}</div>
+      <Section kicker="Commitments" title="Terms that apply to every engagement">
+        <dl className="mt-10 border-t border-white/10">
+          {COMMITMENTS.map(([t, b]) => (
+            <div key={t} className="grid gap-2 border-b border-white/10 py-5 sm:grid-cols-[14rem_1fr]">
+              <dt className="font-display font-semibold text-white">{t}</dt>
+              <dd className="text-[15px] leading-relaxed text-slate-300">{b}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </Section>
 
-      <FaqList faqs={FAQ} title="Questions about" accent="working together" />
+      <Section kicker="Technology" title="Technologies we use">
+        <dl className="mt-10 border-t border-white/10">
+          {TECH.map(([group, items]) => (
+            <div key={group} className="grid gap-2 border-b border-white/10 py-4 sm:grid-cols-[14rem_1fr] sm:items-baseline">
+              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{group}</dt>
+              <dd className="text-[15px] text-slate-200">{items.join(", ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <FaqList faqs={FAQ} />
       <CtaBand />
-    </div>
+    </>
   );
 }

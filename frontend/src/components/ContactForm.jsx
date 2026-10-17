@@ -7,20 +7,20 @@ import { COMPANY } from "../Data/company";
 const FORMSPREE = "https://formspree.io/f/xnngvgpd";
 
 const field =
-  "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-teal-400/60 focus:bg-white/[0.06] focus:ring-4 focus:ring-teal-400/10";
+  "w-full rounded-md border border-white/15 bg-black/30 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-sky-300/70 focus:ring-2 focus:ring-sky-300/20";
 const label = "mb-1.5 block text-sm font-medium text-slate-300";
 
 // What the visitor needs. Values are stable keys used in the email subject and analytics.
 const INTERESTS = [
   ["project", "A new software project"],
   ...SERVICES.map((s) => [s.slug, s.name]),
-  ["government", "Government / public sector requirement"],
-  ["school", "Infovion School ERP — demo for my school"],
-  ["jms", "Infovion JMS — demo for my jewellery store"],
-  ["other", "Something else"],
+  ["government", "Government or public sector requirement"],
+  ["school", "Infovion School ERP: demonstration for a school"],
+  ["jms", "Infovion JMS: demonstration for a jewellery store"],
+  ["other", "Other enquiry"],
 ];
 
-const BUDGETS = ["Not sure yet", "Under ₹1 lakh", "₹1 – 5 lakh", "₹5 – 15 lakh", "₹15 lakh+", "International project (USD/EUR)"];
+const BUDGETS = ["Not yet decided", "Under ₹1 lakh", "₹1 to 5 lakh", "₹5 to 15 lakh", "Above ₹15 lakh", "International project (USD or EUR)"];
 const ORG_LABEL = { school: ["School name", "e.g. Gyan Ganga Vidyalaya"], jms: ["Store name", "e.g. Shree Jewellers"], government: ["Department / organisation", "e.g. Municipal Corporation"] };
 
 const EMPTY = { name: "", org: "", email: "", phone: "", interest: "project", budget: "", message: "", website: "" };
@@ -44,12 +44,12 @@ export default function ContactForm({ defaultInterest }) {
 
   const validate = () => {
     const e = {};
-    if (form.name.trim().length < 2) e.name = "Your name";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = "A valid email";
+    if (form.name.trim().length < 2) e.name = "Please enter your name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = "Please enter a valid email address.";
     const digits = form.phone.replace(/\D/g, "");
     const intl = form.phone.trim().startsWith("+") && !form.phone.trim().startsWith("+91");
-    if (intl ? digits.length < 8 || digits.length > 15 : !/^[6-9]\d{9}$/.test(digits.slice(-10))) e.phone = intl ? "A valid phone number with country code" : "A 10-digit mobile number (or +country code)";
-    if (isProduct && form.org.trim().length < 3) e.org = orgLabel;
+    if (intl ? digits.length < 8 || digits.length > 15 : !/^[6-9]\d{9}$/.test(digits.slice(-10))) e.phone = intl ? "Please enter a valid number with the country code." : "Please enter a 10-digit mobile number, or include the country code.";
+    if (isProduct && form.org.trim().length < 3) e.org = `Please enter the ${orgLabel.toLowerCase()}.`;
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -79,10 +79,10 @@ export default function ContactForm({ defaultInterest }) {
   if (state === "done") {
     return (
       <div className="py-10 text-center" role="status">
-        <CheckCircle2 className="mx-auto h-14 w-14 text-teal-300" />
-        <h3 className="mt-5 font-display text-2xl font-extrabold text-white">Thank you — we'll be in touch soon</h3>
-        <p className="mx-auto mt-3 max-w-sm text-slate-400">We reply within one working day, usually much sooner. For anything urgent, WhatsApp {COMPANY.whatsapp}.</p>
-        <button type="button" onClick={() => setState("idle")} className="mt-6 text-sm text-teal-300 underline">Send another message</button>
+        <CheckCircle2 className="mx-auto h-12 w-12 text-sky-300" />
+        <h3 className="mt-5 font-display text-2xl font-semibold text-white">Thank you for your enquiry</h3>
+        <p className="mx-auto mt-3 max-w-sm text-slate-400">We will respond within one business day. For urgent matters, please call {COMPANY.phone}.</p>
+        <button type="button" onClick={() => setState("idle")} className="mt-6 text-sm text-sky-300 underline underline-offset-2">Send another enquiry</button>
       </div>
     );
   }
@@ -90,14 +90,14 @@ export default function ContactForm({ defaultInterest }) {
   return (
     <form onSubmit={submit} noValidate className="space-y-5">
       <div>
-        <label htmlFor="interest" className={label}>What do you need? *</label>
+        <label htmlFor="interest" className={label}>Enquiry type *</label>
         <select id="interest" className={`${field} appearance-none`} value={form.interest} onChange={set("interest")}>
           {INTERESTS.map(([k, v]) => <option key={k} value={k} className="bg-[#0b1220]">{v}</option>)}
         </select>
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className={label}>Your name *</label>
+          <label htmlFor="name" className={label}>Name *</label>
           <input id="name" className={field} value={form.name} onChange={set("name")} autoComplete="name" placeholder="e.g. Rajesh Kulkarni" aria-invalid={!!errors.name} />
           {errors.name && <p className="mt-1 text-xs text-rose-400">{errors.name}</p>}
         </div>
@@ -112,38 +112,38 @@ export default function ContactForm({ defaultInterest }) {
           {errors.email && <p className="mt-1 text-xs text-rose-400">{errors.email}</p>}
         </div>
         <div>
-          <label htmlFor="phone" className={label}>Phone / WhatsApp *</label>
+          <label htmlFor="phone" className={label}>Phone *</label>
           <input id="phone" type="tel" className={field} value={form.phone} onChange={set("phone")} inputMode="tel" autoComplete="tel" placeholder="98765 43210 or +971 50 123 4567" aria-invalid={!!errors.phone} />
           {errors.phone && <p className="mt-1 text-xs text-rose-400">{errors.phone}</p>}
         </div>
         {!isProduct && (
           <div className="sm:col-span-2">
-            <label htmlFor="budget" className={label}>Budget <span className="font-normal text-slate-500">(optional)</span></label>
+            <label htmlFor="budget" className={label}>Budget <span className="font-normal text-slate-400">(optional)</span></label>
             <select id="budget" className={`${field} appearance-none`} value={form.budget} onChange={set("budget")}>
-              <option value="" className="bg-[#0b1220]">Choose a range</option>
+              <option value="" className="bg-[#0b1220]">Select a range</option>
               {BUDGETS.map((b) => <option key={b} value={b} className="bg-[#0b1220]">{b}</option>)}
             </select>
           </div>
         )}
         <div className="sm:col-span-2">
-          <label htmlFor="message" className={label}>{isProduct ? "Anything we should know?" : "Tell us about the project"} <span className="font-normal text-slate-500">(optional)</span></label>
+          <label htmlFor="message" className={label}>{isProduct ? "Additional information" : "Project description"} <span className="font-normal text-slate-400">(optional)</span></label>
           <textarea id="message" rows={4} className={field} value={form.message} onChange={set("message")}
-            placeholder={form.interest === "school" ? "Board, number of students, what's hardest in your office today…" : form.interest === "jms" ? "Number of counters, do you do girvi, GST or non-GST billing…" : "What should the software do, who will use it, any deadline or tender reference…"} />
+            placeholder={form.interest === "school" ? "Board, number of students, and the processes you would like to manage" : form.interest === "jms" ? "Number of counters, whether you offer girvi, and GST or non-GST billing" : "Objectives, intended users, timeline and any tender reference"} />
         </div>
         <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={set("website")} className="hidden" aria-hidden="true" />
       </div>
 
       {state === "error" && (
-        <div className="flex items-start gap-2 rounded-xl border border-rose-400/30 bg-rose-400/[0.07] px-4 py-3 text-sm text-rose-200" role="alert">
-          <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0" /> Something went wrong. Please WhatsApp {COMPANY.whatsapp}, call {COMPANY.phone} or email {COMPANY.email}.
+        <div className="flex items-start gap-2 rounded-md border border-rose-400/30 bg-rose-400/[0.07] px-4 py-3 text-sm text-rose-200" role="alert">
+          <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0" /> The enquiry could not be sent. Please email {COMPANY.email} or call {COMPANY.phone}.
         </div>
       )}
 
       <button type="submit" disabled={state === "sending"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-6 py-4 text-sm font-bold text-[#04121a] shadow-[0_0_50px_-10px_rgba(45,212,191,0.8)] transition hover:brightness-110 disabled:opacity-60">
-        {state === "sending" ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : <><Send className="h-4 w-4" /> {isProduct ? "Book my free demo" : "Send my enquiry"}</>}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 disabled:opacity-60">
+        {state === "sending" ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending</> : <><Send className="h-4 w-4" /> {isProduct ? "Request a demonstration" : "Send enquiry"}</>}
       </button>
-      <p className="text-center text-xs text-slate-500">We never share your details. Reply within one working day.</p>
+      <p className="text-center text-xs text-slate-400">Your details are used only to respond to this enquiry.</p>
     </form>
   );
 }

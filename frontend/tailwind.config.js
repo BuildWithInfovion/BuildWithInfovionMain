@@ -5,19 +5,27 @@ export default {
   theme: {
     extend: {
       colors: {
+        // The accent follows the logo's orbit blue (#38B6FF). "teal" is remapped to that blue so
+        // every existing teal-* class on the site picks up the brand colour.
+        teal: {
+          50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38b6ff",
+          500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e", 950: "#082f49",
+        },
         brand: {
           dark:    "#0B1220",
           darker:  "#05070D",
           brown:   "#1E293B",
-          terra:   "#0D9488",
-          terra2:  "#0F766E",
+          terra:   "#0284C7",
+          terra2:  "#0369A1",
           neutral: "#64748B",
           cream:   "#E2E8F0",
           cream2:  "#F1F5F9",
-          accent:  "#5EEAD4",
-          accent2: "#99F6E4",
+          accent:  "#7DD3FC",
+          accent2: "#BAE6FD",
           muted:   "#F8FAFC",
-          gold:    "#22D3EE",
+          gold:    "#38B6FF",
+          blue:    "#38B6FF",
+          ink:     "#020409",
         },
       },
       fontFamily: {

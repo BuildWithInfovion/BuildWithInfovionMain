@@ -125,7 +125,7 @@ function Stats() {
         <Marquee items={CAPS} />
         <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/[0.06] ring-1 ring-white/[0.06] md:grid-cols-4">
           {items.map(([n, l]) => (
-            <div key={l} className="bg-ink px-6 py-8 text-center">
+            <div key={l} className="bg-cell px-6 py-8 text-center">
               <p className="font-display text-4xl font-extrabold text-gradient-aurora sm:text-5xl">{n}</p>
               <p className="mt-2 text-sm text-slate-400">{l}</p>
             </div>

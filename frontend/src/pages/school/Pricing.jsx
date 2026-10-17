@@ -102,7 +102,7 @@ export default function Pricing() {
           </h2>
           <div className="mt-8 grid gap-px overflow-hidden rounded-3xl bg-white/[0.06] ring-1 ring-white/[0.06] sm:grid-cols-2">
             {INCLUDED.map(([t, d]) => (
-              <div key={t} className="flex gap-4 bg-ink p-6">
+              <div key={t} className="flex gap-4 bg-cell p-6">
                 <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal-300" />
                 <div>
                   <p className="font-display font-bold text-white">{t}</p>

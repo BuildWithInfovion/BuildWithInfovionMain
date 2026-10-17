@@ -59,14 +59,15 @@
 
   body {
     color: #0B1220;
-    background-color: #ffffff;
+    /* Near-black base: the brand animation plays on top of it (true black at its edges) */
+    background-color: #000105;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "kern" 1, "liga" 1;
   }
 
   ::selection {
-    background-color: #0D9488;
+    background-color: #0284c7;
     color: #ffffff;
   }
 
@@ -311,16 +312,12 @@
 
 /* ── FUTURE UI (2026 redesign) ──────────────────────────────────────────── */
 @layer utilities {
-  .bg-ink { background-color: #05070d; }
-  .text-gradient-aurora {
-    background: linear-gradient(100deg, #5eead4 0%, #22d3ee 35%, #818cf8 70%, #5eead4 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Static on purpose: animating background-position repaints the text every frame,
-       and this is the hero headline (the page's largest paint) */
-  }
+  /* Pages sit on the fixed brand animation (components/site/BrandBackground.jsx), so the
+     page background is transparent; .bg-cell is the opaque fill for hairline grids */
+  .bg-ink { background-color: transparent; }
+  .bg-cell { background-color: rgba(3, 6, 13, 0.94); }
+  /* Accent words: the logo's orbit blue, solid (no gradient text) */
+  .text-gradient-aurora { color: #7cc8ff; }
   @keyframes auroraText { to { background-position: 200% center; } }
 
   /* Drifting aurora blobs */
@@ -343,11 +340,7 @@
 
   /* Rotating glow border (wrap content in .glow-border > .glow-inner) */
   .glow-border { position: relative; border-radius: 9999px; padding: 1.5px; overflow: hidden; isolation: isolate; }
-  .glow-border::before {
-    content: ""; position: absolute; inset: -150%; z-index: -1;
-    background: conic-gradient(from 0deg, transparent 0 55%, #5eead4 70%, #22d3ee 78%, #818cf8 86%, transparent 95%);
-    animation: spinGlow 3.2s linear infinite;
-  }
+  .glow-border::before { content: none; }
   .glow-border.rounded-2xl, .glow-border.rounded-3xl { border-radius: 1.5rem; }
   @keyframes spinGlow { to { transform: rotate(1turn); } }
 
@@ -373,7 +366,13 @@
   .beam-dash { stroke-dasharray: 6 260; animation: beam 3.6s linear infinite; }
   @keyframes beam { from { stroke-dashoffset: 266; } to { stroke-dashoffset: 0; } }
 
-  .glass { background: rgba(15,23,42,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(148,163,184,.14); }
+  /* Panels over the moving background: opaque enough to read on phones (no blur there —
+     blurring a playing video every frame is expensive), frosted on larger screens */
+  .glass { background: rgba(6,10,20,.82); border: 1px solid rgba(148,163,184,.14); }
+  @media (min-width: 768px) {
+    .glass { background: rgba(6,10,20,.62); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  }
+  .panel { background: rgba(4,7,14,.72); border: 1px solid rgba(148,163,184,.13); }
   .hairline { border-color: rgba(148,163,184,.12); }
   .noise::before {
     content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .035;

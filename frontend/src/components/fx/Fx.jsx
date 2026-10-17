@@ -2,18 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion, useInView, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
-/** Drifting teal / indigo / cyan light behind a dark section.
- *  Offsets are in px, not %: a %-top moves with the section's height, so the web font
- *  swapping in (and re-wrapping the text) would count as a layout shift. */
-export function Aurora({ className = "", strong = false }) {
-  return (
-    <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
-      <div className={`aurora-blob aurora-a left-[5%] top-[-90px] h-[520px] w-[620px] ${strong ? "opacity-70" : ""}`} />
-      <div className={`aurora-blob aurora-b right-[0%] top-[0%] h-[480px] w-[560px] ${strong ? "opacity-60" : ""}`} />
-      <div className="aurora-blob aurora-c left-[35%] top-[160px] h-[380px] w-[480px] opacity-40" />
-      <div className="absolute inset-0 grid-floor opacity-60" />
-    </div>
-  );
+/** Former per-section colour blobs. The site now sits on one brand animation
+ *  (components/site/BrandBackground.jsx), so sections no longer paint their own light. */
+export function Aurora() {
+  return null;
 }
 
 /** Text that fades and slides in when scrolled into view (no blur filter: too costly on phones).
@@ -44,38 +36,22 @@ export function Reveal({ children, delay = 0, y = 22, className = "", as = "div"
   return React.createElement(as, { ref, className, style }, children);
 }
 
-/** Card whose surface lights up under the cursor. */
+/** Card container (kept for existing pages; the cursor glow was removed). */
 export function SpotlightCard({ children, className = "" }) {
-  const ref = useRef(null);
-  const onMove = (e) => {
-    const r = ref.current?.getBoundingClientRect();
-    if (!r) return;
-    ref.current.style.setProperty("--mx", `${e.clientX - r.left}px`);
-    ref.current.style.setProperty("--my", `${e.clientY - r.top}px`);
-  };
-  return (
-    <div ref={ref} onMouseMove={onMove} className={`spotlight ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
-/** Primary call to action with a rotating light around its edge. */
+/** Primary call to action: solid, high contrast. */
 export function GlowButton({ to, href, children, className = "", onClick }) {
-  const inner = (
-    <span className="relative flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-7 py-[14px] text-sm font-bold text-[#04121a] shadow-[0_0_40px_-6px_rgba(45,212,191,0.7)] transition-transform group-hover:scale-[1.02]">
-      {children}
-    </span>
-  );
-  const cls = `group glow-border inline-flex ${className}`;
-  if (to) return <Link to={to} className={cls} onClick={onClick}>{inner}</Link>;
-  if (href) return <a href={href} className={cls} onClick={onClick}>{inner}</a>;
-  return <button type="button" className={cls} onClick={onClick}>{inner}</button>;
+  const cls = `inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${className}`;
+  if (to) return <Link to={to} className={cls} onClick={onClick}>{children}</Link>;
+  if (href) return <a href={href} className={cls} onClick={onClick}>{children}</a>;
+  return <button type="button" className={cls} onClick={onClick}>{children}</button>;
 }
 
-/** Secondary glass button. */
+/** Secondary button: outline. */
 export function GhostButton({ to, href, children, onClick, className = "" }) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-full glass px-7 py-[14px] text-sm font-semibold text-white transition-colors hover:bg-white/10 ${className}`;
+  const cls = `inline-flex items-center justify-center gap-2 rounded-md border border-white/25 bg-black/20 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/50 hover:bg-white/5 ${className}`;
   if (to) return <Link to={to} className={cls}>{children}</Link>;
   if (href) return <a href={href} className={cls} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">{children}</a>;
   return <button type="button" onClick={onClick} className={cls}>{children}</button>;
@@ -140,8 +116,8 @@ export function CountUp({ to, prefix = "", suffix = "", duration = 1.6 }) {
 /** Small uppercase label above section titles. */
 export function Kicker({ children }) {
   return (
-    <p className="inline-flex items-center gap-2 rounded-full border border-teal-400/25 bg-teal-400/[0.06] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-teal-300">
-      <span className="h-1.5 w-1.5 rounded-full bg-teal-300 shadow-[0_0_10px_2px_rgba(94,234,212,0.8)]" />
+    <p className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-sky-300">
+      <span className="h-px w-8 bg-sky-300/70" aria-hidden="true" />
       {children}
     </p>
   );
@@ -151,10 +127,10 @@ export function SectionHead({ kicker, title, accent, sub, center = false }) {
   return (
     <Reveal className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       <Kicker>{kicker}</Kicker>
-      <h2 className="mt-5 font-display text-3xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl">
+      <h2 className="mt-5 font-display text-3xl font-bold leading-[1.12] tracking-tight text-white sm:text-[2.6rem]">
         {title} {accent && <span className="text-gradient-aurora">{accent}</span>}
       </h2>
-      {sub && <p className={`mt-5 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg ${center ? "mx-auto" : ""}`}>{sub}</p>}
+      {sub && <p className={`mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg ${center ? "mx-auto" : ""}`}>{sub}</p>}
     </Reveal>
   );
 }

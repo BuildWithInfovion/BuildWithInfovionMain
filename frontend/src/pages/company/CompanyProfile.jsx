@@ -13,7 +13,7 @@ import { CASE_STUDIES } from "../../Data/caseStudies";
 const asOf = new Date(`${__BUILD_DATE__}T00:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
 
 function H({ n, children }) {
-  return <h2 className="mt-9 border-b-2 border-slate-900 pb-1.5 font-display text-[15px] font-extrabold uppercase tracking-[0.08em] text-slate-900"><span className="text-teal-700">{n}.</span> {children}</h2>;
+  return <h2 className="mt-9 border-b-2 border-slate-900 pb-1.5 font-display text-[15px] font-bold uppercase tracking-[0.08em] text-slate-900"><span className="text-sky-700">{n}.</span> {children}</h2>;
 }
 
 export default function CompanyProfile() {
@@ -29,13 +29,13 @@ export default function CompanyProfile() {
     ["Website", "www.infovion.in"],
   ];
   return (
-    <div className="bg-ink pb-24 pt-28 print:bg-white print:p-0 sm:pt-32">
+    <div className="pb-24 pt-32 print:bg-white print:p-0 sm:pt-36">
       <Helmet>
-        <title>Company Profile — Infovion Technologies, Pune (MSME, Udyam Registered)</title>
-        <meta name="description" content={`Company profile of Infovion Technologies, Pune: registration details (Udyam ${COMPANY.udyam}), software development services, products, technology, compliance and contacts — printable for tenders and vendor registration.`} />
+        <title>Company Profile | Infovion Technologies, Pune | MSME, Udyam Registered</title>
+        <meta name="description" content={`Company profile of Infovion Technologies, Pune: registration details (Udyam ${COMPANY.udyam}), software development services, products, technology, compliance and contacts. Printable for tenders and vendor registration.`} />
         <link rel="canonical" href={`${SITE}/company-profile`} />
         <meta property="og:url" content={`${SITE}/company-profile`} />
-        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "AboutPage", name: "Infovion Technologies — company profile", url: `${SITE}/company-profile`, about: { "@id": `${SITE}/#organization` } })}</script>
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "AboutPage", name: "Infovion Technologies company profile", url: `${SITE}/company-profile`, about: { "@id": `${SITE}/#organization` } })}</script>
       </Helmet>
 
       <div className="mx-auto max-w-4xl px-5 print:max-w-none print:px-0 sm:px-6">
@@ -44,10 +44,10 @@ export default function CompanyProfile() {
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm text-slate-300">Printable capability statement for tenders, vendor registration and procurement.</p>
             <div className="flex gap-2">
-              <button type="button" onClick={() => window.print()} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-5 py-2.5 text-sm font-bold text-[#04121a]">
-                <Printer className="h-4 w-4" /> Print / save as PDF
+              <button type="button" onClick={() => window.print()} className="inline-flex items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] hover:bg-sky-100">
+                <Printer className="h-4 w-4" /> Print or save as PDF
               </button>
-              <a href={`mailto:${COMPANY.email}?subject=${encodeURIComponent("Request for company documents")}`} className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-semibold text-white"><Mail className="h-4 w-4" /> Request documents</a>
+              <a href={`mailto:${COMPANY.email}?subject=${encodeURIComponent("Request for company documents")}`} className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-black/20 px-5 py-2.5 text-sm font-semibold text-white hover:border-white/50"><Mail className="h-4 w-4" /> Request documents</a>
             </div>
           </div>
         </div>
@@ -57,8 +57,8 @@ export default function CompanyProfile() {
             <div className="flex items-center gap-4">
               <img src="/icon-192.png" alt="Infovion logo" width="64" height="64" className="h-16 w-16 rounded-xl" />
               <div>
-                <h1 className="font-display text-2xl font-extrabold text-slate-900">{COMPANY.name}</h1>
-                <p className="text-sm text-slate-600">Software development · Products · E-governance</p>
+                <h1 className="font-display text-2xl font-bold text-slate-900">{COMPANY.name}</h1>
+                <p className="text-sm text-slate-600">Software development, software products and e-governance</p>
               </div>
             </div>
             <div className="text-left text-xs text-slate-500 sm:text-right">
@@ -79,25 +79,25 @@ export default function CompanyProfile() {
             </tbody>
           </table>
           <p className="mt-4">
-            Infovion Technologies is a Pune-based software development company. We design, build and support custom software, web and mobile
-            applications, ERP and SaaS platforms and e-governance systems, and we make two software products used in production — a school
-            management platform and a jewellery management system.
+            Infovion Technologies is a software development company based in Pune, India. The company designs, develops and supports custom
+            software, web and mobile applications, ERP and SaaS platforms and e-governance systems, and develops two software products in
+            production use: a school management platform and a jewellery management system.
           </p>
 
           <H n="2">Core services</H>
           <ul className="mt-3 grid gap-x-8 gap-y-1.5 sm:grid-cols-2 print:grid-cols-2">
-            {SERVICES.map((s) => <li key={s.slug}><strong className="text-slate-900">{s.name}</strong> — {s.card}</li>)}
-            <li><strong className="text-slate-900">E-governance</strong> — GIGW 3.0 aligned websites, citizen portals, MIS dashboards, field apps and AMC.</li>
+            {SERVICES.map((s) => <li key={s.slug}><strong className="text-slate-900">{s.name}.</strong> {s.card}</li>)}
+            <li><strong className="text-slate-900">E-governance.</strong> Websites aligned with GIGW 3.0, citizen portals, MIS dashboards, field applications and AMC.</li>
           </ul>
 
           <H n="3">Products</H>
           <ul className="mt-3 space-y-1.5">
-            {PRODUCTS.map((p) => <li key={p.slug}><strong className="text-slate-900">{p.name}</strong> ({p.short}) — {p.blurb} <em className="text-slate-500">{p.status}.</em></li>)}
+            {PRODUCTS.map((p) => <li key={p.slug}><strong className="text-slate-900">{p.name}</strong> ({p.short}). {p.blurb} <em className="text-slate-500">{p.status}.</em></li>)}
           </ul>
 
           <H n="4">Relevant work</H>
           <ul className="mt-3 space-y-1.5">
-            {CASE_STUDIES.map((c) => <li key={c.slug}><strong className="text-slate-900">{c.title}</strong> — {c.client}. {c.stack.slice(0, 5).join(", ")}.</li>)}
+            {CASE_STUDIES.map((c) => <li key={c.slug}><strong className="text-slate-900">{c.title}.</strong> {c.client}. {c.stack.slice(0, 5).join(", ")}.</li>)}
           </ul>
 
           <H n="5">Technology</H>
@@ -112,7 +112,7 @@ export default function CompanyProfile() {
             </tbody>
           </table>
 
-          <H n="6">Quality, security & compliance</H>
+          <H n="6">Quality, security and compliance</H>
           <ul className="mt-3 list-disc space-y-1 pl-5">
             <li>Web accessibility to WCAG 2.1 Level AA; government websites designed to GIGW 3.0.</li>
             <li>Secure development: OWASP Top 10 practices, HTTPS, role-based access, encrypted passwords, audit logs, code review in Git.</li>
@@ -120,11 +120,11 @@ export default function CompanyProfile() {
             <li>Backups with tested restores, uptime monitoring and documented deployment.</li>
           </ul>
 
-          <H n="7">Delivery & support</H>
+          <H n="7">Delivery and support</H>
           <ul className="mt-3 list-disc space-y-1 pl-5">
-            <li>Process: discovery → written scope and fixed quote → prototype → two-week sprints with staging demos → testing and acceptance → launch and training.</li>
-            <li>Engagement models: fixed price, dedicated team, time and material, annual maintenance contract (AMC).</li>
-            <li>Deliverables include source code, documentation, user manuals and training; 30 days of free support after launch.</li>
+            <li>Process: discovery, written scope and fixed-price proposal, prototype, two-week development sprints with staging reviews, testing and acceptance, launch and training.</li>
+            <li>Engagement models: fixed price, dedicated team, time and materials, and annual maintenance contract (AMC).</li>
+            <li>Deliverables include source code, documentation, user manuals and training, with 30 days of support after launch.</li>
             <li>Clients served on-site in Pune and remotely across India and abroad.</li>
           </ul>
 
@@ -134,7 +134,7 @@ export default function CompanyProfile() {
         </article>
 
         <p className="mt-6 text-center text-sm text-slate-400 print:hidden">
-          Need something specific for a tender? <Link to="/contact?interest=government" className="text-teal-300 underline">Contact us</Link> — we respond with documents and clarifications.
+          For tender documents or clarifications, please <Link to="/contact?interest=government" className="text-sky-300 underline underline-offset-2">contact us</Link>.
         </p>
       </div>
     </div>
