@@ -16,20 +16,32 @@ export function Aurora({ className = "", strong = false }) {
   );
 }
 
-/** Text that fades and slides in when scrolled into view (no blur filter: too costly on phones). */
+/** Text that fades and slides in when scrolled into view (no blur filter: too costly on phones).
+ *  The prerendered HTML always shows the content — crawlers and AI engines that don't run
+ *  JavaScript would otherwise read it as opacity:0 "hidden text". After hydration only the
+ *  elements still below the fold are hidden, then faded in as they scroll into view, so the
+ *  visitor never sees anything disappear. */
 export function Reveal({ children, delay = 0, y = 22, className = "", as = "div" }) {
-  const M = Motion[as] ?? Motion.div;
-  return (
-    <M
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </M>
-  );
+  const ref = useRef(null);
+  const [phase, setPhase] = useState("static"); // static (SSR / above the fold) → pending → shown
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") return undefined;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return undefined;
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return undefined;
+    setPhase("pending");
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setPhase("shown"); io.disconnect(); }
+    }, { threshold: 0.12 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const style = phase === "static" ? undefined : {
+    opacity: phase === "pending" ? 0 : 1,
+    transform: phase === "pending" ? `translateY(${y}px)` : "none",
+    transition: phase === "shown" ? `opacity .8s cubic-bezier(.22,1,.36,1) ${delay}s, transform .8s cubic-bezier(.22,1,.36,1) ${delay}s` : "none",
+  };
+  return React.createElement(as, { ref, className, style }, children);
 }
 
 /** Card whose surface lights up under the cursor. */
