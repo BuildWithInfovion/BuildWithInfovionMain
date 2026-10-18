@@ -145,7 +145,7 @@ export default function Portals() {
     <div className="bg-ink">
       <Helmet>
         <title>8 Role-Based Portals — Director, Principal, Teacher, Parent & More | Infovion</title>
-        <meta name="description" content="Infovion gives every role in an Indian school its own portal: Director, Principal, Operator, Accountant, Reception, Teacher, Non-teaching staff and Parent. Each sees only what they need." />
+        <meta name="description" content="Infovion School ERP gives every role its own portal, from director and principal to accountant, teacher and parent, each showing only what they need." />
         <link rel="canonical" href="https://www.infovion.in/school-management-software/portals" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([["School management software", "/school-management-software"], ["Role portals", "/school-management-software/portals"]]))}</script>
       </Helmet>

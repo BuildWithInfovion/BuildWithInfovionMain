@@ -149,7 +149,7 @@ const PAGES = {
   maharashtra: {
     slug: "school-management-software-maharashtra",
     title: "School Management Software for Maharashtra Schools (Marathi LC, State Board) | Infovion",
-    description: "School ERP built for Maharashtra: Marathi school leaving certificate with G.R. No., State Board & Marathi-medium ready, fees and receipts, attendance, parent portal. ₹150/student/year. Free 30-day trial.",
+    description: "School ERP for Maharashtra: Marathi leaving certificates with G.R. No., State Board ready, fees, attendance and a parent portal. ₹150 per student a year.",
     kicker: "Made in Pune, for Maharashtra",
     h1: "School management software for",
     h1Accent: "Maharashtra schools.",
@@ -185,7 +185,7 @@ const PAGES = {
   fees: {
     slug: "fee-management-software-for-schools",
     title: "School Fee Management Software — Instalments, Receipts, Defaulters, UPI | Infovion",
-    description: "Fee management software for Indian schools: fee plans with instalments, concessions, instant receipts, defaulter lists, daily collection reports and UPI payments to the school's own account. Free 30-day trial.",
+    description: "Fee management software for Indian schools: instalments, concessions, instant receipts, defaulter lists and UPI payments to the school's account.",
     kicker: "Fee management",
     h1: "School fee management,",
     h1Accent: "without the ledger.",
@@ -220,7 +220,7 @@ const PAGES = {
   attendance: {
     slug: "school-attendance-app",
     title: "School Attendance App for Teachers & Parents — Mark in Seconds | Infovion",
-    description: "School attendance app: teachers mark class attendance on their phone in seconds, the office sees progress live, parents see their child's attendance, monthly registers and below-75% lists in one click.",
+    description: "School attendance app: teachers mark attendance on their phone in seconds, the office sees progress live and parents see attendance the same day.",
     kicker: "Attendance",
     h1: "The school attendance app",
     h1Accent: "teachers actually use.",
@@ -255,7 +255,7 @@ const PAGES = {
   transport: {
     slug: "school-transport-management-software",
     title: "School Transport Management Software — Routes, Fees, Bus Tracking | Infovion",
-    description: "School bus and transport management: routes and stops, per-stop fares billed monthly, bus attendance, live bus location for parents, vehicle and driver documents with expiry reminders.",
+    description: "School transport management: routes and stops, per-stop monthly fares, bus attendance, live bus location for parents and vehicle document reminders.",
     kicker: "School transport",
     h1: "School transport,",
     h1Accent: "run properly.",

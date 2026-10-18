@@ -14,7 +14,7 @@ export function CaseStudiesIndex() {
     <>
       <Helmet>
         <title>Case Studies | Infovion Technologies</title>
-        <meta name="description" content="Projects delivered by Infovion Technologies: a multi-tenant school ERP with eight role portals, a billing and girvi system for a jewellery retailer, and a company website engineered for search and AI assistants." />
+        <meta name="description" content="Projects delivered by Infovion Technologies: a multi-tenant school ERP, a billing and girvi system for a jeweller, and a search-ready company website." />
         <link rel="canonical" href={`${SITE}/case-studies`} />
         <meta property="og:url" content={`${SITE}/case-studies`} />
       </Helmet>
@@ -156,7 +156,7 @@ export function ProductsIndex() {
     <>
       <Helmet>
         <title>Products | Infovion School ERP and Infovion JMS | Infovion Technologies</title>
-        <meta name="description" content="Software products by Infovion Technologies: Infovion School ERP, school management software for K-12 schools, and Infovion JMS, jewellery management software for billing, girvi, customer credit, stock and Tally export." />
+        <meta name="description" content="Products by Infovion Technologies: Infovion School ERP for K-12 schools, and Infovion JMS, jewellery software for billing, girvi, credit and stock." />
         <link rel="canonical" href={`${SITE}/products`} />
         <script type="application/ld+json">{JSON.stringify(list)}</script>
       </Helmet>

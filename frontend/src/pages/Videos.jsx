@@ -9,7 +9,7 @@ function VideoCard({ v }) {
   return (
     <Link to={`/videos/${v.slug}`} className="group block overflow-hidden rounded-2xl bg-white/[0.03] ring-1 ring-white/10 transition hover:ring-teal-300/40">
       <div className="relative aspect-video overflow-hidden">
-        <img src={videoPoster(v)} alt="" width="1280" height="720" loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+        <img src={videoPoster(v)} alt={v.title} width="1280" height="720" loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
         <span className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-90 transition group-hover:bg-black/10">
           <PlayCircle className="h-12 w-12 text-white drop-shadow-lg" />
         </span>
@@ -31,7 +31,7 @@ export function VideosIndex() {
     <div className="bg-ink">
       <Helmet>
         <title>Videos — see Infovion school management software at work</title>
-        <meta name="description" content="Short demos of Infovion school ERP: attendance on a phone, fee collection with UPI and receipts, admissions, the parent portal, report cards, certificates, timetable, salary and the principal's dashboard." />
+        <meta name="description" content="Short demos of Infovion School ERP: attendance on a phone, fees with UPI and receipts, admissions, parent portal, report cards, certificates and payroll." />
         <link rel="canonical" href={`${SITE}/videos`} />
         <meta property="og:url" content={`${SITE}/videos`} />
         <script type="application/ld+json">{JSON.stringify(listSchema)}</script>

@@ -17,7 +17,7 @@ function Card({ post, big = false }) {
       className={`group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] transition-colors hover:border-teal-400/40 ${big ? "md:grid md:grid-cols-2" : ""}`}>
       <Link to={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={post.title} />
       <div className={`relative overflow-hidden ${big ? "h-56 md:h-full" : "h-48"}`}>
-        <img src={post.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
+        <img src={post.image} alt={post.title} loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/20 to-transparent" />
         <span className="absolute left-4 top-4 rounded-full glass px-3 py-1 text-[11px] font-semibold text-teal-200">{CATEGORY_LABEL[post.category] ?? post.category}</span>
       </div>
@@ -47,7 +47,7 @@ export default function Blog() {
     <div className="bg-ink">
       <Helmet>
         <title>Insights — Software Development, School ERP, Jewellery & Government IT Guides | Infovion</title>
-        <meta name="description" content="Practical guides from Infovion Technologies: software development costs and choosing a partner, school management, jewellery billing and girvi, and government website standards." />
+        <meta name="description" content="Practical guides from Infovion Technologies on software costs, choosing a development partner, school management, jewellery billing and government websites." />
         <link rel="canonical" href="https://www.infovion.in/blog" />
       </Helmet>
 

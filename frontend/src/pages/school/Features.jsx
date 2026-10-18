@@ -31,7 +31,7 @@ export default function Features() {
     <div className="bg-ink">
       <Helmet>
         <title>School Management Software Features — Fees, Attendance, Exams, Transport, Certificates | Infovion</title>
-        <meta name="description" content="Every Infovion module: admissions, fees and receipts, online payments, attendance, exams and report cards, TC/LC certificates, transport, timetable, staff and salary, parent portal and 8 role-based portals." />
+        <meta name="description" content="Every module of Infovion School ERP: admissions, fees and online payments, attendance, exams and report cards, certificates, transport and payroll." />
         <link rel="canonical" href="https://www.infovion.in/school-management-software/features" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([["School management software", "/school-management-software"], ["Features", "/school-management-software/features"]]))}</script>
       </Helmet>

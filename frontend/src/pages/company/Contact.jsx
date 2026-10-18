@@ -41,7 +41,7 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Contact Infovion Technologies | Software Development Company in Pune</title>
-        <meta name="description" content={`Contact Infovion Technologies, a software development company in Pune, to discuss custom software, websites, mobile applications, ERP or AI automation, or to arrange a demonstration of Infovion School ERP or JMS. Phone ${COMPANY.phone}.`} />
+        <meta name="description" content={`Contact Infovion Technologies in Pune about custom software, websites, mobile apps or ERP, or to see Infovion School ERP or JMS. Call ${COMPANY.phone}.`} />
         <link rel="canonical" href={`${SITE}/contact`} />
         <meta property="og:title" content="Contact Infovion Technologies" />
         <meta property="og:description" content="Discuss a software project or arrange a product demonstration." />

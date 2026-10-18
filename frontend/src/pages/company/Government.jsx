@@ -66,7 +66,7 @@ export default function Government() {
     <>
       <Helmet>
         <title>Government IT and E-Governance Services | GIGW 3.0 Websites | Infovion Technologies</title>
-        <meta name="description" content="IT services for government departments, municipal bodies, PSUs and universities: GIGW 3.0 and WCAG 2.1 AA websites, citizen service portals, MIS dashboards, field applications and AMC. Udyam-registered MSE, Pune, India." />
+        <meta name="description" content="IT services for government departments, PSUs and universities: GIGW 3.0 and WCAG 2.1 AA websites, citizen portals, MIS dashboards and AMC. Pune, India." />
         <link rel="canonical" href={`${SITE}/government`} />
         <meta property="og:title" content="Government IT and E-Governance Services | Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/government`} />

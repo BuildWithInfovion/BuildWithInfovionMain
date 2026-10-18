@@ -29,7 +29,7 @@ export default function HowWeWork() {
     <>
       <Helmet>
         <title>How We Work | Delivery Process and Engagement Models | Infovion Technologies</title>
-        <meta name="description" content="How Infovion Technologies delivers software: discovery, fixed-price proposal, design, fortnightly development sprints, testing, launch and support. Fixed price, dedicated team and time and materials engagement models." />
+        <meta name="description" content="How Infovion Technologies delivers software: discovery, a fixed-price proposal, design, two-week sprints, testing, launch and support after go-live." />
         <link rel="canonical" href={`${SITE}/how-we-work`} />
         <meta property="og:url" content={`${SITE}/how-we-work`} />
       </Helmet>

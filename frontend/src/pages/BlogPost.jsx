@@ -59,7 +59,7 @@ export default function BlogPost() {
       </Helmet>
 
       <header className="noise relative overflow-hidden pb-14 pt-32 sm:pt-40">
-        <img src={post.image} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-15 blur-2xl" />
+        <div aria-hidden="true" className="absolute inset-0 scale-110 bg-cover bg-center opacity-15 blur-2xl" style={{ backgroundImage: `url(${post.image})` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-[#05070d]/60 via-[#05070d]/85 to-[#05070d]" />
         <Aurora />
         <div className="relative mx-auto max-w-3xl px-5 sm:px-6">
@@ -109,7 +109,7 @@ export default function BlogPost() {
           {related.map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`} className="group overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] transition-colors hover:border-teal-400/40">
               <div className="relative h-40 overflow-hidden">
-                <img src={p.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" />
+                <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] to-transparent" />
               </div>
               <div className="p-5">

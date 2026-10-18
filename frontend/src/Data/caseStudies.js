@@ -9,7 +9,7 @@ export const CASE_STUDIES = [
     services: ["SaaS product development", "UI/UX design", "API integration", "Cloud and DevOps"],
     stack: ["Next.js", "React", "NestJS", "Prisma", "PostgreSQL", "Razorpay", "Web Push", "Resend", "Vercel", "Render", "Supabase"],
     image: ["/product/dashboard.webp", "/product/dashboard-900.webp", "Infovion School ERP dashboard with the day's collections, dues and attendance"],
-    summary: "A cloud-based school management platform for Indian K-12 schools covering admissions, fees, attendance, examinations, transport, hostel, certificates and payroll. A single codebase serves many schools, with each school's data kept strictly separate.",
+    summary: "A cloud school management platform for Indian K-12 schools: admissions, fees, attendance, exams, transport and payroll, each school's data kept separate.",
     facts: [["41", "backend modules"], ["176", "application screens"], ["8", "role portals"], ["1", "codebase for all schools"]],
     challenge: [
       "Many Indian schools manage fees, attendance and records through registers, spreadsheets and phone calls. Available school software is often designed for other markets or priced per module, which puts it out of reach for many mid-sized schools.",
@@ -39,7 +39,7 @@ export const CASE_STUDIES = [
     services: ["Custom software development", "UI/UX design", "Software maintenance"],
     stack: ["React 19", "Vite", "Tailwind CSS", "Node.js", "Express 5", "MongoDB", "JWT authentication", "jsPDF", "TallyPrime XML"],
     image: ["/product/jms/gahan.webp", "/product/jms/gahan-900.webp", "Girvi register in Infovion JMS with amounts, interest rates and due dates"],
-    summary: "A web-based system that brings billing, girvi loans, customer credit and stock for a jewellery store into one place. The system became the foundation of Infovion JMS.",
+    summary: "A web-based system bringing billing, girvi loans, customer credit and stock for a jewellery store into one place. It became Infovion JMS.",
     facts: [["6", "modules: billing, stock, girvi, credit, reports, settings"], ["2", "user roles: owner and staff"], ["A4", "GST invoices, printed or shared as PDF"], ["0", "installation required: runs in the browser"]],
     challenge: [
       "Jewellery billing differs from ordinary retail billing. Each item is priced from its weight, purity, the day's rate per gram and a making charge, with old gold, advances and GST applied on top. Many stores still calculate this manually, record girvi loans in registers and track customer credit separately.",
@@ -71,7 +71,7 @@ export const CASE_STUDIES = [
     services: ["Website development", "Technical SEO", "Performance optimisation"],
     stack: ["React", "Vite", "Server-side prerendering", "Tailwind CSS", "Schema.org JSON-LD", "llms.txt", "Vercel"],
     image: ["/product/website-home.webp", "/product/website-home-900.webp", "The Infovion Technologies homepage at www.infovion.in"],
-    summary: "Our own website is built to the standard we apply to client websites: every page prerendered to HTML, fast on mobile networks, described with structured data and readable by AI answer engines.",
+    summary: "How we built our own website: every page prerendered to HTML, fast on mobile networks, with structured data and pages AI assistants can read.",
     facts: [["100%", "of pages prerendered to HTML"], ["95+", "mobile Lighthouse performance score"], ["80/100", "AI visibility (GEO) audit score"], ["12", "videos with transcripts and a video sitemap"]],
     challenge: [
       "Single-page React websites often present an empty page to search engines until JavaScript runs, load slowly on mobile networks, and give AI assistants little structured content to cite.",

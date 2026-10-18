@@ -253,7 +253,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>Infovion Technologies | Software Development Company in Pune, India</title>
-        <meta name="description" content="Infovion Technologies is a software development company in Pune, India: custom software, websites and web applications, mobile apps, ERP and CRM, SaaS and AI automation. Fixed-price proposals and client-owned source code. Developers of Infovion School ERP and JMS." />
+        <meta name="description" content="Infovion Technologies is a software development company in Pune, India: custom software, web and mobile apps, ERP and SaaS, at a fixed price agreed upfront." />
         <link rel="canonical" href="https://www.infovion.in/" />
         <meta property="og:title" content="Infovion Technologies | Software Development Company in Pune, India" />
         <meta property="og:description" content="Custom software, web and mobile applications, ERP and SaaS for businesses, institutions and government. Pune, India." />

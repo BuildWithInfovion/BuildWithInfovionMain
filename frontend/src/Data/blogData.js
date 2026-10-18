@@ -99,7 +99,7 @@ const schoolPosts = [
     slug: "what-is-multi-tenant-school-erp-explained-for-school-directors",
     title: "What is Multi-Tenant School ERP? A Simple Explanation for School Directors",
     excerpt:
-      "Multi-tenancy sounds technical. For a school director, it means one important thing: your school's data stays completely separate from every other school on the platform.",
+      "What multi-tenant school ERP means for a school director: one platform for many schools, with your school's data kept completely separate.",
     category: "technology",
     author: "Infovion Team",
     date: "2026-03-12",
@@ -226,7 +226,7 @@ const schoolPosts = [
     slug: "online-admission-management-for-schools-india-guide",
     title: "Online Admission Management for Schools in India: A Complete Guide",
     excerpt:
-      "From inquiry capture to enrollment confirmation — here's how a digital admission management system works and why Indian schools are moving away from paper forms.",
+      "How a digital admission system works, from enquiry to enrolment, and why Indian schools are replacing paper admission forms.",
     category: "admissions",
     author: "Infovion Team",
     date: "2026-04-01",
@@ -262,7 +262,7 @@ const schoolPosts = [
     slug: "how-school-principals-use-erp-data-to-improve-school-performance",
     title: "How School Principals Use ERP Data to Improve School Performance",
     excerpt:
-      "A principal's job is to make decisions. Here's how the right school ERP data — attendance trends, fee defaulters, exam performance — helps principals act faster and smarter.",
+      "How principals use school ERP data on attendance trends, fee defaulters and exam results to spot problems early and act faster.",
     category: "operations",
     author: "Infovion Team",
     date: "2026-03-25",
@@ -297,7 +297,7 @@ const schoolPosts = [
     slug: "infovion-msme-certified-school-erp-india",
     title: "Infovion is MSME Certified: Why It Matters for Schools Choosing ERP Software",
     excerpt:
-      "Infovion is registered under India's MSME scheme. Here's what that means for schools evaluating school management software — and why certification matters more than most buyers realise.",
+      "What MSME registration means for schools choosing school management software, and why buying from a registered vendor matters.",
     category: "company",
     author: "Infovion Team",
     date: "2026-05-13",
