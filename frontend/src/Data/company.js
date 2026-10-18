@@ -85,7 +85,7 @@ export const PRODUCTS = [
 // Set live to true once https://jms.infovion.in is deployed: until then the trial buttons go to
 // the contact form and the demo link is hidden.
 export const JMS = {
-  live: false,
+  live: true,
   app: "https://jms.infovion.in",
   signup: "https://jms.infovion.in/signup",
   demo: "https://jms.infovion.in/demo",
