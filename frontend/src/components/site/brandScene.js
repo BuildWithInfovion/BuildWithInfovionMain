@@ -11,7 +11,12 @@
   - a light travels the ring, the name catches a shine, soft pulses breathe out;
   - glitter twinkles and sparks drift over the whole screen, moving with the page as it scrolls.
 
-  createBrandScene(canvas, { intro }) → { setVeil(0..1), destroy() }
+  It runs in a Web Worker on an OffscreenCanvas wherever the browser allows (every current
+  browser), so drawing never competes with the page for the main thread: scrolling, typing and
+  tapping stay instant even on slow phones. Older browsers draw on the main thread instead.
+
+  createBrandScene(canvas, { intro }) → { setVeil(0..1), destroy() }   (page side)
+  createScene(canvas, options)          → the drawing itself, used by both sides
 */
 
 const A = "/brand/scene/";
@@ -67,7 +72,10 @@ function cometDist(t) {
   return 1 + (t - T2) / LAP;
 }
 
+const inWorker = typeof document === "undefined";
+
 function loadImage(src) {
+  if (inWorker) return fetch(src).then((r) => (r.ok ? r.blob() : Promise.reject(new Error(src)))).then((b) => createImageBitmap(b));
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.decoding = "async";
@@ -78,11 +86,20 @@ function loadImage(src) {
 }
 
 const canvas2d = (w, h) => {
+  const W = Math.max(1, Math.ceil(w));
+  const H = Math.max(1, Math.ceil(h));
+  if (inWorker) return new OffscreenCanvas(W, H);
   const c = document.createElement("canvas");
-  c.width = Math.max(1, Math.ceil(w));
-  c.height = Math.max(1, Math.ceil(h));
+  c.width = W;
+  c.height = H;
   return c;
 };
+
+const nextFrame =
+  typeof requestAnimationFrame === "function"
+    ? (fn) => requestAnimationFrame(fn)
+    : (fn) => setTimeout(() => fn(performance.now()), 16);
+const cancelFrame = typeof cancelAnimationFrame === "function" ? (id) => cancelAnimationFrame(id) : (id) => clearTimeout(id);
 
 /** A soft round sprite: [stop, r, g, b, a] list → canvas. */
 function sprite(size, stops) {
@@ -152,10 +169,10 @@ function flareSprite(size) {
   return c;
 }
 
-export function createBrandScene(canvas, { intro = true } = {}) {
+/** The drawing. Knows nothing about the page: size, scroll and visibility are passed in. */
+export function createScene(canvas, { intro = true, reduce = false, width, height, dpr: deviceDpr = 1, scrollY: startScroll = 0 } = {}) {
   const ctx = canvas.getContext("2d", { alpha: false });
   if (!ctx) return null;
-  const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   const hasConic = typeof ctx.createConicGradient === "function";
   const hasFilter = "filter" in ctx && (() => {
     const t = canvas2d(1, 1).getContext("2d");
@@ -181,7 +198,11 @@ export function createBrandScene(canvas, { intro = true } = {}) {
   let burstDone = !(intro && !reduce);
   let nextPulse = Math.max(T2 + 6, t + 3);
   let destroyed = false;
-  let scrollY = window.scrollY;
+  let scrollY = startScroll;
+  let viewW = width;
+  let viewH = height;
+  let viewDpr = deviceDpr;
+  let visible = true;
 
   const DOT = sprite(256, [
     [0, 255, 255, 255, 0.95],
@@ -204,10 +225,9 @@ export function createBrandScene(canvas, { intro = true } = {}) {
 
   // ── layout ────────────────────────────────────────────────────────────────
   function measure() {
-    const rect = canvas.getBoundingClientRect();
-    W = Math.max(1, Math.round(rect.width));
-    H = Math.max(1, Math.round(rect.height));
-    const raw = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.max(1, Math.round(viewW));
+    H = Math.max(1, Math.round(viewH));
+    const raw = Math.min(viewDpr || 1, 2);
     // Keep the pixel count reasonable on very large screens
     dpr = lowPower ? 1 : Math.min(raw, Math.sqrt(4_200_000 / (W * H)) || raw);
     canvas.width = Math.round(W * dpr);
@@ -656,34 +676,18 @@ export function createBrandScene(canvas, { intro = true } = {}) {
         }
       }
     }
-    raf = requestAnimationFrame(frame);
+    raf = nextFrame(frame);
   }
 
   function start() {
-    if (destroyed || raf || document.hidden) return;
+    if (destroyed || raf || !visible || reduce || !img) return;
     last = 0;
-    raf = requestAnimationFrame(frame);
+    raf = nextFrame(frame);
   }
   function stop() {
-    cancelAnimationFrame(raf);
+    cancelFrame(raf);
     raf = 0;
   }
-
-  let resizeTimer = 0;
-  const onResize = () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      const rect = canvas.getBoundingClientRect();
-      if (Math.round(rect.width) === W && Math.round(rect.height) === H) return;
-      measure();
-      if (reduce && img) render(0);
-    }, 120);
-  };
-  const onVisibility = () => (document.hidden ? stop() : start());
-  const onScroll = () => {
-    scrollY = window.scrollY;
-    if (reduce && img) render(0);
-  };
 
   measure();
   Promise.all([
@@ -705,22 +709,97 @@ export function createBrandScene(canvas, { intro = true } = {}) {
     })
     .catch(() => {});
 
-  window.addEventListener("resize", onResize, { passive: true });
-  window.addEventListener("scroll", onScroll, { passive: true });
-  document.addEventListener("visibilitychange", onVisibility);
-
+  const still = () => reduce && img && render(0);
   return {
+    resize(w, h, d) {
+      if (Math.round(w) === W && Math.round(h) === H && d === viewDpr) return;
+      viewW = w;
+      viewH = h;
+      viewDpr = d;
+      measure();
+      still();
+    },
+    setScroll(y) {
+      scrollY = y;
+      still();
+    },
     setVeil(v) {
       veil = clamp01(v);
-      if (reduce && img) render(0);
+      still();
+    },
+    setVisible(v) {
+      visible = v;
+      if (v) start();
+      else stop();
     },
     destroy() {
       destroyed = true;
       stop();
+    },
+  };
+}
+
+/** Page side: runs the scene in a worker when possible, and passes it the page's size and scroll. */
+export function createBrandScene(canvas, { intro = true } = {}) {
+  const reduce = Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
+  const view = () => {
+    const r = canvas.getBoundingClientRect();
+    return { width: Math.max(1, Math.round(r.width)), height: Math.max(1, Math.round(r.height)), dpr: Math.min(window.devicePixelRatio || 1, 2) };
+  };
+  const init = { intro, reduce, scrollY: window.scrollY, ...view() };
+
+  let scene = null;
+  if (typeof canvas.transferControlToOffscreen === "function" && typeof Worker === "function" && typeof OffscreenCanvas === "function") {
+    try {
+      const worker = new Worker(new URL("./brandScene.worker.js", import.meta.url), { type: "module" });
+      const offscreen = canvas.transferControlToOffscreen();
+      worker.postMessage({ type: "init", canvas: offscreen, ...init }, [offscreen]);
+      const post = (m) => worker.postMessage(m);
+      scene = {
+        resize: (w, h, d) => post({ type: "resize", w, h, d }),
+        setScroll: (y) => post({ type: "scroll", y }),
+        setVeil: (v) => post({ type: "veil", v }),
+        setVisible: (v) => post({ type: "visible", v }),
+        destroy: () => worker.terminate(),
+      };
+    } catch {
+      scene = null;
+    }
+  }
+  if (!scene) scene = createScene(canvas, init);
+  if (!scene) return null;
+
+  let resizeTimer = 0;
+  const onResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const v = view();
+      scene.resize(v.width, v.height, v.dpr);
+    }, 120);
+  };
+  let scrollRaf = 0;
+  const onScroll = () => {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = 0;
+      scene.setScroll(window.scrollY);
+    });
+  };
+  const onVisibility = () => scene.setVisible(!document.hidden);
+  window.addEventListener("resize", onResize, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
+  document.addEventListener("visibilitychange", onVisibility);
+  if (document.hidden) scene.setVisible(false);
+
+  return {
+    setVeil: (v) => scene.setVeil(v),
+    destroy() {
       clearTimeout(resizeTimer);
+      cancelAnimationFrame(scrollRaf);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("visibilitychange", onVisibility);
+      scene.destroy();
     },
   };
 }

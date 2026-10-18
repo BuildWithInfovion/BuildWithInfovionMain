@@ -53,8 +53,9 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
-// Once the first page has loaded, fetch the code for the other pages in idle time, so moving
-// between pages never waits on the network (skipped when the visitor has Data Saver on)
+// Once the visitor starts using the page (first scroll, tap or key), fetch the code for the other
+// pages in idle time, so moving between pages never waits on the network. Waiting for that first
+// interaction keeps the work out of the page's own loading time (skipped with Data Saver on).
 const PAGE_MODULES = [
   () => import("./pages/company/Services"),
   () => import("./pages/company/CaseStudies"),
@@ -77,7 +78,12 @@ if (typeof window !== "undefined" && !navigator.connection?.saveData) {
     const next = PAGE_MODULES.shift();
     if (next) idle(() => next().catch(() => {}).finally(prefetch));
   };
-  window.addEventListener("load", () => setTimeout(prefetch, 2500), { once: true });
+  const events = ["pointerdown", "keydown", "scroll", "touchstart"];
+  const begin = () => {
+    events.forEach((e) => window.removeEventListener(e, begin));
+    setTimeout(prefetch, 300);
+  };
+  events.forEach((e) => window.addEventListener(e, begin, { passive: true, once: true }));
 }
 
 const globalSchema = {
