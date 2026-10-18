@@ -44,13 +44,13 @@ function Hero() {
     <section className="relative flex min-h-[100svh] flex-col pb-12 pt-[41svh] md:justify-center md:pb-24 md:pt-32">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
         <div className="max-w-xl lg:max-w-2xl">
-          <div className="rise"><Kicker>Infovion Technologies<span className="hidden sm:inline"> · Pune, India</span></Kicker></div>
-          <h1 className="rise mt-5 font-display text-[2rem] font-bold leading-[1.1] tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-[3.6rem]">
-            Software development for businesses, institutions and government
+          <h1 className="rise font-display text-[2rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.6rem]">
+            Custom software for businesses, institutions and government
           </h1>
           <p className="rise mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
-            We design, build and maintain custom software, websites, mobile applications and ERP systems for clients in India and
-            overseas.<span className="hidden sm:inline"> We also develop and operate two products of our own: Infovion School ERP and Infovion JMS.</span>
+            We plan, build and support web applications, mobile apps, ERP systems and websites. One team in Pune works with clients
+            across India and abroad, at a fixed price agreed in writing.
+            <span className="hidden sm:inline"> Our own products, Infovion School ERP and Infovion JMS, are in daily use in schools and jewellery shops.</span>
           </p>
           <div className="rise mt-9 flex flex-col gap-3 sm:flex-row">
             <GlowButton to="/contact" className="w-full sm:w-auto">Discuss a project <ArrowRight className="h-4 w-4" /></GlowButton>
@@ -64,10 +64,10 @@ function Hero() {
 
 function Facts() {
   const items = [
-    ["Registered MSME", `Udyam ${COMPANY.udyam}`],
     ["Two products in production", "School ERP and jewellery software"],
     ["Fixed-price proposals", "Scope and cost agreed in writing"],
     ["Client-owned code", "Full transfer on completion"],
+    ["30 days of support", "Included after every launch"],
   ];
   return (
     <section className="relative border-y border-white/10 bg-[rgba(2,4,9,0.72)]">

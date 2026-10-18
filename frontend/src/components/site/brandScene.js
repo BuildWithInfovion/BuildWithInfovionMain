@@ -687,12 +687,12 @@ export function createBrandScene(canvas, { intro = true } = {}) {
 
   measure();
   Promise.all([
-    loadImage(`${A}ring.png`),
-    loadImage(`${A}brace-l.png`),
-    loadImage(`${A}brace-r.png`),
-    loadImage(`${A}wordmark.png`),
-    loadImage(`${A}ring-halo.png`),
-    ...Array.from({ length: 8 }, (_, i) => loadImage(`${A}letter-${i}.png`)),
+    loadImage(`${A}ring.webp`),
+    loadImage(`${A}brace-l.webp`),
+    loadImage(`${A}brace-r.webp`),
+    loadImage(`${A}wordmark.webp`),
+    loadImage(`${A}ring-halo.webp`),
+    ...Array.from({ length: 8 }, (_, i) => loadImage(`${A}letter-${i}.webp`)),
   ])
     .then(([ring, braceL, braceR, wordmark, halo, ...letters]) => {
       if (destroyed) return;
