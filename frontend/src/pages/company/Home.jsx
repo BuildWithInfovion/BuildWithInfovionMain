@@ -14,7 +14,7 @@ const FAQ = [
   ["Who owns the source code?", "The client. On final payment the complete source code, database, domain and hosting accounts are transferred to you, and the agreement states this explicitly."],
   ["Do you sign a non-disclosure agreement?", "Yes. We sign a mutual NDA before any business information is shared."],
   ["What support do you provide after launch?", "Every project includes thirty days of support after go-live. After that, clients can choose a monthly or annual maintenance contract covering fixes, updates, backups, monitoring and minor enhancements."],
-  ["Do you take up government and public sector work?", `Yes. Infovion Technologies is registered as an MSME under Udyam (${COMPANY.udyam}). We develop websites aligned with GIGW 3.0 and WCAG 2.1 AA, e-governance portals, MIS dashboards and mobile applications, with data hosted in India.`],
+  ["Do you take up government and public sector work?", "Yes. Infovion Technologies is a Udyam-registered MSME. We develop websites aligned with GIGW 3.0 and WCAG 2.1 AA, e-governance portals, MIS dashboards and mobile applications, with data hosted in India."],
 ];
 
 const COMMITMENTS = [
