@@ -45,7 +45,7 @@ const softwareSchema = {
   offers: { "@type": "Offer", price: String(JMS.price), priceCurrency: "INR", description: "Per shop per year, plus GST. 30-day free trial.", url: `${SITE}/jewellery-management-software#pricing` },
   author: { "@id": `${SITE}/#organization` },
   publisher: { "@id": `${SITE}/#organization` },
-  areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Place", name: "Worldwide" }],
+  areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Country", name: "United Arab Emirates" }, { "@type": "Place", name: "Worldwide" }],
 };
 
 const FEATURES = [
@@ -115,7 +115,7 @@ const COMPARISON = [
 
 const COUNTRIES = [
   ["India", "INR · GST with CGST/SGST or IGST · 24K to 14K · rates per 10 g and per kg · April financial year"],
-  ["United Arab Emirates, Oman, Bahrain, Saudi Arabia", "AED, OMR, BHD, SAR · VAT · 24K, 22K, 21K, 18K · TRN on invoices"],
+  ["United Arab Emirates, Oman and Bahrain", "AED, OMR, BHD · VAT tax invoices · 24K, 22K, 21K, 18K · TRN on invoices"],
   ["Qatar and Kuwait", "QAR, KWD · no VAT · Gulf purities"],
   ["United Kingdom", "GBP · VAT · 9ct to 24ct, 925 silver"],
   ["United States and Canada", "USD, CAD · sales tax or GST/HST · 10K to 24K"],
@@ -312,7 +312,7 @@ export function JmsHome() {
             ["Owners and staff", "Staff bill and tag; owners see reports and change settings."],
             ["Any device", "Counter computer, laptop, tablet or phone."],
             ["Shops with many pieces", "Tags, scanning and stock audits keep the count right."],
-            ["Shops abroad", "Gulf, UK, US and beyond, in local currency and tax."],
+            ["Shops abroad", "UAE and the Gulf, UK, US and beyond, in local currency and tax."],
             ["Moving from paper or old software", "Stock imports from Excel; opening dues are entered once."],
           ].map(([t, b]) => (
             <div key={t} className="border-t border-white/15 pt-5">
@@ -345,6 +345,7 @@ export function JmsHome() {
           <LinkRow to="/jewellery-barcode-software" title="Jewellery barcode software" body="Tagging, tag printers and sizes, scanning and stock audits." />
           <LinkRow to="/jewellery-billing-software" title="Jewellery billing software" body="How a jewellery bill is calculated, and how JMS calculates it." />
           <LinkRow to="/girvi-software" title="Girvi software" body="Managing a girvi register with interest, due dates and receipts." />
+          <LinkRow to="/jewellery-software-uae" title="Jewellery software in the UAE" body="AED rates, 5% VAT tax invoices with TRN, and Gulf karats for Dubai and beyond." />
           <LinkRow to="/case-studies/jewellery-management-system" title="Case study" body="How JMS was developed with a jewellery shop in Maharashtra." />
         </div>
       </Section>
@@ -358,6 +359,36 @@ export function JmsHome() {
 // Landing pages
 
 const LANDINGS = {
+  "jewellery-software-uae": {
+    title: "Jewellery Software in UAE & Dubai | VAT Invoices in AED, Barcode Tags | Infovion JMS",
+    description: "Jewellery software for shops in Dubai, Abu Dhabi, Sharjah and across the UAE: billing by weight and karat (24K, 22K, 21K, 18K) in AED, VAT tax invoices with your TRN, barcode tags, stock audit and customer credit. Runs in the browser. 30-day free trial.",
+    trail: "Jewellery software UAE",
+    kicker: "Infovion JMS · United Arab Emirates",
+    h1: "Jewellery software for shops in the UAE",
+    sub: "Bill by weight and karat in dirhams, print VAT tax invoices with your TRN, tag every piece with a barcode and count the showroom by scanning. For a gold souk counter in Deira or a mall showroom in Abu Dhabi, with nothing to install.",
+    img: ["/product/jms/uae-invoice", "VAT tax invoice in AED from Infovion JMS for a Dubai jewellery shop, showing the TRN, 21K and 18K items, making charges and 5% VAT"],
+    answerQ: "How is VAT charged on gold jewellery in the UAE?",
+    answer: "In the UAE, a retail sale of gold or diamond jewellery is charged VAT at 5% on the full value of the piece: the metal value, the making charges and any stones. Investment-grade gold of 99% purity or more can be zero-rated, and sales between VAT-registered dealers who buy for resale fall under the reverse charge, where the buyer accounts for the VAT instead of the seller. A VAT-registered jeweller issues a tax invoice showing the shop's TRN, the date, a sequential number, the value before tax, the VAT and the total in AED. Infovion JMS works out the metal value from weight and karat, adds making and stone charges, applies 5% VAT and prints the tax invoice with your TRN.",
+    sections: [
+      ["Set up for UAE shops", ["Prices in AED, with rates per gram for 24K, 22K, 21K and 18K gold, 999 and 925 silver and 950 platinum", "VAT at 5% on metal, making and stones; VAT can be switched off for a bill when it does not apply", "Tax invoice with your TRN, and the customer's TRN for business buyers", "Invoices numbered 0001, 0002 and onwards, on a January to December year by default", "UAE mobile numbers, and Gulf Standard Time on every bill and report", "Tax rates, purities, invoice wording and numbering can all be changed in Settings"]],
+      ["At the counter", ["Scan a tag and the piece is added with its weight, karat and today's rate", "Making charges per gram, as a percentage or as a fixed amount per piece", "Stone weight and stone charges for diamond and gem-set pieces", "Old gold taken in exchange, deducted on the same bill", "Card, cash and bank transfer on one bill, with any balance kept as customer credit", "Invoice printed on A4, A5 or an 80 mm roll, or sent as a PDF on WhatsApp"]],
+      ["Not supported yet", ["Arabic or bilingual invoices", "Tax-free tags for the tourist VAT refund scheme", "Reverse-charge wording on dealer-to-dealer invoices: VAT can be switched off for the bill, but the note has to be added by hand", "Sending e-invoices through an Accredited Service Provider. The UAE e-invoicing mandate covers business-to-business invoices and applies to most jewellers from July 2027"], true],
+    ],
+    example: {
+      caption: "Worked example: an 18.42 g, 21K bangle in Dubai",
+      rows: [["Metal value", "18.42 g × AED 374.25", "AED 6,893.69"], ["Making charges", "18.42 g × AED 22", "AED 405.24"], ["Taxable value", "", "AED 7,298.93"], ["VAT 5%", "", "AED 364.95"], ["Invoice total", "", "AED 7,663.88"]],
+      note: "Rates are for illustration only. Use the day's published rate for the karat sold.",
+    },
+    faqs: [
+      ["Can Infovion JMS be used by a jewellery shop in Dubai?", "Yes. Choose the United Arab Emirates when you create your shop and JMS sets the currency to AED, VAT to 5%, the purities to 24K, 22K, 21K and 18K, and the time zone to Gulf Standard Time. The invoice is titled Tax Invoice and shows your TRN. The same applies to shops in Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain."],
+      ["Is VAT charged on making charges in the UAE?", "Yes. For jewellery sold to a consumer, the making charges are part of the price of the piece, and VAT at 5% applies to them along with the metal and stones. JMS charges 5% on both by default. The rates can be changed in Settings if your tax adviser says otherwise."],
+      ["Does JMS support the UAE e-invoicing system?", "Not yet. The UAE is introducing electronic invoicing in phases, mainly for business-to-business invoices, sent through an Accredited Service Provider. Businesses with revenue of AED 50 million or more start on 1 January 2027 and other in-scope businesses on 1 July 2027. JMS prints VAT tax invoices today. Please check the Ministry of Finance e-invoicing portal for the rules that apply to your shop."],
+      ["How much does Infovion JMS cost in the UAE?", `${PRICE} per shop per year, roughly AED 390 at recent exchange rates, after a free ${JMS.trialDays}-day trial. Every feature, unlimited staff accounts, invoices and tags are included. We can invoice you in AED or US dollars on request.`],
+      ["Which tag printers and scanners work in the UAE?", "Any thermal label printer with a Windows or macOS driver, such as TSC, Zebra or Argox models, with jewellery tag rolls of 100 × 15 mm or similar, and any USB or Bluetooth barcode scanner. A phone or tablet camera also works for occasional scans."],
+      ["Where is my shop's data stored?", "Each shop's data is kept separate and is visible only to that shop's accounts. It is hosted in Singapore, the closest region offered by our cloud provider, and the owner can download a full backup at any time."],
+    ],
+    sources: [["UAE Ministry of Finance: eInvoicing", "https://mof.gov.ae/einvoicing"], ["UAE Federal Tax Authority", "https://tax.gov.ae"]],
+  },
   "jewellery-billing-software": {
     title: "Jewellery Billing Software with GST | Making Charges, Purity and Old Gold | Infovion JMS",
     description: "Jewellery billing software that prices each item by weight, purity, rate per gram and making charges, adds pieces by scanning their tags, adjusts old gold and payments, and produces GST invoices for print or PDF. Part of Infovion JMS.",
@@ -468,13 +499,13 @@ function JmsLanding({ k }) {
 
       <Section className="pt-4">
         <div className="grid gap-6 lg:grid-cols-2">
-          {c.sections.map(([t, items]) => (
+          {c.sections.map(([t, items, missing]) => (
             <div key={t} className="panel rounded-xl p-7">
               <h2 className="font-display text-xl font-semibold text-white">{t}</h2>
               <ul className="mt-5 space-y-2.5">
                 {items.map((x) => (
-                  <li key={x} className="flex gap-2.5 text-[15px] text-slate-200">
-                    <Check className="mt-1 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />
+                  <li key={x} className={`flex gap-2.5 text-[15px] ${missing ? "text-slate-300" : "text-slate-200"}`}>
+                    {missing ? <Minus className="mt-1 h-4 w-4 flex-shrink-0 text-slate-500" aria-hidden="true" /> : <Check className="mt-1 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />}
                     {x}
                   </li>
                 ))}
@@ -502,10 +533,13 @@ function JmsLanding({ k }) {
         {c.sources && (
           <p className="mt-4 text-xs text-slate-400">
             Source:{" "}
-            {c.sources.map(([t, u]) => (
-              <a key={u} href={u} target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-300">
-                {t}
-              </a>
+            {c.sources.map(([t, u], i) => (
+              <React.Fragment key={u}>
+                {i > 0 && " · "}
+                <a href={u} target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-300">
+                  {t}
+                </a>
+              </React.Fragment>
             ))}
           </p>
         )}
@@ -520,3 +554,4 @@ function JmsLanding({ k }) {
 export const JmsBillingPage = () => <JmsLanding k="jewellery-billing-software" />;
 export const GirviPage = () => <JmsLanding k="girvi-software" />;
 export const BarcodePage = () => <JmsLanding k="jewellery-barcode-software" />;
+export const UaePage = () => <JmsLanding k="jewellery-software-uae" />;

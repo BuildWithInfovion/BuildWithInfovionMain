@@ -20,6 +20,7 @@ const PRODUCT_LINKS = [
   ["/jewellery-management-software", "Infovion JMS", true],
   ["/jewellery-billing-software", "Jewellery billing software"],
   ["/jewellery-barcode-software", "Jewellery barcode software"],
+  ["/jewellery-software-uae", "Jewellery software UAE"],
   ["/girvi-software", "Girvi software"],
 ];
 

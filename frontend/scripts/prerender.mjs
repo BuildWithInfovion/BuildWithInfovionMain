@@ -115,11 +115,15 @@ fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 console.log(`sitemap: ${sitemap.match(/<url>/g).length} urls`);
 
 // llms.txt / llms-full.txt for AI assistants, from the same blog data
-const { llmsTxt, llmsFullTxt } = await import("./llms.mjs");
+const { llmsTxt, llmsFullTxt, aiFiles } = await import("./llms.mjs");
 const posts = [...(blogPosts || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
 fs.writeFileSync(path.join(dist, "llms.txt"), llmsTxt(posts));
 fs.writeFileSync(path.join(dist, "llms-full.txt"), llmsFullTxt(posts));
 console.log(`llms.txt: ${posts.length} guides`);
+for (const [file, body] of Object.entries(aiFiles())) {
+  fs.mkdirSync(path.dirname(path.join(dist, file)), { recursive: true });
+  fs.writeFileSync(path.join(dist, file), body);
+}
 
 // RSS feed of the guides, for feed readers and AI discovery
 const xml = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

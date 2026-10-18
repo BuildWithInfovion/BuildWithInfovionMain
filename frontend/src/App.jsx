@@ -10,7 +10,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { captureFirstTouch, track } from "./lib/analytics";
 import { organizationNode } from "./lib/seo";
-import { SITE } from "./Data/company";
+import { SITE, JMS } from "./Data/company";
 import { productOf } from "./lib/sections";
 
 // Company
@@ -46,6 +46,7 @@ const JmsHome = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.J
 const JmsBilling = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.JmsBillingPage })));
 const Girvi = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.GirviPage })));
 const JmsBarcode = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.BarcodePage })));
+const JmsUae = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.UaePage })));
 // Content & legal
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -129,6 +130,14 @@ export function AppRoutes() {
     if (first.current) { first.current = false; return; }
     track("page_view", { page_path: pathname });
   }, [pathname]);
+  // On the jewellery pages, wake the JMS server (free hosting sleeps when idle) so the demo and
+  // sign-up open quickly when the visitor clicks through
+  const jmsPage = productOf(pathname) === "jms";
+  React.useEffect(() => {
+    if (!jmsPage || !JMS.live || window.__jmsWarm) return;
+    window.__jmsWarm = true;
+    fetch(`${JMS.api}/health`, { mode: "no-cors", cache: "no-store" }).catch(() => {});
+  }, [jmsPage]);
   const url = SITE + (pathname === "/" ? "/" : pathname.replace(/\/+$/, ""));
   // Link previews (WhatsApp, LinkedIn…) show the image of the part of the site being shared
   const ogImage = `${SITE}/${{ school: "og-school.jpg", jms: "og-jms.jpg" }[productOf(pathname)] ?? "og-image.jpg"}`;
@@ -201,6 +210,7 @@ export function AppRoutes() {
             <Route path="/jewellery-billing-software" element={<JmsBilling />} />
             <Route path="/girvi-software" element={<Girvi />} />
             <Route path="/jewellery-barcode-software" element={<JmsBarcode />} />
+            <Route path="/jewellery-software-uae" element={<JmsUae />} />
 
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

@@ -31,6 +31,7 @@ export const PRERENDER_ROUTES = [
   "/jewellery-management-software",
   "/jewellery-billing-software",
   "/jewellery-barcode-software",
+  "/jewellery-software-uae",
   "/girvi-software",
   // Content & legal
   "/blog",

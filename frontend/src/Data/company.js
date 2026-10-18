@@ -87,6 +87,7 @@ export const PRODUCTS = [
 export const JMS = {
   live: true,
   app: "https://jms.infovion.in",
+  api: "https://jms-api.infovion.in",
   signup: "https://jms.infovion.in/signup",
   demo: "https://jms.infovion.in/demo",
   login: "https://jms.infovion.in/login",
