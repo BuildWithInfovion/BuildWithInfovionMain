@@ -5,6 +5,7 @@ export const companyPosts = [
   {
     id: 101,
     slug: "custom-software-development-cost-india",
+    seoTitle: "Custom Software Development Cost in India (2026) | Infovion",
     title: "How Much Does Custom Software Development Cost in India? (2026 Guide)",
     excerpt: "Typical budgets for websites, business software, mobile apps and SaaS in India, what drives the price, and the running costs to plan for.",
     category: "development",
@@ -94,6 +95,7 @@ export const companyPosts = [
   {
     id: 102,
     slug: "how-to-choose-software-development-company-pune",
+    seoTitle: "How to Choose a Software Company in Pune: 12 Questions",
     title: "How to Choose a Software Development Company in Pune: 12 Questions to Ask",
     excerpt: "Twelve questions, and the red flags to watch for, when choosing a software development company in Pune that will deliver and support you.",
     category: "development",
@@ -158,6 +160,7 @@ export const companyPosts = [
   {
     id: 103,
     slug: "website-vs-web-app-vs-mobile-app",
+    seoTitle: "Website, Web App or Mobile App: Which Do You Need? | Infovion",
     title: "Website, Web App or Mobile App: What Does Your Business Actually Need?",
     excerpt: "Website, web app or mobile app? The differences in plain language, cost and reach compared, and when a progressive web app is the better choice.",
     category: "development",
@@ -213,6 +216,7 @@ export const companyPosts = [
   {
     id: 104,
     slug: "custom-erp-vs-off-the-shelf-erp-msme",
+    seoTitle: "Custom ERP vs Off-the-Shelf ERP for Indian MSMEs | Infovion",
     title: "Custom ERP vs Off-the-Shelf ERP: What Should an Indian MSME Choose?",
     excerpt: "When ready-made ERP and accounting software is enough, when a custom ERP pays for itself, and the hybrid approach most growing MSMEs end up with.",
     category: "development",
@@ -259,6 +263,7 @@ export const companyPosts = [
   {
     id: 105,
     slug: "jewellery-billing-gst-making-charges-old-gold",
+    seoTitle: "Jewellery Billing in India: GST, Making Charges, Old Gold",
     title: "Jewellery Billing in India: GST, Making Charges, Discount and Old Gold Explained",
     excerpt: "How a jewellery invoice is calculated in India: 3% GST on the full value including making charges, discounts, old-gold exchange and what the bill must show.",
     category: "jewellery",
@@ -330,6 +335,7 @@ export const companyPosts = [
   {
     id: 106,
     slug: "girvi-register-guide-for-jewellers",
+    seoTitle: "Girvi (Gold Loan) Register: A Guide for Jewellers | Infovion",
     title: "Running a Girvi (Gold Loan) Register: A Practical Guide for Jewellers",
     excerpt: "What to record for every pledge, how to calculate monthly girvi interest, handling overdue pledges and releases, and the legal basics in India.",
     category: "jewellery",
@@ -387,6 +393,7 @@ export const companyPosts = [
   {
     id: 107,
     slug: "gigw-3-government-website-guidelines-explained",
+    seoTitle: "GIGW 3.0 Explained for Government Websites | Infovion",
     title: "GIGW 3.0 Explained: What Government Websites and Apps Must Get Right",
     excerpt: "A plain-language guide to GIGW 3.0 for Indian government websites and apps: accessibility, security, content, bilingual pages and a checklist.",
     category: "government",

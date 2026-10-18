@@ -2,6 +2,7 @@
 export const CASE_STUDIES = [
   {
     slug: "school-erp-platform",
+    seoTitle: "Case Study: Multi-Tenant School ERP with 8 Portals | Infovion",
     title: "A multi-tenant school ERP with eight role portals",
     short: "School ERP platform",
     client: "Infovion School ERP (Infovion product)",
@@ -32,6 +33,7 @@ export const CASE_STUDIES = [
   },
   {
     slug: "jewellery-management-system",
+    seoTitle: "Case Study: Jewellery Billing, Girvi and Stock System | Infovion",
     title: "Billing, girvi and stock management for a jewellery retailer",
     short: "Jewellery management system",
     client: "A family-owned jewellery store in Maharashtra (name withheld)",
@@ -64,6 +66,7 @@ export const CASE_STUDIES = [
   },
   {
     slug: "infovion-website",
+    seoTitle: "Case Study: Company Website Built for Search and AI | Infovion",
     title: "A company website engineered for search engines and AI assistants",
     short: "Website, SEO and AI visibility",
     client: "Infovion Technologies (www.infovion.in)",

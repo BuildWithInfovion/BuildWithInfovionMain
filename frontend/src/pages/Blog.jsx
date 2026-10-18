@@ -46,7 +46,7 @@ export default function Blog() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>Insights — Software Development, School ERP, Jewellery & Government IT Guides | Infovion</title>
+        <title>Guides on Software, School ERP and Jewellery Billing | Infovion</title>
         <meta name="description" content="Practical guides from Infovion Technologies on software costs, choosing a development partner, school management, jewellery billing and government websites." />
         <link rel="canonical" href="https://www.infovion.in/blog" />
       </Helmet>

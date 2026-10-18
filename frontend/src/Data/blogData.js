@@ -4,6 +4,7 @@ const schoolPosts = [
   {
     id: 1,
     slug: "how-indian-schools-can-replace-paper-attendance-registers",
+    seoTitle: "Replace Paper Attendance Registers in Schools | Infovion",
     title: "How Indian Schools Can Replace Paper Attendance Registers with Cloud Software",
     excerpt:
       "Paper registers are costing Indian schools hours every week. Here's how digital attendance systems work — and what to look for when choosing one.",
@@ -29,6 +30,7 @@ const schoolPosts = [
   {
     id: 2,
     slug: "school-fee-management-moving-from-ledgers-to-cloud",
+    seoTitle: "School Fee Management: From Ledgers to Cloud | Infovion",
     title: "School Fee Management: Moving from Ledgers to Cloud — A Complete Guide",
     excerpt:
       "Ledger-based fee collection creates confusion, delays, and defaulter blindspots. This guide walks through what a digital fee system should do for your school.",
@@ -53,6 +55,7 @@ const schoolPosts = [
   {
     id: 3,
     slug: "why-every-k12-school-in-india-needs-a-parent-portal",
+    seoTitle: "Why Every School in India Needs a Parent Portal | Infovion",
     title: "Why Every K-12 School in India Needs a Parent Portal in 2026",
     excerpt:
       "Parents call schools daily for information that should be instantly accessible. A parent portal cuts inbound calls and builds trust — here's why it matters.",
@@ -75,6 +78,7 @@ const schoolPosts = [
   {
     id: 4,
     slug: "transfer-certificate-workflow-manual-vs-digital-indian-schools",
+    seoTitle: "Transfer Certificate Workflow: Manual vs Digital | Infovion",
     title: "Transfer Certificate Workflow: Manual vs. Digital in Indian Schools",
     excerpt:
       "TC management is a regulatory requirement in Indian schools. Here's how moving from manual to digital TC workflows saves time and prevents compliance gaps.",
@@ -97,6 +101,7 @@ const schoolPosts = [
   {
     id: 5,
     slug: "what-is-multi-tenant-school-erp-explained-for-school-directors",
+    seoTitle: "What Is Multi-Tenant School ERP? | Infovion",
     title: "What is Multi-Tenant School ERP? A Simple Explanation for School Directors",
     excerpt:
       "What multi-tenant school ERP means for a school director: one platform for many schools, with your school's data kept completely separate.",
@@ -119,6 +124,7 @@ const schoolPosts = [
   {
     id: 6,
     slug: "school-management-software-vs-spreadsheets-real-cost",
+    seoTitle: "School ERP vs Spreadsheets: The Real Cost | Infovion",
     title: "School Management Software vs. Spreadsheets: The Real Cost of Manual Operations",
     excerpt:
       "Spreadsheets feel free. But when you count staff hours, errors, and the decisions you can't make without clean data — the cost becomes very real.",
@@ -141,6 +147,7 @@ const schoolPosts = [
   {
     id: 7,
     slug: "how-to-choose-school-erp-software-india",
+    seoTitle: "How to Choose School ERP Software in India | Infovion",
     title: "How to Choose the Right School ERP Software for Your School in India",
     excerpt:
       "With dozens of school ERP options in India, how do you pick the right one? This guide covers the 7 questions every school director should ask before signing up.",
@@ -183,6 +190,7 @@ const schoolPosts = [
   {
     id: 8,
     slug: "7-signs-your-school-needs-erp-software-india",
+    seoTitle: "7 Signs Your School Needs ERP Software | Infovion",
     title: "7 Signs Your School Has Outgrown Spreadsheets and Needs ERP Software",
     excerpt:
       "Spreadsheets worked when your school had 100 students. But there are clear signals that tell you it's time to move to a proper school management system.",
@@ -224,6 +232,7 @@ const schoolPosts = [
   {
     id: 9,
     slug: "online-admission-management-for-schools-india-guide",
+    seoTitle: "Online Admission Management for Indian Schools | Infovion",
     title: "Online Admission Management for Schools in India: A Complete Guide",
     excerpt:
       "How a digital admission system works, from enquiry to enrolment, and why Indian schools are replacing paper admission forms.",
@@ -260,6 +269,7 @@ const schoolPosts = [
   {
     id: 10,
     slug: "how-school-principals-use-erp-data-to-improve-school-performance",
+    seoTitle: "How Principals Use School ERP Data | Infovion",
     title: "How School Principals Use ERP Data to Improve School Performance",
     excerpt:
       "How principals use school ERP data on attendance trends, fee defaulters and exam results to spot problems early and act faster.",
@@ -295,6 +305,7 @@ const schoolPosts = [
   {
     id: 11,
     slug: "infovion-msme-certified-school-erp-india",
+    seoTitle: "Why MSME Registration Matters When Choosing a School ERP",
     title: "Infovion is MSME Certified: Why It Matters for Schools Choosing ERP Software",
     excerpt:
       "What MSME registration means for schools choosing school management software, and why buying from a registered vendor matters.",

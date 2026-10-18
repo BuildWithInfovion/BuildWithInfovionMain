@@ -73,7 +73,7 @@ export function CaseStudyPage() {
   return (
     <>
       <Helmet>
-        <title>{`${c.title} | Case Study | Infovion Technologies`}</title>
+        <title>{c.seoTitle || `${c.title} | Case Study | Infovion Technologies`}</title>
         <meta name="description" content={c.summary} />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={c.title} />
@@ -155,7 +155,7 @@ export function ProductsIndex() {
   return (
     <>
       <Helmet>
-        <title>Products | Infovion School ERP and Infovion JMS | Infovion Technologies</title>
+        <title>Products: Infovion School ERP and Infovion JMS | Infovion</title>
         <meta name="description" content="Products by Infovion Technologies: Infovion School ERP for K-12 schools, and Infovion JMS, jewellery software for billing, girvi, credit and stock." />
         <link rel="canonical" href={`${SITE}/products`} />
         <script type="application/ld+json">{JSON.stringify(list)}</script>

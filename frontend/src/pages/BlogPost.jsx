@@ -47,7 +47,7 @@ export default function BlogPost() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>{`${post.title} | Infovion`}</title>
+        <title>{post.seoTitle || `${post.title} | Infovion`}</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={post.title} />

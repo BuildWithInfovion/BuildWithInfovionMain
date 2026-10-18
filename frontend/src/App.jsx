@@ -106,7 +106,11 @@ const globalSchema = {
 function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-ink px-6">
-      <Helmet><meta name="robots" content="noindex" /></Helmet>
+      <Helmet>
+        <title>Page not found | Infovion Technologies</title>
+        <meta name="description" content="This page does not exist. Visit Infovion Technologies for software development services, Infovion School ERP and Infovion JMS." />
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <div className="text-center">
         <h1 className="font-display text-8xl font-extrabold text-white/10">404</h1>
         <p className="mt-2 text-xl text-slate-300">This page doesn't exist.</p>

@@ -10,7 +10,7 @@ export function LeavingCertificateTool() {
     <CertificateTool
       toolKey="lc"
       seo={{
-        title: "School Leaving Certificate in Marathi (शाळा सोडल्याचा दाखला) — Free Format & Generator | Infovion",
+        title: "School Leaving Certificate (शाळा सोडल्याचा दाखला) Generator",
         description: "Free school leaving certificate (शाळा सोडल्याचा दाखला) generator in Marathi or English, with date of birth in words. Print or save as PDF.",
         h1: "शाळा सोडल्याचा दाखला — free Marathi Leaving Certificate generator",
         intro: "Fill in the student's details from the General Register and get a one-page Maharashtra School Leaving Certificate in Marathi, Marathi + English, or English — with the date of birth written in words for you. Print it or save it as a PDF. Free, no sign-up.",
@@ -40,7 +40,7 @@ export function TransferCertificateTool() {
     <CertificateTool
       toolKey="tc"
       seo={{
-        title: "Transfer Certificate (TC) Format for Schools — Free TC Generator | Infovion",
+        title: "Transfer Certificate (TC) Format and Free Generator | Infovion",
         description: "Free transfer certificate (TC) generator in the format CBSE and English-medium schools use, with date of birth in words. Print or save as PDF.",
         h1: "Free Transfer Certificate (TC) generator for schools",
         intro: "Make a one-page school Transfer Certificate in the standard format — date of birth in words is written for you, then print it on your letterhead or save it as a PDF. Free, no sign-up, nothing uploaded.",
@@ -70,7 +70,7 @@ export function BonafideCertificateTool() {
     <CertificateTool
       toolKey="bonafide"
       seo={{
-        title: "Bonafide Certificate Format for School Students — Free Generator | Infovion",
+        title: "Bonafide Certificate Format and Free Generator | Infovion",
         description: "Free bonafide certificate generator for schools: enter the student's name, class and purpose, then print on your letterhead or save as PDF.",
         h1: "Free bonafide certificate generator for school students",
         intro: "Parents ask for bonafide certificates for bank accounts, scholarships, passports and bus passes. Fill in a few details and print a clean one-page bonafide certificate — free, no sign-up.",
@@ -103,7 +103,7 @@ export function ToolsIndex() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>Free Tools for Schools — LC, TC & Bonafide Certificate Generators | Infovion</title>
+        <title>Free LC, TC and Bonafide Certificate Generators | Infovion</title>
         <meta name="description" content="Free certificate generators for Indian schools: Marathi school leaving certificate, transfer certificate (TC) and bonafide certificate. No sign-up needed." />
         <link rel="canonical" href="https://www.infovion.in/free-tools" />
       </Helmet>

@@ -68,7 +68,7 @@ export default function Industries() {
   return (
     <>
       <Helmet>
-        <title>Industries | Education, Jewellery, Government, Retail and More | Infovion Technologies</title>
+        <title>Industries We Build Software For | Infovion Technologies</title>
         <meta name="description" content="Software for schools, jewellers, government, retail, manufacturing, healthcare, real estate, professional services and startups, by Infovion Technologies." />
         <link rel="canonical" href={`${SITE}/industries`} />
         <meta property="og:url" content={`${SITE}/industries`} />

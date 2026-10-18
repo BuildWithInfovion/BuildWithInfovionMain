@@ -75,7 +75,8 @@ console.log(`prerendered ${ok}/${routes.length} pages`);
   const { html } = await render("/__page-not-found__");
   let page = stripHead(template)
     .replace(/<meta\s+name="robots"[^>]*\/>/i, "")
-    .replace("</head>", `    <title>Page not found — Infovion Technologies</title>
+    .replace("</head>", `    <title>Page not found | Infovion Technologies</title>
+    <meta name="description" content="This page does not exist. Visit Infovion Technologies for software development services, Infovion School ERP and Infovion JMS." />
     <meta name="robots" content="noindex" />
   </head>`);
   page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root">${html}</div>

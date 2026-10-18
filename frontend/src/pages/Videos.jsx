@@ -79,7 +79,7 @@ export function VideoWatch() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>{`${v.title} | Infovion video`}</title>
+        <title>{v.seoTitle || `${v.title} | Infovion video`}</title>
         <meta name="description" content={v.description} />
         <link rel="canonical" href={url} />
         <meta property="og:type" content="video.other" />

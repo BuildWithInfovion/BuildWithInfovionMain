@@ -31,7 +31,7 @@ export default function CompanyProfile() {
   return (
     <div className="pb-24 pt-32 print:bg-white print:p-0 sm:pt-36">
       <Helmet>
-        <title>Company Profile | Infovion Technologies, Pune | MSME, Udyam Registered</title>
+        <title>Company Profile | Infovion Technologies, Pune | MSME Registered</title>
         <meta name="description" content="Company profile of Infovion Technologies, Pune: registration details, services, products, technology and compliance. Printable for tenders and vendor forms." />
         <link rel="canonical" href={`${SITE}/company-profile`} />
         <meta property="og:url" content={`${SITE}/company-profile`} />

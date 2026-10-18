@@ -252,7 +252,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Infovion Technologies | Software Development Company in Pune, India</title>
+        <title>Infovion Technologies | Software Development Company in Pune</title>
         <meta name="description" content="Infovion Technologies is a software development company in Pune, India: custom software, web and mobile apps, ERP and SaaS, at a fixed price agreed upfront." />
         <link rel="canonical" href="https://www.infovion.in/" />
         <meta property="og:title" content="Infovion Technologies | Software Development Company in Pune, India" />

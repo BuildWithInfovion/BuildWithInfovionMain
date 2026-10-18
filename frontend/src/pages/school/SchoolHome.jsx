@@ -312,7 +312,7 @@ export default function SchoolHome() {
   return (
     <div className="bg-ink">
       <Helmet>
-        <title>School Management Software for Indian Schools — Infovion School ERP | Free trial</title>
+        <title>School Management Software for Indian Schools | Infovion</title>
         <meta name="description" content="School management software for Indian K-12 schools: fees, attendance, exams, transport, certificates and a parent app. ₹150 per student a year." />
         <link rel="canonical" href="https://www.infovion.in/school-management-software" />
         <meta property="og:title" content="Infovion School ERP — school management software for Indian schools" />

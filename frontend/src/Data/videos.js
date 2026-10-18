@@ -8,6 +8,7 @@ import { FILM_TRANSCRIPT } from "./filmTranscript.js";
 export const VIDEOS = [
   {
     slug: "infovion-product-film",
+    seoTitle: "Infovion School ERP: The 4-Minute Product Film",
     file: "infovion-film-v2",
     poster: "infovion-film-poster",
     title: "Infovion school management software — the 4-minute product film",
@@ -19,6 +20,7 @@ export const VIDEOS = [
   },
   {
     slug: "school-attendance-app-demo",
+    seoTitle: "School Attendance App: Mark a Class in a Few Taps | Infovion",
     file: "attendance",
     title: "School attendance app: mark a class in a few taps",
     description: "How teachers mark attendance class by class on a phone in Infovion. Each teacher sees only their own classes, and parents see it the same day.",
@@ -29,6 +31,7 @@ export const VIDEOS = [
   },
   {
     slug: "school-fee-management-demo",
+    seoTitle: "School Fee Management: Instalments, UPI, Receipts | Infovion",
     file: "fees",
     title: "School fee management: instalments, concessions, UPI and receipts",
     description: "Set fee plans with instalments and concessions, collect by cash, UPI, cheque or Razorpay with a receipt every time, and see defaulters in one click.",
@@ -39,6 +42,7 @@ export const VIDEOS = [
   },
   {
     slug: "school-admission-management-demo",
+    seoTitle: "School Admission Management, Enquiry to Enrolment | Infovion",
     file: "admission",
     title: "School admission management: from first enquiry to enrolled student",
     description: "Track every admission enquiry from the first call to an enrolled student, admit students in minutes, or import a whole school from Excel or CSV.",
@@ -49,6 +53,7 @@ export const VIDEOS = [
   },
   {
     slug: "parent-portal-for-schools-demo",
+    seoTitle: "Parent Portal for Schools: Attendance, Marks, Fees | Infovion",
     file: "parent",
     title: "Parent portal for schools: attendance, marks and fees the same day",
     description: "What parents see in Infovion's parent portal: attendance, marks, fee status and announcements the same day, and messages to the class teacher.",
@@ -59,6 +64,7 @@ export const VIDEOS = [
   },
   {
     slug: "exam-marks-and-report-cards-demo",
+    seoTitle: "Exam Marks Entry and Automatic Report Cards | Infovion",
     file: "exams",
     title: "Exam marks entry and automatic report cards for schools",
     description: "Create exams, enter marks subject by subject, and get report cards generated automatically on the school's own letterhead.",
@@ -69,6 +75,7 @@ export const VIDEOS = [
   },
   {
     slug: "transfer-certificate-and-id-cards-demo",
+    seoTitle: "Transfer Certificates, Bonafide and ID Cards | Infovion",
     file: "documents",
     title: "Print transfer certificates, bonafide certificates and student ID cards",
     description: "Transfer, bonafide and character certificates ready to print in seconds, and student ID cards with the school's branding, from the student's record.",
@@ -79,6 +86,7 @@ export const VIDEOS = [
   },
   {
     slug: "school-timetable-and-substitution-demo",
+    seoTitle: "School Timetable and Substitute Teachers | Infovion",
     file: "timetable",
     title: "School timetable and substitute teacher covers in seconds",
     description: "Build the weekly school timetable once, and when a teacher is absent, assign a substitute cover in seconds.",
@@ -89,6 +97,7 @@ export const VIDEOS = [
   },
   {
     slug: "school-announcements-and-calendar-demo",
+    seoTitle: "School Announcements and Shared Calendar | Infovion",
     file: "calendar",
     title: "School announcements and one shared calendar for every portal",
     description: "Send one announcement to every portal at once, and keep holidays, exams and events on one shared school calendar.",
@@ -99,6 +108,7 @@ export const VIDEOS = [
   },
   {
     slug: "staff-attendance-and-salary-slips-demo",
+    seoTitle: "Staff Attendance and Salary Slips for Schools | Infovion",
     file: "staff",
     title: "Staff attendance and monthly salary slips for schools",
     description: "Track staff attendance, set salary structures for every employee, and get monthly salary slips generated without spreadsheets.",
@@ -109,6 +119,7 @@ export const VIDEOS = [
   },
   {
     slug: "principal-dashboard-demo",
+    seoTitle: "Principal Dashboard: The Whole School at a Glance | Infovion",
     file: "leaders",
     title: "Principal and director dashboard: the whole school at a glance",
     description: "What a principal or director sees in Infovion: today's attendance, pending requests, class-wise exam averages, and which teachers haven't marked attendance yet.",
@@ -119,6 +130,7 @@ export const VIDEOS = [
   },
   {
     slug: "school-erp-roles-and-security-demo",
+    seoTitle: "School ERP Security: Role Portals, Audit Log, 2FA | Infovion",
     file: "security",
     title: "School ERP security: a portal per role, audit log and two-step sign-in",
     description: "Eight dedicated portals, one for every role in the school, every change recorded in the audit log, and two-factor login to keep accounts secure.",

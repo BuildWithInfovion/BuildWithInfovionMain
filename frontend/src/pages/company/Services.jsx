@@ -50,7 +50,7 @@ export function ServicesIndex() {
   return (
     <>
       <Helmet>
-        <title>Software Development Services | Web, Mobile, ERP, SaaS and AI | Infovion Technologies</title>
+        <title>Software Development Services: Web, Mobile, ERP, AI | Infovion</title>
         <meta name="description" content="Software development services by Infovion Technologies, Pune: custom software, websites, mobile apps, ERP and CRM, SaaS, AI automation and maintenance." />
         <link rel="canonical" href={`${SITE}/services`} />
         <meta property="og:title" content="Software Development Services | Infovion Technologies" />

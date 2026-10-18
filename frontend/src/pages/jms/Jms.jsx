@@ -172,7 +172,7 @@ export function JmsHome() {
   return (
     <>
       <Helmet>
-        <title>Jewellery Management Software | Billing, Barcode Tags, Girvi, GST and Tally | Infovion JMS</title>
+        <title>Jewellery Management Software, Billing and Girvi | Infovion JMS</title>
         <meta name="description" content={`Jewellery management software for shops in India and abroad: billing by weight and purity, barcode tags, girvi, credit, GST or VAT invoices. ${PRICE} a year.`} />
         <link rel="canonical" href={`${SITE}/jewellery-management-software`} />
         <meta property="og:title" content="Infovion JMS | Jewellery Management Software" />
@@ -360,7 +360,7 @@ export function JmsHome() {
 
 const LANDINGS = {
   "jewellery-software-uae": {
-    title: "Jewellery Software in UAE & Dubai | VAT Invoices in AED, Barcode Tags | Infovion JMS",
+    title: "Jewellery Software in UAE & Dubai: AED, VAT, TRN | Infovion JMS",
     description: "Jewellery software for shops in Dubai and across the UAE: billing by weight and karat in AED, 5% VAT tax invoices with your TRN, barcode tags, stock audit.",
     trail: "Jewellery software UAE",
     kicker: "Infovion JMS · United Arab Emirates",
@@ -390,7 +390,7 @@ const LANDINGS = {
     sources: [["UAE Ministry of Finance: eInvoicing", "https://mof.gov.ae/einvoicing"], ["UAE Federal Tax Authority", "https://tax.gov.ae"]],
   },
   "jewellery-billing-software": {
-    title: "Jewellery Billing Software with GST | Making Charges, Purity and Old Gold | Infovion JMS",
+    title: "Jewellery Billing Software with GST and Old Gold | Infovion JMS",
     description: "Jewellery billing software that prices items by weight, purity, rate and making charges, adjusts old gold and produces GST invoices. Part of Infovion JMS.",
     trail: "Jewellery billing software",
     kicker: "Infovion JMS",
@@ -418,7 +418,7 @@ const LANDINGS = {
     sources: [["CBIC: Sectoral FAQ on Gems and Jewellery", "https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf"]],
   },
   "jewellery-barcode-software": {
-    title: "Jewellery Barcode Software | Tag Printing, Scanning and Stock Audit | Infovion JMS",
+    title: "Jewellery Barcode Software: Tags, Scanning, Audit | Infovion JMS",
     description: "Jewellery barcode software: tag every piece, print barcode or QR tags on TSC, Zebra or Argox printers, bill by scanning and audit stock by scanning.",
     trail: "Jewellery barcode software",
     kicker: "Infovion JMS",
@@ -440,7 +440,7 @@ const LANDINGS = {
     ],
   },
   "girvi-software": {
-    title: "Girvi Software for Jewellers | Gold Loan (Gahan) Management | Infovion JMS",
+    title: "Girvi Software for Jewellers: Gold Loan Register | Infovion JMS",
     description: "Girvi (gahan) software for jewellers: record gold loans with weight, purity, amount and interest, take part-payments, track overdue pledges, print receipts.",
     trail: "Girvi software",
     kicker: "Infovion JMS",

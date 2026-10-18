@@ -148,7 +148,7 @@ const MarathiBlock = (
 const PAGES = {
   maharashtra: {
     slug: "school-management-software-maharashtra",
-    title: "School Management Software for Maharashtra Schools (Marathi LC, State Board) | Infovion",
+    title: "School ERP for Maharashtra: Marathi LC, State Board | Infovion",
     description: "School ERP for Maharashtra: Marathi leaving certificates with G.R. No., State Board ready, fees, attendance and a parent portal. ₹150 per student a year.",
     kicker: "Made in Pune, for Maharashtra",
     h1: "School management software for",
@@ -184,7 +184,7 @@ const PAGES = {
   },
   fees: {
     slug: "fee-management-software-for-schools",
-    title: "School Fee Management Software — Instalments, Receipts, Defaulters, UPI | Infovion",
+    title: "School Fee Management Software with UPI and Receipts | Infovion",
     description: "Fee management software for Indian schools: instalments, concessions, instant receipts, defaulter lists and UPI payments to the school's account.",
     kicker: "Fee management",
     h1: "School fee management,",
@@ -219,7 +219,7 @@ const PAGES = {
   },
   attendance: {
     slug: "school-attendance-app",
-    title: "School Attendance App for Teachers & Parents — Mark in Seconds | Infovion",
+    title: "School Attendance App for Teachers and Parents | Infovion",
     description: "School attendance app: teachers mark attendance on their phone in seconds, the office sees progress live and parents see attendance the same day.",
     kicker: "Attendance",
     h1: "The school attendance app",
@@ -254,7 +254,7 @@ const PAGES = {
   },
   transport: {
     slug: "school-transport-management-software",
-    title: "School Transport Management Software — Routes, Fees, Bus Tracking | Infovion",
+    title: "School Transport Software: Routes, Fees, Bus Tracking | Infovion",
     description: "School transport management: routes and stops, per-stop monthly fares, bus attendance, live bus location for parents and vehicle document reminders.",
     kicker: "School transport",
     h1: "School transport,",
