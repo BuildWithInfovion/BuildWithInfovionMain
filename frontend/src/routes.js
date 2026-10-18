@@ -30,6 +30,7 @@ export const PRERENDER_ROUTES = [
   // Infovion JMS
   "/jewellery-management-software",
   "/jewellery-billing-software",
+  "/jewellery-barcode-software",
   "/girvi-software",
   // Content & legal
   "/blog",

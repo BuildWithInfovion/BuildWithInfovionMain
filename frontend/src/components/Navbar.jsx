@@ -3,10 +3,14 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Gem, GraduationCap, Landmark } from "lucide-react";
 import { SERVICES } from "../Data/services";
-import { COMPANY, PRODUCTS } from "../Data/company";
+import { COMPANY, PRODUCTS, jmsTrial } from "../Data/company";
 import { productOf } from "../lib/sections";
 import { Icon } from "./site/Ui";
 
+
+/** A link that may point to another site (the JMS app). */
+const Go = ({ to, className, children }) =>
+  to.startsWith("http") ? <a href={to} className={className}>{children}</a> : <Link to={to} className={className}>{children}</Link>;
 
 // Pages that still have a light top: the bar must be solid there
 const LIGHT_PAGES = ["/privacy-policy", "/terms-of-service"];
@@ -30,8 +34,8 @@ const SUBNAV = {
   },
   jms: {
     name: "Infovion JMS", icon: Gem, home: "/jewellery-management-software",
-    links: [["/jewellery-management-software", "Overview"], ["/jewellery-billing-software", "Billing & GST"], ["/girvi-software", "Girvi"], ["/case-studies/jewellery-management-system", "Case study"]],
-    cta: ["/contact?interest=jms", "Book a demo"],
+    links: [["/jewellery-management-software", "Overview"], ["/jewellery-billing-software", "Billing & GST"], ["/jewellery-barcode-software", "Barcode tags"], ["/girvi-software", "Girvi"], ["/case-studies/jewellery-management-system", "Case study"]],
+    cta: [jmsTrial()[0], "Free trial"],
   },
 };
 
@@ -199,9 +203,9 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <Link to={cta[0]} className="hidden items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 sm:inline-flex">
+              <Go to={cta[0]} className="hidden items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 sm:inline-flex">
                 {cta[1]}
-              </Link>
+              </Go>
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
@@ -231,7 +235,7 @@ export default function Navbar() {
                   <NavLink key={to} to={to} end className={({ isActive }) => `whitespace-nowrap rounded-full px-3 py-1 text-xs font-medium transition-colors ${isActive ? "bg-teal-400/10 text-teal-200" : "text-slate-300 hover:text-white"}`}>{label}</NavLink>
                 ))}
               </nav>
-              <Link to={sub.cta[0]} className="hidden flex-shrink-0 text-xs font-semibold text-teal-300 hover:text-teal-200 md:inline">{sub.cta[1]}</Link>
+              <Go to={sub.cta[0]} className="hidden flex-shrink-0 text-xs font-semibold text-teal-300 hover:text-teal-200 md:inline">{sub.cta[1]}</Go>
             </div>
           </div>
         )}
@@ -274,9 +278,9 @@ export default function Navbar() {
                 <Link key={to} to={to} className="block border-b border-white/[0.07] py-4 font-display text-xl font-extrabold text-white">{t}</Link>
               ))}
               <div className="mt-8 flex flex-col gap-3">
-                <Link to={cta[0]} className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-[#020409]">
+                <Go to={cta[0]} className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-[#020409]">
                   {cta[1]}
-                </Link>
+                </Go>
                 <a href={COMPANY.phoneHref} className="text-center text-sm font-semibold text-slate-300">Call {COMPANY.phone}</a>
               </div>
             </nav>

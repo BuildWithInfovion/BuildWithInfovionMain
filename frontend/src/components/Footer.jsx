@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
 import { SERVICES } from "../Data/services";
-import { COMPANY, fullAddress } from "../Data/company";
+import { COMPANY, fullAddress, jmsTrial } from "../Data/company";
 import { productOf } from "../lib/sections";
 
 
@@ -19,6 +19,7 @@ const PRODUCT_LINKS = [
   ["/school-transport-management-software", "School transport"],
   ["/jewellery-management-software", "Infovion JMS", true],
   ["/jewellery-billing-software", "Jewellery billing software"],
+  ["/jewellery-barcode-software", "Jewellery barcode software"],
   ["/girvi-software", "Girvi software"],
 ];
 
@@ -44,7 +45,7 @@ const SOCIAL = [
 // The call to action above the footer depends on which part of the site the visitor is in
 const STRIPS = {
   school: ["Evaluate Infovion School ERP with your school's data", "30-day free trial. No payment details required.", ["/free-trial", "Start free trial"]],
-  jms: ["See Infovion JMS with your own products and rates", "Demonstrations online or at your store in Pune.", ["/contact?interest=jms", "Book a demo"]],
+  jms: ["Try Infovion JMS in your shop", "30-day free trial. Billing, barcode tags, girvi and Tally export.", jmsTrial()],
   company: ["Planning a software project?", "Share your requirements. We respond within one business day.", ["/contact", "Contact us"]],
 };
 const NO_STRIP = ["/", "/free-trial", "/contact", "/company-profile"];
@@ -77,9 +78,15 @@ export default function Footer() {
               <p className="font-display text-lg font-semibold text-white">{strip[0]}</p>
               <p className="mt-1 text-sm text-slate-400">{strip[1]}</p>
             </div>
-            <Link to={strip[2][0]} className="inline-flex flex-shrink-0 items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100">
-              {strip[2][1]} <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            {strip[2][0].startsWith("http") ? (
+              <a href={strip[2][0]} className="inline-flex flex-shrink-0 items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100">
+                {strip[2][1]} <ArrowUpRight className="h-4 w-4" />
+              </a>
+            ) : (
+              <Link to={strip[2][0]} className="inline-flex flex-shrink-0 items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100">
+                {strip[2][1]} <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            )}
           </div>
         </div>
       )}

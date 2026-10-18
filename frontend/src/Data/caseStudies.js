@@ -58,7 +58,7 @@ export const CASE_STUDIES = [
     results: [
       "Bills, girvi records and customer balances managed in one system at the counter.",
       "Invoices printed on A4 or shared with the customer as a PDF.",
-      "The system was developed further into Infovion JMS, configurable for any jewellery store.",
+      "The system was developed further into Infovion JMS, now offered to jewellery shops in India and abroad, with barcode tags, stock audit and country settings for currency and tax.",
     ],
     links: [["Infovion JMS", "/jewellery-management-software"]],
   },

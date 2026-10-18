@@ -52,12 +52,15 @@ ${services}
 
 ### Infovion JMS — jewellery management software (${D}/jewellery-management-software)
 
-- Jewellery management software for jewellery stores: billing by weight, purity, rate per gram and making charges; HUID on invoice lines; old-gold exchange, advance and discount (applied before GST); GST on the full value incl. making charges with the CGST/SGST split; A4 printing and PDF sharing on WhatsApp; girvi / gahan (gold loan) register with interest to date, overdue alerts, receipts and release with interest received; udhaar (customer credit) ledger with part-payments by cash, UPI, card or bank; stock by piece and by weight; sales and girvi reports; owner and staff logins.
-- Tally integration: the owner exports TallyPrime XML (ledgers and vouchers — sales with CGST/SGST, receipts, girvi loans, releases and interest income) and Excel GST sales and girvi registers for the CA, for any month or financial year.
-- Runs in any web browser; each store has its own installation and database.
-- Outside India: deployed as a customised installation with local currency, tax (VAT/sales tax), purity standards and invoice language.
-- Pricing: yearly plan per store with setup and training; quoted after a demo. Demo: ${D}/contact?interest=jms
-- Pages: [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software)
+- Jewellery management software for jewellery shops in India and worldwide, sold as an online service: each shop signs up and uses it in a web browser at https://jms.infovion.in.
+- Billing by weight, purity, rate per gram and making charges (per gram, % or per piece) with stone charges; daily metal rates by purity; HUID on tags and invoice lines; old-gold exchange, split payments and discount applied before tax; GST with CGST/SGST or IGST, or VAT; invoices on A4, A5 or 80 mm rolls, PDF and WhatsApp sharing.
+- Barcode tagging: every piece gets a tag number; barcode (Code 128) or QR tags print on thermal tag printers (TSC, Zebra, Argox and others, through their drivers) on 100×15, 100×13, 95×12 or 81×12 mm jewellery tag rolls, stickers or A4 sheets; pieces are billed by scanning with a USB/Bluetooth scanner or a phone camera; stock audits by scanning every tag list missing, sold and unknown tags.
+- Girvi / gahan register with interest to date, interest and part-principal payments, overdue alerts, pledge and release receipts; customer credit (udhaar) ledger with payments; stock import from Excel; owner and staff accounts with an activity log.
+- Tally integration: the owner exports TallyPrime XML (ledgers and vouchers: sales with tax, receipts, old gold, girvi loans, releases and interest income) and Excel sales, girvi and stock registers for the accountant, for any month or financial year.
+- Countries: presets for India (GST), UAE, Saudi Arabia, Oman, Bahrain (VAT), Qatar, Kuwait, Singapore, UK, USA, Canada and Australia set currency, tax, purities (e.g. 21K in the Gulf, 9ct in the UK), rate units (gram, 10 g, tola, troy ounce) and financial year.
+- Data: each shop's data is kept separate; the owner can export a full backup at any time; data is not deleted when a plan ends.
+- Pricing: ₹9,999 per shop per year plus GST, everything included, after a 30-day free trial. Outside India: quoted in local currency. Free trial: https://jms.infovion.in/signup · Demo shop: https://jms.infovion.in/demo
+- Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software)
 
 ## Case studies
 

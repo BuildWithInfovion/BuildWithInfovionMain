@@ -158,7 +158,7 @@ export function CtaBand({
           <p className="mt-3 text-slate-300">{sub}</p>
         </div>
         <div className="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
-          <GlowButton to={primary[1]}>{primary[0]} <ArrowRight className="h-4 w-4" /></GlowButton>
+          <GlowButton {...(primary[1].startsWith("http") ? { href: primary[1] } : { to: primary[1] })}>{primary[0]} <ArrowRight className="h-4 w-4" /></GlowButton>
           <GhostButton href={wa(whatsappText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
         </div>
       </div>
