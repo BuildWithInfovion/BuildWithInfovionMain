@@ -52,6 +52,33 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
+// Once the first page has loaded, fetch the code for the other pages in idle time, so moving
+// between pages never waits on the network (skipped when the visitor has Data Saver on)
+const PAGE_MODULES = [
+  () => import("./pages/company/Services"),
+  () => import("./pages/company/CaseStudies"),
+  () => import("./pages/company/Industries"),
+  () => import("./pages/company/Government"),
+  () => import("./pages/company/HowWeWork"),
+  () => import("./pages/company/About"),
+  () => import("./pages/company/Contact"),
+  () => import("./pages/company/CompanyProfile"),
+  () => import("./pages/school/SchoolHome"),
+  () => import("./pages/school/Features"),
+  () => import("./pages/school/Pricing"),
+  () => import("./pages/jms/Jms"),
+  () => import("./pages/landing/Landing"),
+  () => import("./pages/Blog"),
+];
+if (typeof window !== "undefined" && !navigator.connection?.saveData) {
+  const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 200));
+  const prefetch = () => {
+    const next = PAGE_MODULES.shift();
+    if (next) idle(() => next().catch(() => {}).finally(prefetch));
+  };
+  window.addEventListener("load", () => setTimeout(prefetch, 2500), { once: true });
+}
+
 const globalSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -139,7 +166,7 @@ export function AppRoutes() {
       <ScrollToTop />
       <WhatsAppButton />
       <MainLayout>
-        <Suspense fallback={<div className="min-h-screen bg-[#05070D]" />}>
+        <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />

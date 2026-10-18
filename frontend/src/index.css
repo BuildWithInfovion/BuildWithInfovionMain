@@ -53,6 +53,7 @@
 
 @layer base {
   html {
+    background-color: #000105;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
@@ -172,6 +173,11 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(94,234,212,0.12);
   }
+
+  /* The brand scene fills the largest viewport height, so it still covers the screen on phones
+     when the address bar slides away while scrolling */
+  .brand-bg { height: 100vh; height: 100lvh; }
+  @media (prefers-reduced-motion: reduce) { .logo-light { display: none; } }
 
   /* ── SECTION DIVIDER ──────────────────────────────────── */
   .section-divider {
@@ -366,12 +372,9 @@
   .beam-dash { stroke-dasharray: 6 260; animation: beam 3.6s linear infinite; }
   @keyframes beam { from { stroke-dashoffset: 266; } to { stroke-dashoffset: 0; } }
 
-  /* Panels over the moving background: opaque enough to read on phones (no blur there —
-     blurring a playing video every frame is expensive), frosted on larger screens */
-  .glass { background: rgba(6,10,20,.82); border: 1px solid rgba(148,163,184,.14); }
-  @media (min-width: 768px) {
-    .glass { background: rgba(6,10,20,.62); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-  }
+  /* Panels over the moving background. No backdrop blur: re-blurring an animated background
+     under every panel on every frame is what made scrolling stutter */
+  .glass { background: linear-gradient(180deg, rgba(8,13,26,.86), rgba(5,8,17,.8)); border: 1px solid rgba(148,163,184,.14); }
   .panel { background: rgba(4,7,14,.72); border: 1px solid rgba(148,163,184,.13); }
   .hairline { border-color: rgba(148,163,184,.12); }
   .noise::before {

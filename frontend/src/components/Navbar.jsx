@@ -6,6 +6,7 @@ import { SERVICES } from "../Data/services";
 import { COMPANY, PRODUCTS, jmsTrial } from "../Data/company";
 import { productOf } from "../lib/sections";
 import { Icon } from "./site/Ui";
+import HeaderLogo from "./site/HeaderLogo";
 
 
 /** A link that may point to another site (the JMS app). */
@@ -51,7 +52,7 @@ function Dropdown({ id, open, children, className = "" }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 6 }}
           transition={{ duration: 0.18 }}
-          className={`absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-xl border border-white/10 bg-[#04070f]/[0.98] p-5 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl ${className}`}
+          className={`absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-xl border border-white/10 bg-[#04070f]/[0.98] p-5 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.8)] ${className}`}
         >
           {children}
         </Motion.div>
@@ -126,9 +127,7 @@ export default function Navbar() {
         ref={navRef}
         className="fixed left-0 right-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 print:hidden"
         style={{
-          backgroundColor: onLight || menu ? "rgba(2,4,9,0.97)" : isScrolled ? "rgba(2,4,9,0.86)" : "rgba(2,4,9,0)",
-          backdropFilter: isScrolled || menu ? "blur(18px)" : "none",
-          WebkitBackdropFilter: isScrolled || menu ? "blur(18px)" : "none",
+          backgroundColor: onLight || menu ? "rgba(2,4,9,0.97)" : isScrolled ? "rgba(2,4,9,0.985)" : "rgba(2,4,9,0)",
           borderBottom: solid ? "1px solid rgba(148,163,184,0.14)" : "1px solid transparent",
           boxShadow: solid ? "0 4px 32px rgba(0,0,0,0.28)" : "none",
         }}
@@ -137,7 +136,7 @@ export default function Navbar() {
           <div className="flex h-[72px] items-center justify-between gap-4">
             {/* Official logo artwork (mark + wordmark), see public/brand */}
             <Link to="/" className="flex flex-shrink-0 items-center" aria-label="Infovion Technologies, home">
-              <img src="/brand/infovion-lockup-h.webp" alt="Infovion" width="427" height="120" className="h-9 w-auto sm:h-10" />
+              <HeaderLogo />
             </Link>
 
             <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
