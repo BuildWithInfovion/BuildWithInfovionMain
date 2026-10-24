@@ -3,7 +3,7 @@ const SCHOOL = [
   "/school-management-software", "/free-trial", "/free-tools", "/videos",
   "/school-management-software-maharashtra", "/fee-management-software-for-schools", "/school-attendance-app", "/school-transport-management-software",
 ];
-const JMS = ["/jewellery-management-software", "/jewellery-billing-software", "/jewellery-barcode-software", "/girvi-software", "/jewellery-software-uae"];
+const JMS = ["/jewellery-management-software", "/jewellery-billing-software", "/jewellery-barcode-software", "/girvi-software", "/jewellery-software-uae", "/money-lending-software", "/jewellery-software-with-tally"];
 
 const under = (path, bases) => bases.some((b) => path === b || path.startsWith(`${b}/`));
 

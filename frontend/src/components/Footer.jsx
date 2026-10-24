@@ -22,6 +22,8 @@ const PRODUCT_LINKS = [
   ["/jewellery-barcode-software", "Jewellery barcode software"],
   ["/jewellery-software-uae", "Jewellery software UAE"],
   ["/girvi-software", "Girvi software"],
+  ["/money-lending-software", "Money lending software"],
+  ["/jewellery-software-with-tally", "Jewellery software with Tally"],
 ];
 
 const COMPANY_LINKS = [

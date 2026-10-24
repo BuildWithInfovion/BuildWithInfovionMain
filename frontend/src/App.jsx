@@ -47,6 +47,8 @@ const JmsBilling = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: 
 const Girvi = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.GirviPage })));
 const JmsBarcode = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.BarcodePage })));
 const JmsUae = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.UaePage })));
+const MoneyLending = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.MoneyLendingPage })));
+const JmsTally = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.TallyPage })));
 // Content & legal
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -221,6 +223,8 @@ export function AppRoutes() {
             <Route path="/girvi-software" element={<Girvi />} />
             <Route path="/jewellery-barcode-software" element={<JmsBarcode />} />
             <Route path="/jewellery-software-uae" element={<JmsUae />} />
+            <Route path="/money-lending-software" element={<MoneyLending />} />
+            <Route path="/jewellery-software-with-tally" element={<JmsTally />} />
 
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

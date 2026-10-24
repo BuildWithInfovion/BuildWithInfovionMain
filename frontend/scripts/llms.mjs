@@ -55,12 +55,19 @@ ${services}
 - Jewellery management software for jewellery shops in India and worldwide, sold as an online service: each shop signs up and uses it in a web browser at https://jms.infovion.in.
 - Billing by weight, purity, rate per gram and making charges (per gram, % or per piece) with stone charges; daily metal rates by purity; HUID on tags and invoice lines; old-gold exchange, split payments and discount applied before tax; GST with CGST/SGST or IGST, or VAT; invoices on A4, A5 or 80 mm rolls, PDF and WhatsApp sharing.
 - Barcode tagging: every piece gets a tag number; barcode (Code 128) or QR tags print on thermal tag printers (TSC, Zebra, Argox and others, through their drivers) on 100×15, 100×13, 95×12 or 81×12 mm jewellery tag rolls, stickers or A4 sheets; pieces are billed by scanning with a USB/Bluetooth scanner or a phone camera; stock audits by scanning every tag list missing, sold and unknown tags.
-- Girvi / gahan register with interest to date, interest and part-principal payments, overdue alerts, pledge and release receipts; customer credit (udhaar) ledger with payments; stock import from Excel; owner and staff accounts with an activity log.
-- Tally integration: the owner exports TallyPrime XML (ledgers and vouchers: sales with tax, receipts, old gold, girvi loans, releases and interest income) and Excel sales, girvi and stock registers for the accountant, for any month or financial year.
-- Countries: presets for India (GST), UAE, Oman, Bahrain (VAT), Qatar, Kuwait, Singapore, UK, USA, Canada and Australia set currency, tax, purities (e.g. 21K in the Gulf, 9ct in the UK), rate units (gram, 10 g, tola, troy ounce) and financial year.
+- Girvi / gahan register with interest to date, interest and part-principal payments, overdue alerts, ornament photos, pledge and release receipts; customer credit (udhaar) ledger with payments and WhatsApp reminders; stock import from Excel; owner and staff accounts with access set per area and an activity log.
+- Languages: every screen in English, Hindi or Marathi, chosen per person; bills with Hindi or Marathi labels next to English; WhatsApp messages in each customer's language.
+- Devices: printing through any printer driver, or directly without a driver to ESC/POS receipt printers (paper cut, cash drawer) and to tag printers in TSPL (TSC, TVS, Argox, Xprinter), ZPL or EPL (Zebra) over USB, Bluetooth or a .prn file; jewellery weighing scales with RS-232 or USB output fill in weights; USB/Bluetooth barcode scanners or the phone camera.
+- KYC and compliance (India): customer ID and PAN stored encrypted and masked, with consent and verification; bills over ₹2 lakh ask for PAN or Form 60 (Income Tax Rule 114B); cash of ₹2 lakh or more on one bill is refused (section 269ST).
+- Notifications for out-of-stock items, overdue girvi and udhaar and loans due; Ctrl+K search; sign-in history and lockout after repeated wrong passwords.
+- Finance add-on (money lending, priced separately): finance files collected daily, Monday–Saturday, weekly, fortnightly or monthly with the interest deducted up front; interest loans by full months or by days, part-month rule, interest cap; processing and late fees, waivers, write-offs, settlement quotes; due list and collection sheets per agent; partners; cash book, day book, day close with cash count, profit and loss: ${D}/money-lending-software
+- Gold release add-on: pay off a customer's bank gold loan, release, weigh and test the gold, buy it or return it for a fee, with agreement and settlement in the customer's language and the profit on each case.
+- Tally integration: the owner exports TallyPrime XML (ledgers and vouchers: sales with tax, receipts, old gold, udhaar payments, girvi loans, repayments and interest income) and Excel sales, girvi and stock registers for the accountant, for any month or financial year: ${D}/jewellery-software-with-tally
+- Countries: presets for India (GST), UAE, Saudi Arabia, Oman, Bahrain (VAT), Qatar, Kuwait, Singapore, UK, USA, Canada and Australia set currency, tax, purities (e.g. 21K in the Gulf, 9ct in the UK), rate units (gram, 10 g, tola, troy ounce) and financial year.
 - Data: each shop's data is kept separate; the owner can export a full backup at any time; data is not deleted when a plan ends.
 - Pricing: ₹9,999 per shop per year plus GST, everything included, after a 30-day free trial. Outside India: quoted in local currency. Free trial: https://jms.infovion.in/signup · Demo shop: https://jms.infovion.in/demo
-- Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software) · [Jewellery software in the UAE (AED, 5% VAT, TRN)](${D}/jewellery-software-uae)
+- Not supported yet: Arabic invoices, UAE e-invoicing and Saudi ZATCA (Fatoora) e-invoicing, RFID, custom orders, karigar job work, gold savings schemes.
+- Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software) · [Money lending software](${D}/money-lending-software) · [Jewellery software with Tally](${D}/jewellery-software-with-tally) · [Jewellery software in the UAE (AED, 5% VAT, TRN)](${D}/jewellery-software-uae)
 
 ## Case studies
 
@@ -98,9 +105,9 @@ const PRODUCTS_AI = [
     price: "₹9,999 per shop per year, plus GST",
     trial: "30 days, self-serve: https://jms.infovion.in/signup",
     demo: "https://jms.infovion.in/demo",
-    markets: ["India", "United Arab Emirates", "Oman", "Bahrain", "Qatar", "Kuwait", "United Kingdom", "United States", "Canada", "Singapore", "Australia"],
-    summary: "Jewellery management software for jewellery shops: billing by weight, purity and making charges, barcode and QR tags with scanning and stock audit, GST or VAT invoices, old-gold exchange, girvi (gold loans), customer credit and Tally export.",
-    pages: [`${D}/jewellery-billing-software`, `${D}/jewellery-barcode-software`, `${D}/girvi-software`, `${D}/jewellery-software-uae`],
+    markets: ["India", "United Arab Emirates", "Saudi Arabia", "Oman", "Bahrain", "Qatar", "Kuwait", "United Kingdom", "United States", "Canada", "Singapore", "Australia"],
+    summary: "Jewellery management software for jewellery shops: billing by weight, purity and making charges, barcode and QR tags with scanning and stock audit, GST or VAT invoices, old-gold exchange, girvi (gold loans), customer credit, KYC and Tally export, in English, Hindi or Marathi, with add-ons for money lending and gold release.",
+    pages: [`${D}/jewellery-billing-software`, `${D}/jewellery-barcode-software`, `${D}/girvi-software`, `${D}/money-lending-software`, `${D}/jewellery-software-with-tally`, `${D}/jewellery-software-uae`],
   },
 ];
 
@@ -111,6 +118,8 @@ const FAQ_AI = [
   ["What is Infovion School ERP and how much does it cost?", "School management software for Indian K-12 schools with eight role portals. It costs ₹150 per enrolled student per academic year plus GST, with every module included and a 30-day free trial."],
   ["What is Infovion JMS and how much does it cost?", "Jewellery management software for jewellery shops in India and abroad: billing by weight and purity, barcode tags and scanning, stock audit, GST or VAT invoices, girvi and customer credit. It costs ₹9,999 per shop per year plus GST after a 30-day free trial."],
   ["Does Infovion JMS work for jewellery shops in Dubai and the UAE?", "Yes. UAE shops get prices in AED, 24K, 22K, 21K and 18K purities, 5% VAT on metal, making and stones, and tax invoices with the shop's TRN. Arabic invoices and UAE e-invoicing submission are not supported yet."],
+  ["Is Infovion JMS available in Hindi and Marathi?", "Yes. Every screen can be switched to English, Hindi or Marathi per person, bills can carry Hindi or Marathi labels next to English, and WhatsApp reminders go out in each customer's language."],
+  ["Does Infovion JMS handle money lending?", "Yes, with the Finance add-on: finance files with daily, weekly or monthly collections, interest loans, late fees, a due list with collection sheets, partners, a cash book, day close and profit and loss. A Gold release add-on handles gold pledged with banks."],
   ["Does Infovion work on government projects?", "Yes. It develops GIGW 3.0 aligned, WCAG 2.1 AA accessible websites, e-governance portals, MIS dashboards and field apps with data hosted in India, and is a Udyam-registered MSE."],
   ["How can I contact Infovion Technologies?", `Email ${COMPANY.email}, call ${COMPANY.phone}, WhatsApp ${COMPANY.whatsapp}, or use ${D}/contact.`],
 ];
