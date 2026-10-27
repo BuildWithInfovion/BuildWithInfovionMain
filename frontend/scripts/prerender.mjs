@@ -52,6 +52,9 @@ for (const url of routes) {
     if (/property="og:image"/.test(head)) base = base.replace(/<meta\s+property="og:image(:width|:height)?"[^>]*\/>/gi, "");
     if (/property="og:type"/.test(head)) base = base.replace(/<meta\s+property="og:type"[^>]*\/>/i, "");
     let page = base.replace("</head>", `    ${head}\n  </head>`);
+    // A page in another language (a Hindi or Marathi article) says so on <html>
+    const lang = helmet?.htmlAttributes?.toString().match(/lang="([^"]+)"/)?.[1];
+    if (lang) page = page.replace(/<html lang="[^"]*"/, `<html lang="${lang}"`);
     // In the built index.html the scripts live in <head>, so #root runs to </body>
     page = page.replace(/<div id="root">[\s\S]*<\/body>/, () => `<div id="root" data-ssr="${url}">${html}</div>\n    ${loader}\n  </body>`);
     // Cloudflare's email obfuscation would rewrite the addresses (breaking hydration)

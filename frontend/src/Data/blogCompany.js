@@ -328,7 +328,7 @@ export const companyPosts = [
       </ul>
       <h2>Getting the bills to your CA</h2>
       <p>At the end of the month your CA needs every invoice in the books — usually in Tally — with the taxable value and CGST/SGST separated, and cash and bank receipts kept apart. Re-typing invoices is slow and error-prone; exporting them from your billing software is not.</p>
-      <p><em>Infovion JMS calculates each line from weight, purity, rate and making charges, applies the discount before GST, prints a GST invoice with the CGST/SGST split, and exports the month's sales and receipts to Tally for your CA. <a href="/jewellery-billing-software">See jewellery billing in JMS</a>.</em></p>
+      <p><em>Infovion JMS calculates each line from weight, purity, rate and making charges, applies the discount before GST, prints a GST invoice with the CGST/SGST split, and exports the month's sales and receipts to Tally for your CA. <a href="/jewellery-billing-software">See jewellery billing in JMS</a>, work out a price with the <a href="/gold-price-calculator">free gold price calculator</a>, or see how JMS prepares <a href="/jewellery-gst-software">GSTR-1 and GSTR-3B</a>.</em></p>
       <p><small>Sources: <a href="https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf" rel="noopener" target="_blank">CBIC sectoral FAQ — Gems and Jewellery</a>; <a href="https://www.bis.gov.in/hallmarking-overview/hallmarking-faqs/hallmarking-faq/" rel="noopener" target="_blank">BIS hallmarking FAQ</a>; Section 15, CGST Act, 2017.</small></p>
     `,
   },
@@ -387,7 +387,7 @@ export const companyPosts = [
         <li>Printed receipts with the same details every time.</li>
         <li>Reports for any period for your accountant.</li>
       </ul>
-      <p><em>Infovion JMS shows the interest built up on every pledge, records the interest received at release, and exports girvi loans and interest to Tally for your CA. <a href="/girvi-software">See girvi software in JMS</a>.</em></p>
+      <p><em>Infovion JMS shows the interest built up on every pledge, records the interest received at release, and exports girvi loans and interest to Tally for your CA. <a href="/girvi-software">See girvi software in JMS</a>, or try the <a href="/girvi-interest-calculator">free girvi interest calculator</a>.</em></p>
     `,
   },
   {

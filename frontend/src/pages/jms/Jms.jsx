@@ -522,6 +522,10 @@ export function JmsHome() {
           <LinkRow to="/gold-price-calculator" title="Free gold price calculator" body="Weight, purity, making charges, 3% GST and old gold, shared on WhatsApp." />
           <LinkRow to="/girvi-interest-calculator" title="Free girvi interest calculator" body="Interest on a gold loan counted by days, with a minimum period." />
           <LinkRow to="/jewellery-software-uae" title="Jewellery software in the UAE" body="AED rates, 5% VAT tax invoices with TRN, and Gulf karats for Dubai and beyond." />
+          <LinkRow to="/blog/how-to-choose-jewellery-software-india" title="How to choose jewellery software" body="A 20-point checklist for demos, and what software should cost." />
+          <LinkRow to="/blog/gold-savings-scheme-rules-for-jewellers" title="Gold savings scheme rules" body="The 365-day rule, the BUDS Act, bonus and early closure." />
+          <LinkRow to="/blog/karigar-fine-gold-touch-wastage-calculation" title="Karigar fine gold, touch and wastage" body="Worked examples for issuing gold and receiving work." />
+          <LinkRow to="/blog/hallmarking-huid-rules-for-jewellers" title="Hallmarking and HUID" body="What jewellers must know, and what goes on the bill." />
           <LinkRow to="/case-studies/jewellery-management-system" title="Case study" body="How JMS was developed with a jewellery shop in Maharashtra." />
         </div>
       </Section>
@@ -736,7 +740,7 @@ const LANDINGS = {
       ["How is the scheme used when the customer buys?", "On the bill, choose the customer's matured scheme as a payment. The amount and the bonus are taken off the bill, and the scheme is closed."],
       ["Can a customer close a scheme early?", "Yes. JMS works out the amount paid less the deduction you set for early closure, and records the refund or the purchase."],
     ],
-    links: [["/karigar-management-software", "Orders and karigar", "Custom orders with advances, karigar jobs and repairs."], ["/jewellery-billing-software", "Jewellery billing", "How the bill is calculated and paid, including schemes."]],
+    links: [["/blog/gold-savings-scheme-rules-for-jewellers", "Guide: gold savings scheme rules", "The 365-day rule, the BUDS Act, bonus and early closure."], ["/karigar-management-software", "Orders and karigar", "Custom orders with advances, karigar jobs and repairs."], ["/jewellery-billing-software", "Jewellery billing", "How the bill is calculated and paid, including schemes."]],
     whatsappText: "Hello Infovion, I would like to know more about gold savings schemes in Infovion JMS.",
   },
   "karigar-management-software": {
@@ -762,7 +766,7 @@ const LANDINGS = {
       ["Are repairs charged with GST?", "Repair charges are a service and carry GST at the rate your accountant confirms. JMS prints a repair bill with the SAC code and the tax."],
       ["Do customers get updates on WhatsApp?", "Yes. A message can be sent when the order or repair is ready, in English, Hindi or Marathi."],
     ],
-    links: [["/gold-scheme-software", "Gold scheme software", "Monthly schemes with bonus and redemption on the bill."], ["/jewellery-gst-software", "GST for jewellers", "GSTR-1 and GSTR-3B from bills, repairs and purchases."]],
+    links: [["/blog/karigar-fine-gold-touch-wastage-calculation", "Guide: fine gold, touch and wastage", "Worked examples for karigar accounts."], ["/gold-scheme-software", "Gold scheme software", "Monthly schemes with bonus and redemption on the bill."], ["/jewellery-gst-software", "GST for jewellers", "GSTR-1 and GSTR-3B from bills, repairs and purchases."]],
     whatsappText: "Hello Infovion, I would like to know more about orders and karigar management in Infovion JMS.",
   },
   "jewellery-gst-software": {
@@ -789,7 +793,7 @@ const LANDINGS = {
       ["Can I still send my data to Tally?", "Yes. The Tally export carries sales with tax, receipts, old gold and girvi entries for any period."],
     ],
     sources: [["CBIC: Sectoral FAQ on Gems and Jewellery", "https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf"]],
-    links: [["/jewellery-billing-software", "Jewellery billing", "How a jewellery bill and its GST are calculated."], ["/jewellery-software-with-tally", "Tally export", "Ledgers and vouchers for TallyPrime."]],
+    links: [["/blog/jewellery-billing-gst-making-charges-old-gold", "Guide: GST on jewellery bills", "3% GST, making charges, discount and old gold, worked out."], ["/gold-price-calculator", "Gold price calculator", "Weight, purity, making charges and 3% GST."], ["/jewellery-billing-software", "Jewellery billing", "How a jewellery bill and its GST are calculated."], ["/jewellery-software-with-tally", "Tally export", "Ledgers and vouchers for TallyPrime."]],
   },
   "multi-branch-jewellery-software": {
     title: "Multi-Branch Jewellery Software: Stock Transfer | Infovion JMS",
@@ -871,6 +875,11 @@ const LANGS = [
   ["bengali", "Bengali", "বাংলা", "bn", ["নতুন বিল", "বন্ধক", "সঞ্চয় প্রকল্প", "স্টক", "ধার (উধার)", "অর্ডার", "মেরামত"], "West Bengal, from Kolkata to Siliguri and Durgapur, and Tripura", "bandhak (বন্ধক)"],
   ["punjabi", "Punjabi", "ਪੰਜਾਬੀ", "pa", ["ਨਵਾਂ ਬਿੱਲ", "ਗਿਰਵੀ", "ਬਚਤ ਸਕੀਮਾਂ", "ਸਟਾਕ", "ਉਧਾਰ", "ਆਰਡਰ", "ਮੁਰੰਮਤਾਂ"], "Punjab, from Ludhiana and Amritsar to Jalandhar and Patiala", "girvi (ਗਿਰਵੀ)"],
 ];
+// A guide written in the language itself, linked from its page
+const GUIDES = {
+  hi: ["/blog/jewellery-shop-software-hindi-guide", "ज्वेलरी शॉप सॉफ्टवेयर: पूरी गाइड (हिंदी)", "बिलिंग, गिरवी, स्कीम, स्टॉक और कारीगर हिसाब, हिंदी में।"],
+  mr: ["/blog/saraf-dukan-software-marathi-guide", "सराफ दुकान सॉफ्टवेअर: संपूर्ण मार्गदर्शक (मराठी)", "बिलिंग, गहाण, योजना, स्टॉक आणि कारागीर हिशोब, मराठीत."],
+};
 const MENU_EN = ["New bill", "Girvi", "Savings schemes", "Stock", "Udhaar", "Orders", "Repairs"];
 
 for (const [slug, name, native, code, menu, region, girvi, labels] of LANGS) {
@@ -897,6 +906,7 @@ for (const [slug, name, native, code, menu, region, girvi, labels] of LANGS) {
       ["How much does it cost?", `${PRICE} per shop, plus GST, after a free ${JMS.trialDays}-day trial, then an AMC of ${AMC} a year. Every language and feature is included.`],
     ],
     links: "langs",
+    guide: GUIDES[code],
     whatsappText: `Hello Infovion, I would like to know more about Infovion JMS in ${name} for our jewellery shop.`,
   };
 }
@@ -906,7 +916,7 @@ const LANG_LINKS = [["/jewellery-software-in-indian-languages", "All 10 language
 function JmsLanding({ k }) {
   const c = LANDINGS[k];
   const url = `${SITE}/${k}`;
-  const links = c.links === "langs" ? LANG_LINKS.filter(([to]) => to !== `/${k}`) : c.links;
+  const links = c.links === "langs" ? [...(c.guide ? [c.guide] : []), ...LANG_LINKS.filter(([to]) => to !== `/${k}`)] : c.links;
   return (
     <>
       <Helmet>

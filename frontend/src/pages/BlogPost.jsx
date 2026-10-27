@@ -42,11 +42,13 @@ export default function BlogPost() {
     articleSection: CATEGORY_LABEL[post.category] ?? post.category,
     keywords: (post.tags || []).join(", "),
     description: post.excerpt,
+    inLanguage: post.lang || "en-IN",
   };
 
   return (
     <div className="bg-ink">
       <Helmet>
+        {post.lang && <html lang={post.lang} />}
         <title>{post.seoTitle || `${post.title} | Infovion`}</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={url} />
