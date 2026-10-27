@@ -488,7 +488,7 @@ export function JmsHome() {
             <p className="mt-2 text-sm leading-relaxed text-slate-400">Recently added, at the request of jewellers, and included in every plan.</p>
             <h3 className="mt-7 font-display text-lg font-semibold text-white">Next on the list</h3>
             <ul className="mt-2 space-y-1.5 text-sm text-slate-400">
-              {["RFID tags for large showrooms", "Automatic WhatsApp Business messages", "GST e-invoice and e-way bill", "Loyalty points", "An app for your customers", "Diamond certificates on tags"].map((t) => (
+              {["Automatic WhatsApp Business messages", "Loyalty points", "An app for your customers", "Diamond certificates on tags", "Bank statement reconciliation"].map((t) => (
                 <li key={t} className="flex gap-2.5">
                   <Minus className="mt-0.5 h-4 w-4 flex-shrink-0 text-slate-500" aria-hidden="true" />
                   {t}
@@ -497,7 +497,7 @@ export function JmsHome() {
             </ul>
           </div>
           <ul className="grid content-start gap-x-8 sm:grid-cols-2">
-            {["Gold savings schemes", "Custom orders with advances", "Karigar job work and fine gold", "Repairs with job slips", "Old gold purchase and melting", "Supplier purchases", "GSTR-1 and GSTR-3B", "Profit and stock value", "Branches and stock transfer", "Billing without internet", "10 Indian languages", "Estimates, returns and exchanges"].map((t) => (
+            {["RFID stock audits", "Manufacturing: casting to polishing", "GST e-invoice (IRN and QR)", "Gold savings schemes", "Custom orders with advances", "Karigar job work and fine gold", "Repairs with job slips", "Old gold purchase and melting", "Supplier purchases", "GSTR-1 and GSTR-3B", "Profit and stock value", "Branches and stock transfer", "Billing without internet", "10 Indian languages", "Estimates, returns and exchanges"].map((t) => (
               <li key={t} className="flex gap-2.5 border-b border-white/10 py-3 text-sm text-slate-200">
                 <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />
                 {t}
@@ -559,7 +559,7 @@ const FEATURE_LIST = [
     ["Stock audit by scanning", "yes", "Missing, sold and unknown tags listed"],
     ["Weighing scale readings", "yes", "RS-232 or USB scales such as Essae, Citizen, Atom, Shimadzu"],
     ["Stock import from Excel, keeping your tag numbers", "yes", ""],
-    ["RFID tags and bulk RFID reading", "no", ""],
+    ["RFID tags and bulk RFID reading", "yes", "UHF readers that type like a keyboard, or a handheld's export file; thousands of tags matched at once in a stock audit, and at billing"],
   ]],
   ["Girvi, schemes and customers", [
     ["Girvi (gold loan) register with interest counted by days", "yes", "Part-payments of principal and interest, overdue list, ornament photos, release receipts"],
@@ -576,7 +576,7 @@ const FEATURE_LIST = [
     ["Work received with touch, wastage and labour", "yes", "Wastage reconciled against the fine gold issued"],
     ["Fine-gold and money balance for every karigar", "yes", ""],
     ["Repairs with numbered slips, karigar and delivery", "yes", "GST on the repair service"],
-    ["Multi-stage factory production (casting, filing, polishing departments)", "no", "JMS tracks job work with karigars, not departments inside a factory"],
+    ["Manufacturing through casting, filing, setting and polishing", "yes", "Production orders with metal issued and received at each process, loss against each process's allowed %, loss by process and worker, finished pieces into stock"],
   ]],
   ["Purchases, accounts and GST", [
     ["Supplier purchases with input GST", "yes", ""],
@@ -588,7 +588,8 @@ const FEATURE_LIST = [
     ["Cash book, day book, day close and profit and loss", "addon", "In the Finance add-on, with money lending"],
     ["Money lending: finance files, interest loans, collections", "addon", "Finance add-on"],
     ["Gold release from bank loans", "addon", "Gold release add-on"],
-    ["GST e-invoice (IRN) and e-way bill", "no", ""],
+    ["GST e-invoice: IRN and signed QR on the bill", "yes", "JSON for the IRP's bulk upload with the IRP's checks done first; IRNs read back and printed with the QR"],
+    ["E-way bill number on the bill", "yes", "Not needed for jewellery (HSN chapter 71) except within Kerala; when one is generated on the portal, its number is kept and printed"],
     ["Bank statement reconciliation", "no", "Done in Tally from the export"],
   ]],
   ["Shops, staff and devices", [
@@ -609,7 +610,9 @@ const FEATURE_FAQ = [
   ["Does Infovion JMS have gold savings schemes?", "Yes. Amount plans and 22K weight plans, instalment receipts, bonus, a list of late members and redemption of the matured amount on the bill."],
   ["Can Infovion JMS send WhatsApp reminders?", "Yes, with one tap per customer for udhaar, girvi, scheme instalments and ready orders, in English, Hindi or Marathi. Fully automatic scheduled sending is not available yet."],
   ["Is there an Infovion JMS mobile app?", "JMS works on any phone or tablet and installs as an app on Android and iPhone from the browser, so the owner can see sales, stock and dues anywhere. It is not in the Play Store or App Store yet."],
-  ["Does Infovion JMS support RFID, GST e-invoice or e-way bills?", "Not yet. Barcode and QR tags with scanning and stock audits are supported today, and GST invoices, GSTR-1 files and the GSTR-3B summary are produced every month."],
+  ["Does Infovion JMS support RFID?", "Yes. A piece can carry its RFID tag, or the tag can be encoded with the piece's tag number. In a stock audit a UHF reader reads a whole tray at once, or a handheld's export file is loaded; billing finds a piece by its RFID tag too. Barcode and QR tags keep working alongside."],
+  ["Does Infovion JMS make GST e-invoices?", "Yes. JMS prepares the month's invoices and credit notes to registered buyers in the IRP's JSON format, checking GSTINs, PIN codes and totals first. After the bulk upload on the e-invoice portal, the IRP's results are loaded back and each bill prints its IRN, acknowledgement and signed QR. E-way bills aren't needed for jewellery except within Kerala; their number is kept on the bill."],
+  ["Does Infovion JMS handle jewellery manufacturing?", "Yes. A production order issues metal to casting, filing, setting and polishing in turn, records what comes back with stones added and scrap recovered, flags any process that loses more than its allowed %, and puts the finished pieces into stock with new tags. A loss report shows loss by process and by worker."],
   ["How much does Infovion JMS cost?", `${PRICE} per shop plus GST (usual price ${MRP}), then an AMC of ${AMC} a year, after a free ${JMS.trialDays}-day trial. Every feature above marked Included is in the plan.`],
 ];
 
@@ -656,7 +659,7 @@ export function JmsFeatureListPage() {
 
       <Section className="pt-0">
         <AnswerBox q="What does Infovion JMS include?">
-          {`As of ${UPDATED}, Infovion JMS includes jewellery billing by weight and purity with GST, barcode tags and stock audits, girvi with interest by days, gold savings schemes, customer orders, karigar job work with fine gold, touch and wastage, repairs, supplier and karigar ledgers, profit and stock value, GSTR-1 and GSTR-3B, Tally export, multiple branches with stock transfer, billing without internet, KYC, and screens in 10 Indian languages. Not available yet: RFID, GST e-invoice and e-way bill, automatic scheduled WhatsApp messages, bank reconciliation, a public API and a Play Store app.`}
+          {`As of ${UPDATED}, Infovion JMS includes jewellery billing by weight and purity with GST, barcode tags and stock audits, girvi with interest by days, gold savings schemes, customer orders, karigar job work with fine gold, touch and wastage, repairs, supplier and karigar ledgers, profit and stock value, GSTR-1 and GSTR-3B, Tally export, multiple branches with stock transfer, billing without internet, KYC, and screens in 10 Indian languages. It also reads RFID tags in bulk, runs manufacturing through casting, filing, setting and polishing with loss per process, and prepares GST e-invoices with the IRN and QR printed on the bill. Not available yet: automatic scheduled WhatsApp messages, bank reconciliation, a public API and a Play Store app.`}
         </AnswerBox>
       </Section>
 
@@ -784,7 +787,7 @@ const LANDINGS = {
       ["Which tag printer should I buy?", "Any thermal label printer with a Windows or macOS driver that handles narrow labels. Popular choices in India include the TSC TE244, Zebra ZD230 and Argox OS-214, typically with a resin or wax-resin ribbon for jewellery tags. Buy the tag rolls in the size you want to use and set the same size in the printer driver."],
       ["Do I need a special scanner?", "No. Any USB or Bluetooth barcode scanner that types like a keyboard works: JMS recognises a scan anywhere on the billing and audit screens. A 2D scanner is needed for QR tags. A phone or tablet camera also works for occasional scans."],
       ["Can I keep my existing tag numbers?", "Yes. When importing stock from a spreadsheet, keep your current tag numbers in the Tag number column and JMS uses them. New pieces get the next numbers automatically, with an optional prefix."],
-      ["Does JMS support RFID?", "Not yet. Barcode and QR tags are supported today; RFID is on the roadmap for larger showrooms."],
+      ["Does JMS support RFID?", "Yes. A piece can carry its UHF RFID tag, or the tag can be encoded with the tag number. A stock audit reads a whole tray at once with an RFID reader, or loads a handheld's export file; barcode and QR tags work alongside."],
       ["My tag printer has no driver. Can JMS still print?", "Yes. In Chrome or Edge, JMS can send tags straight to the printer in its own language: TSPL for TSC, TVS, Argox, Xprinter, Gainscha and HPRT, ZPL or EPL for Zebra. It connects over a USB or Bluetooth COM port, over USB on Android, Mac or Linux, or by Bluetooth Low Energy, and can also save a .prn file."],
       ["Can JMS read weights from my jewellery scale?", "Yes. Scales with an RS-232 or USB output connect in Chrome or Edge on a computer. Press Scale beside a weight on the stock, tagging or girvi form and JMS fills in the first stable reading in grams."],
     ],
@@ -941,13 +944,15 @@ const LANDINGS = {
       ["GSTR-1", ["B2B invoices to registered buyers, with their GSTIN", "B2C large (inter-state, over the limit) and B2C small", "Credit notes for returns", "HSN summary with quantity, value and tax", "Documents issued, with number ranges", "Each section as a CSV in the GST Offline Tool's columns"]],
       ["GSTR-3B", ["Outward taxable supplies with IGST, CGST and SGST", "Inter-state supplies to unregistered persons, by state", "Input tax from purchase bills entered in JMS", "Any month, as often as you like"]],
       ["At the counter", ["3% GST split as CGST and SGST, or IGST for another state", "HSN on every line and HUID on hallmarked pieces", "PAN or Form 60 above ₹2 lakh, and the cash limit", "Sales returns as credit notes; estimates without GST"]],
-      ["Not done by JMS", ["Filing on the GST portal: your CA uploads the files and files the return", "E-invoices (IRN) and e-way bills, which are on the roadmap"], true],
+      ["E-invoice", ["Invoices and credit notes to registered buyers as JSON for the IRP's bulk upload", "GSTINs, PIN codes, HSN and totals checked before upload", "The IRP's results loaded back: IRN, acknowledgement and signed QR", "IRN and QR printed on the invoice", "E-way bill number kept on the bill where one is needed"]],
+      ["Not done by JMS", ["Filing on the GST portal: your CA uploads the files and files the return", "Generating the e-way bill itself: done on ewaybillgst.gov.in"], true],
     ],
     faqs: [
       ["Does JMS file GST returns?", "No. JMS prepares the GSTR-1 files and the GSTR-3B figures. Your CA checks them, imports the files in the GST Offline Tool or enters the figures on the portal, and files the return."],
       ["What GST rate applies to gold jewellery?", "3% on the total value of the jewellery, including making charges (CBIC sectoral FAQ on gems and jewellery). Confirm current rates with your accountant; JMS lets you set them."],
       ["Are purchases and input tax included?", "Yes. Purchase bills entered in JMS with GST are counted as input tax in the GSTR-3B summary."],
-      ["Does JMS make e-invoices?", "Not yet. E-invoicing applies to businesses above the turnover limit; JMS prints GST tax invoices today, and e-invoice and e-way bill support is on the roadmap."],
+      ["Does JMS make e-invoices?", "Yes. For businesses above the e-invoice turnover limit, JMS prepares the month's B2B invoices and credit notes as JSON for the IRP's bulk upload, then reads the IRP's results back and prints each bill's IRN and signed QR."],
+      ["Does jewellery need an e-way bill?", "Jewellery and other goods of HSN chapter 71 are exempt from e-way bills under Rule 138(14), except for movement within Kerala, which requires one; imitation jewellery (7117) needs one. Where one is generated, JMS keeps its number on the bill."],
       ["Can I still send my data to Tally?", "Yes. The Tally export carries sales with tax, receipts, old gold and girvi entries for any period."],
     ],
     sources: [["CBIC: Sectoral FAQ on Gems and Jewellery", "https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf"]],
