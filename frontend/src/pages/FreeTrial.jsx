@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, CheckCircle2, Clock, CreditCard, Database, Loader2, Mail, MessageCircle, Sparkles } from "lucide-react";
 import { PhoneFrame, LoopVideo } from "../components/product/Frames";
 import { Aurora, Kicker } from "../components/fx/Fx";
-import { firstTouch, track } from "../lib/analytics";
+import { beacon, firstTouch, track } from "../lib/analytics";
 
 const API = (import.meta.env.VITE_API_URL || "https://api.infovion.in").replace(/\/+$/, "");
 const APP = "https://app.infovion.in";
@@ -130,6 +130,7 @@ export default function FreeTrial() {
         setState("done");
         track("sign_up", { method: google ? "google" : "form" });
         track("generate_lead", { form: "free_trial" });
+        beacon("trial", "school form");
         return;
       }
       if (res.status === 409) { setState("exists"); setMessage(data?.message ?? ""); return; }

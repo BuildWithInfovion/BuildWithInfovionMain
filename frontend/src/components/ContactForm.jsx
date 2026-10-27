@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CheckCircle2, AlertTriangle, Loader2, Send } from "lucide-react";
-import { firstTouch, track } from "../lib/analytics";
+import { beacon, firstTouch, track } from "../lib/analytics";
 import { SERVICES } from "../Data/services";
 import { COMPANY } from "../Data/company";
 
@@ -69,6 +69,7 @@ export default function ContactForm({ defaultInterest }) {
       });
       if (!res.ok) throw new Error("failed");
       track("generate_lead", { form: "enquiry", interest: data.interest });
+      beacon("enquiry", data.interest || "");
       setState("done");
       setForm({ ...EMPTY, interest: data.interest });
     } catch {

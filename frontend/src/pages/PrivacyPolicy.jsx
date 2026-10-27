@@ -76,6 +76,25 @@ const PrivacyPolicy = () => {
 
           <section>
             <h2 className="text-2xl font-semibold text-brand-dark mb-3">
+              Visit Statistics
+            </h2>
+            <p>
+              To understand which pages are useful and where our visitors come
+              from, this website records anonymous visit statistics: the pages
+              opened, the website or link that brought you here, the type of
+              device, the approximate city and country of your internet
+              connection, and taps on our WhatsApp, phone, email, demo and
+              trial links. Your browser keeps a random identifier so repeat
+              visits can be counted. We do not record your name, phone number,
+              email address, IP address or anything you type into a form as
+              part of these statistics, and they are deleted after 13 months.
+              If your browser sends a Global Privacy Control signal, no
+              statistics are recorded.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-brand-dark mb-3">
               Security of Data
             </h2>
             <p>

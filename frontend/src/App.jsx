@@ -8,7 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/company/Home";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
-import { captureFirstTouch, track } from "./lib/analytics";
+import { beacon, captureFirstTouch, track, watchActions } from "./lib/analytics";
 import { organizationNode } from "./lib/seo";
 import { SITE, JMS } from "./Data/company";
 import { productOf } from "./lib/sections";
@@ -146,7 +146,9 @@ function NotFound() {
 /** Everything inside the router — shared by the browser app and the build-time prerender. */
 export function AppRoutes() {
   const { pathname } = useLocation();
-  React.useEffect(() => { captureFirstTouch(); }, []);
+  React.useEffect(() => { captureFirstTouch(); watchActions(); }, []);
+  // Anonymous visitor statistics for the console, every page including the first
+  React.useEffect(() => { beacon("view"); }, [pathname]);
   // GA4 page views for in-app navigation (the first one is sent by the gtag snippet)
   const first = React.useRef(true);
   React.useEffect(() => {
