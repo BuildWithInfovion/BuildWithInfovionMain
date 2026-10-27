@@ -275,7 +275,7 @@ export function DubaiGoldCalculatorPage() {
         ["How do I convert a 24K rate to 22K, 21K or 18K?", "Multiply the 24K rate by the karat divided by 24: × 22/24 for 22K, × 21/24 for 21K and × 18/24 for 18K. Choose \"24K, convert\" above. Published rates for each karat can differ slightly from this."],
       ]} />
       <MoreTools current={path} />
-      <CtaBand title="Jewellery software for UAE shops" sub="Infovion JMS bills by weight and karat in AED and prints 5% VAT tax invoices with your TRN. About AED 390 a year per shop after a 30-day free trial." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the Dubai gold price calculator and would like to know about Infovion JMS for our jewellery shop in the UAE." />
+      <CtaBand title="Jewellery software for UAE shops" sub="Infovion JMS bills by weight and karat in AED and prints 5% VAT tax invoices with your TRN. About AED 390 per shop, plus a yearly AMC, after a 30-day free trial." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the Dubai gold price calculator and would like to know about Infovion JMS for our jewellery shop in the UAE." />
     </>
   );
 }

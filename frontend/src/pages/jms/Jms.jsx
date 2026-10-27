@@ -12,6 +12,7 @@ const [TRIAL_HREF, TRIAL_LABEL] = jmsTrial();
 const ID = `${SITE}/jewellery-management-software#software`;
 const PRICE = `₹${JMS.price.toLocaleString("en-IN")}`;
 const MRP = `₹${JMS.mrp.toLocaleString("en-IN")}`;
+const AMC = `₹${JMS.amc.toLocaleString("en-IN")}`;
 
 const SUB = "Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GST returns and Tally export, for one shop or several branches. In 10 Indian languages, in a web browser, and billing carries on when the internet drops.";
 
@@ -71,7 +72,7 @@ const softwareSchema = {
     "Gold release add-on: release pledged gold from a bank loan, test, buy or return it",
   ],
   screenshot: [`${SITE}/product/jms/billing.webp`, `${SITE}/product/jms/tags.webp`, `${SITE}/product/jms/audit.webp`, `${SITE}/product/jms/invoice.webp`, `${SITE}/product/jms/scheme-passbook.webp`, `${SITE}/product/jms/order-detail.webp`, `${SITE}/product/jms/gst-returns.webp`],
-  offers: { "@type": "Offer", price: String(JMS.price), priceCurrency: "INR", description: "Per shop per year, plus GST. 30-day free trial.", url: `${SITE}/jewellery-management-software#pricing` },
+  offers: { "@type": "Offer", price: String(JMS.price), priceCurrency: "INR", description: `Per shop, plus GST, then an AMC of ${AMC} a year. 30-day free trial.`, url: `${SITE}/jewellery-management-software#pricing` },
   author: { "@id": `${SITE}/#organization` },
   publisher: { "@id": `${SITE}/#organization` },
   areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Country", name: "United Arab Emirates" }, { "@type": "Place", name: "Worldwide" }],
@@ -230,7 +231,7 @@ const COUNTRIES = [
 
 const FAQ = [
   ["What is Infovion JMS?", "Infovion JMS is jewellery management software for jewellery shops. It covers billing by weight, purity and making charges, barcode tags and scanning, stock audit, GST or VAT invoices with GSTR-1 and GSTR-3B, old gold bought and exchanged, girvi (gold loans), gold savings schemes, custom orders, karigar job work and repairs, customer credit, profit and stock value, branches, reports and export to Tally. It runs in a web browser in 10 Indian languages, keeps billing when the internet drops, and has nothing to install."],
-  ["How much does Infovion JMS cost?", `${PRICE} per shop per year (usual price ${MRP}), plus GST, after a free ${JMS.trialDays}-day trial. That includes every feature, unlimited staff accounts, invoices, tags and girvi records, and help with setup and importing your stock. For shops outside India we quote in your currency.`],
+  ["How much does Infovion JMS cost?", `${PRICE} per shop (usual price ${MRP}), plus GST, after a free ${JMS.trialDays}-day trial, and then an AMC of ${AMC} a year. That includes every feature, unlimited staff accounts, invoices, tags and girvi records, and help with setup and importing your stock. For shops outside India we quote in your currency.`],
   ["Does JMS support barcode tags?", "Yes. JMS gives every piece a tag number and prints barcode (Code 128) or QR tags on thermal tag printers such as TSC, Zebra and Argox, through the printer's driver, or on A4 label sheets. Pieces are billed by scanning the tag with a USB or Bluetooth scanner or a phone camera, and the whole stock can be audited by scanning."],
   ["Which tag sizes and printers work?", "Common jewellery tag rolls of 100 × 15 mm, 100 × 13 mm, 95 × 12 mm and 81 × 12 mm, stickers of 50 × 25 and 38 × 25 mm, and A4 label sheets, plus a custom size. Any label printer with a Windows or macOS driver works, for example TSC TE244, Zebra ZD230 or Argox OS-214. A test print and alignment settings help match each printer."],
   ["Does Infovion JMS work with Tally?", "Yes. The owner downloads TallyPrime XML files for any period: the ledgers, and all vouchers including sales with tax, receipts, old gold taken in exchange, girvi loans and interest. The accountant imports them through Tally's Import menu. Ledger names can be set to match the accountant's books."],
@@ -286,7 +287,7 @@ export function JmsHome() {
     <>
       <Helmet>
         <title>Jewellery Software: Billing, Girvi, Gold Schemes | Infovion JMS</title>
-        <meta name="description" content={`Jewellery shop software: billing, barcode tags, girvi, gold schemes, orders and karigar, GSTR-1, branches, 10 Indian languages. ${PRICE} a year.`} />
+        <meta name="description" content={`Jewellery shop software: billing, barcode tags, girvi, gold schemes, orders and karigar, GSTR-1, branches, 10 Indian languages. From ${PRICE}.`} />
         <link rel="canonical" href={`${SITE}/jewellery-management-software`} />
         <meta property="og:title" content="Infovion JMS | Jewellery Management Software" />
         <meta property="og:description" content="Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GSTR-1 and GSTR-3B, branches and offline billing, in 10 Indian languages." />
@@ -300,7 +301,7 @@ export function JmsHome() {
         trail={[["Products", "/products"], ["Infovion JMS", "/jewellery-management-software"]]}
         kicker="Infovion JMS"
         title="Jewellery management software"
-        sub={<>{SUB} Free for {JMS.trialDays} days, then <Price /> a year per shop.</>}
+        sub={<>{SUB} Free for {JMS.trialDays} days, then <Price /> per shop, plus an AMC of {AMC} a year.</>}
         aside={
           <BrowserFrame url="jms.infovion.in">
             <img src="/product/jms/billing-900.webp" srcSet="/product/jms/billing-900.webp 900w, /product/jms/billing.webp 1800w" sizes="(min-width: 1024px) 520px, 92vw" alt="New bill in Infovion JMS with scanned pieces, weights, rates and making charges" width="1800" height="1125" className="block w-full" fetchpriority="high" />
@@ -385,8 +386,9 @@ export function JmsHome() {
             </p>
             <p className="mt-1 font-display text-5xl font-bold text-white">
               {PRICE}
-              <span className="ml-2 text-base font-normal text-slate-400">per shop per year, plus GST</span>
+              <span className="ml-2 text-base font-normal text-slate-400">plus GST</span>
             </p>
+            <p className="mt-2 text-sm text-slate-300">Then an AMC of <strong className="font-semibold text-white">{AMC} a year</strong>, plus GST, for support, updates and new features.</p>
             <p className="mt-3 text-slate-300">Start with a free {JMS.trialDays}-day trial. No card needed. Your data stays yours and can be exported at any time.</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <GlowButton {...(JMS.live ? { href: TRIAL_HREF } : { to: TRIAL_HREF })}>
@@ -557,12 +559,12 @@ const LANDINGS = {
       ["Can Infovion JMS be used by a jewellery shop in Dubai?", "Yes. Choose the United Arab Emirates when you create your shop and JMS sets the currency to AED, VAT to 5%, the purities to 24K, 22K, 21K and 18K, and the time zone to Gulf Standard Time. The invoice is titled Tax Invoice and shows your TRN. The same applies to shops in Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain."],
       ["Is VAT charged on making charges in the UAE?", "Yes. For jewellery sold to a consumer, the making charges are part of the price of the piece, and VAT at 5% applies to them along with the metal and stones. JMS charges 5% on both by default. The rates can be changed in Settings if your tax adviser says otherwise."],
       ["Does JMS support the UAE e-invoicing system?", "Not yet. The UAE is introducing electronic invoicing in phases, mainly for business-to-business invoices, sent through an Accredited Service Provider. Businesses with revenue of AED 50 million or more start on 1 January 2027 and other in-scope businesses on 1 July 2027. JMS prints VAT tax invoices today. Please check the Ministry of Finance e-invoicing portal for the rules that apply to your shop."],
-      ["How much does Infovion JMS cost in the UAE?", `${PRICE} per shop per year, roughly AED 390 at recent exchange rates, after a free ${JMS.trialDays}-day trial. Every feature, unlimited staff accounts, invoices and tags are included. We can invoice you in AED or US dollars on request.`],
+      ["How much does Infovion JMS cost in the UAE?", `${PRICE} per shop, roughly AED 390 at recent exchange rates, after a free ${JMS.trialDays}-day trial, then an AMC of ${AMC} a year. Every feature, unlimited staff accounts, invoices and tags are included. We can invoice you in AED or US dollars on request.`],
       ["Which tag printers and scanners work in the UAE?", "Any thermal label printer with a Windows or macOS driver, such as TSC, Zebra or Argox models, with jewellery tag rolls of 100 × 15 mm or similar, and any USB or Bluetooth barcode scanner. A phone or tablet camera also works for occasional scans."],
       ["Where is my shop's data stored?", "Each shop's data is kept separate and is visible only to that shop's accounts. It is hosted in Singapore, the closest region offered by our cloud provider, and the owner can download a full backup at any time."],
     ],
     sources: [["UAE Ministry of Finance: eInvoicing", "https://mof.gov.ae/einvoicing"], ["UAE Federal Tax Authority", "https://tax.gov.ae"]],
-    cta: `Create your shop in a minute and choose the United Arab Emirates: AED, 5% VAT and Gulf karats are set for you. After the trial, about AED 390 a year per shop.`,
+    cta: `Create your shop in a minute and choose the United Arab Emirates: AED, 5% VAT and Gulf karats are set for you. After the trial, about AED 390 per shop, then a yearly AMC.`,
     whatsappText: "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop in the UAE.",
   },
   "jewellery-billing-software": {
@@ -892,7 +894,7 @@ for (const [slug, name, native, code, menu, region, girvi, labels] of LANGS) {
     faqs: [
       [`Can my staff use JMS in ${name}?`, `Yes. Each person chooses ${name} on the sign-in page or from the menu, and every screen changes at once. Others on the same shop can keep English or another language.`],
       [`Are bills printed in ${name}?`, labels ? `Bills are printed in English and can carry ${name} labels next to English, set once in Settings.` : `Not yet. Bills are printed in English and can carry Hindi or Marathi labels next to English. ${name} labels on bills are planned.`],
-      ["How much does it cost?", `${PRICE} per shop per year, plus GST, after a free ${JMS.trialDays}-day trial. Every language and feature is included.`],
+      ["How much does it cost?", `${PRICE} per shop, plus GST, after a free ${JMS.trialDays}-day trial, then an AMC of ${AMC} a year. Every language and feature is included.`],
     ],
     links: "langs",
     whatsappText: `Hello Infovion, I would like to know more about Infovion JMS in ${name} for our jewellery shop.`,
@@ -996,7 +998,7 @@ function JmsLanding({ k }) {
       )}
 
       <FaqList faqs={c.faqs} />
-      <CtaBand title="Try Infovion JMS free for 30 days" sub={c.cta ?? <>Create your shop in a minute. After the trial, <Price /> a year per shop, plus GST.</>} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText={c.whatsappText ?? "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop."} />
+      <CtaBand title="Try Infovion JMS free for 30 days" sub={c.cta ?? <>Create your shop in a minute. After the trial, <Price /> per shop plus GST, then an AMC of {AMC} a year.</>} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText={c.whatsappText ?? "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop."} />
     </>
   );
 }

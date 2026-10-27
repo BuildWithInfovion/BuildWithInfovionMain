@@ -91,8 +91,9 @@ export const JMS = {
   signup: "https://jms.infovion.in/signup",
   demo: "https://jms.infovion.in/demo",
   login: "https://jms.infovion.in/login",
-  price: 9999, // ₹ per shop per year, plus GST
+  price: 9999, // ₹ per shop, plus GST
   mrp: 11999, // the usual price, shown struck through next to the price
+  amc: 3999, // ₹ a year from the second year, plus GST
   trialDays: 30,
 };
 
