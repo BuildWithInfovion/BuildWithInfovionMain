@@ -107,7 +107,7 @@ function Products() {
     {
       name: "Infovion JMS", tag: "Jewellery management software", to: "/jewellery-management-software", cs: "/case-studies/jewellery-management-system",
       img: ["/product/jms/billing-900.webp", "New bill in Infovion JMS with scanned pieces, weights, rates and making charges"],
-      body: "Software for jewellery shops in India and abroad: billing by weight and purity, barcode tags and scanning, stock audit, girvi loans, customer credit and GST or VAT invoices. Any shop can start a free trial.",
+      body: "Software for jewellery shops in India and abroad: billing by weight and purity, barcode tags and scanning, stock audit, girvi loans, customer credit and GST or VAT invoices. Free demo on a call.",
       points: ["Barcode tags, billing by scan and stock audit", "Girvi register with interest calculated to date", "Tally export for the accountant"],
     },
   ];

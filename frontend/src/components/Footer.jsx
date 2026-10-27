@@ -31,6 +31,10 @@ const PRODUCT_LINKS = [
   ["/jewellery-software-with-tally", "Jewellery software with Tally"],
   ["/gold-price-calculator", "Gold price calculator"],
   ["/girvi-interest-calculator", "Girvi interest calculator"],
+  ["/jewellery-bill-formats", "Free jewellery bill formats"],
+  ["/gst-on-gold-jewellery", "GST on gold jewellery"],
+  ["/uae-vat-on-gold", "UAE VAT on gold"],
+  ["/jewellery-software-comparison", "Jewellery software compared"],
 ];
 
 const COMPANY_LINKS = [

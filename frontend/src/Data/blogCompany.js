@@ -5,18 +5,19 @@ export const companyPosts = [
   {
     id: 101,
     slug: "custom-software-development-cost-india",
-    seoTitle: "Custom Software Development Cost in India (2026) | Infovion",
-    title: "How Much Does Custom Software Development Cost in India? (2026 Guide)",
-    excerpt: "Typical budgets for websites, business software, mobile apps and SaaS in India, what drives the price, and the running costs to plan for.",
+    seoTitle: "Custom Software Development Cost in India: 2026 Prices",
+    title: "How Much Does Custom Software Development Cost in India? (2026 Prices)",
+    excerpt: "2026 prices in India: ₹1.5–4 lakh for a business tool, ₹1.5–5 lakh for a CRM, ₹4–15 lakh for an ERP, ₹4–12 lakh for an app, hourly rates and running costs.",
     category: "development",
     author: "Infovion Team",
     date: "2026-10-17",
+    updated: "2026-10-27",
     readTime: "9 min read",
     tags: ["Software development cost", "Custom software", "India", "Pune"],
     featured: true,
     image: "/blog/custom-software-development-cost-india.webp",
     content: `
-      <p><strong>Short answer:</strong> in India in 2026, a focused business tool usually costs <strong>₹1.5–4 lakh</strong>, a multi-module business system <strong>₹4–15 lakh</strong>, a cross-platform mobile app MVP <strong>₹4–12 lakh</strong>, a SaaS MVP <strong>₹6–20 lakh</strong>, and a professional business website <strong>₹25,000–2.5 lakh</strong>. Where your project lands in each range depends on a handful of factors you can control — this guide explains them.</p>
+      <p><strong>Short answer:</strong> in India in 2026, a focused business tool usually costs <strong>₹1.5–4 lakh</strong>, a CRM or lead management system <strong>₹1.5–5 lakh</strong>, a multi-module business system or ERP <strong>₹4–15 lakh</strong>, a cross-platform mobile app MVP <strong>₹4–12 lakh</strong>, a SaaS MVP <strong>₹6–20 lakh</strong>, and a professional business website <strong>₹25,000–2.5 lakh</strong>. Where your project lands in each range depends on a handful of factors you can control — this guide explains them.</p>
 
       <h2>Typical budgets by project type</h2>
       <table>
@@ -25,7 +26,8 @@ export const companyPosts = [
           <tr><td>Landing page or 5-page business website</td><td>₹25,000 – 75,000</td><td>2–3 weeks</td></tr>
           <tr><td>Corporate website with blog, CMS and SEO setup</td><td>₹75,000 – 2.5 lakh</td><td>4–6 weeks</td></tr>
           <tr><td>Single internal tool (e.g. order tracker, approvals)</td><td>₹1.5 – 4 lakh</td><td>4–8 weeks</td></tr>
-          <tr><td>Business system with 4–8 modules (billing, stock, CRM…)</td><td>₹4 – 15 lakh</td><td>3–6 months</td></tr>
+          <tr><td>CRM or lead management system</td><td>₹1.5 – 5 lakh</td><td>4–10 weeks</td></tr>
+          <tr><td>Business system or ERP with 4–8 modules (billing, stock, CRM…)</td><td>₹4 – 15 lakh</td><td>3–6 months</td></tr>
           <tr><td>Installable web app (PWA)</td><td>₹1.5 – 5 lakh</td><td>4–8 weeks</td></tr>
           <tr><td>Android + iOS app MVP (cross-platform)</td><td>₹4 – 12 lakh</td><td>6–10 weeks</td></tr>
           <tr><td>SaaS product MVP (multi-tenant, billing)</td><td>₹6 – 20 lakh</td><td>8–14 weeks</td></tr>
@@ -52,6 +54,7 @@ export const companyPosts = [
         <li><strong>Dedicated team</strong> — a monthly fee for developers working only on your product. Best for products that keep evolving.</li>
         <li><strong>Time and material</strong> — you pay for hours used. Best for discovery or uncertain scope. Directory listings for small Pune software firms commonly show rates of about $25–49 an hour (roughly ₹2,000–4,000) — always compare the total estimate, not the hourly rate.</li>
       </ul>
+      <p>As a rule of thumb, divide a fixed quote by the hourly rate: a ₹6 lakh quote at ₹3,000 an hour is about 200 hours of work, or five weeks for one developer. If the scope clearly needs more than that, ask what has been left out.</p>
 
       <h2>The running costs nobody mentions</h2>
       <ul>
@@ -263,16 +266,18 @@ export const companyPosts = [
   {
     id: 105,
     slug: "jewellery-billing-gst-making-charges-old-gold",
-    seoTitle: "Jewellery Billing in India: GST, Making Charges, Old Gold",
-    title: "Jewellery Billing in India: GST, Making Charges, Discount and Old Gold Explained",
-    excerpt: "How a jewellery invoice is calculated in India: 3% GST on the full value including making charges, discounts, old-gold exchange and what the bill must show.",
+    seoTitle: "Jewellery GST Bill: 3% GST on Gold and Making Charges",
+    title: "Jewellery GST Bill in India: 3% GST, Making Charges, Discount and Old Gold",
+    excerpt: "How a gold jewellery GST bill is worked out: 3% GST on metal and making charges together, discount before tax, old gold deducted after tax, with a worked example.",
     category: "jewellery",
     author: "Infovion Team",
     date: "2026-10-17",
+    updated: "2026-10-27",
     readTime: "8 min read",
     tags: ["Jewellery billing", "GST on jewellery", "Making charges", "Old gold exchange", "HUID"],
     image: "/blog/jewellery-billing-gst-making-charges-old-gold.webp",
     content: `
+      <p><strong>Short answer:</strong> on a jewellery bill in India, GST is 3% of the full value of the piece: metal value plus making charges plus stones, less any discount shown on the bill. Within a state it is split into 1.5% CGST and 1.5% SGST; to another state it is 3% IGST. Old gold given in exchange is deducted <em>after</em> GST, from the amount the customer pays. A 10 g, 22K chain at ₹7,250 a gram with ₹600 a gram making comes to ₹78,500 before tax, ₹2,355 GST and ₹80,855 in all.</p>
       <p>Jewellery bills confuse customers and even shop staff, because a single line combines weight, purity, the day's rate, making charges and tax. Getting it right protects your margin, your customer's trust — and your GST compliance. <em>This is general information, not tax advice; confirm your invoicing with your CA.</em></p>
 
       <h2>The building blocks of a jewellery bill</h2>
@@ -316,12 +321,13 @@ export const companyPosts = [
         <li>For each item: description, HSN code, net weight, purity, rate, making charges and value.</li>
         <li>The taxable value and the CGST/SGST (or IGST) amounts.</li>
         <li>Old gold, advance and balance, if any.</li>
+        <li>Making charges as a break-up of the item's value, not as a separate line taxed at another rate. The gem and jewellery trade council's GST FAQ says the same: for ready jewellery, show gold and making as a break-up of one price taxed at 3%.</li>
         <li>For hallmarked jewellery, the hallmark details — BIS advises buyers to take a proper bill listing the hallmarked articles, which matters if there is ever a complaint. Each hallmarked piece carries a six-character HUID that customers can verify in the BIS CARE app.</li>
       </ul>
 
       <h2>Common billing mistakes</h2>
       <ul>
-        <li>Charging 5% GST on making charges in a retail sale.</li>
+        <li>Charging 5% GST on making charges in a retail sale. The 5% rate is for job work done for a registered jeweller; when a customer brings their own old gold to be re-made, the trade council's FAQ treats the labour as 18%, so check that case with your CA.</li>
         <li>Deducting the discount after GST, which over-charges tax.</li>
         <li>Not recording old gold weight and purity.</li>
         <li>Rounding rates differently on the calculator and the invoice.</li>
@@ -329,22 +335,25 @@ export const companyPosts = [
       <h2>Getting the bills to your CA</h2>
       <p>At the end of the month your CA needs every invoice in the books — usually in Tally — with the taxable value and CGST/SGST separated, and cash and bank receipts kept apart. Re-typing invoices is slow and error-prone; exporting them from your billing software is not.</p>
       <p><em>Infovion JMS calculates each line from weight, purity, rate and making charges, applies the discount before GST, prints a GST invoice with the CGST/SGST split, and exports the month's sales and receipts to Tally for your CA. <a href="/jewellery-billing-software">See jewellery billing in JMS</a>, work out a price with the <a href="/gold-price-calculator">free gold price calculator</a>, or see how JMS prepares <a href="/jewellery-gst-software">GSTR-1 and GSTR-3B</a>.</em></p>
-      <p><small>Sources: <a href="https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf" rel="noopener" target="_blank">CBIC sectoral FAQ — Gems and Jewellery</a>; <a href="https://www.bis.gov.in/hallmarking-overview/hallmarking-faqs/hallmarking-faq/" rel="noopener" target="_blank">BIS hallmarking FAQ</a>; Section 15, CGST Act, 2017.</small></p>
+      <p>Related: <a href="/gst-on-gold-jewellery">GST rates on gold, silver, diamonds and making charges</a> · <a href="/hsn-code-for-jewellery">HSN codes for jewellery</a> · <a href="/gst-on-old-gold">GST on old gold</a> · <a href="/jewellery-bill-format">free jewellery GST bill format</a>.</p>
+      <p><small>Sources: <a href="https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf" rel="noopener" target="_blank">CBIC sectoral FAQ — Gems and Jewellery</a>; <a href="https://www.gjc.org.in/pdf/gst/FAQs_GJI_updated_GJF.pdf" rel="noopener" target="_blank">GJC: GST FAQs for the gems and jewellery industry</a>; <a href="https://www.bis.gov.in/hallmarking-overview/hallmarking-faqs/hallmarking-faq/" rel="noopener" target="_blank">BIS hallmarking FAQ</a>; Section 15, CGST Act, 2017.</small></p>
     `,
   },
   {
     id: 106,
     slug: "girvi-register-guide-for-jewellers",
-    seoTitle: "Girvi (Gold Loan) Register: A Guide for Jewellers | Infovion",
-    title: "Running a Girvi (Gold Loan) Register: A Practical Guide for Jewellers",
-    excerpt: "What to record for every pledge, how to calculate monthly girvi interest, handling overdue pledges and releases, and the legal basics in India.",
+    seoTitle: "Girvi Register: Format, Interest Calculation and Rules",
+    title: "Girvi (Gold Loan) Register: Format, Interest Calculation and Rules for Jewellers",
+    excerpt: "What a girvi register and receipt must record, how to work out girvi interest by month or by day with examples, overdue pledges, release, and state money-lending law.",
     category: "jewellery",
     author: "Infovion Team",
     date: "2026-10-17",
+    updated: "2026-10-27",
     readTime: "7 min read",
     tags: ["Girvi", "Gahan", "Gold loan", "Jewellers"],
     image: "/blog/girvi-register-guide-for-jewellers.webp",
     content: `
+      <p><strong>Short answer:</strong> a girvi register records, for every pledge, a running number, the customer and their ID, each ornament with its gross and net weight and purity, the amount lent, the interest rate and how it is counted, and the pledge and due dates. Girvi interest is usually simple interest: loan × monthly rate × days ÷ 30. ₹50,000 at 2% a month for 100 days is ₹3,333.33 of interest.</p>
       <p>For many jewellers, girvi (gahan in Marathi) — lending money against pledged jewellery — is as important as sales. It is also where paper registers cause the most trouble: missed due dates, disputes about interest, and items that can't be traced quickly. <em>This article is general information; money-lending is regulated by state law, so confirm the rules that apply to you.</em></p>
 
       <h2>What to record for every pledge</h2>
@@ -361,6 +370,15 @@ export const companyPosts = [
       <p>Most girvi uses simple interest at a monthly rate:</p>
       <p><strong>Interest = principal × monthly rate × number of months</strong></p>
       <p>Example: ₹50,000 at 1.5% per month for 4 months = 50,000 × 0.015 × 4 = <strong>₹3,000</strong>, so the customer pays ₹53,000 to release the item. Agree in writing how part-months are counted (by day, half month or full month) and whether there is a minimum period — most disputes start here.</p>
+      <p><strong>Counted by days:</strong> interest = principal × monthly rate × days ÷ 30. ₹50,000 at 2% a month for 100 days = 50,000 × 0.02 × 100 ÷ 30 = <strong>₹3,333.33</strong>. With a one-month minimum, a pledge released after 12 days is still charged 30 days, ₹1,000.</p>
+      <table>
+        <thead><tr><th>Loan</th><th>Rate a month</th><th>Period</th><th>Interest</th></tr></thead>
+        <tbody>
+          <tr><td>₹25,000</td><td>1.5%</td><td>3 months</td><td>₹1,125</td></tr>
+          <tr><td>₹50,000</td><td>2%</td><td>100 days</td><td>₹3,333.33</td></tr>
+          <tr><td>₹1,00,000</td><td>1.25%</td><td>6 months</td><td>₹7,500</td></tr>
+        </tbody>
+      </table>
 
       <h2>Handling due dates and overdue pledges</h2>
       <ul>
@@ -387,7 +405,7 @@ export const companyPosts = [
         <li>Printed receipts with the same details every time.</li>
         <li>Reports for any period for your accountant.</li>
       </ul>
-      <p><em>Infovion JMS shows the interest built up on every pledge, records the interest received at release, and exports girvi loans and interest to Tally for your CA. <a href="/girvi-software">See girvi software in JMS</a>, or try the <a href="/girvi-interest-calculator">free girvi interest calculator</a>.</em></p>
+      <p><em>Infovion JMS shows the interest built up on every pledge, records the interest received at release, and exports girvi loans and interest to Tally for your CA. <a href="/girvi-software">See girvi software in JMS</a>, or try the <a href="/girvi-interest-calculator">free girvi interest calculator</a>. For a paper register, print the <a href="/girvi-receipt-format">free girvi receipt format</a> with your shop's name on it.</em></p>
     `,
   },
   {

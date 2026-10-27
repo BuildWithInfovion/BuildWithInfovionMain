@@ -122,6 +122,7 @@ function MoreTools({ current }) {
         {all.map(([to, t, b]) => <LinkRow key={to} to={to} title={t} body={b} />)}
         <LinkRow to="/jewellery-billing-software" title="How a jewellery bill is calculated" body="The same sums, done for every bill in Infovion JMS." />
         <LinkRow to="/girvi-software" title="Girvi software for jewellers" body="A girvi register with interest to date, part-payments, photos and receipts." />
+        <LinkRow to="/jewellery-bill-formats" title="Free jewellery bill formats" body="GST bill, girvi receipt, old gold voucher and more: print, PDF or Excel." />
       </div>
     </Section>
   );

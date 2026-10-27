@@ -6,6 +6,7 @@ import { BrowserFrame } from "../../components/product/Frames";
 import { GhostButton, GlowButton, Kicker, Reveal } from "../../components/fx/Fx";
 import { AnswerBox, CtaBand, FaqList, LinkRow, PageHero, Section } from "../../components/site/Ui";
 import { JMS, SITE, jmsTrial } from "../../Data/company";
+import { JMS_GUIDES } from "../../Data/jmsGuides";
 
 const [TRIAL_HREF, TRIAL_LABEL] = jmsTrial();
 
@@ -516,6 +517,10 @@ export function JmsHome() {
           <LinkRow to="/gold-price-calculator" title="Free gold price calculator" body="Weight, purity, making charges, 3% GST and old gold, shared on WhatsApp." />
           <LinkRow to="/girvi-interest-calculator" title="Free girvi interest calculator" body="Interest on a gold loan counted by days, with a minimum period." />
           <LinkRow to="/jewellery-software-uae" title="Jewellery software in the UAE" body="AED rates, 5% VAT tax invoices with TRN, and Gulf karats for Dubai and beyond." />
+          <LinkRow to="/jewellery-bill-formats" title="Free jewellery bill formats" body="GST bill, estimate, girvi receipt, old gold voucher, karigar slip: print, PDF or Excel." />
+          <LinkRow to="/gst-on-gold-jewellery" title="GST on gold jewellery" body="3% on metal and making, 5% job work, diamonds, repairs, with sources." />
+          <LinkRow to="/jewellery-software-comparison" title="Jewellery software compared" body="Infovion JMS, TallyPrime, Vyapar and Marg, from each one's own pages." />
+          <LinkRow to="/uae-vat-on-gold" title="UAE VAT on gold" body="5%, zero-rated investment gold, the 2025 reverse charge and e-invoicing dates." />
           <LinkRow to="/infovion-jms-features" title="Every feature, with its status" body="The complete list: included, add-on, and not yet. Updated October 2026." />
           <LinkRow to="/blog/how-to-choose-jewellery-software-india" title="How to choose jewellery software" body="A 20-point checklist for demos, and what software should cost." />
           <LinkRow to="/blog/gold-savings-scheme-rules-for-jewellers" title="Gold savings scheme rules" body="The 365-day rule, the BUDS Act, bonus and early closure." />
@@ -720,8 +725,11 @@ const LANDINGS = {
       ["How much does Infovion JMS cost in the UAE?", `${PRICE} per shop, roughly AED 390 at recent exchange rates, then an AMC of ${AMC} a year. Every feature, unlimited staff accounts, invoices and tags are included. We can invoice you in AED or US dollars on request.`],
       ["Which tag printers and scanners work in the UAE?", "Any thermal label printer with a Windows or macOS driver, such as TSC, Zebra or Argox models, with jewellery tag rolls of 100 × 15 mm or similar, and any USB or Bluetooth barcode scanner. A phone or tablet camera also works for occasional scans."],
       ["Where is my shop's data stored?", "Each shop's data is kept separate and is visible only to that shop's accounts. It is hosted in Singapore, the closest region offered by our cloud provider, and the owner can download a full backup at any time."],
+      ["Does JMS handle the reverse charge on gold between dealers?", "Partly. For a sale to a VAT-registered dealer buying for resale, VAT can be switched off for the bill, and the reverse-charge statement is added by hand. Since February 2025 the reverse charge covers gold, silver, platinum, palladium, precious stones and jewellery whose precious content dominates (Cabinet Decision No. 127 of 2024)."],
+      ["Does JMS help with AML rules for UAE jewellers?", "JMS keeps each customer's ID, stored encrypted, and the payment method on every bill, which helps with customer due diligence. It does not prepare or file DPMSR reports on goAML, which dealers file for cash transactions of AED 55,000 or more."],
     ],
     sources: [["UAE Ministry of Finance: eInvoicing", "https://mof.gov.ae/einvoicing"], ["UAE Federal Tax Authority", "https://tax.gov.ae"]],
+    links: [["/uae-vat-on-gold", "UAE VAT on gold and jewellery", "5%, zero-rated investment gold, the 2025 reverse charge and e-invoicing dates."], ["/uae-jewellery-tax-invoice-format", "Free UAE jewellery tax invoice", "TRN, AED, 5% VAT, with a reverse-charge option."], ["/dubai-gold-price-calculator", "Dubai gold price calculator", "AED rate by karat, making and 5% VAT."], ["/jewellery-software-comparison", "Jewellery software compared", "Infovion JMS, TallyPrime, Vyapar and Marg."]],
     cta: `Book a free demo call and we set up your shop for the United Arab Emirates: AED, 5% VAT and Gulf karats. About AED 390 per shop, then a yearly AMC.`,
     whatsappText: "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop in the UAE.",
   },
@@ -1067,7 +1075,11 @@ for (const [slug, name, native, code, menu, region, girvi, labels] of LANGS) {
   };
 }
 
+Object.assign(LANDINGS, JMS_GUIDES);
+
 const LANG_LINKS = [["/jewellery-software-in-indian-languages", "All 10 languages", "Every screen in the language your staff read best."], ...LANGS.map(([slug, name, native]) => [`/jewellery-software-${slug}`, `Jewellery software in ${name}`, `${native}: billing, girvi, schemes and stock in ${name}.`])];
+
+const UPDATED_FMT = (d) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
 function JmsLanding({ k }) {
   const c = LANDINGS[k];
@@ -1083,6 +1095,11 @@ function JmsLanding({ k }) {
         <meta property="og:description" content={c.description} />
         <meta property="og:url" content={url} />
         <meta property="og:image" content={`${SITE}/og-jms.jpg`} />
+        {c.updated && (
+          <script type="application/ld+json">
+            {JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: c.h1, url, description: c.description, dateModified: c.updated, inLanguage: "en-IN", publisher: { "@id": `${SITE}/#organization` }, about: c.disclosure ? undefined : { "@id": ID } })}
+          </script>
+        )}
       </Helmet>
       <PageHero
         trail={[["Infovion JMS", "/jewellery-management-software"], [c.trail, `/${k}`]]}
@@ -1103,7 +1120,35 @@ function JmsLanding({ k }) {
 
       <Section className="pt-0">
         <AnswerBox q={c.answerQ}>{c.answer}</AnswerBox>
+        {(c.disclosure || c.updated) && (
+          <p className="mt-5 max-w-4xl text-xs leading-relaxed text-slate-400">
+            {c.updated && <>Updated {UPDATED_FMT(c.updated)}. </>}
+            {c.disclosure}
+          </p>
+        )}
       </Section>
+
+      {c.tables?.map((t) => (
+        <Section key={t.caption} className="pt-0">
+          <div className="panel overflow-x-auto rounded-xl">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <caption className="border-b border-white/10 px-5 py-3 text-left font-display text-base font-semibold text-white">{t.caption}</caption>
+              <thead className="border-b border-white/10 text-xs uppercase tracking-wider text-slate-400">
+                <tr>{t.head.map((h, i) => <th key={i} scope="col" className={`px-5 py-3 font-semibold ${h === "Infovion JMS" ? "text-white" : ""}`}>{h}</th>)}</tr>
+              </thead>
+              <tbody className="divide-y divide-white/10">
+                {t.rows.map(([first, ...rest]) => (
+                  <tr key={first} className="align-top">
+                    <th scope="row" className="px-5 py-3 font-medium text-slate-200">{first}</th>
+                    {rest.map((x, i) => <td key={i} className={`px-5 py-3 ${x.startsWith("Not stated") ? "text-slate-500" : "text-slate-300"}`}>{x}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {t.note && <p className="mt-3 text-xs text-slate-400">{t.note}</p>}
+        </Section>
+      ))}
 
       <Section className="pt-4">
         <div className="grid gap-6 lg:grid-cols-2">
@@ -1140,7 +1185,7 @@ function JmsLanding({ k }) {
         )}
         {c.sources && (
           <p className="mt-4 text-xs text-slate-400">
-            Source:{" "}
+            {c.sources.length > 1 ? "Sources" : "Source"}:{" "}
             {c.sources.map(([t, u], i) => (
               <React.Fragment key={u}>
                 {i > 0 && " · "}
@@ -1181,5 +1226,7 @@ export const GstPage = () => <JmsLanding k="jewellery-gst-software" />;
 export const BranchesPage = () => <JmsLanding k="multi-branch-jewellery-software" />;
 export const OfflinePage = () => <JmsLanding k="offline-jewellery-billing-software" />;
 export const LanguagesPage = () => <JmsLanding k="jewellery-software-in-indian-languages" />;
+/** Any landing or reference page by its slug, e.g. "gst-on-gold-jewellery". */
+export const GuidePage = ({ slug }) => <JmsLanding k={slug} />;
 /** The page for one Indian language, by its slug (hindi, tamil...). */
 export const LanguagePage = ({ lang }) => <JmsLanding k={`jewellery-software-${lang}`} />;

@@ -61,6 +61,11 @@ const JMS_LANGS = ["hindi","marathi","gujarati","tamil","telugu","kannada","mala
 const GoldCalc = lazy(() => import("./pages/jms/Calculators").then((m) => ({ default: m.GoldPriceCalculatorPage })));
 const DubaiGoldCalc = lazy(() => import("./pages/jms/Calculators").then((m) => ({ default: m.DubaiGoldCalculatorPage })));
 const GirviCalc = lazy(() => import("./pages/jms/Calculators").then((m) => ({ default: m.GirviInterestCalculatorPage })));
+const FormatsHub = lazy(() => import("./pages/jms/Formats").then((m) => ({ default: m.FormatsHub })));
+const FormatPage = lazy(() => import("./pages/jms/Formats").then((m) => ({ default: m.FormatPage })));
+const JmsGuide = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.GuidePage })));
+const JMS_FORMATS = ["jewellery-bill-format", "jewellery-estimate-format", "girvi-receipt-format", "old-gold-purchase-voucher-format", "karigar-issue-slip-format", "uae-jewellery-tax-invoice-format"];
+const JMS_GUIDES = ["gst-on-gold-jewellery", "hsn-code-for-jewellery", "gst-on-old-gold", "uae-vat-on-gold", "jewellery-software-comparison", "tally-for-jewellers", "vyapar-vs-infovion-jms", "marg-vs-infovion-jms"];
 // Content & legal
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -83,6 +88,7 @@ const PAGE_MODULES = [
   () => import("./pages/school/Features"),
   () => import("./pages/school/Pricing"),
   () => import("./pages/jms/Jms"),
+  () => import("./pages/jms/Formats"),
   () => import("./pages/landing/Landing"),
   () => import("./pages/Blog"),
 ];
@@ -244,6 +250,13 @@ export function AppRoutes() {
             <Route path="/gold-price-calculator" element={<GoldCalc />} />
             <Route path="/dubai-gold-price-calculator" element={<DubaiGoldCalc />} />
             <Route path="/girvi-interest-calculator" element={<GirviCalc />} />
+            <Route path="/jewellery-bill-formats" element={<FormatsHub />} />
+            {JMS_FORMATS.map((s) => (
+              <Route key={s} path={`/${s}`} element={<FormatPage slug={s} />} />
+            ))}
+            {JMS_GUIDES.map((s) => (
+              <Route key={s} path={`/${s}`} element={<JmsGuide slug={s} />} />
+            ))}
 
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
