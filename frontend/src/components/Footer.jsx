@@ -22,8 +22,14 @@ const PRODUCT_LINKS = [
   ["/jewellery-barcode-software", "Jewellery barcode software"],
   ["/jewellery-software-uae", "Jewellery software UAE"],
   ["/girvi-software", "Girvi software"],
+  ["/gold-scheme-software", "Gold scheme software"],
+  ["/karigar-management-software", "Orders and karigar"],
+  ["/jewellery-gst-software", "GST for jewellers"],
+  ["/jewellery-software-in-indian-languages", "Jewellery software in Indian languages"],
   ["/money-lending-software", "Money lending software"],
   ["/jewellery-software-with-tally", "Jewellery software with Tally"],
+  ["/gold-price-calculator", "Gold price calculator"],
+  ["/girvi-interest-calculator", "Girvi interest calculator"],
 ];
 
 const COMPANY_LINKS = [
@@ -48,7 +54,7 @@ const SOCIAL = [
 // The call to action above the footer depends on which part of the site the visitor is in
 const STRIPS = {
   school: ["Evaluate Infovion School ERP with your school's data", "30-day free trial. No payment details required.", ["/free-trial", "Start free trial"]],
-  jms: ["Try Infovion JMS in your shop", "30-day free trial. Billing, barcode tags, girvi and Tally export.", jmsTrial()],
+  jms: ["Try Infovion JMS in your shop", "30-day free trial. Billing, tags, girvi, gold schemes and orders, in 10 Indian languages.", jmsTrial()],
   company: ["Planning a software project?", "Share your requirements. We respond within one business day.", ["/contact", "Contact us"]],
 };
 const NO_STRIP = ["/", "/free-trial", "/contact", "/company-profile"];

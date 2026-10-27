@@ -49,6 +49,17 @@ const JmsBarcode = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: 
 const JmsUae = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.UaePage })));
 const MoneyLending = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.MoneyLendingPage })));
 const JmsTally = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.TallyPage })));
+const JmsScheme = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.SchemePage })));
+const JmsKarigar = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.KarigarPage })));
+const JmsGst = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.GstPage })));
+const JmsBranches = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.BranchesPage })));
+const JmsOffline = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.OfflinePage })));
+const JmsLanguages = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.LanguagesPage })));
+const JmsLanguage = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.LanguagePage })));
+const JMS_LANGS = ["hindi","marathi","gujarati","tamil","telugu","kannada","malayalam","bengali","punjabi"];
+const GoldCalc = lazy(() => import("./pages/jms/Calculators").then((m) => ({ default: m.GoldPriceCalculatorPage })));
+const DubaiGoldCalc = lazy(() => import("./pages/jms/Calculators").then((m) => ({ default: m.DubaiGoldCalculatorPage })));
+const GirviCalc = lazy(() => import("./pages/jms/Calculators").then((m) => ({ default: m.GirviInterestCalculatorPage })));
 // Content & legal
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -225,6 +236,18 @@ export function AppRoutes() {
             <Route path="/jewellery-software-uae" element={<JmsUae />} />
             <Route path="/money-lending-software" element={<MoneyLending />} />
             <Route path="/jewellery-software-with-tally" element={<JmsTally />} />
+            <Route path="/gold-scheme-software" element={<JmsScheme />} />
+            <Route path="/karigar-management-software" element={<JmsKarigar />} />
+            <Route path="/jewellery-gst-software" element={<JmsGst />} />
+            <Route path="/multi-branch-jewellery-software" element={<JmsBranches />} />
+            <Route path="/offline-jewellery-billing-software" element={<JmsOffline />} />
+            <Route path="/jewellery-software-in-indian-languages" element={<JmsLanguages />} />
+            {JMS_LANGS.map((l) => (
+              <Route key={l} path={`/jewellery-software-${l}`} element={<JmsLanguage lang={l} />} />
+            ))}
+            <Route path="/gold-price-calculator" element={<GoldCalc />} />
+            <Route path="/dubai-gold-price-calculator" element={<DubaiGoldCalc />} />
+            <Route path="/girvi-interest-calculator" element={<GirviCalc />} />
 
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

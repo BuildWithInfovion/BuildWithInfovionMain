@@ -17,14 +17,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   "@id": ID,
   name: "Infovion JMS",
-  alternateName: ["Infovion Jewellery Management Software", "Infovion jewellery billing software", "Infovion jewellery barcode software", "Infovion girvi software", "Infovion money lending software"],
+  alternateName: ["Infovion Jewellery Management Software", "Infovion jewellery billing software", "Infovion jewellery barcode software", "Infovion girvi software", "Infovion gold scheme software", "Infovion karigar management software", "Infovion money lending software"],
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Jewellery management software",
   operatingSystem: "Any web browser (Windows, macOS, Android, iOS)",
   url: `${SITE}/jewellery-management-software`,
   ...(JMS.live ? { installUrl: JMS.signup } : {}),
   description:
-    "Jewellery management software for jewellery shops in India and worldwide: billing by weight, purity, rate per gram and making charges; barcode and QR tags with scanning and stock audit; GST (CGST/SGST/IGST) or VAT invoices; old-gold exchange; girvi (gold loan) management; customer credit and KYC; reports and Tally export; screens in English, Hindi and Marathi; add-ons for money lending and gold release.",
+    "Jewellery management software for jewellery shops in India and worldwide: billing by weight, purity, rate per gram and making charges; barcode and QR tags with scanning and stock audit; GST (CGST/SGST/IGST) or VAT invoices with GSTR-1 and GSTR-3B; old-gold purchase and exchange; girvi (gold loan) management; gold savings schemes; customer orders, repairs and karigar job work; supplier purchases; stock value and profit; customer credit and KYC; Tally export; branches with stock transfer; billing that keeps working offline; screens in 10 Indian languages; add-ons for money lending and gold release.",
   featureList: [
     "Jewellery billing by weight, purity and rate per gram",
     "Making charges per gram, as a percentage or per piece",
@@ -38,9 +38,21 @@ const softwareSchema = {
     "Girvi (gahan) register with interest to date, part-payments and release",
     "Customer credit (udhaar) ledger with payments",
     "Tally export: TallyPrime XML ledgers and vouchers",
+    "GST returns: GSTR-1 files for the GST Offline Tool and a GSTR-3B summary",
+    "Gold savings schemes: monthly instalments, bonus month, weight plans, redemption on the bill",
+    "Customer orders with advances, booked rates and delivery dates",
+    "Karigar job work: metal issued, work received and fine-gold balances",
+    "Repairs with job slips, karigar, charges and delivery",
+    "Old gold bought from customers, the old gold register and melting",
+    "Purchases from suppliers with supplier and karigar accounts",
+    "Estimates (quotations), sales returns, exchanges and GST credit notes",
+    "Stock value at cost and today's rate, margin on every bill and a profit report",
+    "Branches: separate stock and bills per branch, stock transfers, branches side by side",
+    "Billing without internet: bills saved on the device and sent when back online",
     "Sales, girvi and stock registers for Excel",
     "Owner and staff accounts with an activity log",
-    "Screens, bills and WhatsApp messages in English, Hindi or Marathi",
+    "Screens in 10 languages: English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali and Punjabi",
+    "Bill labels in Hindi or Marathi next to English; WhatsApp messages in English, Hindi or Marathi",
     "Direct printing to thermal receipt printers (ESC/POS) and tag printers (TSPL, ZPL, EPL) without a driver",
     "Weighing scale readings over RS-232 or USB",
     "Customer KYC with encrypted ID numbers and documents; PAN and cash-limit checks on large bills",
@@ -48,7 +60,7 @@ const softwareSchema = {
     "Finance add-on: finance files, interest loans, collections, cash book, day close, profit and loss",
     "Gold release add-on: release pledged gold from a bank loan, test, buy or return it",
   ],
-  screenshot: [`${SITE}/product/jms/billing.webp`, `${SITE}/product/jms/tags.webp`, `${SITE}/product/jms/audit.webp`, `${SITE}/product/jms/invoice.webp`],
+  screenshot: [`${SITE}/product/jms/billing.webp`, `${SITE}/product/jms/tags.webp`, `${SITE}/product/jms/audit.webp`, `${SITE}/product/jms/invoice.webp`, `${SITE}/product/jms/scheme-passbook.webp`, `${SITE}/product/jms/order-detail.webp`, `${SITE}/product/jms/gst-returns.webp`],
   offers: { "@type": "Offer", price: String(JMS.price), priceCurrency: "INR", description: "Per shop per year, plus GST. 30-day free trial.", url: `${SITE}/jewellery-management-software#pricing` },
   author: { "@id": `${SITE}/#organization` },
   publisher: { "@id": `${SITE}/#organization` },
@@ -106,6 +118,57 @@ const FEATURES = [
     points: ["TallyPrime XML: ledgers and vouchers", "Ledger names matched to the accountant's books", "Sales register with taxable value, tax, HSN and HUID", "Full backup of the shop's data"],
     img: ["/product/jms/tally-export", "Exports for accounts in Infovion JMS: Tally files, Excel registers and full backup"],
   },
+  {
+    id: "gst",
+    kicker: "GST returns",
+    title: "GSTR-1 and GSTR-3B, ready every month",
+    body: "Pick the month and JMS works out the GSTR-3B summary and the GSTR-1 sections from your invoices, credit notes, repair bills and purchase bills. Each GSTR-1 section downloads in the GST Offline Tool's own columns, so your CA imports it instead of typing it.",
+    points: ["GSTR-3B: outward supplies, inter-state to unregistered, input tax", "GSTR-1: B2B, B2C large and small, credit notes, HSN summary, documents issued", "Input tax from purchase bills with GST", "Any month, any time"],
+    img: ["/product/jms/gst-returns", "GST returns in Infovion JMS: the GSTR-3B summary and GSTR-1 files for the GST Offline Tool"],
+    link: ["/jewellery-gst-software", "GST returns for jewellers"],
+  },
+  {
+    id: "schemes",
+    kicker: "Gold savings schemes",
+    title: "11-month schemes without the passbook register",
+    body: "Make your plans once: the monthly instalment, how many months, and the bonus. Join a customer, take each instalment with a receipt, and see at a glance who is late, who has matured and how much of your customers' money you hold. When the scheme matures, the amount and the bonus go straight onto the bill.",
+    points: ["Amount plans and 22K weight plans", "Bonus as an instalment or a percentage", "Late instalments flagged, reminders on WhatsApp", "Passbook with every instalment", "Redeemed on a bill, or closed early with a deduction"],
+    img: ["/product/jms/scheme-passbook", "A gold savings scheme passbook in Infovion JMS with eight of eleven instalments paid"],
+    link: ["/gold-scheme-software", "Gold scheme software in detail"],
+  },
+  {
+    id: "orders",
+    kicker: "Orders and karigar",
+    title: "Every custom order, from advance to delivery",
+    body: "Book an order with the customer's advance and, if they want it, today's rate locked in. Send it to the karigar as a job with the fine gold issued, follow it to ready, and deliver it on an ordinary bill that uses the advance as payment. The karigar's account shows the fine gold still with them.",
+    points: ["Advance and booked rate on the order", "Job to the karigar with metal issued", "Fine-gold balance for every karigar", "Ready and delivery dates, with WhatsApp updates", "Advance adjusted on the final bill"],
+    img: ["/product/jms/order-detail", "A customer order in Infovion JMS with the advance, booked rate and the karigar job"],
+    link: ["/karigar-management-software", "Orders and karigar in detail"],
+  },
+  {
+    id: "repairs",
+    kicker: "Repairs",
+    title: "Repairs tracked like orders",
+    body: "Take a piece in for repair with a numbered slip, its weight and the work to be done. Send it to a karigar or do it in the shop, mark it ready, and deliver it with a repair bill that carries GST on the service. Nothing gets lost between the counter and the workshop.",
+    points: ["Repair slip with weight and the work", "With the karigar, ready or delivered", "Advance and balance on delivery", "GST on repair charges (SAC)"],
+    img: ["/product/jms/repairs", "Repairs list in Infovion JMS with pieces with the karigar and ready to deliver"],
+  },
+  {
+    id: "old-gold",
+    kicker: "Old gold and purchases",
+    title: "Old gold bought, melted and accounted for",
+    body: "Buy old gold from a walk-in customer with its weight, tested purity and deduction, pay them and print the voucher. The old gold register shows what is in hand, and a melting batch sent to the refiner comes back as fine gold. Supplier bills and karigar accounts are kept in money and in fine metal.",
+    points: ["Purchase voucher with KYC and PAN checks", "Old gold register and melting batches", "Supplier bills with input GST", "Supplier and karigar accounts in money and fine gold"],
+    img: ["/product/jms/old-gold", "Old gold bought from customers in Infovion JMS with fine weight and amount paid"],
+  },
+  {
+    id: "profit",
+    kicker: "Profit and stock value",
+    title: "Know what you made on every bill",
+    body: "JMS records what each piece cost you, so the profit report shows the margin on every bill and the stock report values what is on the counters at cost and at today's rate. Owners see it; staff don't.",
+    points: ["Margin on every invoice line", "Stock value at cost and at today's rate", "Profit by day, by bill or by category", "Only the owner can see costs"],
+    img: ["/product/jms/profit", "Profit report in Infovion JMS with sales, cost and margin on each bill"],
+  },
 ];
 
 const COMPARISON = [
@@ -118,12 +181,20 @@ const COMPARISON = [
   ["Girvi register with interest to date", "register", false, true],
   ["Customer credit with part-payments", "register", "partial", true],
   ["Tally export", false, "partial", true],
-  ["Screens in Hindi and Marathi", false, "partial", true],
+  ["GSTR-1 and GSTR-3B from your bills", false, "partial", true],
+  ["Gold savings schemes with bonus and redemption", "register", false, true],
+  ["Custom orders and karigar job work", "register", false, true],
+  ["Repairs with slips and delivery", "register", false, true],
+  ["Branches with stock transfer", false, "partial", true],
+  ["Billing when the internet is down", true, "partial", true],
+  ["Screens in 10 Indian languages", false, "partial", true],
   ["PAN and cash-limit checks on big bills", false, false, true],
 ];
 
 const MORE = [
-  ["Hindi, Marathi or English", "Every screen, the bill labels and WhatsApp messages in the language each person chooses. Files for the accountant stay in English."],
+  ["10 Indian languages", "Every screen in English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali or Punjabi — each person picks their own. Bills can carry Hindi or Marathi labels next to English, and WhatsApp messages go out in English, Hindi or Marathi."],
+  ["Works without internet", "If the connection drops at the counter, keep billing from the stock and rates the counter keeps ready. Each counter holds ten invoice numbers from your series; the bills print, wait on the device and are sent, numbers and times unchanged, the moment you are back online."],
+  ["Branches", "Open a branch with its own stock, bills, number series and staff. Move stock between branches with a transfer note, and see every branch's sales side by side."],
   ["Printers, scales and scanners", "Bills through any printer driver, or straight to an ESC/POS receipt printer with paper cut and cash drawer. Tags to TSC, TVS, Argox, Zebra and other tag printers in TSPL, ZPL or EPL. Weights straight from the jewellery scale."],
   ["KYC and big bills", "Customer ID and PAN stored encrypted and shown masked, with consent and verification. A bill over ₹2 lakh asks for PAN or Form 60, and cash of ₹2 lakh or more on one bill is refused."],
   ["Notifications", "A bell for out-of-stock items, girvi and udhaar past their due date, and loans due today, with a WhatsApp reminder in one tap."],
@@ -148,7 +219,7 @@ const COUNTRIES = [
 ];
 
 const FAQ = [
-  ["What is Infovion JMS?", "Infovion JMS is jewellery management software for jewellery shops. It covers billing by weight, purity and making charges, barcode tags and scanning, stock audit, GST or VAT invoices, old-gold exchange, girvi (gold loans), customer credit, reports and export to Tally. It runs in a web browser, so there is nothing to install."],
+  ["What is Infovion JMS?", "Infovion JMS is jewellery management software for jewellery shops. It covers billing by weight, purity and making charges, barcode tags and scanning, stock audit, GST or VAT invoices with GSTR-1 and GSTR-3B, old gold bought and exchanged, girvi (gold loans), gold savings schemes, custom orders, karigar job work and repairs, customer credit, profit and stock value, branches, reports and export to Tally. It runs in a web browser in 10 Indian languages, keeps billing when the internet drops, and has nothing to install."],
   ["How much does Infovion JMS cost?", `${PRICE} per shop per year, plus GST, after a free ${JMS.trialDays}-day trial. That includes every feature, unlimited staff accounts, invoices, tags and girvi records, and help with setup and importing your stock. For shops outside India we quote in your currency.`],
   ["Does JMS support barcode tags?", "Yes. JMS gives every piece a tag number and prints barcode (Code 128) or QR tags on thermal tag printers such as TSC, Zebra and Argox, through the printer's driver, or on A4 label sheets. Pieces are billed by scanning the tag with a USB or Bluetooth scanner or a phone camera, and the whole stock can be audited by scanning."],
   ["Which tag sizes and printers work?", "Common jewellery tag rolls of 100 × 15 mm, 100 × 13 mm, 95 × 12 mm and 81 × 12 mm, stickers of 50 × 25 and 38 × 25 mm, and A4 label sheets, plus a custom size. Any label printer with a Windows or macOS driver works, for example TSC TE244, Zebra ZD230 or Argox OS-214. A test print and alignment settings help match each printer."],
@@ -156,9 +227,13 @@ const FAQ = [
   ["How is GST calculated on jewellery in JMS?", "GST is charged on the full value of the jewellery, that is metal, making charges and stones, less any discount shown on the invoice, and split into CGST and SGST, or charged as IGST for an inter-state sale. The default is 3%, in line with the CBIC FAQ on gems and jewellery, and the rates can be changed to what your accountant confirms."],
   ["Can JMS be used outside India?", "Yes. When you sign up, choose your country and JMS sets the currency, tax (VAT, GST or none), purities, rate units and financial year. Everything can be changed in Settings. Invoices can carry your tax registration number, such as a TRN in the UAE."],
   ["Is my shop's data kept separate and safe?", "Each shop's data is kept separate from every other shop's and is visible only to that shop's accounts. Staff accounts have limited permissions, every important change is recorded in an activity log, and the owner can download a full backup at any time. If a plan ends, the data is not deleted: the shop can still view and export it."],
+  ["Does JMS manage gold savings schemes?", "Yes. Set up your plans (for example ₹5,000 a month for 11 months with the 12th month as bonus, or a 22K weight plan where each instalment buys gold at the day's rate), join customers, take instalments with receipts, and see who is late or has matured. On maturity the amount and bonus are used straight on the bill."],
+  ["Can JMS handle custom orders and karigar work?", "Yes. An order records the customer's advance, an optional booked rate and the due date. It can be sent to a karigar as a job with fine gold issued, marked ready, and delivered on a bill that uses the advance. Each karigar's account shows the fine gold still with them. Repairs work the same way with numbered slips."],
+  ["Does JMS make GSTR-1 and GSTR-3B?", "JMS works out the GSTR-3B summary and creates the GSTR-1 sections (B2B, B2C large and small, credit notes, HSN summary and documents issued) for any month, as files in the GST Offline Tool's columns. Your CA checks them and files the return; JMS does not file on the GST portal."],
+  ["Can one owner run several branches?", "Yes. Each branch keeps its own stock, bills, invoice series and staff. The owner moves between branches from the menu, sends stock from one branch to another with a transfer note, and sees branches side by side in Reports. A branch in another state needs its own GSTIN."],
   ["Can I bring my existing stock and records?", "Yes. Stock can be imported from an Excel sheet saved as CSV, and older customer dues can be entered as opening balances. Shops moving from the earlier single-shop version of JMS can have all their records moved across by our team."],
-  ["Do I need to install anything?", "No. JMS runs in Chrome, Edge or Safari on a counter computer, laptop, tablet or phone, and can be added to the home screen like an app. It needs an internet connection."],
-  ["Is JMS available in Hindi or Marathi?", "Yes. Each person picks English, Hindi or Marathi on the sign-in page or in the menu, and every screen changes. Bills can carry Hindi or Marathi labels next to English, and WhatsApp reminders go out in each customer's own language."],
+  ["Do I need to install anything?", "No. JMS runs in Chrome, Edge or Safari on a counter computer, laptop, tablet or phone, and can be added to the home screen like an app. If the internet drops, billing carries on from the stock and rates the counter keeps ready, and the bills are sent when the connection is back."],
+  ["Which languages is JMS available in?", "Ten: English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali and Punjabi. Each person picks their language on the sign-in page or in the menu, and every screen changes. Bills can carry Hindi or Marathi labels next to English, and WhatsApp reminders go out in English, Hindi or Marathi."],
   ["Which printers and weighing scales work with JMS?", "Any printer with a Windows or macOS driver works through the print window. Without a driver, JMS prints directly to ESC/POS thermal receipt printers (with paper cut and cash drawer) and to tag printers in TSPL (TSC, TVS, Argox, Xprinter), ZPL or EPL (Zebra) from Chrome or Edge. Jewellery scales with an RS-232 or USB output, such as Essae, Citizen, Atom, Contech, Shimadzu, A&D and Sartorius, fill in weights with one click."],
   ["Does JMS ask for PAN on big jewellery bills?", "Yes, for shops in India. When a bill goes over ₹2 lakh, JMS asks for the customer's PAN or a signed Form 60 (Income Tax Rule 114B) and keeps the PAN on the customer's record. It refuses cash of ₹2 lakh or more for one bill (section 269ST) and asks for the rest by UPI, card, bank transfer or cheque. The limits can be changed in Settings."],
   ["Can JMS manage money lending as well as the shop?", "Yes, with the Finance add-on: finance files collected in daily, weekly or monthly instalments, interest loans with monthly or daily interest, late fees, waivers, a due list, partners, a cash book, day close and profit and loss. Infovion switches it on for your shop."],
@@ -200,11 +275,11 @@ export function JmsHome() {
   return (
     <>
       <Helmet>
-        <title>Jewellery Management Software, Billing and Girvi | Infovion JMS</title>
-        <meta name="description" content={`Jewellery management software for shops in India and abroad: billing by weight and purity, barcode tags, girvi, credit, GST or VAT invoices. ${PRICE} a year.`} />
+        <title>Jewellery Software: Billing, Girvi, Gold Schemes | Infovion JMS</title>
+        <meta name="description" content={`Jewellery shop software: billing, barcode tags, girvi, gold schemes, orders and karigar, GSTR-1, branches, 10 Indian languages. ${PRICE} a year.`} />
         <link rel="canonical" href={`${SITE}/jewellery-management-software`} />
         <meta property="og:title" content="Infovion JMS | Jewellery Management Software" />
-        <meta property="og:description" content="Billing by weight and purity, barcode tags, stock audit, girvi, customer credit and Tally export for jewellery shops in India and worldwide." />
+        <meta property="og:description" content="Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GSTR-1 and GSTR-3B, branches and offline billing, in 10 Indian languages." />
         <meta property="og:url" content={`${SITE}/jewellery-management-software`} />
         <meta property="og:image" content={`${SITE}/og-jms.jpg`} />
         <meta name="twitter:image" content={`${SITE}/og-jms.jpg`} />
@@ -215,7 +290,7 @@ export function JmsHome() {
         trail={[["Products", "/products"], ["Infovion JMS", "/jewellery-management-software"]]}
         kicker="Infovion JMS"
         title="Jewellery management software"
-        sub={`Billing by weight and purity, barcode tags, stock audit, girvi, customer credit and Tally export, in English, Hindi or Marathi, for jewellery shops in India and worldwide. It runs in a web browser. Free for ${JMS.trialDays} days, then ${PRICE} a year per shop.`}
+        sub={`Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GST returns and Tally export, for one shop or several branches. In 10 Indian languages, in a web browser, and billing carries on when the internet drops. Free for ${JMS.trialDays} days, then ${PRICE} a year per shop.`}
         aside={
           <BrowserFrame url="jms.infovion.in">
             <img src="/product/jms/billing-900.webp" srcSet="/product/jms/billing-900.webp 900w, /product/jms/billing.webp 1800w" sizes="(min-width: 1024px) 520px, 92vw" alt="New bill in Infovion JMS with scanned pieces, weights, rates and making charges" width="1800" height="1125" className="block w-full" fetchpriority="high" />
@@ -305,19 +380,24 @@ export function JmsHome() {
               </GlowButton>
               {JMS.live && <GhostButton to="/contact?interest=jms">Talk to us</GhostButton>}
             </div>
-            <p className="mt-5 text-sm text-slate-400">Outside India, we quote in your currency. Groups of shops and chains: ask about a group price. The money lending and gold release add-ons are priced separately.</p>
+            <p className="mt-5 text-sm text-slate-400">Outside India, we quote in your currency. Groups of shops and branches: ask about a group price. The money lending and gold release add-ons are priced separately.</p>
           </div>
           <ul className="grid content-start gap-x-8 sm:grid-cols-2">
             {[
               "Billing, invoices and customer history",
               "Barcode and QR tags, scanning, stock audit",
               "Girvi and customer credit",
+              "Gold savings schemes",
+              "Orders, karigar jobs and repairs",
+              "Old gold, purchases and supplier accounts",
               "Daily metal rates",
-              "GST or VAT, HUID",
+              "GST or VAT, HUID, GSTR-1 and GSTR-3B",
+              "Profit and stock value",
               "Tally export, Excel registers, full backup",
+              "Billing when the internet is down",
               "Unlimited staff accounts",
               "Unlimited invoices, tags and girvi records",
-              "Screens in English, Hindi and Marathi",
+              "Screens in 10 Indian languages",
               "Customer KYC and notifications",
               "Help with setup and importing stock",
               "Support on WhatsApp and phone",
@@ -369,8 +449,10 @@ export function JmsHome() {
             ["Jewellers who also lend", "Finance files, interest loans and collections, with the Finance add-on."],
             ["Owners and staff", "Staff bill and tag; owners see reports and change settings."],
             ["Any device", "Counter computer, laptop, tablet or phone."],
-            ["Hindi and Marathi speakers", "Staff work in the language they read best."],
+            ["Staff in every state", "Screens in 10 Indian languages, so each person works in the one they read best."],
             ["Shops with many pieces", "Tags, scanning and stock audits keep the count right."],
+            ["Shops that make to order", "Orders, karigar jobs and repairs, with fine gold tracked."],
+            ["Shops with branches", "Stock, bills and staff per branch, with transfers between them."],
             ["Shops abroad", "UAE and the Gulf, UK, US and beyond, in local currency and tax."],
             ["Moving from paper or old software", "Stock imports from Excel; opening dues are entered once."],
           ].map(([t, b]) => (
@@ -385,11 +467,20 @@ export function JmsHome() {
       <Section className="py-8">
         <div className="panel grid gap-8 rounded-xl p-7 sm:p-9 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h2 className="font-display text-2xl font-semibold text-white">Product roadmap</h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-400">Next on the list, based on what jewellers ask for.</p>
+            <h2 className="font-display text-2xl font-semibold text-white">New in JMS</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-400">Recently added, at the request of jewellers, and included in every plan.</p>
+            <h3 className="mt-7 font-display text-lg font-semibold text-white">Next on the list</h3>
+            <ul className="mt-2 space-y-1.5 text-sm text-slate-400">
+              {["RFID tags for large showrooms", "Automatic WhatsApp Business messages", "GST e-invoice and e-way bill", "Loyalty points", "An app for your customers", "Diamond certificates on tags"].map((t) => (
+                <li key={t} className="flex gap-2.5">
+                  <Minus className="mt-0.5 h-4 w-4 flex-shrink-0 text-slate-500" aria-hidden="true" />
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="grid gap-x-8 sm:grid-cols-2">
-            {["Custom orders with advances", "Karigar (job work) issue and receipt", "Gold savings schemes", "Multi-branch stock for chains", "Due-date reminders on WhatsApp", "RFID tag support"].map((t) => (
+          <ul className="grid content-start gap-x-8 sm:grid-cols-2">
+            {["Gold savings schemes", "Custom orders with advances", "Karigar job work and fine gold", "Repairs with job slips", "Old gold purchase and melting", "Supplier purchases", "GSTR-1 and GSTR-3B", "Profit and stock value", "Branches and stock transfer", "Billing without internet", "10 Indian languages", "Estimates, returns and exchanges"].map((t) => (
               <li key={t} className="flex gap-2.5 border-b border-white/10 py-3 text-sm text-slate-200">
                 <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />
                 {t}
@@ -404,8 +495,16 @@ export function JmsHome() {
           <LinkRow to="/jewellery-barcode-software" title="Jewellery barcode software" body="Tagging, tag printers and sizes, scanning and stock audits." />
           <LinkRow to="/jewellery-billing-software" title="Jewellery billing software" body="How a jewellery bill is calculated, and how JMS calculates it." />
           <LinkRow to="/girvi-software" title="Girvi software" body="Managing a girvi register with interest, due dates and receipts." />
+          <LinkRow to="/gold-scheme-software" title="Gold scheme software" body="11-month savings schemes, weight plans, bonus and redemption on the bill." />
+          <LinkRow to="/karigar-management-software" title="Orders and karigar software" body="Custom orders, karigar jobs with fine gold issued, and repairs." />
+          <LinkRow to="/jewellery-gst-software" title="GST software for jewellers" body="3% GST invoices, GSTR-1 files for the Offline Tool and the GSTR-3B summary." />
+          <LinkRow to="/multi-branch-jewellery-software" title="Multi-branch jewellery software" body="Stock, bills and staff per branch, with transfers and side-by-side reports." />
+          <LinkRow to="/offline-jewellery-billing-software" title="Offline jewellery billing" body="How the counter keeps billing when the internet drops." />
+          <LinkRow to="/jewellery-software-in-indian-languages" title="Jewellery software in Indian languages" body="Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali and Punjabi." />
           <LinkRow to="/money-lending-software" title="Money lending software" body="Finance files, interest loans, collections and the cash book, plus gold release." />
           <LinkRow to="/jewellery-software-with-tally" title="Jewellery software with Tally" body="What goes into the TallyPrime files, and how your accountant imports them." />
+          <LinkRow to="/gold-price-calculator" title="Free gold price calculator" body="Weight, purity, making charges, 3% GST and old gold, shared on WhatsApp." />
+          <LinkRow to="/girvi-interest-calculator" title="Free girvi interest calculator" body="Interest on a gold loan counted by days, with a minimum period." />
           <LinkRow to="/jewellery-software-uae" title="Jewellery software in the UAE" body="AED rates, 5% VAT tax invoices with TRN, and Gulf karats for Dubai and beyond." />
           <LinkRow to="/case-studies/jewellery-management-system" title="Case study" body="How JMS was developed with a jewellery shop in Maharashtra." />
         </div>
@@ -481,7 +580,7 @@ const LANDINGS = {
       ["Does JMS handle old gold exchange?", "Yes. Enter the weight, purity and value of the old gold; JMS deducts it from the amount payable and shows it on the invoice."],
       ["Is PAN mandatory for buying jewellery above ₹2 lakh?", "Yes. Under Income Tax Rule 114B, a sale of goods of more than ₹2 lakh in one transaction needs the buyer's PAN, or Form 60 if the buyer has no PAN, whatever the mode of payment. JMS asks for it as soon as the bill total reaches the limit."],
       ["How much cash can a jeweller accept for one bill?", "Less than ₹2 lakh. Section 269ST of the Income Tax Act bars receiving ₹2 lakh or more in cash from one person in a day, for one transaction, or for one event. JMS refuses cash at that level and asks for the balance by UPI, card, bank transfer or cheque."],
-      ["Can bills be printed in Hindi or Marathi?", "Yes. Bills can carry Hindi or Marathi labels next to English, and the whole JMS screen can be switched to Hindi or Marathi for staff."],
+      ["Can bills be printed in Hindi or Marathi?", "Yes. Bills can carry Hindi or Marathi labels next to English. The JMS screens themselves can be switched to any of 10 Indian languages, including Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali and Punjabi."],
     ],
     sources: [["CBIC: Sectoral FAQ on Gems and Jewellery", "https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf"]],
   },
@@ -593,11 +692,205 @@ const LANDINGS = {
       ["Is it a live sync?", "No. JMS creates files that the accountant imports, which also works when the accountant is in another town and has their own copy of Tally."],
     ],
   },
+  "gold-scheme-software": {
+    title: "Gold Scheme Software for Jewellers: 11-Month Plans | Infovion JMS",
+    description: "Gold savings scheme software for jewellers: 11-month plans, bonus month, 22K weight plans, instalment receipts, late reminders and redemption on the bill.",
+    trail: "Gold scheme software",
+    kicker: "Infovion JMS",
+    h1: "Gold scheme software for jewellers",
+    sub: "Run your 11-month gold savings schemes without the passbook register: every instalment with a receipt, late payers flagged, and the matured amount and bonus used straight on the bill.",
+    img: ["/product/jms/scheme-passbook", "A gold savings scheme passbook in Infovion JMS with eight of eleven instalments paid"],
+    answerQ: "What is a jewellery gold savings scheme?",
+    answer: "A gold savings scheme, also called a monthly jewellery purchase plan, lets a customer pay a fixed amount every month, usually for 11 months. The jeweller adds a bonus, often the 12th instalment or a share of it, and at maturity the customer buys jewellery for the total. In a weight plan, each instalment buys gold at the day's rate and the customer collects the grams saved. Infovion JMS keeps every plan, member, instalment and receipt, flags late payments, and uses the matured amount and bonus on the customer's bill.",
+    sections: [
+      ["Plans you set up", ["Amount plans, for example ₹5,000 a month for 11 months", "Weight plans, where each instalment buys 22K gold at the day's rate", "Bonus as a number of instalments, as a percentage, or none", "Grace days before an instalment counts as late", "As many plans as you run, each with its own name"]],
+      ["Every member", ["Joined with a scheme number, start date and nominee", "Instalments taken by cash, UPI, card or bank, each with a receipt", "Passbook of every instalment, printed or shared on WhatsApp", "Late members listed, with a WhatsApp reminder in one tap", "Matured schemes waiting to be redeemed"]],
+      ["At maturity", ["Amount and bonus applied on the customer's bill as payment", "Weight plans: the grams saved, valued at the day's rate", "Closed early, with your deduction and the refund recorded", "Total of customers' money you hold, on the schemes list"]],
+      ["Check with your adviser", ["Rules on jewellery schemes and deposits differ, and a scheme that only buys jewellery is treated differently from a deposit. JMS keeps the records; please check what applies to your shop"], true],
+    ],
+    example: {
+      caption: "Worked example: ₹5,000 a month for 11 months, 12th month as bonus",
+      rows: [["Paid by the customer", "11 × ₹5,000", "₹55,000"], ["Jeweller's bonus", "1 instalment", "₹5,000"], ["Available on the bill at maturity", "", "₹60,000"]],
+      note: "Figures for illustration. Bonus and rules are set by each jeweller.",
+    },
+    faqs: [
+      ["Can JMS run an 11-month gold scheme?", "Yes. Make a plan with the monthly amount, the number of instalments and the bonus. Each customer who joins gets a scheme number and a passbook, and JMS knows when the scheme matures."],
+      ["Does JMS support gold weight schemes?", "Yes. In a weight plan each instalment buys gold at that day's rate, and the passbook shows the grams saved. At maturity the grams are valued at the day's rate and used on the bill."],
+      ["How are late instalments followed up?", "Members whose instalment is overdue are listed on the schemes page and on the dashboard, and a WhatsApp reminder can be sent in one tap."],
+      ["How is the scheme used when the customer buys?", "On the bill, choose the customer's matured scheme as a payment. The amount and the bonus are taken off the bill, and the scheme is closed."],
+      ["Can a customer close a scheme early?", "Yes. JMS works out the amount paid less the deduction you set for early closure, and records the refund or the purchase."],
+    ],
+    links: [["/karigar-management-software", "Orders and karigar", "Custom orders with advances, karigar jobs and repairs."], ["/jewellery-billing-software", "Jewellery billing", "How the bill is calculated and paid, including schemes."]],
+    whatsappText: "Hello Infovion, I would like to know more about gold savings schemes in Infovion JMS.",
+  },
+  "karigar-management-software": {
+    title: "Karigar & Order Management Software for Jewellers | Infovion JMS",
+    description: "Jewellery order and karigar software: customer orders with advance and booked rate, karigar jobs with fine gold issued and received, repairs with job slips.",
+    trail: "Orders and karigar",
+    kicker: "Infovion JMS",
+    h1: "Order and karigar management software",
+    sub: "Every custom order from advance to delivery, every job with the karigar and the fine gold in their hands, and every repair with a numbered slip. Nothing lost between the counter and the workshop.",
+    img: ["/product/jms/order-detail", "A customer order in Infovion JMS with the advance, booked rate and the karigar job"],
+    answerQ: "How do jewellers track karigar work?",
+    answer: "A jeweller who gives work to a karigar (goldsmith) issues metal, usually counted as fine gold, and receives finished pieces with an allowance for wastage. The balance of fine gold with each karigar has to be tracked, along with the labour owed. Infovion JMS records customer orders with their advances, sends them to a karigar as jobs with the metal issued, receives the work back, and keeps each karigar's account in money and in fine gold.",
+    sections: [
+      ["Customer orders", ["Order number, design, weight and purity wanted, and due date", "Advance taken in cash, UPI, card or bank, with a receipt", "Today's rate booked for the customer, if agreed", "Booked, in work, ready, delivered or cancelled, with WhatsApp updates", "Delivered on an ordinary bill that uses the advance"]],
+      ["Karigar jobs", ["Job sent with the metal issued, in gross and fine weight", "Linked to the customer's order, or made for stock", "Work received with weight, touch, wastage and labour", "Each karigar's account in money and in fine gold", "Open jobs and overdue jobs at a glance"]],
+      ["Repairs", ["Repair slip with the piece, its weight and the work", "In the shop or with a karigar", "Advance on intake, balance on delivery", "GST on the repair charge as a service", "Ready and delivered lists, so nothing is forgotten"]],
+      ["Purchases and suppliers", ["Supplier bills with input GST", "Supplier and karigar accounts kept in money and fine metal", "Old gold bought from customers, and melting batches"]],
+    ],
+    faqs: [
+      ["Does JMS keep the karigar's fine gold balance?", "Yes. Metal issued on a job is recorded in gross and fine weight. When work comes back, the fine gold in the pieces and the wastage allowed are set against it, and the karigar's account shows what is still with them."],
+      ["Can a customer's advance be adjusted on the final bill?", "Yes. When the order is delivered, the bill picks up the advance as a payment, so the customer pays only the balance."],
+      ["Can I book the gold rate for an order?", "Yes. The order can keep the day's rate, so the customer is billed at that rate when the piece is delivered."],
+      ["Are repairs charged with GST?", "Repair charges are a service and carry GST at the rate your accountant confirms. JMS prints a repair bill with the SAC code and the tax."],
+      ["Do customers get updates on WhatsApp?", "Yes. A message can be sent when the order or repair is ready, in English, Hindi or Marathi."],
+    ],
+    links: [["/gold-scheme-software", "Gold scheme software", "Monthly schemes with bonus and redemption on the bill."], ["/jewellery-gst-software", "GST for jewellers", "GSTR-1 and GSTR-3B from bills, repairs and purchases."]],
+    whatsappText: "Hello Infovion, I would like to know more about orders and karigar management in Infovion JMS.",
+  },
+  "jewellery-gst-software": {
+    title: "Jewellery GST Software: 3% GST, GSTR-1, GSTR-3B | Infovion JMS",
+    description: "GST software for jewellers: 3% GST invoices with HUID, GSTR-1 files for the GST Offline Tool, GSTR-3B summary, credit notes, HSN summary and input tax.",
+    trail: "GST software for jewellers",
+    kicker: "Infovion JMS",
+    h1: "GST software for jewellers",
+    sub: "GST invoices at the counter, and at month end the GSTR-3B summary and the GSTR-1 files your CA needs, worked out from your invoices, credit notes, repair bills and purchase bills.",
+    img: ["/product/jms/gst-returns", "GST returns in Infovion JMS: the GSTR-3B summary and GSTR-1 files for the GST Offline Tool"],
+    answerQ: "Which GST returns does a jeweller file?",
+    answer: "A GST-registered jeweller usually files GSTR-1, the details of outward supplies (B2B invoices, B2C sales, credit notes, an HSN summary and the documents issued), and GSTR-3B, the summary return where the tax is paid after input tax credit. Gold jewellery carries GST at 3%, and job work and repair services are taxed as services. Infovion JMS creates the GSTR-1 sections as files in the GST Offline Tool's columns and works out the GSTR-3B figures for any month, so the accountant checks and files instead of typing.",
+    sections: [
+      ["GSTR-1", ["B2B invoices to registered buyers, with their GSTIN", "B2C large (inter-state, over the limit) and B2C small", "Credit notes for returns", "HSN summary with quantity, value and tax", "Documents issued, with number ranges", "Each section as a CSV in the GST Offline Tool's columns"]],
+      ["GSTR-3B", ["Outward taxable supplies with IGST, CGST and SGST", "Inter-state supplies to unregistered persons, by state", "Input tax from purchase bills entered in JMS", "Any month, as often as you like"]],
+      ["At the counter", ["3% GST split as CGST and SGST, or IGST for another state", "HSN on every line and HUID on hallmarked pieces", "PAN or Form 60 above ₹2 lakh, and the cash limit", "Sales returns as credit notes; estimates without GST"]],
+      ["Not done by JMS", ["Filing on the GST portal: your CA uploads the files and files the return", "E-invoices (IRN) and e-way bills, which are on the roadmap"], true],
+    ],
+    faqs: [
+      ["Does JMS file GST returns?", "No. JMS prepares the GSTR-1 files and the GSTR-3B figures. Your CA checks them, imports the files in the GST Offline Tool or enters the figures on the portal, and files the return."],
+      ["What GST rate applies to gold jewellery?", "3% on the total value of the jewellery, including making charges (CBIC sectoral FAQ on gems and jewellery). Confirm current rates with your accountant; JMS lets you set them."],
+      ["Are purchases and input tax included?", "Yes. Purchase bills entered in JMS with GST are counted as input tax in the GSTR-3B summary."],
+      ["Does JMS make e-invoices?", "Not yet. E-invoicing applies to businesses above the turnover limit; JMS prints GST tax invoices today, and e-invoice and e-way bill support is on the roadmap."],
+      ["Can I still send my data to Tally?", "Yes. The Tally export carries sales with tax, receipts, old gold and girvi entries for any period."],
+    ],
+    sources: [["CBIC: Sectoral FAQ on Gems and Jewellery", "https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf"]],
+    links: [["/jewellery-billing-software", "Jewellery billing", "How a jewellery bill and its GST are calculated."], ["/jewellery-software-with-tally", "Tally export", "Ledgers and vouchers for TallyPrime."]],
+  },
+  "multi-branch-jewellery-software": {
+    title: "Multi-Branch Jewellery Software: Stock Transfer | Infovion JMS",
+    description: "Jewellery software for shops with branches: stock, bills, invoice series and staff per branch, stock transfer notes between branches and reports side by side.",
+    trail: "Multi-branch",
+    kicker: "Infovion JMS",
+    h1: "Jewellery software for shops with branches",
+    sub: "Each branch keeps its own stock, bills, invoice series and staff. The owner moves between branches from the menu, sends stock across with a transfer note and sees every branch side by side.",
+    answerQ: "How does multi-branch jewellery software work?",
+    answer: "In multi-branch jewellery software, each showroom has its own stock, bills and invoice numbers, while the owner sees all of them in one account. Pieces moved from one branch to another go on a transfer note, so each branch's stock stays right, and reports compare the branches. In Infovion JMS, staff are given access to their own branch, the owner switches between branches from the menu, and a branch in another state can use its own GSTIN.",
+    sections: [
+      ["Per branch", ["Stock, tags and stock audits", "Bills with the branch's own invoice series", "Girvi, schemes, orders and repairs", "Staff accounts limited to their branch", "Address and GSTIN on the branch's invoices"]],
+      ["For the owner", ["Move between branches from the menu", "Stock transfer note when pieces move", "Sales and money received for every branch side by side", "Rates, settings and staff managed in one place"]],
+    ],
+    faqs: [
+      ["Can staff see other branches?", "No. Staff accounts work in the branch they are given. The owner can see and switch between all branches."],
+      ["How is stock moved between branches?", "The owner chooses the pieces and the branch, and JMS moves them from one branch's stock to the other's on a numbered transfer note, with their weights and cost."],
+      ["Does each branch need its own GSTIN?", "A branch in another state needs its own GST registration. Branches in the same state normally share one GSTIN; your accountant can confirm."],
+      ["How is a group of shops priced?", "Ask us about a group price for shops with several branches."],
+    ],
+    links: [["/offline-jewellery-billing-software", "Offline billing", "How each counter keeps billing when the internet drops."], ["/jewellery-barcode-software", "Barcode tags", "Tags, scanning and stock audits in every branch."]],
+    whatsappText: "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop with branches.",
+  },
+  "offline-jewellery-billing-software": {
+    title: "Offline Jewellery Billing Software, No Internet | Infovion JMS",
+    description: "Jewellery billing that keeps working when the internet drops: bills made from the stock and rates the counter keeps, printed, and sent when back online.",
+    trail: "Offline billing",
+    kicker: "Infovion JMS",
+    h1: "Jewellery billing that works without internet",
+    sub: "A dropped connection should not stop a sale. Each JMS counter keeps today's stock, rates and a few invoice numbers ready, so the bill is made, printed and sent the moment the internet is back.",
+    answerQ: "Can online jewellery software bill without internet?",
+    answer: "Yes, if it keeps what billing needs on the counter. While online, each Infovion JMS counter keeps a copy of the stock, today's rates and ten invoice numbers reserved from the shop's series. If the connection drops, bills are made from that copy, printed and queued on the device. When the connection returns they are sent oldest first, keeping their invoice number and time, and the server checks every piece again, so a piece sold meanwhile at another counter is reported, not sold twice.",
+    sections: [
+      ["Offline at the counter", ["Scan tags and bill from the kept stock and today's rates", "Up to ten bills per counter, each with its own invoice number", "Bill printed as usual", "A banner shows bills waiting to be sent"]],
+      ["Back online", ["Bills sent oldest first, numbers and times unchanged", "Sending twice saves the bill once", "Every piece checked again on the server", "Any bill that cannot be saved is shown for the owner to fix"]],
+      ["Needs the internet", ["Girvi, schemes, orders and stock changes", "Reports and exports", "Sharing invoices on WhatsApp"], true],
+    ],
+    faqs: [
+      ["What happens to invoice numbers when billing offline?", "Each counter keeps ten numbers from the shop's series while online. Offline bills use them in order, so the series has no gaps or duplicates when the bills are sent."],
+      ["What if the same piece is sold at two counters?", "When the offline bill is sent, the server checks every piece again. If a piece was already sold at another counter, the bill is reported for the owner to fix instead of selling the piece twice."],
+      ["Does JMS open without internet?", "Yes. Once JMS has been opened on a device, it opens again without a connection, and the billing screen uses the kept stock and rates."],
+      ["Do I need to install software for this?", "No. It works in Chrome, Edge or Safari, and JMS can be added to the home screen like an app."],
+    ],
+    links: [["/multi-branch-jewellery-software", "Branches", "Stock, bills and staff per branch."], ["/jewellery-billing-software", "Jewellery billing", "The bill calculation, printing and sharing."]],
+  },
+  "jewellery-software-in-indian-languages": {
+    title: "Jewellery Software in Hindi, Tamil & 8 More | Infovion JMS",
+    description: "Jewellery shop software in 10 Indian languages: Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali, Punjabi and English, chosen per person.",
+    trail: "Indian languages",
+    kicker: "Infovion JMS",
+    h1: "Jewellery software in 10 Indian languages",
+    sub: "Billing, girvi, schemes, stock, udhaar, orders and repairs in the language your staff read best. Each person picks their own, so the owner can work in English and the counter in Gujarati or Tamil.",
+    img: ["/product/jms/dashboard-gu", "The Infovion JMS dashboard in Gujarati"],
+    answerQ: "Is jewellery software available in regional languages?",
+    answer: "Infovion JMS shows every screen, menu and message in English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali or Punjabi. Each person chooses their language on the sign-in page or in the menu, and it changes only for them. Printed bills are in English and can carry Hindi or Marathi labels next to English, and WhatsApp reminders go out in English, Hindi or Marathi.",
+    sections: [
+      ["In every language", ["All screens: billing, stock, tags, girvi, schemes, orders, repairs, udhaar, reports and settings", "Numbers and dates in the Indian format", "Each person's own choice, kept on their account", "Switch at any time from the menu"]],
+      ["Bills and messages", ["Bills in English, with optional Hindi or Marathi labels next to English", "WhatsApp messages in English, Hindi or Marathi", "Customer names typed in any script"]],
+      ["Not yet", ["Bill labels in the other eight languages", "WhatsApp messages in languages other than English, Hindi and Marathi"], true],
+    ],
+    faqs: [
+      ["Can different staff use different languages?", "Yes. The language belongs to each person, so one counter can work in Tamil and the owner's laptop in English on the same shop."],
+      ["Are the bills printed in my language?", "Bills are printed in English and can carry Hindi or Marathi labels next to English. Bill labels in other Indian languages are planned."],
+      ["How do I change the language?", "On the sign-in page, or from the menu at any time. Every screen changes at once."],
+    ],
+    links: "langs",
+  },
 };
+
+// One page per Indian language: [slug, name, native name, code, menu words, region, girvi word, bill labels]
+const LANGS = [
+  ["hindi", "Hindi", "हिन्दी", "hi", ["नया बिल", "गिरवी", "बचत योजनाएँ", "स्टॉक", "उधार", "ऑर्डर", "रिपेयर"], "Uttar Pradesh, Madhya Pradesh, Rajasthan, Bihar, Delhi and across north India", "girvi (गिरवी)", true],
+  ["marathi", "Marathi", "मराठी", "mr", ["नवीन बिल", "गहाण", "बचत योजना", "स्टॉक", "उधारी", "ऑर्डर", "दुरुस्ती"], "Maharashtra, from Pune and Mumbai to Nagpur and Kolhapur", "gahan (गहाण)", true],
+  ["gujarati", "Gujarati", "ગુજરાતી", "gu", ["નવું બિલ", "ગીરવી", "બચત યોજનાઓ", "સ્ટૉક", "ઉધાર", "ઑર્ડર", "રિપેર"], "Gujarat, from Ahmedabad and Surat to Rajkot and Vadodara", "girvi (ગીરવી)"],
+  ["tamil", "Tamil", "தமிழ்", "ta", ["புதிய பில்", "அடகு", "சேமிப்புத் திட்டங்கள்", "ஸ்டாக்", "கடன் (உதார்)", "ஆர்டர்கள்", "பழுதுபார்ப்புகள்"], "Tamil Nadu, from Chennai to Coimbatore, Madurai and Tiruchirappalli", "adagu (அடகு)"],
+  ["telugu", "Telugu", "తెలుగు", "te", ["కొత్త బిల్లు", "తాకట్టు", "పొదుపు పథకాలు", "స్టాక్", "అప్పు (ఉధార్)", "ఆర్డర్లు", "రిపేర్లు"], "Andhra Pradesh and Telangana, from Hyderabad to Vijayawada and Visakhapatnam", "takattu (తాకట్టు)"],
+  ["kannada", "Kannada", "ಕನ್ನಡ", "kn", ["ಹೊಸ ಬಿಲ್", "ಗಿರವಿ", "ಉಳಿತಾಯ ಯೋಜನೆಗಳು", "ಸ್ಟಾಕ್", "ಸಾಲ (ಉಧಾರಿ)", "ಆರ್ಡರ್‌ಗಳು", "ರಿಪೇರಿಗಳು"], "Karnataka, from Bengaluru to Mysuru, Hubballi and Mangaluru", "girvi (ಗಿರವಿ)"],
+  ["malayalam", "Malayalam", "മലയാളം", "ml", ["പുതിയ ബിൽ", "പണയം", "സമ്പാദ്യ പദ്ധതികൾ", "സ്റ്റോക്ക്", "കടം (ഉധാർ)", "ഓർഡറുകൾ", "റിപ്പയറുകൾ"], "Kerala, from Thrissur and Kochi to Kozhikode and Thiruvananthapuram", "panayam (പണയം)"],
+  ["bengali", "Bengali", "বাংলা", "bn", ["নতুন বিল", "বন্ধক", "সঞ্চয় প্রকল্প", "স্টক", "ধার (উধার)", "অর্ডার", "মেরামত"], "West Bengal, from Kolkata to Siliguri and Durgapur, and Tripura", "bandhak (বন্ধক)"],
+  ["punjabi", "Punjabi", "ਪੰਜਾਬੀ", "pa", ["ਨਵਾਂ ਬਿੱਲ", "ਗਿਰਵੀ", "ਬਚਤ ਸਕੀਮਾਂ", "ਸਟਾਕ", "ਉਧਾਰ", "ਆਰਡਰ", "ਮੁਰੰਮਤਾਂ"], "Punjab, from Ludhiana and Amritsar to Jalandhar and Patiala", "girvi (ਗਿਰਵੀ)"],
+];
+const MENU_EN = ["New bill", "Girvi", "Savings schemes", "Stock", "Udhaar", "Orders", "Repairs"];
+
+for (const [slug, name, native, code, menu, region, girvi, labels] of LANGS) {
+  LANDINGS[`jewellery-software-${slug}`] = {
+    title: `Jewellery Software in ${name}: Billing & Girvi | Infovion JMS`,
+    description: `Jewellery shop software in ${name} (${native}): billing, girvi, gold schemes, stock, udhaar, orders and repairs, every screen in ${name}. 30-day free trial.`,
+    trail: `In ${name}`,
+    kicker: `Infovion JMS · ${native}`,
+    h1: `Jewellery software in ${name}`,
+    sub: `Every screen of Infovion JMS in ${name}: billing, ${girvi.split(" ")[0]}, gold savings schemes, stock, udhaar, orders and repairs. For jewellery shops in ${region}.`,
+    img: [`/product/jms/dashboard-${code}`, `The Infovion JMS dashboard in ${name} (${native})`],
+    answerQ: `Is there jewellery shop software in ${name}?`,
+    answer: `Yes. Infovion JMS can show every screen, menu and message in ${name} (${native}). Each person picks ${name} on the sign-in page or in the menu, so the counter staff can work in ${name} while the owner keeps English. Billing by weight and purity, barcode tags, ${girvi}, gold schemes, udhaar, orders, karigar jobs and repairs all work in ${name}. ${labels ? `Bills can carry ${name} labels next to English, and WhatsApp reminders can go out in ${name}.` : "Printed bills are in English, with optional Hindi or Marathi labels, and WhatsApp reminders go out in English, Hindi or Marathi."}`,
+    sections: [
+      [`The menu in ${name}`, menu.map((w, i) => `${w}: ${MENU_EN[i]}`)],
+      ["Everything in the app", ["Billing by weight, purity and making charges, with GST", "Barcode tags, scanning and stock audits", "Girvi with interest to the day", "Gold savings schemes and instalments", "Customer orders, karigar jobs and repairs", "Reports, GSTR-1 and GSTR-3B, Tally export"]],
+      labels
+        ? ["Bills and messages", [`Bill labels in ${name} next to English`, `WhatsApp reminders in ${name}`, "Customer names typed in any script"]]
+        : ["Not yet in " + name, ["Bill labels: bills print in English, with optional Hindi or Marathi labels", `WhatsApp messages: sent in English, Hindi or Marathi`], true],
+    ],
+    faqs: [
+      [`Can my staff use JMS in ${name}?`, `Yes. Each person chooses ${name} on the sign-in page or from the menu, and every screen changes at once. Others on the same shop can keep English or another language.`],
+      [`Are bills printed in ${name}?`, labels ? `Bills are printed in English and can carry ${name} labels next to English, set once in Settings.` : `Not yet. Bills are printed in English and can carry Hindi or Marathi labels next to English. ${name} labels on bills are planned.`],
+      ["How much does it cost?", `${PRICE} per shop per year, plus GST, after a free ${JMS.trialDays}-day trial. Every language and feature is included.`],
+    ],
+    links: "langs",
+    whatsappText: `Hello Infovion, I would like to know more about Infovion JMS in ${name} for our jewellery shop.`,
+  };
+}
+
+const LANG_LINKS = [["/jewellery-software-in-indian-languages", "All 10 languages", "Every screen in the language your staff read best."], ...LANGS.map(([slug, name, native]) => [`/jewellery-software-${slug}`, `Jewellery software in ${name}`, `${native}: billing, girvi, schemes and stock in ${name}.`])];
 
 function JmsLanding({ k }) {
   const c = LANDINGS[k];
   const url = `${SITE}/${k}`;
+  const links = c.links === "langs" ? LANG_LINKS.filter(([to]) => to !== `/${k}`) : c.links;
   return (
     <>
       <Helmet>
@@ -678,6 +971,16 @@ function JmsLanding({ k }) {
         )}
       </Section>
 
+      {links && (
+        <Section kicker="Related" title={c.links === "langs" ? "Infovion JMS in other languages" : "More about Infovion JMS"} className="py-10">
+          <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-10">
+            {links.map(([to, title, body]) => (
+              <LinkRow key={to} to={to} title={title} body={body} />
+            ))}
+          </div>
+        </Section>
+      )}
+
       <FaqList faqs={c.faqs} />
       <CtaBand title="Try Infovion JMS free for 30 days" sub={c.cta ?? `Create your shop in a minute. After the trial, ${PRICE} a year per shop, plus GST.`} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText={c.whatsappText ?? "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop."} />
     </>
@@ -690,3 +993,11 @@ export const BarcodePage = () => <JmsLanding k="jewellery-barcode-software" />;
 export const UaePage = () => <JmsLanding k="jewellery-software-uae" />;
 export const MoneyLendingPage = () => <JmsLanding k="money-lending-software" />;
 export const TallyPage = () => <JmsLanding k="jewellery-software-with-tally" />;
+export const SchemePage = () => <JmsLanding k="gold-scheme-software" />;
+export const KarigarPage = () => <JmsLanding k="karigar-management-software" />;
+export const GstPage = () => <JmsLanding k="jewellery-gst-software" />;
+export const BranchesPage = () => <JmsLanding k="multi-branch-jewellery-software" />;
+export const OfflinePage = () => <JmsLanding k="offline-jewellery-billing-software" />;
+export const LanguagesPage = () => <JmsLanding k="jewellery-software-in-indian-languages" />;
+/** The page for one Indian language, by its slug (hindi, tamil...). */
+export const LanguagePage = ({ lang }) => <JmsLanding k={`jewellery-software-${lang}`} />;

@@ -76,7 +76,7 @@ export const PRODUCTS = [
     name: "Infovion JMS",
     short: "Jewellery management software",
     to: "/jewellery-management-software",
-    blurb: "Billing by weight and purity, barcode tags and scanning, stock audit, girvi loans, customer credit, GST or VAT invoices and Tally export, for jewellery shops in India and abroad.",
+    blurb: "Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GSTR-1 and GSTR-3B, branches and Tally export, in 10 Indian languages, for jewellery shops in India and abroad.",
     status: "Available to every jewellery shop, with a 30-day free trial",
   },
 ];
