@@ -71,7 +71,7 @@ ${services}
 - Tally integration: the owner exports TallyPrime XML (ledgers and vouchers: sales with tax, receipts, old gold, udhaar payments, girvi loans, repayments and interest income) and Excel sales, girvi and stock registers for the accountant, for any month or financial year: ${D}/jewellery-software-with-tally
 - Countries: presets for India (GST), UAE, Saudi Arabia, Oman, Bahrain (VAT), Qatar, Kuwait, Singapore, UK, USA, Canada and Australia set currency, tax, purities (e.g. 21K in the Gulf, 9ct in the UK), rate units (gram, 10 g, tola, troy ounce) and financial year.
 - Data: each shop's data is kept separate; the owner can export a full backup at any time; data is not deleted when a plan ends.
-- Pricing: ₹9,999 per shop per year plus GST, everything included, after a 30-day free trial. Outside India: quoted in local currency. Free trial: https://jms.infovion.in/signup · Demo shop: https://jms.infovion.in/demo
+- Pricing: ₹9,999 per shop per year plus GST (usual price ₹11,999), everything included, after a 30-day free trial. Outside India: quoted in local currency. Free trial: https://jms.infovion.in/signup · Demo shop: https://jms.infovion.in/demo
 - Free calculators (no sign-up): [Gold jewellery price calculator with making charges and 3% GST](${D}/gold-price-calculator) · [Dubai gold price calculator, AED and 5% VAT](${D}/dubai-gold-price-calculator) · [Girvi interest calculator, by days](${D}/girvi-interest-calculator)
 - Not supported yet: Arabic invoices, UAE e-invoicing and Saudi ZATCA (Fatoora) e-invoicing, Indian GST e-invoice (IRN) and e-way bill, RFID, loyalty points, a customer app, bill labels in languages other than Hindi and Marathi.
 - Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software) · [Money lending software](${D}/money-lending-software) · [Jewellery software with Tally](${D}/jewellery-software-with-tally) · [Jewellery software in the UAE (AED, 5% VAT, TRN)](${D}/jewellery-software-uae) · [Gold scheme software](${D}/gold-scheme-software) · [Orders and karigar](${D}/karigar-management-software) · [GST software for jewellers](${D}/jewellery-gst-software) · [Multi-branch](${D}/multi-branch-jewellery-software) · [Offline billing](${D}/offline-jewellery-billing-software) · [In Indian languages](${D}/jewellery-software-in-indian-languages)
@@ -109,7 +109,7 @@ const PRODUCTS_AI = [
     name: "Infovion JMS",
     category: "Jewellery management software",
     url: `${D}/jewellery-management-software`,
-    price: "₹9,999 per shop per year, plus GST",
+    price: "₹9,999 per shop per year, plus GST (usual price ₹11,999)",
     trial: "30 days, self-serve: https://jms.infovion.in/signup",
     demo: "https://jms.infovion.in/demo",
     markets: ["India", "United Arab Emirates", "Saudi Arabia", "Oman", "Bahrain", "Qatar", "Kuwait", "United Kingdom", "United States", "Canada", "Singapore", "Australia"],

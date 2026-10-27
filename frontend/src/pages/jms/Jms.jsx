@@ -11,6 +11,16 @@ const [TRIAL_HREF, TRIAL_LABEL] = jmsTrial();
 
 const ID = `${SITE}/jewellery-management-software#software`;
 const PRICE = `₹${JMS.price.toLocaleString("en-IN")}`;
+const MRP = `₹${JMS.mrp.toLocaleString("en-IN")}`;
+
+const SUB = "Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GST returns and Tally export, for one shop or several branches. In 10 Indian languages, in a web browser, and billing carries on when the internet drops.";
+
+/** The usual price struck through, then the price: "₹11,999 ₹9,999". */
+const Price = () => (
+  <>
+    <s className="text-slate-400 decoration-rose-400 decoration-2">{MRP}</s> <strong className="font-semibold text-white">{PRICE}</strong>
+  </>
+);
 
 const softwareSchema = {
   "@context": "https://schema.org",
@@ -220,7 +230,7 @@ const COUNTRIES = [
 
 const FAQ = [
   ["What is Infovion JMS?", "Infovion JMS is jewellery management software for jewellery shops. It covers billing by weight, purity and making charges, barcode tags and scanning, stock audit, GST or VAT invoices with GSTR-1 and GSTR-3B, old gold bought and exchanged, girvi (gold loans), gold savings schemes, custom orders, karigar job work and repairs, customer credit, profit and stock value, branches, reports and export to Tally. It runs in a web browser in 10 Indian languages, keeps billing when the internet drops, and has nothing to install."],
-  ["How much does Infovion JMS cost?", `${PRICE} per shop per year, plus GST, after a free ${JMS.trialDays}-day trial. That includes every feature, unlimited staff accounts, invoices, tags and girvi records, and help with setup and importing your stock. For shops outside India we quote in your currency.`],
+  ["How much does Infovion JMS cost?", `${PRICE} per shop per year (usual price ${MRP}), plus GST, after a free ${JMS.trialDays}-day trial. That includes every feature, unlimited staff accounts, invoices, tags and girvi records, and help with setup and importing your stock. For shops outside India we quote in your currency.`],
   ["Does JMS support barcode tags?", "Yes. JMS gives every piece a tag number and prints barcode (Code 128) or QR tags on thermal tag printers such as TSC, Zebra and Argox, through the printer's driver, or on A4 label sheets. Pieces are billed by scanning the tag with a USB or Bluetooth scanner or a phone camera, and the whole stock can be audited by scanning."],
   ["Which tag sizes and printers work?", "Common jewellery tag rolls of 100 × 15 mm, 100 × 13 mm, 95 × 12 mm and 81 × 12 mm, stickers of 50 × 25 and 38 × 25 mm, and A4 label sheets, plus a custom size. Any label printer with a Windows or macOS driver works, for example TSC TE244, Zebra ZD230 or Argox OS-214. A test print and alignment settings help match each printer."],
   ["Does Infovion JMS work with Tally?", "Yes. The owner downloads TallyPrime XML files for any period: the ledgers, and all vouchers including sales with tax, receipts, old gold taken in exchange, girvi loans and interest. The accountant imports them through Tally's Import menu. Ledger names can be set to match the accountant's books."],
@@ -290,7 +300,7 @@ export function JmsHome() {
         trail={[["Products", "/products"], ["Infovion JMS", "/jewellery-management-software"]]}
         kicker="Infovion JMS"
         title="Jewellery management software"
-        sub={`Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GST returns and Tally export, for one shop or several branches. In 10 Indian languages, in a web browser, and billing carries on when the internet drops. Free for ${JMS.trialDays} days, then ${PRICE} a year per shop.`}
+        sub={<>{SUB} Free for {JMS.trialDays} days, then <Price /> a year per shop.</>}
         aside={
           <BrowserFrame url="jms.infovion.in">
             <img src="/product/jms/billing-900.webp" srcSet="/product/jms/billing-900.webp 900w, /product/jms/billing.webp 1800w" sizes="(min-width: 1024px) 520px, 92vw" alt="New bill in Infovion JMS with scanned pieces, weights, rates and making charges" width="1800" height="1125" className="block w-full" fetchpriority="high" />
@@ -369,7 +379,11 @@ export function JmsHome() {
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="panel rounded-xl p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-sky-300">Infovion JMS</p>
-            <p className="mt-4 font-display text-5xl font-bold text-white">
+            <p className="mt-4 flex items-center gap-3">
+              <s className="font-display text-2xl font-semibold text-slate-400 decoration-rose-400 decoration-2">{MRP}</s>
+              <span className="rounded-full bg-emerald-400/15 px-2.5 py-0.5 text-xs font-semibold text-emerald-300">Save ₹{(JMS.mrp - JMS.price).toLocaleString("en-IN")}</span>
+            </p>
+            <p className="mt-1 font-display text-5xl font-bold text-white">
               {PRICE}
               <span className="ml-2 text-base font-normal text-slate-400">per shop per year, plus GST</span>
             </p>
@@ -982,7 +996,7 @@ function JmsLanding({ k }) {
       )}
 
       <FaqList faqs={c.faqs} />
-      <CtaBand title="Try Infovion JMS free for 30 days" sub={c.cta ?? `Create your shop in a minute. After the trial, ${PRICE} a year per shop, plus GST.`} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText={c.whatsappText ?? "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop."} />
+      <CtaBand title="Try Infovion JMS free for 30 days" sub={c.cta ?? <>Create your shop in a minute. After the trial, <Price /> a year per shop, plus GST.</>} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText={c.whatsappText ?? "Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop."} />
     </>
   );
 }
