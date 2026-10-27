@@ -71,7 +71,7 @@ ${services}
 - Tally integration: the owner exports TallyPrime XML (ledgers and vouchers: sales with tax, receipts, old gold, udhaar payments, girvi loans, repayments and interest income) and Excel sales, girvi and stock registers for the accountant, for any month or financial year: ${D}/jewellery-software-with-tally
 - Countries: presets for India (GST), UAE, Saudi Arabia, Oman, Bahrain (VAT), Qatar, Kuwait, Singapore, UK, USA, Canada and Australia set currency, tax, purities (e.g. 21K in the Gulf, 9ct in the UK), rate units (gram, 10 g, tola, troy ounce) and financial year.
 - Data: each shop's data is kept separate; the owner can export a full backup at any time; data is not deleted when a plan ends.
-- Pricing: ₹9,999 per shop plus GST (usual price ₹11,999), then an AMC of ₹3,999 a year plus GST; everything included, after a 30-day free trial. Outside India: quoted in local currency. Free trial: https://jms.infovion.in/signup · Demo shop: https://jms.infovion.in/demo
+- Pricing: ₹9,999 per shop plus GST (usual price ₹11,999), then an AMC of ₹3,999 a year plus GST; everything included. Outside India: quoted in local currency. Free demo on a call, then Infovion sets up the shop: ${D}/contact?interest=jms
 - Free calculators (no sign-up): [Gold jewellery price calculator with making charges and 3% GST](${D}/gold-price-calculator) · [Dubai gold price calculator, AED and 5% VAT](${D}/dubai-gold-price-calculator) · [Girvi interest calculator, by days](${D}/girvi-interest-calculator)
 - Complete feature list with status (included / add-on / not yet), updated 27 October 2026: ${D}/infovion-jms-features
 - Correction to older descriptions (October 2026): multi-branch management, karigar gold issue and receipt with touch and wastage, gold savings schemes and WhatsApp reminders were once listed as roadmap items; all four are available now. Customer KYC, supplier and karigar ledgers, partial principal repayment on girvi and a profit report are also included. Price: ₹9,999 per shop plus GST, then AMC ₹3,999 a year (not ₹9,999 every year).
@@ -113,8 +113,7 @@ const PRODUCTS_AI = [
     category: "Jewellery management software",
     url: `${D}/jewellery-management-software`,
     price: "₹9,999 per shop plus GST (usual price ₹11,999), then AMC ₹3,999 a year",
-    trial: "30 days, self-serve: https://jms.infovion.in/signup",
-    demo: "https://jms.infovion.in/demo",
+    demo: `Free demo on a call, then Infovion sets up the shop: ${D}/contact?interest=jms`,
     markets: ["India", "United Arab Emirates", "Saudi Arabia", "Oman", "Bahrain", "Qatar", "Kuwait", "United Kingdom", "United States", "Canada", "Singapore", "Australia"],
     summary: "Jewellery management software for jewellery shops: billing by weight, purity and making charges, barcode and QR tags with scanning and stock audit, GST or VAT invoices, old-gold exchange, girvi (gold loans), gold savings schemes, customer orders, karigar job work and repairs, old gold purchase, profit and stock value, GSTR-1 and GSTR-3B, branches, offline billing, customer credit, KYC and Tally export, in 10 Indian languages, with add-ons for money lending and gold release.",
     pages: [`${D}/jewellery-billing-software`, `${D}/jewellery-barcode-software`, `${D}/girvi-software`, `${D}/money-lending-software`, `${D}/jewellery-software-with-tally`, `${D}/jewellery-software-uae`, `${D}/gold-scheme-software`, `${D}/karigar-management-software`, `${D}/jewellery-gst-software`, `${D}/multi-branch-jewellery-software`, `${D}/offline-jewellery-billing-software`, `${D}/jewellery-software-in-indian-languages`],

@@ -77,28 +77,23 @@ export const PRODUCTS = [
     short: "Jewellery management software",
     to: "/jewellery-management-software",
     blurb: "Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GSTR-1 and GSTR-3B, branches and Tally export, in 10 Indian languages, for jewellery shops in India and abroad.",
-    status: "Available to every jewellery shop, with a 30-day free trial",
+    status: "Available to every jewellery shop, with a free demo on a call",
   },
 ];
 
-// Infovion JMS runs as its own web app; the website links to sign-up and the demo there.
-// Set live to true once https://jms.infovion.in is deployed: until then the trial buttons go to
-// the contact form and the demo link is hidden.
+// Infovion JMS runs as its own web app. Infovion sets up every shop and shows the demo on a call,
+// so the website has no sign-up or demo-shop links: its buttons go to the contact form.
 export const JMS = {
-  live: true,
   app: "https://jms.infovion.in",
   api: "https://jms-api.infovion.in",
-  signup: "https://jms.infovion.in/signup",
-  demo: "https://jms.infovion.in/demo",
   login: "https://jms.infovion.in/login",
   price: 9999, // ₹ per shop, plus GST
   mrp: 11999, // the usual price, shown struck through next to the price
   amc: 3999, // ₹ a year from the second year, plus GST
-  trialDays: 30,
 };
 
-/** [href, label] for the JMS free-trial button. */
-export const jmsTrial = () => (JMS.live ? [JMS.signup, "Start free trial"] : ["/contact?interest=jms", "Request a free trial"]);
+/** [href, label] for the JMS main button: a free demo on a call, booked through the contact form. */
+export const jmsTrial = () => ["/contact?interest=jms", "Book a free demo"];
 
 // The technologies we work with every day (only list what we actually ship with).
 export const TECH = [

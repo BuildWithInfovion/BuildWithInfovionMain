@@ -245,7 +245,7 @@ export function GoldPriceCalculatorPage() {
         ["How is old gold valued in an exchange?", "By its weight and purity at the day's rate, often less a deduction for melting and testing losses. The value is taken off the new bill. Ask the jeweller to test the purity in front of you and show the deduction on the bill."],
       ]} />
       <MoreTools current={path} />
-      <CtaBand title="Make these bills in seconds" sub="Infovion JMS works out every jewellery bill like this, prints the GST invoice and keeps the stock right. Free for 30 days." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the gold price calculator and would like to know about Infovion JMS for our shop." />
+      <CtaBand title="Make these bills in seconds" sub="Infovion JMS works out every jewellery bill like this, prints the GST invoice and keeps the stock right. Book a free demo call." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the gold price calculator and would like to know about Infovion JMS for our shop." />
     </>
   );
 }
@@ -275,7 +275,7 @@ export function DubaiGoldCalculatorPage() {
         ["How do I convert a 24K rate to 22K, 21K or 18K?", "Multiply the 24K rate by the karat divided by 24: × 22/24 for 22K, × 21/24 for 21K and × 18/24 for 18K. Choose \"24K, convert\" above. Published rates for each karat can differ slightly from this."],
       ]} />
       <MoreTools current={path} />
-      <CtaBand title="Jewellery software for UAE shops" sub="Infovion JMS bills by weight and karat in AED and prints 5% VAT tax invoices with your TRN. About AED 390 per shop, plus a yearly AMC, after a 30-day free trial." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the Dubai gold price calculator and would like to know about Infovion JMS for our jewellery shop in the UAE." />
+      <CtaBand title="Jewellery software for UAE shops" sub="Infovion JMS bills by weight and karat in AED and prints 5% VAT tax invoices with your TRN. About AED 390 per shop, plus a yearly AMC. Book a free demo call." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the Dubai gold price calculator and would like to know about Infovion JMS for our jewellery shop in the UAE." />
     </>
   );
 }
@@ -358,7 +358,7 @@ export function GirviInterestCalculatorPage() {
         ["How can a jeweller track interest on every pledge?", "With a girvi register in software. Infovion JMS shows the interest to date on every pledge, takes part-payments, highlights overdue pledges and prints pledge and release receipts."],
       ]} />
       <MoreTools current={path} />
-      <CtaBand title="Every pledge's interest, worked out daily" sub="Infovion JMS keeps the girvi register with photos, part-payments, overdue alerts and receipts. Free for 30 days." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the girvi interest calculator and would like to know about the girvi register in Infovion JMS." />
+      <CtaBand title="Every pledge's interest, worked out daily" sub="Infovion JMS keeps the girvi register with photos, part-payments, overdue alerts and receipts. Book a free demo call." primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I used the girvi interest calculator and would like to know about the girvi register in Infovion JMS." />
     </>
   );
 }

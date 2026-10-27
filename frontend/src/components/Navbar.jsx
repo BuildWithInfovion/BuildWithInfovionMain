@@ -36,7 +36,7 @@ const SUBNAV = {
   jms: {
     name: "Infovion JMS", icon: Gem, home: "/jewellery-management-software",
     links: [["/jewellery-management-software", "Overview"], ["/infovion-jms-features", "All features"], ["/jewellery-billing-software", "Billing & GST"], ["/jewellery-barcode-software", "Barcode tags"], ["/girvi-software", "Girvi"], ["/gold-scheme-software", "Gold schemes"], ["/karigar-management-software", "Orders & karigar"], ["/jewellery-software-in-indian-languages", "Languages"], ["/jewellery-software-uae", "UAE & Gulf"], ["/gold-price-calculator", "Calculators"], ["/case-studies/jewellery-management-system", "Case study"]],
-    cta: [jmsTrial()[0], "Free trial"],
+    cta: [jmsTrial()[0], "Free demo"],
   },
 };
 

@@ -55,7 +55,7 @@ const SOCIAL = [
 // The call to action above the footer depends on which part of the site the visitor is in
 const STRIPS = {
   school: ["Evaluate Infovion School ERP with your school's data", "30-day free trial. No payment details required.", ["/free-trial", "Start free trial"]],
-  jms: ["Try Infovion JMS in your shop", "30-day free trial. Billing, tags, girvi, gold schemes and orders, in 10 Indian languages.", jmsTrial()],
+  jms: ["See Infovion JMS for your shop", "Free demo on a call. Billing, tags, girvi, gold schemes and orders, in 10 Indian languages.", jmsTrial()],
   company: ["Planning a software project?", "Share your requirements. We respond within one business day.", ["/contact", "Contact us"]],
 };
 const NO_STRIP = ["/", "/free-trial", "/contact", "/company-profile"];

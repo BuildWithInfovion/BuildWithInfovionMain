@@ -247,7 +247,7 @@ export const jewelleryPosts = [
 
       <h2>What jewellery software costs in 2026</h2>
       <p>Installed desktop software is usually sold as a one-time licence per computer, with a yearly AMC for support and updates, and extra charges for more users or modules. Cloud software is usually a subscription per shop. When comparing, add up five years: licence, AMC, extra users, the computer or server it needs, and backup. A cheaper licence often costs more over five years.</p>
-      <p>For reference, Infovion JMS is ₹9,999 per shop plus GST, then an AMC of ₹3,999 a year, with every feature, unlimited staff and unlimited bills included, and a 30-day free trial.</p>
+      <p>For reference, Infovion JMS is ₹9,999 per shop plus GST, then an AMC of ₹3,999 a year, with every feature, unlimited staff and unlimited bills included, and a free demo on a call.</p>
 
       <h2>Cloud or installed?</h2>
       <table>
@@ -260,7 +260,7 @@ export const jewelleryPosts = [
           <tr><td>Updates</td><td>Installed by a technician</td><td>Automatic</td></tr>
         </tbody>
       </table>
-      <p><em>Infovion JMS covers all 20 points, runs in the browser on any device, keeps billing when the internet drops, and works in 10 Indian languages. <a href="/jewellery-management-software">See Infovion JMS</a> or <a href="https://jms.infovion.in/demo" rel="noopener" target="_blank">open the demo shop</a>.</em></p>
+      <p><em>Infovion JMS covers all 20 points, runs in the browser on any device, keeps billing when the internet drops, and works in 10 Indian languages. <a href="/jewellery-management-software">See Infovion JMS</a> or <a href="/contact?interest=jms">book a free demo</a>.</em></p>
     `,
   },
   {

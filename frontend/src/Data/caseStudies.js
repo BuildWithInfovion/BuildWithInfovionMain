@@ -17,7 +17,7 @@ export const CASE_STUDIES = [
       "The platform needed to serve many schools from one system with complete data isolation, perform well on the entry-level phones used by teachers and parents, and support local requirements: fee instalments and concessions, opening balances from earlier ledgers, transfer certificates in board formats, and transport run by separate operators.",
     ],
     solution: [
-      ["Multi-tenant architecture", "Every record is scoped to an institution at the data layer, so isolation does not depend on application screens. A platform console handles onboarding and self-service 30-day trials with sample data."],
+      ["Multi-tenant architecture", "Every record is scoped to an institution at the data layer, so isolation does not depend on application screens. A platform console handles onboarding of new shops and a demo shop with sample data."],
       ["Eight role portals", "Director, principal, operator, accountant, reception, teacher, non-teaching staff and parent. Each role sees only the information and actions relevant to it."],
       ["Fee management", "Class-wise fee plans, instalments, concessions, instant receipts, defaulter lists and opening balances, so that previous payments are always accounted for."],
       ["Direct online payments", "Parents pay by UPI, card or net banking into the school's own Razorpay account. Receipts are generated automatically from the payment confirmation."],
