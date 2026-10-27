@@ -35,6 +35,7 @@ export const PRERENDER_ROUTES = [
   "/girvi-software",
   "/money-lending-software",
   "/jewellery-software-with-tally",
+  "/infovion-jms-features",
   "/gold-scheme-software",
   "/karigar-management-software",
   "/jewellery-gst-software",

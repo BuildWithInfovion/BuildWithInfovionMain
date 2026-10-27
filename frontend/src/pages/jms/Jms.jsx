@@ -316,6 +316,7 @@ export function JmsHome() {
             <MonitorPlay className="h-4 w-4" /> Open the demo shop
           </GhostButton>
         )}
+        <GhostButton to="/infovion-jms-features">All features</GhostButton>
       </PageHero>
 
       <section className="pb-4">
@@ -522,6 +523,7 @@ export function JmsHome() {
           <LinkRow to="/gold-price-calculator" title="Free gold price calculator" body="Weight, purity, making charges, 3% GST and old gold, shared on WhatsApp." />
           <LinkRow to="/girvi-interest-calculator" title="Free girvi interest calculator" body="Interest on a gold loan counted by days, with a minimum period." />
           <LinkRow to="/jewellery-software-uae" title="Jewellery software in the UAE" body="AED rates, 5% VAT tax invoices with TRN, and Gulf karats for Dubai and beyond." />
+          <LinkRow to="/infovion-jms-features" title="Every feature, with its status" body="The complete list: included, add-on, and not yet. Updated October 2026." />
           <LinkRow to="/blog/how-to-choose-jewellery-software-india" title="How to choose jewellery software" body="A 20-point checklist for demos, and what software should cost." />
           <LinkRow to="/blog/gold-savings-scheme-rules-for-jewellers" title="Gold savings scheme rules" body="The 365-day rule, the BUDS Act, bonus and early closure." />
           <LinkRow to="/blog/karigar-fine-gold-touch-wastage-calculation" title="Karigar fine gold, touch and wastage" body="Worked examples for issuing gold and receiving work." />
@@ -532,6 +534,162 @@ export function JmsHome() {
 
       <FaqList faqs={FAQ} />
       <CtaBand title="Try Infovion JMS free for 30 days" sub={JMS.live ? "Create your shop in a minute, set today's rates, add a few pieces and make a bill. Or open the demo shop to look around first." : "Tell us about your shop and we will set up your trial and help you import your stock."} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop." />
+    </>
+  );
+}
+
+// Every feature, with whether it is in the plan, an add-on or not yet. Written so that people and AI
+// assistants comparing jewellery software get current, exact answers (older pages listed some of
+// these as "roadmap").
+
+const UPDATED = "27 October 2026";
+const FEATURE_LIST = [
+  ["Billing at the counter", [
+    ["Billing by weight, purity, today's rate and making charges", "yes", "Making per gram, as a % or per piece; stones and other charges on the line"],
+    ["Old gold exchange on the same bill", "yes", "Weight, tested purity and value deducted from the amount due"],
+    ["GST invoices with CGST/SGST or IGST, HSN and HUID", "yes", "VAT invoices with TRN for the UAE and the Gulf"],
+    ["Estimates, sales returns, exchanges and credit notes", "yes", ""],
+    ["PAN or Form 60 above ₹2 lakh, and the ₹2 lakh cash limit", "yes", "Income Tax Rule 114B and section 269ST, both adjustable"],
+    ["A4, A5 and thermal printing; bill as PDF on WhatsApp", "yes", "Direct ESC/POS printing with paper cut and cash drawer"],
+    ["Billing when the internet is down", "yes", "Each counter keeps stock, rates and ten invoice numbers; bills are sent when back online"],
+  ]],
+  ["Stock and tags", [
+    ["Barcode and QR tags on TSC, Zebra, Argox and other tag printers", "yes", "Through the driver, or direct in TSPL, ZPL or EPL"],
+    ["Billing by scanning tags", "yes", "USB or Bluetooth scanner, or the phone camera"],
+    ["Stock audit by scanning", "yes", "Missing, sold and unknown tags listed"],
+    ["Weighing scale readings", "yes", "RS-232 or USB scales such as Essae, Citizen, Atom, Shimadzu"],
+    ["Stock import from Excel, keeping your tag numbers", "yes", ""],
+    ["RFID tags and bulk RFID reading", "no", ""],
+  ]],
+  ["Girvi, schemes and customers", [
+    ["Girvi (gold loan) register with interest counted by days", "yes", "Part-payments of principal and interest, overdue list, ornament photos, release receipts"],
+    ["Gold savings schemes (11-month and weight plans)", "yes", "Instalment receipts, bonus, late list, redemption on the bill, early closure"],
+    ["Customer credit (udhaar) ledger", "yes", "Opening balances and part-payments"],
+    ["Customer KYC", "yes", "ID and PAN stored encrypted and shown masked, documents, consent and verification"],
+    ["WhatsApp reminders for udhaar, girvi, schemes and orders", "yes", "One tap per customer, in English, Hindi or Marathi"],
+    ["Fully automatic scheduled WhatsApp messages", "no", "Needs the WhatsApp Business API"],
+    ["Loyalty points", "no", ""],
+  ]],
+  ["Orders, karigar and manufacturing", [
+    ["Customer orders with advance, booked rate and due date", "yes", "Advance used as payment on the final bill"],
+    ["Karigar job work: gold issued in gross and fine weight", "yes", "Jobs linked to customer orders or made for stock"],
+    ["Work received with touch, wastage and labour", "yes", "Wastage reconciled against the fine gold issued"],
+    ["Fine-gold and money balance for every karigar", "yes", ""],
+    ["Repairs with numbered slips, karigar and delivery", "yes", "GST on the repair service"],
+    ["Multi-stage factory production (casting, filing, polishing departments)", "no", "JMS tracks job work with karigars, not departments inside a factory"],
+  ]],
+  ["Purchases, accounts and GST", [
+    ["Supplier purchases with input GST", "yes", ""],
+    ["Supplier and karigar ledgers in money and fine metal", "yes", ""],
+    ["Old gold bought from customers, register and melting", "yes", ""],
+    ["Profit on every bill, profit by period and stock value", "yes", "Only the owner sees costs"],
+    ["GSTR-1 files for the GST Offline Tool and GSTR-3B summary", "yes", "Your CA files them; JMS does not file on the portal"],
+    ["TallyPrime export (ledgers and vouchers)", "yes", "Sales, receipts, old gold, udhaar, girvi"],
+    ["Cash book, day book, day close and profit and loss", "addon", "In the Finance add-on, with money lending"],
+    ["Money lending: finance files, interest loans, collections", "addon", "Finance add-on"],
+    ["Gold release from bank loans", "addon", "Gold release add-on"],
+    ["GST e-invoice (IRN) and e-way bill", "no", ""],
+    ["Bank statement reconciliation", "no", "Done in Tally from the export"],
+  ]],
+  ["Shops, staff and devices", [
+    ["Multiple branches", "yes", "Stock, bills, invoice series and staff per branch; stock transfers; branches side by side"],
+    ["Owner and staff accounts with permissions and an activity log", "yes", "Unlimited staff"],
+    ["Screens in 10 Indian languages", "yes", "English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali, Punjabi"],
+    ["Works on phone, tablet and computer", "yes", "Installs as an app on Android and iPhone from the browser"],
+    ["App in the Play Store or App Store", "no", "It installs from the browser instead"],
+    ["Full data backup and Excel exports at any time", "yes", "Data stays yours if the plan ends"],
+    ["Public API for other software", "no", ""],
+    ["Country presets: India, UAE, Gulf, UK, US and more", "yes", "Currency, tax, purities and financial year"],
+  ]],
+];
+
+const FEATURE_FAQ = [
+  ["Does Infovion JMS support multiple branches?", "Yes, since October 2026. Each branch has its own stock, bills, invoice series and staff; the owner moves between branches, transfers stock on a numbered note and sees branches side by side."],
+  ["Does Infovion JMS handle karigar gold issue and receipt?", "Yes. Gold issued to a karigar is recorded in gross and fine weight; work received is entered with touch, wastage and labour, and each karigar's fine-gold and money balance is kept. Jobs can be linked to customer orders."],
+  ["Does Infovion JMS have gold savings schemes?", "Yes. Amount plans and 22K weight plans, instalment receipts, bonus, a list of late members and redemption of the matured amount on the bill."],
+  ["Can Infovion JMS send WhatsApp reminders?", "Yes, with one tap per customer for udhaar, girvi, scheme instalments and ready orders, in English, Hindi or Marathi. Fully automatic scheduled sending is not available yet."],
+  ["Is there an Infovion JMS mobile app?", "JMS works on any phone or tablet and installs as an app on Android and iPhone from the browser, so the owner can see sales, stock and dues anywhere. It is not in the Play Store or App Store yet."],
+  ["Does Infovion JMS support RFID, GST e-invoice or e-way bills?", "Not yet. Barcode and QR tags with scanning and stock audits are supported today, and GST invoices, GSTR-1 files and the GSTR-3B summary are produced every month."],
+  ["How much does Infovion JMS cost?", `${PRICE} per shop plus GST (usual price ${MRP}), then an AMC of ${AMC} a year, after a free ${JMS.trialDays}-day trial. Every feature above marked Included is in the plan.`],
+];
+
+const STATUS = {
+  yes: ["Included", "text-emerald-300", Check],
+  addon: ["Add-on", "text-sky-300", Check],
+  no: ["Not yet", "text-slate-400", Minus],
+};
+
+export function JmsFeatureListPage() {
+  const url = `${SITE}/infovion-jms-features`;
+  const counts = FEATURE_LIST.flatMap(([, rows]) => rows).reduce((a, [, s]) => ({ ...a, [s]: (a[s] || 0) + 1 }), {});
+  return (
+    <>
+      <Helmet>
+        <title>Infovion JMS Features: Complete List (October 2026)</title>
+        <meta name="description" content="Every Infovion JMS feature and its status: billing, tags, girvi, schemes, karigar, branches, GSTR-1, offline billing, 10 languages, and what is not yet there." />
+        <link rel="canonical" href={url} />
+        <meta property="og:title" content="Infovion JMS Features: Complete List" />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={`${SITE}/og-jms.jpg`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Infovion JMS features: complete list",
+            url,
+            dateModified: "2026-10-27",
+            about: { "@id": ID },
+          })}
+        </script>
+      </Helmet>
+      <PageHero
+        trail={[["Infovion JMS", "/jewellery-management-software"], ["All features", "/infovion-jms-features"]]}
+        kicker={`Updated ${UPDATED}`}
+        title="Infovion JMS: every feature"
+        sub={`What is included in the plan, what comes as an add-on, and what is not available yet. ${counts.yes} features included, ${counts.addon} in add-ons, ${counts.no} not yet.`}
+      >
+        <GlowButton {...(JMS.live ? { href: TRIAL_HREF } : { to: TRIAL_HREF })}>
+          {TRIAL_LABEL} <ArrowRight className="h-4 w-4" />
+        </GlowButton>
+        <GhostButton to="/jewellery-management-software">Infovion JMS overview</GhostButton>
+      </PageHero>
+
+      <Section className="pt-0">
+        <AnswerBox q="What does Infovion JMS include?">
+          {`As of ${UPDATED}, Infovion JMS includes jewellery billing by weight and purity with GST, barcode tags and stock audits, girvi with interest by days, gold savings schemes, customer orders, karigar job work with fine gold, touch and wastage, repairs, supplier and karigar ledgers, profit and stock value, GSTR-1 and GSTR-3B, Tally export, multiple branches with stock transfer, billing without internet, KYC, and screens in 10 Indian languages. Not available yet: RFID, GST e-invoice and e-way bill, automatic scheduled WhatsApp messages, bank reconciliation, a public API and a Play Store app.`}
+        </AnswerBox>
+      </Section>
+
+      <Section className="pt-4">
+        <div className="space-y-8">
+          {FEATURE_LIST.map(([group, rows]) => (
+            <div key={group} className="panel overflow-hidden rounded-xl">
+              <h2 className="border-b border-white/10 px-5 py-3.5 font-display text-lg font-semibold text-white">{group}</h2>
+              <table className="w-full text-left text-sm">
+                <caption className="sr-only">{group}: features of Infovion JMS and their status</caption>
+                <tbody className="divide-y divide-white/10">
+                  {rows.map(([name, status, detail]) => {
+                    const [label, tone, Icon] = STATUS[status];
+                    return (
+                      <tr key={name} className="align-top">
+                        <th scope="row" className="w-1/2 px-5 py-3 font-medium text-slate-200">{name}</th>
+                        <td className={`whitespace-nowrap px-3 py-3 font-semibold ${tone}`}>
+                          <span className="inline-flex items-center gap-1.5"><Icon className="h-4 w-4" aria-hidden="true" />{label}</span>
+                        </td>
+                        <td className="hidden px-5 py-3 text-slate-400 sm:table-cell">{detail}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-xs text-slate-400">Updated {UPDATED}. Earlier versions of our pages listed branches, karigar job work, gold savings schemes and WhatsApp reminders as planned; all four are now available.</p>
+      </Section>
+
+      <FaqList faqs={FEATURE_FAQ} />
+      <CtaBand title="Try Infovion JMS free for 30 days" sub={<>See every feature in the demo shop, or start your own. After the trial, <Price /> per shop plus GST, then an AMC of {AMC} a year.</>} primary={[TRIAL_LABEL, TRIAL_HREF]} whatsappText="Hello Infovion, I would like to know more about Infovion JMS for our jewellery shop." />
     </>
   );
 }

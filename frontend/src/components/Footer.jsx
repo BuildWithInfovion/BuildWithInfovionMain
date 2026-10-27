@@ -22,6 +22,7 @@ const PRODUCT_LINKS = [
   ["/jewellery-barcode-software", "Jewellery barcode software"],
   ["/jewellery-software-uae", "Jewellery software UAE"],
   ["/girvi-software", "Girvi software"],
+  ["/infovion-jms-features", "Infovion JMS: all features"],
   ["/gold-scheme-software", "Gold scheme software"],
   ["/karigar-management-software", "Orders and karigar"],
   ["/jewellery-gst-software", "GST for jewellers"],

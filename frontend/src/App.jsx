@@ -49,6 +49,7 @@ const JmsBarcode = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: 
 const JmsUae = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.UaePage })));
 const MoneyLending = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.MoneyLendingPage })));
 const JmsTally = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.TallyPage })));
+const JmsFeatures = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.JmsFeatureListPage })));
 const JmsScheme = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.SchemePage })));
 const JmsKarigar = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.KarigarPage })));
 const JmsGst = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.GstPage })));
@@ -238,6 +239,7 @@ export function AppRoutes() {
             <Route path="/jewellery-software-uae" element={<JmsUae />} />
             <Route path="/money-lending-software" element={<MoneyLending />} />
             <Route path="/jewellery-software-with-tally" element={<JmsTally />} />
+            <Route path="/infovion-jms-features" element={<JmsFeatures />} />
             <Route path="/gold-scheme-software" element={<JmsScheme />} />
             <Route path="/karigar-management-software" element={<JmsKarigar />} />
             <Route path="/jewellery-gst-software" element={<JmsGst />} />
