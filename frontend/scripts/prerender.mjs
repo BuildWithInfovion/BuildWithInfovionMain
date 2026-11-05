@@ -49,7 +49,7 @@ const routes = [...new Set([...PRERENDER_ROUTES, ...serviceRoutes, ...caseRoutes
 const LASTMOD_FILE = path.join(root, "scripts", "lastmod.json");
 const lastmod = fs.existsSync(LASTMOD_FILE) ? JSON.parse(fs.readFileSync(LASTMOD_FILE, "utf8")) : {};
 const contentHash = (html, helmet) => crypto.createHash("sha1")
-  .update((html.match(/<main[\s\S]*<\/main>/)?.[0] ?? html).replace(/\s+/g, " "))
+  .update((html.match(/<main[\s\S]*<\/main>/)?.[0] ?? html).replace(/ data-[a-z-]+=""/g, "").replace(/\s+/g, " "))
   .update(helmet ? [helmet.title, helmet.meta].map((x) => x?.toString() ?? "").join("") : "")
   .digest("hex").slice(0, 16);
 let ok = 0;

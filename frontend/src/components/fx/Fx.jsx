@@ -30,10 +30,11 @@ export function Reveal({ children, delay = 0, y = 22, className = "", as = "div"
   }, []);
   const style = phase === "static" ? undefined : {
     opacity: phase === "pending" ? 0 : 1,
-    transform: phase === "pending" ? `translateY(${y}px)` : "none",
-    transition: phase === "shown" ? `opacity .8s cubic-bezier(.22,1,.36,1) ${delay}s, transform .8s cubic-bezier(.22,1,.36,1) ${delay}s` : "none",
+    transform: phase === "pending" ? `translate3d(0,${y}px,0) scale(.985)` : "none",
+    transition: phase === "shown" ? `opacity .85s cubic-bezier(.16,1,.3,1) ${delay}s, transform .95s cubic-bezier(.16,1,.3,1) ${delay}s` : "none",
   };
-  return React.createElement(as, { ref, className, style }, children);
+  // data-rv: the site-wide scroll reveal (fx/ScrollFx.jsx) leaves this element's content alone
+  return React.createElement(as, { ref, className, style, "data-rv": "" }, children);
 }
 
 /** Card container (kept for existing pages; the cursor glow was removed). */

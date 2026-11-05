@@ -9,7 +9,10 @@
   - the ring draws on, the braces open, the name opens letter by letter, then a burst of light
     and sparks leaves the ring as it closes;
   - a light travels the ring, the name catches a shine, soft pulses breathe out;
-  - glitter twinkles and sparks drift over the whole screen, moving with the page as it scrolls.
+  - glitter twinkles and sparks drift over the whole screen, moving with the page as it scrolls;
+  - scrolling into the content dissolves the logo into its own pixels and quiets the glitter so
+    the text is easy to read; scrolling back to the top (or opening a new page) draws the pixels
+    back in and the logo re-forms.
 
   It runs in a Web Worker on an OffscreenCanvas wherever the browser allows (every current
   browser), so drawing never competes with the page for the main thread: scrolling, typing and
@@ -42,7 +45,13 @@ const T2 = 2.9;
 const LAP = 4;
 const SETTLED = 4.4; // everything assembled
 
+// The logo dissolves once the page is scrolled past HIDE_AT of the screen height and re-forms
+// above SHOW_AT (two thresholds, so it never flickers at the boundary)
+const HIDE_AT = 0.4;
+const SHOW_AT = 0.2;
+
 const clamp01 = (u) => (u < 0 ? 0 : u > 1 ? 1 : u);
+const easeInOut = (u) => ((u = clamp01(u)), u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2);
 const expoOut = (u) => ((u = clamp01(u)), u >= 1 ? 1 : 1 - Math.pow(2, -10 * u));
 const smooth = (u) => ((u = clamp01(u)), u * u * (3 - 2 * u));
 const frac = (x) => x - Math.floor(x);
@@ -170,7 +179,7 @@ function flareSprite(size) {
 }
 
 /** The drawing. Knows nothing about the page: size, scroll and visibility are passed in. */
-export function createScene(canvas, { intro = true, reduce = false, width, height, dpr: deviceDpr = 1, scrollY: startScroll = 0 } = {}) {
+export function createScene(canvas, { intro = true, reduce = false, compact: startCompact = false, width, height, dpr: deviceDpr = 1, scrollY: startScroll = 0 } = {}) {
   const ctx = canvas.getContext("2d", { alpha: false });
   if (!ctx) return null;
   const hasConic = typeof ctx.createConicGradient === "function";
@@ -203,6 +212,14 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
   let viewH = height;
   let viewDpr = deviceDpr;
   let visible = true;
+  let logoPts = []; // logo-space pixels of the ring and the mark, for dissolving and re-forming
+  let shown = startScroll < (height || 800) * HIDE_AT; // logo wanted on screen
+  let presence = shown ? 1 : 0; // 0..1 how much of the logo is drawn
+  let readyAt = 0; // scene time from which a re-forming logo fades back in
+  let flash = 0; // brief glow as the logo breaks up or comes back together
+  let reading = clamp01(startScroll / ((height || 800) * 0.7)); // 0 at the top, 1 while reading
+  let motes = []; // pixels flying back into the logo
+  let compact = startCompact; // inner pages: a smaller logo, high on the right, clear of the content
 
   const DOT = sprite(256, [
     [0, 255, 255, 255, 0.95],
@@ -237,7 +254,17 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
     let logoW;
     let cx;
     let cy;
-    if (portrait) {
+    if (compact && portrait) {
+      // Phones: a small mark at the top right of the page header
+      logoW = Math.min(W * 0.32, 132);
+      cx = W - logoW / 2 - Math.max(14, W * 0.05);
+      cy = 64 + (logoW * LH) / LW / 2 + 22;
+    } else if (compact) {
+      // Inner pages: smaller and higher, beside the page title rather than over the content
+      logoW = Math.min(Math.max(W * 0.22, 250), 460);
+      cx = W * (W < 1024 ? 0.8 : 0.79);
+      cy = Math.max(64 + (logoW * LH) / LW / 2 + 24, H * 0.36);
+    } else if (portrait) {
       logoW = Math.min(W * 0.66, 380);
       cx = W / 2;
       cy = Math.max(64 + (logoW * LH) / LW / 2 + 10, H * 0.24);
@@ -318,6 +345,99 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
     for (const c of [layout.tmpRing, layout.tmpHalo, layout.tmpWord]) c.getContext("2d").imageSmoothingQuality = "high";
   }
 
+  /** Pixels of the logo, in logo space: where the dissolve starts and the re-forming ends. */
+  function sampleLogo() {
+    const c = canvas2d(LW, LH);
+    const g = c.getContext("2d", { willReadFrequently: true });
+    if (!g) return;
+    const pts = [];
+    const grab = (layers, ring) => {
+      g.clearRect(0, 0, LW, LH);
+      for (const l of layers) g.drawImage(l, 0, 0, LW, LH);
+      const d = g.getImageData(0, 0, LW, LH).data;
+      for (let y = 1; y < LH; y += 2) {
+        for (let x = (y >> 1) & 1; x < LW; x += 2) if (d[(y * LW + x) * 4 + 3] > 150) pts.push({ x, y, ring });
+      }
+    };
+    grab([img.ring], true);
+    grab([img.braceL, img.braceR, ...img.letters], false);
+    for (let i = pts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pts[i], pts[j]] = [pts[j], pts[i]];
+    }
+    logoPts = pts.slice(0, 2400);
+  }
+
+  const pick = () => logoPts[Math.floor(Math.random() * logoPts.length)];
+  const moteCount = (base) => Math.round(base * (lowPower ? 0.5 : 1) * Math.min(1.4, Math.max(0.7, layout.k * 1.4)));
+
+  /** The logo breaks into its own pixels, which drift up and away. */
+  function dissolve() {
+    flash = 1;
+    motes = [];
+    if (reduce || !logoPts.length || !layout) return;
+    const { k, left, top } = layout;
+    const cx = left + (LW * k) / 2;
+    const cy = top + (LH * k) / 2;
+    const n = moteCount(340);
+    for (let i = 0; i < n; i++) {
+      const q = pick();
+      const x = left + q.x * k;
+      const y = top + q.y * k;
+      const dx = x - cx;
+      const dy = (y - cy) * 1.6;
+      const len = Math.hypot(dx, dy) || 1;
+      const sp = rand(40, 300) * Math.max(0.7, k);
+      particles.push({
+        x,
+        y,
+        vx: (dx / len) * sp + rand(-25, 25),
+        vy: (dy / len) * sp * 0.6 - rand(30, 120),
+        life: rand(0.8, 1.9),
+        age: rand(0, 0.12),
+        size: rand(0.9, 2.4),
+        c: q.ring ? 0 : 2,
+        front: 1,
+        free: true, // drawn at full strength while the logo itself fades out
+      });
+    }
+  }
+
+  /** Pixels fly in from around the screen and land on the logo, which then fades back in. */
+  function reform(keepDust = false) {
+    readyAt = t + (reduce || !logoPts.length ? 0 : 0.55);
+    if (reduce || !logoPts.length || !layout) return;
+    const { k, left, top } = layout;
+    const n = moteCount(300);
+    const spread = Math.max(W, H) * 0.3;
+    if (!keepDust) particles = particles.filter((q) => !q.free);
+    motes = [];
+    for (let i = 0; i < n; i++) {
+      const q = pick();
+      const tx = left + q.x * k;
+      const ty = top + q.y * k;
+      const a = rand(0, TAU);
+      const r = rand(0.25, 1) * spread;
+      motes.push({ sx: tx + Math.cos(a) * r, sy: ty + Math.sin(a) * r * 0.7, tx, ty, delay: rand(0, 0.22), dur: rand(0.55, 0.95), age: 0, swirl: rand(-60, 60), size: rand(0.9, 2.2), c: q.ring ? 0 : 2 });
+    }
+  }
+
+  /** Decide from the scroll position whether the logo should be on screen. */
+  function follow() {
+    const y = scrollY / Math.max(1, H);
+    if (shown && y > HIDE_AT) {
+      shown = false;
+      dissolve();
+    } else if (!shown && y < SHOW_AT) {
+      shown = true;
+      reform();
+    }
+    if (reduce) {
+      presence = shown ? 1 : 0;
+      reading = clamp01(scrollY / (H * 0.7));
+    }
+  }
+
   // ── drawing helpers ───────────────────────────────────────────────────────
   // CSS "conic-gradient(from F deg at x y, …)" → canvas
   const conic = (g, fromDeg, x, y) => g.createConicGradient(((fromDeg - 90) * Math.PI) / 180, x, y);
@@ -368,8 +488,10 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
   // ── frame ─────────────────────────────────────────────────────────────────
   function render(dt) {
     const { k, left, top, s, portrait } = layout;
-    const G = clamp01(1 - veil) * fade; // logo and glow strength (dims as the page scrolls)
-    const starA = clamp01(1 - veil * 0.32) * fade;
+    const G = clamp01(1 - veil) * fade * presence; // logo and glow strength
+    // The glitter quietens to a faint starfield while the visitor reads
+    const calm = 1 - 0.8 * reading;
+    const starA = clamp01(1 - veil * 0.32) * fade * calm;
     const ox = left * dpr;
     const oy = top * dpr;
 
@@ -527,6 +649,14 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       // Opening finished: braces and name are the cached image at rest
       ctx.globalAlpha = G;
       if (G > 0.002) ctx.drawImage(layout.rest, ox, oy);
+      // A glow as the logo breaks up or lands
+      if (flash > 0.01 && G > 0.002) {
+        ctx.globalCompositeOperation = "lighter";
+        ctx.globalAlpha = Math.min(1, flash * 0.9) * G;
+        ctx.drawImage(layout.rest, ox, oy);
+        ctx.drawImage(layout.ringGlow, ox - pad, oy - pad);
+        ctx.globalCompositeOperation = "source-over";
+      }
     } else {
       // Braces open outward from the centre
       const bo = expoOut((t - 0.2) / 1.0);
@@ -584,7 +714,7 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       emitBurst(Math.round(Math.min(190, Math.max(90, 160 * density)) * (lowPower ? 0.6 : 1)), 1);
     }
     if (t >= nextPulse) {
-      emitBurst(lowPower ? 10 : 22, 0.55);
+      if (presence > 0.9) emitBurst(lowPower ? 10 : 22, 0.55);
       nextPulse += 8;
     }
     if (particles.length) {
@@ -599,7 +729,7 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
         q.x += q.vx * dt;
         q.y += q.vy * dt;
         const life = 1 - q.age / q.life;
-        const a = Math.pow(life, 1.4) * smooth(q.age / 0.08) * (0.55 + 0.45 * q.front) * G;
+        const a = Math.pow(life, 1.4) * smooth(q.age / 0.08) * (0.55 + 0.45 * q.front) * (q.free ? fade * clamp01(1 - veil * 0.5) : G);
         const speed = Math.hypot(q.vx, q.vy);
         // streak along the direction of travel while it is fast
         if (speed > 40) {
@@ -619,6 +749,27 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       });
     }
 
+    // Pixels flying back into the logo
+    if (motes.length) {
+      ctx.globalCompositeOperation = "lighter";
+      const base = fade * clamp01(1 - veil * 0.5);
+      motes = motes.filter((m) => {
+        m.age += dt;
+        const u = (m.age - m.delay) / m.dur;
+        if (u >= 1) return false;
+        if (u <= 0) return true;
+        const e = easeInOut(u);
+        const bend = Math.sin(Math.PI * u) * m.swirl;
+        const x = m.sx + (m.tx - m.sx) * e - bend * 0.5;
+        const y = m.sy + (m.ty - m.sy) * e + bend;
+        const a = smooth(u * 3) * (1 - smooth((u - 0.82) / 0.18)) * base;
+        const d = m.size * 4.5 * dpr * (1.4 - 0.5 * e);
+        ctx.globalAlpha = a;
+        ctx.drawImage(SPARK_SPRITES[m.c], x * dpr - d / 2, y * dpr - d / 2, d, d);
+        return true;
+      });
+    }
+
     // Glitter over the whole screen; it moves a little with the page as you scroll
     ctx.globalCompositeOperation = "lighter";
     const tw = t;
@@ -632,7 +783,7 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       const d = st.r * 5 * (0.6 + 0.4 * st.z) * dpr;
       ctx.globalAlpha = Math.min(1, a);
       ctx.drawImage(STAR_SPRITES[st.c], st.x * dpr - d / 2, y * dpr - d / 2, d, d);
-      if (st.glint && tws > 0.78) {
+      if (st.glint && tws > 0.78 && reading < 0.5) {
         const f = (tws - 0.78) / 0.22;
         const fd = (16 + 22 * st.z) * dpr * (0.6 + 0.4 * f);
         ctx.globalAlpha = Math.min(1, f * st.a * starA);
@@ -647,7 +798,7 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       const yy = (q.y + q.travel * (0.5 - u)) * H - scrollY * 0.12;
       const y = ((yy % H) + H) % H;
       const x = q.x * W + q.sway * Math.sin(TAU * (u * 1.5 + q.swayPh));
-      const a = sparkEnv * q.o * Math.pow(Math.sin(Math.PI * u), 1.4) * starA;
+      const a = sparkEnv * q.o * Math.pow(Math.sin(Math.PI * u), 1.4) * starA * (1 - reading) * (1 - reading);
       if (a < 0.015) continue;
       const d = q.size * 3 * dpr;
       ctx.globalAlpha = a;
@@ -663,6 +814,15 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
     last = now;
     t += dt;
     if (fade < 1) fade = Math.min(1, fade + dt / 0.6);
+    follow();
+    if (!shown) presence = Math.max(0, presence - dt / 0.35);
+    else if (t >= readyAt) {
+      if (presence === 0 && readyAt > 0) flash = Math.max(flash, 0.9); // the pixels have landed
+      presence = Math.min(1, presence + dt / 0.6);
+    }
+    flash = Math.max(0, flash - dt * 2.2);
+    const want = clamp01(scrollY / (H * 0.7));
+    reading += (want - reading) * Math.min(1, dt * 5);
     render(dt);
     // Lighter scene if this device struggles
     if (!lowPower && t > SETTLED) {
@@ -702,6 +862,7 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       if (destroyed) return;
       img = { ring, braceL, braceR, wordmark, halo, letters };
       buildBuffers();
+      sampleLogo();
       if (reduce) {
         fade = 1;
         render(0);
@@ -717,14 +878,31 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
       viewH = h;
       viewDpr = d;
       measure();
+      motes = []; // they were flying to the old logo position
+      if (shown && presence < 1) readyAt = t;
       still();
     },
     setScroll(y) {
       scrollY = y;
+      if (reduce) follow();
       still();
     },
     setVeil(v) {
       veil = clamp01(v);
+      still();
+    },
+    /** Home page (false) or inner page (true): the logo moves by breaking up and re-forming. */
+    setCompact(v) {
+      if (Boolean(v) === compact) return;
+      const animate = !reduce && img && shown && presence > 0.5;
+      if (animate) dissolve();
+      compact = Boolean(v);
+      measure();
+      motes = [];
+      if (animate) {
+        presence = 0;
+        reform(true);
+      }
       still();
     },
     setVisible(v) {
@@ -740,13 +918,13 @@ export function createScene(canvas, { intro = true, reduce = false, width, heigh
 }
 
 /** Page side: runs the scene in a worker when possible, and passes it the page's size and scroll. */
-export function createBrandScene(canvas, { intro = true } = {}) {
+export function createBrandScene(canvas, { intro = true, compact = false } = {}) {
   const reduce = Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
   const view = () => {
     const r = canvas.getBoundingClientRect();
     return { width: Math.max(1, Math.round(r.width)), height: Math.max(1, Math.round(r.height)), dpr: Math.min(window.devicePixelRatio || 1, 2) };
   };
-  const init = { intro, reduce, scrollY: window.scrollY, ...view() };
+  const init = { intro, reduce, compact, scrollY: window.scrollY, ...view() };
 
   let scene = null;
   if (typeof canvas.transferControlToOffscreen === "function" && typeof Worker === "function" && typeof OffscreenCanvas === "function") {
@@ -759,6 +937,7 @@ export function createBrandScene(canvas, { intro = true } = {}) {
         resize: (w, h, d) => post({ type: "resize", w, h, d }),
         setScroll: (y) => post({ type: "scroll", y }),
         setVeil: (v) => post({ type: "veil", v }),
+        setCompact: (v) => post({ type: "compact", v }),
         setVisible: (v) => post({ type: "visible", v }),
         destroy: () => worker.terminate(),
       };
@@ -793,6 +972,7 @@ export function createBrandScene(canvas, { intro = true } = {}) {
 
   return {
     setVeil: (v) => scene.setVeil(v),
+    setCompact: (v) => scene.setCompact(v),
     destroy() {
       clearTimeout(resizeTimer);
       cancelAnimationFrame(scrollRaf);

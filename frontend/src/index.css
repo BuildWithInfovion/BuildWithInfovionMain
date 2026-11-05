@@ -375,7 +375,13 @@
   /* Panels over the moving background. No backdrop blur: re-blurring an animated background
      under every panel on every frame is what made scrolling stutter */
   .glass { background: linear-gradient(180deg, rgba(8,13,26,.86), rgba(5,8,17,.8)); border: 1px solid rgba(148,163,184,.14); }
-  .panel { background: rgba(4,7,14,.72); border: 1px solid rgba(148,163,184,.13); }
+  /* --mx/--my: a soft light under the cursor (set by fx/ScrollFx.jsx on desktop) */
+  .panel {
+    background: radial-gradient(520px circle at var(--mx, -999px) var(--my, -999px), rgba(56,189,248,.075), transparent 46%), rgba(4,7,14,.72);
+    border: 1px solid rgba(148,163,184,.13);
+    transition: border-color .35s ease;
+  }
+  @media (hover: hover) and (pointer: fine) { .panel:hover { border-color: rgba(125,211,252,.26); } }
   .hairline { border-color: rgba(148,163,184,.12); }
   .noise::before {
     content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .035;
@@ -404,6 +410,23 @@
 .article-dark th { color: #fff !important; background: rgba(255,255,255,.04); }
 .article-dark [class*="bg-"] { background-color: rgba(255,255,255,.04) !important; }
 .article-dark [class*="border-"] { border-color: rgba(148,163,184,.18) !important; }
+
+/* Scroll reveal (fx/ScrollFx.jsx): added only after load, to blocks still below the fold */
+.rv { opacity: 0; transform: translate3d(0, 28px, 0) scale(.985); }
+.rv.rv-in {
+  opacity: 1; transform: none;
+  transition: opacity .85s cubic-bezier(.16, 1, .3, 1) var(--rv-d, 0ms), transform .95s cubic-bezier(.16, 1, .3, 1) var(--rv-d, 0ms);
+}
+
+/* Reading progress: a hairline across the top of the window */
+.scroll-progress {
+  position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 70; pointer-events: none;
+  transform: scaleX(0); transform-origin: 0 50%; opacity: 0; transition: opacity .3s ease;
+  background: linear-gradient(90deg, rgba(56,189,248,.2), #38bdf8 35%, #5eead4 75%, #e0f2fe);
+  box-shadow: 0 0 12px rgba(56,189,248,.55);
+}
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
+@media print { .scroll-progress { display: none; } }
 
 /* Hero entrance: transform only, so the text is visible (and counts for LCP) from the first paint */
 .rise { animation: rise .7s cubic-bezier(.22, 1, .36, 1) both; }

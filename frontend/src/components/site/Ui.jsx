@@ -54,7 +54,7 @@ export function PageHero({ trail, kicker, title, accent, sub, children, center =
           {sub && <p className={`rise mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg ${center ? "mx-auto" : ""}`}>{sub}</p>}
           {children && <div className={`rise mt-9 flex flex-col gap-3 sm:flex-row ${center ? "items-center justify-center" : ""}`}>{children}</div>}
         </div>
-        {aside && <div className="rise relative">{aside}</div>}
+        {aside && <div className="rise relative" data-hero-aside="">{aside}</div>}
       </div>
     </section>
   );

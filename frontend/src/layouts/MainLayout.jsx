@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BrandBackground from "../components/site/BrandBackground";
+import { ScrollEffects, ScrollProgress } from "../components/fx/ScrollFx";
 
 const MainLayout = ({ children }) => {
   return (
@@ -15,6 +16,8 @@ const MainLayout = ({ children }) => {
 
       {/* The brand animation fills the window behind every page */}
       <BrandBackground />
+      <ScrollProgress />
+      <ScrollEffects />
 
       <Navbar />
 

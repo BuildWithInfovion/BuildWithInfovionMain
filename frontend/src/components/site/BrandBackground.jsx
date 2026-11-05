@@ -11,7 +11,8 @@ import { useLocation } from "react-router-dom";
   once per visit; later pages fade straight into the settled scene. Visitors who prefer reduced
   motion get a still frame.
 
-  As the visitor scrolls, the logo and its glow dim so long pages stay readable; the glitter stays.
+  Scrolling into the content dissolves the logo into its pixels and quiets the glitter to a faint
+  starfield, so long pages stay easy to read; back at the top the logo re-forms (brandScene.js).
 */
 const INTRO_KEY = "infovion-intro-seen";
 
@@ -21,6 +22,8 @@ export default function BrandBackground() {
   const veil = useRef(0);
   const { pathname } = useLocation();
   const home = pathname === "/";
+  const compact = useRef(!home);
+  compact.current = !home;
 
   useEffect(() => {
     let cancelled = false;
@@ -35,7 +38,7 @@ export default function BrandBackground() {
         } catch {
           /* private mode: always play the intro */
         }
-        scene.current = createBrandScene(canvas.current, { intro });
+        scene.current = createBrandScene(canvas.current, { intro, compact: compact.current });
         scene.current?.setVeil(veil.current);
       });
     };
@@ -49,31 +52,36 @@ export default function BrandBackground() {
     };
   }, []);
 
-  // Veil: base strength per page, deepening over the first screen of scrolling. On phones the logo
-  // sits behind inner-page titles rather than beside them, so it is dimmed more there.
+  // Home page: the full logo beside the headline. Inner pages: a smaller logo, clear of the content.
+  useEffect(() => {
+    scene.current?.setCompact(!home);
+  }, [home]);
+
+  // Veil: how strongly the logo shows at the top of each page. Pages whose header already shows a
+  // product screenshot (data-hero-aside) hide it, so it never peeks out from behind the picture.
+  // Scrolling is handled by the scene itself (the logo dissolves while the visitor reads).
   useEffect(() => {
     let raf = 0;
     const update = () => {
       raf = 0;
       const narrow = window.innerWidth < 768;
-      const from = home ? 0 : narrow ? 0.58 : 0.32;
-      const to = narrow ? 0.8 : 0.74;
-      const k = Math.min(1, window.scrollY / (window.innerHeight * 0.9));
-      veil.current = from + (to - from) * k;
+      const aside = !home && Boolean(document.querySelector("main [data-hero-aside]"));
+      veil.current = home ? 0 : aside ? 1 : narrow ? 0.3 : 0.18;
       scene.current?.setVeil(veil.current);
     };
+    // Pages load lazily: look again once the new page has mounted
+    const later = [setTimeout(update, 120), setTimeout(update, 600)];
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
     update();
-    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      later.forEach(clearTimeout);
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
-  }, [home]);
+  }, [home, pathname]);
 
   return (
     <div aria-hidden="true" className="brand-bg pointer-events-none fixed left-0 top-0 z-0 w-full overflow-hidden bg-[#000105] print:hidden">
