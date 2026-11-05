@@ -33,7 +33,7 @@ export const serviceSchema = (s) => ({
   description: s.answer,
   url: `${SITE}/services/${s.slug}`,
   provider: { "@id": ORG_ID },
-  areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Place", name: "Worldwide" }],
+  areaServed: s.countries ? s.countries.map((name) => ({ "@type": "Country", name })) : [{ "@type": "Country", name: "India" }, { "@type": "Place", name: "Worldwide" }],
   audience: { "@type": "BusinessAudience", audienceType: s.fit.join(", ") },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -80,6 +80,7 @@ export const organizationNode = () => {
       "Custom software development", "Web application development", "Website development", "Mobile app development", "Progressive web apps",
       "ERP software development", "CRM development", "SaaS product development", "UI/UX design", "AI automation", "Cloud and DevOps",
       "API integration", "MIS and dashboards", "E-governance software", "GIGW 3.0", "School management software", "Jewellery management software",
+      "Software maintenance and AMC", "On-demand software development", "Application security", "OWASP Top 10", "DPDP Act compliance", "Fixing apps built with AI coding tools (vibe coding)",
     ],
     sameAs: Object.values(COMPANY.socials).concat(COMPANY.productHunt),
     contactPoint: [

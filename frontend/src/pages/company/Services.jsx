@@ -9,14 +9,14 @@ import { wa, SITE } from "../../Data/company";
 import { serviceSchema } from "../../lib/seo";
 
 const GROUPS = [
-  ["Build", "Software, applications and platforms", ["custom-software-development", "web-development", "mobile-app-development", "erp-crm-development", "saas-product-development", "ecommerce-development"]],
+  ["Build", "Software, applications and platforms", ["custom-software-development", "offshore-software-development-india", "on-demand-software-development", "web-development", "mobile-app-development", "erp-crm-development", "saas-product-development", "ecommerce-development"]],
   ["Design and data", "Interface design and reporting", ["ui-ux-design", "dashboards-mis-reporting"]],
   ["Automation and integration", "Connecting systems and reducing manual work", ["ai-automation", "api-integration"]],
-  ["Operations and support", "Hosting, monitoring and maintenance", ["cloud-devops", "software-maintenance-support"]],
+  ["Fix, secure and support", "Rescue, security, hosting and maintenance", ["vibe-coding-help", "application-security", "software-maintenance-support", "cloud-devops"]],
 ];
 
 const HUB_FAQ = [
-  ["What services does Infovion Technologies offer?", "Custom software development, website and web application development, mobile application development, ERP and CRM development, SaaS product development, UI/UX design, e-commerce development, AI and business automation, cloud and DevOps, API integration, dashboards and MIS reporting, and software maintenance under annual contracts. We also deliver e-governance projects for government bodies."],
+  ["What services does Infovion Technologies offer?", "Custom software development, offshore development and maintenance for clients outside India, on-demand developers by the task, hour or month, help fixing and launching apps built with AI tools (vibe coding), application security, website and web application development, mobile application development, ERP and CRM development, SaaS product development, UI/UX design, e-commerce development, AI and business automation, cloud and DevOps, API integration, dashboards and MIS reporting, and software maintenance under annual contracts. We also deliver e-governance projects for government bodies."],
   ["Which industries do you work with?", "Education, jewellery and retail, government and the public sector, manufacturing, healthcare, real estate and professional services, and startups. Our own products serve schools and jewellery retailers."],
   ["Can you take over a project started by another vendor?", "Yes. We begin with a short paid audit of the existing code and infrastructure, then recommend whether to complete, repair or rebuild the system, based on the lower long-term cost."],
   ["How does an engagement begin?", "With a consultation of thirty to forty-five minutes, or a short brief sent through the contact form. We respond within one business day and usually send a written scope and fixed-price proposal within two business days of the consultation."],
@@ -91,6 +91,8 @@ export function ServicesIndex() {
   );
 }
 
+const fmtDate = (d) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+
 export function ServicePage() {
   const { slug } = useParams();
   const s = serviceBySlug(slug);
@@ -122,6 +124,11 @@ export function ServicePage() {
         <meta property="og:description" content={s.description} />
         <meta property="og:url" content={url} />
         <script type="application/ld+json">{JSON.stringify(serviceSchema(s))}</script>
+        {s.updated && (
+          <script type="application/ld+json">
+            {JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: s.h1, headline: s.title, url, description: s.description, dateModified: s.updated, lastReviewed: s.updated, inLanguage: "en-IN", author: { "@id": `${SITE}/#organization` }, publisher: { "@id": `${SITE}/#organization` }, about: { "@id": `${url}#service` }, citation: s.sources?.map(([name, u]) => ({ "@type": "CreativeWork", name, url: u })) })}
+          </script>
+        )}
       </Helmet>
 
       <PageHero trail={[["Services", "/services"], [s.name, `/services/${s.slug}`]]} kicker="Services" title={s.h1} sub={s.intro}>
@@ -131,7 +138,8 @@ export function ServicePage() {
 
       <section className="relative pb-4">
         <div className="mx-auto max-w-6xl px-5 sm:px-6">
-          <AnswerBox q="Overview">{s.answer}</AnswerBox>
+          <AnswerBox q={s.answerQ ?? "Overview"}>{s.answer}</AnswerBox>
+          {s.updated && <p className="mt-4 text-xs text-slate-500">Updated {fmtDate(s.updated)} by Infovion Technologies, Pune.</p>}
         </div>
       </section>
 
@@ -145,6 +153,32 @@ export function ServicePage() {
           ))}
         </div>
       </Section>
+
+      {s.explain && (
+        <Section className="py-8">
+          <div className="grid gap-6 lg:grid-cols-2">
+            {s.explain.map(([h, body, items]) => (
+              <div key={h} className="panel rounded-xl p-7">
+                <h2 className="font-display text-xl font-semibold text-white">{h}</h2>
+                {body && <p className="mt-4 text-[15px] leading-relaxed text-slate-300">{body}</p>}
+                {items && (
+                  <ul className="mt-4 space-y-2.5">
+                    {items.map((x) => <li key={x} className="flex gap-2.5 text-[15px] text-slate-300"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />{x}</li>)}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+          {s.sources && (
+            <p className="mt-4 text-xs text-slate-400">
+              Sources:{" "}
+              {s.sources.map(([t, u], i) => (
+                <React.Fragment key={u}>{i > 0 && " · "}<a href={u} target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-300">{t}</a></React.Fragment>
+              ))}
+            </p>
+          )}
+        </Section>
+      )}
 
       <Section className="py-8">
         <div className="grid gap-6 lg:grid-cols-2">
@@ -165,8 +199,8 @@ export function ServicePage() {
         </div>
       </Section>
 
-      <Section kicker="Cost and timeline" title={`Cost of ${s.noun} in India`}
-        sub="Indicative budget ranges for the Indian market in 2026, provided for planning. Each project receives its own fixed-price proposal after an initial consultation.">
+      <Section kicker="Cost and timeline" title={s.cost.title ?? `Cost of ${s.noun} in India`}
+        sub={s.cost.sub ?? "Indicative budget ranges for the Indian market in 2026, provided for planning. Each project receives its own fixed-price proposal after an initial consultation."}>
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
           <div className="panel overflow-hidden rounded-xl">
             <table className="w-full text-left text-sm">
@@ -211,7 +245,15 @@ export function ServicePage() {
         </div>
       </Section>
 
-      <CtaBand title={`Discuss your ${s.noun.replace(/ \(AMC\)$/, "")} requirements`} primary={["Request a proposal", `/contact?service=${s.slug}`]} whatsappText={waText} />
+      {s.reading && (
+        <Section kicker="Further reading" title="Guides on this topic" className="py-10">
+          <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-10">
+            {s.reading.map(([to, t, b]) => <LinkRow key={to} to={to} title={t} body={b} />)}
+          </div>
+        </Section>
+      )}
+
+      <CtaBand title={s.ctaTitle ?? `Discuss your ${s.noun.replace(/ \(AMC\)$/, "")} requirements`} primary={["Request a proposal", `/contact?service=${s.slug}`]} whatsappText={waText} />
     </>
   );
 }

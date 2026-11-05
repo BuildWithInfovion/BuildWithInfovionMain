@@ -42,14 +42,15 @@ const videoRoutes = VIDEOS.map((v) => `/videos/${v.slug}`);
 const serviceRoutes = SERVICES.map((s) => `/services/${s.slug}`);
 const caseRoutes = CASE_STUDIES.map((c) => `/case-studies/${c.slug}`);
 const routes = [...new Set([...PRERENDER_ROUTES, ...serviceRoutes, ...caseRoutes, ...slugs, ...videoRoutes])];
-// Real last-modified dates for the sitemap: a hash of each page's rendered content is kept in
-// scripts/lastmod.json with the date it last changed. Only a page whose content changed gets a
-// new date, so Google can trust <lastmod> (stamping every URL with the build date teaches it not to).
+// Real last-modified dates for the sitemap: a hash of each page's own content (the <main> element,
+// title and description; not the header, footer or sitewide schema, which change on every page at
+// once) is kept in scripts/lastmod.json with the date it last changed. Only a page whose content
+// changed gets a new date, so Google can trust <lastmod>.
 const LASTMOD_FILE = path.join(root, "scripts", "lastmod.json");
 const lastmod = fs.existsSync(LASTMOD_FILE) ? JSON.parse(fs.readFileSync(LASTMOD_FILE, "utf8")) : {};
 const contentHash = (html, helmet) => crypto.createHash("sha1")
-  .update(html.replace(/\s+/g, " "))
-  .update(helmet ? [helmet.title, helmet.meta, helmet.script].map((x) => x?.toString() ?? "").join("") : "")
+  .update((html.match(/<main[\s\S]*<\/main>/)?.[0] ?? html).replace(/\s+/g, " "))
+  .update(helmet ? [helmet.title, helmet.meta].map((x) => x?.toString() ?? "").join("") : "")
   .digest("hex").slice(0, 16);
 let ok = 0;
 for (const url of routes) {

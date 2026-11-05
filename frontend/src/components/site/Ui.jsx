@@ -4,13 +4,13 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   Accessibility, ArrowRight, ArrowUpRight, BarChart3, Bot, Boxes, Building2, ChevronRight, Cloud, Code2, Factory, Gem, Globe, GraduationCap,
-  HeartPulse, Landmark, Layers, LifeBuoy, MessageCircle, PenTool, Plug, Rocket, ShoppingCart, Smartphone, Store,
+  HeartPulse, Landmark, Layers, LifeBuoy, MessageCircle, PenTool, Plug, Rocket, ShieldCheck, ShoppingCart, Smartphone, Sparkles, Store, Timer,
 } from "lucide-react";
 import { GhostButton, GlowButton, Kicker, Reveal } from "../fx/Fx";
 import { breadcrumbSchema, faqSchema } from "../../lib/seo";
 import { wa } from "../../Data/company";
 
-const ICONS = { Code2, Globe, Smartphone, Boxes, Layers, PenTool, ShoppingCart, Bot, Cloud, Plug, BarChart3, LifeBuoy, Landmark, Gem, GraduationCap, Building2, Factory, HeartPulse, Rocket, Store, Accessibility };
+const ICONS = { Code2, Globe, Smartphone, Boxes, Layers, PenTool, ShoppingCart, Bot, Cloud, Plug, BarChart3, LifeBuoy, Landmark, Gem, GraduationCap, Building2, Factory, HeartPulse, Rocket, Store, Accessibility, ShieldCheck, Sparkles, Timer };
 
 export function Icon({ name, className = "h-5 w-5" }) {
   const C = ICONS[name] ?? Code2;
