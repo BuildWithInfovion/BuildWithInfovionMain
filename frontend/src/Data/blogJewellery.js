@@ -5,13 +5,14 @@ export const jewelleryPosts = [
   {
     id: 108,
     slug: "gold-savings-scheme-rules-for-jewellers",
-    seoTitle: "Gold Savings Scheme Rules for Jewellers in India (2026)",
+    seoTitle: "Gold Savings Scheme Rules (2026): 11-Month Plans, Bonus, Exit",
     title: "Gold Savings Schemes: How Jewellers Run 11-Month Plans Within the Rules",
-    excerpt: "Why jewellery schemes run for 11 months, the 365-day rule, the BUDS Act, bonus and weight plans, early closure, and the records to keep for every member.",
+    excerpt: "How 11-month gold schemes work, the 365-day rule and BUDS Act, bonus and weight plans, missed instalments, early exit, rate booking, and the records to keep.",
     category: "jewellery",
     author: "Infovion Team",
     date: "2026-10-27",
-    readTime: "8 min read",
+    updated: "2026-11-05",
+    readTime: "9 min read",
     tags: ["Gold savings scheme", "Jewellery scheme", "11 month scheme", "BUDS Act", "Jewellers"],
     image: "/blog/gold-savings-scheme-rules-for-jewellers.webp",
     content: `
@@ -59,6 +60,16 @@ export const jewelleryPosts = [
         <li>The invoice on which each matured scheme was redeemed.</li>
       </ul>
       <p>The last figure matters most: the total you hold is money you owe in jewellery. Know it every day, not at year-end.</p>
+
+      <h2>Questions customers ask</h2>
+      <h3>What happens if I miss a payment in a gold scheme?</h3>
+      <p>Most schemes allow a few grace days. After that, the usual result is a smaller bonus or no bonus, as the written terms say. Because the money must be used for jewellery within a year of each payment, a missed month generally cannot simply be added to the end of the scheme; the shop will either let you pay the missed instalment late or close the scheme early. Read the terms on your passbook or scheme card before you join.</p>
+      <h3>Can I exit a gold scheme early?</h3>
+      <p>Usually yes, but the bonus is normally lost. Most jewellers let you buy jewellery with the amount paid so far; some refund it, often less a deduction. Ask what happens on early closure before you join and keep every instalment receipt.</p>
+      <h3>Can I lock in today's gold rate for a purchase?</h3>
+      <p>Many jewellers allow rate booking: you pay an advance and the shop holds the day's rate for a set weight until a date. The advance, how long the rate is held, and what happens if the rate falls or you cancel all vary by shop, so get them on the order receipt. A weight plan in a gold scheme does something similar month by month: each instalment buys gold at that day's rate.</p>
+      <h3>Is a jeweller's gold scheme safe?</h3>
+      <p>A scheme is only as safe as the shop running it. Prefer a scheme with written terms, a receipt for every instalment, redemption only in jewellery within 12 months, and no promise of cash returns, which the BUDS Act treats as a warning sign.</p>
 
       <h2>Common mistakes</h2>
       <ul>

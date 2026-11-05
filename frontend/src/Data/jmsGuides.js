@@ -24,13 +24,13 @@ const NS = "Not stated on its jewellery page";
 export const JMS_GUIDES = {
   // ── GST ──────────────────────────────────────────────────────────────────
   "gst-on-gold-jewellery": {
-    title: "GST on Gold Jewellery: 3% Rate, Making Charges (2026)",
-    description: "GST on gold, silver and diamond jewellery in 2026: 3% on the full value including making charges, 5% on job work, 1.5% on loose diamonds, with worked examples.",
+    title: "GST on Gold Jewellery 2026: 3% Rate, CGST, SGST, Making Charges",
+    description: "GST on gold jewellery in 2026: 3% (1.5% CGST + 1.5% SGST) on the full value including making charges, 5% on job work, 1.5% on loose diamonds. Worked examples.",
     trail: "GST on gold jewellery",
     kicker: "Guide for jewellers · GST",
     h1: "GST on gold jewellery",
     sub: "The GST rates a jewellery shop deals with, where making charges fit, what karigars and repairs are charged, and how old gold and discounts change the bill. With the source for every rate.",
-    updated: "2026-10-27",
+    updated: "2026-11-05",
     answerQ: "What is the GST rate on gold jewellery?",
     answer: "GST on gold jewellery in India is 3% of the full value of the piece: the gold, the making charges and any stones, less a discount shown on the bill. Within a state it is split into 1.5% CGST and 1.5% SGST; for a sale to another state it is 3% IGST. Making charges on ready jewellery are not taxed separately at 5%: the CBIC's sectoral FAQ says GST is 3% of the total value whether or not the making charge is shown separately. The 5% rate applies to job work that a karigar does for a registered jeweller. The jewellery rates were not changed by the GST rate revision of 22 September 2025.",
     tables: [
@@ -52,6 +52,7 @@ export const JMS_GUIDES = {
       },
     ],
     sections: [
+      ["GST on gold making charges", ["Ready jewellery sold to a customer: 3% on metal and making together, not 5% on the making (CBIC FAQ)", "It makes no difference whether the bill shows making as a separate line", "5% applies only when a karigar does job work on gold owned by a registered jeweller (SAC 998892)", "Re-making a customer's own old jewellery: labour at 18% per the GJC FAQ", "Example: ₹1,00,000 metal + ₹12,000 making = ₹1,12,000; GST 3% = ₹3,360 (₹1,680 CGST + ₹1,680 SGST)"]],
       ["On the customer's bill", ["3% on metal + making + stones, as one value", "Discount shown on the bill is taken off before GST (CGST Act, section 15(3))", "Old gold given in exchange is deducted after GST, from the amount payable", "Show making as a break-up of the piece's value, not as a separate line at another rate", "HSN 7113 on each line; HUID for hallmarked pieces", "PAN or Form 60 for a bill over ₹2 lakh (Income Tax Rule 114B)"]],
       ["Karigars and job work", ["A registered karigar charges 5% on the job charges only; the jeweller takes credit for it (CBIC FAQ, question 8)", "Job work on diamonds is 1.5%", "An unregistered karigar charges no GST. The reverse charge on supplies from unregistered persons applies since 1 February 2019 only to categories the government notifies (CGST Act, section 9(4))", "Keep a karigar's issue and receipt record in fine gold, with weight, touch and wastage"]],
       ["Repairs and re-making", ["Gold added in a repair is goods, at 3%", "Repair labour is a service. Advisers commonly apply the general repair-services rate of 18%; the trade council's FAQ treats repair labour shown separately at 5%. Ask your CA which applies to you", "Re-making a customer's own old jewellery: the GJC FAQ says it is not job work, because the customer is unregistered, and puts the labour at 18%"]],
@@ -65,7 +66,9 @@ export const JMS_GUIDES = {
     },
     faqs: [
       ["What is the GST rate on gold jewellery in 2026?", "3% of the full value of the jewellery, including making charges and stones. The GST rate changes of 22 September 2025 did not change it."],
-      ["Is GST on making charges 5%?", "Not on a retail sale of ready jewellery. GST is 3% on the total value, making included, whether or not the making is shown separately. The 5% rate is for job work done for a registered jeweller."],
+      ["How are CGST and SGST calculated on gold jewellery?", "Work out 3% of the taxable value (metal + making + stones − discount) and split it in half: 1.5% CGST and 1.5% SGST when the shop and the customer are in the same state. For a sale to another state, the full 3% is IGST."],
+      ["How much GST is charged on 10 grams of gold?", "3% of the price before tax. For 10 g of 22K jewellery with ₹1,10,000 of gold and ₹8,000 of making, GST is 3% of ₹1,18,000 = ₹3,540, which is ₹1,770 CGST and ₹1,770 SGST. Gold coins and bars are also 3%."],
+      ["Is GST on gold making charges 3% or 5%?", "3% on a retail sale of ready jewellery. GST is 3% on the total value, making included, whether or not the making is shown separately. The 5% rate is for job work done for a registered jeweller."],
       ["What is the GST on silver jewellery?", "3%, the same as gold jewellery. Silver articles such as utensils (HSN 7114) are also 3%."],
       ["What is the GST on diamond jewellery?", "3% on the full value of the piece, including the diamonds, the metal and the making. Loose cut and polished diamonds are 1.5%, and rough diamonds 0.25%."],
       ["What is the GST on gold coins and bars?", "3%."],
@@ -73,18 +76,18 @@ export const JMS_GUIDES = {
       ["Do jewellers need an e-way bill?", "Goods of HSN chapter 71, including jewellery, are exempt from e-way bills under Rule 138(14), except for movement within Kerala. Imitation jewellery (7117) needs one."],
     ],
     sources: [CBIC_FAQ, GJC_FAQ, CBIC_TAX],
-    links: [["/hsn-code-for-jewellery", "HSN codes for jewellery", "Chapter 71 codes and how many digits to print."], ["/gst-on-old-gold", "GST on old gold", "Exchange, purchase from customers and the margin scheme."], ["/jewellery-bill-format", "Free jewellery GST bill format", "Print, PDF or Excel, with the 3% GST worked out."], ["/jewellery-gst-software", "GST software for jewellers", "GSTR-1 and GSTR-3B from your bills in Infovion JMS."]],
+    links: [["/hsn-code-for-jewellery", "HSN codes for jewellery", "Chapter 71 codes and how many digits to print."], ["/gst-on-old-gold", "GST on old gold", "Exchange, purchase from customers and the margin scheme."], ["/jewellery-bill-format", "Free jewellery GST bill format", "Print, PDF or Excel, with the 3% GST worked out."], ["/gold-price-calculator", "Gold price calculator", "Weight, purity, making charges and 3% GST for one piece."], ["/blog/hallmarking-huid-rules-for-jewellers", "Hallmarking and HUID rules", "What must be hallmarked and what goes on the bill."], ["/jewellery-gst-software", "GST software for jewellers", "GSTR-1 and GSTR-3B from your bills in Infovion JMS."]],
     whatsappText: "Hello Infovion, I read your GST guide for jewellers and would like to know about Infovion JMS.",
   },
 
   "hsn-code-for-jewellery": {
-    title: "HSN Code for Jewellery: Gold, Silver, Diamond, GST Rates",
-    description: "HSN codes for jewellery: 7113 gold and silver jewellery, 7114 silver articles, 7117 imitation jewellery, 7108 gold, 7106 silver, 7102 diamonds, with GST rates and digits.",
+    title: "HSN Code for Gold Jewellery 7113, Job Work SAC and GST Rates",
+    description: "HSN code for gold jewellery is 7113; silver articles 7114, imitation 7117, gold bars 7108, diamonds 7102. Job work SAC 998892, GST rates and digits to print.",
     trail: "HSN codes for jewellery",
     kicker: "Guide for jewellers · GST",
     h1: "HSN codes for jewellery",
-    sub: "The HSN codes jewellers print on bills and report in GSTR-1, from chapter 71 of the customs tariff, with the GST rate for each and the rule on how many digits to show.",
-    updated: "2026-10-27",
+    sub: "The HSN codes jewellers print on bills and report in GSTR-1, from chapter 71 of the customs tariff, the SAC code for karigar job work, the GST rate for each and the rule on how many digits to show.",
+    updated: "2026-11-05",
     answerQ: "What is the HSN code for gold jewellery?",
     answer: "The HSN code for gold jewellery is 7113, articles of jewellery of precious metal; gold and platinum jewellery is 7113 19 and silver jewellery 7113 11, whether plain or set with stones. Silver articles and other goldsmiths' wares are 7114, imitation jewellery is 7117, gold bars are 7108, silver bars 7106 and diamonds 7102. Jewellery under 7113 and 7114 carries 3% GST. A business with turnover up to ₹5 crore must print at least 4 digits of the HSN on B2B invoices; above ₹5 crore, 6 digits on every invoice.",
     tables: [
@@ -103,7 +106,8 @@ export const JMS_GUIDES = {
           ["7110", "Platinum, unwrought or semi-manufactured", "3%"],
           ["7118", "Coins", "3%"],
           ["7102 31, 7102 39", "Diamonds, non-industrial: rough (0.25%), cut and polished (1.5%)", "0.25% / 1.5%"],
-          ["SAC 9988", "Job work on jewellery for a registered jeweller", "5%"],
+          ["SAC 998892", "Jewellery manufacturing services: job work on gold or silver owned by a registered jeweller", "5%"],
+          ["SAC 998892", "Job work on diamonds", "1.5%"],
         ],
         note: "Six-digit headings are from the Harmonized System used in India's customs tariff; the eight-digit tariff items under them are on the CBIC portal. Rates as of October 2026.",
       },
@@ -123,6 +127,8 @@ export const JMS_GUIDES = {
       ["What is the HSN code for imitation jewellery?", "7117, with GST at 3%. Unlike gold and silver jewellery, imitation jewellery needs an e-way bill when moved above the limit."],
       ["What is the HSN code for diamond jewellery?", "7113: diamond-studded gold or platinum jewellery is classed as jewellery of precious metal (7113 19), at 3% on the full value. Loose diamonds are 7102."],
       ["What is the HSN code for gold coins?", "7118 for coins and 7108 for bars and biscuits, both at 3% GST."],
+      ["What is the HSN or SAC code for gold jewellery job work?", "Job work is a service, so it takes a SAC code, not an HSN: 998892, jewellery manufacturing services, in group 9988 (manufacturing services on physical inputs owned by others). A karigar doing job work on a registered jeweller's gold charges 5% GST on the labour only; on diamonds it is 1.5%."],
+      ["What is the NIC code for a jewellery shop?", "Under NIC 2008, used for Udyam registration, retail sale of jewellery is 47733 and manufacture of gold and silver jewellery is 32111. Pick the activity you mainly do; a shop that also makes jewellery can add both. Check the codes on the Udyam portal when you register."],
       ["How many digits of HSN must a jeweller print?", "With turnover up to ₹5 crore in the previous year, at least 4 digits on B2B invoices; above ₹5 crore, 6 digits on all invoices."],
     ],
     sources: [CBIC_TAX, CBIC_FAQ],
@@ -131,13 +137,13 @@ export const JMS_GUIDES = {
   },
 
   "gst-on-old-gold": {
-    title: "GST on Old Gold: Exchange, Buying from Customers, Margin",
-    description: "GST on old gold in India: in an exchange GST is on the new jewellery's full value; buying old gold from a customer carries no GST; resale under the margin scheme.",
+    title: "GST on Old Gold Purchase from Customers and Exchange (2026)",
+    description: "GST on old gold: none when a jeweller buys from a customer; in an exchange, 3% on the new jewellery's full value; used jewellery resold under the margin scheme.",
     trail: "GST on old gold",
     kicker: "Guide for jewellers · GST",
     h1: "GST on old gold",
     sub: "How GST works when a customer exchanges old gold for new jewellery, when a jeweller buys old gold outright, and when used jewellery is sold again as it is or melted down. Plus the income tax rules on paying for it.",
-    updated: "2026-10-27",
+    updated: "2026-11-05",
     answerQ: "Is GST charged on old gold?",
     answer: "In an exchange, GST at 3% is charged on the full value of the new jewellery, and the old gold's value is taken off what the customer pays, as a payment. When a registered jeweller buys old gold from an individual who is not registered, no GST is payable on the purchase: the reverse charge on supplies from unregistered persons applies since February 2019 only to categories the government notifies, and old gold is not among them. If used jewellery is sold again as it is, without input tax credit, GST can be paid on the margin under Rule 32(5) of the CGST Rules; melted gold made into new jewellery is taxed at 3% on its full value.",
     sections: [
@@ -152,6 +158,7 @@ export const JMS_GUIDES = {
       note: "Rates for illustration. No GST on a purchase from an individual. Pay by bank transfer, as the amount is above ₹10,000; the seller's PAN is needed only above ₹2 lakh.",
     },
     faqs: [
+      ["What is the GST rate on an old gold purchase?", "Nil when a jeweller buys old gold from an individual who is not registered under GST. 3% when it is bought from a registered dealer, and that 3% can be claimed as input tax credit."],
       ["Is GST charged when I exchange old gold for new jewellery?", "Yes, on the new jewellery: 3% of its full value. The old gold reduces what you pay; it does not reduce the value on which GST is charged."],
       ["Does a jeweller pay GST on old gold bought from customers?", "No, when the seller is an individual who is not registered. The reverse charge does not apply to such purchases since February 2019."],
       ["What is the margin scheme for old jewellery?", "Rule 32(5) of the CGST Rules lets a dealer in second-hand goods who has not taken input tax credit pay GST on the difference between the selling and purchase price. It suits used jewellery resold as it is; it does not apply once the gold is melted or made into something new."],
@@ -165,13 +172,13 @@ export const JMS_GUIDES = {
 
   // ── UAE ──────────────────────────────────────────────────────────────────
   "uae-vat-on-gold": {
-    title: "UAE VAT on Gold and Jewellery: 5%, 0%, Reverse Charge",
-    description: "VAT on gold in the UAE: 5% on jewellery including making, 0% on investment gold of 99% purity, reverse charge between dealers since 2025, tax invoices and e-invoicing.",
+    title: "VAT on Gold in Dubai and UAE (2026): 5%, 0% on 24K Bars",
+    description: "VAT on gold in Dubai and the UAE: 5% on jewellery including making, 0% on 24K investment gold of 99% purity, tourist refunds and the 2025 dealer reverse charge.",
     trail: "UAE VAT on gold",
     kicker: "Guide for UAE jewellers · VAT",
     h1: "UAE VAT on gold and jewellery",
     sub: "What a jewellery shop in Dubai, Abu Dhabi or Sharjah charges on gold, what is zero-rated, how the reverse charge between dealers works since 2025, what the tax invoice must show, and when e-invoicing starts.",
-    updated: "2026-10-27",
+    updated: "2026-11-05",
     answerQ: "What is the VAT on gold jewellery in the UAE?",
     answer: "Gold jewellery sold to a consumer in the UAE carries VAT at 5% on its full value: the metal, the making charges and any stones. Investment precious metals, meaning gold, silver and platinum of 99% purity or more in a form traded on global bullion markets, are zero-rated. Between VAT-registered businesses, supplies of gold and other precious metals and stones, and of jewellery whose precious content is worth more than its other components, fall under the reverse charge when the buyer intends to resell them or use them in production: the seller charges no VAT and the buyer accounts for it. This wider reverse charge came in with Cabinet Decision No. 127 of 2024 in February 2025.",
     tables: [
@@ -202,6 +209,8 @@ export const JMS_GUIDES = {
     },
     faqs: [
       ["Is VAT charged on gold in Dubai?", "Yes, 5% on gold jewellery sold to consumers, on the full value including making and stones. Investment gold of 99% purity or more is zero-rated."],
+      ["Is VAT applicable on 24 carat gold in Dubai?", "It depends on the form. 24K bars, coins and wafers of 99% purity or more, in a form traded on global bullion markets, are investment gold and zero-rated: no VAT. 24K jewellery is not investment gold, so it carries 5% VAT on its full value like any other jewellery."],
+      ["How much is VAT on gold in Dubai?", "5% on gold jewellery, charged on the metal, making charges and stones together. 0% on investment gold bars and coins of 99% purity or more. Tourists can claim the 5% back, less a fee, on eligible purchases when they leave."],
       ["Is VAT charged on making charges in the UAE?", "Yes. For jewellery sold to a consumer, the making charges are part of the price, and 5% VAT applies to them along with the metal and stones."],
       ["What changed for gold dealers in 2025?", "Cabinet Decision No. 127 of 2024, in force since February 2025, extended the reverse charge from gold and diamonds to silver, platinum, palladium, pearls, rubies, sapphires and emeralds, and to jewellery whose precious content dominates, for supplies between registered businesses for resale or production."],
       ["Can tourists get the VAT back on jewellery?", "Yes, on eligible purchases from shops registered in the tax-free shopping scheme, claimed when leaving the UAE, less a fee."],
@@ -267,7 +276,7 @@ export const JMS_GUIDES = {
 
   "tally-for-jewellers": {
     title: "Tally for Jewellery Shops: What TallyPrime Does and Doesn't",
-    description: "Can Tally run a jewellery shop? What TallyPrime's jewellery billing covers, what it doesn't list (girvi, schemes, old gold, HUID), its price, and using it with JMS.",
+    description: "Can Tally run a jewellery shop? What TallyPrime's jewellery billing covers, what it doesn't list (girvi, schemes, old gold, HUID), its price, and use with JMS.",
     trail: "Tally for jewellers",
     kicker: "Comparison · updated 27 October 2026",
     h1: "Tally for jewellery shops",

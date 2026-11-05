@@ -19,7 +19,7 @@ const FORMATS = {
   "jewellery-bill-format": {
     kind: "bill",
     name: "Jewellery GST bill format",
-    title: "Jewellery Bill Format with GST: Free PDF and Excel | Infovion",
+    title: "Gold Jewellery Bill Format with GST: Free PDF & Excel | Infovion",
     description: "Free jewellery GST bill format: your shop name and GSTIN, HSN, HUID, weight, rate, making charges, 3% GST, old gold and amount in words. Print, PDF or Excel.",
     h1: "Jewellery bill format with GST",
     sub: "A GST tax invoice for a jewellery shop, worked out as you type: weight × rate, making charges, stones, discount, 3% GST split into CGST and SGST (or IGST), old gold and advance, and the amount in words. Print it, save it as a PDF, print a blank pad with your shop's name, or download it for Excel.",
@@ -40,8 +40,10 @@ const FORMATS = {
       ["Does the bill need the customer's PAN?", "For a sale over ₹2 lakh, yes: Income Tax Rule 114B requires the buyer's PAN, or Form 60 if they have none. Cash of ₹2 lakh or more for one bill cannot be accepted (section 269ST)."],
       ["Is the HUID needed on the bill?", "Hallmarked jewellery carries a six-character HUID, and BIS advises buyers to take a bill that lists the hallmarked pieces. Writing the HUID on each line lets the customer check it in the BIS CARE app."],
       ["Can I use this format in Hindi or Marathi?", "Yes. Choose English + हिन्दी or English + मराठी and every label prints in both languages."],
+      ["How do I download a gold jewellery bill format in PDF?", "Fill in your shop and the piece above, then choose Print and pick Save as PDF as the printer. The PDF is an A4 GST tax invoice with your shop's name, GSTIN and the 3% GST worked out. For blank pads, use Print blank."],
+      ["Is there a jewellery GST bill format in Excel?", "Yes. Download the Excel sheet from this page: it has the same columns (HSN, HUID, purity, weight, rate, making), and the 3% GST, CGST and SGST are worked out by formulas."],
     ],
-    links: [["/gst-on-gold-jewellery", "GST on gold jewellery", "Rates on gold, silver, diamonds, making charges, job work and repairs."], ["/hsn-code-for-jewellery", "HSN codes for jewellery", "7113, 7114, 7117 and the rest of chapter 71, with GST rates."], ["/blog/jewellery-billing-gst-making-charges-old-gold", "Guide: the jewellery GST bill", "A worked example with discount, old gold and advance."], ["/gold-price-calculator", "Gold price calculator", "The same sum for one piece, shared on WhatsApp."]],
+    links: [["/gst-on-gold-jewellery", "GST on gold jewellery", "Rates on gold, silver, diamonds, making charges, job work and repairs."], ["/hsn-code-for-jewellery", "HSN codes for jewellery", "7113, 7114, 7117 and the rest of chapter 71, with GST rates."], ["/blog/jewellery-billing-gst-making-charges-old-gold", "Guide: the jewellery GST bill", "A worked example with discount, old gold and advance."], ["/gold-price-calculator", "Gold price calculator", "The same sum for one piece, shared on WhatsApp."], ["/blog/hallmarking-huid-rules-for-jewellers", "Hallmarking and HUID", "What must be hallmarked, and the HUID on each bill line."]],
   },
   "jewellery-estimate-format": {
     kind: "estimate",

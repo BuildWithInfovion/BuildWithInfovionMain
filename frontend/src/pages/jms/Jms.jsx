@@ -1097,7 +1097,7 @@ function JmsLanding({ k }) {
         <meta property="og:image" content={`${SITE}/og-jms.jpg`} />
         {c.updated && (
           <script type="application/ld+json">
-            {JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: c.h1, url, description: c.description, dateModified: c.updated, inLanguage: "en-IN", publisher: { "@id": `${SITE}/#organization` }, about: c.disclosure ? undefined : { "@id": ID } })}
+            {JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: c.h1, headline: c.title, url, description: c.description, dateModified: c.updated, lastReviewed: c.updated, inLanguage: "en-IN", author: { "@id": `${SITE}/#organization` }, publisher: { "@id": `${SITE}/#organization` }, reviewedBy: { "@id": `${SITE}/#organization` }, about: c.disclosure ? undefined : { "@id": ID }, citation: c.sources?.map(([name, u]) => ({ "@type": "CreativeWork", name, url: u })) })}
           </script>
         )}
       </Helmet>
