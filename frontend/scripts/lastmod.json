@@ -327,6 +327,34 @@
   "hash": "67d2c303c6cb65b8",
   "date": "2026-10-27"
  },
+ "/offshore-software-development-australia": {
+  "hash": "bb1a0cc2533489fa",
+  "date": "2026-11-05"
+ },
+ "/offshore-software-development-canada": {
+  "hash": "44d4f22dc8391d9b",
+  "date": "2026-11-05"
+ },
+ "/offshore-software-development-dubai-uae": {
+  "hash": "70f0dda4e98b6868",
+  "date": "2026-11-05"
+ },
+ "/offshore-software-development-europe": {
+  "hash": "d14fc1ddb62e0de0",
+  "date": "2026-11-05"
+ },
+ "/offshore-software-development-saudi-arabia": {
+  "hash": "5de57eb794456d0e",
+  "date": "2026-11-05"
+ },
+ "/offshore-software-development-uk": {
+  "hash": "5a31db5e00905909",
+  "date": "2026-11-05"
+ },
+ "/offshore-software-development-usa": {
+  "hash": "b389a2bffb5d20ee",
+  "date": "2026-11-05"
+ },
  "/old-gold-purchase-voucher-format": {
   "hash": "a282870b48a488a3",
   "date": "2026-10-27"
@@ -372,7 +400,7 @@
   "date": "2026-10-27"
  },
  "/services": {
-  "hash": "b209c3b7808c50cb",
+  "hash": "4544604dfaa3fa81",
   "date": "2026-11-05"
  },
  "/services/ai-automation": {
@@ -412,7 +440,7 @@
   "date": "2026-10-27"
  },
  "/services/offshore-software-development-india": {
-  "hash": "f7f673eee9db5cc1",
+  "hash": "14162719a12c634c",
   "date": "2026-11-05"
  },
  "/services/on-demand-software-development": {

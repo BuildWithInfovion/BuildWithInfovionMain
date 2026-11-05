@@ -11,6 +11,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import { beacon, captureFirstTouch, track, watchActions } from "./lib/analytics";
 import { organizationNode } from "./lib/seo";
 import { SITE } from "./Data/company";
+import { ALL_SERVICES } from "./Data/services";
 import { productOf } from "./lib/sections";
 
 // Company
@@ -65,7 +66,8 @@ const FormatsHub = lazy(() => import("./pages/jms/Formats").then((m) => ({ defau
 const FormatPage = lazy(() => import("./pages/jms/Formats").then((m) => ({ default: m.FormatPage })));
 const JmsGuide = lazy(() => import("./pages/jms/Jms").then((m) => ({ default: m.GuidePage })));
 const JMS_FORMATS = ["jewellery-bill-format", "jewellery-estimate-format", "girvi-receipt-format", "old-gold-purchase-voucher-format", "karigar-issue-slip-format", "uae-jewellery-tax-invoice-format"];
-const HEALTHCARE_PAGES = ["healthcare-software-development", "hospital-management-system-development", "abdm-integration", "wcag-accessibility-audit", "dpdp-compliance", "pharma-software-development"];
+// Healthcare and country pages: service pages at top-level URLs (Data/healthcare.js, Data/offshore.js)
+const TOP_LEVEL_SERVICES = ALL_SERVICES.filter((s) => s.path).map((s) => [s.path, s.slug]);
 const JMS_GUIDES = ["gst-on-gold-jewellery", "hsn-code-for-jewellery", "gst-on-old-gold", "uae-vat-on-gold", "jewellery-software-comparison", "tally-for-jewellers", "vyapar-vs-infovion-jms", "marg-vs-infovion-jms"];
 // Content & legal
 const Blog = lazy(() => import("./pages/Blog"));
@@ -205,8 +207,8 @@ export function AppRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:slug" element={<ServicePage />} />
-            {HEALTHCARE_PAGES.map((s) => (
-              <Route key={s} path={`/${s}`} element={<ServicePage slug={s} />} />
+            {TOP_LEVEL_SERVICES.map(([path, slug]) => (
+              <Route key={slug} path={path} element={<ServicePage slug={slug} />} />
             ))}
             <Route path="/industries" element={<Industries />} />
             <Route path="/case-studies" element={<CaseStudies />} />

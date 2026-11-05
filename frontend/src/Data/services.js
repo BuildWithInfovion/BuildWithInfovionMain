@@ -1,6 +1,7 @@
 // Every service page is generated from this file (/services/<slug>).
 // Cost ranges are indicative market ranges for India, not quotes; the page says so.
 import { HEALTHCARE } from "./healthcare.js";
+import { OFFSHORE } from "./offshore.js";
 
 export const SERVICES = [
   {
@@ -101,9 +102,10 @@ export const SERVICES = [
       ["Who owns the code and IP?", "You do. Code goes into your repository from the first day, and the contract assigns the intellectual property to you on payment. We sign a mutual NDA before you share anything."],
       ["Can you maintain software another company built?", "Yes. Much of our work for overseas clients is maintenance and takeover: we review the code, document it, fix what is urgent and then maintain it under a monthly or yearly contract."],
       ["Why outsource to a small company instead of a big Indian IT firm?", "You talk directly to the developers, decisions are quick, and the budget suits small projects. A big firm is the better choice when you need many developers at once, 24-hour coverage or specific certifications."],
+      ["How can I contact Infovion from outside India?", "WhatsApp +91 93091 93613 (free over the internet from any country), call +91 91563 02024, or email contact@infovion.in. The team works 9 am to 10 pm India time (UTC+5:30), seven days a week, and replies within one business day."],
       ["Which countries do you work with?", "Any. We work remotely with clients wherever they are, and our own jewellery software already has country settings for India, the Gulf, the UK, the US, Canada, Australia and Singapore."],
     ],
-    reading: [["/services/on-demand-software-development", "On-demand developers", "By the task, hour or month."], ["/services/software-maintenance-support", "Software maintenance and AMC", "Fixes, updates, backups and takeovers."], ["/services/vibe-coding-help", "Help with AI-built apps", "Review, security and launch."], ["/company-profile", "Company profile", "Registration, capabilities and contacts on one page."]],
+    reading: [["/offshore-software-development-usa", "For US companies", "East Coast morning calls, USD invoices."], ["/offshore-software-development-uk", "For UK businesses", "The UK working day overlaps; IDTA for UK GDPR."], ["/offshore-software-development-dubai-uae", "For Dubai and the UAE", "1½ hours apart, AED prices, Arabic apps, VAT."], ["/offshore-software-development-saudi-arabia", "For Saudi Arabia", "SAR prices, Arabic apps, ZATCA e-invoicing."], ["/offshore-software-development-australia", "For Australia and New Zealand", "Your afternoons overlap our day."], ["/offshore-software-development-canada", "For Canada", "Toronto mornings, English and French apps."], ["/offshore-software-development-europe", "For Europe", "Your whole working day overlaps; GDPR SCCs."], ["/services/on-demand-software-development", "On-demand developers", "By the task, hour or month."], ["/services/software-maintenance-support", "Software maintenance and AMC", "Fixes, updates, backups and takeovers."], ["/company-profile", "Company profile", "Registration, capabilities and contacts on one page."]],
     related: ["on-demand-software-development", "software-maintenance-support", "custom-software-development"],
     proof: "school-erp-platform",
   },
@@ -675,11 +677,11 @@ export const SERVICES = [
   },
 ];
 
-// Service pages plus the healthcare pages, which use the same template at top-level URLs.
-export const ALL_SERVICES = [...SERVICES, ...HEALTHCARE];
+// Service pages plus the healthcare and country pages, which use the same template at top-level URLs.
+export const ALL_SERVICES = [...SERVICES, ...HEALTHCARE, ...OFFSHORE];
 export const serviceBySlug = (slug) => ALL_SERVICES.find((s) => s.slug === slug);
 export const servicePath = (s) => s.path ?? `/services/${s.slug}`;
-export { HEALTHCARE };
+export { HEALTHCARE, OFFSHORE };
 
 // Shared delivery process, shown on service pages and /how-we-work.
 export const PROCESS = [

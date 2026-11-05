@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
-import { SERVICES } from "../Data/services";
+import { OFFSHORE, SERVICES } from "../Data/services";
 import { COMPANY, fullAddress, jmsTrial } from "../Data/company";
 import { productOf } from "../lib/sections";
 
@@ -147,7 +147,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row">
+        <nav aria-label="Clients outside India" className="mt-12 border-t border-white/10 pt-6 text-sm">
+          <p className="text-slate-400">
+            <Link to="/services/offshore-software-development-india" className="font-semibold text-slate-200 hover:text-white">Outsourcing software development to India</Link>
+            <span className="text-slate-500"> for clients in </span>
+            {OFFSHORE.map((s, i) => (
+              <React.Fragment key={s.slug}>
+                {i > 0 && <span className="text-slate-600"> · </span>}
+                <Link to={s.path} className="text-slate-400 hover:text-white">{s.nav}</Link>
+              </React.Fragment>
+            ))}
+            <span className="text-slate-500"> · WhatsApp </span>
+            <a href={`https://wa.me/${COMPANY.whatsappNumber}`} className="text-slate-300 hover:text-white">{COMPANY.whatsapp}</a>
+          </p>
+        </nav>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row">
           <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
           <p className="flex gap-5">
             <Link to="/privacy-policy" className="hover:text-white">Privacy</Link>

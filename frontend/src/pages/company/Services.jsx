@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
 import { GhostButton, GlowButton, Reveal } from "../../components/fx/Fx";
 import { AnswerBox, CtaBand, FaqList, Icon, LinkRow, PageHero, Section } from "../../components/site/Ui";
-import { SERVICES, HEALTHCARE, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
+import { SERVICES, HEALTHCARE, OFFSHORE, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
 import { wa, SITE } from "../../Data/company";
 import { serviceSchema } from "../../lib/seo";
 
@@ -80,6 +80,12 @@ export function ServicesIndex() {
         </div>
       </Section>
 
+      <Section kicker="Outside India" title="For clients in other countries" className="py-12">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          {OFFSHORE.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
+        </div>
+      </Section>
+
       <Section kicker="Public sector" title="Government and institutional work" className="py-12">
         <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
           <LinkRow to="/government" icon="Landmark" title="E-governance and government IT" body="Websites aligned with GIGW 3.0, citizen service portals, MIS dashboards, mobile applications and maintenance contracts, hosted in India." />
@@ -118,7 +124,8 @@ export function ServicePage({ slug: fixedSlug }) {
     "jewellery-management-system": ["Case study: billing, girvi and stock for a jewellery retailer", "Replacing paper bills and girvi registers at a jewellery store in Maharashtra with a single system.", "/case-studies/jewellery-management-system"],
     "infovion-website": ["Case study: a website engineered for search", "How www.infovion.in was built for performance, search engines and AI assistants.", "/case-studies/infovion-website"],
   }[s.proof];
-  const waText = `Hello Infovion, I would like to discuss ${s.noun}.`;
+  const waText = s.waText ?? `Hello Infovion, I would like to discuss ${s.noun}.`;
+  const contactTo = `/contact?service=${s.contactAs ?? s.slug}`;
 
   return (
     <>
@@ -137,8 +144,8 @@ export function ServicePage({ slug: fixedSlug }) {
         )}
       </Helmet>
 
-      <PageHero trail={s.trail ?? [["Services", "/services"], [s.name, servicePath(s)]]} kicker={s.path ? "Healthcare" : "Services"} title={s.h1} sub={s.intro}>
-        <GlowButton to={`/contact?service=${s.slug}`}>Request a proposal <ArrowRight className="h-4 w-4" /></GlowButton>
+      <PageHero trail={s.trail ?? [["Services", "/services"], [s.name, servicePath(s)]]} kicker={s.kicker ?? (s.path ? "Healthcare" : "Services")} title={s.h1} sub={s.intro}>
+        <GlowButton to={contactTo}>Request a proposal <ArrowRight className="h-4 w-4" /></GlowButton>
         <GhostButton href={wa(waText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
       </PageHero>
 
@@ -221,7 +228,7 @@ export function ServicePage({ slug: fixedSlug }) {
           <div className="panel rounded-xl p-6">
             <h3 className="font-display text-lg font-semibold text-white">Factors that affect cost</h3>
             <ul className="mt-4 space-y-2">{s.cost.drivers.map((d) => <li key={d} className="flex gap-2.5 text-sm text-slate-300"><span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-sky-300" />{d}</li>)}</ul>
-            <Link to={`/contact?service=${s.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">Request a fixed-price proposal <ArrowRight className="h-4 w-4" /></Link>
+            <Link to={contactTo} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">Request a fixed-price proposal <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </Section>
@@ -259,7 +266,7 @@ export function ServicePage({ slug: fixedSlug }) {
         </Section>
       )}
 
-      <CtaBand title={s.ctaTitle ?? `Discuss your ${s.noun.replace(/ \(AMC\)$/, "")} requirements`} primary={["Request a proposal", `/contact?service=${s.slug}`]} whatsappText={waText} />
+      <CtaBand title={s.ctaTitle ?? `Discuss your ${s.noun.replace(/ \(AMC\)$/, "")} requirements`} primary={["Request a proposal", contactTo]} whatsappText={waText} />
     </>
   );
 }
