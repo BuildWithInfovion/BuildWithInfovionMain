@@ -6,6 +6,7 @@ import { blogPosts } from "../Data/blogData";
 import { CATEGORY_LABEL, CTA, audienceOf } from "../Data/blogCategories";
 import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
 import PreferredSourceBadge from "../components/PreferredSourceBadge";
+import { faqSchema } from "../lib/seo";
 
 const DOMAIN = "https://www.infovion.in";
 const abs = (u) => (u.startsWith("http") ? u : `${DOMAIN}${u}`);
@@ -71,6 +72,7 @@ export default function BlogPost() {
           <p className="mt-5 text-lg leading-relaxed text-slate-400">{post.excerpt}</p>
           <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500">
             <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {fmt(post.date)}</span>
+            {post.updated && post.updated !== post.date && <span>Updated {fmt(post.updated)}</span>}
             <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.readTime}</span>
             <span>By {post.author}</span>
           </p>
@@ -82,6 +84,24 @@ export default function BlogPost() {
           <img src={post.image} alt={post.title} className="aspect-[16/8] w-full object-cover" />
         </div>
         <article className="article-dark mt-12" dangerouslySetInnerHTML={{ __html: post.content }} />
+        {/* Questions readers ask, also given to search engines as FAQ structured data */}
+        {post.faqs?.length > 0 && (
+          <section className="mt-12" aria-labelledby="post-faq">
+            <Helmet><script type="application/ld+json">{JSON.stringify(faqSchema(post.faqs))}</script></Helmet>
+            <h2 id="post-faq" className="font-display text-2xl font-extrabold text-white">Questions readers ask</h2>
+            <div className="mt-5 border-t border-white/10">
+              {post.faqs.map(([q, a]) => (
+                <details key={q} className="group border-b border-white/10 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-4 font-semibold text-white">
+                    <h3 className="text-base">{q}</h3>
+                    <span className="mt-0.5 text-lg leading-none text-sky-300 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <p className="pb-5 text-[15px] leading-relaxed text-slate-300">{a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         {post.tags?.length > 0 && (
           <div className="mt-10 flex flex-wrap gap-2">

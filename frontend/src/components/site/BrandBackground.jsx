@@ -57,15 +57,18 @@ export default function BrandBackground() {
     scene.current?.setCompact(!home);
   }, [home]);
 
-  // Veil: how strongly the logo shows at the top of each page. Pages whose header already shows a
-  // product screenshot (data-hero-aside) hide it, so it never peeks out from behind the picture.
+  // Veil: how strongly the logo shows at the top of each page.
   // Scrolling is handled by the scene itself (the logo dissolves while the visitor reads).
   useEffect(() => {
     let raf = 0;
     const update = () => {
       raf = 0;
       const narrow = window.innerWidth < 768;
-      const aside = !home && Boolean(document.querySelector("main [data-hero-aside]"));
+      // Hide it where it would sit on the page header's content: a screenshot beside the title, or
+      // a centred title that runs across the middle of the screen
+      const h1 = document.querySelector("main h1");
+      const centred = Boolean(h1) && getComputedStyle(h1).textAlign === "center";
+      const aside = !home && (centred || Boolean(document.querySelector("main [data-hero-aside]")));
       veil.current = home ? 0 : aside ? 1 : narrow ? 0.3 : 0.18;
       scene.current?.setVeil(veil.current);
     };

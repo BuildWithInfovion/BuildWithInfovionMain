@@ -29,7 +29,7 @@ const COMMON_START = ["Send a short brief, or access to your existing code", "A 
 
 const SMALL_TEAM = "We are a small MSME team in Pune, not a 500-person outsourcing firm: you talk directly to the people writing your code, decisions are quick, and the budget suits startups and small and mid-size businesses. If you need dozens of developers at once, 24-hour staffing or certifications such as ISO 27001 or SOC 2, which we do not hold, a large IT services firm is the better choice.";
 
-const READING = [[HUB, "Outsourcing to India: the full guide", "Prices, contracts, IP and how to start."], ["/services/on-demand-software-development", "On-demand developers", "By the task, hour or month."], ["/services/software-maintenance-support", "Software maintenance and AMC", "Fixes, updates and takeovers."], ["/services/vibe-coding-help", "Help with AI-built apps", "Review, security and launch."]];
+const READING = [["/blog/how-to-outsource-software-development-to-india", "Guide: how to outsource to India in 2026", "Costs, contracts, data protection and red flags."], [HUB, "Outsourcing to India: the full guide", "Prices, contracts, IP and how to start."], ["/services/on-demand-software-development", "On-demand developers", "By the task, hour or month."], ["/services/software-maintenance-support", "Software maintenance and AMC", "Fixes, updates and takeovers."], ["/services/vibe-coding-help", "Help with AI-built apps", "Review, security and launch."]];
 
 const base = (slug, name, extra) => ({
   slug,
@@ -109,6 +109,7 @@ export const OFFSHORE = [
       ["How to start", null, COMMON_START],
     ],
     sources: [["UK Data (Use and Access) Act 2025, Schedule 7 (transfers)", "https://www.legislation.gov.uk/ukpga/2025/18/schedule/7"]],
+    reading: [["/blog/uk-gdpr-eu-gdpr-outsourcing-to-india", "UK GDPR and EU GDPR when outsourcing to India", "IDTA, SCCs and data processing agreements."], ...READING],
     deliverables: ["Written scope and price", "Mutual NDA, IP assignment, IDTA or UK Addendum where personal data is involved", "Code in your repository from day one", "Calls in UK office hours", "Staging link to review every two weeks", "Documentation and handover, or an ongoing AMC"],
     fit: ["UK digital agencies needing white-label developers", "Startups building an MVP on a seed budget", "SMEs whose local quotes are out of reach", "Businesses whose previous developer has left", "Charities and membership organisations"],
     cost: { title: "Cost for UK businesses", sub: "Infovion's indicative prices for 2026, invoiced in US dollars by international transfer. Every project gets its own written quote after a first call.", ranges: USD, drivers: USD_DRIVERS, timeline: TIMELINE },
@@ -156,7 +157,7 @@ export const OFFSHORE = [
       ["Do you understand UAE VAT invoicing?", "Yes. Our jewellery software already prints 5% VAT tax invoices with TRN in AED, and we have written a guide to UAE VAT on gold including the 2025 reverse charge."],
       ["How do I contact you from Dubai?", "WhatsApp +91 93091 93613, call +91 91563 02024, or email contact@infovion.in. Our working day runs 7:30 am to 8:30 pm UAE time."],
     ],
-    reading: [["/jewellery-software-uae", "Jewellery software for the UAE", "Infovion JMS in AED with VAT invoices."], ["/uae-vat-on-gold", "UAE VAT on gold", "5%, zero-rated gold and the reverse charge."], ...READING],
+    reading: [["/blog/hire-software-developers-india-from-dubai-uae", "Guide: hiring developers in India from Dubai", "AED costs, Arabic apps, VAT and e-invoicing."], ["/jewellery-software-uae", "Jewellery software for the UAE", "Infovion JMS in AED with VAT invoices."], ["/uae-vat-on-gold", "UAE VAT on gold", "5%, zero-rated gold and the reverse charge."], ...READING],
   }),
 
   base("offshore-software-development-saudi-arabia", "For Saudi Arabia", {
@@ -301,6 +302,6 @@ export const OFFSHORE = [
       ["Can you make our website comply with the European Accessibility Act?", "Yes. We audit and fix websites and apps to WCAG 2.2 AA, which covers the WCAG 2.1 AA level that EN 301 549, the standard used to meet the Act, refers to. The Act applies since 28 June 2025."],
       ["How do I contact you from Europe?", "WhatsApp +91 93091 93613, call +91 91563 02024, or email contact@infovion.in. Your whole working day is within our hours."],
     ],
-    reading: [["/wcag-accessibility-audit", "WCAG accessibility audit", "Audits and fixes for the European Accessibility Act."], ...READING],
+    reading: [["/blog/uk-gdpr-eu-gdpr-outsourcing-to-india", "UK GDPR and EU GDPR when outsourcing to India", "IDTA, SCCs and data processing agreements."], ["/wcag-accessibility-audit", "WCAG accessibility audit", "Audits and fixes for the European Accessibility Act."], ...READING],
   }),
 ];
