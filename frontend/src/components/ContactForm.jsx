@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CheckCircle2, AlertTriangle, Loader2, Send } from "lucide-react";
 import { beacon, firstTouch, track } from "../lib/analytics";
-import { SERVICES } from "../Data/services";
+import { ALL_SERVICES } from "../Data/services";
 import { COMPANY } from "../Data/company";
 
 const FORMSPREE = "https://formspree.io/f/xnngvgpd";
@@ -13,7 +13,7 @@ const label = "mb-1.5 block text-sm font-medium text-slate-300";
 // What the visitor needs. Values are stable keys used in the email subject and analytics.
 const INTERESTS = [
   ["project", "A new software project"],
-  ...SERVICES.map((s) => [s.slug, s.name]),
+  ...ALL_SERVICES.map((s) => [s.slug, s.name]),
   ["government", "Government or public sector requirement"],
   ["school", "Infovion School ERP: demonstration for a school"],
   ["jms", "Infovion JMS: demonstration for a jewellery store"],

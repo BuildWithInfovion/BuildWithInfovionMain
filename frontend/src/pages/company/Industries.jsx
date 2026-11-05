@@ -39,10 +39,10 @@ const INDUSTRIES = [
     links: [["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
   },
   {
-    id: "healthcare", icon: "HeartPulse", name: "Healthcare", tagline: "Clinics, diagnostic centres, pharmacies and wellness providers",
-    pains: ["Appointments booked by phone without reminders", "Patient history spread across paper files", "Manual billing and reporting"],
-    build: ["Appointment booking with automated reminders", "Patient records with role-based access", "Billing, inventory and reporting"],
-    links: [["Custom software", "/services/custom-software-development"], ["Mobile applications", "/services/mobile-app-development"]],
+    id: "healthcare", icon: "HeartPulse", name: "Healthcare and pharma", tagline: "Hospitals, hospital chains, clinics, labs, pharmacies and pharma companies",
+    pains: ["Hospital software that is slow, insecure or unusable for patients with disabilities", "DPDP Act, WCAG and ABDM requirements on existing systems", "Patient records and reports split across branches", "Batch, QC and stock records on paper or spreadsheets in pharma"],
+    build: ["Hospital management systems and modules for hospital chains", "ABDM integration: ABHA, M1, M2 and M3", "WCAG accessibility audits and DPDP Act compliance in existing apps", "Pharma batch, QC, inventory and QR traceability"],
+    links: [["Healthcare software", "/healthcare-software-development"], ["Hospital management systems", "/hospital-management-system-development"], ["ABDM integration", "/abdm-integration"], ["WCAG accessibility audit", "/wcag-accessibility-audit"], ["DPDP Act compliance", "/dpdp-compliance"], ["Pharma software", "/pharma-software-development"]],
   },
   {
     id: "services", icon: "Building2", name: "Real estate and professional services", tagline: "Developers, brokers, agencies, consultancies and field service firms",

@@ -1,5 +1,6 @@
 // Every service page is generated from this file (/services/<slug>).
 // Cost ranges are indicative market ranges for India, not quotes; the page says so.
+import { HEALTHCARE } from "./healthcare.js";
 
 export const SERVICES = [
   {
@@ -674,7 +675,11 @@ export const SERVICES = [
   },
 ];
 
-export const serviceBySlug = (slug) => SERVICES.find((s) => s.slug === slug);
+// Service pages plus the healthcare pages, which use the same template at top-level URLs.
+export const ALL_SERVICES = [...SERVICES, ...HEALTHCARE];
+export const serviceBySlug = (slug) => ALL_SERVICES.find((s) => s.slug === slug);
+export const servicePath = (s) => s.path ?? `/services/${s.slug}`;
+export { HEALTHCARE };
 
 // Shared delivery process, shown on service pages and /how-we-work.
 export const PROCESS = [

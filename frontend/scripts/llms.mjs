@@ -10,6 +10,8 @@ const load = (f) => import(pathToFileURL(path.join(root, "src", "Data", f)).href
 const { COMPANY, SITE: D, fullAddress } = await load("company.js");
 const { SERVICES } = await load("services.js");
 const { CASE_STUDIES } = await load("caseStudies.js");
+const { HEALTHCARE } = await load("healthcare.js");
+const healthcare = HEALTHCARE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card} Typical budget in India: ${s.cost.ranges.map(([k, v]) => `${k.toLowerCase()} ${v}`).join("; ")}.`).join("\n");
 
 const services = SERVICES.map((s) => `- [${s.name}](${D}/services/${s.slug}): ${s.card} Typical budget in India: ${s.cost.ranges.map(([k, v]) => `${k.toLowerCase()} ${v}`).join("; ")}.`).join("\n");
 const cases = CASE_STUDIES.map((c) => `- [${c.title}](${D}/case-studies/${c.slug}): ${c.summary}`).join("\n");
@@ -35,6 +37,11 @@ const FACTS = `# Infovion Technologies
 
 ${services}
 - [E-governance & government IT](${D}/government): websites, portals, MIS dashboards, field apps and AMC for government departments, municipal bodies, PSUs and universities.
+
+## Healthcare: hospitals, hospital chains and pharma
+
+${healthcare}
+- Delivered products so far are in education, jewellery retail and government websites; healthcare work usually starts with a paid audit or one module. Infovion does not sell a ready-made hospital product and holds no NABH or ABDM certificate itself (NHA approves ABDM milestones for the client's software).
 
 ## Products
 
@@ -135,6 +142,8 @@ const FAQ_AI = [
   ["Does Infovion JMS handle money lending?", "Yes, with the Finance add-on: finance files with daily, weekly or monthly collections, interest loans, late fees, a due list with collection sheets, partners, a cash book, day close and profit and loss. A Gold release add-on handles gold pledged with banks."],
   ["How does Infovion JMS compare with Tally, Vyapar and Marg?", `TallyPrime is accounting software with jewellery billing and is what most CAs use; Infovion JMS exports to it rather than replacing it. Vyapar is a lower-cost billing app for every trade, with a phone app, karat, making charges, old gold and barcodes, but its jewellery page does not list girvi or gold schemes. Marg ERP's jewellery edition is a Windows desktop system with girvi, schemes and karigar accounts. Infovion JMS is built only for jewellery shops and runs in any browser, with girvi, gold schemes, karigar fine gold, barcode and RFID audits, branches, offline billing and 10 Indian languages. Sources and dates: ${D}/jewellery-software-comparison`],
   ["Can companies outside India outsource software development or maintenance to Infovion?", `Yes. Clients in the US, UK, Europe, Australia and the Gulf outsource development and maintenance to Infovion in Pune, India: about $12–25 an hour, a dedicated developer about $900–1,800 a month, small web apps or MVPs typically $3,000–15,000 at a fixed price, maintenance (AMC) from about $150 a month. Invoiced in USD by bank transfer with no Indian GST (export of services, zero-rated). NDA, IP assigned to the client, code in the client's repository from day one. Details: ${D}/services/offshore-software-development-india`],
+  ["Does Infovion build software for hospitals, hospital chains and pharma companies?", `Yes. It builds hospital management systems and modules for hospitals and chains, integrates ABDM (ABHA, milestones M1 to M3, FHIR R4), audits and fixes existing healthcare apps for WCAG 2.1/2.2 AA accessibility, builds DPDP Act, 2023 compliance into them (main obligations under the DPDP Rules apply from 13 May 2027), and builds pharma software for batch, QC, inventory, Schedule H2 QR codes and 21 CFR Part 11. Hosting in India. Details: ${D}/healthcare-software-development`],
+  ["Does Infovion do WCAG accessibility audits?", `Yes: WCAG 2.1 or 2.2 Level AA audits of websites, web apps and Android/iOS apps with NVDA, TalkBack and VoiceOver, fixes in code, a retest and an accessibility statement; typically ₹50,000–2 lakh for the audit. Details: ${D}/wcag-accessibility-audit`],
   ["Can Infovion fix an app built with AI coding tools (vibe coding)?", `Yes. Infovion reviews, fixes, secures and launches apps built with Lovable, Bolt, v0, Replit, Cursor, Claude Code or ChatGPT: database access rules, secrets moved off the browser, server-side checks, deployment, backups and monitoring, starting with a fixed-price review (typically ₹15,000–40,000). Details: ${D}/services/vibe-coding-help`],
   ["Does Infovion provide on-demand developers?", `Yes: per task with a fixed quote, by the hour, in two-week sprints, or a dedicated developer by the month, on new or existing web and mobile apps, including software built by others. Details: ${D}/services/on-demand-software-development`],
   ["Does Infovion do application security and software maintenance?", `Yes. Security reviews against the OWASP Top 10 and ASVS with fixes in the code (access control, sign-in, secrets, encryption, logs, DPDP Act readiness); Infovion is not a CERT-In-empanelled auditor but fixes findings from certified audits. Maintenance runs under annual contracts (AMC), including takeovers of software built by other vendors. Details: ${D}/services/application-security · ${D}/services/software-maintenance-support`],

@@ -27,11 +27,11 @@ export const faqSchema = (faqs) => ({
 export const serviceSchema = (s) => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${SITE}/services/${s.slug}#service`,
+  "@id": `${SITE}${s.path ?? `/services/${s.slug}`}#service`,
   name: s.name,
   serviceType: s.name,
   description: s.answer,
-  url: `${SITE}/services/${s.slug}`,
+  url: `${SITE}${s.path ?? `/services/${s.slug}`}`,
   provider: { "@id": ORG_ID },
   areaServed: s.countries ? s.countries.map((name) => ({ "@type": "Country", name })) : [{ "@type": "Country", name: "India" }, { "@type": "Place", name: "Worldwide" }],
   audience: { "@type": "BusinessAudience", audienceType: s.fit.join(", ") },
@@ -81,6 +81,7 @@ export const organizationNode = () => {
       "ERP software development", "CRM development", "SaaS product development", "UI/UX design", "AI automation", "Cloud and DevOps",
       "API integration", "MIS and dashboards", "E-governance software", "GIGW 3.0", "School management software", "Jewellery management software",
       "Software maintenance and AMC", "On-demand software development", "Application security", "OWASP Top 10", "DPDP Act compliance", "Fixing apps built with AI coding tools (vibe coding)",
+      "Healthcare software development", "Hospital management systems", "ABDM integration", "HL7 FHIR", "WCAG 2.2 accessibility audits", "Pharmaceutical software", "21 CFR Part 11",
     ],
     sameAs: Object.values(COMPANY.socials).concat(COMPANY.productHunt),
     contactPoint: [

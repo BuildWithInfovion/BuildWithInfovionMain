@@ -137,7 +137,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <Col id="footer-services" title="Services" links={[...SERVICES.map((s) => [`/services/${s.slug}`, s.name]), ["/government", "E-governance"]]} />
+          <Col id="footer-services" title="Services" links={[...SERVICES.map((s) => [`/services/${s.slug}`, s.name]), ["/healthcare-software-development", "Healthcare software"], ["/government", "E-governance"]]} />
           <Col id="footer-products" title="Products" links={PRODUCT_LINKS} />
           <div className="space-y-8">
             <Col id="footer-company" title="Company" links={COMPANY_LINKS} />

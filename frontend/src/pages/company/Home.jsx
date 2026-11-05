@@ -32,7 +32,7 @@ const INDUSTRIES = [
   ["Landmark", "Government and PSUs", "/government"],
   ["Store", "Retail and distribution", "/industries#retail"],
   ["Factory", "Manufacturing", "/industries#manufacturing"],
-  ["HeartPulse", "Healthcare", "/industries#healthcare"],
+  ["HeartPulse", "Healthcare", "/healthcare-software-development"],
   ["Building2", "Real estate and services", "/industries#services"],
   ["Rocket", "Startups", "/industries#startups"],
 ];

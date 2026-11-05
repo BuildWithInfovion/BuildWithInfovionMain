@@ -11,7 +11,7 @@ const { render } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry
 const { blogPosts } = await import(pathToFileURL(path.join(root, "src", "Data", "blogData.js")).href).catch(() => ({ blogPosts: [] }));
 const { PRERENDER_ROUTES } = await import(pathToFileURL(path.join(root, "src", "routes.js")).href);
 const { VIDEOS, videoFile, videoPoster } = await import(pathToFileURL(path.join(root, "src", "Data", "videos.js")).href);
-const { SERVICES } = await import(pathToFileURL(path.join(root, "src", "Data", "services.js")).href);
+const { ALL_SERVICES } = await import(pathToFileURL(path.join(root, "src", "Data", "services.js")).href);
 const { CASE_STUDIES } = await import(pathToFileURL(path.join(root, "src", "Data", "caseStudies.js")).href);
 
 // The page is already in the HTML, so the app bundle (needed only to hydrate it)
@@ -39,7 +39,7 @@ const stripHead = (h) => h
 
 const slugs = (blogPosts || []).map((p) => `/blog/${p.slug}`);
 const videoRoutes = VIDEOS.map((v) => `/videos/${v.slug}`);
-const serviceRoutes = SERVICES.map((s) => `/services/${s.slug}`);
+const serviceRoutes = ALL_SERVICES.map((s) => s.path ?? `/services/${s.slug}`);
 const caseRoutes = CASE_STUDIES.map((c) => `/case-studies/${c.slug}`);
 const routes = [...new Set([...PRERENDER_ROUTES, ...serviceRoutes, ...caseRoutes, ...slugs, ...videoRoutes])];
 // Real last-modified dates for the sitemap: a hash of each page's own content (the <main> element,
@@ -114,7 +114,7 @@ const videoTag = (u) => {
   return `<video:video><video:thumbnail_loc>https://www.infovion.in${videoPoster(v)}</video:thumbnail_loc><video:title>${xmlText(v.title)}</video:title><video:description>${xmlText(v.description)}</video:description><video:content_loc>https://www.infovion.in${videoFile(v)}</video:content_loc><video:duration>${v.seconds}</video:duration><video:publication_date>${v.uploadDate}T00:00:00+05:30</video:publication_date><video:family_friendly>yes</video:family_friendly></video:video>`;
 };
 // Highest for the company home, the service hub/pages and the two product homes
-const TOP = ["/services", "/school-management-software", "/jewellery-management-software", "/contact", "/government"];
+const TOP = ["/services", "/school-management-software", "/jewellery-management-software", "/contact", "/government", "/healthcare-software-development"];
 const prio = (u) =>
   u === "/" ? "1.0"
   : TOP.includes(u) || u.startsWith("/services/") || u === "/free-trial" ? "0.9"

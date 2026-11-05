@@ -1,6 +1,10 @@
 {
  "/": {
-  "hash": "fda5ff99a839209f",
+  "hash": "a1921800dda4ecb9",
+  "date": "2026-11-05"
+ },
+ "/abdm-integration": {
+  "hash": "05b17a965bf9709b",
   "date": "2026-11-05"
  },
  "/about": {
@@ -128,7 +132,11 @@
   "date": "2026-11-05"
  },
  "/contact": {
-  "hash": "aaa450df6d5e0ac1",
+  "hash": "80d3f8c8c810a567",
+  "date": "2026-11-05"
+ },
+ "/dpdp-compliance": {
+  "hash": "b271102dcaabd253",
   "date": "2026-11-05"
  },
  "/dubai-gold-price-calculator": {
@@ -191,6 +199,14 @@
   "hash": "6386030bdbe799e0",
   "date": "2026-11-05"
  },
+ "/healthcare-software-development": {
+  "hash": "d96b1f846c0675fa",
+  "date": "2026-11-05"
+ },
+ "/hospital-management-system-development": {
+  "hash": "9ae4f2f5fe17fd6a",
+  "date": "2026-11-05"
+ },
  "/how-we-work": {
   "hash": "7b0607ab849c9cf0",
   "date": "2026-10-27"
@@ -200,8 +216,8 @@
   "date": "2026-11-05"
  },
  "/industries": {
-  "hash": "29ed82e31b378479",
-  "date": "2026-10-27"
+  "hash": "5de6943d0dd2d730",
+  "date": "2026-11-05"
  },
  "/infovion-jms-features": {
   "hash": "022d3433078bb84d",
@@ -315,6 +331,10 @@
   "hash": "a282870b48a488a3",
   "date": "2026-10-27"
  },
+ "/pharma-software-development": {
+  "hash": "46fa091c1e60a807",
+  "date": "2026-11-05"
+ },
  "/privacy-policy": {
   "hash": "05a9e8a490c9beb9",
   "date": "2026-10-27"
@@ -352,7 +372,7 @@
   "date": "2026-10-27"
  },
  "/services": {
-  "hash": "7f89779a93234a45",
+  "hash": "b209c3b7808c50cb",
   "date": "2026-11-05"
  },
  "/services/ai-automation": {
@@ -489,6 +509,10 @@
  },
  "/vyapar-vs-infovion-jms": {
   "hash": "a14dc76d1afbef9c",
+  "date": "2026-11-05"
+ },
+ "/wcag-accessibility-audit": {
+  "hash": "725e6bb3888776f3",
   "date": "2026-11-05"
  }
 }

@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
 import { GhostButton, GlowButton, Reveal } from "../../components/fx/Fx";
 import { AnswerBox, CtaBand, FaqList, Icon, LinkRow, PageHero, Section } from "../../components/site/Ui";
-import { SERVICES, PROCESS, serviceBySlug } from "../../Data/services";
+import { SERVICES, HEALTHCARE, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
 import { wa, SITE } from "../../Data/company";
 import { serviceSchema } from "../../lib/seo";
 
@@ -74,6 +74,12 @@ export function ServicesIndex() {
         </Section>
       ))}
 
+      <Section kicker="Healthcare" title="Hospitals, hospital chains and pharma" className="py-12">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          {HEALTHCARE.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
+        </div>
+      </Section>
+
       <Section kicker="Public sector" title="Government and institutional work" className="py-12">
         <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
           <LinkRow to="/government" icon="Landmark" title="E-governance and government IT" body="Websites aligned with GIGW 3.0, citizen service portals, MIS dashboards, mobile applications and maintenance contracts, hosted in India." />
@@ -93,9 +99,9 @@ export function ServicesIndex() {
 
 const fmtDate = (d) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
-export function ServicePage() {
-  const { slug } = useParams();
-  const s = serviceBySlug(slug);
+export function ServicePage({ slug: fixedSlug }) {
+  const params = useParams();
+  const s = serviceBySlug(fixedSlug ?? params.slug);
   if (!s) {
     return (
       <div className="px-6 pb-24 pt-40 text-center">
@@ -105,7 +111,7 @@ export function ServicePage() {
       </div>
     );
   }
-  const url = `${SITE}/services/${s.slug}`;
+  const url = `${SITE}${servicePath(s)}`;
   const related = s.related.map(serviceBySlug).filter(Boolean);
   const proof = {
     "school-erp-platform": ["Case study: a multi-tenant school ERP", "The design and operation of a school management platform with eight role portals, online fee collection and more than forty backend modules.", "/case-studies/school-erp-platform"],
@@ -131,7 +137,7 @@ export function ServicePage() {
         )}
       </Helmet>
 
-      <PageHero trail={[["Services", "/services"], [s.name, `/services/${s.slug}`]]} kicker="Services" title={s.h1} sub={s.intro}>
+      <PageHero trail={s.trail ?? [["Services", "/services"], [s.name, servicePath(s)]]} kicker={s.path ? "Healthcare" : "Services"} title={s.h1} sub={s.intro}>
         <GlowButton to={`/contact?service=${s.slug}`}>Request a proposal <ArrowRight className="h-4 w-4" /></GlowButton>
         <GhostButton href={wa(waText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
       </PageHero>
@@ -241,7 +247,7 @@ export function ServicePage() {
 
       <Section kicker="Related services" title="Services often combined with this one" className="py-10">
         <div className="mt-8 grid border-t border-white/10 md:grid-cols-3 md:gap-x-10">
-          {related.map((r) => <LinkRow key={r.slug} to={`/services/${r.slug}`} icon={r.icon} title={r.name} body={r.card} />)}
+          {related.map((r) => <LinkRow key={r.slug} to={servicePath(r)} icon={r.icon} title={r.name} body={r.card} />)}
         </div>
       </Section>
 
