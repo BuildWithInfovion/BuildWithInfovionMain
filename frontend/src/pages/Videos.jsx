@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight, ChevronRight, Clock3, PlayCircle } from "lucide-react";
 import { Aurora, GhostButton, GlowButton, Kicker } from "../components/fx/Fx";
 import { SITE, VIDEOS, clock, videoFile, videoPoster, videoSchema } from "../Data/videos";
+import { VIDEO_GUIDES } from "../Data/videoGuides";
+import { faqSchema } from "../lib/seo";
 
 function VideoCard({ v }) {
   return (
@@ -35,6 +37,7 @@ export function VideosIndex() {
         <link rel="canonical" href={`${SITE}/videos`} />
         <meta property="og:url" content={`${SITE}/videos`} />
         <script type="application/ld+json">{JSON.stringify(listSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema(INDEX_FAQS))}</script>
       </Helmet>
       <section className="noise relative overflow-hidden pb-20 pt-32 sm:pt-40">
         <Aurora />
@@ -45,11 +48,36 @@ export function VideosIndex() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {VIDEOS.map((v) => <VideoCard key={v.slug} v={v} />)}
           </div>
+
+          <div className="mt-16 grid gap-10 lg:grid-cols-2">
+            <div className="text-[15px] leading-relaxed text-slate-300">
+              <h2 className="text-xl font-bold text-white">What the videos cover</h2>
+              <p className="mt-4">The videos follow a school's year in Infovion School ERP: admissions and enquiries, attendance on a teacher's phone, fee collection with instalments, concessions and UPI, exams and report cards on the school's letterhead, transfer and bonafide certificates, ID cards, the timetable with substitute covers, announcements and the school calendar, staff attendance and salary slips, the principal's dashboard, and the eight role portals with the audit log and two-step sign-in.</p>
+              <p className="mt-4">Every clip is recorded on the real product with sample school data, with a voice-over, captions and a written transcript on its page. Start with the four-minute product film for the whole tour.</p>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-white">Questions schools ask</h2>
+              <div className="mt-4 space-y-5">
+                {INDEX_FAQS.map(([q, a]) => (
+                  <div key={q}>
+                    <h3 className="font-semibold text-white">{q}</h3>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-slate-300">{a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   );
 }
+
+const INDEX_FAQS = [
+  ["Is this the real software?", "Yes. Every video is recorded on Infovion School ERP itself, with sample data, not on mock-ups."],
+  ["How much does Infovion School ERP cost?", "₹150 per enrolled student per academic year plus GST, with every module and portal included and no setup fee."],
+  ["Can we try it ourselves?", "Yes. The 30-day free trial includes every module and sample data, up to 50 students and 10 staff logins, with no card needed."],
+];
 
 /** /videos/:slug — a watch page: the video is the main content of the page. */
 export function VideoWatch() {
@@ -76,6 +104,7 @@ export function VideoWatch() {
     ],
   };
   const more = VIDEOS.filter((x) => x.slug !== v.slug).slice(0, 6);
+  const guide = VIDEO_GUIDES[v.slug];
   return (
     <div className="bg-ink">
       <Helmet>
@@ -93,6 +122,7 @@ export function VideoWatch() {
         <meta property="og:video:height" content="720" />
         <script type="application/ld+json">{JSON.stringify(videoSchema(v))}</script>
         <script type="application/ld+json">{JSON.stringify(crumbs)}</script>
+        {guide && <script type="application/ld+json">{JSON.stringify(faqSchema(guide.faqs))}</script>}
       </Helmet>
 
       <section className="relative overflow-hidden pb-16 pt-36 sm:pt-40">
@@ -132,6 +162,33 @@ export function VideoWatch() {
             <h2 className="text-lg font-bold text-white">Transcript</h2>
             <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-slate-300">{v.transcript}</p>
           </section>
+
+          {guide && (
+            <section className="mt-8 grid gap-8 lg:grid-cols-2">
+              <div>
+                <h2 className="text-lg font-bold text-white">How it works in Infovion</h2>
+                <ol className="mt-4 space-y-2.5">
+                  {guide.steps.map((step, i) => (
+                    <li key={step} className="flex gap-3 text-[15px] leading-relaxed text-slate-300">
+                      <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-300/15 text-xs font-bold text-teal-200">{i + 1}</span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-white">Questions schools ask</h2>
+                <div className="mt-4 space-y-5">
+                  {guide.faqs.map(([q, a]) => (
+                    <div key={q}>
+                      <h3 className="font-semibold text-white">{q}</h3>
+                      <p className="mt-1.5 text-[15px] leading-relaxed text-slate-300">{a}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
         </div>
       </section>
 

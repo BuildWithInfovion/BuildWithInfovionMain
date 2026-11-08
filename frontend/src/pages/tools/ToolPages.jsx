@@ -132,6 +132,24 @@ export function ToolsIndex() {
               );
             })}
           </div>
+          <div className="mt-16 grid gap-10 lg:grid-cols-2">
+            <div className="text-[15px] leading-relaxed text-slate-300">
+              <h2 className="font-display text-2xl font-bold text-white">Which certificate does a parent need?</h2>
+              <p className="mt-4"><strong className="text-white">School Leaving Certificate (LC, शाळा सोडल्याचा दाखला):</strong> issued when a student leaves the school, in the format Maharashtra schools use. The next school asks for it at admission. <Link to="/free-tools/school-leaving-certificate-marathi" className="text-teal-300 underline">Make one in Marathi</Link>.</p>
+              <p className="mt-4"><strong className="text-white">Transfer Certificate (TC):</strong> the leaving document most CBSE, ICSE and other state schools issue, with the student's class, conduct and dues status. <Link to="/free-tools/transfer-certificate" className="text-teal-300 underline">Make a transfer certificate</Link>.</p>
+              <p className="mt-4"><strong className="text-white">Bonafide certificate:</strong> confirms that the student is currently studying at the school. Parents ask for it for scholarships, bank accounts, passports and concessions. <Link to="/free-tools/bonafide-certificate" className="text-teal-300 underline">Make a bonafide certificate</Link>.</p>
+            </div>
+            <div className="text-[15px] leading-relaxed text-slate-300">
+              <h2 className="font-display text-2xl font-bold text-white">How the tools work</h2>
+              <ol className="mt-4 list-decimal space-y-2 pl-5">
+                <li>Open the certificate you need and fill in the school's details once.</li>
+                <li>Type the student's details; the page shows the certificate as it will print.</li>
+                <li>Print it on the school's letterhead or save it as a PDF.</li>
+              </ol>
+              <p className="mt-4">Everything happens in your browser: nothing is uploaded to us, the school's details are remembered only on your own device, and no sign-up is needed. The school head signs and stamps the printed certificate as usual.</p>
+            </div>
+          </div>
+
           <div className="glass mt-10 flex flex-wrap items-center justify-between gap-4 rounded-3xl p-6">
             <p className="flex items-center gap-3 text-slate-300"><ReceiptText className="h-5 w-5 text-teal-300" /> Issuing certificates, receipts and report cards for the whole school? Infovion makes them from your records.</p>
             <Link to="/free-trial" className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300">Try it free <ArrowRight className="h-4 w-4" /></Link>
