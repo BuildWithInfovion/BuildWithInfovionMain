@@ -7,7 +7,7 @@ export const companyPosts = [
     slug: "custom-software-development-cost-india",
     seoTitle: "Custom Software Development Cost in India: 2026 Prices",
     title: "How Much Does Custom Software Development Cost in India? (2026 Prices)",
-    excerpt: "2026 prices in India: ₹1.5–4 lakh for a business tool, ₹1.5–5 lakh for a CRM, ₹4–15 lakh for an ERP, ₹4–12 lakh for an app, hourly rates and running costs.",
+    excerpt: "2026 prices in India: ₹75,000–2 lakh for a business tool, ₹1–3 lakh for a CRM, ₹2.5–8 lakh for an ERP, ₹2–6 lakh for an app, hourly rates and running costs.",
     category: "development",
     author: "Infovion Team",
     date: "2026-10-17",
@@ -17,20 +17,20 @@ export const companyPosts = [
     featured: true,
     image: "/blog/custom-software-development-cost-india.webp",
     content: `
-      <p><strong>Short answer:</strong> in India in 2026, a focused business tool usually costs <strong>₹1.5–4 lakh</strong>, a CRM or lead management system <strong>₹1.5–5 lakh</strong>, a multi-module business system or ERP <strong>₹4–15 lakh</strong>, a cross-platform mobile app MVP <strong>₹4–12 lakh</strong>, a SaaS MVP <strong>₹6–20 lakh</strong>, and a professional business website <strong>₹25,000–2.5 lakh</strong>. Where your project lands in each range depends on a handful of factors you can control — this guide explains them.</p>
+      <p><strong>Short answer:</strong> in India in 2026, a focused business tool usually costs <strong>₹75,000–2 lakh</strong>, a CRM or lead management system <strong>₹1–3 lakh</strong>, a multi-module business system or ERP <strong>₹2.5–8 lakh</strong>, a cross-platform mobile app MVP <strong>₹2–6 lakh</strong>, a SaaS MVP <strong>₹4–12 lakh</strong>, and a professional business website <strong>₹15,000–1.5 lakh</strong>. Where your project lands in each range depends on a handful of factors you can control — this guide explains them.</p>
 
       <h2>Typical budgets by project type</h2>
       <table>
         <thead><tr><th>Project</th><th>Typical budget (India)</th><th>Typical timeline</th></tr></thead>
         <tbody>
-          <tr><td>Landing page or 5-page business website</td><td>₹25,000 – 75,000</td><td>2–3 weeks</td></tr>
-          <tr><td>Corporate website with blog, CMS and SEO setup</td><td>₹75,000 – 2.5 lakh</td><td>4–6 weeks</td></tr>
-          <tr><td>Single internal tool (e.g. order tracker, approvals)</td><td>₹1.5 – 4 lakh</td><td>4–8 weeks</td></tr>
-          <tr><td>CRM or lead management system</td><td>₹1.5 – 5 lakh</td><td>4–10 weeks</td></tr>
-          <tr><td>Business system or ERP with 4–8 modules (billing, stock, CRM…)</td><td>₹4 – 15 lakh</td><td>3–6 months</td></tr>
-          <tr><td>Installable web app (PWA)</td><td>₹1.5 – 5 lakh</td><td>4–8 weeks</td></tr>
-          <tr><td>Android + iOS app MVP (cross-platform)</td><td>₹4 – 12 lakh</td><td>6–10 weeks</td></tr>
-          <tr><td>SaaS product MVP (multi-tenant, billing)</td><td>₹6 – 20 lakh</td><td>8–14 weeks</td></tr>
+          <tr><td>Landing page or 5-page business website</td><td>₹15,000 – 50,000</td><td>2–3 weeks</td></tr>
+          <tr><td>Corporate website with blog, CMS and SEO setup</td><td>₹50,000 – 1.5 lakh</td><td>4–6 weeks</td></tr>
+          <tr><td>Single internal tool (e.g. order tracker, approvals)</td><td>₹75,000 – 2 lakh</td><td>4–8 weeks</td></tr>
+          <tr><td>CRM or lead management system</td><td>₹1 – 3 lakh</td><td>4–10 weeks</td></tr>
+          <tr><td>Business system or ERP with 4–8 modules (billing, stock, CRM…)</td><td>₹2.5 – 8 lakh</td><td>3–6 months</td></tr>
+          <tr><td>Installable web app (PWA)</td><td>₹60,000 – 2.5 lakh</td><td>4–8 weeks</td></tr>
+          <tr><td>Android + iOS app MVP (cross-platform)</td><td>₹2 – 6 lakh</td><td>6–10 weeks</td></tr>
+          <tr><td>SaaS product MVP (multi-tenant, billing)</td><td>₹4 – 12 lakh</td><td>8–14 weeks</td></tr>
         </tbody>
       </table>
       <p>These are market ranges for small and mid-sized Indian development firms, not quotes. Large IT services companies and agencies with sales teams typically charge more; individual freelancers often charge less but carry more delivery risk.</p>
@@ -192,7 +192,7 @@ export const companyPosts = [
           <tr><td>Install needed</td><td>No</td><td>No</td><td>Optional</td><td>Yes</td></tr>
           <tr><td>Push notifications</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
           <tr><td>Updates</td><td>Instant</td><td>Instant</td><td>Instant</td><td>Through store review</td></tr>
-          <tr><td>Typical cost in India</td><td>₹25k – 2.5 lakh</td><td>₹3 lakh+</td><td>₹1.5 – 5 lakh</td><td>₹4 – 12 lakh (MVP)</td></tr>
+          <tr><td>Typical cost in India</td><td>₹15k – 1.5 lakh</td><td>₹75,000+</td><td>₹60,000 – 2.5 lakh</td><td>₹2 – 6 lakh (MVP)</td></tr>
         </tbody>
       </table>
 
@@ -259,7 +259,7 @@ export const companyPosts = [
       </ol>
 
       <h2>What a custom ERP project looks like</h2>
-      <p>A sensible custom ERP launches module by module: often sales and stock first, then purchase, production and dashboards. Each module goes live in weeks, not after a year-long "big bang". Typical budgets for small and mid-sized businesses in India range from ₹5 lakh to ₹20 lakh for 3–6 departments.</p>
+      <p>A sensible custom ERP launches module by module: often sales and stock first, then purchase, production and dashboards. Each module goes live in weeks, not after a year-long "big bang". Typical budgets for small and mid-sized businesses in India range from ₹3 lakh to ₹10 lakh for 3–6 departments.</p>
       <p><em>We build lean ERPs and CRMs — and run a 40+ module ERP of our own for schools. <a href="/services/erp-crm-development">See ERP development at Infovion</a>.</em></p>
     `,
   },

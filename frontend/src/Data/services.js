@@ -37,12 +37,12 @@ export const SERVICES = [
     stack: ["React", "Next.js", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Prisma", "Vercel / AWS"],
     fit: ["Small and medium enterprises", "Trading and distribution companies", "Service businesses with field teams", "Institutions and associations", "Startups validating a product"],
     cost: {
-      ranges: [["Single internal tool or module", "₹1.5 – 4 lakh"], ["Business system with 4–8 modules", "₹4 – 15 lakh"], ["Multi-role platform with portals and integrations", "₹15 lakh and above"]],
+      ranges: [["Single internal tool or module", "₹75,000 – 2 lakh"], ["Business system with 4–8 modules", "₹2.5 – 8 lakh"], ["Multi-role platform with portals and integrations", "₹8 lakh and above"]],
       drivers: ["Number of user roles and screens", "Integrations such as payments, GST, Tally, WhatsApp or SMS", "Data migration from existing systems", "A mobile application in addition to the web application", "Depth of reporting and dashboards"],
       timeline: "Four to eight weeks for a focused tool; three to six months for a multi-module platform, delivered in fortnightly increments.",
     },
     faqs: [
-      ["How much does custom software development cost in India?", "Focused business tools typically cost between ₹1.5 lakh and ₹4 lakh, and multi-module business systems between ₹4 lakh and ₹15 lakh. Cost depends mainly on the number of roles and screens, integrations and data migration. Infovion provides a fixed-price proposal after an initial consultation."],
+      ["How much does custom software development cost in India?", "Focused business tools typically cost between ₹75,000 and ₹2 lakh, and multi-module business systems between ₹2.5 lakh and ₹8 lakh. Cost depends mainly on the number of roles and screens, integrations and data migration. Infovion provides a fixed-price proposal after an initial consultation."],
       ["How long does a custom software project take?", "A focused tool takes four to eight weeks and a multi-module platform three to six months. Work is delivered in two-week increments, so parts of the system can be used before the final release."],
       ["Who owns the source code?", "The client. On final payment the complete source code, database and deployment accounts are transferred, and the agreement states this explicitly."],
       ["Do you sign a non-disclosure agreement?", "Yes. We sign a mutual NDA before any business information is shared."],
@@ -181,12 +181,12 @@ export const SERVICES = [
     stack: ["React", "Next.js", "Vite", "Tailwind CSS", "Node.js", "Vercel", "Cloudflare", "GA4"],
     fit: ["Businesses that generate enquiries online", "Startups launching a product", "Schools, clinics and institutions", "Manufacturers and exporters", "Government and public bodies (GIGW-aligned)"],
     cost: {
-      ranges: [["Landing page or five-page business website", "₹25,000 – 75,000"], ["Corporate website with blog, CMS and SEO configuration", "₹75,000 – 2.5 lakh"], ["Custom web application", "₹3 lakh and above"]],
+      ranges: [["Landing page or five-page business website", "₹15,000 – 50,000"], ["Corporate website with blog, CMS and SEO configuration", "₹50,000 – 1.5 lakh"], ["Custom web application", "₹75,000 and above"]],
       drivers: ["Number of pages and templates", "Copywriting and content production", "Content management requirements", "Integrations such as forms, CRM, payments or booking", "Number of languages"],
       timeline: "Two to three weeks for a business website; four to six weeks for a content-rich corporate site. Web applications are scoped individually.",
     },
     faqs: [
-      ["How much does a business website cost in Pune?", "A professionally designed five-page business website typically costs ₹25,000 to ₹75,000. A corporate website with a blog, content management and full SEO configuration typically costs ₹75,000 to ₹2.5 lakh. Web applications are priced by scope."],
+      ["How much does a business website cost in Pune?", "A professionally designed five-page business website typically costs ₹15,000 to ₹50,000. A corporate website with a blog, content management and full SEO configuration typically costs ₹50,000 to ₹1.5 lakh. Web applications are priced by scope."],
       ["Will the website rank on Google?", "Every site is built so search engines can read it fully: prerendered HTML, fast loading, clean URLs, structured data and a sitemap, with Search Console configured at launch. Rankings also depend on content and links over time, and we provide a plan for both."],
       ["Do you build on WordPress?", "We generally build with React and Next.js for speed and security. Where an organisation already uses WordPress and wishes to continue, we work with it."],
       ["Can our team update the website?", "Yes. Pages that change regularly are managed through a CMS or administration panel, and we provide training at handover."],
@@ -219,12 +219,12 @@ export const SERVICES = [
     stack: ["React Native", "Progressive Web Apps", "Web Push", "Node.js", "PostgreSQL", "Firebase"],
     fit: ["Retail and consumer brands", "Service businesses with field teams", "Schools and training institutes", "Startups building a first release", "Healthcare and wellness providers"],
     cost: {
-      ranges: [["Progressive web app", "₹1.5 – 5 lakh"], ["Cross-platform (Android and iOS) first release", "₹4 – 12 lakh"], ["Full-featured application with administration and integrations", "₹12 lakh and above"]],
+      ranges: [["Progressive web app", "₹60,000 – 2.5 lakh"], ["Cross-platform (Android and iOS) first release", "₹2 – 6 lakh"], ["Full-featured application with administration and integrations", "₹6 lakh and above"]],
       drivers: ["Number of screens and user types", "Offline use and synchronisation", "Payments, maps and third-party SDKs", "Administration panel and backend", "Store publishing and compliance"],
       timeline: "Six to ten weeks for a first release; three to five months for a full application.",
     },
     faqs: [
-      ["How much does mobile app development cost in India?", "An installable PWA typically costs ₹1.5 lakh to ₹5 lakh, and a cross-platform Android and iOS first release ₹4 lakh to ₹12 lakh. Applications with extensive integrations cost more. Infovion provides a fixed-price proposal after an initial consultation."],
+      ["How much does mobile app development cost in India?", "An installable PWA typically costs ₹60,000 to ₹2.5 lakh, and a cross-platform Android and iOS first release ₹2 lakh to ₹6 lakh. Applications with extensive integrations cost more. Infovion provides a fixed-price proposal after an initial consultation."],
       ["Should we build a native app or a progressive web app?", "A PWA suits applications reached from a link, built mainly on forms, lists and notifications, where avoiding app-store review is useful. A store application suits extensive device integration, heavy offline use or discovery through the stores."],
       ["Will the application work on both Android and iPhone?", "Yes. React Native and PWAs run on Android and iOS from a single codebase, which reduces both development and maintenance cost."],
       ["Do you publish to Google Play and the App Store?", "Yes, under the client's developer accounts, so the application and its ratings remain the client's property."],
@@ -258,13 +258,13 @@ export const SERVICES = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Recharts", "PDF generation", "Scheduled jobs"],
     fit: ["Manufacturers and job workers", "Distributors and wholesalers", "Retail chains", "Educational institutions", "Service companies with high enquiry volumes"],
     cost: {
-      ranges: [["CRM or lead management system", "₹1.5 – 5 lakh"], ["ERP covering three to six departments", "₹5 – 20 lakh"], ["Multi-branch ERP with integrations", "₹20 lakh and above"]],
+      ranges: [["CRM or lead management system", "₹1 – 3 lakh"], ["ERP covering three to six departments", "₹3 – 10 lakh"], ["Multi-branch ERP with integrations", "₹10 lakh and above"]],
       drivers: ["Departments and modules", "Branches and warehouses", "Integrations such as GST e-invoicing, Tally and payment gateways", "Data migration", "Custom reporting"],
       timeline: "Six to ten weeks for a CRM; three to six months for an ERP, introduced module by module.",
     },
     faqs: [
       ["Should we choose a custom ERP or a product such as Tally, Zoho or SAP?", "Tally is well suited to accounting, Zoho to standard processes and SAP to large enterprises. A custom ERP is appropriate when operations such as production, job work, pricing rules or approvals do not fit these products. We frequently build the ERP to work alongside Tally rather than replace it."],
-      ["How much does ERP development cost in India?", "A focused CRM typically costs ₹1.5 lakh to ₹5 lakh. An ERP covering three to six departments typically costs ₹5 lakh to ₹20 lakh, depending on modules, branches and integrations."],
+      ["How much does ERP development cost in India?", "A focused CRM typically costs ₹1 lakh to ₹3 lakh. An ERP covering three to six departments typically costs ₹3 lakh to ₹10 lakh, depending on modules, branches and integrations."],
       ["Can the ERP generate GST e-invoices and e-way bills?", "Yes, through an authorised GST Suvidha Provider (GSP) API configured on your GSTIN."],
       ["Can you migrate data from Excel or Tally?", "Yes. We import masters, opening stock and outstanding balances, and report any records that cannot be read so that nothing is omitted silently."],
       ["Are there per-user licence fees?", "No. Custom software carries no per-user licence. Costs are the development fee and, optionally, an annual maintenance contract."],
@@ -297,12 +297,12 @@ export const SERVICES = [
     stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Razorpay / Stripe", "Resend", "Vercel / Render / AWS"],
     fit: ["Founders building a first product", "Businesses productising an internal tool", "Domain specialists with a product concept", "Agencies requiring a technical partner"],
     cost: {
-      ranges: [["Prototype and technical plan", "₹50,000 – 1.5 lakh"], ["SaaS first release", "₹6 – 20 lakh"], ["Ongoing product team (monthly)", "From ₹1.5 lakh per month"]],
+      ranges: [["Prototype and technical plan", "₹50,000 – 1.5 lakh"], ["SaaS first release", "₹4 – 12 lakh"], ["Ongoing product team (monthly)", "From ₹1.5 lakh per month"]],
       drivers: ["Features in the first release", "Complexity of the billing model", "Integrations", "Mobile applications", "Compliance requirements such as data protection and audits"],
       timeline: "Eight to fourteen weeks to a launch-ready first release.",
     },
     faqs: [
-      ["How much does it cost to build a SaaS product in India?", "A SaaS first release typically costs ₹6 lakh to ₹20 lakh, depending on core features, billing model and integrations. We recommend beginning with a prototype and technical plan, which typically costs ₹50,000 to ₹1.5 lakh."],
+      ["How much does it cost to build a SaaS product in India?", "A SaaS first release typically costs ₹4 lakh to ₹12 lakh, depending on core features, billing model and integrations. We recommend beginning with a prototype and technical plan, which typically costs ₹50,000 to ₹1.5 lakh."],
       ["What is a multi-tenant SaaS application?", "A multi-tenant application serves many customer organisations from a single deployment while keeping each organisation's data strictly separate. It is more economical to operate and update than separate installations for each customer."],
       ["Do you work for equity?", "Our standard engagements are fee-based, so founders retain full ownership of the company and the code. Alternative arrangements for early-stage founders are considered case by case."],
       ["How long does it take to build an MVP?", "Eight to fourteen weeks for a launch-ready first release of a SaaS product, after a one to two-week prototype. A narrower MVP, with one user type and one core workflow, can be ready in six to eight weeks."],
@@ -372,13 +372,13 @@ export const SERVICES = [
     stack: ["Shopify", "Next.js", "Node.js", "Razorpay", "Stripe", "Shiprocket", "PostgreSQL"],
     fit: ["Retailers selling online", "Manufacturers selling to dealers", "Direct-to-consumer brands", "Jewellery and fashion retailers"],
     cost: {
-      ranges: [["Shopify store setup and design", "₹40,000 – 2 lakh"], ["Custom online store", "₹3 – 10 lakh"], ["B2B portal with ERP integration", "₹5 lakh and above"]],
+      ranges: [["Shopify store setup and design", "₹40,000 – 2 lakh"], ["Custom online store", "₹1.5 – 5 lakh"], ["B2B portal with ERP integration", "₹5 lakh and above"]],
       drivers: ["Number of products and variants", "Custom pricing rules", "ERP or billing integration", "Payment and shipping providers", "Mobile application"],
       timeline: "Three to five weeks on Shopify; two to four months for a custom store or B2B portal.",
     },
     faqs: [
       ["Should we use Shopify or a custom e-commerce website?", "Shopify is quicker and more economical for standard retail. A custom store suits B2B pricing, complex catalogues, close ERP integration or volumes at which platform fees become significant."],
-      ["How much does an e-commerce website cost in India?", "Shopify setup and design typically costs ₹40,000 to ₹2 lakh; a custom online store ₹3 lakh to ₹10 lakh, depending on catalogue, integrations and design."],
+      ["How much does an e-commerce website cost in India?", "Shopify setup and design typically costs ₹40,000 to ₹2 lakh; a custom online store ₹1.5 lakh to ₹5 lakh, depending on catalogue, integrations and design."],
       ["Can the online store synchronise with our billing software?", "Yes. Stock and orders are synchronised through the billing or ERP system's API, or we provide the billing system."],
       ["Which payment methods are supported?", "UPI, cards, net banking, wallets and cash on delivery through Razorpay, or Stripe for international payments."],
     ],
@@ -601,7 +601,7 @@ export const SERVICES = [
     stack: ["Razorpay", "Stripe", "WhatsApp Business API", "Resend", "GST GSP APIs", "Tally XML", "Google APIs", "Webhooks"],
     fit: ["Organisations re-entering data between systems", "Software products adding payments or messaging", "Companies connecting with partners or dealers"],
     cost: {
-      ranges: [["Single integration, such as a payment gateway", "₹25,000 – 75,000"], ["Synchronisation across several systems", "₹75,000 – 3 lakh"], ["Custom API platform", "₹2 lakh and above"]],
+      ranges: [["Single integration, such as a payment gateway", "₹15,000 – 50,000"], ["Synchronisation across several systems", "₹75,000 – 3 lakh"], ["Custom API platform", "₹2 lakh and above"]],
       drivers: ["Quality of the third-party API", "Real-time or scheduled synchronisation", "Volume and error handling", "Security and compliance"],
       timeline: "One to two weeks for a standard integration.",
     },
