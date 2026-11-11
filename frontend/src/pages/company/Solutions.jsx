@@ -89,7 +89,7 @@ export default function SolutionPage() {
 
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <Mock project={p} />
-        <p className="mt-3 text-center text-xs text-slate-500">Design mockup with sample data. This is a solution blueprint by Infovion Technologies, not a client engagement.</p>
+        <p className="mt-3 text-center text-xs text-slate-400">Design mockup with sample data. This is a solution blueprint by Infovion Technologies, not a client engagement.</p>
         <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 md:grid-cols-4">
           {p.facts.map(([n, l]) => (
             <div key={l} className="bg-cell px-5 py-6">
@@ -150,7 +150,7 @@ export default function SolutionPage() {
               <div className="space-y-3 p-7 text-sm leading-relaxed text-slate-300">
                 <p><strong className="font-semibold text-white">Timeline. </strong>{p.budget.timeline}</p>
                 <p><strong className="font-semibold text-white">Running cost. </strong>{p.budget.running}</p>
-                <p className="text-xs text-slate-500">Indicative planning ranges for 2026. Every project receives its own fixed-price proposal after a first call. Source code and accounts belong to the client.</p>
+                <p className="text-xs text-slate-400">Indicative planning ranges for 2026. Every project receives its own fixed-price proposal after a first call. Source code and accounts belong to the client.</p>
                 <Link to={contactTo} className="inline-flex items-center gap-2 pt-1 text-sm font-semibold text-sky-300 hover:text-sky-200">Request a fixed-price proposal <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </div>

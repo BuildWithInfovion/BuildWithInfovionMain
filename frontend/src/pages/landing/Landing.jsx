@@ -37,7 +37,7 @@ function Landing({ c }) {
               <GlowButton to="/free-trial" className="w-full sm:w-auto">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton>
               <GhostButton to="/contact?interest=school" className="w-full sm:w-auto">Book a live demo</GhostButton>
             </div>
-            <p className="mt-4 text-xs text-slate-500">30 days free · no card · ₹150 per student per year after</p>
+            <p className="mt-4 text-xs text-slate-400">30 days free · no card · ₹150 per student per year after</p>
           </div>
           <Reveal>
             {c.phone ? (
@@ -115,7 +115,7 @@ function Landing({ c }) {
             <h2 className="mx-auto max-w-2xl font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">{c.ctaTitle}</h2>
             <p className="mx-auto mt-4 max-w-xl text-slate-400">Your own trial school opens with sample data in two minutes. No card, no contract.</p>
             <div className="mt-8 flex justify-center"><GlowButton to="/free-trial">Start your free trial <ArrowRight className="h-4 w-4" /></GlowButton></div>
-            <p className="mt-6 text-sm text-slate-500">
+            <p className="mt-6 text-sm text-slate-400">
               Related: {c.related.map(([to, t], i) => (<span key={to}>{i > 0 && " · "}<Link to={to} className="text-teal-300 hover:underline">{t}</Link></span>))}
             </p>
           </div>

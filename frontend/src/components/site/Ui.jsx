@@ -103,7 +103,7 @@ export function LinkRow({ to, icon, title, body }) {
         <span className="block font-display text-lg font-semibold text-white group-hover:text-sky-200">{title}</span>
         <span className="mt-1 block text-sm leading-relaxed text-slate-400">{body}</span>
       </span>
-      <ArrowUpRight className="mt-1 h-5 w-5 flex-shrink-0 text-slate-500 transition-colors group-hover:text-sky-300" aria-hidden="true" />
+      <ArrowUpRight className="mt-1 h-5 w-5 flex-shrink-0 text-slate-400 transition-colors group-hover:text-sky-300" aria-hidden="true" />
     </Link>
   );
 }

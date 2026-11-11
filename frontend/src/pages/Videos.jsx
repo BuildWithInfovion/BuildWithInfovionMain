@@ -156,7 +156,7 @@ export function VideoWatch() {
             <GlowButton to="/free-trial" className="w-full sm:w-auto">Try it in your school, free <ArrowRight className="h-4 w-4" /></GlowButton>
             <GhostButton to={v.related[0]} className="w-full sm:w-auto">{v.related[1]}</GhostButton>
           </div>
-          <p className="mt-3 text-xs text-slate-500">30 days free · no card · ₹150 per student per year after</p>
+          <p className="mt-3 text-xs text-slate-400">30 days free · no card · ₹150 per student per year after</p>
 
           <section className="mt-12 rounded-2xl bg-white/[0.03] p-6 ring-1 ring-white/10">
             <h2 className="text-lg font-bold text-white">Transcript</h2>

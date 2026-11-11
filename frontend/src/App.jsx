@@ -9,7 +9,7 @@ import Home from "./pages/company/Home";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 import { beacon, captureFirstTouch, track, watchActions } from "./lib/analytics";
-import { organizationNode } from "./lib/seo";
+import { breadcrumbSchema, organizationNode } from "./lib/seo";
 import { SITE } from "./Data/company";
 import { ALL_SERVICES } from "./Data/services";
 import { productOf } from "./lib/sections";
@@ -139,6 +139,24 @@ const globalSchema = {
   ],
 };
 
+// Breadcrumb structured data for pages whose own component does not render a breadcrumb trail
+const SCHOOL_CRUMB = ["Infovion School ERP", "/school-management-software"];
+const TOOLS_CRUMB = ["Free tools", "/free-tools"];
+const CRUMBS = {
+  "/blog": [["Blog", "/blog"]],
+  "/videos": [SCHOOL_CRUMB, ["Videos", "/videos"]],
+  "/free-trial": [SCHOOL_CRUMB, ["Free trial", "/free-trial"]],
+  "/school-management-software-maharashtra": [SCHOOL_CRUMB, ["For Maharashtra schools", "/school-management-software-maharashtra"]],
+  "/fee-management-software-for-schools": [SCHOOL_CRUMB, ["Fee management", "/fee-management-software-for-schools"]],
+  "/school-attendance-app": [SCHOOL_CRUMB, ["Attendance app", "/school-attendance-app"]],
+  "/school-transport-management-software": [SCHOOL_CRUMB, ["School transport", "/school-transport-management-software"]],
+  "/free-tools/school-leaving-certificate-marathi": [TOOLS_CRUMB, ["School leaving certificate (Marathi)", "/free-tools/school-leaving-certificate-marathi"]],
+  "/free-tools/transfer-certificate": [TOOLS_CRUMB, ["Transfer certificate", "/free-tools/transfer-certificate"]],
+  "/free-tools/bonafide-certificate": [TOOLS_CRUMB, ["Bonafide certificate", "/free-tools/bonafide-certificate"]],
+  "/privacy-policy": [["Privacy policy", "/privacy-policy"]],
+  "/terms-of-service": [["Terms of service", "/terms-of-service"]],
+};
+
 function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-ink px-6">
@@ -204,6 +222,7 @@ export function AppRoutes() {
 
         <meta name="theme-color" content="#05070D" />
         <script type="application/ld+json">{JSON.stringify(globalSchema)}</script>
+        {CRUMBS[pathname.replace(/\/+$/, "")] && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema(CRUMBS[pathname.replace(/\/+$/, "")]))}</script>}
       </Helmet>
 
       <ScrollToTop />

@@ -152,14 +152,14 @@ export default function Footer() {
         <nav aria-label="Free tools and solution blueprints" className="mt-12 space-y-3 border-t border-white/10 pt-6 text-sm">
           <p className="text-slate-400">
             <Link to="/free-tools" className="font-semibold text-slate-200 hover:text-white">Free tools</Link>
-            <span className="text-slate-500">: </span>
+            <span className="text-slate-400">: </span>
             {[["/app-development-cost-calculator", "App development cost calculator"], ["/software-development-cost-calculator", "Software cost calculator"], ["/hire-developers-india-cost-calculator", "Hire developers in India: cost"], ["/ai-automation-roi-calculator", "AI automation ROI calculator"], ["/gold-price-calculator", "Gold price calculator"], ["/jewellery-bill-formats", "Jewellery bill formats"]].map(([to, t], i) => (
               <React.Fragment key={to}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={to} className="text-slate-400 hover:text-white">{t}</Link></React.Fragment>
             ))}
           </p>
           <p className="text-slate-400">
             <Link to="/case-studies#blueprints" className="font-semibold text-slate-200 hover:text-white">Solution blueprints</Link>
-            <span className="text-slate-500">: </span>
+            <span className="text-slate-400">: </span>
             {SHOWCASE.map((p, i) => (
               <React.Fragment key={p.slug}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={showcasePath(p)} className="text-slate-400 hover:text-white">{p.short}</Link></React.Fragment>
             ))}
@@ -169,14 +169,14 @@ export default function Footer() {
         <nav aria-label="Clients outside India" className="mt-6 border-t border-white/10 pt-6 text-sm">
           <p className="text-slate-400">
             <Link to="/services/offshore-software-development-india" className="font-semibold text-slate-200 hover:text-white">Outsourcing software development to India</Link>
-            <span className="text-slate-500"> for clients in </span>
+            <span className="text-slate-400"> for clients in </span>
             {OFFSHORE.map((s, i) => (
               <React.Fragment key={s.slug}>
                 {i > 0 && <span className="text-slate-600"> · </span>}
                 <Link to={s.path} className="text-slate-400 hover:text-white">{s.nav}</Link>
               </React.Fragment>
             ))}
-            <span className="text-slate-500"> · WhatsApp </span>
+            <span className="text-slate-400"> · WhatsApp </span>
             <a href={`https://wa.me/${COMPANY.whatsappNumber}`} className="text-slate-300 hover:text-white">{COMPANY.whatsapp}</a>
           </p>
         </nav>

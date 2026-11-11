@@ -176,7 +176,7 @@ export default function Navbar() {
                           <I className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky-300" strokeWidth={1.6} />
                           <span>
                             <span className="block font-semibold text-white group-hover:text-teal-200">{p.name}</span>
-                            <span className="block text-xs uppercase tracking-[0.14em] text-slate-500">{p.short}</span>
+                            <span className="block text-xs uppercase tracking-[0.14em] text-slate-400">{p.short}</span>
                             <span className="mt-1 block text-xs leading-relaxed text-slate-400">{p.status}</span>
                           </span>
                         </Link>

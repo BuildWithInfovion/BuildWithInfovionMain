@@ -201,7 +201,7 @@ function Field({ label, children, className = "" }) {
 }
 
 function Legend({ children, note }) {
-  return <legend className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">{children}{note && <span className="ml-1 normal-case tracking-normal text-slate-500">{note}</span>}</legend>;
+  return <legend className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">{children}{note && <span className="ml-1 normal-case tracking-normal text-slate-400">{note}</span>}</legend>;
 }
 
 /** Editable item rows, one card per row so they fit a phone. */
@@ -415,7 +415,7 @@ function FormatTool({ slug }) {
               <Field label="Deduction %"><input className={field} inputMode="decimal" value={v.deduction || ""} onChange={set("deduction")} /></Field>
             </fieldset>
           )}
-          <p className="text-xs text-slate-500">Everything stays in your browser. Nothing you type is sent to us.</p>
+          <p className="text-xs text-slate-400">Everything stays in your browser. Nothing you type is sent to us.</p>
         </form>
 
         <div className="lg:sticky lg:top-24 lg:self-start">
@@ -433,7 +433,7 @@ function FormatTool({ slug }) {
               <Download className="h-4 w-4" /> Excel
             </a>
           </div>
-          <p className="mt-3 text-xs text-slate-500">Print blank keeps your shop's name and leaves the rest empty, for pads. In the print window, choose Save as PDF to keep a copy. Figures for illustration; confirm tax rates with your accountant.</p>
+          <p className="mt-3 text-xs text-slate-400">Print blank keeps your shop's name and leaves the rest empty, for pads. In the print window, choose Save as PDF to keep a copy. Figures for illustration; confirm tax rates with your accountant.</p>
         </div>
       </div>
     </Section>

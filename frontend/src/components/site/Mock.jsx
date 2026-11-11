@@ -15,7 +15,7 @@ function Bars({ labels, values }) {
         <div key={labels[i]} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-1">
           <span className="text-[9px] text-slate-400">{v}</span>
           <div className="w-full rounded-t bg-gradient-to-t from-sky-500/50 to-sky-300" style={{ height: `${Math.max(6, (v / max) * 78)}%` }} />
-          <span className="w-full truncate text-center text-[9px] text-slate-500">{labels[i]}</span>
+          <span className="w-full truncate text-center text-[9px] text-slate-400">{labels[i]}</span>
         </div>
       ))}
     </div>
@@ -50,7 +50,7 @@ function Line({ labels, values }) {
         <path d={`${d} L100 40 L0 40 Z`} fill="url(#mock-fill)" />
         <path d={d} fill="none" stroke="#7dd3fc" strokeWidth="2" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
       </svg>
-      <div className="mt-1 flex justify-between text-[9px] text-slate-500">{labels.map((l) => <span key={l}>{l}</span>)}</div>
+      <div className="mt-1 flex justify-between text-[9px] text-slate-400">{labels.map((l) => <span key={l}>{l}</span>)}</div>
     </div>
   );
 }
@@ -73,7 +73,7 @@ function Fields({ items, note }) {
       <dl className="divide-y divide-white/[0.06]">
         {items.map(([k, v, c]) => (
           <div key={k} className="grid grid-cols-[1fr_auto] gap-x-2 py-1.5 text-[11px]">
-            <dt className="text-slate-500">{k}</dt>
+            <dt className="text-slate-400">{k}</dt>
             <dd className={`text-right text-[9.5px] font-semibold ${c >= 98 ? "text-emerald-300" : "text-amber-300"}`}>{c}%</dd>
             <dd className="col-span-2 truncate font-medium text-slate-100">{v}</dd>
           </div>
@@ -102,13 +102,13 @@ function Beds({ wards }) {
     <div className="space-y-2.5">
       {wards.map(([name, total, used]) => (
         <div key={name}>
-          <p className="flex justify-between text-[10px]"><span className="text-slate-300">{name}</span><span className="text-slate-500">{used} / {total}</span></p>
+          <p className="flex justify-between text-[10px]"><span className="text-slate-300">{name}</span><span className="text-slate-400">{used} / {total}</span></p>
           <div className="mt-1 flex flex-wrap gap-[3px]">
             {Array.from({ length: total }, (_, i) => <span key={i} className={`h-2.5 w-2.5 rounded-[3px] ${i < used ? "bg-sky-400/80" : "bg-emerald-400/30 ring-1 ring-inset ring-emerald-300/40"}`} />)}
           </div>
         </div>
       ))}
-      <p className="flex gap-4 pt-1 text-[9.5px] text-slate-500"><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-[2px] bg-sky-400/80" />Occupied</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-[2px] bg-emerald-400/30 ring-1 ring-inset ring-emerald-300/40" />Free</span></p>
+      <p className="flex gap-4 pt-1 text-[9.5px] text-slate-400"><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-[2px] bg-sky-400/80" />Occupied</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-[2px] bg-emerald-400/30 ring-1 ring-inset ring-emerald-300/40" />Free</span></p>
     </div>
   );
 }
@@ -130,7 +130,7 @@ export default function Mock({ project, compact = false }) {
           <div className="mt-3 grid grid-cols-2 gap-2">
             {m.kpis.slice(0, 4).map(([l, v]) => (
               <div key={l} className="rounded-lg border border-white/[0.07] bg-white/[0.03] p-2.5">
-                <p className="truncate text-[9px] text-slate-500">{l}</p>
+                <p className="truncate text-[9px] text-slate-400">{l}</p>
                 <p className="mt-0.5 font-display text-base font-bold text-white">{v}</p>
               </div>
             ))}
@@ -153,12 +153,12 @@ export default function Mock({ project, compact = false }) {
           <div className="min-w-0 p-3.5 sm:p-5">
             <div className="flex items-center justify-between gap-3">
               <p className="font-display text-sm font-bold text-white">{m.nav[0]}</p>
-              <p className="flex items-center gap-2 text-[10px] text-slate-500"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />Live · sample data</p>
+              <p className="flex items-center gap-2 text-[10px] text-slate-400"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />Live · sample data</p>
             </div>
             <div className="mt-3.5 grid grid-cols-2 gap-2.5 lg:grid-cols-4">
               {m.kpis.map(([l, v, d]) => (
                 <div key={l} className={card}>
-                  <p className="truncate text-[10px] text-slate-500">{l}</p>
+                  <p className="truncate text-[10px] text-slate-400">{l}</p>
                   <p className="mt-1 font-display text-lg font-bold leading-none text-white sm:text-xl">{v}</p>
                   <p className="mt-1.5 truncate text-[10px] text-sky-300">{d}</p>
                 </div>
@@ -174,7 +174,7 @@ export default function Mock({ project, compact = false }) {
                 <div className={`${card} overflow-hidden`}>
                   <p className={cardTitle}>{m.table.title}</p>
                   <table className="w-full table-fixed text-[10.5px]">
-                    <thead><tr className="text-left text-slate-500">{m.table.cols.map((c, i) => <th key={c} className={`pb-2 font-medium ${i === 2 ? "hidden sm:table-cell" : ""}`}>{c}</th>)}</tr></thead>
+                    <thead><tr className="text-left text-slate-400">{m.table.cols.map((c, i) => <th key={c} className={`pb-2 font-medium ${i === 2 ? "hidden sm:table-cell" : ""}`}>{c}</th>)}</tr></thead>
                     <tbody className="divide-y divide-white/[0.05]">
                       {m.table.rows.map((r) => (
                         <tr key={r[0]}>{r.map((v, i) => <td key={i} className={`truncate py-2 pr-2 ${i === 0 ? "font-semibold text-slate-100" : i === r.length - 1 ? cell(v) : "text-slate-400"} ${i === 2 ? "hidden sm:table-cell" : ""}`}>{v}</td>)}</tr>

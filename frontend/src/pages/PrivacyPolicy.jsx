@@ -6,10 +6,10 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy — Infovion School Management Software</title>
+        <title>Privacy Policy | Infovion Technologies, Pune, India</title>
         <meta
           name="description"
-          content="Read the Privacy Policy for Infovion. Understand how we collect, use, and protect your data."
+          content="Privacy Policy of Infovion Technologies: what personal data we collect on this website and in our software, how it is used, stored and protected, and your rights."
         />
         <link rel="canonical" href="https://www.infovion.in/privacy-policy" />
       </Helmet>

@@ -6,7 +6,7 @@ const TermsOfService = () => {
   return (
     <>
       <Helmet>
-        <title>Terms of Service — Infovion School Management Software</title>
+        <title>Terms of Service | Infovion Technologies, Pune, India</title>
         <meta
           name="description"
           content="Read the Terms of Service for Infovion. Understand the rules and guidelines for using our website and services."

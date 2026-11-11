@@ -7,6 +7,7 @@ import { CATEGORY_LABEL, CTA, audienceOf } from "../Data/blogCategories";
 import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
 import PreferredSourceBadge from "../components/PreferredSourceBadge";
 import { faqSchema } from "../lib/seo";
+import { Breadcrumbs } from "../components/site/Ui";
 
 const DOMAIN = "https://www.infovion.in";
 const abs = (u) => (u.startsWith("http") ? u : `${DOMAIN}${u}`);
@@ -66,11 +67,11 @@ export default function BlogPost() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#05070d]/60 via-[#05070d]/85 to-[#05070d]" />
         <Aurora />
         <div className="relative mx-auto max-w-3xl px-5 sm:px-6">
-          <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white"><ArrowLeft className="h-4 w-4" /> Insights</Link>
+          <Breadcrumbs trail={[["Blog", "/blog"], [CATEGORY_LABEL[post.category] ?? "Guide", `/blog/${post.slug}`]]} />
           <div className="mt-5"><Kicker>{CATEGORY_LABEL[post.category] ?? post.category}</Kicker></div>
           <h1 className="mt-5 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl">{post.title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-400">{post.excerpt}</p>
-          <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500">
+          <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-400">
             <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {fmt(post.date)}</span>
             {post.updated && post.updated !== post.date && <span>Updated {fmt(post.updated)}</span>}
             <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {post.readTime}</span>
@@ -81,7 +82,7 @@ export default function BlogPost() {
 
       <div className="mx-auto max-w-3xl px-5 sm:px-6">
         <div className="overflow-hidden rounded-3xl ring-1 ring-white/10">
-          <img src={post.image} alt={post.title} className="aspect-[16/8] w-full object-cover" />
+          <img src={post.image} alt={post.title} width="1600" height="840" fetchpriority="high" decoding="async" className="aspect-[16/8] w-full object-cover" />
         </div>
         <article className="article-dark mt-12" dangerouslySetInnerHTML={{ __html: post.content }} />
         {/* Questions readers ask, also given to search engines as FAQ structured data */}
@@ -131,7 +132,7 @@ export default function BlogPost() {
           {related.map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`} className="group overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] transition-colors hover:border-teal-400/40">
               <div className="relative h-40 overflow-hidden">
-                <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" />
+                <img src={p.image} alt={p.title} width="1600" height="840" loading="lazy" decoding="async" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] to-transparent" />
               </div>
               <div className="p-5">

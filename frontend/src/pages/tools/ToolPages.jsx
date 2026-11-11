@@ -139,7 +139,7 @@ export function ToolsIndex() {
     <>
       <Helmet>
         <title>Free Tools: App Cost, Gold Price, School Certificates | Infovion</title>
-        <meta name="description" content="Free online tools: app and software development cost calculators, developer cost and AI ROI calculators, gold price calculator, jewellery bill formats, school TC." />
+        <meta name="description" content="Free online tools: app and software development cost calculators, AI automation ROI, gold price calculator, jewellery bill formats and school certificates." />
         <link rel="canonical" href={`${SITE}/free-tools`} />
         <meta property="og:title" content="Free tools by Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/free-tools`} />

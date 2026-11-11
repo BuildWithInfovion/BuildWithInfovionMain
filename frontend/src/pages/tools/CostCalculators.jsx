@@ -56,7 +56,7 @@ function Field({ label, hint, children }) {
     <label className="block">
       <span className="mb-1 block text-xs text-slate-400">{label}</span>
       {children}
-      {hint && <span className="mt-1 block text-[11px] leading-snug text-slate-500">{hint}</span>}
+      {hint && <span className="mt-1 block text-[11px] leading-snug text-slate-400">{hint}</span>}
     </label>
   );
 }
@@ -80,7 +80,7 @@ function Checks({ options, value, toggle, price }) {
       {options.map(([k, label, cost]) => (
         <label key={k} className={`flex cursor-pointer items-start gap-2.5 rounded-lg border px-3 py-2.5 text-sm transition ${value.includes(k) ? "border-sky-300/50 bg-sky-300/[0.07] text-white" : "border-white/10 text-slate-300 hover:border-white/25"}`}>
           <input type="checkbox" className="mt-0.5 h-4 w-4 flex-shrink-0 accent-sky-300" checked={value.includes(k)} onChange={() => toggle(k)} />
-          <span className="flex-1 leading-snug">{label}<span className="block text-[11px] text-slate-500">+ {price(cost)}</span></span>
+          <span className="flex-1 leading-snug">{label}<span className="block text-[11px] text-slate-400">+ {price(cost)}</span></span>
         </label>
       ))}
     </div>
@@ -122,7 +122,7 @@ function Estimate({ tool, headline, big, sub, rows, shareTitle, contactTo, note 
           </div>
         </div>
       </div>
-      <p className="mt-3 text-xs leading-relaxed text-slate-500">{note ?? "A planning range from Infovion's 2026 prices, not a quote. A written fixed price follows a first call, usually within two business days."}</p>
+      <p className="mt-3 text-xs leading-relaxed text-slate-400">{note ?? "A planning range from Infovion's 2026 prices, not a quote. A written fixed price follows a first call, usually within two business days."}</p>
     </div>
   );
 }
@@ -131,7 +131,7 @@ function Explainer({ title, children }) {
   return (
     <Section title={title} className="pt-4">
       <div className="mt-6 max-w-3xl space-y-4 text-[15px] leading-relaxed text-slate-300">{children}</div>
-      <p className="mt-5 text-xs text-slate-500">Updated {new Date(`${UPDATED}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })} by Infovion Technologies, a software development company in Pune, India.</p>
+      <p className="mt-5 text-xs text-slate-400">Updated {new Date(`${UPDATED}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })} by Infovion Technologies, a software development company in Pune, India.</p>
     </Section>
   );
 }

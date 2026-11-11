@@ -74,7 +74,7 @@ function GoogleButton({ onCredential }) {
   return (
     <div className="space-y-3">
       <div ref={ref} className="flex justify-center" />
-      <div className="flex items-center gap-3 text-xs text-slate-500"><span className="h-px flex-1 bg-white/10" />or fill in the form<span className="h-px flex-1 bg-white/10" /></div>
+      <div className="flex items-center gap-3 text-xs text-slate-400"><span className="h-px flex-1 bg-white/10" />or fill in the form<span className="h-px flex-1 bg-white/10" /></div>
     </div>
   );
 }
@@ -270,7 +270,7 @@ export default function FreeTrial() {
                   </div>
                   {!google && (
                     <div className="sm:col-span-2">
-                      <label htmlFor="email" className={label}>Email * <span className="font-normal text-slate-500">— your sign-in details go here</span></label>
+                      <label htmlFor="email" className={label}>Email * <span className="font-normal text-slate-400">— your sign-in details go here</span></label>
                       <input id="email" type="email" className={field} value={form.email} onChange={set("email")} autoComplete="email" placeholder="office@yourschool.edu.in" />
                       {errors.email && <p className="mt-1 text-xs text-rose-400">{errors.email}</p>}
                     </div>
@@ -279,7 +279,7 @@ export default function FreeTrial() {
                 </div>
 
                 <fieldset>
-                  <legend className={label}>What do you need? <span className="font-normal text-slate-500">— optional; fees, attendance, exams and the parent app are always included</span></legend>
+                  <legend className={label}>What do you need? <span className="font-normal text-slate-400">— optional; fees, attendance, exams and the parent app are always included</span></legend>
                   <div className="mt-1 flex flex-wrap gap-2">
                     {NEEDS.map(([k, l]) => {
                       const on = needs.includes(k);
@@ -310,7 +310,7 @@ export default function FreeTrial() {
                   className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 px-6 py-4 text-sm font-bold text-[#04121a] shadow-[0_0_50px_-10px_rgba(45,212,191,0.8)] transition hover:brightness-110 disabled:opacity-60">
                   {state === "sending" ? <><Loader2 className="h-4 w-4 animate-spin" /> Creating your school…</> : <><Sparkles className="h-4 w-4" /> Create my trial school</>}
                 </button>
-                <p className="text-center text-xs text-slate-500">
+                <p className="text-center text-xs text-slate-400">
                   Prefer to talk first? <Link to="/contact?interest=school" className="text-teal-300 underline">Book a live demo</Link> or <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="text-teal-300 underline">WhatsApp us</a>.
                 </p>
               </form>
@@ -325,7 +325,7 @@ export default function FreeTrial() {
                   <li key={t} className="flex gap-2.5 text-sm text-slate-300"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-300" />{t}</li>
                 ))}
               </ul>
-              <p className="mt-4 text-xs text-slate-500">Online fee payments switch on when you subscribe. After the trial: ₹150 per student per year + GST.</p>
+              <p className="mt-4 text-xs text-slate-400">Online fee payments switch on when you subscribe. After the trial: ₹150 per student per year + GST.</p>
             </div>
             <div className="hidden justify-center pt-2 lg:flex">
               <div className="w-[220px] -rotate-3">

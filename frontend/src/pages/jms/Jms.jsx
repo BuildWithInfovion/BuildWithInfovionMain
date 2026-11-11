@@ -484,7 +484,7 @@ export function JmsHome() {
             <ul className="mt-2 space-y-1.5 text-sm text-slate-400">
               {["Automatic WhatsApp Business messages", "Loyalty points", "An app for your customers", "Diamond certificates on tags", "Bank statement reconciliation"].map((t) => (
                 <li key={t} className="flex gap-2.5">
-                  <Minus className="mt-0.5 h-4 w-4 flex-shrink-0 text-slate-500" aria-hidden="true" />
+                  <Minus className="mt-0.5 h-4 w-4 flex-shrink-0 text-slate-400" aria-hidden="true" />
                   {t}
                 </li>
               ))}
@@ -1140,7 +1140,7 @@ function JmsLanding({ k }) {
                 {t.rows.map(([first, ...rest]) => (
                   <tr key={first} className="align-top">
                     <th scope="row" className="px-5 py-3 font-medium text-slate-200">{first}</th>
-                    {rest.map((x, i) => <td key={i} className={`px-5 py-3 ${x.startsWith("Not stated") ? "text-slate-500" : "text-slate-300"}`}>{x}</td>)}
+                    {rest.map((x, i) => <td key={i} className={`px-5 py-3 ${x.startsWith("Not stated") ? "text-slate-400" : "text-slate-300"}`}>{x}</td>)}
                   </tr>
                 ))}
               </tbody>
@@ -1158,7 +1158,7 @@ function JmsLanding({ k }) {
               <ul className="mt-5 space-y-2.5">
                 {items.map((x) => (
                   <li key={x} className={`flex gap-2.5 text-[15px] ${missing ? "text-slate-300" : "text-slate-200"}`}>
-                    {missing ? <Minus className="mt-1 h-4 w-4 flex-shrink-0 text-slate-500" aria-hidden="true" /> : <Check className="mt-1 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />}
+                    {missing ? <Minus className="mt-1 h-4 w-4 flex-shrink-0 text-slate-400" aria-hidden="true" /> : <Check className="mt-1 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />}
                     {x}
                   </li>
                 ))}

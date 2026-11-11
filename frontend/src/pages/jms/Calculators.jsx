@@ -61,7 +61,7 @@ function Field({ label, hint, children }) {
     <label className="block">
       <span className="mb-1 block text-xs text-slate-400">{label}</span>
       {children}
-      {hint && <span className="mt-1 block text-[11px] text-slate-500">{hint}</span>}
+      {hint && <span className="mt-1 block text-[11px] text-slate-400">{hint}</span>}
     </label>
   );
 }
@@ -111,7 +111,7 @@ function Explainer({ title, children, updated = false }) {
   return (
     <Section title={title} className="pt-4">
       <div className="mt-6 max-w-3xl space-y-4 text-[15px] leading-relaxed text-slate-300">{children}</div>
-      {updated && <p className="mt-5 text-xs text-slate-500">Updated {new Date(`${CALC_UPDATED}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })} by Infovion Technologies, makers of Infovion JMS jewellery software.</p>}
+      {updated && <p className="mt-5 text-xs text-slate-400">Updated {new Date(`${CALC_UPDATED}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })} by Infovion Technologies, makers of Infovion JMS jewellery software.</p>}
     </Section>
   );
 }
@@ -212,14 +212,14 @@ function GoldCalculator({ market, path }) {
               <Field label="Purity"><select className={field} value={v.oldPurity} onChange={set("oldPurity")}>{m.purities.map((p) => <option key={p} className="bg-slate-900">{p}</option>)}</select></Field>
               <Field label="Deduction %"><input className={field} inputMode="decimal" value={v.oldDeduct} onChange={set("oldDeduct")} /></Field>
             </div>
-            <p className="text-[11px] text-slate-500">Valued at today's 24K rate × purity, less the shop's deduction for melting and testing.</p>
+            <p className="text-[11px] text-slate-400">Valued at today's 24K rate × purity, less the shop's deduction for melting and testing.</p>
           </fieldset>
         </form>
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Result rows={rows} total={[oldGold ? "Amount payable" : "Price of the piece", f(total)]} tool={path}
             shareTitle={`Price of ${weight} g ${v.purity} gold jewellery`}
             empty={!num(v.rate) || !weight ? "Enter the weight and today's gold rate to see the price, with making charges and tax." : null} />
-          <p className="mt-3 text-xs text-slate-500">For estimates only. The bill from your jeweller is final; confirm tax rates with your accountant.</p>
+          <p className="mt-3 text-xs text-slate-400">For estimates only. The bill from your jeweller is final; confirm tax rates with your accountant.</p>
         </div>
       </div>
     </Section>
@@ -251,7 +251,7 @@ function PurityRates() {
               const r = (per10 * karat(k)) / 24;
               return (
                 <tr key={k} className="align-top">
-                  <th scope="row" className="px-5 py-3 font-medium text-slate-200">{k}<span className="block text-xs font-normal text-slate-500">{use}</span></th>
+                  <th scope="row" className="px-5 py-3 font-medium text-slate-200">{k}<span className="block text-xs font-normal text-slate-400">{use}</span></th>
                   <td className="px-5 py-3 text-slate-300">{fine} ({(fine / 10).toFixed(1)}%)</td>
                   <td className="px-5 py-3 text-slate-300">24K rate × {frac}</td>
                   <td className="px-5 py-3 text-right font-semibold text-white">{per10 ? f(k === "24K" ? per10 : r) : "—"}</td>
@@ -420,7 +420,7 @@ export function GirviInterestCalculatorPage() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Result rows={rows} total={["Amount to release", f(r2(P + interest))]} tool={path} shareTitle="Girvi interest"
               empty={!P || !valid ? "Enter the loan amount, the monthly rate and the dates." : null} />
-            <p className="mt-3 text-xs text-slate-500">Simple interest, 30 days = one month. Part-payments lower the interest from the day they are made; JMS works that out on every pledge.</p>
+            <p className="mt-3 text-xs text-slate-400">Simple interest, 30 days = one month. Part-payments lower the interest from the day they are made; JMS works that out on every pledge.</p>
           </div>
         </div>
       </Section>

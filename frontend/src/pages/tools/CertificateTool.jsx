@@ -72,7 +72,7 @@ export default function CertificateTool({ toolKey, seo }) {
       <section className="noise relative overflow-hidden pb-14 pt-32 sm:pt-36">
         <Aurora />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
-          <Link to="/free-tools" className="text-xs text-slate-500 hover:text-slate-300">← Free tools for schools</Link>
+          <Link to="/free-tools" className="text-xs text-slate-400 hover:text-slate-300">← Free tools for schools</Link>
           <div className="mt-4"><Kicker>Free tool · no sign-up</Kicker></div>
           <h1 className="mt-5 max-w-4xl font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">{seo.h1}</h1>
           <p className="mt-4 max-w-3xl text-base text-slate-400 sm:text-lg">{seo.intro}</p>
@@ -92,7 +92,7 @@ export default function CertificateTool({ toolKey, seo }) {
               </div>
             )}
             <fieldset className="space-y-3">
-              <legend className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-teal-300">School details <span className="normal-case tracking-normal text-slate-500">(remembered on this device)</span></legend>
+              <legend className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-teal-300">School details <span className="normal-case tracking-normal text-slate-400">(remembered on this device)</span></legend>
               {SCHOOL_FIELDS.map((f) => (
                 <input key={f.key} aria-label={f.label} className={field} placeholder={`${lang !== "en" && f.mr ? `${f.mr} · ` : ""}${f.label} — ${f.placeholder}`} value={school[f.key] || ""} onChange={setS(f.key)} />
               ))}
@@ -114,7 +114,7 @@ export default function CertificateTool({ toolKey, seo }) {
                 <label className="block"><span className="mb-1 block text-xs text-slate-400">Date of issue</span><input className={field} type="date" value={values.issueDate || ""} onChange={setV("issueDate")} /></label>
               </div>
             </fieldset>
-            <p className="text-xs text-slate-500">Everything stays in your browser — nothing is uploaded or stored by us.</p>
+            <p className="text-xs text-slate-400">Everything stays in your browser — nothing is uploaded or stored by us.</p>
           </div>
 
           {/* preview */}

@@ -162,7 +162,7 @@ export function ServicePage({ slug: fixedSlug }) {
       <section className="relative pb-4">
         <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <AnswerBox q={s.answerQ ?? "Overview"}>{s.answer}</AnswerBox>
-          {s.updated && <p className="mt-4 text-xs text-slate-500">Updated {fmtDate(s.updated)} by Infovion Technologies, Pune.</p>}
+          {s.updated && <p className="mt-4 text-xs text-slate-400">Updated {fmtDate(s.updated)} by Infovion Technologies, Pune.</p>}
         </div>
       </section>
 

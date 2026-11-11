@@ -17,12 +17,12 @@ function Card({ post, big = false }) {
       className={`group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] transition-colors hover:border-teal-400/40 ${big ? "md:grid md:grid-cols-2" : ""}`}>
       <Link to={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={post.title} />
       <div className={`relative overflow-hidden ${big ? "h-56 md:h-full" : "h-48"}`}>
-        <img src={post.image} alt={post.title} loading="lazy" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
+        <img src={post.image} alt={post.title} width="1600" height="840" loading="lazy" decoding="async" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/20 to-transparent" />
         <span className="absolute left-4 top-4 rounded-full glass px-3 py-1 text-[11px] font-semibold text-teal-200">{CATEGORY_LABEL[post.category] ?? post.category}</span>
       </div>
       <div className={`p-6 ${big ? "md:flex md:flex-col md:justify-center md:p-9" : ""}`}>
-        <p className="flex items-center gap-3 text-xs text-slate-500"><span>{fmt(post.date)}</span><span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {post.readTime}</span></p>
+        <p className="flex items-center gap-3 text-xs text-slate-400"><span>{fmt(post.date)}</span><span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {post.readTime}</span></p>
         <h2 className={`mt-3 font-display font-bold leading-snug text-white transition-colors group-hover:text-teal-200 ${big ? "text-2xl sm:text-3xl" : "line-clamp-2 text-lg"}`}>{post.title}</h2>
         <p className={`mt-3 text-sm leading-relaxed text-slate-400 ${big ? "" : "line-clamp-3"}`}>{post.excerpt}</p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300">Read article <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
@@ -60,7 +60,7 @@ export default function Blog() {
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">Software projects and what they cost, school management, jewellery billing and girvi, and government IT — written plainly, with sources.</p>
           <div className="relative mx-auto mt-8 max-w-md">
-            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search articles…" aria-label="Search articles"
               className="w-full rounded-full border border-white/10 bg-white/[0.05] py-3 pl-11 pr-4 text-sm text-white placeholder-slate-500 outline-none focus:border-teal-400/60" />
           </div>
@@ -83,7 +83,7 @@ export default function Blog() {
               {rest.map((p) => <Card key={p.slug} post={p} />)}
             </AnimatePresence>
           </Motion.div>
-          {!filtered.length && <p className="py-12 text-center text-slate-500">No articles match “{q}”.</p>}
+          {!filtered.length && <p className="py-12 text-center text-slate-400">No articles match “{q}”.</p>}
         </div>
       </section>
 

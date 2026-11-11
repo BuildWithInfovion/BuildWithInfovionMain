@@ -27,7 +27,7 @@ export function CaseStudiesIndex() {
             <Reveal key={c.slug} delay={i * 0.05}>
               <Link to={`/case-studies/${c.slug}`} className="panel group grid overflow-hidden rounded-xl transition-colors hover:border-sky-300/40 md:grid-cols-[1fr_1.2fr]">
                 <div className="h-56 overflow-hidden border-b border-white/10 md:h-full md:border-b-0 md:border-r">
-                  <img src={c.image[1]} alt={c.image[2]} loading="lazy" className="h-full w-full object-cover object-left-top transition duration-500 group-hover:scale-[1.02]" />
+                  <img src={c.image[1]} alt={c.image[2]} width="900" height="562" loading="lazy" decoding="async" className="h-full w-full object-cover object-left-top transition duration-500 group-hover:scale-[1.02]" />
                 </div>
                 <div className="p-7 sm:p-9">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-300">{c.industry}</p>

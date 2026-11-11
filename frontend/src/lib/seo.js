@@ -4,6 +4,7 @@ import { COMPANY, SITE, fullAddress } from "../Data/company";
 export const abs = (path) => (path.startsWith("http") ? path : `${SITE}${path === "/" ? "/" : path}`);
 
 export const ORG_ID = `${SITE}/#organization`;
+export const FOUNDER_ID = `${SITE}/about#founder`;
 
 /** [["Services", "/services"], ["Web development", "/services/web-development"]] → BreadcrumbList */
 export const breadcrumbSchema = (trail) => ({
@@ -56,7 +57,7 @@ export const organizationNode = () => {
     description:
       "Infovion Technologies is a software development company in Pune, India. It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products and AI automation for businesses and government, and makes two products: Infovion School ERP (school management software) and Infovion JMS (jewellery management software).",
     slogan: "We build the software your business runs on.",
-    founder: { "@type": "Person", name: COMPANY.founder, jobTitle: COMPANY.founderRole },
+    founder: { "@type": "Person", "@id": FOUNDER_ID, name: COMPANY.founder, jobTitle: COMPANY.founderRole, worksFor: { "@id": ORG_ID }, url: `${SITE}/about`, knowsAbout: ["Custom software development", "School management software", "Jewellery management software", "AI automation"] },
     foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
     email: COMPANY.email,
     telephone: COMPANY.phone.replace(/\s/g, ""),
