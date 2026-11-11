@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Check, Landmark } from "lucide-react";
-import { GhostButton, GlowButton, Kicker, Reveal } from "../../components/fx/Fx";
+import { CountUp, GhostButton, GlowButton, Kicker, Marquee, Reveal } from "../../components/fx/Fx";
 import { CtaBand, FaqList, Icon, LinkRow, Section } from "../../components/site/Ui";
 import { SERVICES, PROCESS, ENGAGEMENT } from "../../Data/services";
 import { TECH } from "../../Data/company";
@@ -41,59 +41,83 @@ const INDUSTRIES = [
   ["Building2", "Real estate and services", "/industries#services"],
 ];
 
+const HEADLINE = ["Custom", "software", "for", "businesses,", "institutions", "and"];
+
 function Hero() {
   return (
     // The brand animation sits behind the page: on phones the logo occupies the upper third of the
     // screen, so the copy starts below it; on wider screens the copy sits to the left of the logo.
-    <section className="relative flex min-h-[100svh] flex-col pb-12 pt-[41svh] md:justify-center md:pb-24 md:pt-32">
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
+    <section className="hero-grid relative flex min-h-[100svh] flex-col pb-12 pt-[38svh] md:justify-center md:pb-24 md:pt-32">
+      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-6">
         <div className="max-w-xl lg:max-w-2xl">
-          <h1 className="rise font-display text-[2rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.6rem]">
-            Custom software for businesses, institutions and government
+          <div className="rise"><Kicker live>Software and AI company · Pune, India</Kicker></div>
+          <h1 className="mt-6 font-display text-[2.15rem] font-bold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.9rem]">
+            {HEADLINE.map((w, i) => <React.Fragment key={w}><span className="word" style={{ "--i": i }}>{w}</span>{" "}</React.Fragment>)}
+            <span className="word text-gradient-aurora" style={{ "--i": HEADLINE.length }}>government</span>
           </h1>
-          <p className="rise mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
+          <p className="rise mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
             We plan, build and support web applications, mobile apps, ERP systems, AI agents and automation. One team in Pune works with clients
             across India and abroad, at a fixed price agreed in writing.
             <span className="hidden sm:inline"> Our own products, Infovion School ERP and Infovion JMS, are in daily use in schools and jewellery shops.</span>
           </p>
           <div className="rise mt-9 flex flex-col gap-3 sm:flex-row">
             <GlowButton to="/contact" className="w-full sm:w-auto">Discuss a project <ArrowRight className="h-4 w-4" /></GlowButton>
-            <GhostButton to="/services" className="w-full sm:w-auto">Our services</GhostButton>
+            <GhostButton to="/case-studies" className="w-full sm:w-auto">See our work</GhostButton>
           </div>
+          <ul className="rise mt-9 flex flex-wrap gap-x-6 gap-y-2.5 text-sm text-slate-300">
+            {["Fixed price, in writing", "You own the source code", "MSME registered"].map((t) => (
+              <li key={t} className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" aria-hidden="true" />{t}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   );
 }
 
+// Figures from our own products, counted on screen. The technology strip repeats the list under
+// "Technologies we use", so it is hidden from assistive technology.
+const STATS = [
+  [2, "products in daily use", "School ERP and jewellery software"],
+  [176, "application screens", "designed and built for Infovion School ERP"],
+  [41, "backend modules", "running in one multi-tenant platform"],
+  [10, "Indian languages", "on every screen of Infovion JMS"],
+];
+
 function Facts() {
-  const items = [
-    ["Two products in production", "School ERP and jewellery software"],
-    ["Fixed-price proposals", "Scope and cost agreed in writing"],
-    ["Client-owned code", "Full transfer on completion"],
-    ["30 days of support", "Included after every launch"],
-  ];
   return (
     <section className="relative border-y border-white/10 bg-[rgba(2,4,9,0.72)]">
       <dl className="mx-auto grid max-w-6xl grid-cols-2 px-5 sm:px-6 lg:grid-cols-4">
-        {items.map(([t, d], i) => (
-          <div key={t} className={`py-6 ${i % 2 ? "pl-5" : "pr-5"} lg:px-6 ${i ? "lg:border-l lg:border-white/10" : "lg:pl-0"} ${i > 1 ? "border-t border-white/10 lg:border-t-0" : ""}`}>
-            <dt className="font-display text-[15px] font-semibold text-white">{t}</dt>
-            <dd className="mt-1 text-sm text-slate-400">{d}</dd>
+        {STATS.map(([n, t, d], i) => (
+          <div key={t} className={`flex flex-col-reverse justify-end py-8 ${i % 2 ? "pl-5" : "pr-5"} lg:px-7 ${i ? "lg:border-l lg:border-white/10" : "lg:pl-0"} ${i > 1 ? "border-t border-white/10 lg:border-t-0" : ""}`}>
+            <dt className="mt-2 text-sm text-slate-400"><span className="block font-display text-[15px] font-semibold text-white">{t}</span>{d}</dt>
+            <dd className="stat-num font-display text-5xl font-extrabold leading-none tracking-tight sm:text-6xl"><CountUp to={n} /></dd>
           </div>
         ))}
       </dl>
+      <div aria-hidden="true" className="border-t border-white/10 py-5">
+        <Marquee items={TECH.flatMap(([, items]) => items.slice(0, 2))} />
+      </div>
     </section>
   );
 }
 
 function Services() {
   return (
-    <Section id="services" kicker="Services" title="What we do"
+    <Section id="services" glow kicker="Services" title="What we" accent="do"
       sub="We take on complete projects as well as individual workstreams, from a single internal tool to a multi-role platform with mobile applications and integrations.">
-      <div className="mt-10 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((s) => (
-          <LinkRow key={s.slug} to={`/services/${s.slug}`} icon={s.icon} title={s.name} body={s.card} />
+          <Link key={s.slug} to={`/services/${s.slug}`} className="panel group flex h-full gap-4 rounded-2xl p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300 sm:flex-col sm:gap-0 sm:p-6">
+            <span className="flex items-start justify-between">
+              <span className="icon-chip"><Icon name={s.icon} className="h-5 w-5" /></span>
+              <ArrowUpRight className="hidden h-5 w-5 text-slate-400 transition duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-sky-300 sm:block" aria-hidden="true" />
+            </span>
+            <span className="block">
+              <span className="block font-display text-base font-semibold text-white group-hover:text-sky-100 sm:mt-5 sm:text-[17px]">{s.name}</span>
+              <span className="mt-1 line-clamp-2 block text-sm leading-relaxed text-slate-400 sm:mt-2 sm:line-clamp-none">{s.card}</span>
+            </span>
+          </Link>
         ))}
       </div>
     </Section>
@@ -116,14 +140,14 @@ function Products() {
     },
   ];
   return (
-    <Section kicker="Our products" title="Software we build and operate"
+    <Section glow kicker="Our products" title="Software we build and" accent="operate"
       sub="Alongside client work, we develop two products that are in daily use. They are maintained by the same team and to the same standards as our client projects.">
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         {P.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.06}>
-            <article className="panel flex h-full flex-col overflow-hidden rounded-xl">
+            <article className="panel lift group flex h-full flex-col overflow-hidden rounded-2xl">
               <div className="h-52 overflow-hidden border-b border-white/10 sm:h-60">
-                <img src={p.img[0]} alt={p.img[1]} width="900" height="562" loading="lazy" className="h-full w-full object-cover object-left-top" />
+                <img src={p.img[0]} alt={p.img[1]} width="900" height="562" loading="lazy" decoding="async" className="h-full w-full object-cover object-left-top transition duration-[1200ms] ease-out group-hover:scale-[1.04]" />
               </div>
               <div className="flex flex-1 flex-col p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">{p.tag}</p>
@@ -147,7 +171,7 @@ function Products() {
 
 function Showcase() {
   return (
-    <Section id="work" kicker="Solutions" title="Systems we design and build"
+    <Section id="work" glow kicker="Solutions" title="Systems we design and" accent="build"
       sub="Six blueprints, each worked through to modules, data flow, technology, budget and timeline: AI agents on WhatsApp and in support, invoice automation, a hospital system, a stone crusher ERP and a real estate CRM.">
       <div className="mt-12"><SolutionCards items={SHOWCASE} /></div>
       <p className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
@@ -167,7 +191,7 @@ const TOOLS = [
 
 function Tools() {
   return (
-    <Section kicker="Free tools" title="Work out your budget in two minutes"
+    <Section kicker="Free tools" title="Work out your budget in" accent="two minutes"
       sub="Free calculators built on our own 2026 prices. No sign-up; share the result on WhatsApp or send it to us for an exact quote.">
       <div className="mt-10 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
         {TOOLS.map(([to, t, b]) => <LinkRow key={to} to={to} icon="Calculator" title={t} body={b} />)}
@@ -179,12 +203,12 @@ function Tools() {
 
 function Industries() {
   return (
-    <Section kicker="Industries" title="Sectors we work in"
+    <Section glow kicker="Industries" title="Sectors we" accent="work in"
       sub="Our engineers spend time with the people who will use the software before design begins. Our two products came out of that work with schools and jewellery retailers.">
       <ul className="mt-10 grid grid-cols-1 border-t border-white/10 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-4">
         {INDUSTRIES.map(([icon, t, to]) => (
           <li key={t} className="border-b border-white/10">
-            <Link to={to} className="group flex items-center gap-3 py-5 text-white transition-colors hover:text-sky-200">
+            <Link to={to} className="row-link group flex items-center gap-3 py-5 text-white transition-[padding,color] duration-500 hover:pl-2 hover:text-sky-200">
               <Icon name={icon} className="h-5 w-5 flex-shrink-0 text-sky-300" />
               <span className="flex-1 text-[15px] font-medium">{t}</span>
               <ArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-sky-300" aria-hidden="true" />
@@ -198,14 +222,14 @@ function Industries() {
 
 function Process() {
   return (
-    <Section kicker="How we work" title="Our delivery process"
+    <Section glow kicker="How we work" title="Our delivery" accent="process"
       sub="Cost and timeline are agreed before development starts, and you review working software at the end of every two-week sprint.">
       <ol className="mt-12 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
         {PROCESS.map(([t, b, when], i) => (
           <li key={t} className="bg-cell p-6 sm:p-7">
             <p className="flex items-baseline justify-between gap-4">
-              <span className="font-display text-sm font-semibold text-sky-300">{String(i + 1).padStart(2, "0")}</span>
-              <span className="text-xs text-slate-400">{when}</span>
+              <span className="stat-num font-display text-3xl font-extrabold leading-none">{String(i + 1).padStart(2, "0")}</span>
+              <span className="rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-slate-300">{when}</span>
             </p>
             <h3 className="mt-3 font-display text-lg font-semibold text-white">{t}</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
@@ -217,7 +241,7 @@ function Process() {
       <div className="mt-6 grid gap-5 lg:grid-cols-3">
         {ENGAGEMENT.map(([t, b, pts], i) => (
           <Reveal key={t} delay={i * 0.05}>
-            <div className="panel h-full rounded-xl p-6">
+            <div className="panel lift h-full rounded-2xl p-6">
               <h4 className="font-display text-lg font-semibold text-white">{t}</h4>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
               <ul className="mt-4 space-y-1.5">{pts.map((p) => <li key={p} className="flex gap-2.5 text-sm text-slate-300"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />{p}</li>)}</ul>
@@ -232,10 +256,12 @@ function Process() {
 
 function Commitments() {
   return (
-    <Section kicker="Working with Infovion" title="What clients can expect from us">
+    <Section glow kicker="Working with Infovion" title="What clients can" accent="expect from us">
       <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-        {COMMITMENTS.map(([t, b]) => (
-          <div key={t} className="border-t border-white/15 pt-5">
+        {COMMITMENTS.map(([t, b], i) => (
+          <div key={t} className="relative border-t border-white/15 pt-5">
+            <span aria-hidden="true" className="absolute -top-px left-0 h-px w-14 bg-gradient-to-r from-sky-300 to-violet-300" />
+            <p aria-hidden="true" className="mb-2 font-display text-xs font-semibold tracking-[0.2em] text-sky-300">{String(i + 1).padStart(2, "0")}</p>
             <h3 className="font-display text-[17px] font-semibold text-white">{t}</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
           </div>
@@ -248,10 +274,10 @@ function Commitments() {
 function Government() {
   return (
     <section className="px-5 py-12 sm:px-6">
-      <div className="panel mx-auto grid max-w-6xl gap-10 rounded-xl p-8 sm:p-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+      <div className="mesh mx-auto grid max-w-6xl gap-10 rounded-3xl border border-white/10 p-8 sm:p-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
         <div>
           <Kicker>Government and public sector</Kicker>
-          <h2 className="mt-4 font-display text-[1.9rem] font-bold leading-[1.15] tracking-tight text-white sm:text-[2.2rem]">Digital services for departments, local bodies and PSUs</h2>
+          <h2 className="heading-sheen mt-5 font-display text-[1.9rem] font-bold leading-[1.15] tracking-tight text-white sm:text-[2.2rem]">Digital services for departments, local bodies and PSUs</h2>
           <p className="mt-4 max-w-xl text-slate-300">
             Websites, citizen service portals, MIS dashboards, mobile applications and annual maintenance contracts, developed to the
             accessibility, security and data residency requirements of public sector work.
@@ -270,7 +296,7 @@ function Government() {
 
 function Stack() {
   return (
-    <Section kicker="Technology" title="Technologies we use"
+    <Section glow kicker="Technology" title="Technologies we" accent="use"
       sub="We work with established, well-supported technologies, so the systems we deliver are straightforward to host, maintain and staff in the years after launch.">
       <dl className="mt-10 border-t border-white/10">
         {TECH.map(([group, items]) => (

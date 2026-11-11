@@ -128,7 +128,7 @@ export default function Navbar() {
         ref={navRef}
         className="fixed left-0 right-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 print:hidden"
         style={{
-          backgroundColor: onLight || menu ? "rgba(2,4,9,0.97)" : isScrolled ? "rgb(2,4,9)" : "rgba(2,4,9,0)",
+          backgroundColor: onLight || menu ? "rgba(2,4,9,0.97)" : isScrolled ? "rgba(2,4,9,0.94)" : "rgba(2,4,9,0)",
           borderBottom: solid ? "1px solid rgba(148,163,184,0.14)" : "1px solid transparent",
           boxShadow: solid ? "0 4px 32px rgba(0,0,0,0.28)" : "none",
         }}
@@ -206,7 +206,7 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <Go to={cta[0]} className="hidden items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 sm:inline-flex">
+              <Go to={cta[0]} className="btn-primary hidden items-center gap-2 px-5 py-2.5 text-sm font-semibold sm:inline-flex">
                 {cta[1]}
               </Go>
               <button
@@ -281,7 +281,7 @@ export default function Navbar() {
                 <Link key={to} to={to} className="block border-b border-white/[0.07] py-4 font-display text-xl font-extrabold text-white">{t}</Link>
               ))}
               <div className="mt-8 flex flex-col gap-3">
-                <Go to={cta[0]} className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-[#020409]">
+                <Go to={cta[0]} className="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold">
                   {cta[1]}
                 </Go>
                 <a href={COMPANY.phoneHref} className="text-center text-sm font-semibold text-slate-300">Call {COMPANY.phone}</a>

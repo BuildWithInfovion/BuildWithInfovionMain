@@ -43,12 +43,12 @@ export function Breadcrumbs({ trail, className = "" }) {
 /** The top of an inner page: label, title, introduction, actions. */
 export function PageHero({ trail, kicker, title, accent, sub, children, center = false, aside }) {
   return (
-    <section className="relative pb-16 pt-32 sm:pb-20 sm:pt-40">
+    <section className="hero-grid relative pb-16 pt-32 sm:pb-20 sm:pt-40">
       <div className={`relative mx-auto max-w-6xl px-5 sm:px-6 ${aside ? "grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]" : ""}`}>
         <div className={center ? "mx-auto max-w-4xl text-center" : "max-w-3xl"}>
           {trail && <Breadcrumbs trail={trail} className={`mb-8 ${center ? "flex justify-center" : ""}`} />}
-          {kicker && <div className="rise"><Kicker>{kicker}</Kicker></div>}
-          <h1 className="rise mt-5 font-display text-[2.2rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+          {kicker && <div className="rise"><Kicker live>{kicker}</Kicker></div>}
+          <h1 className="heading-sheen rise mt-6 font-display text-[2.2rem] font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
             {title}{accent ? <> <span className="text-gradient-aurora">{accent}</span></> : null}
           </h1>
           {sub && <p className={`rise mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg ${center ? "mx-auto" : ""}`}>{sub}</p>}
@@ -61,15 +61,15 @@ export function PageHero({ trail, kicker, title, accent, sub, children, center =
 }
 
 /** A section with an optional label, title and introduction. */
-export function Section({ id, kicker, title, accent, sub, children, className = "", center = false }) {
+export function Section({ id, kicker, title, accent, sub, children, className = "", center = false, glow = false }) {
   return (
-    <section id={id} className={`relative scroll-mt-24 py-16 sm:py-20 ${className}`}>
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+    <section id={id} className={`cv-auto relative scroll-mt-24 py-16 sm:py-20 ${glow ? "glow-top" : ""} ${className}`}>
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
         {(kicker || title) && (
           <Reveal className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
             {kicker && <Kicker>{kicker}</Kicker>}
             {title && (
-              <h2 className="mt-4 font-display text-[1.9rem] font-bold leading-[1.15] tracking-tight text-white sm:text-[2.4rem]">
+              <h2 className="heading-sheen mt-5 font-display text-[1.9rem] font-bold leading-[1.12] tracking-tight text-white sm:text-[2.6rem]">
                 {title}{accent ? <> <span className="text-gradient-aurora">{accent}</span></> : null}
               </h2>
             )}
@@ -97,13 +97,13 @@ export function LinkCard({ to, icon, title, body, cta = "Learn more", className 
 /** A list row linking somewhere: title, one line, arrow. Used for service and page directories. */
 export function LinkRow({ to, icon, title, body }) {
   return (
-    <Link to={to} className="group flex items-start gap-5 border-b border-white/10 py-6 transition-colors hover:bg-white/[0.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300">
-      {icon && <Icon name={icon} className="mt-1 h-6 w-6 flex-shrink-0 text-sky-300" />}
+    <Link to={to} className="row-link group flex items-start gap-5 border-b border-white/10 py-6 transition-[padding,background-color] duration-500 hover:bg-white/[0.025] hover:pl-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300">
+      {icon && <span className="icon-chip"><Icon name={icon} className="h-5 w-5" /></span>}
       <span className="flex-1">
         <span className="block font-display text-lg font-semibold text-white group-hover:text-sky-200">{title}</span>
         <span className="mt-1 block text-sm leading-relaxed text-slate-400">{body}</span>
       </span>
-      <ArrowUpRight className="mt-1 h-5 w-5 flex-shrink-0 text-slate-400 transition-colors group-hover:text-sky-300" aria-hidden="true" />
+      <ArrowUpRight className="mt-1 h-5 w-5 flex-shrink-0 text-slate-400 transition duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-sky-300" aria-hidden="true" />
     </Link>
   );
 }
@@ -120,16 +120,16 @@ export function FaqList({ faqs, title = "Frequently asked questions", accent = "
       <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-[0.8fr_1.6fr]">
         <Reveal>
           <Kicker>FAQ</Kicker>
-          <h2 id="faq-heading" className="mt-4 font-display text-[1.9rem] font-bold leading-[1.15] tracking-tight text-white sm:text-[2.2rem]">
+          <h2 id="faq-heading" className="heading-sheen mt-5 font-display text-[1.9rem] font-bold leading-[1.15] tracking-tight text-white sm:text-[2.2rem]">
             {title}{accent ? <> <span className="text-gradient-aurora">{accent}</span></> : null}
           </h2>
         </Reveal>
         <div className="border-t border-white/10">
           {faqs.map(([q, a], i) => (
             <details key={q} open={i === 0} className="group border-b border-white/10 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-white">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-white transition-colors hover:text-sky-200">
                 <h3 className="text-left font-display text-base font-semibold sm:text-[17px]">{q}</h3>
-                <span className="mt-0.5 text-lg leading-none text-sky-300 transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-white/15 text-base leading-none text-sky-300 transition duration-300 group-open:rotate-45 group-open:border-sky-300/50 group-open:bg-sky-300/10" aria-hidden="true">+</span>
               </summary>
               <p className="pb-6 pr-8 text-[15px] leading-relaxed text-slate-300">{a}</p>
             </details>
@@ -150,9 +150,9 @@ export function CtaBand({
 }) {
   return (
     <section className="px-5 pb-24 pt-10 sm:px-6">
-      <div className="panel mx-auto flex max-w-6xl flex-col gap-8 rounded-2xl px-6 py-12 sm:px-12 lg:flex-row lg:items-center lg:justify-between">
+      <div className="beam mesh mx-auto flex max-w-6xl flex-col gap-8 rounded-3xl border border-white/10 px-6 py-14 sm:px-14 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-2xl">
-          <h2 className="font-display text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+          <h2 className="heading-sheen font-display text-[1.7rem] font-bold leading-tight tracking-tight text-white sm:text-4xl">
             {title}{accent ? <> <span className="text-gradient-aurora">{accent}</span></> : null}
           </h2>
           <p className="mt-3 text-slate-300">{sub}</p>

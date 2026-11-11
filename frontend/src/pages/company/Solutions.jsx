@@ -105,9 +105,9 @@ export default function SolutionPage() {
       </Section>
 
       <Section kicker="The system" title="What it includes" className="pt-4">
-        <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {p.modules.map(([t, b]) => (
-            <div key={t} className="border-t border-white/15 pt-5">
+            <div key={t} className="panel lift rounded-2xl p-6">
               <h3 className="font-display text-[17px] font-semibold text-white">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
             </div>
@@ -119,7 +119,7 @@ export default function SolutionPage() {
         <ol className="mt-10 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
           {p.flow.map(([t, b], i) => (
             <li key={t} className="bg-cell p-5">
-              <span className="font-display text-sm font-semibold text-sky-300">{String(i + 1).padStart(2, "0")}</span>
+              <span className="stat-num font-display text-3xl font-extrabold leading-none">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-2.5 font-display text-base font-semibold text-white">{t}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{b}</p>
             </li>

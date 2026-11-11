@@ -36,8 +36,8 @@ function ProcessSteps({ detailed = false }) {
       {PROCESS.map(([t, b, when], i) => (
         <li key={t} className="bg-cell p-6">
           <p className="flex items-baseline justify-between gap-4">
-            <span className="font-display text-sm font-semibold text-sky-300">{String(i + 1).padStart(2, "0")}</span>
-            <span className="text-xs text-slate-400">{when}</span>
+            <span className="stat-num font-display text-3xl font-extrabold leading-none">{String(i + 1).padStart(2, "0")}</span>
+            <span className="rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-slate-300">{when}</span>
           </p>
           <h3 className="mt-3 font-display text-base font-semibold text-white">{t}</h3>
           {detailed && <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>}
@@ -167,9 +167,9 @@ export function ServicePage({ slug: fixedSlug }) {
       </section>
 
       <Section kicker="Scope" title="What we deliver">
-        <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {s.build.map(([t, b]) => (
-            <div key={t} className="border-t border-white/15 pt-5">
+            <div key={t} className="panel lift rounded-2xl p-6">
               <h3 className="font-display text-[17px] font-semibold text-white">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
             </div>

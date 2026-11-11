@@ -86,7 +86,7 @@ export default function Footer() {
   const path = pathname.replace(/(.)\/+$/, "$1");
   const strip = NO_STRIP.includes(path) || path.startsWith("/services/") ? null : STRIPS[productOf(path) ?? "company"];
   return (
-    <footer className="border-t border-white/10 bg-[#020409]/95 print:hidden">
+    <footer className="glow-top relative overflow-hidden border-t border-white/10 bg-[#020409]/95 print:hidden">
       {strip && (
         <div className="border-b border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 px-6 py-8 sm:flex-row sm:items-center">
@@ -95,11 +95,11 @@ export default function Footer() {
               <p className="mt-1 text-sm text-slate-400">{strip[1]}</p>
             </div>
             {strip[2][0].startsWith("http") ? (
-              <a href={strip[2][0]} className="inline-flex flex-shrink-0 items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100">
+              <a href={strip[2][0]} className="btn-primary inline-flex flex-shrink-0 items-center gap-2 px-6 py-3 text-sm font-semibold">
                 {strip[2][1]} <ArrowUpRight className="h-4 w-4" />
               </a>
             ) : (
-              <Link to={strip[2][0]} className="inline-flex flex-shrink-0 items-center gap-2 rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100">
+              <Link to={strip[2][0]} className="btn-primary inline-flex flex-shrink-0 items-center gap-2 px-6 py-3 text-sm font-semibold">
                 {strip[2][1]} <ArrowUpRight className="h-4 w-4" />
               </Link>
             )}
@@ -107,7 +107,7 @@ export default function Footer() {
         </div>
       )}
 
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.9fr]">
           <div>
             <Link to="/" className="mb-6 inline-block" aria-label="Infovion Technologies, home">
@@ -190,6 +190,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      <p aria-hidden="true" className="wordmark pointer-events-none -mb-[0.08em] text-center text-[19.5vw]">INFOVION</p>
     </footer>
   );
 }

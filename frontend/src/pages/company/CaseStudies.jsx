@@ -123,9 +123,9 @@ export function CaseStudyPage() {
       </Section>
 
       <Section kicker="Solution" title="What we built" className="pt-4">
-        <div className="mt-10 grid gap-x-10 gap-y-9 md:grid-cols-2">
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
           {c.solution.map(([t, b]) => (
-            <div key={t} className="border-t border-white/15 pt-5">
+            <div key={t} className="panel lift rounded-2xl p-6">
               <h3 className="font-display text-[17px] font-semibold text-white">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-400">{b}</p>
             </div>

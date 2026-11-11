@@ -44,7 +44,7 @@ export function SpotlightCard({ children, className = "" }) {
 
 /** Primary call to action: solid, high contrast. */
 export function GlowButton({ to, href, children, className = "", onClick }) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[#020409] transition-colors hover:bg-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${className}`;
+  const cls = `btn-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${className}`;
   if (to) return <Link to={to} className={cls} onClick={onClick}>{children}</Link>;
   if (href) return <a href={href} className={cls} onClick={onClick}>{children}</a>;
   return <button type="button" className={cls} onClick={onClick}>{children}</button>;
@@ -52,7 +52,7 @@ export function GlowButton({ to, href, children, className = "", onClick }) {
 
 /** Secondary button: outline. */
 export function GhostButton({ to, href, children, onClick, className = "" }) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-md border border-white/25 bg-black/20 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/50 hover:bg-white/5 ${className}`;
+  const cls = `btn-ghost inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${className}`;
   if (to) return <Link to={to} className={cls}>{children}</Link>;
   if (href) return <a href={href} className={cls} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">{children}</a>;
   return <button type="button" onClick={onClick} className={cls}>{children}</button>;
@@ -98,9 +98,10 @@ export function Tilt({ children, className = "", max = 7 }) {
 export function CountUp({ to, prefix = "", suffix = "", duration = 1.6 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-  const [v, setV] = useState(0);
+  // The prerendered page and the first paint show the real figure; it counts up once seen
+  const [v, setV] = useState(to);
   useEffect(() => {
-    if (!inView) return undefined;
+    if (!inView || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return undefined;
     let raf;
     const t0 = performance.now();
     const tick = (t) => {
@@ -115,10 +116,10 @@ export function CountUp({ to, prefix = "", suffix = "", duration = 1.6 }) {
 }
 
 /** Small uppercase label above section titles. */
-export function Kicker({ children }) {
+export function Kicker({ children, live = false }) {
   return (
-    <p className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-sky-300">
-      <span className="h-px w-8 bg-sky-300/70" aria-hidden="true" />
+    <p className={`kicker-pill ${live ? "kicker-live" : ""}`}>
+      <span className="pulse-dot" aria-hidden="true" />
       {children}
     </p>
   );
@@ -128,7 +129,7 @@ export function SectionHead({ kicker, title, accent, sub, center = false }) {
   return (
     <Reveal className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       <Kicker>{kicker}</Kicker>
-      <h2 className="mt-5 font-display text-3xl font-bold leading-[1.12] tracking-tight text-white sm:text-[2.6rem]">
+      <h2 className="heading-sheen mt-5 font-display text-3xl font-bold leading-[1.12] tracking-tight text-white sm:text-[2.6rem]">
         {title} {accent && <span className="text-gradient-aurora">{accent}</span>}
       </h2>
       {sub && <p className={`mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg ${center ? "mx-auto" : ""}`}>{sub}</p>}
