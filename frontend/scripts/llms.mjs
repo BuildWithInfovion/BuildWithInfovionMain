@@ -112,8 +112,8 @@ ${blueprints}
 
 ## Free tools for software buyers (no sign-up)
 
-- [App development cost calculator](${D}/app-development-cost-calculator): platform (PWA, Android, Android and iOS), screens, features and integrations give a budget range in INR, USD, AED or GBP and a timeline. Typical budgets in India: PWA ₹1.5–5 lakh; Android and iOS first release ₹4–12 lakh; full app ₹12 lakh and above.
-- [Software development cost calculator](${D}/software-development-cost-calculator): website, web app, CRM, ERP, SaaS or AI automation by modules, user roles, integrations, data migration and reporting. Typical budgets in India: internal tool ₹1.5–4 lakh; CRM ₹1.5–5 lakh; ERP ₹5–20 lakh; SaaS first release ₹6–20 lakh.
+- [App development cost calculator](${D}/app-development-cost-calculator): platform (PWA, Android, Android and iOS), screens, features and integrations give a budget range in INR, USD, AED or GBP and a timeline. Typical budgets in India: PWA ₹60,000–2.5 lakh; Android and iOS first release ₹2–6 lakh; full app ₹6 lakh and above.
+- [Software development cost calculator](${D}/software-development-cost-calculator): website, web app, CRM, ERP, SaaS or AI automation by modules, user roles, integrations, data migration and reporting. Typical budgets in India: internal tool ₹75,000–2 lakh; CRM ₹1–3 lakh; ERP ₹3–10 lakh; SaaS first release ₹4–12 lakh.
 - [Hire developers in India: cost calculator](${D}/hire-developers-india-cost-calculator): a dedicated developer in India ($900–1,800 a month) against in-house salary and employer costs in the US, UK, UAE, Australia, Canada or Europe.
 - [AI automation ROI calculator](${D}/ai-automation-roi-calculator): hours spent on a task, share automated, build and running cost give monthly saving and payback period.
 - [All free tools](${D}/free-tools)

@@ -8,8 +8,8 @@ import { track } from "../../lib/analytics";
 
 // Free planning calculators for people buying software: app cost, software cost, the cost of a
 // developer in India against hiring at home, and the payback of an automation.
-// The rupee figures follow the ranges published on the service pages (Data/services.js); keep the
-// two in step. Results are planning ranges, not quotes, and every page says so.
+// The rupee figures are Infovion's AI-assisted build prices (November 2026), set below the older
+// ranges on the service pages. Results are planning ranges, not quotes, and every page says so.
 
 const UPDATED = "2026-11-11";
 const field = "w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none transition focus:border-sky-300/60 focus:bg-white/[0.06]";
@@ -30,7 +30,7 @@ const money = (cur, rupees) => {
   return `${CUR[cur].sym}${(Math.round(v / 50) * 50).toLocaleString("en-US")}`;
 };
 const range = (cur, total) => `${money(cur, total * 0.85)} – ${money(cur, total * 1.25)}`;
-const weeks = (total) => { const w = Math.max(3, Math.round(total / 65000)); return `${w} – ${w + Math.max(2, Math.ceil(w * 0.3))} weeks`; };
+const weeks = (total) => { const w = Math.max(3, Math.round(total / 40000)); return `${w} – ${w + Math.max(2, Math.ceil(w * 0.3))} weeks`; };
 
 function Head({ path, title, description, name }) {
   const schema = {
@@ -122,7 +122,7 @@ function Estimate({ tool, headline, big, sub, rows, shareTitle, contactTo, note 
           </div>
         </div>
       </div>
-      <p className="mt-3 text-xs leading-relaxed text-slate-400">{note ?? "A planning range from Infovion's 2026 prices, not a quote. A written fixed price follows a first call, usually within two business days."}</p>
+      <p className="mt-3 text-xs leading-relaxed text-slate-400">{note ?? "A planning range from Infovion's AI-assisted 2026 prices, not a quote. A written fixed price follows a first call, usually within two business days."}</p>
     </div>
   );
 }
@@ -178,24 +178,24 @@ const useToggle = (initial) => {
 // ── App development cost ─────────────────────────────────────────────────────
 
 const PLATFORMS = {
-  pwa: ["Progressive web app (installs from a link)", 120000, 5000],
-  android: ["Android app", 220000, 5500],
-  both: ["Android and iOS, one codebase (React Native)", 280000, 6000],
-  native: ["Android and iOS, separate native apps", 520000, 11000],
+  pwa: ["Progressive web app (installs from a link)", 60000, 2500],
+  android: ["Android app", 110000, 3000],
+  both: ["Android and iOS, one codebase (React Native)", 150000, 3500],
+  native: ["Android and iOS, separate native apps", 300000, 6500],
 };
 const APP_FEATURES = [
-  ["login", "Sign-in, OTP and user profiles", 30000],
-  ["payments", "Online payments (UPI, cards)", 45000],
-  ["push", "Push notifications", 20000],
-  ["admin", "Admin panel on the web", 80000],
-  ["booking", "Booking or scheduling", 60000],
-  ["catalogue", "Product catalogue, cart and orders", 90000],
-  ["chat", "In-app chat", 80000],
-  ["maps", "Maps and live GPS tracking", 70000],
-  ["offline", "Offline use with sync", 90000],
-  ["ai", "AI feature (assistant, search, document reading)", 120000],
-  ["lang", "Second language (Hindi, Arabic and others)", 35000],
-  ["video", "Video or audio calls", 110000],
+  ["login", "Sign-in, OTP and user profiles", 15000],
+  ["payments", "Online payments (UPI, cards)", 25000],
+  ["push", "Push notifications", 10000],
+  ["admin", "Admin panel on the web", 45000],
+  ["booking", "Booking or scheduling", 35000],
+  ["catalogue", "Product catalogue, cart and orders", 50000],
+  ["chat", "In-app chat", 45000],
+  ["maps", "Maps and live GPS tracking", 40000],
+  ["offline", "Offline use with sync", 50000],
+  ["ai", "AI feature (assistant, search, document reading)", 60000],
+  ["lang", "Second language (Hindi, Arabic and others)", 20000],
+  ["video", "Video or audio calls", 60000],
 ];
 const DESIGN = { standard: ["Clean standard design", 0], custom: ["Custom brand design", 0.15], premium: ["Premium design with animation", 0.3] };
 
@@ -210,7 +210,7 @@ function AppCalculator({ path }) {
   const [pName, base, perScreen] = PLATFORMS[platform];
   const screenCost = num(screens) * perScreen;
   const featureCost = APP_FEATURES.filter(([k]) => features.includes(k)).reduce((s, [, , c]) => s + c, 0);
-  const integCost = num(integrations) * 40000;
+  const integCost = num(integrations) * 20000;
   const subtotal = base + screenCost + featureCost + integCost;
   const designCost = subtotal * DESIGN[design][1];
   const total = subtotal + designCost;
@@ -249,7 +249,7 @@ function AppCalculator({ path }) {
 }
 
 const APP_FAQ = [
-  ["How much does it cost to develop an app in India in 2026?", "With Infovion Technologies, an installable progressive web app typically costs ₹1.5 lakh to ₹5 lakh, a first release for Android and iOS from one codebase ₹4 lakh to ₹12 lakh, and a full-featured app with an admin panel and integrations ₹12 lakh and above. The calculator above adds up platform, screens, features, integrations and design to give a range for your own app."],
+  ["How much does it cost to develop an app in India in 2026?", "With Infovion Technologies, an installable progressive web app typically costs ₹60,000 to ₹2.5 lakh, a first release for Android and iOS from one codebase ₹2 lakh to ₹6 lakh, and a full-featured app with an admin panel and integrations ₹6 lakh and above. Our developers work with AI coding tools, which is why these figures are lower than older price lists. The calculator above adds up platform, screens, features, integrations and design to give a range for your own app."],
   ["What decides the cost of a mobile app?", "Five things: the platform (a PWA, one codebase for Android and iOS, or two native apps), the number of screens and user types, features such as payments, chat, maps and offline use, integrations with other systems, and the level of design. The backend and admin panel are often half the work."],
   ["Is it cheaper to build one app for Android and iOS together?", "Yes. A cross-platform app built with a framework such as React Native shares most of its code between Android and iOS, so it costs noticeably less to build and maintain than two separate native apps. Native apps are worth the extra cost for heavy graphics or deep device features."],
   ["How long does it take to build an app?", "A first release usually takes six to ten weeks, and a full application three to five months. The calculator estimates a timeline from the size of the build. Work is delivered every two weeks, so you can test early."],
@@ -277,9 +277,9 @@ export function AppCostCalculatorPage() {
         <p><strong className="text-white">What the estimate leaves out.</strong> Google Play and Apple developer accounts (in your name), hosting, SMS and WhatsApp charges, and maintenance after the first thirty days.</p>
       </Explainer>
       <RangeTable caption="Typical app development budgets in India, 2026" head={["Type of app", "Typical budget", "Timeline"]} rows={[
-        ["Progressive web app", "₹1.5 – 5 lakh", "4 – 8 weeks"],
-        ["Android and iOS first release (MVP)", "₹4 – 12 lakh", "6 – 10 weeks"],
-        ["Full app with admin panel and integrations", "₹12 lakh and above", "3 – 5 months"],
+        ["Progressive web app", "₹60,000 – 2.5 lakh", "3 – 6 weeks"],
+        ["Android and iOS first release (MVP)", "₹2 – 6 lakh", "5 – 10 weeks"],
+        ["Full app with admin panel and integrations", "₹6 lakh and above", "3 – 5 months"],
         ["Annual maintenance (AMC)", "15 – 25% of build cost a year", "Ongoing"],
       ]} />
       <FaqList faqs={APP_FAQ} />
@@ -292,25 +292,25 @@ export function AppCostCalculatorPage() {
 // ── Software development cost ────────────────────────────────────────────────
 
 const KINDS = {
-  website: ["Business website", 30000, 3000, "pages"],
-  webapp: ["Web application or internal tool", 120000, 40000, "modules"],
-  crm: ["CRM or lead management", 150000, 40000, "modules"],
-  erp: ["ERP (inventory, sales, purchase, accounts)", 350000, 55000, "modules"],
-  saas: ["SaaS product (multi-tenant MVP)", 500000, 55000, "modules"],
-  store: ["Custom online store or B2B portal", 250000, 40000, "modules"],
-  ai: ["AI assistant or automation", 120000, 45000, "workflows"],
+  website: ["Business website", 15000, 1500, "pages"],
+  webapp: ["Web application or internal tool", 60000, 22000, "modules"],
+  crm: ["CRM or lead management", 75000, 22000, "modules"],
+  erp: ["ERP (inventory, sales, purchase, accounts)", 180000, 30000, "modules"],
+  saas: ["SaaS product (multi-tenant MVP)", 250000, 30000, "modules"],
+  store: ["Custom online store or B2B portal", 120000, 22000, "modules"],
+  ai: ["AI assistant or automation", 60000, 25000, "workflows"],
 };
-const MIGRATION = { none: ["No existing data", 0], sheets: ["From spreadsheets", 30000], system: ["From an existing system", 90000] };
-const MOBILE = { none: ["No mobile app", 0], pwa: ["Installable PWA", 120000], both: ["Android and iOS apps", 350000] };
-const REPORTS = { basic: ["Standard reports", 0], dash: ["Management dashboards", 60000], mis: ["Advanced MIS and scheduled reports", 150000] };
+const MIGRATION = { none: ["No existing data", 0], sheets: ["From spreadsheets", 15000], system: ["From an existing system", 45000] };
+const MOBILE = { none: ["No mobile app", 0], pwa: ["Installable PWA", 60000], both: ["Android and iOS apps", 180000] };
+const REPORTS = { basic: ["Standard reports", 0], dash: ["Management dashboards", 30000], mis: ["Advanced MIS and scheduled reports", 75000] };
 
 function SoftwareCalculator({ path }) {
   const [v, setV] = useState({ cur: "INR", kind: "erp", units: "5", roles: "4", integrations: "2", migration: "sheets", mobile: "none", reports: "dash" });
   const set = (k) => (e) => setV((s) => ({ ...s, [k]: e.target.value }));
   const [kName, base, perUnit, unitName] = KINDS[v.kind];
   const unitCost = num(v.units) * perUnit;
-  const roleCost = v.kind === "website" ? 0 : Math.max(0, num(v.roles) - 2) * 25000;
-  const integCost = num(v.integrations) * 40000;
+  const roleCost = v.kind === "website" ? 0 : Math.max(0, num(v.roles) - 2) * 12000;
+  const integCost = num(v.integrations) * 20000;
   const total = base + unitCost + roleCost + integCost + MIGRATION[v.migration][1] + MOBILE[v.mobile][1] + REPORTS[v.reports][1];
   const m = (x) => money(v.cur, x);
   const pick = (map) => Object.entries(map).map(([k, [l]]) => [k, l]);
@@ -354,9 +354,9 @@ function SoftwareCalculator({ path }) {
 }
 
 const SOFTWARE_FAQ = [
-  ["How much does custom software development cost in India?", "With Infovion Technologies, a single internal tool or module typically costs ₹1.5 lakh to ₹4 lakh, a business system with four to eight modules ₹4 lakh to ₹15 lakh, and a multi-role platform with portals and integrations ₹15 lakh and above. A five-page business website starts at about ₹25,000. The calculator above gives a range for your own scope."],
-  ["How much does ERP software development cost?", "A custom ERP covering three to six departments typically costs ₹5 lakh to ₹20 lakh in India, and a multi-branch ERP with integrations ₹20 lakh and above. Cost follows the number of modules, user roles, branches, integrations such as GST e-invoicing and Tally, and the data to be migrated."],
-  ["How much does CRM software development cost in India?", "A focused CRM or lead management system typically costs ₹1.5 lakh to ₹5 lakh, depending on lead sources, pipeline stages, automation such as WhatsApp follow-ups, and reporting. There is no per-user licence on custom software."],
+  ["How much does custom software development cost in India?", "With Infovion Technologies, a single internal tool or module typically costs ₹75,000 to ₹2 lakh, a business system with four to eight modules ₹2.5 lakh to ₹8 lakh, and a multi-role platform with portals and integrations ₹8 lakh and above. A five-page business website starts at about ₹15,000. Our developers work with AI coding tools, which is why these figures are lower than older price lists. The calculator above gives a range for your own scope."],
+  ["How much does ERP software development cost?", "With Infovion, a custom ERP covering three to six departments typically costs ₹3 lakh to ₹10 lakh, and a multi-branch ERP with integrations ₹10 lakh and above. Cost follows the number of modules, user roles, branches, integrations such as GST e-invoicing and Tally, and the data to be migrated."],
+  ["How much does CRM software development cost in India?", "With Infovion, a focused CRM or lead management system typically costs ₹1 lakh to ₹3 lakh, depending on lead sources, pipeline stages, automation such as WhatsApp follow-ups, and reporting. There is no per-user licence on custom software."],
   ["What is the hourly rate for software development in India?", "Infovion charges about ₹800 to ₹2,000 an hour for clients in India and about $12 to $25 an hour for clients abroad. Most projects are fixed-price by milestone, so the hourly rate matters mainly for small changes and support."],
   ["Why do quotes for the same software differ so much?", "Because they often price different things. Check whether each quote includes design, testing, data migration, deployment, source code ownership, documentation and support after launch. A written scope with acceptance criteria makes quotes comparable."],
   ["Is custom software cheaper than a subscription product?", "A product is cheaper when your process is standard. Custom software costs more up front and carries no per-user fee, so it tends to cost less over three to five years for larger teams, and it fits processes a product cannot."],
@@ -383,12 +383,12 @@ export function SoftwareCostCalculatorPage() {
         <p>For the detail behind these figures, read <Link to="/blog/custom-software-development-cost-india" className="text-sky-300 underline hover:text-sky-200">custom software development cost in India</Link>.</p>
       </Explainer>
       <RangeTable caption="Typical software development budgets in India, 2026" head={["Type of software", "Typical budget", "Timeline"]} rows={[
-        ["Business website (five pages)", "₹25,000 – 75,000", "2 – 3 weeks"],
-        ["Single internal tool or module", "₹1.5 – 4 lakh", "4 – 8 weeks"],
-        ["CRM or lead management system", "₹1.5 – 5 lakh", "6 – 10 weeks"],
-        ["Business system with 4 – 8 modules", "₹4 – 15 lakh", "3 – 5 months"],
-        ["ERP covering 3 – 6 departments", "₹5 – 20 lakh", "3 – 6 months"],
-        ["SaaS first release", "₹6 – 20 lakh", "8 – 14 weeks"],
+        ["Business website (five pages)", "₹15,000 – 50,000", "1 – 2 weeks"],
+        ["Single internal tool or module", "₹75,000 – 2 lakh", "3 – 6 weeks"],
+        ["CRM or lead management system", "₹1 – 3 lakh", "4 – 8 weeks"],
+        ["Business system with 4 – 8 modules", "₹2.5 – 8 lakh", "2 – 4 months"],
+        ["ERP covering 3 – 6 departments", "₹3 – 10 lakh", "3 – 5 months"],
+        ["SaaS first release", "₹4 – 12 lakh", "8 – 14 weeks"],
       ]} />
       <FaqList faqs={SOFTWARE_FAQ} />
       <MoreTools current={path} />

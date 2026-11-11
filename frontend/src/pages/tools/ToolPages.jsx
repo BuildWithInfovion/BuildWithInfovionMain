@@ -116,7 +116,7 @@ const SCHOOL_TOOLS = [
 const HUB_FAQ = [
   ["Are these tools free?", "Yes. Every calculator, format and certificate generator on this page is free to use, with no sign-up and no limit."],
   ["Is anything I type stored or uploaded?", "No. The tools run in your browser. Nothing you enter is sent to Infovion unless you choose to share a result with us on WhatsApp or through the contact form."],
-  ["How accurate are the cost calculators?", "They give planning ranges built from Infovion's published 2026 prices for India, the same ranges shown on our service pages. A fixed price needs a short call and a written scope, which we usually send within two business days."],
+  ["How accurate are the cost calculators?", "They give planning ranges built from Infovion's AI-assisted build prices for India in 2026. A fixed price needs a short call and a written scope, which we usually send within two business days."],
   ["Who makes these tools?", "Infovion Technologies, a software development company in Pune, India, and the maker of Infovion School ERP and Infovion JMS jewellery software. The jewellery tools use the same sums as Infovion JMS."],
 ];
 
@@ -148,7 +148,7 @@ export function ToolsIndex() {
       <PageHero trail={[["Free tools", "/free-tools"]]} kicker="Free tools" title="Free calculators, formats and certificate makers"
         sub="Tools we built for the people we work with: businesses planning software, jewellers and school offices. No sign-up, nothing uploaded, and every result can be printed, copied or shared on WhatsApp." />
 
-      {group("Software and apps", "Cost calculators for software buyers", "Work out a budget before you ask for quotes. The figures follow our published 2026 prices.", SOFTWARE_TOOLS, "Calculator")}
+      {group("Software and apps", "Cost calculators for software buyers", "Work out a budget before you ask for quotes. The figures are our own AI-assisted build prices for 2026.", SOFTWARE_TOOLS, "Calculator")}
       {group("Jewellery", "Gold calculators and bill formats", "For jewellers, pawnbrokers and their customers, in India and the Gulf.", JEWELLERY_TOOLS, "Gem")}
       {group("Schools", "Certificate generators for school offices", "The certificates parents ask for every day, in the right format, in seconds.", SCHOOL_TOOLS, "GraduationCap")}
 
