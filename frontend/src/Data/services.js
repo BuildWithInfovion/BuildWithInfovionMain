@@ -68,7 +68,7 @@ export const SERVICES = [
     updated: "2026-11-05",
     countries: ["United States", "United Kingdom", "Canada", "Australia", "New Zealand", "United Arab Emirates", "Saudi Arabia", "Singapore", "Germany", "Netherlands", "Ireland", "India"],
     answerQ: "How much does it cost to outsource software development to India?",
-    answer: "With Infovion Technologies, a software company in Pune, India, development costs from about $12 to $25 an hour, a dedicated full-time developer from about $900 to $1,800 a month, and a small web app or MVP typically $3,000 to $15,000 as a fixed-price project. Maintenance of existing software runs under a yearly contract (AMC) from about $150 a month. Clients outside India are invoiced in USD by international bank transfer and pay no Indian GST, because the work is an export of services. The source code and intellectual property belong to the client.",
+    answer: "With Infovion Technologies, a software company in Pune, India, development costs from about $12 to $25 an hour, a dedicated full-time developer from about $900 to $1,800 a month, and a small web app or MVP typically $2,000 to $8,000 as a fixed-price project. Maintenance of existing software runs under a yearly contract (AMC) from about $150 a month. Clients outside India are invoiced in USD by international bank transfer and pay no Indian GST, because the work is an export of services. The source code and intellectual property belong to the client.",
     intro: "Businesses in the US, UK, Europe, Australia and the Gulf outsource to us for the same reasons: lower cost than local developers, people who reply on WhatsApp and email the same day, and a fixed price before work begins. One small team in Pune builds your software, maintains it, or works as your developers by the month.",
     build: [
       ["Fixed-price projects", "Web apps, mobile apps, portals and internal tools, scoped in writing and priced before work starts, with payments by milestone."],
@@ -90,12 +90,12 @@ export const SERVICES = [
     cost: {
       title: "Cost of outsourcing software development to India",
       sub: "Infovion's indicative prices in US dollars for 2026, for planning. Each project gets its own written quote after a first call; prices are the same whatever country you are in.",
-      ranges: [["Hourly development", "$12 – 25 an hour"], ["Dedicated full-time developer", "$900 – 1,800 a month"], ["Small web app or MVP, fixed price", "$3,000 – 15,000"], ["Software maintenance (AMC)", "From $150 a month"]],
+      ranges: [["Hourly development", "$12 – 25 an hour"], ["Dedicated full-time developer", "$900 – 1,800 a month"], ["Small web app or MVP, fixed price", "$2,000 – 8,000"], ["Software maintenance (AMC)", "From $150 a month"]],
       drivers: ["Skills needed: front end, back end, mobile, DevOps", "Size and condition of existing code", "Number of user roles, screens and integrations", "Hours of overlap you need with your time zone"],
       timeline: "A first call within two business days; a small project starts within a week, a dedicated developer within one to two weeks.",
     },
     faqs: [
-      ["How much does it cost to outsource software development to India?", "With Infovion, about $12 to $25 an hour, $900 to $1,800 a month for a dedicated developer, and typically $3,000 to $15,000 for a small web app or MVP at a fixed price. Maintenance starts from about $150 a month."],
+      ["How much does it cost to outsource software development to India?", "With Infovion, about $12 to $25 an hour, $900 to $1,800 a month for a dedicated developer, and typically $2,000 to $8,000 for a small web app or MVP at a fixed price. Maintenance starts from about $150 a month."],
       ["Do clients outside India pay Indian GST?", "No. Software services supplied to a client outside India and paid for in foreign currency are an export of services, which is zero-rated under section 16 of the IGST Act. Your invoice carries no Indian GST. Taxes in your own country are yours to check."],
       ["How do you handle the time difference?", "We agree overlap hours at the start: a daily or twice-weekly call in your working hours, written updates every day, and a staging link to test. For the UK, Europe, the Gulf and Australia, several hours of the working day overlap; for the US, calls are in your morning."],
       ["How do I pay?", "By international bank transfer in USD, against invoices tied to milestones for projects, or monthly for dedicated developers and maintenance. No large upfront payment: the first milestone is small, so you can judge the work."],

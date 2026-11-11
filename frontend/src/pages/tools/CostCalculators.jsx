@@ -495,7 +495,7 @@ export function DeveloperCostCalculatorPage() {
       <RangeTable caption="Infovion's rates for clients outside India, 2026" head={["Engagement", "Price (USD)"]} rows={[
         ["Hourly development", "$12 – 25 an hour"],
         ["Dedicated full-time developer", "$900 – 1,800 a month"],
-        ["Web app or MVP, fixed price", "$3,000 – 15,000"],
+        ["Web app or MVP, fixed price", "$2,000 – 8,000"],
         ["Software maintenance (AMC)", "From $150 a month"],
       ]} />
       <FaqList faqs={DEV_FAQ} />

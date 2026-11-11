@@ -43,7 +43,7 @@ export const offshorePosts = [
         <tbody>
           <tr><td>Hourly development</td><td>$12 – 25 an hour</td></tr>
           <tr><td>Dedicated full-time developer</td><td>$900 – 1,800 a month</td></tr>
-          <tr><td>Web app or MVP, fixed price</td><td>$3,000 – 15,000</td></tr>
+          <tr><td>Web app or MVP, fixed price</td><td>$2,000 – 8,000</td></tr>
           <tr><td>Maintenance (AMC)</td><td>From $150 a month</td></tr>
         </tbody>
       </table>
@@ -96,7 +96,7 @@ export const offshorePosts = [
       ${src([["Nasscom review figures, February 2026 (ETV Bharat)", "https://www.etvbharat.com/en/business/india-fy26-tech-revenues-hit-usd-315-billion-enn26022404879"], ["European Commission: standard contractual clauses", "https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en"]])}
     `,
     faqs: [
-      ["How much does it cost to outsource software development to India?", "At a small Indian firm like Infovion, about $12–25 an hour, $900–1,800 a month for a dedicated full-time developer, and typically $3,000–15,000 for a web app or MVP at a fixed price."],
+      ["How much does it cost to outsource software development to India?", "At a small Indian firm like Infovion, about $12–25 an hour, $900–1,800 a month for a dedicated full-time developer, and typically $2,000–8,000 for a web app or MVP at a fixed price."],
       ["Is it safe to outsource software development to India?", "It is when the basics are in place: an NDA, a contract that assigns the IP to you, code in your own repository from day one, milestone payments and a staging link you can test. Start with a small paid milestone."],
       ["Do I pay Indian GST when I outsource to India?", "No. Software services supplied from India to a client abroad are an export of services and zero-rated, so the invoice carries no Indian GST."],
       ["How do I contact Infovion from outside India?", `WhatsApp ${WA}, call +91 91563 02024, or email contact@infovion.in. The team works 9 am–10 pm India time, seven days a week.`],
@@ -210,7 +210,7 @@ export const offshorePosts = [
         <tbody>
           <tr><td>Hourly development</td><td>AED 45 – 90</td></tr>
           <tr><td>Dedicated full-time developer</td><td>AED 3,300 – 6,600 a month</td></tr>
-          <tr><td>Web app or MVP, fixed price</td><td>AED 11,000 – 55,000</td></tr>
+          <tr><td>Web app or MVP, fixed price</td><td>AED 7,500 – 30,000</td></tr>
           <tr><td>Maintenance (AMC)</td><td>From AED 550 a month</td></tr>
         </tbody>
       </table>
@@ -422,7 +422,7 @@ export const offshorePosts = [
 
       <h2>Three real scenarios</h2>
       <ul>
-        <li><strong>A startup with a clear MVP</strong> (sign-up, a dashboard, payments, an admin panel): fixed price, typically $3,000–15,000, delivered in fortnightly releases.</li>
+        <li><strong>A startup with a clear MVP</strong> (sign-up, a dashboard, payments, an admin panel): fixed price, typically $2,000–8,000, delivered in fortnightly releases.</li>
         <li><strong>A business with a live product and a long backlog</strong>: a dedicated developer at $900–1,800 a month, working from your list every two weeks.</li>
         <li><strong>An agency with a one-off integration</strong> for a client: a per-task quote, agreed before work starts.</li>
       </ul>
@@ -439,7 +439,7 @@ export const offshorePosts = [
       </ul>
 
       <h2>Prices at Infovion</h2>
-      <p>Fixed-price web apps and MVPs typically $3,000–15,000; dedicated developers $900–1,800 a month; per-task work quoted before starting, hourly $12–25. Details: <a href="/services/on-demand-software-development">on-demand developers</a> and <a href="/services/offshore-software-development-india">outsourcing to India</a>.</p>
+      <p>Fixed-price web apps and MVPs typically $2,000–8,000; dedicated developers $900–1,800 a month; per-task work quoted before starting, hourly $12–25. Details: <a href="/services/on-demand-software-development">on-demand developers</a> and <a href="/services/offshore-software-development-india">outsourcing to India</a>.</p>
     `,
     faqs: [
       ["Is a dedicated developer cheaper than a fixed-price project?", "Not necessarily. Fixed price costs less when the scope is clear and stable; a dedicated developer costs less when requirements change often, because changes do not need re-quoting."],
