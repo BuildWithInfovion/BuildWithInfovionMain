@@ -19,7 +19,8 @@ const LIGHT_PAGES = ["/privacy-policy", "/terms-of-service"];
 const COMPANY_LINKS = [
   ["/about", "About us", "Who we are and how we work"],
   ["/how-we-work", "How we work", "Process, engagement models, guarantees"],
-  ["/case-studies", "Case studies", "Software we built and run"],
+  ["/case-studies", "Our work", "Case studies and solution blueprints"],
+  ["/free-tools", "Free tools", "Cost calculators, formats, certificates"],
   ["/government", "Government", "E-governance & public sector"],
   ["/company-profile", "Company profile", "Printable, for tenders & vendors"],
   ["/blog", "Blog & guides", "Practical articles and how-tos"],

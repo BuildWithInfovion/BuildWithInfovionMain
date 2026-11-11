@@ -82,11 +82,11 @@ export const organizationNode = () => {
     identifier: [{ "@type": "PropertyValue", propertyID: "Udyam Registration Number (MSME, Government of India)", value: COMPANY.udyam }],
     knowsAbout: [
       "Custom software development", "Web application development", "Website development", "Mobile app development", "Progressive web apps",
-      "ERP software development", "CRM development", "SaaS product development", "UI/UX design", "AI automation", "Cloud and DevOps",
+      "ERP software development", "CRM development", "SaaS product development", "MVP development", "UI/UX design", "AI automation", "AI agent development", "Retrieval-augmented generation (RAG)", "WhatsApp Business API chatbots", "AI invoice processing", "Cloud and DevOps",
       "API integration", "MIS and dashboards", "E-governance software", "GIGW 3.0", "School management software", "Jewellery management software",
       "Software maintenance and AMC", "On-demand software development", "Application security", "OWASP Top 10", "DPDP Act compliance", "Fixing apps built with AI coding tools (vibe coding)",
       "Offshore software development", "IT outsourcing to India", "Dedicated developers", "White-label development", "GDPR standard contractual clauses", "Arabic RTL applications", "ZATCA e-invoicing integration",
-      "Healthcare software development", "Hospital management systems", "ABDM integration", "HL7 FHIR", "WCAG 2.2 accessibility audits", "Pharmaceutical software", "21 CFR Part 11",
+      "Stone crusher and quarry ERP", "Real estate CRM", "Healthcare software development", "Hospital management systems", "ABDM integration", "HL7 FHIR", "WCAG 2.2 accessibility audits", "Pharmaceutical software", "21 CFR Part 11",
     ],
     sameAs: Object.values(COMPANY.socials).concat(COMPANY.productHunt),
     contactPoint: [

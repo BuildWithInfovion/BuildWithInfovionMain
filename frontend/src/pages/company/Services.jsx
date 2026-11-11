@@ -6,17 +6,18 @@ import { GhostButton, GlowButton, Reveal } from "../../components/fx/Fx";
 import { AnswerBox, CtaBand, FaqList, Icon, LinkRow, PageHero, Section } from "../../components/site/Ui";
 import { SERVICES, HEALTHCARE, OFFSHORE, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
 import { wa, SITE } from "../../Data/company";
+import { showcaseBySlug, showcasePath } from "../../Data/showcase";
 import { serviceSchema } from "../../lib/seo";
 
 const GROUPS = [
   ["Build", "Software, applications and platforms", ["custom-software-development", "offshore-software-development-india", "on-demand-software-development", "web-development", "mobile-app-development", "erp-crm-development", "saas-product-development", "ecommerce-development"]],
   ["Design and data", "Interface design and reporting", ["ui-ux-design", "dashboards-mis-reporting"]],
-  ["Automation and integration", "Connecting systems and reducing manual work", ["ai-automation", "api-integration"]],
+  ["AI and automation", "AI agents, chatbots and connected systems", ["ai-automation", "ai-agent-development", "whatsapp-chatbot-development", "api-integration"]],
   ["Fix, secure and support", "Rescue, security, hosting and maintenance", ["vibe-coding-help", "application-security", "software-maintenance-support", "cloud-devops"]],
 ];
 
 const HUB_FAQ = [
-  ["What services does Infovion Technologies offer?", "Custom software development, offshore development and maintenance for clients outside India, on-demand developers by the task, hour or month, help fixing and launching apps built with AI tools (vibe coding), application security, website and web application development, mobile application development, ERP and CRM development, SaaS product development, UI/UX design, e-commerce development, AI and business automation, cloud and DevOps, API integration, dashboards and MIS reporting, and software maintenance under annual contracts. We also deliver e-governance projects for government bodies."],
+  ["What services does Infovion Technologies offer?", "Custom software development, AI automation, AI agents and WhatsApp chatbots, offshore development and maintenance for clients outside India, on-demand developers by the task, hour or month, help fixing and launching apps built with AI tools (vibe coding), application security, website and web application development, mobile application development, ERP and CRM development, SaaS product development, UI/UX design, e-commerce development, AI and business automation, cloud and DevOps, API integration, dashboards and MIS reporting, and software maintenance under annual contracts. We also deliver e-governance projects for government bodies."],
   ["Which industries do you work with?", "Education, jewellery and retail, government and the public sector, manufacturing, healthcare, real estate and professional services, and startups. Our own products serve schools and jewellery retailers."],
   ["Can you take over a project started by another vendor?", "Yes. We begin with a short paid audit of the existing code and infrastructure, then recommend whether to complete, repair or rebuild the system, based on the lower long-term cost."],
   ["How does an engagement begin?", "With a consultation of thirty to forty-five minutes, or a short brief sent through the contact form. We respond within one business day and usually send a written scope and fixed-price proposal within two business days of the consultation."],
@@ -50,8 +51,8 @@ export function ServicesIndex() {
   return (
     <>
       <Helmet>
-        <title>Software Development Services: Web, Mobile, ERP, AI | Infovion</title>
-        <meta name="description" content="Software development services by Infovion Technologies, Pune: custom software, websites, mobile apps, ERP and CRM, SaaS, AI automation and maintenance." />
+        <title>Software Development and AI Automation Services | Infovion</title>
+        <meta name="description" content="Software development services from Pune, India: custom software, mobile apps, ERP and CRM, SaaS, AI agents, WhatsApp chatbots, automation and maintenance." />
         <link rel="canonical" href={`${SITE}/services`} />
         <meta property="og:title" content="Software Development Services | Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/services`} />
@@ -93,6 +94,15 @@ export function ServicesIndex() {
         </div>
       </Section>
 
+      <Section kicker="Free tools" title="Plan your budget before you call" className="py-12">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          <LinkRow to="/app-development-cost-calculator" icon="Calculator" title="App development cost calculator" body="Platform, screens and features in; a budget range and timeline out." />
+          <LinkRow to="/software-development-cost-calculator" icon="Calculator" title="Software development cost calculator" body="Website, web app, CRM, ERP or SaaS, by modules, roles and integrations." />
+          <LinkRow to="/hire-developers-india-cost-calculator" icon="Calculator" title="Developer cost calculator" body="A dedicated developer in India against hiring in your own country." />
+          <LinkRow to="/ai-automation-roi-calculator" icon="Calculator" title="AI automation ROI calculator" body="Hours saved, monthly saving and payback period." />
+        </div>
+      </Section>
+
       <Section kicker="Process" title="How engagements are run" className="py-12">
         <ProcessSteps />
       </Section>
@@ -123,7 +133,7 @@ export function ServicePage({ slug: fixedSlug }) {
     "school-erp-platform": ["Case study: a multi-tenant school ERP", "The design and operation of a school management platform with eight role portals, online fee collection and more than forty backend modules.", "/case-studies/school-erp-platform"],
     "jewellery-management-system": ["Case study: billing, girvi and stock for a jewellery retailer", "Replacing paper bills and girvi registers at a jewellery store in Maharashtra with a single system.", "/case-studies/jewellery-management-system"],
     "infovion-website": ["Case study: a website engineered for search", "How www.infovion.in was built for performance, search engines and AI assistants.", "/case-studies/infovion-website"],
-  }[s.proof];
+  }[s.proof] ?? (showcaseBySlug(s.proof) && [`Solution blueprint: ${showcaseBySlug(s.proof).title.replace(/^An? /, "")}`, showcaseBySlug(s.proof).summary, showcasePath(showcaseBySlug(s.proof)), "View the blueprint"]);
   const waText = s.waText ?? `Hello Infovion, I would like to discuss ${s.noun}.`;
   const contactTo = `/contact?service=${s.contactAs ?? s.slug}`;
 
@@ -241,7 +251,7 @@ export function ServicePage({ slug: fixedSlug }) {
               <h2 className="mt-2 font-display text-xl font-semibold text-white sm:text-2xl">{proof[0]}</h2>
               <p className="mt-1.5 max-w-2xl text-sm text-slate-300">{proof[1]}</p>
             </div>
-            <span className="inline-flex flex-shrink-0 items-center gap-2 text-sm font-semibold text-white">Read the case study <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+            <span className="inline-flex flex-shrink-0 items-center gap-2 text-sm font-semibold text-white">{proof[3] ?? "Read the case study"} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
           </Link>
         </Section>
       )}

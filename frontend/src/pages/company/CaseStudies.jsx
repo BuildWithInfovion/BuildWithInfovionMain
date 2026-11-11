@@ -8,18 +8,19 @@ import { Breadcrumbs, CtaBand, LinkRow, PageHero, Section } from "../../componen
 import { CASE_STUDIES, caseStudyBySlug } from "../../Data/caseStudies";
 import { PRODUCTS, SITE } from "../../Data/company";
 import { ORG_ID } from "../../lib/seo";
+import { SolutionCards } from "./Solutions";
 
 export function CaseStudiesIndex() {
   return (
     <>
       <Helmet>
-        <title>Case Studies | Infovion Technologies</title>
-        <meta name="description" content="Projects delivered by Infovion Technologies: a multi-tenant school ERP, a billing and girvi system for a jeweller, and a search-ready company website." />
+        <title>Our Work: Case Studies and Solution Blueprints | Infovion</title>
+        <meta name="description" content="Software by Infovion Technologies: a school ERP, jewellery billing system and website we delivered, plus blueprints for AI agents, hospital and crusher ERP." />
         <link rel="canonical" href={`${SITE}/case-studies`} />
         <meta property="og:url" content={`${SITE}/case-studies`} />
       </Helmet>
-      <PageHero trail={[["Case studies", "/case-studies"]]} kicker="Case studies" title="Selected work"
-        sub="Systems we have designed, built and continue to operate. Each case study describes the requirement, the solution and the outcome." />
+      <PageHero trail={[["Work", "/case-studies"]]} kicker="Our work" title="Case studies and solution blueprints"
+        sub="First, systems we have designed, built and continue to operate. Below them, blueprints: detailed designs for AI agents, a hospital management system, a stone crusher ERP and more, ready to be built for you." />
       <Section className="pt-0">
         <div className="grid gap-6">
           {CASE_STUDIES.map((c, i) => (
@@ -39,6 +40,10 @@ export function CaseStudiesIndex() {
             </Reveal>
           ))}
         </div>
+      </Section>
+      <Section id="blueprints" kicker="Solution blueprints" title="Systems we have designed and can build for you"
+        sub="Each blueprint sets out the problem, the modules, how the system works, the technology, and a budget and timeline. Screens are design mockups with sample data; these are designs, not client engagements.">
+        <div className="mt-12"><SolutionCards /></div>
       </Section>
       <CtaBand />
     </>

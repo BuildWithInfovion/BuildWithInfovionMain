@@ -21,6 +21,12 @@ const Industries = lazy(() => import("./pages/company/Industries"));
 const CaseStudies = lazy(() => import("./pages/company/CaseStudies").then((m) => ({ default: m.CaseStudiesIndex })));
 const CaseStudy = lazy(() => import("./pages/company/CaseStudies").then((m) => ({ default: m.CaseStudyPage })));
 const Products = lazy(() => import("./pages/company/CaseStudies").then((m) => ({ default: m.ProductsIndex })));
+const Solution = lazy(() => import("./pages/company/Solutions"));
+// Free planning calculators for software buyers
+const AppCostCalc = lazy(() => import("./pages/tools/CostCalculators").then((m) => ({ default: m.AppCostCalculatorPage })));
+const SoftwareCostCalc = lazy(() => import("./pages/tools/CostCalculators").then((m) => ({ default: m.SoftwareCostCalculatorPage })));
+const DeveloperCostCalc = lazy(() => import("./pages/tools/CostCalculators").then((m) => ({ default: m.DeveloperCostCalculatorPage })));
+const AutomationRoiCalc = lazy(() => import("./pages/tools/CostCalculators").then((m) => ({ default: m.AutomationRoiCalculatorPage })));
 const Government = lazy(() => import("./pages/company/Government"));
 const HowWeWork = lazy(() => import("./pages/company/HowWeWork"));
 const CompanyProfile = lazy(() => import("./pages/company/CompanyProfile"));
@@ -81,6 +87,7 @@ const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const PAGE_MODULES = [
   () => import("./pages/company/Services"),
   () => import("./pages/company/CaseStudies"),
+  () => import("./pages/company/Solutions"),
   () => import("./pages/company/Industries"),
   () => import("./pages/company/Government"),
   () => import("./pages/company/HowWeWork"),
@@ -120,7 +127,7 @@ const globalSchema = {
       dateModified: __BUILD_DATE__,
       name: "Infovion Technologies",
       alternateName: "Infovion",
-      description: "Software development company in Pune, India — custom software, web and mobile apps, ERP, SaaS, AI automation, e-governance — and the makers of Infovion School ERP and Infovion JMS.",
+      description: "Software development company in Pune, India — custom software, web and mobile apps, ERP, SaaS, AI agents and automation, e-governance — and the makers of Infovion School ERP and Infovion JMS.",
       publisher: { "@id": `${SITE}/#organization` },
       inLanguage: "en-IN",
       potentialAction: {
@@ -213,6 +220,11 @@ export function AppRoutes() {
             <Route path="/industries" element={<Industries />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:slug" element={<CaseStudy />} />
+            <Route path="/solutions/:slug" element={<Solution />} />
+            <Route path="/app-development-cost-calculator" element={<AppCostCalc />} />
+            <Route path="/software-development-cost-calculator" element={<SoftwareCostCalc />} />
+            <Route path="/hire-developers-india-cost-calculator" element={<DeveloperCostCalc />} />
+            <Route path="/ai-automation-roi-calculator" element={<AutomationRoiCalc />} />
             <Route path="/products" element={<Products />} />
             <Route path="/government" element={<Government />} />
             <Route path="/how-we-work" element={<HowWeWork />} />

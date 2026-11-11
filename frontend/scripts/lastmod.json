@@ -1,15 +1,23 @@
 {
  "/": {
-  "hash": "a1921800dda4ecb9",
-  "date": "2026-11-05"
+  "hash": "1fe148948f168807",
+  "date": "2026-11-11"
  },
  "/abdm-integration": {
-  "hash": "05b17a965bf9709b",
-  "date": "2026-11-05"
+  "hash": "99c25769e5fc6a96",
+  "date": "2026-11-11"
  },
  "/about": {
   "hash": "206e9d34a1616f82",
   "date": "2026-10-27"
+ },
+ "/ai-automation-roi-calculator": {
+  "hash": "ab60c8674245ed4b",
+  "date": "2026-11-11"
+ },
+ "/app-development-cost-calculator": {
+  "hash": "044a9b02ebad138d",
+  "date": "2026-11-11"
  },
  "/blog": {
   "hash": "b281012585070ca6",
@@ -144,8 +152,8 @@
   "date": "2026-11-05"
  },
  "/case-studies": {
-  "hash": "f789e1ca43f4da24",
-  "date": "2026-10-27"
+  "hash": "f37c3d2f50f4f587",
+  "date": "2026-11-11"
  },
  "/case-studies/infovion-website": {
   "hash": "30016f3b13e4f8e3",
@@ -160,16 +168,16 @@
   "date": "2026-10-27"
  },
  "/company-profile": {
-  "hash": "c95f2adf75883a57",
-  "date": "2026-11-05"
+  "hash": "087e21a2f989a0dd",
+  "date": "2026-11-11"
  },
  "/contact": {
-  "hash": "80d3f8c8c810a567",
-  "date": "2026-11-05"
+  "hash": "c4ec90d1d76f3a2b",
+  "date": "2026-11-11"
  },
  "/dpdp-compliance": {
-  "hash": "7c2963fd3bf0e4ba",
-  "date": "2026-11-05"
+  "hash": "d899243dd336fd08",
+  "date": "2026-11-11"
  },
  "/dubai-gold-price-calculator": {
   "hash": "41e60f6bb1ed94e9",
@@ -180,20 +188,20 @@
   "date": "2026-10-27"
  },
  "/free-tools": {
-  "hash": "a4c5d92532a13407",
-  "date": "2026-11-08"
+  "hash": "d3f153ef35114aa1",
+  "date": "2026-11-11"
  },
  "/free-tools/bonafide-certificate": {
-  "hash": "43d1e38bcb19575a",
-  "date": "2026-11-08"
+  "hash": "31d85ae2385b620f",
+  "date": "2026-11-11"
  },
  "/free-tools/school-leaving-certificate-marathi": {
-  "hash": "060260811e3de879",
-  "date": "2026-11-08"
+  "hash": "8d24757196ee4d42",
+  "date": "2026-11-11"
  },
  "/free-tools/transfer-certificate": {
-  "hash": "9b7b21c62dc22e24",
-  "date": "2026-11-08"
+  "hash": "89593bb0a79b1236",
+  "date": "2026-11-11"
  },
  "/free-trial": {
   "hash": "f17e12f42a25fed1",
@@ -232,12 +240,16 @@
   "date": "2026-11-05"
  },
  "/healthcare-software-development": {
-  "hash": "433d915df77c9714",
-  "date": "2026-11-05"
+  "hash": "ec95bb92bfc24222",
+  "date": "2026-11-11"
+ },
+ "/hire-developers-india-cost-calculator": {
+  "hash": "ce2735391e588b04",
+  "date": "2026-11-11"
  },
  "/hospital-management-system-development": {
-  "hash": "9ae4f2f5fe17fd6a",
-  "date": "2026-11-05"
+  "hash": "34d7194fe60beed5",
+  "date": "2026-11-11"
  },
  "/how-we-work": {
   "hash": "7b0607ab849c9cf0",
@@ -248,8 +260,8 @@
   "date": "2026-11-05"
  },
  "/industries": {
-  "hash": "5de6943d0dd2d730",
-  "date": "2026-11-05"
+  "hash": "15999581c90ba2ca",
+  "date": "2026-11-11"
  },
  "/infovion-jms-features": {
   "hash": "022d3433078bb84d",
@@ -360,40 +372,40 @@
   "date": "2026-10-27"
  },
  "/offshore-software-development-australia": {
-  "hash": "f2c2b03ed5ffb1ad",
-  "date": "2026-11-05"
+  "hash": "f12d43875c05df0d",
+  "date": "2026-11-11"
  },
  "/offshore-software-development-canada": {
-  "hash": "ae6db781b62bce89",
-  "date": "2026-11-05"
+  "hash": "9ff0a01839c7eb19",
+  "date": "2026-11-11"
  },
  "/offshore-software-development-dubai-uae": {
-  "hash": "0cb48cc008d93c11",
-  "date": "2026-11-05"
+  "hash": "ea61586cc1fd4de7",
+  "date": "2026-11-11"
  },
  "/offshore-software-development-europe": {
-  "hash": "a336e27c8eabf7d7",
-  "date": "2026-11-05"
+  "hash": "178a0563a5abcb08",
+  "date": "2026-11-11"
  },
  "/offshore-software-development-saudi-arabia": {
-  "hash": "6f9536f303c234bf",
-  "date": "2026-11-05"
+  "hash": "99c6e93e3494884e",
+  "date": "2026-11-11"
  },
  "/offshore-software-development-uk": {
-  "hash": "274a41effbd98b6e",
-  "date": "2026-11-05"
+  "hash": "860e909879bf9663",
+  "date": "2026-11-11"
  },
  "/offshore-software-development-usa": {
-  "hash": "496b0bdcc3fd9c10",
-  "date": "2026-11-05"
+  "hash": "edfa0985b7377ec5",
+  "date": "2026-11-11"
  },
  "/old-gold-purchase-voucher-format": {
   "hash": "a282870b48a488a3",
   "date": "2026-10-27"
  },
  "/pharma-software-development": {
-  "hash": "46fa091c1e60a807",
-  "date": "2026-11-05"
+  "hash": "1d761933886ca7ce",
+  "date": "2026-11-11"
  },
  "/privacy-policy": {
   "hash": "05a9e8a490c9beb9",
@@ -432,72 +444,108 @@
   "date": "2026-10-27"
  },
  "/services": {
-  "hash": "4544604dfaa3fa81",
-  "date": "2026-11-05"
+  "hash": "8d4b6883097080d0",
+  "date": "2026-11-11"
+ },
+ "/services/ai-agent-development": {
+  "hash": "9ec606068e89a8d8",
+  "date": "2026-11-11"
  },
  "/services/ai-automation": {
-  "hash": "8055ed00b2404555",
-  "date": "2026-10-27"
+  "hash": "f6824e3645b3e095",
+  "date": "2026-11-11"
  },
  "/services/api-integration": {
-  "hash": "35275c9993972b0e",
-  "date": "2026-10-27"
+  "hash": "859a5867378007fe",
+  "date": "2026-11-11"
  },
  "/services/application-security": {
-  "hash": "4f9ffdb5fecab180",
-  "date": "2026-11-05"
+  "hash": "7f58967ceb309dca",
+  "date": "2026-11-11"
  },
  "/services/cloud-devops": {
-  "hash": "7fe4f5e474e32d58",
-  "date": "2026-10-27"
+  "hash": "0fd52cf21b20226b",
+  "date": "2026-11-11"
  },
  "/services/custom-software-development": {
-  "hash": "b6845cdd3f48021c",
-  "date": "2026-11-05"
+  "hash": "55798243ea5df132",
+  "date": "2026-11-11"
  },
  "/services/dashboards-mis-reporting": {
-  "hash": "1c55ed567dd84697",
-  "date": "2026-10-27"
+  "hash": "c301141948204402",
+  "date": "2026-11-11"
  },
  "/services/ecommerce-development": {
-  "hash": "2b2bd3bebd7c03b5",
-  "date": "2026-10-27"
+  "hash": "4dae2acda094cb07",
+  "date": "2026-11-11"
  },
  "/services/erp-crm-development": {
-  "hash": "ef6cc2bdc83a8670",
-  "date": "2026-10-27"
+  "hash": "026faae28fc63380",
+  "date": "2026-11-11"
  },
  "/services/mobile-app-development": {
-  "hash": "754f7256ca6758bd",
-  "date": "2026-10-27"
+  "hash": "9126e402bee581aa",
+  "date": "2026-11-11"
  },
  "/services/offshore-software-development-india": {
-  "hash": "2e6e87a5228845a7",
-  "date": "2026-11-05"
+  "hash": "8690089d56b6534f",
+  "date": "2026-11-11"
  },
  "/services/on-demand-software-development": {
-  "hash": "496af7d389e76ac8",
-  "date": "2026-11-05"
+  "hash": "d828971f609929b5",
+  "date": "2026-11-11"
  },
  "/services/saas-product-development": {
-  "hash": "dc0152789061bc37",
-  "date": "2026-10-27"
+  "hash": "f1c9fa93a4cfca2a",
+  "date": "2026-11-11"
  },
  "/services/software-maintenance-support": {
-  "hash": "2a3366f30e22399e",
-  "date": "2026-11-05"
+  "hash": "65c3202280f596aa",
+  "date": "2026-11-11"
  },
  "/services/ui-ux-design": {
-  "hash": "d05fdbecf322246e",
-  "date": "2026-10-27"
+  "hash": "c51687e3303337db",
+  "date": "2026-11-11"
  },
  "/services/vibe-coding-help": {
-  "hash": "1f7cec75dbc8143f",
-  "date": "2026-11-05"
+  "hash": "23d1f83491560d62",
+  "date": "2026-11-11"
  },
  "/services/web-development": {
-  "hash": "9859e5b5e35d4e44",
-  "date": "2026-10-27"
+  "hash": "9f0a9596e5cc4c95",
+  "date": "2026-11-11"
+ },
+ "/services/whatsapp-chatbot-development": {
+  "hash": "a46d7ce2d0857007",
+  "date": "2026-11-11"
+ },
+ "/software-development-cost-calculator": {
+  "hash": "6a62ea086f9a7c4c",
+  "date": "2026-11-11"
+ },
+ "/solutions/ai-customer-support-agent-saas": {
+  "hash": "46f01595ebe045a4",
+  "date": "2026-11-11"
+ },
+ "/solutions/ai-invoice-processing-tally": {
+  "hash": "d2e600820bc40296",
+  "date": "2026-11-11"
+ },
+ "/solutions/ai-whatsapp-assistant-for-clinics": {
+  "hash": "913ef24647ca2c40",
+  "date": "2026-11-11"
+ },
+ "/solutions/hospital-management-system": {
+  "hash": "91c00aced56bfb6c",
+  "date": "2026-11-11"
+ },
+ "/solutions/real-estate-crm-ai-lead-management": {
+  "hash": "f811437aad6ec8ef",
+  "date": "2026-11-11"
+ },
+ "/solutions/stone-crusher-erp-software": {
+  "hash": "63dbaa5067e63038",
+  "date": "2026-11-11"
  },
  "/tally-for-jewellers": {
   "hash": "6a1da25295e72855",
@@ -572,7 +620,7 @@
   "date": "2026-11-05"
  },
  "/wcag-accessibility-audit": {
-  "hash": "f441f239cb227468",
-  "date": "2026-11-05"
+  "hash": "9fc0eeb891ad6e18",
+  "date": "2026-11-11"
  }
 }

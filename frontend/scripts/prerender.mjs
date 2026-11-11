@@ -13,6 +13,7 @@ const { PRERENDER_ROUTES } = await import(pathToFileURL(path.join(root, "src", "
 const { VIDEOS, videoFile, videoPoster } = await import(pathToFileURL(path.join(root, "src", "Data", "videos.js")).href);
 const { ALL_SERVICES } = await import(pathToFileURL(path.join(root, "src", "Data", "services.js")).href);
 const { CASE_STUDIES } = await import(pathToFileURL(path.join(root, "src", "Data", "caseStudies.js")).href);
+const { SHOWCASE } = await import(pathToFileURL(path.join(root, "src", "Data", "showcase.js")).href);
 
 // The page is already in the HTML, so the app bundle (needed only to hydrate it)
 // must not hold up the first paint: it is requested only once the browser has
@@ -41,7 +42,8 @@ const slugs = (blogPosts || []).map((p) => `/blog/${p.slug}`);
 const videoRoutes = VIDEOS.map((v) => `/videos/${v.slug}`);
 const serviceRoutes = ALL_SERVICES.map((s) => s.path ?? `/services/${s.slug}`);
 const caseRoutes = CASE_STUDIES.map((c) => `/case-studies/${c.slug}`);
-const routes = [...new Set([...PRERENDER_ROUTES, ...serviceRoutes, ...caseRoutes, ...slugs, ...videoRoutes])];
+const solutionRoutes = SHOWCASE.map((p) => `/solutions/${p.slug}`);
+const routes = [...new Set([...PRERENDER_ROUTES, ...serviceRoutes, ...caseRoutes, ...solutionRoutes, ...slugs, ...videoRoutes])];
 // Real last-modified dates for the sitemap: a hash of each page's own content (the <main> element,
 // title and description; not the header, footer or sitewide schema, which change on every page at
 // once) is kept in scripts/lastmod.json with the date it last changed. Only a page whose content
@@ -117,7 +119,7 @@ const videoTag = (u) => {
 const TOP = ["/services", "/school-management-software", "/jewellery-management-software", "/contact", "/government", "/healthcare-software-development"];
 const prio = (u) =>
   u === "/" ? "1.0"
-  : TOP.includes(u) || u.startsWith("/services/") || u === "/free-trial" ? "0.9"
+  : TOP.includes(u) || u.startsWith("/services/") || u === "/free-trial" || u.endsWith("-calculator") ? "0.9"
   : LEGAL.includes(u) ? "0.3"
   : u.startsWith("/blog/") || u.startsWith("/videos/") ? "0.6"
   : "0.8";

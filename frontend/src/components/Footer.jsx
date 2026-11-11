@@ -4,6 +4,7 @@ import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtu
 import PreferredSourceBadge from "./PreferredSourceBadge";
 import { OFFSHORE, SERVICES } from "../Data/services";
 import { COMPANY, fullAddress, jmsTrial } from "../Data/company";
+import { SHOWCASE, showcasePath } from "../Data/showcase";
 import { productOf } from "../lib/sections";
 
 
@@ -12,7 +13,7 @@ const PRODUCT_LINKS = [
   ["/school-management-software/features", "Features"],
   ["/school-management-software/pricing", "Pricing"],
   ["/free-trial", "Free trial"],
-  ["/free-tools", "Free certificate tools"],
+  ["/free-tools/transfer-certificate", "Free certificate tools"],
   ["/school-management-software-maharashtra", "For Maharashtra schools"],
   ["/fee-management-software-for-schools", "Fee management"],
   ["/school-attendance-app", "Attendance app"],
@@ -40,7 +41,8 @@ const PRODUCT_LINKS = [
 const COMPANY_LINKS = [
   ["/about", "About us"],
   ["/how-we-work", "How we work"],
-  ["/case-studies", "Case studies"],
+  ["/case-studies", "Our work"],
+  ["/free-tools", "Free tools"],
   ["/industries", "Industries"],
   ["/government", "Government"],
   ["/company-profile", "Company profile"],
@@ -147,7 +149,24 @@ export default function Footer() {
           </div>
         </div>
 
-        <nav aria-label="Clients outside India" className="mt-12 border-t border-white/10 pt-6 text-sm">
+        <nav aria-label="Free tools and solution blueprints" className="mt-12 space-y-3 border-t border-white/10 pt-6 text-sm">
+          <p className="text-slate-400">
+            <Link to="/free-tools" className="font-semibold text-slate-200 hover:text-white">Free tools</Link>
+            <span className="text-slate-500">: </span>
+            {[["/app-development-cost-calculator", "App development cost calculator"], ["/software-development-cost-calculator", "Software cost calculator"], ["/hire-developers-india-cost-calculator", "Hire developers in India: cost"], ["/ai-automation-roi-calculator", "AI automation ROI calculator"], ["/gold-price-calculator", "Gold price calculator"], ["/jewellery-bill-formats", "Jewellery bill formats"]].map(([to, t], i) => (
+              <React.Fragment key={to}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={to} className="text-slate-400 hover:text-white">{t}</Link></React.Fragment>
+            ))}
+          </p>
+          <p className="text-slate-400">
+            <Link to="/case-studies#blueprints" className="font-semibold text-slate-200 hover:text-white">Solution blueprints</Link>
+            <span className="text-slate-500">: </span>
+            {SHOWCASE.map((p, i) => (
+              <React.Fragment key={p.slug}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={showcasePath(p)} className="text-slate-400 hover:text-white">{p.short}</Link></React.Fragment>
+            ))}
+          </p>
+        </nav>
+
+        <nav aria-label="Clients outside India" className="mt-6 border-t border-white/10 pt-6 text-sm">
           <p className="text-slate-400">
             <Link to="/services/offshore-software-development-india" className="font-semibold text-slate-200 hover:text-white">Outsourcing software development to India</Link>
             <span className="text-slate-500"> for clients in </span>

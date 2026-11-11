@@ -5,14 +5,18 @@ import { ArrowRight, ArrowUpRight, Check, Landmark } from "lucide-react";
 import { GhostButton, GlowButton, Kicker, Reveal } from "../../components/fx/Fx";
 import { CtaBand, FaqList, Icon, LinkRow, Section } from "../../components/site/Ui";
 import { SERVICES, PROCESS, ENGAGEMENT } from "../../Data/services";
-import { COMPANY, TECH } from "../../Data/company";
+import { TECH } from "../../Data/company";
+import { SolutionCards } from "./Solutions";
+import { SHOWCASE } from "../../Data/showcase";
 
 const FAQ = [
-  ["What does Infovion Technologies do?", "Infovion Technologies is a software development company based in Pune, India. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards and AI-based automation for businesses, institutions and government bodies. We also develop two products of our own: Infovion School ERP and Infovion JMS, a jewellery management system."],
+  ["What does Infovion Technologies do?", "Infovion Technologies is a software development company based in Pune, India. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop two products of our own: Infovion School ERP and Infovion JMS, a jewellery management system."],
   ["Do you work with clients outside Pune and outside India?", "Yes. Most of our engagements are delivered remotely, with scheduled video reviews, a shared project board and a staging environment the client can access at any time. Our working hours overlap with the Gulf, the United Kingdom and Europe, and we schedule calls for clients in the Americas."],
   ["How is a project priced?", "After an initial consultation we send a written scope and a fixed-price proposal, with payments linked to milestones. As a guide, focused business tools in India typically cost ₹1.5 to 4 lakh and multi-module systems ₹4 to 15 lakh. Websites start at about ₹25,000."],
   ["Who owns the source code?", "The client. On final payment the complete source code, database, domain and hosting accounts are transferred to you, and the agreement states this explicitly."],
   ["Do you sign a non-disclosure agreement?", "Yes. We sign a mutual NDA before any business information is shared."],
+  ["Do you build AI agents and automation?", "Yes. We build AI agents for customer support and lead qualification, WhatsApp chatbots on the official Business API, invoice and document extraction posted to Tally or an ERP, and workflow automation. Each project starts with a proof of concept on your own data, typically ₹50,000 to ₹1.5 lakh."],
+  ["How much does it cost to build an app or software in India?", "An installable progressive web app typically costs ₹1.5 to 5 lakh, an Android and iOS first release ₹4 to 12 lakh, a CRM ₹1.5 to 5 lakh and an ERP ₹5 to 20 lakh. Our free app and software cost calculators give a range for your own scope."],
   ["What support do you provide after launch?", "Every project includes thirty days of support after go-live. After that, clients can choose a monthly or annual maintenance contract covering fixes, updates, backups, monitoring and minor enhancements."],
   ["Do you take up government and public sector work?", "Yes. Infovion Technologies is a Udyam-registered MSME. We develop websites aligned with GIGW 3.0 and WCAG 2.1 AA, e-governance portals, MIS dashboards and mobile applications, with data hosted in India."],
 ];
@@ -33,8 +37,8 @@ const INDUSTRIES = [
   ["Store", "Retail and distribution", "/industries#retail"],
   ["Factory", "Manufacturing", "/industries#manufacturing"],
   ["HeartPulse", "Healthcare", "/healthcare-software-development"],
+  ["Truck", "Mining and construction materials", "/industries#mining"],
   ["Building2", "Real estate and services", "/industries#services"],
-  ["Rocket", "Startups", "/industries#startups"],
 ];
 
 function Hero() {
@@ -48,7 +52,7 @@ function Hero() {
             Custom software for businesses, institutions and government
           </h1>
           <p className="rise mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
-            We plan, build and support web applications, mobile apps, ERP systems and websites. One team in Pune works with clients
+            We plan, build and support web applications, mobile apps, ERP systems, AI agents and automation. One team in Pune works with clients
             across India and abroad, at a fixed price agreed in writing.
             <span className="hidden sm:inline"> Our own products, Infovion School ERP and Infovion JMS, are in daily use in schools and jewellery shops.</span>
           </p>
@@ -137,6 +141,38 @@ function Products() {
           </Reveal>
         ))}
       </div>
+    </Section>
+  );
+}
+
+function Showcase() {
+  return (
+    <Section id="work" kicker="Solutions" title="Systems we design and build"
+      sub="Six blueprints, each worked through to modules, data flow, technology, budget and timeline: AI agents on WhatsApp and in support, invoice automation, a hospital system, a stone crusher ERP and a real estate CRM.">
+      <div className="mt-12"><SolutionCards items={SHOWCASE} /></div>
+      <p className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
+        <span>Screens are design mockups with sample data.</span>
+        <Link to="/case-studies" className="inline-flex items-center gap-1.5 font-semibold text-sky-300 hover:text-sky-200">Case studies of delivered work <ArrowRight className="h-4 w-4" /></Link>
+      </p>
+    </Section>
+  );
+}
+
+const TOOLS = [
+  ["/app-development-cost-calculator", "App development cost calculator", "Platform, screens and features in; a budget range and timeline out."],
+  ["/software-development-cost-calculator", "Software development cost calculator", "Website, web app, CRM, ERP or SaaS, by modules, roles and integrations."],
+  ["/hire-developers-india-cost-calculator", "Developer cost calculator", "A dedicated developer in India against hiring in the US, UK, UAE or Australia."],
+  ["/ai-automation-roi-calculator", "AI automation ROI calculator", "Hours saved, monthly saving and payback period for an automation."],
+];
+
+function Tools() {
+  return (
+    <Section kicker="Free tools" title="Work out your budget in two minutes"
+      sub="Free calculators built on our own 2026 prices. No sign-up; share the result on WhatsApp or send it to us for an exact quote.">
+      <div className="mt-10 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+        {TOOLS.map(([to, t, b]) => <LinkRow key={to} to={to} icon="Calculator" title={t} body={b} />)}
+      </div>
+      <Link to="/free-tools" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">All free tools, including gold calculators and school certificates <ArrowRight className="h-4 w-4" /></Link>
     </Section>
   );
 }
@@ -252,17 +288,19 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Infovion Technologies | Software Development Company in Pune</title>
-        <meta name="description" content="Infovion Technologies is a software development company in Pune, India: custom software, web and mobile apps, ERP and SaaS, at a fixed price agreed upfront." />
+        <title>Software Development & AI Automation Company, Pune | Infovion</title>
+        <meta name="description" content="Infovion Technologies, Pune: custom software, mobile apps, ERP, SaaS, AI agents and automation for clients in India and abroad, at a fixed price agreed upfront." />
         <link rel="canonical" href="https://www.infovion.in/" />
         <meta property="og:title" content="Infovion Technologies | Software Development Company in Pune, India" />
-        <meta property="og:description" content="Custom software, web and mobile applications, ERP and SaaS for businesses, institutions and government. Pune, India." />
+        <meta property="og:description" content="Custom software, web and mobile applications, ERP, SaaS, AI agents and automation for businesses, institutions and government. Pune, India." />
         <meta property="og:url" content="https://www.infovion.in/" />
       </Helmet>
       <Hero />
       <Facts />
       <Services />
+      <Showcase />
       <Products />
+      <Tools />
       <Industries />
       <Process />
       <Commitments />

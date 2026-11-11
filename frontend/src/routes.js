@@ -12,6 +12,11 @@ export const PRERENDER_ROUTES = [
   "/company-profile",
   "/about",
   "/contact",
+  // Free planning calculators for software buyers
+  "/app-development-cost-calculator",
+  "/software-development-cost-calculator",
+  "/hire-developers-india-cost-calculator",
+  "/ai-automation-roi-calculator",
   // Infovion School ERP
   "/school-management-software",
   "/school-management-software/features",

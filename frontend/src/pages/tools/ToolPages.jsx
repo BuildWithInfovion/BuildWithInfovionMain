@@ -1,9 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileBadge2, FileText, ScrollText, ReceiptText } from "lucide-react";
 import CertificateTool from "./CertificateTool";
-import { Aurora, Kicker, Reveal, SpotlightCard } from "../../components/fx/Fx";
+import { CtaBand, FaqList, LinkRow, PageHero, Section } from "../../components/site/Ui";
+import { SITE } from "../../Data/company";
 
 export function LeavingCertificateTool() {
   return (
@@ -93,69 +93,87 @@ export function BonafideCertificateTool() {
   );
 }
 
-const TOOL_LIST = [
-  { to: "/free-tools/school-leaving-certificate-marathi", icon: ScrollText, title: "शाळा सोडल्याचा दाखला (Leaving Certificate)", body: "Maharashtra LC in Marathi, Marathi + English or English — date of birth in words automatically." },
-  { to: "/free-tools/transfer-certificate", icon: FileText, title: "Transfer Certificate (TC)", body: "The standard one-page school TC, ready to print on your letterhead." },
-  { to: "/free-tools/bonafide-certificate", icon: FileBadge2, title: "Bonafide certificate", body: "For bank accounts, scholarships, passports and concessions." },
+const SOFTWARE_TOOLS = [
+  ["/app-development-cost-calculator", "App development cost calculator", "Android, iOS or PWA: choose screens and features, get a budget range in INR, USD, AED or GBP and a timeline."],
+  ["/software-development-cost-calculator", "Software development cost calculator", "Website, web app, CRM, ERP or SaaS: cost by modules, user roles, integrations and data migration."],
+  ["/hire-developers-india-cost-calculator", "Hire developers in India: cost calculator", "A dedicated developer in India against in-house hiring in the US, UK, UAE, Australia, Canada or Europe."],
+  ["/ai-automation-roi-calculator", "AI automation ROI calculator", "Hours saved, monthly saving and payback period for automating a task."],
+];
+const JEWELLERY_TOOLS = [
+  ["/gold-price-calculator", "Gold price calculator (India)", "22K, 24K and 18K rate per gram, making charges, 3% GST and old gold exchange."],
+  ["/dubai-gold-price-calculator", "Dubai gold price calculator", "AED rate per gram by karat, making charges and 5% VAT."],
+  ["/girvi-interest-calculator", "Girvi interest calculator", "Interest on a gold loan, counted by days at a monthly rate."],
+  ["/jewellery-bill-format", "Jewellery GST bill format", "A gold jewellery bill with GST: fill in, print, save as PDF or download in Excel."],
+  ["/girvi-receipt-format", "Girvi receipt format", "Pledge receipt with ornament details, amount, interest rate and due date."],
+  ["/jewellery-bill-formats", "All jewellery formats", "Estimate, old gold purchase voucher, karigar slip and UAE tax invoice."],
+];
+const SCHOOL_TOOLS = [
+  ["/free-tools/school-leaving-certificate-marathi", "शाळा सोडल्याचा दाखला (Leaving Certificate)", "Maharashtra LC in Marathi, Marathi + English or English, with date of birth in words."],
+  ["/free-tools/transfer-certificate", "Transfer Certificate (TC)", "The standard one-page school TC, ready to print on your letterhead."],
+  ["/free-tools/bonafide-certificate", "Bonafide certificate", "For bank accounts, scholarships, passports and concessions."],
+];
+
+const HUB_FAQ = [
+  ["Are these tools free?", "Yes. Every calculator, format and certificate generator on this page is free to use, with no sign-up and no limit."],
+  ["Is anything I type stored or uploaded?", "No. The tools run in your browser. Nothing you enter is sent to Infovion unless you choose to share a result with us on WhatsApp or through the contact form."],
+  ["How accurate are the cost calculators?", "They give planning ranges built from Infovion's published 2026 prices for India, the same ranges shown on our service pages. A fixed price needs a short call and a written scope, which we usually send within two business days."],
+  ["Who makes these tools?", "Infovion Technologies, a software development company in Pune, India, and the maker of Infovion School ERP and Infovion JMS jewellery software. The jewellery tools use the same sums as Infovion JMS."],
 ];
 
 export function ToolsIndex() {
+  const all = [...SOFTWARE_TOOLS, ...JEWELLERY_TOOLS, ...SCHOOL_TOOLS];
+  const list = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Free tools by Infovion Technologies",
+    itemListElement: all.map(([to, name], i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}${to}`, name })),
+  };
+  const group = (kicker, title, sub, tools, icon) => (
+    <Section kicker={kicker} title={title} sub={sub} className="py-12">
+      <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+        {tools.map(([to, t, b]) => <LinkRow key={to} to={to} icon={icon} title={t} body={b} />)}
+      </div>
+    </Section>
+  );
   return (
-    <div className="bg-ink">
+    <>
       <Helmet>
-        <title>Free LC, TC and Bonafide Certificate Generators | Infovion</title>
-        <meta name="description" content="Free certificate generators for Indian schools: Marathi school leaving certificate, transfer certificate (TC) and bonafide certificate. No sign-up needed." />
-        <link rel="canonical" href="https://www.infovion.in/free-tools" />
+        <title>Free Tools: App Cost, Gold Price, School Certificates | Infovion</title>
+        <meta name="description" content="Free online tools: app and software development cost calculators, developer cost and AI ROI calculators, gold price calculator, jewellery bill formats, school TC." />
+        <link rel="canonical" href={`${SITE}/free-tools`} />
+        <meta property="og:title" content="Free tools by Infovion Technologies" />
+        <meta property="og:url" content={`${SITE}/free-tools`} />
+        <script type="application/ld+json">{JSON.stringify(list)}</script>
       </Helmet>
-      <section className="noise relative overflow-hidden pb-24 pt-32 sm:pt-40">
-        <Aurora strong />
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
-          <Kicker>Free tools</Kicker>
-          <h1 className="mt-6 max-w-3xl font-display text-4xl font-extrabold leading-[1.03] tracking-tight text-white sm:text-6xl">
-            Free tools for <span className="text-gradient-aurora">school offices.</span>
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-slate-400">Make the certificates parents ask for every day — in the right format, in seconds. No sign-up, nothing uploaded.</p>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {TOOL_LIST.map((t, i) => {
-              const Icon = t.icon;
-              return (
-                <Reveal key={t.to} delay={i * 0.06}>
-                  <Link to={t.to} className="block h-full">
-                    <SpotlightCard className="h-full rounded-3xl border border-white/[0.08] bg-white/[0.03] p-7 transition-colors hover:border-teal-400/40">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-400/10 text-teal-300 ring-1 ring-teal-400/20"><Icon className="h-5 w-5" /></span>
-                      <h2 className="mt-5 font-display text-lg font-bold text-white">{t.title}</h2>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-400">{t.body}</p>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300">Open the tool <ArrowRight className="h-4 w-4" /></span>
-                    </SpotlightCard>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
-          <div className="mt-16 grid gap-10 lg:grid-cols-2">
-            <div className="text-[15px] leading-relaxed text-slate-300">
-              <h2 className="font-display text-2xl font-bold text-white">Which certificate does a parent need?</h2>
-              <p className="mt-4"><strong className="text-white">School Leaving Certificate (LC, शाळा सोडल्याचा दाखला):</strong> issued when a student leaves the school, in the format Maharashtra schools use. The next school asks for it at admission. <Link to="/free-tools/school-leaving-certificate-marathi" className="text-teal-300 underline">Make one in Marathi</Link>.</p>
-              <p className="mt-4"><strong className="text-white">Transfer Certificate (TC):</strong> the leaving document most CBSE, ICSE and other state schools issue, with the student's class, conduct and dues status. <Link to="/free-tools/transfer-certificate" className="text-teal-300 underline">Make a transfer certificate</Link>.</p>
-              <p className="mt-4"><strong className="text-white">Bonafide certificate:</strong> confirms that the student is currently studying at the school. Parents ask for it for scholarships, bank accounts, passports and concessions. <Link to="/free-tools/bonafide-certificate" className="text-teal-300 underline">Make a bonafide certificate</Link>.</p>
-            </div>
-            <div className="text-[15px] leading-relaxed text-slate-300">
-              <h2 className="font-display text-2xl font-bold text-white">How the tools work</h2>
-              <ol className="mt-4 list-decimal space-y-2 pl-5">
-                <li>Open the certificate you need and fill in the school's details once.</li>
-                <li>Type the student's details; the page shows the certificate as it will print.</li>
-                <li>Print it on the school's letterhead or save it as a PDF.</li>
-              </ol>
-              <p className="mt-4">Everything happens in your browser: nothing is uploaded to us, the school's details are remembered only on your own device, and no sign-up is needed. The school head signs and stamps the printed certificate as usual.</p>
-            </div>
-          </div>
+      <PageHero trail={[["Free tools", "/free-tools"]]} kicker="Free tools" title="Free calculators, formats and certificate makers"
+        sub="Tools we built for the people we work with: businesses planning software, jewellers and school offices. No sign-up, nothing uploaded, and every result can be printed, copied or shared on WhatsApp." />
 
-          <div className="glass mt-10 flex flex-wrap items-center justify-between gap-4 rounded-3xl p-6">
-            <p className="flex items-center gap-3 text-slate-300"><ReceiptText className="h-5 w-5 text-teal-300" /> Issuing certificates, receipts and report cards for the whole school? Infovion makes them from your records.</p>
-            <Link to="/free-trial" className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300">Try it free <ArrowRight className="h-4 w-4" /></Link>
+      {group("Software and apps", "Cost calculators for software buyers", "Work out a budget before you ask for quotes. The figures follow our published 2026 prices.", SOFTWARE_TOOLS, "Calculator")}
+      {group("Jewellery", "Gold calculators and bill formats", "For jewellers, pawnbrokers and their customers, in India and the Gulf.", JEWELLERY_TOOLS, "Gem")}
+      {group("Schools", "Certificate generators for school offices", "The certificates parents ask for every day, in the right format, in seconds.", SCHOOL_TOOLS, "GraduationCap")}
+
+      <Section className="py-10">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div className="text-[15px] leading-relaxed text-slate-300">
+            <h2 className="font-display text-2xl font-bold text-white">Which certificate does a parent need?</h2>
+            <p className="mt-4"><strong className="text-white">School Leaving Certificate (LC, शाळा सोडल्याचा दाखला):</strong> issued when a student leaves the school, in the format Maharashtra schools use. The next school asks for it at admission. <Link to="/free-tools/school-leaving-certificate-marathi" className="text-sky-300 underline">Make one in Marathi</Link>.</p>
+            <p className="mt-4"><strong className="text-white">Transfer Certificate (TC):</strong> the leaving document most CBSE, ICSE and other state schools issue, with the student's class, conduct and dues status. <Link to="/free-tools/transfer-certificate" className="text-sky-300 underline">Make a transfer certificate</Link>.</p>
+            <p className="mt-4"><strong className="text-white">Bonafide certificate:</strong> confirms that the student is currently studying at the school. Parents ask for it for scholarships, bank accounts, passports and concessions. <Link to="/free-tools/bonafide-certificate" className="text-sky-300 underline">Make a bonafide certificate</Link>.</p>
+          </div>
+          <div className="text-[15px] leading-relaxed text-slate-300">
+            <h2 className="font-display text-2xl font-bold text-white">How the tools work</h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5">
+              <li>Open the tool you need and fill in the details; the result updates as you type.</li>
+              <li>Calculators show how the figure is made up, line by line.</li>
+              <li>Print, save as PDF, copy, or share the result on WhatsApp.</li>
+            </ol>
+            <p className="mt-4">Everything happens in your browser: nothing is uploaded to us, and no sign-up is needed. The cost calculators give planning ranges, not quotes; for a fixed price, <Link to="/contact" className="text-sky-300 underline">send us a short brief</Link>.</p>
           </div>
         </div>
-      </section>
-    </div>
+      </Section>
+
+      <FaqList faqs={HUB_FAQ} />
+      <CtaBand title="Need software built for your business?" />
+    </>
   );
 }

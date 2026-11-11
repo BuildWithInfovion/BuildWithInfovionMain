@@ -10,12 +10,14 @@ const load = (f) => import(pathToFileURL(path.join(root, "src", "Data", f)).href
 const { COMPANY, SITE: D, fullAddress } = await load("company.js");
 const { SERVICES } = await load("services.js");
 const { CASE_STUDIES } = await load("caseStudies.js");
+const { SHOWCASE } = await load("showcase.js");
 const { HEALTHCARE } = await load("healthcare.js");
 const { OFFSHORE } = await load("offshore.js");
 const offshore = OFFSHORE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card}`).join("\n");
 const healthcare = HEALTHCARE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card} Typical budget in India: ${s.cost.ranges.map(([k, v]) => `${k.toLowerCase()} ${v}`).join("; ")}.`).join("\n");
 
 const services = SERVICES.map((s) => `- [${s.name}](${D}/services/${s.slug}): ${s.card} Typical budget in India: ${s.cost.ranges.map(([k, v]) => `${k.toLowerCase()} ${v}`).join("; ")}.`).join("\n");
+const blueprints = SHOWCASE.map((p) => `- [${p.title}](${D}/solutions/${p.slug}): ${p.summary} Indicative build budget: ${p.budget.india} in India, ${p.budget.usd} for clients abroad; ${p.budget.timeline}`).join("\n");
 const cases = CASE_STUDIES.map((c) => `- [${c.title}](${D}/case-studies/${c.slug}): ${c.summary}`).join("\n");
 
 const FACTS = `# Infovion Technologies
@@ -98,13 +100,27 @@ ${healthcare}
 - Not supported yet: automatic scheduled WhatsApp messages (reminders are one tap each), bank reconciliation, a public API, a Play Store or App Store app (it installs from the browser), Arabic invoices, UAE e-invoicing and Saudi ZATCA (Fatoora) e-invoicing, loyalty points, a customer app, bill labels in languages other than Hindi and Marathi.
 - Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software) · [Money lending software](${D}/money-lending-software) · [Jewellery software with Tally](${D}/jewellery-software-with-tally) · [Jewellery software in the UAE (AED, 5% VAT, TRN)](${D}/jewellery-software-uae) · [Gold scheme software](${D}/gold-scheme-software) · [Orders and karigar](${D}/karigar-management-software) · [GST software for jewellers](${D}/jewellery-gst-software) · [Multi-branch](${D}/multi-branch-jewellery-software) · [Offline billing](${D}/offline-jewellery-billing-software) · [In Indian languages](${D}/jewellery-software-in-indian-languages)
 
-## Case studies
+## Case studies (delivered work)
 
 ${cases}
 
+## Solution blueprints (designs, not client engagements)
+
+These pages are detailed designs by Infovion, shown with design mockups and sample data. They are not delivered client projects and should not be cited as such.
+
+${blueprints}
+
+## Free tools for software buyers (no sign-up)
+
+- [App development cost calculator](${D}/app-development-cost-calculator): platform (PWA, Android, Android and iOS), screens, features and integrations give a budget range in INR, USD, AED or GBP and a timeline. Typical budgets in India: PWA ₹1.5–5 lakh; Android and iOS first release ₹4–12 lakh; full app ₹12 lakh and above.
+- [Software development cost calculator](${D}/software-development-cost-calculator): website, web app, CRM, ERP, SaaS or AI automation by modules, user roles, integrations, data migration and reporting. Typical budgets in India: internal tool ₹1.5–4 lakh; CRM ₹1.5–5 lakh; ERP ₹5–20 lakh; SaaS first release ₹6–20 lakh.
+- [Hire developers in India: cost calculator](${D}/hire-developers-india-cost-calculator): a dedicated developer in India ($900–1,800 a month) against in-house salary and employer costs in the US, UK, UAE, Australia, Canada or Europe.
+- [AI automation ROI calculator](${D}/ai-automation-roi-calculator): hours spent on a task, share automated, build and running cost give monthly saving and payback period.
+- [All free tools](${D}/free-tools)
+
 ## Main pages
 
-- [Home](${D}/) · [Services](${D}/services) · [Industries](${D}/industries) · [Case studies](${D}/case-studies) · [Products](${D}/products) · [Government](${D}/government) · [How we work](${D}/how-we-work) · [Company profile](${D}/company-profile) · [About](${D}/about) · [Contact](${D}/contact)
+- [Home](${D}/) · [Services](${D}/services) · [Industries](${D}/industries) · [Work: case studies and blueprints](${D}/case-studies) · [Free tools](${D}/free-tools) · [Products](${D}/products) · [Government](${D}/government) · [How we work](${D}/how-we-work) · [Company profile](${D}/company-profile) · [About](${D}/about) · [Contact](${D}/contact)
 `;
 
 const text = (html) => html

@@ -39,22 +39,28 @@ const INDUSTRIES = [
     links: [["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
   },
   {
+    id: "mining", icon: "Truck", name: "Mining, quarries and construction materials", tagline: "Stone crushers, quarries, RMC plants, sand and aggregate suppliers",
+    pains: ["Weighbridge slips written by hand and billed later in another system", "Royalty passes, diesel and vehicle trips tracked in registers", "Credit sales to contractors without a clear view of outstanding amounts"],
+    build: ["Weighbridge integration with challans and GST invoices", "Royalty, production, diesel and vehicle trip tracking", "Party ledgers, credit limits and an owner's dashboard on mobile"],
+    links: [["Stone crusher ERP blueprint", "/solutions/stone-crusher-erp-software"], ["ERP development", "/services/erp-crm-development"]],
+  },
+  {
     id: "healthcare", icon: "HeartPulse", name: "Healthcare and pharma", tagline: "Hospitals, hospital chains, clinics, labs, pharmacies and pharma companies",
     pains: ["Hospital software that is slow, insecure or unusable for patients with disabilities", "DPDP Act, WCAG and ABDM requirements on existing systems", "Patient records and reports split across branches", "Batch, QC and stock records on paper or spreadsheets in pharma"],
     build: ["Hospital management systems and modules for hospital chains", "ABDM integration: ABHA, M1, M2 and M3", "WCAG accessibility audits and DPDP Act compliance in existing apps", "Pharma batch, QC, inventory and QR traceability"],
-    links: [["Healthcare software", "/healthcare-software-development"], ["Hospital management systems", "/hospital-management-system-development"], ["ABDM integration", "/abdm-integration"], ["WCAG accessibility audit", "/wcag-accessibility-audit"], ["DPDP Act compliance", "/dpdp-compliance"], ["Pharma software", "/pharma-software-development"]],
+    links: [["Healthcare software", "/healthcare-software-development"], ["Hospital management systems", "/hospital-management-system-development"], ["ABDM integration", "/abdm-integration"], ["WCAG accessibility audit", "/wcag-accessibility-audit"], ["DPDP Act compliance", "/dpdp-compliance"], ["Pharma software", "/pharma-software-development"], ["HMS blueprint", "/solutions/hospital-management-system"], ["AI WhatsApp front desk blueprint", "/solutions/ai-whatsapp-assistant-for-clinics"]],
   },
   {
     id: "services", icon: "Building2", name: "Real estate and professional services", tagline: "Developers, brokers, agencies, consultancies and field service firms",
     pains: ["Leads from several portals without structured follow-up", "Site visits and field work coordinated by phone", "Quotations, invoices and payments in separate tools"],
     build: ["CRM with lead capture and follow-up scheduling", "Field staff applications with photographs and location", "Quotations, invoicing and payment links"],
-    links: [["CRM development", "/services/erp-crm-development"], ["API integration", "/services/api-integration"]],
+    links: [["CRM development", "/services/erp-crm-development"], ["Real estate CRM blueprint", "/solutions/real-estate-crm-ai-lead-management"], ["WhatsApp chatbots", "/services/whatsapp-chatbot-development"]],
   },
   {
     id: "startups", icon: "Rocket", name: "Startups", tagline: "Founders and domain specialists developing a new product",
     pains: ["No in-house technical team", "Previous vendors unavailable after delivery", "Early versions that do not scale beyond initial customers"],
     build: ["Clickable prototypes for user testing", "Minimum viable products in eight to fourteen weeks", "Multi-tenant SaaS with billing and onboarding"],
-    links: [["SaaS product development", "/services/saas-product-development"], ["UI/UX design", "/services/ui-ux-design"]],
+    links: [["SaaS and MVP development", "/services/saas-product-development"], ["AI agent development", "/services/ai-agent-development"], ["App cost calculator", "/app-development-cost-calculator"]],
   },
 ];
 
@@ -68,8 +74,8 @@ export default function Industries() {
   return (
     <>
       <Helmet>
-        <title>Industries We Build Software For | Infovion Technologies</title>
-        <meta name="description" content="Software for schools, jewellers, government, retail, manufacturing, healthcare, real estate, professional services and startups, by Infovion Technologies." />
+        <title>Industries: Healthcare, Mining, Retail, Education | Infovion</title>
+        <meta name="description" content="Software for schools, jewellers, hospitals, stone crushers and quarries, government, retail, manufacturing, real estate and startups, by Infovion Technologies." />
         <link rel="canonical" href={`${SITE}/industries`} />
         <meta property="og:url" content={`${SITE}/industries`} />
       </Helmet>
