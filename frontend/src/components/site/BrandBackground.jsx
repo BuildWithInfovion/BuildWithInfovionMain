@@ -69,7 +69,8 @@ export default function BrandBackground() {
       const h1 = document.querySelector("main h1");
       const centred = Boolean(h1) && getComputedStyle(h1).textAlign === "center";
       const aside = !home && (centred || Boolean(document.querySelector("main [data-hero-aside]")));
-      veil.current = home ? 0 : aside ? 1 : narrow ? 0.3 : 0.18;
+      // On phones the logo would sit on the breadcrumb and title of an inner page, so it stays hidden there
+      veil.current = home ? 0 : aside || narrow ? 1 : 0.18;
       scene.current?.setVeil(veil.current);
     };
     // Pages load lazily: look again once the new page has mounted
