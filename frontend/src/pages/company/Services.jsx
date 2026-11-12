@@ -214,7 +214,7 @@ export function ServicePage({ slug: fixedSlug }) {
           <Reveal delay={0.06}>
             <div className="panel h-full rounded-xl p-7">
               <h2 className="font-display text-xl font-semibold text-white">Typical clients</h2>
-              <ul className="mt-5 space-y-2.5">{s.fit.map((f) => <li key={f} className="flex gap-2.5 text-[15px] text-slate-300"><Icon name={s.icon} className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" />{f}</li>)}</ul>
+              <ul className="mt-5 space-y-2.5">{s.fit.map((f) => <li key={f} className="flex gap-2.5 text-[15px] text-slate-300"><span aria-hidden="true" className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-slate-500" />{f}</li>)}</ul>
               <h2 className="mt-8 font-display text-xl font-semibold text-white">Technologies</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-slate-300">{s.stack.join(", ")}</p>
             </div>

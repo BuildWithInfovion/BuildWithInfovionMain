@@ -29,8 +29,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", '"Inter Fallback"', "system-ui", "sans-serif"],
-        display: ['"Plus Jakarta Sans"', '"Jakarta Fallback"', "Inter", "system-ui", "sans-serif"],
+        sans: ["Geist", '"Geist Fallback"', "system-ui", "sans-serif"],
+        display: ["Geist", '"Geist Fallback"', "system-ui", "sans-serif"],
+        mono: ['"Geist Mono"', "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
         serif: ['"Instrument Serif"', "Georgia", "serif"],
       },
       backgroundImage: {

@@ -396,8 +396,8 @@
 /* Blog articles on the dark theme (content HTML comes from Data/blogData.js) */
 .article-dark { color: #cbd5e1; font-size: 17px; line-height: 1.85; }
 .article-dark p { margin: 0 0 1.25em; color: #cbd5e1 !important; }
-.article-dark h2 { margin: 2em 0 .7em !important; font-family: "Plus Jakarta Sans", "Jakarta Fallback", Inter, sans-serif; font-size: 1.6rem !important; line-height: 1.25; font-weight: 800; color: #fff !important; letter-spacing: -0.01em; }
-.article-dark h3 { margin: 1.6em 0 .5em !important; font-family: "Plus Jakarta Sans", "Jakarta Fallback", Inter, sans-serif; font-size: 1.25rem !important; font-weight: 700; color: #fff !important; }
+.article-dark h2 { margin: 2em 0 .7em !important; font-family: "Geist", "Geist Fallback", system-ui, sans-serif; font-size: 1.6rem !important; line-height: 1.25; font-weight: 800; color: #fff !important; letter-spacing: -0.01em; }
+.article-dark h3 { margin: 1.6em 0 .5em !important; font-family: "Geist", "Geist Fallback", system-ui, sans-serif; font-size: 1.25rem !important; font-weight: 700; color: #fff !important; }
 .article-dark ul, .article-dark ol { margin: 0 0 1.25em 1.3em; }
 .article-dark ul { list-style: disc; } .article-dark ol { list-style: decimal; }
 .article-dark li { margin: .35em 0; color: #cbd5e1 !important; }
@@ -450,154 +450,106 @@
 .article-dark small { display: block; font-size: 13px; line-height: 1.6; color: #94a3b8; }
 .article-dark h3 { scroll-margin-top: 7rem; }
 
-/* ── PREMIUM LAYER (November 2026) ──────────────────────────────────────────
-   One visual language for the whole site: the logo blue with a violet second tone, an italic
-   serif for accent words, glass panels that lift, pill buttons with a light sweep, and a light
-   that travels round call-to-action blocks. Only transform and opacity animate, apart from the
-   border light (one small element at a time); everything stops for reduced motion. */
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/fonts/instrument-serif-italic-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+/* ── DESIGN SYSTEM (November 2026, second pass) ──────────────────────────────
+   Reference: the Linear design analysis in VoltAgent/awesome-design-md and the frontend-design
+   guidance in anthropics/skills. One typeface (Geist), a near-black canvas, light grey text and
+   the logo blue as the only colour. Surfaces are flat charcoal with hairlines; nothing glows at
+   rest. Boldness is spent in one place, the live product stage at the top of the home page. */
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/geist-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/fonts/geist-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(/fonts/geist-mono-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(/fonts/geist-mono-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* Stand-in until Geist arrives, sized to it so the swap does not move the page */
+@font-face { font-family: 'Geist Fallback'; src: local('Arial'), local('ArialMT'), local('Liberation Sans'); size-adjust: 104%; ascent-override: 92%; descent-override: 22%; line-gap-override: 0%; }
+
+:root {
+  --ink: #f4f6f8; --muted: #9aa3b2; --subtle: #6f7785;
+  --surface: #0b0d12; --surface-2: #10131a; --line: rgba(255,255,255,.08); --line-strong: rgba(255,255,255,.16);
+  --brand: #38b6ff; --ease: cubic-bezier(.16, 1, .3, 1);
 }
-:root { --brand: #38b6ff; --brand-soft: #7cc8ff; --violet: #a99bff; --ease-out: cubic-bezier(.16, 1, .3, 1); }
 h1, h2, h3 { text-wrap: balance; }
+h1.font-display, h2.font-display { font-weight: 600; letter-spacing: -0.042em; }
+h3.font-display, h4.font-display, p.font-display, span.font-display, dd.font-display, dt.font-display { font-weight: 600; letter-spacing: -0.02em; }
 
-/* Accent words in headings: italic serif in a soft blue-to-violet gradient */
-.text-gradient-aurora {
-  font-family: "Instrument Serif", Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400;
-  font-size: 1.1em; letter-spacing: -0.01em; padding-right: .08em;
-  background: linear-gradient(100deg, #eaf6ff 0%, #7cc8ff 42%, #a99bff 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-}
-/* Headings: white easing into a cool grey, for depth on the dark ground */
-.heading-sheen {
-  background: linear-gradient(180deg, #ffffff 35%, #b4c4dc 115%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-  padding-bottom: .09em;
-}
+/* The second half of a two-part heading sits back in grey */
+.text-gradient-aurora { color: #7f8896; font: inherit; }
 
-/* Buttons */
-.btn-primary, .btn-ghost { position: relative; overflow: hidden; border-radius: 9999px; transition: transform .4s var(--ease-out), box-shadow .4s ease, background-color .3s ease, border-color .3s ease; }
-.btn-primary {
-  background: linear-gradient(180deg, #ffffff, #dcefff); color: #020409;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.5), 0 10px 34px -12px rgba(56,182,255,.75), 0 2px 6px rgba(0,0,0,.45);
-}
-.btn-primary::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-130%);
-  background: linear-gradient(105deg, transparent 35%, rgba(56,182,255,.38) 50%, transparent 65%);
-  transition: transform .9s var(--ease-out);
-}
-.btn-ghost { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.16); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
-.btn-primary svg, .btn-ghost svg { transition: transform .4s var(--ease-out); }
+/* Quiet label above a section title: sentence case, no pill, no capitals */
+.kicker-pill { font-size: 14px; font-weight: 500; letter-spacing: 0; color: var(--brand); }
+.pulse-dot { display: none; }
+
+/* Buttons: one white, one outlined; square-ish corners, no glow */
+.btn-primary, .btn-ghost { border-radius: 10px; font-weight: 500; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.btn-primary { background: #fff; color: #05060a; }
+.btn-ghost { background: rgba(255,255,255,.04); border: 1px solid var(--line-strong); color: var(--ink); }
+.btn-primary svg.lucide-arrow-right, .btn-ghost svg.lucide-arrow-right { display: none; }
 .btn-primary:active, .btn-ghost:active { transform: scale(.98); }
 @media (hover: hover) and (pointer: fine) {
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.6), 0 18px 44px -12px rgba(56,182,255,.95), 0 2px 6px rgba(0,0,0,.45); }
-  .btn-primary:hover::after { transform: translateX(130%); }
-  .btn-primary:hover svg:last-child { transform: translateX(3px); }
-  .btn-ghost:hover { transform: translateY(-2px); background: rgba(125,211,252,.09); border-color: rgba(125,211,252,.5); }
+  .btn-primary:hover { background: #dfe5ee; }
+  .btn-ghost:hover { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.28); }
 }
 
-/* Small label above titles: a pill with a live dot */
-.kicker-pill {
-  display: inline-flex; align-items: center; gap: .6rem; padding: .42rem .85rem .42rem .7rem; border-radius: 9999px;
-  border: 1px solid rgba(148,163,184,.18); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
-  font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #bfe3ff;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
-}
-.pulse-dot { position: relative; width: 6px; height: 6px; flex: none; border-radius: 9999px; background: var(--brand); box-shadow: 0 0 10px 1px rgba(56,182,255,.9); }
-.kicker-live .pulse-dot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--brand); animation: ping 2.4s var(--ease-out) infinite; }
-@keyframes ping { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(3.4); opacity: 0; } }
-
-/* Panels: glass with a top highlight; the ones that are links lift and glow */
+/* Surfaces: flat charcoal, hairline edge. Links brighten their edge; nothing lifts. */
 .panel {
-  background:
-    radial-gradient(520px circle at var(--mx, -999px) var(--my, -999px), rgba(56,189,248,.11), transparent 46%),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.012) 38%),
-    rgba(4,7,14,.8);
-  border: 1px solid rgba(148,163,184,.15);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
-  transition: border-color .35s ease, box-shadow .5s ease, transform .5s var(--ease-out);
+  background: radial-gradient(480px circle at var(--mx, -999px) var(--my, -999px), rgba(56,182,255,.07), transparent 50%), rgba(11,13,18,.92);
+  border: 1px solid var(--line); box-shadow: none; transition: border-color .25s ease, background-color .25s ease;
 }
-@media (hover: hover) and (pointer: fine) {
-  a.panel:hover, .panel.lift:hover {
-    transform: translateY(-5px); border-color: rgba(125,211,252,.42);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 36px 80px -36px rgba(56,182,255,.5), 0 0 0 1px rgba(125,211,252,.08);
-  }
-}
-/* Icon tile on cards */
-.icon-chip {
-  display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; flex: none; border-radius: .85rem; color: #9fd8ff;
-  background: linear-gradient(140deg, rgba(56,182,255,.22), rgba(169,155,255,.12)); border: 1px solid rgba(125,211,252,.22);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
-  transition: transform .5s var(--ease-out), box-shadow .5s ease;
-}
-@media (hover: hover) and (pointer: fine) { .group:hover .icon-chip { transform: translateY(-2px) scale(1.06) rotate(-4deg); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 12px 30px -8px rgba(56,182,255,.85); } }
-
-/* Soft light at the top of a section, and a glimmering hairline between sections */
-.glow-top::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 360px; pointer-events: none;
-  background: radial-gradient(52% 100% at 50% 0%, rgba(56,182,255,.11), rgba(169,155,255,.04) 45%, transparent 72%);
-}
-.glow-top::after {
-  content: ""; position: absolute; top: 0; left: 50%; width: min(72rem, 88%); height: 1px; transform: translateX(-50%); pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(125,211,252,.55) 30%, rgba(169,155,255,.5) 70%, transparent);
-}
-/* Fine grid behind page heads, fading out from the top left */
-.hero-grid::before {
-  content: ""; position: absolute; inset: 0 auto auto 0; width: min(100%, 960px); height: min(100%, 640px); pointer-events: none;
-  background-image: linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 30% 20%, #000 20%, transparent 72%); mask-image: radial-gradient(ellipse 75% 70% at 30% 20%, #000 20%, transparent 72%);
-}
-
-/* A light travelling round the border (call-to-action blocks). A large conic gradient turns behind
-   the block (transform only, so it runs on the compositor) and an opaque inner layer leaves just
-   the 1px edge showing. Children sit above both layers. */
-.beam { position: relative; overflow: hidden; isolation: isolate; border-color: transparent !important; }
-.beam::before {
-  content: ""; position: absolute; left: 50%; top: 50%; width: 220%; aspect-ratio: 1; z-index: -2; pointer-events: none;
-  background: conic-gradient(rgba(148,163,184,.16) 0 70%, rgba(125,211,252,.95) 84%, #ffffff 90%, rgba(169,155,255,.9) 95%, rgba(148,163,184,.16) 100%);
-  transform: translate(-50%, -50%) rotate(0deg); animation: beam-spin 9s linear infinite; will-change: transform;
-}
-.beam::after { content: ""; position: absolute; inset: 1px; z-index: -1; border-radius: inherit; pointer-events: none; }
-@keyframes beam-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-.mesh, .beam.mesh::after {
-  background:
-    radial-gradient(60% 120% at 0% 0%, rgba(56,182,255,.2), transparent 60%),
-    radial-gradient(50% 120% at 100% 100%, rgba(169,155,255,.18), transparent 62%),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)), #04070e;
-}
-.beam.mesh { background: #04070e; }
-
-/* Headline words arrive one after another; they are never fully hidden, so the text paints at once */
-.word { display: inline-block; animation: word-in 1s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 60ms); }
-@keyframes word-in { from { opacity: .18; transform: translate3d(0, .55em, 0) rotate(2deg); } to { opacity: 1; transform: none; } }
-
-/* Large figures */
-.stat-num {
-  background: linear-gradient(180deg, #ffffff 20%, #7cc8ff 130%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-}
-/* Links in lists: a line draws under the row and the arrow moves */
-.row-link { position: relative; }
-.row-link::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, var(--brand), var(--violet), transparent); transition: transform .7s var(--ease-out); }
-@media (hover: hover) and (pointer: fine) { .row-link:hover::before { transform: scaleX(1); } }
-/* The company name, very large and faint, at the foot of the page */
+@media (hover: hover) and (pointer: fine) { a.panel:hover, .panel.lift:hover { border-color: var(--line-strong); } }
+.icon-chip { display: inline-flex; flex: none; color: var(--subtle); margin-top: .2rem; }
+.mesh { background: var(--surface); }
+.stat-num { color: var(--ink); }
 .wordmark {
-  font-family: "Plus Jakarta Sans", "Jakarta Fallback", Inter, sans-serif; font-weight: 800; letter-spacing: -.04em; line-height: .8; user-select: none;
-  background: linear-gradient(180deg, rgba(125,211,252,.16), rgba(125,211,252,0) 82%);
+  font-family: "Geist", "Geist Fallback", system-ui, sans-serif; font-weight: 700; letter-spacing: -.05em; line-height: .8; user-select: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,0) 80%);
   -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
 }
-.marquee { animation-duration: 46s; }
+.font-mono, .mock-ui { font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
 
-@media (max-width: 767px) { .beam::before { animation: none; will-change: auto; transform: translate(-50%, -50%) rotate(35deg); } }
+/* ── Motion ─────────────────────────────────────────────────────────────── */
+/* Headline: each line rises out of a mask, once, on load */
+.line { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.line > span { display: block; animation: line-up 1s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms); }
+/* Lines start partly in view and text never starts fully transparent, so the headline is painted
+   (and measured as the largest paint) on the first frame */
+@keyframes line-up { from { transform: translate3d(0, 62%, 0); } to { transform: none; } }
+.fade-up { animation: fade-up .9s var(--ease) both; animation-delay: var(--d, 0ms); }
+@keyframes fade-up { from { opacity: .02; transform: translate3d(0, 18px, 0); } to { opacity: 1; transform: none; } }
+
+/* Product stage: the active tab fills while its screen is showing */
+.stage-progress { transform-origin: 0 50%; animation: stage-progress var(--dur, 6s) linear both; }
+@keyframes stage-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.stage-pan { animation: stage-pan 7s ease-out both; }
+@keyframes stage-pan { from { transform: scale(1.045); } to { transform: scale(1); } }
+/* Interfaces come alive when shown: bars grow, lines draw, messages arrive */
+.mock-live .mock-bar { transform-origin: 50% 100%; animation: bar-grow .9s var(--ease) both; animation-delay: calc(var(--i, 0) * 60ms + 200ms); }
+.mock-live .mock-hbar { transform-origin: 0 50%; animation: hbar-grow 1s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms + 200ms); }
+.mock-live .mock-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s ease .25s forwards; }
+.mock-live .mock-msg { animation: fade-up .5s var(--ease) both; animation-delay: calc(var(--i, 0) * .65s + .4s); }
+@keyframes bar-grow { from { transform: scaleY(0); } to { transform: none; } }
+@keyframes hbar-grow { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* Small looping scenes in the capability grid */
+.loop-steps > * { opacity: 0; animation: loop-step var(--loop, 14s) infinite both; animation-delay: calc(var(--i, 0) * 1.5s); }
+@keyframes loop-step { 0% { opacity: 0; transform: translate3d(0, 10px, 0); } 4%, 78% { opacity: 1; transform: none; } 86%, 100% { opacity: 0; transform: none; } }
+.scan-line { animation: scan 3.4s ease-in-out infinite; }
+@keyframes scan { 0%, 100% { transform: translateY(0); opacity: 0; } 10%, 90% { opacity: 1; } 50% { transform: translateY(var(--travel, 150px)); } }
+.blink { animation: blink 1.6s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+.slow-rise { animation: slow-rise 16s ease-in-out infinite alternate; }
+@keyframes slow-rise { from { transform: translateY(0); } to { transform: translateY(-38%); } }
+/* Very large outlined words that slide as the page scrolls */
+.text-outline { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.22); }
+
 @media (prefers-reduced-motion: reduce) {
-  .word, .pulse-dot::after, .beam::before { animation: none !important; }
-  .btn-primary, .btn-ghost, .panel, .icon-chip { transition: none !important; }
+  .line > span, .fade-up, .stage-progress, .stage-pan, .scan-line, .blink, .slow-rise,
+  .mock-live .mock-bar, .mock-live .mock-hbar, .mock-live .mock-msg { animation: none !important; }
+  .mock-live .mock-line { animation: none !important; stroke-dashoffset: 0; }
+  .loop-steps > * { animation: none !important; opacity: 1; }
 }
 @media print { .wordmark { display: none; } }
 

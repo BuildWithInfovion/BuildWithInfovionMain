@@ -14,7 +14,7 @@ function Bars({ labels, values }) {
       {values.map((v, i) => (
         <div key={labels[i]} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-1">
           <span className="text-[9px] text-slate-400">{v}</span>
-          <div className="w-full rounded-t bg-gradient-to-t from-sky-500/50 to-sky-300" style={{ height: `${Math.max(6, (v / max) * 78)}%` }} />
+          <div className="mock-bar w-full rounded-t bg-gradient-to-t from-sky-500/50 to-sky-300" style={{ height: `${Math.max(6, (v / max) * 78)}%`, "--i": i }} />
           <span className="w-full truncate text-center text-[9px] text-slate-400">{labels[i]}</span>
         </div>
       ))}
@@ -29,7 +29,7 @@ function HBars({ labels, values }) {
       {values.map((v, i) => (
         <div key={labels[i]} className="grid grid-cols-[7.5rem_1fr_1.75rem] items-center gap-2 text-[10px] sm:grid-cols-[9rem_1fr_2rem]">
           <span className="truncate text-slate-400">{labels[i]}</span>
-          <span className="h-2 overflow-hidden rounded-full bg-white/[0.06]"><span className="block h-full rounded-full bg-gradient-to-r from-sky-500/60 to-sky-300" style={{ width: `${(v / max) * 100}%` }} /></span>
+          <span className="h-2 overflow-hidden rounded-full bg-white/[0.06]"><span className="mock-hbar block h-full rounded-full bg-gradient-to-r from-sky-500/60 to-sky-300" style={{ width: `${(v / max) * 100}%`, "--i": i }} /></span>
           <span className="text-right font-semibold text-slate-200">{v}</span>
         </div>
       ))}
@@ -48,7 +48,7 @@ function Line({ labels, values }) {
         <defs><linearGradient id="mock-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#7dd3fc" stopOpacity=".35" /><stop offset="1" stopColor="#7dd3fc" stopOpacity="0" /></linearGradient></defs>
         {[10, 20, 30].map((y) => <line key={y} x1="0" x2="100" y1={y} y2={y} stroke="rgba(255,255,255,.06)" strokeWidth="1" vectorEffect="non-scaling-stroke" />)}
         <path d={`${d} L100 40 L0 40 Z`} fill="url(#mock-fill)" />
-        <path d={d} fill="none" stroke="#7dd3fc" strokeWidth="2" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+        <path className="mock-line" pathLength="1" d={d} fill="none" stroke="#7dd3fc" strokeWidth="2" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
       </svg>
       <div className="mt-1 flex justify-between text-[9px] text-slate-400">{labels.map((l) => <span key={l}>{l}</span>)}</div>
     </div>
@@ -59,9 +59,9 @@ function Chat({ messages }) {
   return (
     <div className="space-y-2">
       {messages.map(([who, text], i) => who === "tag" ? (
-        <p key={i} className="mx-auto w-fit max-w-full rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-center text-[9.5px] font-medium text-emerald-200">{text}</p>
+        <p key={i} style={{ "--i": i }} className="mock-msg mx-auto w-fit max-w-full rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-center text-[9.5px] font-medium text-emerald-200">{text}</p>
       ) : (
-        <p key={i} className={`max-w-[88%] rounded-xl px-3 py-2 text-[11px] leading-snug ${who === "in" ? "rounded-tl-sm bg-white/[0.07] text-slate-200" : "ml-auto rounded-tr-sm bg-sky-400/15 text-sky-50"}`}>{text}</p>
+        <p key={i} style={{ "--i": i }} className={`mock-msg max-w-[88%] rounded-xl px-3 py-2 text-[11px] leading-snug ${who === "in" ? "rounded-tl-sm bg-white/[0.07] text-slate-200" : "ml-auto rounded-tr-sm bg-sky-400/15 text-sky-50"}`}>{text}</p>
       ))}
     </div>
   );
@@ -118,7 +118,7 @@ const card = "rounded-xl border border-white/[0.07] bg-white/[0.025] p-3.5";
 const cardTitle = "mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400";
 
 /** The dashboard of a blueprint, inside a browser window. `compact` is the smaller card version. */
-export default function Mock({ project, compact = false }) {
+export default function Mock({ project, compact = false, bare = false, live = false }) {
   const m = project.mock;
   const Chart = { bars: Bars, hbars: HBars, line: Line }[m.chart.type];
   const Side = { chat: Chat, fields: Fields, list: AlertList, beds: Beds }[m.side.type];
@@ -140,8 +140,7 @@ export default function Mock({ project, compact = false }) {
       </div>
     );
   }
-  return (
-    <BrowserFrame url={project.appUrl}>
+  const body = (
       <div role="img" aria-label={`Design mockup: ${m.app} dashboard for ${project.short.toLowerCase()}, with sample data`}>
         <div aria-hidden="true" className="grid bg-[#070c17] text-left md:grid-cols-[10.5rem_1fr]">
           <aside className="hidden border-r border-white/[0.06] p-4 md:block">
@@ -191,6 +190,7 @@ export default function Mock({ project, compact = false }) {
           </div>
         </div>
       </div>
-    </BrowserFrame>
   );
+  if (bare) return <div className={live ? "mock-live" : ""}>{body}</div>;
+  return <BrowserFrame url={project.appUrl}>{body}</BrowserFrame>;
 }
