@@ -35,7 +35,7 @@ const FACTS = `# Infovion Technologies
 - Engagement models: fixed price, dedicated team (monthly), time and material, AMC.
 - Technology: React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Prisma, React Native, progressive web apps, Vercel, Render, Supabase, Cloudflare, AWS, Razorpay, WhatsApp, Claude and OpenAI APIs.
 - Government work: GIGW 3.0 aligned, WCAG 2.1 AA accessible websites and portals, citizen-service applications, MIS dashboards, field apps, India-hosted data, annual maintenance. As a Udyam-registered MSE it is eligible for MSE benefits where a tender applies the Public Procurement Policy for MSEs. Details: ${D}/government · printable profile: ${D}/company-profile
-- Social: LinkedIn ${COMPANY.socials.linkedin} · Instagram ${COMPANY.socials.instagram} · Facebook ${COMPANY.socials.facebook} · YouTube ${COMPANY.socials.youtube}
+- Social: LinkedIn ${COMPANY.socials.linkedin} · Instagram ${COMPANY.socials.instagram} · Facebook ${COMPANY.socials.facebook} · YouTube ${COMPANY.socials.youtube} · Upwork agency ${COMPANY.socials.upwork}
 
 ## Services
 

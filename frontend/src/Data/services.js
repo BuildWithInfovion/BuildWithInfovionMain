@@ -102,6 +102,7 @@ export const SERVICES = [
       ["Who owns the code and IP?", "You do. Code goes into your repository from the first day, and the contract assigns the intellectual property to you on payment. We sign a mutual NDA before you share anything."],
       ["Can you maintain software another company built?", "Yes. Much of our work for overseas clients is maintenance and takeover: we review the code, document it, fix what is urgent and then maintain it under a monthly or yearly contract."],
       ["Why outsource to a small company instead of a big Indian IT firm?", "You talk directly to the developers, decisions are quick, and the budget suits small projects. A big firm is the better choice when you need many developers at once, 24-hour coverage or specific certifications."],
+      ["Can I hire Infovion through Upwork?", "Yes. Infovion Technologies has an agency profile on Upwork, so you can hire and pay through Upwork's contracts and payment protection if you prefer: https://www.upwork.com/agencies/2120920394886739898/"],
       ["How can I contact Infovion from outside India?", "WhatsApp +91 93091 93613 (free over the internet from any country), call +91 91563 02024, or email contact@infovion.in. The team works 9 am to 10 pm India time (UTC+5:30), seven days a week, and replies within one business day."],
       ["Which countries do you work with?", "Any. We work remotely with clients wherever they are, and our own jewellery software already has country settings for India, the Gulf, the UK, the US, Canada, Australia and Singapore."],
     ],

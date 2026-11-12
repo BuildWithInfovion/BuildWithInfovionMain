@@ -40,6 +40,7 @@ export const COMPANY = {
     instagram: "https://www.instagram.com/infoviontech/",
     facebook: "https://www.facebook.com/profile.php?id=61595050592821",
     youtube: "https://www.youtube.com/@Infovion_tech",
+    upwork: "https://www.upwork.com/agencies/2120920394886739898/",
   },
   productHunt: "https://www.producthunt.com/products/infovion",
 };

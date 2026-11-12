@@ -176,6 +176,8 @@ export default function Footer() {
                 <Link to={s.path} className="text-slate-400 hover:text-white">{s.nav}</Link>
               </React.Fragment>
             ))}
+            <span className="text-slate-400"> · </span>
+            <a href={COMPANY.socials.upwork} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white">Hire us on Upwork</a>
             <span className="text-slate-400"> · WhatsApp </span>
             <a href={`https://wa.me/${COMPANY.whatsappNumber}`} className="text-slate-300 hover:text-white">{COMPANY.whatsapp}</a>
           </p>
