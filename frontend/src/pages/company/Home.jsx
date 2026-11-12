@@ -8,6 +8,7 @@ import { CtaBand, FaqList, Section } from "../../components/site/Ui";
 import Stage from "../../components/home/Stage";
 import Bento from "../../components/home/Bento";
 import WorkRail from "../../components/home/WorkRail";
+import Reach from "../../components/home/Reach";
 import { SERVICES, PROCESS, ENGAGEMENT } from "../../Data/services";
 import { TECH } from "../../Data/company";
 
@@ -307,6 +308,7 @@ export default function Home() {
       <Capabilities />
       <WorkRail />
       <Products />
+      <Reach />
       <Process />
       <Commitments />
       <Tools />

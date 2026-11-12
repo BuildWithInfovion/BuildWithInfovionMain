@@ -3,14 +3,18 @@
 // heading and sentence in each cell carry the meaning, and the whole cell is one link.
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import GlowingEffect from "./GlowingEffect";
 
 function Cell({ to, title, body, className = "", children }) {
   return (
-    <Link to={to} className={`panel group relative flex flex-col overflow-hidden rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300 ${className}`}>
-      <div aria-hidden="true" className="relative min-h-0 flex-1">{children}</div>
-      <div className="relative border-t border-white/[0.06] p-6">
-        <h3 className="font-display text-lg text-white">{title}</h3>
-        <p className="mt-1.5 max-w-md text-sm leading-relaxed text-slate-400">{body}</p>
+    <Link to={to} className={`panel group relative block rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300 ${className}`}>
+      <GlowingEffect />
+      <div className="relative flex h-full flex-col overflow-hidden rounded-[inherit]">
+        <div aria-hidden="true" className="relative min-h-0 flex-1">{children}</div>
+        <div className="relative border-t border-white/[0.06] p-6">
+          <h3 className="font-display text-lg text-white">{title}</h3>
+          <p className="mt-1.5 max-w-md text-sm leading-relaxed text-slate-400">{body}</p>
+        </div>
       </div>
     </Link>
   );
