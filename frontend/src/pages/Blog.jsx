@@ -1,33 +1,50 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion as Motion } from "framer-motion";
-import { ArrowRight, Clock, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { blogPosts } from "../Data/blogData";
 import { CATEGORY_LABEL } from "../Data/blogCategories";
-import { Aurora, GlowButton, Kicker } from "../components/fx/Fx";
-
-
+import { CtaBand } from "../components/site/Ui";
 
 const fmt = (d) => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 
-function Card({ post, big = false }) {
+function Meta({ post }) {
   return (
-    <Motion.article layout initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}
-      className={`group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] transition-colors hover:border-teal-400/40 ${big ? "md:grid md:grid-cols-2" : ""}`}>
-      <Link to={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={post.title} />
-      <div className={`relative overflow-hidden ${big ? "h-56 md:h-full" : "h-48"}`}>
-        <img src={post.image} alt={post.title} width="1600" height="840" loading="lazy" decoding="async" className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/20 to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full glass px-3 py-1 text-[11px] font-semibold text-teal-200">{CATEGORY_LABEL[post.category] ?? post.category}</span>
+    <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-400">
+      <span className="text-sky-300">{CATEGORY_LABEL[post.category] ?? post.category}</span>
+      <span>{fmt(post.date)}</span>
+      <span>{post.readTime}</span>
+    </p>
+  );
+}
+
+// The cover artwork already carries the article's title, so it is shown whole and undimmed, once,
+// on the lead article only. Everything else is a plain list that is quick to scan.
+function Lead({ post }) {
+  return (
+    <Link to={`/blog/${post.slug}`} className="group grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+      <div className="overflow-hidden rounded-xl border border-white/10">
+        <img src={post.image} alt="" width="1600" height="840" fetchpriority="high" decoding="async" className="block aspect-[1600/840] w-full object-cover transition duration-700 group-hover:scale-[1.02]" />
       </div>
-      <div className={`p-6 ${big ? "md:flex md:flex-col md:justify-center md:p-9" : ""}`}>
-        <p className="flex items-center gap-3 text-xs text-slate-400"><span>{fmt(post.date)}</span><span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {post.readTime}</span></p>
-        <h2 className={`mt-3 font-display font-bold leading-snug text-white transition-colors group-hover:text-teal-200 ${big ? "text-2xl sm:text-3xl" : "line-clamp-2 text-lg"}`}>{post.title}</h2>
-        <p className={`mt-3 text-sm leading-relaxed text-slate-400 ${big ? "" : "line-clamp-3"}`}>{post.excerpt}</p>
-        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300">Read article <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+      <div>
+        <Meta post={post} />
+        <h2 className="font-display mt-4 text-3xl leading-[1.1] text-white sm:text-4xl">{post.title}</h2>
+        <p className="mt-4 text-base leading-relaxed text-slate-300">{post.excerpt}</p>
+        <span className="mt-6 inline-block text-sm font-medium text-white underline decoration-white/30 underline-offset-4 group-hover:decoration-white">Read the guide</span>
       </div>
-    </Motion.article>
+    </Link>
+  );
+}
+
+function Row({ post }) {
+  return (
+    <li className="border-b border-white/10">
+      <Link to={`/blog/${post.slug}`} className="group block py-7">
+        <Meta post={post} />
+        <h2 className="font-display mt-3 text-xl leading-snug text-white transition-colors group-hover:text-sky-200 sm:text-[1.35rem]">{post.title}</h2>
+        <p className="mt-2 line-clamp-2 text-[15px] leading-relaxed text-slate-400">{post.excerpt}</p>
+      </Link>
+    </li>
   );
 }
 
@@ -39,63 +56,60 @@ export default function Blog() {
   const filtered = sorted.filter((p) =>
     (cat === "all" || p.category === cat) &&
     (p.title.toLowerCase().includes(q.toLowerCase()) || p.excerpt.toLowerCase().includes(q.toLowerCase())));
-  const showFeatured = cat === "all" && !q;
-  const featured = sorted.find((p) => p.featured) ?? sorted[0];
-  const rest = showFeatured ? filtered.filter((p) => p.slug !== featured.slug) : filtered;
+  const showLead = cat === "all" && !q;
+  const lead = sorted.find((p) => p.featured) ?? sorted[0];
+  const rest = showLead ? filtered.filter((p) => p.slug !== lead.slug) : filtered;
 
   return (
-    <div className="bg-ink">
+    <div>
       <Helmet>
         <title>Guides on Software, School ERP and Jewellery Billing | Infovion</title>
         <meta name="description" content="Practical guides from Infovion Technologies on software costs, choosing a development partner, school management, jewellery billing and government websites." />
         <link rel="canonical" href="https://www.infovion.in/blog" />
       </Helmet>
 
-      <section className="noise relative overflow-hidden pb-14 pt-32 sm:pt-40">
-        <Aurora strong />
-        <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-6">
-          <Kicker>Insights & guides</Kicker>
-          <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-extrabold leading-[1.03] tracking-tight text-white sm:text-6xl">
-            Practical guides for <span className="text-gradient-aurora">building and running better.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-400">Software projects and what they cost, school management, jewellery billing and girvi, and government IT — written plainly, with sources.</p>
-          <div className="relative mx-auto mt-8 max-w-md">
-            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search articles…" aria-label="Search articles"
-              className="w-full rounded-full border border-white/10 bg-white/[0.05] py-3 pl-11 pr-4 text-sm text-white placeholder-slate-500 outline-none focus:border-teal-400/60" />
+      <section className="relative pb-10 pt-32 sm:pt-40">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div className="max-w-3xl">
+              <p className="kicker-pill">Guides</p>
+              <h1 className="font-display mt-4 text-[2.4rem] leading-[1.04] text-white sm:text-6xl">
+                Practical guides for <span className="text-gradient-aurora">building and running better.</span>
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">Software projects and what they cost, school management, jewellery billing and girvi, and government IT, written plainly, with sources.</p>
+            </div>
+            {/* data-hero-aside: the brand animation stays clear of this page head */}
+            <label data-hero-aside="" className="relative block w-full sm:w-72">
+              <span className="sr-only">Search articles</span>
+              <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
+              <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search articles"
+                className="w-full rounded-lg border border-white/12 bg-white/[0.04] py-2.5 pl-10 pr-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-sky-300/60" />
+            </label>
           </div>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
+
+          <div role="tablist" aria-label="Topics" className="no-scrollbar -mx-5 mt-10 flex gap-1 overflow-x-auto border-b border-white/10 px-5 sm:mx-0 sm:px-0">
             {usedCats.map((c) => (
-              <button key={c} type="button" onClick={() => setCat(c)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${cat === c ? "bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 text-[#04121a]" : "glass text-slate-300 hover:text-white"}`}>
-                {c === "all" ? "All articles" : CATEGORY_LABEL[c]}
+              <button key={c} type="button" role="tab" aria-selected={cat === c} onClick={() => setCat(c)}
+                className={`relative flex-shrink-0 px-3.5 py-3 text-sm font-medium transition-colors ${cat === c ? "text-white" : "text-slate-400 hover:text-slate-200"}`}>
+                {c === "all" ? "All" : CATEGORY_LABEL[c]}
+                {cat === c && <span aria-hidden="true" className="absolute inset-x-3.5 -bottom-px h-px bg-sky-300" />}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative pb-24">
-        <div className="mx-auto max-w-6xl space-y-6 px-5 sm:px-6">
-          {showFeatured && featured && <Card post={featured} big />}
-          <Motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <AnimatePresence mode="popLayout">
-              {rest.map((p) => <Card key={p.slug} post={p} />)}
-            </AnimatePresence>
-          </Motion.div>
-          {!filtered.length && <p className="py-12 text-center text-slate-400">No articles match “{q}”.</p>}
+      <section className="relative pb-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          {showLead && lead && <Lead post={lead} />}
+          <ul className={`grid gap-x-14 border-t border-white/10 lg:grid-cols-2 ${showLead ? "mt-14" : ""}`}>
+            {rest.map((p) => <Row key={p.slug} post={p} />)}
+          </ul>
+          {!filtered.length && <p className="py-16 text-slate-400">No articles match “{q}”.</p>}
         </div>
       </section>
 
-      <section className="px-5 pb-28 sm:px-6">
-        <div className="glass mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-[2rem] p-8 text-center md:flex-row md:text-left">
-          <div>
-            <h2 className="font-display text-2xl font-extrabold text-white">Have a project or a question?</h2>
-            <p className="mt-2 text-slate-400">Talk to the team that writes these guides — free consultation, fixed quotes.</p>
-          </div>
-          <GlowButton to="/contact">Get in touch <ArrowRight className="h-4 w-4" /></GlowButton>
-        </div>
-      </section>
+      <CtaBand title="Have a project or a question?" sub="Talk to the team that writes these guides. We reply within one business day, with a fixed price where the scope allows." />
     </div>
   );
 }
