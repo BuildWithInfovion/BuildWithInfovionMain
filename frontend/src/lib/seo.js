@@ -55,7 +55,7 @@ export const organizationNode = () => {
     logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png`, width: 512, height: 512 },
     image: `${SITE}/og-image.jpg`,
     description:
-      "Infovion Technologies is a software development company in Pune, India. It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products and AI automation for businesses and government, and makes two products: Infovion School ERP (school management software) and Infovion JMS (jewellery management software).",
+      "Infovion Technologies is a software development company in Pune, India. It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products and AI automation for businesses and government, and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Vigil (an AI SOC analyst and exposure management platform, in early access).",
     slogan: "We build the software your business runs on.",
     founder: { "@type": "Person", "@id": FOUNDER_ID, name: COMPANY.founder, jobTitle: COMPANY.founderRole, worksFor: { "@id": ORG_ID }, url: `${SITE}/about`, knowsAbout: ["Custom software development", "School management software", "Jewellery management software", "AI automation"] },
     foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },

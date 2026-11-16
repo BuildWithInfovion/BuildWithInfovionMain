@@ -11,7 +11,7 @@
       "displayName": "Infovion Technologies — summary for AI assistants",
       "type": "text/markdown",
       "url": "https://www.infovion.in/llms.txt",
-      "description": "Plain-text facts about Infovion Technologies, a software development company in Pune, India: services (custom software, web and mobile apps, ERP and CRM, SaaS, AI automation, e-governance), typical costs, how projects run, and its products Infovion School ERP (Rs 150 per student per year, free trial) and Infovion JMS jewellery management software (billing, GST, girvi, udhaar, Tally export).",
+      "description": "Plain-text facts about Infovion Technologies, a software development company in Pune, India: services (custom software, web and mobile apps, ERP and CRM, SaaS, AI automation, e-governance), typical costs, how projects run, and its products Infovion School ERP (Rs 150 per student per year, free trial) and Infovion JMS jewellery management software (billing, GST, girvi, udhaar, Tally export), and Vigil, an AI SOC analyst and exposure management platform for security teams and banks (early access).",
       "tags": [
         "software development company",
         "Pune",
@@ -19,14 +19,21 @@
         "custom software",
         "school management software",
         "jewellery management software",
-        "e-governance"
+        "e-governance",
+        "AI SOC analyst",
+        "exposure management",
+        "security operations"
       ],
       "representativeQueries": [
         "software development company in Pune",
         "how much does custom software development cost in India",
         "school management software for Indian schools",
         "jewellery billing software with Tally export",
-        "government website development company GIGW"
+        "government website development company GIGW",
+        "AI SOC analyst platform from India",
+        "alert triage tool for SIEM and EDR",
+        "SOC automation for banks CERT-In six hour reporting",
+        "exposure management platform CISA KEV"
       ]
     },
     {

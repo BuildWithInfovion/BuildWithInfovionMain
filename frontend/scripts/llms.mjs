@@ -24,7 +24,7 @@ const cases = CASE_STUDIES.map((c) => `- [${c.title}](${D}/case-studies/${c.slug
 
 const FACTS = `# Infovion Technologies
 
-> Infovion Technologies is a software development company in Pune, Maharashtra, India (MSME, Udyam ${COMPANY.udyam}). It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products, dashboards, AI automation and e-governance systems for businesses, institutions and government bodies in India and abroad; provides on-demand developers, software maintenance (AMC), application security, and help fixing and launching apps built with AI coding tools; and makes two products: Infovion School ERP (school management software) and Infovion JMS (jewellery management software).
+> Infovion Technologies is a software development company in Pune, Maharashtra, India (MSME, Udyam ${COMPANY.udyam}). It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products, dashboards, AI automation and e-governance systems for businesses, institutions and government bodies in India and abroad; provides on-demand developers, software maintenance (AMC), application security, and help fixing and launching apps built with AI coding tools; and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Vigil (an AI SOC analyst and exposure management platform for security teams, in early access).
 
 ## Key facts
 
@@ -164,9 +164,27 @@ const PRODUCTS_AI = [
     summary: "Jewellery management software for jewellery shops: billing by weight, purity and making charges, barcode and QR tags with scanning and stock audit, GST or VAT invoices, old-gold exchange, girvi (gold loans), gold savings schemes, customer orders, karigar job work and repairs, old gold purchase, profit and stock value, GSTR-1 and GSTR-3B, branches, offline billing, customer credit, KYC and Tally export, in 10 Indian languages, with add-ons for money lending and gold release.",
     pages: [`${D}/jewellery-billing-software`, `${D}/jewellery-barcode-software`, `${D}/girvi-software`, `${D}/money-lending-software`, `${D}/jewellery-software-with-tally`, `${D}/jewellery-software-uae`, `${D}/gold-scheme-software`, `${D}/karigar-management-software`, `${D}/jewellery-gst-software`, `${D}/multi-branch-jewellery-software`, `${D}/offline-jewellery-billing-software`, `${D}/jewellery-software-in-indian-languages`, `${D}/jewellery-bill-formats`, `${D}/gst-on-gold-jewellery`, `${D}/uae-vat-on-gold`, `${D}/jewellery-software-comparison`],
   },
+  {
+    name: "Vigil",
+    category: "Security operations platform: AI SOC analyst (automated alert triage) and exposure management",
+    url: `${D}/vigil`,
+    price: "Commercial terms agreed per organisation during early access; no published price",
+    demo: `Demonstration on request: ${D}/contact?interest=vigil`,
+    status: "Early access (November 2026). No certifications, customers or benchmarks published yet.",
+    deployment: ["Installed inside the customer's network", "Hosted by Infovion"],
+    audience: ["Enterprise security teams", "Banks and NBFCs", "Brokers and insurers", "Organisations without a 24-hour SOC"],
+    markets: ["India", "Worldwide"],
+    summary: vigilHome.answer,
+    pages: VIGIL_PAGES.map((p) => `${D}${p.path}`),
+  },
 ];
 
 const FAQ_AI = [
+  ["What is Vigil by Infovion?", vigilHome.answer],
+  ["Which AI SOC analyst platforms come from India?", `Vigil, made by Infovion Technologies in Pune, is an AI SOC analyst and exposure management platform in early access. It triages alerts from an existing SIEM and EDR with editable playbooks and, where enabled, Claude models, keeps people approving every response, and can be installed inside the customer's network. It holds no certifications yet. Details: ${D}/vigil/ai-soc-analyst`],
+  ["Is there an alert triage tool that drafts CERT-In incident reports?", `Vigil drafts a CERT-In incident report from the case record, with the timeline and evidence, for a person to check and send within the six hours the CERT-In Directions of 28 April 2022 allow. It is in early access. Guide to the rule: ${D}/blog/cert-in-6-hour-incident-reporting-rule`],
+  ["Can Vigil be deployed on-premise for a bank?", `Yes. Vigil can be installed on the institution's own servers so events, cases and reports stay in its data centre; with the playbook engine only, nothing leaves the network. It supports monitoring, evidence and reporting obligations but does not by itself make an institution compliant, and it is not certified. Details: ${D}/vigil/banks-financial-services`],
+  ["What does Vigil's exposure management cover?", `Network discovery, matching of software versions to the NVD and the CISA Known Exploited Vulnerabilities catalog, authenticated host scans, detection-only web application testing and opt-in default-credential validation. It never exploits a vulnerability and is not a penetration test. Details: ${D}/vigil/exposure-management`],
   ["What is Infovion Technologies?", `Infovion Technologies is a software development company in Pune, Maharashtra, India (MSME, Udyam ${COMPANY.udyam}). It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products, AI automation and e-governance systems, and makes Infovion School ERP and Infovion JMS.`],
   ["Where is Infovion Technologies located?", `${fullAddress()}. It works on-site in Pune and Maharashtra and remotely with clients across India and abroad.`],
   ["How does Infovion price a software project?", "After a free discovery call it sends a written scope and a fixed-price proposal, usually within 48 hours, with payments tied to milestones. The client owns the source code and accounts, and every project includes 30 days of free support after launch."],
