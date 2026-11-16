@@ -116,7 +116,7 @@ const videoTag = (u) => {
   return `<video:video><video:thumbnail_loc>https://www.infovion.in${videoPoster(v)}</video:thumbnail_loc><video:title>${xmlText(v.title)}</video:title><video:description>${xmlText(v.description)}</video:description><video:content_loc>https://www.infovion.in${videoFile(v)}</video:content_loc><video:duration>${v.seconds}</video:duration><video:publication_date>${v.uploadDate}T00:00:00+05:30</video:publication_date><video:family_friendly>yes</video:family_friendly></video:video>`;
 };
 // Highest for the company home, the service hub/pages and the two product homes
-const TOP = ["/services", "/school-management-software", "/jewellery-management-software", "/contact", "/government", "/healthcare-software-development"];
+const TOP = ["/services", "/vigil", "/vigil/ai-soc-analyst", "/vigil/exposure-management", "/vigil/banks-financial-services", "/school-management-software", "/jewellery-management-software", "/contact", "/government", "/healthcare-software-development"];
 const prio = (u) =>
   u === "/" ? "1.0"
   : TOP.includes(u) || u.startsWith("/services/") || u === "/free-trial" || u.endsWith("-calculator") ? "0.9"

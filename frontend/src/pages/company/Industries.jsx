@@ -39,6 +39,12 @@ const INDUSTRIES = [
     links: [["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
   },
   {
+    id: "banking", icon: "ShieldCheck", name: "Banking and financial services", tagline: "Banks, NBFCs, brokers, insurers and fintech companies",
+    pains: ["More security alerts than the team can open, especially at night", "Six-hour incident reporting clocks with the timeline still unwritten", "Exposure that changes between one audit and the next"],
+    build: ["Vigil: every alert triaged with evidence, responses approved by people", "Exposure scanning ranked by known exploitation", "Incident reports drafted from the case, and an audit log of every decision"],
+    links: [["Vigil for banks and finance", "/vigil/banks-financial-services"], ["Vigil overview", "/vigil"], ["Application security", "/services/application-security"]],
+  },
+  {
     id: "mining", icon: "Truck", name: "Mining, quarries and construction materials", tagline: "Stone crushers, quarries, RMC plants, sand and aggregate suppliers",
     pains: ["Weighbridge slips written by hand and billed later in another system", "Royalty passes, diesel and vehicle trips tracked in registers", "Credit sales to contractors without a clear view of outstanding amounts"],
     build: ["Weighbridge integration with challans and GST invoices", "Royalty, production, diesel and vehicle trip tracking", "Party ledgers, credit limits and an owner's dashboard on mobile"],
@@ -74,8 +80,8 @@ export default function Industries() {
   return (
     <>
       <Helmet>
-        <title>Industries: Healthcare, Mining, Retail, Education | Infovion</title>
-        <meta name="description" content="Software for schools, jewellers, hospitals, stone crushers and quarries, government, retail, manufacturing, real estate and startups, by Infovion Technologies." />
+        <title>Industries: Banking, Healthcare, Mining, Education | Infovion</title>
+        <meta name="description" content="Software for banks and financial services, hospitals, schools, jewellers, quarries, government, retail, manufacturing and startups, by Infovion Technologies." />
         <link rel="canonical" href={`${SITE}/industries`} />
         <meta property="og:url" content={`${SITE}/industries`} />
       </Helmet>

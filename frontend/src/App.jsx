@@ -22,6 +22,7 @@ const CaseStudies = lazy(() => import("./pages/company/CaseStudies").then((m) =>
 const CaseStudy = lazy(() => import("./pages/company/CaseStudies").then((m) => ({ default: m.CaseStudyPage })));
 const Products = lazy(() => import("./pages/company/CaseStudies").then((m) => ({ default: m.ProductsIndex })));
 const Solution = lazy(() => import("./pages/company/Solutions"));
+const Vigil = lazy(() => import("./pages/vigil/Vigil"));
 // Free planning calculators for software buyers
 const AppCostCalc = lazy(() => import("./pages/tools/CostCalculators").then((m) => ({ default: m.AppCostCalculatorPage })));
 const SoftwareCostCalc = lazy(() => import("./pages/tools/CostCalculators").then((m) => ({ default: m.SoftwareCostCalculatorPage })));
@@ -127,7 +128,7 @@ const globalSchema = {
       dateModified: __BUILD_DATE__,
       name: "Infovion Technologies",
       alternateName: "Infovion",
-      description: "Software development company in Pune, India — custom software, web and mobile apps, ERP, SaaS, AI agents and automation, e-governance — and the makers of Infovion School ERP and Infovion JMS.",
+      description: "Software development company in Pune, India — custom software, web and mobile apps, ERP, SaaS, AI agents and automation, e-governance — and the makers of Infovion School ERP, Infovion JMS and Vigil, a security operations platform.",
       publisher: { "@id": `${SITE}/#organization` },
       inLanguage: "en-IN",
       potentialAction: {
@@ -240,6 +241,10 @@ export function AppRoutes() {
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:slug" element={<CaseStudy />} />
             <Route path="/solutions/:slug" element={<Solution />} />
+            <Route path="/vigil" element={<Vigil page="home" />} />
+            <Route path="/vigil/ai-soc-analyst" element={<Vigil page="soc" />} />
+            <Route path="/vigil/exposure-management" element={<Vigil page="exposure" />} />
+            <Route path="/vigil/banks-financial-services" element={<Vigil page="banks" />} />
             <Route path="/app-development-cost-calculator" element={<AppCostCalc />} />
             <Route path="/software-development-cost-calculator" element={<SoftwareCostCalc />} />
             <Route path="/hire-developers-india-cost-calculator" element={<DeveloperCostCalc />} />

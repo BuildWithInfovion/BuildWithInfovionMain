@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
-import { HeartPulse, ArrowRight, ChevronDown, Gem, GraduationCap, Landmark } from "lucide-react";
+import { HeartPulse, ArrowRight, ChevronDown, Gem, GraduationCap, Landmark, ShieldCheck } from "lucide-react";
 import { SERVICES } from "../Data/services";
 import { COMPANY, PRODUCTS, jmsTrial } from "../Data/company";
 import { productOf } from "../lib/sections";
@@ -38,6 +38,11 @@ const SUBNAV = {
     name: "Infovion JMS", icon: Gem, home: "/jewellery-management-software",
     links: [["/jewellery-management-software", "Overview"], ["/infovion-jms-features", "All features"], ["/jewellery-billing-software", "Billing & GST"], ["/jewellery-barcode-software", "Barcode tags"], ["/girvi-software", "Girvi"], ["/gold-scheme-software", "Gold schemes"], ["/karigar-management-software", "Orders & karigar"], ["/jewellery-software-in-indian-languages", "Languages"], ["/jewellery-software-uae", "UAE & Gulf"], ["/jewellery-bill-formats", "Free tools"], ["/case-studies/jewellery-management-system", "Case study"]],
     cta: [jmsTrial()[0], "Free demo"],
+  },
+  vigil: {
+    name: "Vigil", icon: ShieldCheck, home: "/vigil",
+    links: [["/vigil", "Overview"], ["/vigil/ai-soc-analyst", "AI SOC analyst"], ["/vigil/exposure-management", "Exposure management"], ["/vigil/banks-financial-services", "Banks and finance"]],
+    cta: ["/contact?interest=vigil", "Request a demo"],
   },
 };
 
@@ -167,10 +172,10 @@ export default function Navbar() {
 
               <div className="relative" onMouseEnter={() => hoverOpen("products")} onMouseLeave={hoverClose}>
                 {trigger("products", "Products")}
-                <Dropdown id="products" open={menu === "products"} className="w-[460px]">
+                <Dropdown id="products" open={menu === "products"} className="w-[480px]">
                   <div className="space-y-1">
                     {PRODUCTS.map((p) => {
-                      const I = p.slug === "school" ? GraduationCap : Gem;
+                      const I = { school: GraduationCap, jms: Gem, vigil: ShieldCheck }[p.slug] ?? Gem;
                       return (
                         <Link key={p.slug} to={p.to} className="group flex gap-4 rounded-lg p-3.5 transition-colors hover:bg-white/[0.05]">
                           <I className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky-300" strokeWidth={1.6} />

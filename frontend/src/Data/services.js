@@ -744,7 +744,7 @@ export const SERVICES = [
       ["Can you secure an app another vendor built?", "Yes. Most of our security work is on software built by others or with AI tools. We start with a review and fix the most serious findings first."],
       ["What is the OWASP Top 10?", "A list, published by the OWASP Foundation, of the most critical security risks to web applications. Broken access control is at the top. It is the usual baseline for a security review; the OWASP ASVS gives a more detailed checklist."],
     ],
-    reading: [["/services/vibe-coding-help", "Securing an app built with AI tools", "Row-level security, secrets and server-side checks."], ["/government", "Government projects", "GIGW 3.0, accessibility and India-hosted data."]],
+    reading: [["/vigil", "Vigil: security operations platform", "Alert triage, exposure management and incident reports, in early access."], ["/blog/cert-in-6-hour-incident-reporting-rule", "The CERT-In 6-hour rule", "What must be reported, how, and a readiness checklist."], ["/services/vibe-coding-help", "Securing an app built with AI tools", "Row-level security, secrets and server-side checks."], ["/government", "Government projects", "GIGW 3.0, accessibility and India-hosted data."]],
     related: ["vibe-coding-help", "software-maintenance-support", "cloud-devops"],
     proof: "school-erp-platform",
   },

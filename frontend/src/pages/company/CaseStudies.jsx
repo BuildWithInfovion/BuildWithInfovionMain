@@ -151,7 +151,7 @@ export function CaseStudyPage() {
 }
 
 export function ProductsIndex() {
-  const imgs = { school: ["/product/dashboard-900.webp", "Infovion School ERP dashboard"], jms: ["/product/jms/dashboard-900.webp", "Infovion JMS dashboard for a jewellery store"] };
+  const imgs = { school: ["/product/dashboard-900.webp", "Infovion School ERP dashboard"], jms: ["/product/jms/dashboard-900.webp", "Infovion JMS dashboard for a jewellery store"], vigil: ["/product/vigil/overview-900.webp", "Vigil console overview with cases awaiting a decision"] };
   const list = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -160,15 +160,15 @@ export function ProductsIndex() {
   return (
     <>
       <Helmet>
-        <title>Products: Infovion School ERP and Infovion JMS | Infovion</title>
-        <meta name="description" content="Products by Infovion Technologies: Infovion School ERP for K-12 schools, and Infovion JMS, jewellery software for billing, girvi, credit and stock." />
+        <title>Products: School ERP, Jewellery Software, Vigil | Infovion</title>
+        <meta name="description" content="Products by Infovion Technologies: Infovion School ERP, Infovion JMS jewellery software, and Vigil, an AI SOC analyst and exposure management platform." />
         <link rel="canonical" href={`${SITE}/products`} />
         <script type="application/ld+json">{JSON.stringify(list)}</script>
       </Helmet>
       <PageHero trail={[["Products", "/products"]]} kicker="Products" title="Our products"
-        sub="Two software products developed with schools and jewellery retailers. Both are in daily use and can be customised for larger organisations." />
+        sub="Two software products in daily use in schools and jewellery shops, and Vigil, a security operations platform now in early access." />
       <Section className="pt-0">
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-3">
           {PRODUCTS.map((p) => (
             <Link key={p.slug} to={p.to} className="panel group flex flex-col overflow-hidden rounded-xl transition-colors hover:border-sky-300/40">
               <img src={imgs[p.slug][0]} alt={imgs[p.slug][1]} width="900" height="562" loading="lazy" className="h-60 w-full border-b border-white/10 object-cover object-left-top" />

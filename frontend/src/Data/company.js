@@ -80,6 +80,14 @@ export const PRODUCTS = [
     blurb: "Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GSTR-1 and GSTR-3B, branches and Tally export, in 10 Indian languages, for jewellery shops in India and abroad.",
     status: "Available to every jewellery shop, with a free demo on a call",
   },
+  {
+    slug: "vigil",
+    name: "Vigil",
+    short: "AI SOC analyst and exposure management",
+    to: "/vigil",
+    blurb: "A security operations platform for enterprise security teams, banks and financial institutions: every SIEM and EDR alert investigated with evidence, exposure found and proven, and audit-ready incident reports. Hosted or inside your network.",
+    status: "Early access, with a demonstration on request",
+  },
 ];
 
 // Infovion JMS runs as its own web app. Infovion sets up every shop and shows the demo on a call,

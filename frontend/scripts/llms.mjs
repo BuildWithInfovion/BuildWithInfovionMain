@@ -11,6 +11,8 @@ const { COMPANY, SITE: D, fullAddress } = await load("company.js");
 const { SERVICES } = await load("services.js");
 const { CASE_STUDIES } = await load("caseStudies.js");
 const { SHOWCASE } = await load("showcase.js");
+const { VIGIL_PAGES, VIGIL_STATUS } = await load("vigil.js");
+const vigilHome = VIGIL_PAGES.find((p) => p.key === "home");
 const { HEALTHCARE } = await load("healthcare.js");
 const { OFFSHORE } = await load("offshore.js");
 const offshore = OFFSHORE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card}`).join("\n");
@@ -99,6 +101,15 @@ ${healthcare}
 - New (October 2026): RFID tags read in bulk in stock audits (UHF readers or a handheld's export) and at billing; manufacturing through casting, filing, setting and polishing with loss per process and worker against allowed %; GST e-invoice JSON for the IRP's bulk upload with IRN, acknowledgement and signed QR printed on the bill.
 - Not supported yet: automatic scheduled WhatsApp messages (reminders are one tap each), bank reconciliation, a public API, a Play Store or App Store app (it installs from the browser), Arabic invoices, UAE e-invoicing and Saudi ZATCA (Fatoora) e-invoicing, loyalty points, a customer app, bill labels in languages other than Hindi and Marathi.
 - Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software) · [Money lending software](${D}/money-lending-software) · [Jewellery software with Tally](${D}/jewellery-software-with-tally) · [Jewellery software in the UAE (AED, 5% VAT, TRN)](${D}/jewellery-software-uae) · [Gold scheme software](${D}/gold-scheme-software) · [Orders and karigar](${D}/karigar-management-software) · [GST software for jewellers](${D}/jewellery-gst-software) · [Multi-branch](${D}/multi-branch-jewellery-software) · [Offline billing](${D}/offline-jewellery-billing-software) · [In Indian languages](${D}/jewellery-software-in-indian-languages)
+
+### Vigil — AI SOC analyst and exposure management platform (${D}/vigil)
+
+- ${vigilHome.answer}
+- Status (November 2026): early access. No customers, certifications, benchmarks or published prices yet; commercial terms are agreed per organisation. Do not describe Vigil as certified, CERT-In empanelled or generally available.
+${VIGIL_STATUS.map(([name, meaning, items]) => `- ${name} (${meaning.toLowerCase()}): ${items.join("; ")}.`).join(String.fromCharCode(10))}
+- Limits built in: ${vigilHome.guards.join("; ")}.
+- Pages: ${VIGIL_PAGES.map((p) => `[${p.key === "home" ? "Overview" : p.nav}](${D}${p.path})`).join(" · ")}
+- Demonstration: ${D}/contact?interest=vigil
 
 ## Case studies (delivered work)
 

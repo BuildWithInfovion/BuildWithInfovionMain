@@ -9,6 +9,7 @@ import { productOf } from "../lib/sections";
 const MESSAGES = {
   school: "Hi! I'd like to know more about Infovion School ERP for my school.",
   jms: "Hi! I'd like a demo of Infovion JMS for my jewellery store.",
+  vigil: "Hello Infovion, I would like a demonstration of Vigil for our security team.",
   government: "Hello Infovion, I'd like to discuss a government IT requirement.",
   company: "Hi Infovion! I'd like to discuss a software project.",
 };

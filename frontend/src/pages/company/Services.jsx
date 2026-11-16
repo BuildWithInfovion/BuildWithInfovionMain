@@ -114,7 +114,7 @@ export function ServicesIndex() {
 }
 
 /** A titled block in the service page's reading column; its id is a target for the side navigation. */
-function Block({ id, title, children }) {
+export function Block({ id, title, children }) {
   return (
     <section id={id} className="scroll-mt-28">
       <h2 className="font-display text-[1.75rem] leading-tight text-white sm:text-[2.1rem]">{title}</h2>
@@ -124,7 +124,7 @@ function Block({ id, title, children }) {
 }
 
 /** Contents list that stays beside the page on wide screens and marks the section being read. */
-function SideNav({ items, contactTo }) {
+export function SideNav({ items, contactTo, cta = "Request a proposal" }) {
   const [active, setActive] = useState(items[0][0]);
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return undefined;
@@ -147,7 +147,7 @@ function SideNav({ items, contactTo }) {
             </li>
           ))}
         </ul>
-        <GlowButton to={contactTo} className="mt-8 w-full !px-4 !py-2.5">Request a proposal</GlowButton>
+        <GlowButton to={contactTo} className="mt-8 w-full !px-4 !py-2.5">{cta}</GlowButton>
       </nav>
     </aside>
   );

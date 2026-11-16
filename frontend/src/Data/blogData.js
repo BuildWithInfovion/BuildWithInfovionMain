@@ -1,6 +1,7 @@
 import { companyPosts } from "./blogCompany.js";
 import { jewelleryPosts } from "./blogJewellery.js";
 import { offshorePosts } from "./blogOffshore.js";
+import { securityPosts } from "./blogSecurity.js";
 
 const schoolPosts = [
   {
@@ -353,4 +354,4 @@ const schoolPosts = [
   },
 ];
 
-export const blogPosts = [...offshorePosts, ...jewelleryPosts, ...companyPosts, ...schoolPosts];
+export const blogPosts = [...securityPosts, ...offshorePosts, ...jewelleryPosts, ...companyPosts, ...schoolPosts];

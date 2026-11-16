@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "9c39483310f865db",
-  "date": "2026-11-12"
+  "hash": "b8629e1508a2f3a4",
+  "date": "2026-11-16"
  },
  "/abdm-integration": {
   "hash": "5595d06df9d47c53",
@@ -20,12 +20,16 @@
   "date": "2026-11-11"
  },
  "/blog": {
-  "hash": "b9e9bf16d69db28f",
-  "date": "2026-11-12"
+  "hash": "11e48ebcb937a02c",
+  "date": "2026-11-16"
  },
  "/blog/7-signs-your-school-needs-erp-software-india": {
-  "hash": "2d6b7dc9b35efc7a",
-  "date": "2026-11-12"
+  "hash": "4427d64a804d776c",
+  "date": "2026-11-16"
+ },
+ "/blog/cert-in-6-hour-incident-reporting-rule": {
+  "hash": "403d9c1b1d4f3c61",
+  "date": "2026-11-16"
  },
  "/blog/cost-of-hiring-developers-india-vs-usa-uk-uae": {
   "hash": "1e40ac14720cb163",
@@ -44,8 +48,8 @@
   "date": "2026-11-12"
  },
  "/blog/gigw-3-government-website-guidelines-explained": {
-  "hash": "b158caa029a2072a",
-  "date": "2026-11-12"
+  "hash": "a3f3ead059088bed",
+  "date": "2026-11-16"
  },
  "/blog/girvi-register-guide-for-jewellers": {
   "hash": "f316364f69b47b85",
@@ -64,24 +68,24 @@
   "date": "2026-11-12"
  },
  "/blog/hospital-app-wcag-dpdp-compliance-checklist": {
-  "hash": "846911da4d9eb38c",
-  "date": "2026-11-12"
+  "hash": "420c5f69d7c28a75",
+  "date": "2026-11-16"
  },
  "/blog/how-indian-schools-can-replace-paper-attendance-registers": {
-  "hash": "a028a60bdbbc5760",
-  "date": "2026-11-12"
+  "hash": "fb3f1faea16ee605",
+  "date": "2026-11-16"
  },
  "/blog/how-school-principals-use-erp-data-to-improve-school-performance": {
-  "hash": "088fb5bfd6f74917",
-  "date": "2026-11-12"
+  "hash": "91a4c8cf0b659456",
+  "date": "2026-11-16"
  },
  "/blog/how-to-choose-jewellery-software-india": {
   "hash": "4c93cd991531ebbf",
   "date": "2026-11-12"
  },
  "/blog/how-to-choose-school-erp-software-india": {
-  "hash": "967d636f3081413f",
-  "date": "2026-11-12"
+  "hash": "d09ecc038910bd6a",
+  "date": "2026-11-16"
  },
  "/blog/how-to-choose-software-development-company-pune": {
   "hash": "cb663f4f8fe74817",
@@ -92,8 +96,8 @@
   "date": "2026-11-12"
  },
  "/blog/infovion-msme-certified-school-erp-india": {
-  "hash": "43886f328e698926",
-  "date": "2026-11-12"
+  "hash": "d62a781e4934a297",
+  "date": "2026-11-16"
  },
  "/blog/jewellery-billing-gst-making-charges-old-gold": {
   "hash": "b1c11dd617016327",
@@ -108,28 +112,28 @@
   "date": "2026-11-12"
  },
  "/blog/online-admission-management-for-schools-india-guide": {
-  "hash": "37cc81dc4cf57a23",
-  "date": "2026-11-12"
+  "hash": "4a0dd5b35e858a45",
+  "date": "2026-11-16"
  },
  "/blog/saraf-dukan-software-marathi-guide": {
   "hash": "1889d721d7e6c2d5",
   "date": "2026-11-12"
  },
  "/blog/school-fee-management-moving-from-ledgers-to-cloud": {
-  "hash": "cd27f5ee70eee3d7",
-  "date": "2026-11-12"
+  "hash": "5e53012f40413195",
+  "date": "2026-11-16"
  },
  "/blog/school-management-software-vs-spreadsheets-real-cost": {
-  "hash": "7af0f0e6f4d80a49",
-  "date": "2026-11-12"
+  "hash": "11ee7d0e12a07c42",
+  "date": "2026-11-16"
  },
  "/blog/software-developer-disappeared-project-takeover": {
   "hash": "4c64600b91a68359",
   "date": "2026-11-12"
  },
  "/blog/transfer-certificate-workflow-manual-vs-digital-indian-schools": {
-  "hash": "a4ea75806db038b7",
-  "date": "2026-11-12"
+  "hash": "06fdb2683510359b",
+  "date": "2026-11-16"
  },
  "/blog/uk-gdpr-eu-gdpr-outsourcing-to-india": {
   "hash": "549721412ccf6a9c",
@@ -143,13 +147,17 @@
   "hash": "4c5d0996eb079992",
   "date": "2026-11-12"
  },
+ "/blog/what-is-an-ai-soc-analyst": {
+  "hash": "d9a206a8e02ea9ed",
+  "date": "2026-11-16"
+ },
  "/blog/what-is-multi-tenant-school-erp-explained-for-school-directors": {
-  "hash": "647f19875a583d13",
-  "date": "2026-11-12"
+  "hash": "16c5cc95666a5aef",
+  "date": "2026-11-16"
  },
  "/blog/why-every-k12-school-in-india-needs-a-parent-portal": {
-  "hash": "816d377be83ace1b",
-  "date": "2026-11-12"
+  "hash": "bb582e980ba4a6f5",
+  "date": "2026-11-16"
  },
  "/case-studies": {
   "hash": "2b7f464738a9a4c1",
@@ -168,12 +176,12 @@
   "date": "2026-11-11"
  },
  "/company-profile": {
-  "hash": "087e21a2f989a0dd",
-  "date": "2026-11-11"
+  "hash": "730b07e11d1735ac",
+  "date": "2026-11-16"
  },
  "/contact": {
-  "hash": "6f8cd79afa8e9c04",
-  "date": "2026-11-11"
+  "hash": "b41f81a08c267028",
+  "date": "2026-11-16"
  },
  "/dpdp-compliance": {
   "hash": "951e52280d0eb6b1",
@@ -192,16 +200,16 @@
   "date": "2026-11-11"
  },
  "/free-tools/bonafide-certificate": {
-  "hash": "eaab76b9881fb4f5",
-  "date": "2026-11-12"
+  "hash": "c97a6ddc5f179765",
+  "date": "2026-11-16"
  },
  "/free-tools/school-leaving-certificate-marathi": {
-  "hash": "676733dcc8aea160",
-  "date": "2026-11-12"
+  "hash": "69f9978767cc303b",
+  "date": "2026-11-16"
  },
  "/free-tools/transfer-certificate": {
-  "hash": "2a98e39120cf3548",
-  "date": "2026-11-12"
+  "hash": "4267747e0204e7d1",
+  "date": "2026-11-16"
  },
  "/free-trial": {
   "hash": "92da32f7e9a0aa41",
@@ -260,8 +268,8 @@
   "date": "2026-11-11"
  },
  "/industries": {
-  "hash": "3b3e73efe997e8e7",
-  "date": "2026-11-11"
+  "hash": "3329b5c97ce38f08",
+  "date": "2026-11-16"
  },
  "/infovion-jms-features": {
   "hash": "4764c6d888c182ca",
@@ -412,8 +420,8 @@
   "date": "2026-11-11"
  },
  "/products": {
-  "hash": "6c9c9eb424ee74fd",
-  "date": "2026-11-11"
+  "hash": "2e54a2c7c26188ff",
+  "date": "2026-11-16"
  },
  "/school-attendance-app": {
   "hash": "b5be73c511a5002b",
@@ -460,8 +468,8 @@
   "date": "2026-11-12"
  },
  "/services/application-security": {
-  "hash": "1b6f24a35b97d716",
-  "date": "2026-11-12"
+  "hash": "0afb99a9572d875f",
+  "date": "2026-11-16"
  },
  "/services/cloud-devops": {
   "hash": "966933d419c6c625",
@@ -614,6 +622,22 @@
  "/videos/transfer-certificate-and-id-cards-demo": {
   "hash": "b99c220e95230720",
   "date": "2026-11-11"
+ },
+ "/vigil": {
+  "hash": "345e8e0a605693fc",
+  "date": "2026-11-16"
+ },
+ "/vigil/ai-soc-analyst": {
+  "hash": "174eaf6cd71828c4",
+  "date": "2026-11-16"
+ },
+ "/vigil/banks-financial-services": {
+  "hash": "97d59cc74aacbe5a",
+  "date": "2026-11-16"
+ },
+ "/vigil/exposure-management": {
+  "hash": "280dc7b57a324ef1",
+  "date": "2026-11-16"
  },
  "/vyapar-vs-infovion-jms": {
   "hash": "00a4ac47d7e2d1c8",

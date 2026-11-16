@@ -1,4 +1,5 @@
 export const CATEGORY_LABEL = {
+  security: "Security operations",
   development: "Software development",
   outsourcing: "Outsourcing to India",
   healthcare: "Healthcare IT",
@@ -14,10 +15,11 @@ export const CATEGORY_LABEL = {
 };
 
 // Who an article is for decides the call to action under it
-const AUDIENCE = { development: "business", outsourcing: "offshore", healthcare: "healthcare", government: "government", jewellery: "jms" };
+const AUDIENCE = { security: "security", development: "business", outsourcing: "offshore", healthcare: "healthcare", government: "government", jewellery: "jms" };
 export const audienceOf = (category) => AUDIENCE[category] ?? "school";
 
 export const CTA = {
+  security: { title: "See Vigil work on your own alerts", body: "Vigil investigates every alert, shows its evidence and drafts the incident report. Early access, with a demonstration on a call.", to: "/vigil", label: "See Vigil" },
   school: { title: "See it working in your own school", body: "Infovion School ERP's free trial opens with sample data in two minutes. No card, no contract.", to: "/free-trial", label: "Start your free trial" },
   jms: { title: "Billing, tags, girvi, gold schemes and karigar in one place", body: "Infovion JMS runs the whole jewellery shop, in 10 Indian languages. See it on a free 15-minute demo call, in your language.", to: "/jewellery-management-software", label: "See Infovion JMS" },
   business: { title: "Planning a software project?", body: "Tell us what you want to build — you'll get a clear plan and a fixed quote, usually within 48 hours.", to: "/contact", label: "Get a free quote" },
