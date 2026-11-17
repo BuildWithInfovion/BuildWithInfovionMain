@@ -1,21 +1,21 @@
-// Vigil: Infovion's security operations product. Every page under /vigil is generated from this file.
+// Cyvion: Infovion's security operations product. Every page under /cyvion is generated from this file.
 //
 // Accuracy rules for this file (enterprise and bank buyers will check every claim):
-//  - STATUS mirrors vigil/README.md. "Available" means built and tested; nothing else is described
+//  - STATUS mirrors cyvion/README.md. "Available" means built and tested; nothing else is described
 //    in the present tense as a working feature.
 //  - No certifications, customers, benchmarks or prices are stated, because none exist yet.
 //  - Regulatory rows cite the regulator's own document and tell the reader to check the current text.
 
-export const VIGIL = {
-  name: "Vigil",
-  home: "/vigil",
+export const CYVION = {
+  name: "Cyvion",
+  home: "/cyvion",
   // The hosted console. Leave empty until it is live at this address: while empty, the site shows
   // "Request a demo" only; once set, it also links to the console and the free tools.
   app: "",
-  updated: "2026-11-16",
+  updated: "2026-11-17",
 };
 
-export const VIGIL_SOURCES = {
+export const CYVION_SOURCES = {
   certin: ["CERT-In Directions under section 70B(6), 28 April 2022", "https://www.cert-in.org.in/Directions70B.jsp"],
   sebi: ["SEBI: Cybersecurity and Cyber Resilience Framework (CSCRF), August 2024", "https://www.sebi.gov.in/legal/circulars/aug-2024/cybersecurity-and-cyber-resilience-framework-cscrf-for-sebi-regulated-entities-res-_85964.html"],
   rbi: ["RBI Master Direction on IT Governance, Risk, Controls and Assurance Practices, 2023", "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12562"],
@@ -28,34 +28,40 @@ export const VIGIL_SOURCES = {
 };
 
 // What exists today, said plainly. Shown on the overview page and linked from the others.
-export const VIGIL_STATUS = [
+export const CYVION_STATUS = [
   ["Available now", "Built and covered by automated tests", [
-    "Detection pipeline: events normalised to one shape, 18 Sigma-format rules, suppression and grouping into cases",
-    "Endpoint detection from Windows Security, System, Sysmon and PowerShell logs",
+    "Detection pipeline: events normalised to one shape, 42 Sigma-format rules, suppression and grouping into cases",
+    "Endpoint detection from Windows Security, System, Sysmon and PowerShell logs, and from Linux SSH, sudo and account changes",
+    "Cyvion endpoint agents for Windows and Linux, with per-machine keys, offline buffering and daily software inventory",
     "Alert intake from an existing SIEM, EDR or XDR over a webhook",
     "Playbook-driven triage with evidence, MITRE ATT&CK mapping and a confidence score",
     "Verdict review with an accuracy score, editable playbooks, threat hunting, watchlist and shift handover",
     "Phishing triage of a reported email",
     "Exposure management: discovery, NVD and CISA KEV matching, authenticated scans, web application testing, default-credential validation",
     "Response actions held for a person's approval, with a full audit log",
-    "Sign-in with MFA, roles, API keys and separation between tenants",
+    "Sign-in with MFA, roles, role-scoped API keys, and SAML single sign-on with enforced SSO",
+    "Tenant isolation enforced by the database (PostgreSQL row-level security), on top of the application's own checks",
+    "Event retention (180 days by default) with older events exported to object storage",
+    "Partner edition for managed security providers: client organisations, audited switching, roll-up, white label",
+    "An MCP server so Claude can review cases through a read-only or analyst API key",
     "CERT-In incident report generator and an external domain security check",
   ]],
   ["In validation", "Built, not yet proven on live data", [
     "Language-model analyst (Claude): first pass, investigation with event search, incident reports. Being measured against labelled alerts before release",
-    "Microsoft 365 connector",
+    "Native connectors for Microsoft Sentinel, Microsoft Defender XDR, Splunk and CrowdStrike Falcon (tested against each vendor's documented API, not yet against a live tenant)",
+    "Microsoft 365, Google Workspace, AWS, GitHub and Cloudflare connectors",
+    "SAML sign-in with a real identity provider (Okta, Microsoft Entra ID)",
+    "Columnar event archive on ClickHouse for high volumes",
     "Notifications to Slack, email and WhatsApp",
   ]],
   ["Planned", "Not built yet", [
-    "Native connectors for Microsoft Sentinel, Splunk and CrowdStrike (their alerts arrive by webhook today)",
-    "SAML single sign-on",
-    "Database row-level security and a columnar event store for high volumes",
     "An independent penetration test before general availability",
+    "Online checkout",
   ]],
 ];
 
 const FLOW = [
-  ["Collect", "Events and alerts arrive from connectors, the Windows collector or your SIEM's webhook."],
+  ["Collect", "Events and alerts arrive from connectors, Cyvion agents on your machines, or your SIEM's webhook."],
   ["Normalise", "Vendor formats are mapped to one event shape, so rules and playbooks are written once."],
   ["Detect", "Sigma-format rules, thresholds and per-user baselines raise alerts."],
   ["Reduce", "Known-safe patterns are suppressed and related alerts are grouped into one case."],
@@ -64,23 +70,23 @@ const FLOW = [
   ["Approve", "A person approves or rejects each response. Everything is written to the audit log."],
 ];
 
-export const VIGIL_PAGES = [
+export const CYVION_PAGES = [
   {
     key: "home",
-    path: "/vigil",
+    path: "/cyvion",
     nav: "Overview",
-    title: "Vigil: AI SOC Analyst and Exposure Management Platform | Infovion",
-    description: "Vigil investigates every SIEM and EDR alert, finds and proves exposures, and keeps audit evidence for CERT-In, RBI and SEBI reporting. In early access.",
-    h1: "Vigil: an AI SOC analyst and exposure management in one platform",
-    intro: "Security teams buy detection and then run short of people to work what it detects. Vigil investigates every alert your existing tools raise, shows what an attacker can reach in your own estate, and keeps the evidence an auditor asks for.",
-    img: ["/product/vigil/overview.webp", "/product/vigil/overview-900.webp", "Vigil console overview: six cases awaiting a decision, with the volume funnel from 1,157 events to 27 alerts"],
-    answerQ: "What is Vigil?",
-    answer: "Vigil is a security operations platform made by Infovion Technologies. It sits on top of the SIEM, EDR and identity tools a security team already runs, investigates every alert they raise using editable playbooks and, where enabled, Claude language models, and writes up each case with its evidence and a recommended response that a person approves. It also scans the organisation's own networks and web applications, matches what it finds to known-exploited vulnerabilities, and keeps an audit trail and regulator-ready incident reports. Vigil is in early access and can be hosted or installed inside the customer's network.",
-    pointsTitle: "What Vigil does",
+    title: "Cyvion: AI SOC Analyst and Exposure Management Platform | Infovion",
+    description: "Cyvion investigates every SIEM and EDR alert, finds and proves exposures, and keeps audit evidence for CERT-In, RBI and SEBI reporting. In early access.",
+    h1: "Cyvion: an AI SOC analyst and exposure management in one platform",
+    intro: "Security teams buy detection and then run short of people to work what it detects. Cyvion investigates every alert your existing tools raise, shows what an attacker can reach in your own estate, and keeps the evidence an auditor asks for.",
+    img: ["/product/cyvion/overview.webp", "/product/cyvion/overview-900.webp", "Cyvion console overview: six cases awaiting a decision, with the volume funnel from 1,157 events to 27 alerts"],
+    answerQ: "What is Cyvion?",
+    answer: "Cyvion is a security operations platform made by Infovion Technologies. It sits on top of the SIEM, EDR and identity tools a security team already runs, investigates every alert they raise using editable playbooks and, where enabled, Claude language models, and writes up each case with its evidence and a recommended response that a person approves. It also scans the organisation's own networks and web applications, matches what it finds to known-exploited vulnerabilities, and keeps an audit trail and regulator-ready incident reports. Cyvion is in early access and can be hosted or installed inside the customer's network.",
+    pointsTitle: "What Cyvion does",
     points: [
       ["Investigates every alert", "Each alert is enriched, compared with the user's or host's history, correlated with related events and mapped to MITRE ATT&CK. Nothing is sampled or left in a queue."],
       ["Shows its evidence", "Every verdict cites the records behind it, with a confidence score, so an analyst can check the reasoning in a minute and an auditor can check it a year later."],
-      ["Keeps people in charge", "Vigil recommends a response. A separate engine checks your policy and waits for a named person's approval before anything changes in your environment."],
+      ["Keeps people in charge", "Cyvion recommends a response. A separate engine checks your policy and waits for a named person's approval before anything changes in your environment."],
       ["Finds what attackers can reach", "Network discovery, authenticated host scans and web application testing, matched to the NVD and to the CISA list of vulnerabilities being exploited now."],
       ["Proves what is exploitable", "Safe validation confirms real ways in, such as default passwords on admin services, so remediation starts with what matters."],
       ["Produces the paperwork", "A CERT-In incident report drafted from the case, a shift handover, an audit log of every decision, and an accuracy score from analyst reviews."],
@@ -97,28 +103,28 @@ export const VIGIL_PAGES = [
       "Default-credential checks are off until enabled for a scan, and can be disabled for the whole platform",
     ],
     faqs: [
-      ["What is Vigil?", "Vigil is a security operations platform from Infovion Technologies. It triages the alerts raised by an organisation's existing SIEM, EDR and identity tools, manages exposure across networks and web applications, and keeps audit evidence and regulator-ready reports. It is in early access."],
+      ["What is Cyvion?", "Cyvion is a security operations platform from Infovion Technologies. It triages the alerts raised by an organisation's existing SIEM, EDR and identity tools, manages exposure across networks and web applications, and keeps audit evidence and regulator-ready reports. It is in early access."],
       ["What is an AI SOC analyst?", "An AI SOC analyst is software that does the first-line work of a security operations centre: it takes each alert, gathers context, decides whether it is malicious, suspicious or benign, and writes up the case with a recommended response. A person reviews the cases that matter and approves any action."],
-      ["Does Vigil replace our SIEM or EDR?", "No. Vigil works on top of them. Your SIEM and EDR keep collecting and detecting; Vigil takes their alerts over a webhook and does the investigation and write-up. It also has its own detection rules for sources you connect directly."],
-      ["Is our log data sent to an AI model?", "Raw logs are not. Detection rules and suppression handle event volume inside Vigil. When the language-model analyst is switched on, it receives the case it is asked to judge and the records needed for that case. Vigil also runs with no model at all, using its playbook engine."],
-      ["Can Vigil run inside our own network?", "Yes. Vigil can be installed on your own servers, which keeps all data in your environment and is required for scanning internal networks. A hosted option is also planned for teams that prefer it."],
-      ["Is Vigil certified to SOC 2 or ISO 27001?", "No. Vigil is in early access and holds no certifications yet. An independent penetration test is planned before general availability. The status table on this page lists what is built, what is being validated and what is planned."],
-      ["How is Vigil priced?", "Commercial terms are agreed with each organisation during early access. Request a demo and tell us your alert volume and the tools you run."],
-      ["Who makes Vigil?", "Infovion Technologies, a software company in Pune, India, which also makes Infovion School ERP and Infovion JMS."],
+      ["Does Cyvion replace our SIEM or EDR?", "No. Cyvion works on top of them. Your SIEM and EDR keep collecting and detecting; Cyvion takes their alerts, through native connectors for Microsoft Sentinel, Defender XDR, Splunk and CrowdStrike (in validation) or a webhook from any other tool, and does the investigation and write-up. It also has its own detection rules for sources you connect directly."],
+      ["Is our log data sent to an AI model?", "Raw logs are not. Detection rules and suppression handle event volume inside Cyvion. When the language-model analyst is switched on, it receives the case it is asked to judge and the records needed for that case. Cyvion also runs with no model at all, using its playbook engine."],
+      ["Can Cyvion run inside our own network?", "Yes. Cyvion can be installed on your own servers, which keeps all data in your environment and is required for scanning internal networks. Infovion can also host it for you."],
+      ["Is Cyvion certified to SOC 2 or ISO 27001?", "No. Cyvion is in early access and holds no certifications yet. An independent penetration test is planned before general availability. The status table on this page lists what is built, what is being validated and what is planned."],
+      ["How is Cyvion priced?", "Commercial terms are agreed with each organisation during early access. Request a demo and tell us your alert volume and the tools you run."],
+      ["Who makes Cyvion?", "Infovion Technologies, a software company in Pune, India, which also makes Infovion School ERP and Infovion JMS."],
     ],
     sources: ["attack", "sigma", "kev", "nvd"],
   },
   {
     key: "soc",
-    path: "/vigil/ai-soc-analyst",
+    path: "/cyvion/ai-soc-analyst",
     nav: "AI SOC analyst",
-    title: "AI SOC Analyst: Automated Alert Triage for SIEM and EDR | Vigil",
+    title: "AI SOC Analyst: Automated Alert Triage for SIEM and EDR | Cyvion",
     description: "An AI SOC analyst for the alerts your SIEM and EDR already raise: every alert investigated, evidence cited, MITRE ATT&CK mapped, responses held for approval.",
     h1: "AI SOC analyst: automated alert triage for your SIEM and EDR",
-    intro: "Alert volume grows faster than first-line headcount, so queues get sampled and real incidents wait. Vigil works every alert the same way a careful analyst would, and hands people the cases that need a decision.",
-    img: ["/product/vigil/case.webp", "/product/vigil/case-900.webp", "A Vigil case: a sign-in from an anonymising network, with enrichment, user history, correlation, MITRE ATT&CK techniques, the verdict and response actions awaiting approval"],
+    intro: "Alert volume grows faster than first-line headcount, so queues get sampled and real incidents wait. Cyvion works every alert the same way a careful analyst would, and hands people the cases that need a decision.",
+    img: ["/product/cyvion/case.webp", "/product/cyvion/case-900.webp", "A Cyvion case: a sign-in from an anonymising network, with enrichment, user history, correlation, MITRE ATT&CK techniques, the verdict and response actions awaiting approval"],
     answerQ: "What does an AI SOC analyst do?",
-    answer: "An AI SOC analyst automates first-line alert triage. For each alert it gathers context such as threat intelligence, the user's or host's normal behaviour and related events, decides whether the activity is malicious, suspicious or benign, and writes a case with the evidence and a recommended response. In Vigil, made by Infovion Technologies, this is done by an editable playbook for each detection rule and, where enabled, by Claude language models; a person approves every response action, and analysts' reviews of past verdicts produce a running accuracy score.",
+    answer: "An AI SOC analyst automates first-line alert triage. For each alert it gathers context such as threat intelligence, the user's or host's normal behaviour and related events, decides whether the activity is malicious, suspicious or benign, and writes a case with the evidence and a recommended response. In Cyvion, made by Infovion Technologies, this is done by an editable playbook for each detection rule and, where enabled, by Claude language models; a person approves every response action, and analysts' reviews of past verdicts produce a running accuracy score.",
     pointsTitle: "What you get",
     points: [
       ["Every alert worked", "No sampling and no backlog. Each alert is investigated within moments of being raised."],
@@ -134,13 +140,13 @@ export const VIGIL_PAGES = [
     flow: FLOW,
     table: {
       title: "Questions to ask any AI SOC vendor",
-      sub: "What buyers are advised to check in 2026, and Vigil's answer to each.",
-      head: ["Question", "Vigil"],
+      sub: "What buyers are advised to check in 2026, and Cyvion's answer to each.",
+      head: ["Question", "Cyvion"],
       rows: [
         ["Does it carry an alert from signal to verdict, or only help at one stage?", "From alert to written verdict and proposed response, for every alert."],
         ["Can I see the evidence behind a verdict?", "Yes. Each step of the case cites the records it used."],
         ["How do I test accuracy before trusting it?", "Run it beside your analysts on past alerts. The verdict review feature counts agreements and corrections."],
-        ["Do we have to replace our SIEM or move our data?", "No. Alerts arrive by webhook from the tools you run. Native connectors are planned."],
+        ["Do we have to replace our SIEM or move our data?", "No. Alerts arrive by webhook from the tools you run, or through native connectors for Microsoft Sentinel, Defender XDR, Splunk and CrowdStrike, which are in validation."],
         ["What happens to low-confidence alerts?", "Low confidence or critical severity sends the case to a human analyst."],
         ["Can it take action by itself?", "No. Response actions are checked against policy and wait for approval."],
         ["Is the AI analyst proven?", "The playbook engine is tested. The language-model analyst is built and still being validated on labelled alerts."],
@@ -149,38 +155,38 @@ export const VIGIL_PAGES = [
     faqs: [
       ["What is AI alert triage?", "AI alert triage is the automated investigation of security alerts: collecting context for each one, classifying it as malicious, suspicious or benign, and recording the reasoning, so that human analysts spend their time on confirmed incidents."],
       ["Will an AI SOC analyst replace our analysts?", "It replaces the repetitive first pass, not the people. Analysts review the cases that need judgement, approve responses, tune playbooks and hunt. Teams use it to cover nights and volume they cannot staff."],
-      ["Which tools does Vigil take alerts from?", "Any SIEM, EDR or XDR that can post an alert to a webhook. Alerts are sent in a simple JSON format, which the automation rules in tools such as Microsoft Sentinel, Splunk and IBM QRadar can produce. Vendor-specific connectors are planned; a Microsoft 365 connector is in validation."],
-      ["How does Vigil reduce alert fatigue?", "By suppressing known-safe patterns with rules, grouping related alerts into one case, and writing up each case fully, so analysts read a short list of decisions instead of a long list of alerts."],
+      ["Which tools does Cyvion take alerts from?", "Any SIEM, EDR or XDR that can post an alert to a webhook. Alerts are sent in a simple JSON format, which the automation rules in tools such as Microsoft Sentinel, Splunk and IBM QRadar can produce. Native connectors for Microsoft Sentinel, Microsoft Defender XDR, Splunk and CrowdStrike Falcon are built and in validation: tested against each vendor's documented API, not yet against a live tenant."],
+      ["How does Cyvion reduce alert fatigue?", "By suppressing known-safe patterns with rules, grouping related alerts into one case, and writing up each case fully, so analysts read a short list of decisions instead of a long list of alerts."],
       ["Does it map alerts to MITRE ATT&CK?", "Yes. Each case lists the ATT&CK techniques and tactics that match the observed activity."],
-      ["Which AI model does Vigil use?", "Claude models from Anthropic, in tiers: a fast model for the first pass, a stronger one for investigation with event search, and the strongest for incident reports. Vigil also runs without any model, using its playbook engine."],
-      ["Can it respond automatically?", "Not without approval. Vigil proposes actions and a person approves each one. The approval, the approver and the time are recorded."],
+      ["Which AI model does Cyvion use?", "Claude models from Anthropic, in tiers: a fast model for the first pass, a stronger one for investigation with event search, and the strongest for incident reports. Cyvion also runs without any model, using its playbook engine."],
+      ["Can it respond automatically?", "Not without approval. Cyvion proposes actions and a person approves each one. The approval, the approver and the time are recorded."],
     ],
     sources: ["attack", "sigma"],
   },
   {
     key: "exposure",
-    path: "/vigil/exposure-management",
+    path: "/cyvion/exposure-management",
     nav: "Exposure management",
-    title: "Exposure Management and Vulnerability Scanning (CTEM) | Vigil",
+    title: "Exposure Management and Vulnerability Scanning (CTEM) | Cyvion",
     description: "Exposure management with proof: network discovery, CISA KEV and NVD matching, authenticated scans, safe web application testing and validation of real ways in.",
     h1: "Exposure management: what an attacker can reach, and what is proven exploitable",
-    intro: "A scanner that returns four thousand CVEs has not told you what to fix on Monday. Vigil finds your hosts, services and web weaknesses, ranks them by what attackers are using now, and confirms the ones that are real.",
-    img: ["/product/vigil/exposure.webp", "/product/vigil/exposure-900.webp", "Vigil exposure view: open critical findings, findings on the CISA known-exploited list, scan targets and scan types"],
+    intro: "A scanner that returns four thousand CVEs has not told you what to fix on Monday. Cyvion finds your hosts, services and web weaknesses, ranks them by what attackers are using now, and confirms the ones that are real.",
+    img: ["/product/cyvion/exposure.webp", "/product/cyvion/exposure-900.webp", "Cyvion exposure view: open critical findings, findings on the CISA known-exploited list, scan targets and scan types"],
     answerQ: "What is exposure management?",
-    answer: "Exposure management is the continuous practice of finding what an attacker could reach in an organisation, ranking it by real risk, proving which weaknesses are exploitable, and tracking each one to a confirmed fix. It is broader than vulnerability scanning, which stops at a list of CVEs. Vigil, made by Infovion Technologies, discovers hosts and services, matches software versions to the NVD and the CISA Known Exploited Vulnerabilities catalog, runs authenticated host scans and safe web application tests, validates default credentials when you permit it, and closes a finding only when a later scan confirms the fix.",
+    answer: "Exposure management is the continuous practice of finding what an attacker could reach in an organisation, ranking it by real risk, proving which weaknesses are exploitable, and tracking each one to a confirmed fix. It is broader than vulnerability scanning, which stops at a list of CVEs. Cyvion, made by Infovion Technologies, discovers hosts and services, matches software versions to the NVD and the CISA Known Exploited Vulnerabilities catalog, runs authenticated host scans and safe web application tests, validates default credentials when you permit it, and closes a finding only when a later scan confirms the fix.",
     pointsTitle: "What it covers",
     points: [
       ["Network discovery", "Hosts, open ports and service versions across the ranges you authorise, from a quick pass of common ports to a full sweep."],
       ["Known-exploited first", "Versions are matched to CVEs in the NVD, and findings on the CISA KEV list are raised to the top."],
-      ["Authenticated scanning", "Vigil connects over SSH with read-only commands, or takes a Windows host's software inventory from the collector, to see what is installed and not just what answers."],
+      ["Authenticated scanning", "Cyvion connects over SSH with read-only commands, or takes a Windows host's software inventory from the collector, to see what is installed and not just what answers."],
       ["Web application testing", "Detection of SQL injection, reflected cross-site scripting, open redirects, missing security headers, weak cookie flags, CORS mistakes, exposed paths and outdated JavaScript libraries. Detection only, and rate-limited."],
-      ["Safe validation", "With your acknowledgement for that scan, Vigil tries a short list of well-known default passwords on admin services to confirm a real way in."],
+      ["Safe validation", "With your acknowledgement for that scan, Cyvion tries a short list of well-known default passwords on admin services to confirm a real way in."],
       ["Findings that close themselves", "A finding is marked fixed when a rescan confirms it, so the open list stays honest."],
     ],
     table: {
       title: "The five stages of continuous threat exposure management",
-      sub: "CTEM is the programme Gartner described for running exposure work as a cycle. How Vigil fits each stage.",
-      head: ["Stage", "What it means", "In Vigil"],
+      sub: "CTEM is the programme Gartner described for running exposure work as a cycle. How Cyvion fits each stage.",
+      head: ["Stage", "What it means", "In Cyvion"],
       rows: [
         ["Scoping", "Decide which parts of the business to examine", "Targets are added by you and checked for authorisation before anything is sent"],
         ["Discovery", "Find the assets and weaknesses in scope", "Network, authenticated and web application scans"],
@@ -198,24 +204,24 @@ export const VIGIL_PAGES = [
     faqs: [
       ["What is the difference between vulnerability scanning and exposure management?", "Vulnerability scanning lists known flaws in software. Exposure management also asks which of them an attacker can reach, which are being exploited in the wild, which can be proven exploitable in your environment, and whether each one was really fixed."],
       ["What is the CISA KEV catalog?", "The Known Exploited Vulnerabilities catalog is a list, kept by the US Cybersecurity and Infrastructure Security Agency, of vulnerabilities with evidence of active exploitation. Security teams use it to decide what to patch first."],
-      ["Is it safe to run Vigil's scans against production systems?", "The scans are designed for it: discovery and version checks are read-only, web tests are detection-only and rate-limited, and credential validation is off unless you enable it for that scan. As with any scanner, start with a small scope and a quiet hour."],
-      ["Does Vigil replace a penetration test?", "No. Vigil gives continuous coverage between tests and confirms simple ways in. A penetration test by people, and a CERT-In empanelled audit where a regulator requires one, still has its place."],
-      ["Can Vigil scan our internal network?", "Yes, when an instance of Vigil runs inside your network and an authorised person records an attestation. A hosted instance will not scan private address ranges."],
+      ["Is it safe to run Cyvion's scans against production systems?", "The scans are designed for it: discovery and version checks are read-only, web tests are detection-only and rate-limited, and credential validation is off unless you enable it for that scan. As with any scanner, start with a small scope and a quiet hour."],
+      ["Does Cyvion replace a penetration test?", "No. Cyvion gives continuous coverage between tests and confirms simple ways in. A penetration test by people, and a CERT-In empanelled audit where a regulator requires one, still has its place."],
+      ["Can Cyvion scan our internal network?", "Yes, when an instance of Cyvion runs inside your network and an authorised person records an attestation. A hosted instance will not scan private address ranges."],
       ["What is CTEM?", "Continuous threat exposure management is a five-stage cycle described by Gartner: scoping, discovery, prioritisation, validation and mobilisation. It treats exposure as an ongoing programme, not a quarterly scan."],
     ],
     sources: ["kev", "nvd", "owasp"],
   },
   {
     key: "banks",
-    path: "/vigil/banks-financial-services",
+    path: "/cyvion/banks-financial-services",
     nav: "Banks and finance",
-    title: "SOC Automation for Banks and NBFCs: CERT-In, RBI, SEBI | Vigil",
-    description: "Vigil for banks, NBFCs, brokers and insurers: every alert triaged with evidence, exposure tracked between audits, six-hour incident reports drafted. Runs on-premise.",
+    title: "SOC Automation for Banks and NBFCs: CERT-In, RBI, SEBI | Cyvion",
+    description: "Cyvion for banks, NBFCs, brokers and insurers: every alert triaged with evidence, exposure tracked between audits, six-hour incident reports drafted. Runs on-premise.",
     h1: "SOC automation for banks, NBFCs and financial services",
-    intro: "A regulated institution has to watch its systems around the clock, report an incident within hours and show an auditor why each decision was made. Vigil does the first-line work at any hour and keeps the record.",
-    img: ["/product/vigil/case.webp", "/product/vigil/case-900.webp", "A Vigil case with the evidence chain, verdict, proposed response actions and a CERT-In report button"],
-    answerQ: "How does Vigil help a regulated financial institution?",
-    answer: "Vigil, a security operations platform from Infovion Technologies, helps banks, NBFCs, brokers and insurers in three ways. It triages every alert from the institution's SIEM and EDR at any hour and records the evidence for each verdict. It tracks exposure across networks and web applications between formal audits. And it drafts incident reports from the case record, with the timeline already in place, for reporting clocks such as CERT-In's six hours. Vigil can be installed inside the institution's own data centre. It supports these obligations; it does not by itself make an institution compliant, and it holds no certifications yet.",
+    intro: "A regulated institution has to watch its systems around the clock, report an incident within hours and show an auditor why each decision was made. Cyvion does the first-line work at any hour and keeps the record.",
+    img: ["/product/cyvion/case.webp", "/product/cyvion/case-900.webp", "A Cyvion case with the evidence chain, verdict, proposed response actions and a CERT-In report button"],
+    answerQ: "How does Cyvion help a regulated financial institution?",
+    answer: "Cyvion, a security operations platform from Infovion Technologies, helps banks, NBFCs, brokers and insurers in three ways. It triages every alert from the institution's SIEM and EDR at any hour and records the evidence for each verdict. It tracks exposure across networks and web applications between formal audits. And it drafts incident reports from the case record, with the timeline already in place, for reporting clocks such as CERT-In's six hours. Cyvion can be installed inside the institution's own data centre. It supports these obligations; it does not by itself make an institution compliant, and it holds no certifications yet.",
     pointsTitle: "Where it helps",
     points: [
       ["Coverage at any hour", "Alerts raised at night or on a holiday are investigated at once, and the serious ones reach a person with the case already written."],
@@ -223,15 +229,15 @@ export const VIGIL_PAGES = [
       ["Reports against the clock", "A CERT-In incident report is drafted from the case, so the six hours go on containing the incident, not on gathering the timeline."],
       ["Exposure between audits", "Continuous scanning shows what changed since the last VAPT, with known-exploited weaknesses first."],
       ["Approval and separation of duties", "Response actions need a named approver. Roles, MFA and API keys control who can see and do what."],
-      ["Inside your own network", "Vigil can run on your servers, so events, cases and reports stay in your data centre."],
+      ["Inside your own network", "Cyvion can run on your servers, so events, cases and reports stay in your data centre."],
     ],
     table: {
-      title: "Obligations and how Vigil supports them",
+      title: "Obligations and how Cyvion supports them",
       sub: "A planning summary, not legal advice. Read the regulator's current text; several of these directions have been amended.",
-      head: ["What is expected", "Where it comes from", "How Vigil helps"],
+      head: ["What is expected", "Where it comes from", "How Cyvion helps"],
       rows: [
         ["Report specified cyber incidents within six hours of noticing them", "CERT-In Directions, 28 April 2022", "The case holds the timeline and evidence; a CERT-In report is drafted from it"],
-        ["Keep ICT system logs for a rolling 180 days", "CERT-In Directions, 28 April 2022", "Your SIEM or log store remains the archive. Vigil keeps cases, verdicts and evidence"],
+        ["Keep ICT system logs for a rolling 180 days", "CERT-In Directions, 28 April 2022", "Your SIEM or log store remains the archive. Cyvion keeps cases, verdicts and evidence"],
         ["Notify the regulator of incidents within its own deadline", "SEBI CSCRF for regulated entities; RBI directions for banks and NBFCs", "Time-stamped case record and report draft for each incident"],
         ["Run a security operations centre or continuous monitoring", "SEBI CSCRF; RBI Cyber Security Framework and IT Governance Master Direction", "Every alert triaged, with people approving responses"],
         ["Carry out periodic vulnerability assessment and penetration testing", "RBI and SEBI frameworks", "Continuous exposure scanning between cycles. It does not replace an empanelled auditor"],
@@ -240,22 +246,22 @@ export const VIGIL_PAGES = [
     },
     guardsTitle: "What to know before you evaluate",
     guards: [
-      "Vigil is in early access. It has no SOC 2, ISO 27001 or other certification yet",
-      "Infovion is not a CERT-In empanelled auditor; Vigil does not issue audit certificates",
-      "When the language-model analyst is enabled, case content is sent to Anthropic's API. Vigil can run with the playbook engine only, so nothing leaves your network",
-      "Alerts from your SIEM arrive by webhook today; native connectors are planned",
+      "Cyvion is in early access. It has no SOC 2, ISO 27001 or other certification yet",
+      "Infovion is not a CERT-In empanelled auditor; Cyvion does not issue audit certificates",
+      "When the language-model analyst is enabled, case content is sent to Anthropic's API. Cyvion can run with the playbook engine only, so nothing leaves your network",
+      "Alerts from your SIEM arrive by webhook today; native Sentinel, Splunk and CrowdStrike connectors are in validation",
     ],
     faqs: [
-      ["Can Vigil be deployed on-premise in a bank's data centre?", "Yes. Vigil can be installed on the institution's own servers, with events, cases and reports stored there. An on-network instance is also what allows scanning of internal address ranges."],
-      ["Does Vigil make a bank compliant with RBI or SEBI requirements?", "No product does that by itself. Vigil supports specific obligations: continuous monitoring and triage, evidence for decisions, incident reports and exposure tracking. Policy, governance, audits and the regulator's other requirements remain the institution's work."],
+      ["Can Cyvion be deployed on-premise in a bank's data centre?", "Yes. Cyvion can be installed on the institution's own servers, with events, cases and reports stored there. An on-network instance is also what allows scanning of internal address ranges."],
+      ["Does Cyvion make a bank compliant with RBI or SEBI requirements?", "No product does that by itself. Cyvion supports specific obligations: continuous monitoring and triage, evidence for decisions, incident reports and exposure tracking. Policy, governance, audits and the regulator's other requirements remain the institution's work."],
       ["What is the CERT-In six-hour rule?", "CERT-In's Directions of 28 April 2022 require service providers, intermediaries, data centres, body corporates and government organisations to report specified cyber incidents to CERT-In within six hours of noticing them, and to keep ICT system logs for a rolling 180 days."],
       ["Does data leave India?", "With an on-premise installation and the playbook engine, no data leaves your network. If you enable the language-model analyst, the content of each case is sent to Anthropic's API for analysis."],
-      ["Does Vigil integrate with the SIEM a bank already runs?", "Yes, through alert intake over a webhook. Alerts are sent in a simple JSON format, which the automation rules in Microsoft Sentinel, IBM QRadar, Splunk and similar tools can produce. Vendor-specific connectors are planned."],
-      ["Is Vigil suitable for a co-operative bank, a small NBFC or a broker without a 24-hour SOC?", "That is where first-line automation helps most: alerts are investigated at any hour and a small team reviews the cases that need a decision. The institution still needs named people to approve responses."],
-      ["Is Vigil CERT-In empanelled or certified?", "No. Empanelment applies to information security auditing organisations. Vigil is a software product in early access and holds no certifications yet; an independent penetration test is planned before general availability."],
+      ["Does Cyvion integrate with the SIEM a bank already runs?", "Yes, through alert intake over a webhook. Alerts are sent in a simple JSON format, which the automation rules in Microsoft Sentinel, IBM QRadar, Splunk and similar tools can produce. Native connectors for Sentinel, Splunk and CrowdStrike are built and in validation; QRadar is not covered yet."],
+      ["Is Cyvion suitable for a co-operative bank, a small NBFC or a broker without a 24-hour SOC?", "That is where first-line automation helps most: alerts are investigated at any hour and a small team reviews the cases that need a decision. The institution still needs named people to approve responses."],
+      ["Is Cyvion CERT-In empanelled or certified?", "No. Empanelment applies to information security auditing organisations. Cyvion is a software product in early access and holds no certifications yet; an independent penetration test is planned before general availability."],
     ],
     sources: ["certin", "sebi", "rbi", "dpdp"],
   },
 ];
 
-export const vigilPage = (key) => VIGIL_PAGES.find((p) => p.key === key);
+export const cyvionPage = (key) => CYVION_PAGES.find((p) => p.key === key);

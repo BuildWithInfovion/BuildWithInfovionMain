@@ -19,7 +19,7 @@ const AUDIENCE = { security: "security", development: "business", outsourcing: "
 export const audienceOf = (category) => AUDIENCE[category] ?? "school";
 
 export const CTA = {
-  security: { title: "See Vigil work on your own alerts", body: "Vigil investigates every alert, shows its evidence and drafts the incident report. Early access, with a demonstration on a call.", to: "/vigil", label: "See Vigil" },
+  security: { title: "See Cyvion work on your own alerts", body: "Cyvion investigates every alert, shows its evidence and drafts the incident report. Early access, with a demonstration on a call.", to: "/cyvion", label: "See Cyvion" },
   school: { title: "See it working in your own school", body: "Infovion School ERP's free trial opens with sample data in two minutes. No card, no contract.", to: "/free-trial", label: "Start your free trial" },
   jms: { title: "Billing, tags, girvi, gold schemes and karigar in one place", body: "Infovion JMS runs the whole jewellery shop, in 10 Indian languages. See it on a free 15-minute demo call, in your language.", to: "/jewellery-management-software", label: "See Infovion JMS" },
   business: { title: "Planning a software project?", body: "Tell us what you want to build — you'll get a clear plan and a fixed quote, usually within 48 hours.", to: "/contact", label: "Get a free quote" },

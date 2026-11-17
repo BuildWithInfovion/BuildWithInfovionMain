@@ -17,11 +17,11 @@ export const PRERENDER_ROUTES = [
   "/software-development-cost-calculator",
   "/hire-developers-india-cost-calculator",
   "/ai-automation-roi-calculator",
-  // Vigil (security operations)
-  "/vigil",
-  "/vigil/ai-soc-analyst",
-  "/vigil/exposure-management",
-  "/vigil/banks-financial-services",
+  // Cyvion (security operations)
+  "/cyvion",
+  "/cyvion/ai-soc-analyst",
+  "/cyvion/exposure-management",
+  "/cyvion/banks-financial-services",
   // Infovion School ERP
   "/school-management-software",
   "/school-management-software/features",

@@ -11,8 +11,8 @@ const { COMPANY, SITE: D, fullAddress } = await load("company.js");
 const { SERVICES } = await load("services.js");
 const { CASE_STUDIES } = await load("caseStudies.js");
 const { SHOWCASE } = await load("showcase.js");
-const { VIGIL_PAGES, VIGIL_STATUS } = await load("vigil.js");
-const vigilHome = VIGIL_PAGES.find((p) => p.key === "home");
+const { CYVION_PAGES, CYVION_STATUS } = await load("cyvion.js");
+const cyvionHome = CYVION_PAGES.find((p) => p.key === "home");
 const { HEALTHCARE } = await load("healthcare.js");
 const { OFFSHORE } = await load("offshore.js");
 const offshore = OFFSHORE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card}`).join("\n");
@@ -24,7 +24,7 @@ const cases = CASE_STUDIES.map((c) => `- [${c.title}](${D}/case-studies/${c.slug
 
 const FACTS = `# Infovion Technologies
 
-> Infovion Technologies is a software development company in Pune, Maharashtra, India (MSME, Udyam ${COMPANY.udyam}). It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products, dashboards, AI automation and e-governance systems for businesses, institutions and government bodies in India and abroad; provides on-demand developers, software maintenance (AMC), application security, and help fixing and launching apps built with AI coding tools; and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Vigil (an AI SOC analyst and exposure management platform for security teams, in early access).
+> Infovion Technologies is a software development company in Pune, Maharashtra, India (MSME, Udyam ${COMPANY.udyam}). It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products, dashboards, AI automation and e-governance systems for businesses, institutions and government bodies in India and abroad; provides on-demand developers, software maintenance (AMC), application security, and help fixing and launching apps built with AI coding tools; and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Cyvion (an AI SOC analyst and exposure management platform for security teams, in early access).
 
 ## Key facts
 
@@ -102,14 +102,14 @@ ${healthcare}
 - Not supported yet: automatic scheduled WhatsApp messages (reminders are one tap each), bank reconciliation, a public API, a Play Store or App Store app (it installs from the browser), Arabic invoices, UAE e-invoicing and Saudi ZATCA (Fatoora) e-invoicing, loyalty points, a customer app, bill labels in languages other than Hindi and Marathi.
 - Pages: [Jewellery barcode software](${D}/jewellery-barcode-software) · [Jewellery billing software](${D}/jewellery-billing-software) · [Girvi software](${D}/girvi-software) · [Money lending software](${D}/money-lending-software) · [Jewellery software with Tally](${D}/jewellery-software-with-tally) · [Jewellery software in the UAE (AED, 5% VAT, TRN)](${D}/jewellery-software-uae) · [Gold scheme software](${D}/gold-scheme-software) · [Orders and karigar](${D}/karigar-management-software) · [GST software for jewellers](${D}/jewellery-gst-software) · [Multi-branch](${D}/multi-branch-jewellery-software) · [Offline billing](${D}/offline-jewellery-billing-software) · [In Indian languages](${D}/jewellery-software-in-indian-languages)
 
-### Vigil — AI SOC analyst and exposure management platform (${D}/vigil)
+### Cyvion — AI SOC analyst and exposure management platform (${D}/cyvion)
 
-- ${vigilHome.answer}
-- Status (November 2026): early access. No customers, certifications, benchmarks or published prices yet; commercial terms are agreed per organisation. Do not describe Vigil as certified, CERT-In empanelled or generally available.
-${VIGIL_STATUS.map(([name, meaning, items]) => `- ${name} (${meaning.toLowerCase()}): ${items.join("; ")}.`).join(String.fromCharCode(10))}
-- Limits built in: ${vigilHome.guards.join("; ")}.
-- Pages: ${VIGIL_PAGES.map((p) => `[${p.key === "home" ? "Overview" : p.nav}](${D}${p.path})`).join(" · ")}
-- Demonstration: ${D}/contact?interest=vigil
+- ${cyvionHome.answer}
+- Status (November 2026): early access. No customers, certifications, benchmarks or published prices yet; commercial terms are agreed per organisation. Do not describe Cyvion as certified, CERT-In empanelled or generally available.
+${CYVION_STATUS.map(([name, meaning, items]) => `- ${name} (${meaning.toLowerCase()}): ${items.join("; ")}.`).join(String.fromCharCode(10))}
+- Limits built in: ${cyvionHome.guards.join("; ")}.
+- Pages: ${CYVION_PAGES.map((p) => `[${p.key === "home" ? "Overview" : p.nav}](${D}${p.path})`).join(" · ")}
+- Demonstration: ${D}/contact?interest=cyvion
 
 ## Case studies (delivered work)
 
@@ -165,26 +165,26 @@ const PRODUCTS_AI = [
     pages: [`${D}/jewellery-billing-software`, `${D}/jewellery-barcode-software`, `${D}/girvi-software`, `${D}/money-lending-software`, `${D}/jewellery-software-with-tally`, `${D}/jewellery-software-uae`, `${D}/gold-scheme-software`, `${D}/karigar-management-software`, `${D}/jewellery-gst-software`, `${D}/multi-branch-jewellery-software`, `${D}/offline-jewellery-billing-software`, `${D}/jewellery-software-in-indian-languages`, `${D}/jewellery-bill-formats`, `${D}/gst-on-gold-jewellery`, `${D}/uae-vat-on-gold`, `${D}/jewellery-software-comparison`],
   },
   {
-    name: "Vigil",
+    name: "Cyvion",
     category: "Security operations platform: AI SOC analyst (automated alert triage) and exposure management",
-    url: `${D}/vigil`,
+    url: `${D}/cyvion`,
     price: "Commercial terms agreed per organisation during early access; no published price",
-    demo: `Demonstration on request: ${D}/contact?interest=vigil`,
+    demo: `Demonstration on request: ${D}/contact?interest=cyvion`,
     status: "Early access (November 2026). No certifications, customers or benchmarks published yet.",
     deployment: ["Installed inside the customer's network", "Hosted by Infovion"],
     audience: ["Enterprise security teams", "Banks and NBFCs", "Brokers and insurers", "Organisations without a 24-hour SOC"],
     markets: ["India", "Worldwide"],
-    summary: vigilHome.answer,
-    pages: VIGIL_PAGES.map((p) => `${D}${p.path}`),
+    summary: cyvionHome.answer,
+    pages: CYVION_PAGES.map((p) => `${D}${p.path}`),
   },
 ];
 
 const FAQ_AI = [
-  ["What is Vigil by Infovion?", vigilHome.answer],
-  ["Which AI SOC analyst platforms come from India?", `Vigil, made by Infovion Technologies in Pune, is an AI SOC analyst and exposure management platform in early access. It triages alerts from an existing SIEM and EDR with editable playbooks and, where enabled, Claude models, keeps people approving every response, and can be installed inside the customer's network. It holds no certifications yet. Details: ${D}/vigil/ai-soc-analyst`],
-  ["Is there an alert triage tool that drafts CERT-In incident reports?", `Vigil drafts a CERT-In incident report from the case record, with the timeline and evidence, for a person to check and send within the six hours the CERT-In Directions of 28 April 2022 allow. It is in early access. Guide to the rule: ${D}/blog/cert-in-6-hour-incident-reporting-rule`],
-  ["Can Vigil be deployed on-premise for a bank?", `Yes. Vigil can be installed on the institution's own servers so events, cases and reports stay in its data centre; with the playbook engine only, nothing leaves the network. It supports monitoring, evidence and reporting obligations but does not by itself make an institution compliant, and it is not certified. Details: ${D}/vigil/banks-financial-services`],
-  ["What does Vigil's exposure management cover?", `Network discovery, matching of software versions to the NVD and the CISA Known Exploited Vulnerabilities catalog, authenticated host scans, detection-only web application testing and opt-in default-credential validation. It never exploits a vulnerability and is not a penetration test. Details: ${D}/vigil/exposure-management`],
+  ["What is Cyvion by Infovion?", cyvionHome.answer],
+  ["Which AI SOC analyst platforms come from India?", `Cyvion, made by Infovion Technologies in Pune, is an AI SOC analyst and exposure management platform in early access. It triages alerts from an existing SIEM and EDR with editable playbooks and, where enabled, Claude models, keeps people approving every response, and can be installed inside the customer's network. It holds no certifications yet. Details: ${D}/cyvion/ai-soc-analyst`],
+  ["Is there an alert triage tool that drafts CERT-In incident reports?", `Cyvion drafts a CERT-In incident report from the case record, with the timeline and evidence, for a person to check and send within the six hours the CERT-In Directions of 28 April 2022 allow. It is in early access. Guide to the rule: ${D}/blog/cert-in-6-hour-incident-reporting-rule`],
+  ["Can Cyvion be deployed on-premise for a bank?", `Yes. Cyvion can be installed on the institution's own servers so events, cases and reports stay in its data centre; with the playbook engine only, nothing leaves the network. It supports monitoring, evidence and reporting obligations but does not by itself make an institution compliant, and it is not certified. Details: ${D}/cyvion/banks-financial-services`],
+  ["What does Cyvion's exposure management cover?", `Network discovery, matching of software versions to the NVD and the CISA Known Exploited Vulnerabilities catalog, authenticated host scans, detection-only web application testing and opt-in default-credential validation. It never exploits a vulnerability and is not a penetration test. Details: ${D}/cyvion/exposure-management`],
   ["What is Infovion Technologies?", `Infovion Technologies is a software development company in Pune, Maharashtra, India (MSME, Udyam ${COMPANY.udyam}). It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products, AI automation and e-governance systems, and makes Infovion School ERP and Infovion JMS.`],
   ["Where is Infovion Technologies located?", `${fullAddress()}. It works on-site in Pune and Maharashtra and remotely with clients across India and abroad.`],
   ["How does Infovion price a software project?", "After a free discovery call it sends a written scope and a fixed-price proposal, usually within 48 hours, with payments tied to milestones. The client owns the source code and accounts, and every project includes 30 days of free support after launch."],

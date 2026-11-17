@@ -18,10 +18,10 @@ const PRODUCT_LINKS = [
   ["/fee-management-software-for-schools", "Fee management"],
   ["/school-attendance-app", "Attendance app"],
   ["/school-transport-management-software", "School transport"],
-  ["/vigil", "Vigil (security operations)", true],
-  ["/vigil/ai-soc-analyst", "AI SOC analyst"],
-  ["/vigil/exposure-management", "Exposure management"],
-  ["/vigil/banks-financial-services", "For banks and finance"],
+  ["/cyvion", "Cyvion (security operations)", true],
+  ["/cyvion/ai-soc-analyst", "AI SOC analyst"],
+  ["/cyvion/exposure-management", "Exposure management"],
+  ["/cyvion/banks-financial-services", "For banks and finance"],
   ["/jewellery-management-software", "Infovion JMS", true],
   ["/jewellery-billing-software", "Jewellery billing software"],
   ["/jewellery-barcode-software", "Jewellery barcode software"],
@@ -66,7 +66,7 @@ const SOCIAL = [
 const STRIPS = {
   school: ["Evaluate Infovion School ERP with your school's data", "30-day free trial. No payment details required.", ["/free-trial", "Start free trial"]],
   jms: ["See Infovion JMS for your shop", "Free demo on a call. Billing, tags, girvi, gold schemes and orders, in 10 Indian languages.", jmsTrial()],
-  vigil: ["See Vigil work on your own alerts", "Early access. A demonstration on a call, on your alert sources.", ["/contact?interest=vigil", "Request a demo"]],
+  cyvion: ["See Cyvion work on your own alerts", "Early access. A demonstration on a call, on your alert sources.", ["/contact?interest=cyvion", "Request a demo"]],
   company: ["Planning a software project?", "Share your requirements. We respond within one business day.", ["/contact", "Contact us"]],
 };
 const NO_STRIP = ["/", "/free-trial", "/contact", "/company-profile"];

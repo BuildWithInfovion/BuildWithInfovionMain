@@ -1,4 +1,4 @@
-// Guides for security teams, written alongside Vigil. Legal points quote the regulator's own text
+// Guides for security teams, written alongside Cyvion. Legal points quote the regulator's own text
 // and link to it; nothing here is legal advice, and each article says so.
 
 const CERTIN = "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf";
@@ -15,7 +15,7 @@ export const securityPosts = [
     date: "2026-11-16",
     readTime: "8 min read",
     tags: ["CERT-In", "Incident reporting", "SOC", "Compliance"],
-    image: "/product/vigil/case.webp",
+    image: "/product/cyvion/case.webp",
     content: `
       <p><strong>Short answer:</strong> under CERT-In's Directions of 28 April 2022, every service provider, intermediary, data centre, body corporate and government organisation in India must report the cyber incidents listed in the Directions to CERT-In <strong>within six hours of noticing them or being told about them</strong>, and must keep the logs of all its ICT systems for a <strong>rolling 180 days, within Indian jurisdiction</strong>. Reports go to incident@cert-in.org.in, by phone to 1800-11-4949 or by fax to 1800-11-6969.</p>
       <p><small>This guide summarises the Directions for planning. It is not legal advice. Read <a href="${CERTIN}" target="_blank" rel="noopener noreferrer">the Directions themselves</a> and CERT-In's FAQs, and take advice on how they apply to you.</small></p>
@@ -86,8 +86,8 @@ export const securityPosts = [
         <li>The runbook has been rehearsed once with a made-up incident</li>
       </ul>
 
-      <h2>Where Vigil fits</h2>
-      <p><a href="/vigil">Vigil</a>, our security operations platform, investigates each alert as it arrives, keeps the evidence and timeline in the case, and drafts a CERT-In incident report from it for a person to check and send. It is in early access; <a href="/vigil#status">the status table</a> lists what is built and what is not. It does not replace your log archive or your decision about what is reportable.</p>
+      <h2>Where Cyvion fits</h2>
+      <p><a href="/cyvion">Cyvion</a>, our security operations platform, investigates each alert as it arrives, keeps the evidence and timeline in the case, and drafts a CERT-In incident report from it for a person to check and send. It is in early access; <a href="/cyvion#status">the status table</a> lists what is built and what is not. It does not replace your log archive or your decision about what is reportable.</p>
     `,
     faqs: [
       ["What is the CERT-In 6-hour rule?", "CERT-In's Directions of 28 April 2022 require service providers, intermediaries, data centres, body corporates and government organisations to report the cyber incidents listed in Annexure I to CERT-In within 6 hours of noticing them or being brought to notice about them."],
@@ -109,7 +109,7 @@ export const securityPosts = [
     date: "2026-11-16",
     readTime: "7 min read",
     tags: ["AI SOC analyst", "Alert triage", "SIEM", "Security operations"],
-    image: "/product/vigil/overview.webp",
+    image: "/product/cyvion/overview.webp",
     content: `
       <p><strong>Short answer:</strong> an AI SOC analyst is software that does the first-line work of a security operations centre. It takes each alert raised by a SIEM, EDR or identity system, gathers the context a person would look up, decides whether the activity is malicious, suspicious or benign, and writes up the case with a recommended response. People review the cases that need judgement and approve any action.</p>
 
@@ -153,8 +153,8 @@ export const securityPosts = [
       <h2>What it does not replace</h2>
       <p>It does not replace the SIEM that collects and stores logs, the EDR on endpoints, or the people who decide. It changes what those people do: fewer hours opening alerts that turn out to be nothing, more on confirmed incidents, tuning, hunting and reporting. For a team that cannot staff nights, it is the difference between an alert being read at 2 am and at 9 am.</p>
 
-      <h2>Where Vigil fits</h2>
-      <p><a href="/vigil/ai-soc-analyst">Vigil</a> is our platform for this. It takes alerts from your existing tools, investigates each with an editable playbook and, where enabled, Claude models, shows the evidence, and waits for approval before any response. It is in early access; the playbook engine is tested and the model analyst is still being validated, as <a href="/vigil#status">the status table</a> sets out.</p>
+      <h2>Where Cyvion fits</h2>
+      <p><a href="/cyvion/ai-soc-analyst">Cyvion</a> is our platform for this. It takes alerts from your existing tools, investigates each with an editable playbook and, where enabled, Claude models, shows the evidence, and waits for approval before any response. It is in early access; the playbook engine is tested and the model analyst is still being validated, as <a href="/cyvion#status">the status table</a> sets out.</p>
     `,
     faqs: [
       ["What is an AI SOC analyst?", "Software that automates first-line security operations work: it investigates each alert from a SIEM, EDR or identity system, classifies it as malicious, suspicious or benign with evidence, and recommends a response for a person to approve."],

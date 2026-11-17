@@ -13,7 +13,7 @@ import { SERVICES, PROCESS, ENGAGEMENT } from "../../Data/services";
 import { TECH } from "../../Data/company";
 
 const FAQ = [
-  ["What does Infovion Technologies do?", "Infovion Technologies is a software development company based in Pune, India. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop products of our own: Infovion School ERP, Infovion JMS for jewellery shops, and Vigil, a security operations platform in early access."],
+  ["What does Infovion Technologies do?", "Infovion Technologies is a software development company based in Pune, India. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop products of our own: Infovion School ERP, Infovion JMS for jewellery shops, and Cyvion, a security operations platform in early access."],
   ["Do you work with clients outside Pune and outside India?", "Yes. Most of our engagements are delivered remotely, with scheduled video reviews, a shared project board and a staging environment the client can access at any time. Our working hours overlap with the Gulf, the United Kingdom and Europe, and we schedule calls for clients in the Americas."],
   ["How is a project priced?", "After an initial consultation we send a written scope and a fixed-price proposal, with payments linked to milestones. As a guide, focused business tools in India typically cost ₹75,000 to 2 lakh and multi-module systems ₹2.5 to 8 lakh. Websites start at about ₹15,000."],
   ["Who owns the source code?", "The client. On final payment the complete source code, database, domain and hosting accounts are transferred to you, and the agreement states this explicitly."],
@@ -40,7 +40,7 @@ const INDUSTRIES = [
   ["Store", "Retail and distribution", "/industries#retail"],
   ["Factory", "Manufacturing", "/industries#manufacturing"],
   ["HeartPulse", "Healthcare", "/healthcare-software-development"],
-  ["ShieldCheck", "Banking and financial services", "/vigil/banks-financial-services"],
+  ["ShieldCheck", "Banking and financial services", "/cyvion/banks-financial-services"],
   ["Truck", "Mining and construction materials", "/industries#mining"],
   ["Building2", "Real estate and services", "/industries#services"],
 ];
@@ -129,9 +129,9 @@ const PRODUCTS = [
     points: ["Barcode tags, billing by scan and stock audit", "Girvi register with interest calculated to date", "Tally export for the accountant"],
   },
   {
-    name: "Vigil", tag: "Security operations platform, in early access", to: "/vigil",
-    img: ["/product/vigil/overview-900.webp", "Vigil console overview with six cases awaiting a decision and the funnel from events to alerts"],
-    body: "For enterprise security teams, banks and financial institutions: Vigil investigates every alert your SIEM and EDR raise, shows what an attacker can reach in your estate, and keeps the evidence an auditor asks for. Hosted or inside your network.",
+    name: "Cyvion", tag: "Security operations platform, in early access", to: "/cyvion",
+    img: ["/product/cyvion/overview-900.webp", "Cyvion console overview with six cases awaiting a decision and the funnel from events to alerts"],
+    body: "For enterprise security teams, banks and financial institutions: Cyvion investigates every alert your SIEM and EDR raise, shows what an attacker can reach in your estate, and keeps the evidence an auditor asks for. Hosted or inside your network.",
     points: ["Every alert triaged, with the evidence behind each verdict", "Exposure found, ranked by known exploitation and proven", "Incident reports drafted for CERT-In's six-hour clock"],
   },
 ];
@@ -139,7 +139,7 @@ const PRODUCTS = [
 function Products() {
   return (
     <Section kicker="Our products" title="Software we build" accent="and operate ourselves."
-      sub="Alongside client work, we develop our own products: two in daily use in schools and jewellery shops, and Vigil, a security operations platform now in early access.">
+      sub="Alongside client work, we develop our own products: two in daily use in schools and jewellery shops, and Cyvion, a security operations platform now in early access.">
       <div className="mt-14 space-y-20">
         {PRODUCTS.map((p, i) => (
           <article key={p.name} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">

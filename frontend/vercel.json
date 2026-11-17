@@ -84,6 +84,16 @@
       "source": "/profile",
       "destination": "/company-profile",
       "permanent": true
+    },
+    {
+      "source": "/vigil",
+      "destination": "/cyvion",
+      "permanent": true
+    },
+    {
+      "source": "/vigil/:path*",
+      "destination": "/cyvion/:path*",
+      "permanent": true
     }
   ],
   "headers": [

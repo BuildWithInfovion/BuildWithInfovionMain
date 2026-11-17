@@ -39,10 +39,10 @@ const SUBNAV = {
     links: [["/jewellery-management-software", "Overview"], ["/infovion-jms-features", "All features"], ["/jewellery-billing-software", "Billing & GST"], ["/jewellery-barcode-software", "Barcode tags"], ["/girvi-software", "Girvi"], ["/gold-scheme-software", "Gold schemes"], ["/karigar-management-software", "Orders & karigar"], ["/jewellery-software-in-indian-languages", "Languages"], ["/jewellery-software-uae", "UAE & Gulf"], ["/jewellery-bill-formats", "Free tools"], ["/case-studies/jewellery-management-system", "Case study"]],
     cta: [jmsTrial()[0], "Free demo"],
   },
-  vigil: {
-    name: "Vigil", icon: ShieldCheck, home: "/vigil",
-    links: [["/vigil", "Overview"], ["/vigil/ai-soc-analyst", "AI SOC analyst"], ["/vigil/exposure-management", "Exposure management"], ["/vigil/banks-financial-services", "Banks and finance"]],
-    cta: ["/contact?interest=vigil", "Request a demo"],
+  cyvion: {
+    name: "Cyvion", icon: ShieldCheck, home: "/cyvion",
+    links: [["/cyvion", "Overview"], ["/cyvion/ai-soc-analyst", "AI SOC analyst"], ["/cyvion/exposure-management", "Exposure management"], ["/cyvion/banks-financial-services", "Banks and finance"]],
+    cta: ["/contact?interest=cyvion", "Request a demo"],
   },
 };
 
@@ -175,7 +175,7 @@ export default function Navbar() {
                 <Dropdown id="products" open={menu === "products"} className="w-[480px]">
                   <div className="space-y-1">
                     {PRODUCTS.map((p) => {
-                      const I = { school: GraduationCap, jms: Gem, vigil: ShieldCheck }[p.slug] ?? Gem;
+                      const I = { school: GraduationCap, jms: Gem, cyvion: ShieldCheck }[p.slug] ?? Gem;
                       return (
                         <Link key={p.slug} to={p.to} className="group flex gap-4 rounded-lg p-3.5 transition-colors hover:bg-white/[0.05]">
                           <I className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky-300" strokeWidth={1.6} />

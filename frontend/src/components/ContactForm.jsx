@@ -17,12 +17,12 @@ const INTERESTS = [
   ["government", "Government or public sector requirement"],
   ["school", "Infovion School ERP: demonstration for a school"],
   ["jms", "Infovion JMS: demonstration for a jewellery store"],
-  ["vigil", "Vigil: demonstration for a security team"],
+  ["cyvion", "Cyvion: demonstration for a security team"],
   ["other", "Other enquiry"],
 ];
 
 const BUDGETS = ["Not yet decided", "Under ₹1 lakh", "₹1 to 5 lakh", "₹5 to 15 lakh", "Above ₹15 lakh", "International project (USD or EUR)"];
-const ORG_LABEL = { vigil: ["Organisation", "e.g. Northwind Bank"], school: ["School name", "e.g. Gyan Ganga Vidyalaya"], jms: ["Store name", "e.g. Shree Jewellers"], government: ["Department / organisation", "e.g. Municipal Corporation"] };
+const ORG_LABEL = { cyvion: ["Organisation", "e.g. Northwind Bank"], school: ["School name", "e.g. Gyan Ganga Vidyalaya"], jms: ["Store name", "e.g. Shree Jewellers"], government: ["Department / organisation", "e.g. Municipal Corporation"] };
 
 const EMPTY = { name: "", org: "", email: "", phone: "", interest: "project", budget: "", message: "", website: "" };
 

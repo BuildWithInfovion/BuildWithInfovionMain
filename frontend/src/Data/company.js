@@ -81,10 +81,10 @@ export const PRODUCTS = [
     status: "Available to every jewellery shop, with a free demo on a call",
   },
   {
-    slug: "vigil",
-    name: "Vigil",
+    slug: "cyvion",
+    name: "Cyvion",
     short: "AI SOC analyst and exposure management",
-    to: "/vigil",
+    to: "/cyvion",
     blurb: "A security operations platform for enterprise security teams, banks and financial institutions: every SIEM and EDR alert investigated with evidence, exposure found and proven, and audit-ready incident reports. Hosted or inside your network.",
     status: "Early access, with a demonstration on request",
   },

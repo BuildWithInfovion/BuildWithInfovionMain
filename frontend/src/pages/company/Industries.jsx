@@ -41,8 +41,8 @@ const INDUSTRIES = [
   {
     id: "banking", icon: "ShieldCheck", name: "Banking and financial services", tagline: "Banks, NBFCs, brokers, insurers and fintech companies",
     pains: ["More security alerts than the team can open, especially at night", "Six-hour incident reporting clocks with the timeline still unwritten", "Exposure that changes between one audit and the next"],
-    build: ["Vigil: every alert triaged with evidence, responses approved by people", "Exposure scanning ranked by known exploitation", "Incident reports drafted from the case, and an audit log of every decision"],
-    links: [["Vigil for banks and finance", "/vigil/banks-financial-services"], ["Vigil overview", "/vigil"], ["Application security", "/services/application-security"]],
+    build: ["Cyvion: every alert triaged with evidence, responses approved by people", "Exposure scanning ranked by known exploitation", "Incident reports drafted from the case, and an audit log of every decision"],
+    links: [["Cyvion for banks and finance", "/cyvion/banks-financial-services"], ["Cyvion overview", "/cyvion"], ["Application security", "/services/application-security"]],
   },
   {
     id: "mining", icon: "Truck", name: "Mining, quarries and construction materials", tagline: "Stone crushers, quarries, RMC plants, sand and aggregate suppliers",

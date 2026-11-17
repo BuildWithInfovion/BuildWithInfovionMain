@@ -151,7 +151,7 @@ export function CaseStudyPage() {
 }
 
 export function ProductsIndex() {
-  const imgs = { school: ["/product/dashboard-900.webp", "Infovion School ERP dashboard"], jms: ["/product/jms/dashboard-900.webp", "Infovion JMS dashboard for a jewellery store"], vigil: ["/product/vigil/overview-900.webp", "Vigil console overview with cases awaiting a decision"] };
+  const imgs = { school: ["/product/dashboard-900.webp", "Infovion School ERP dashboard"], jms: ["/product/jms/dashboard-900.webp", "Infovion JMS dashboard for a jewellery store"], cyvion: ["/product/cyvion/overview-900.webp", "Cyvion console overview with cases awaiting a decision"] };
   const list = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -160,13 +160,13 @@ export function ProductsIndex() {
   return (
     <>
       <Helmet>
-        <title>Products: School ERP, Jewellery Software, Vigil | Infovion</title>
-        <meta name="description" content="Products by Infovion Technologies: Infovion School ERP, Infovion JMS jewellery software, and Vigil, an AI SOC analyst and exposure management platform." />
+        <title>Products: School ERP, Jewellery Software, Cyvion | Infovion</title>
+        <meta name="description" content="Products by Infovion Technologies: Infovion School ERP, Infovion JMS jewellery software, and Cyvion, an AI SOC analyst and exposure management platform." />
         <link rel="canonical" href={`${SITE}/products`} />
         <script type="application/ld+json">{JSON.stringify(list)}</script>
       </Helmet>
       <PageHero trail={[["Products", "/products"]]} kicker="Products" title="Our products"
-        sub="Two software products in daily use in schools and jewellery shops, and Vigil, a security operations platform now in early access." />
+        sub="Two software products in daily use in schools and jewellery shops, and Cyvion, a security operations platform now in early access." />
       <Section className="pt-0">
         <div className="grid gap-6 lg:grid-cols-3">
           {PRODUCTS.map((p) => (
