@@ -5,9 +5,14 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import "./cyvion.css";
+import "./cyvion-story.css";
 import TriageField from "../../components/cyvion/TriageField";
-import CaseReplay from "../../components/cyvion/CaseReplay";
+import ScrollStory from "../../components/cyvion/ScrollStory";
+import ConsoleReveal from "../../components/cyvion/ConsoleReveal";
+import IntegrationRail from "../../components/cyvion/IntegrationRail";
+import AudiencePicker from "../../components/cyvion/AudiencePicker";
 import Coverage from "../../components/cyvion/Coverage";
+import useSmoothScroll from "../../components/cyvion/useSmoothScroll";
 import { CYVION, CYVION_PAGES, CYVION_SOURCES, CYVION_STATUS, cyvionPage } from "../../Data/cyvion";
 import { SITE } from "../../Data/company";
 import { ORG_ID, breadcrumbSchema, faqSchema } from "../../lib/seo";
@@ -29,7 +34,19 @@ function Section({ id, title, lede, children, className = "" }) {
   );
 }
 
+// the headline, word by word, for the entrance (the full text is still one h1 for search and screen readers)
+function Headline({ text }) {
+  return (
+    <h1 aria-label={text}>
+      {text.split(" ").map((w, i) => (
+        <React.Fragment key={i}><span className="cy-h1w" aria-hidden="true"><span style={{ "--i": i }}>{w}</span></span>{" "}</React.Fragment>
+      ))}
+    </h1>
+  );
+}
+
 export default function CyvionPage({ page }) {
+  useSmoothScroll();
   const p = cyvionPage(page);
   const url = `${SITE}${p.path}`;
   const home = p.key === "home";
@@ -82,7 +99,7 @@ export default function CyvionPage({ page }) {
                 ))}
               </ol>
             </nav>
-            <h1>{p.h1}</h1>
+            <Headline text={p.h1} />
             <p className="cy-hero-sub">{p.intro}</p>
             <div className="cy-hero-act">
               <Link className="cy-btn" to={DEMO}>Request a demo</Link>
@@ -93,27 +110,30 @@ export default function CyvionPage({ page }) {
             <p className="cy-hero-note">Early access. Built and run by Infovion Technologies, Pune.</p>
           </div>
         </div>
+        {!exposure && <a className="cy-scrollcue" href="#story"><span>Scroll to watch an alert get worked</span><i /></a>}
         <p className="cy-hero-hint" aria-hidden="true">{exposure ? "Point at a host to see what the scan found" : "Point at any dot to see the event it stands for"}</p>
       </header>
 
-      {/* ---- the answer ---- */}
+      {/* ---- the answer, and who it is for ---- */}
       <Section id="overview">
-        <div className="cy-answer">
-          <h2>{p.answerQ}</h2>
+        <div className="cy-intro">
           <div>
-            <p>{p.answer}</p>
-            <p className="cy-small" style={{ marginTop: 18 }}>Updated {fmtDate(CYVION.updated)}.</p>
+            <h2>{p.answerQ}</h2>
+            <p className="answer">{p.answer}</p>
+            <p className="cy-small" style={{ marginTop: 16 }}>Updated {fmtDate(CYVION.updated)}.</p>
           </div>
+          <AudiencePicker />
         </div>
       </Section>
 
-      {/* ---- one case, built as you scroll ---- */}
-      {!exposure && (
-        <Section id="case" title="Watch one alert become a case"
-          lede="This is how every alert is worked, whether it came from your SIEM, your EDR or Cyvion's own rules. Scroll, and the case on the left gains each step.">
-          <CaseReplay />
-        </Section>
-      )}
+      {/* ---- how it works: pinned, scroll-scrubbed story ---- */}
+      {!exposure && <div id="story"><ScrollStory /></div>}
+
+      {/* ---- what the team sees ---- */}
+      <Section id="console" title="What your team sees every morning"
+        lede="Cases that need a decision at the top, everything else already closed with its reasons. This is the console's overview on the demonstration tenant.">
+        <ConsoleReveal />
+      </Section>
 
       <Section id="what" title={p.pointsTitle}>
         <dl className="cy-spec">
@@ -121,7 +141,13 @@ export default function CyvionPage({ page }) {
         </dl>
       </Section>
 
-      {p.flow && (
+      {/* ---- integrations: pinned horizontal rail ---- */}
+      <section id="integrations" className="cy-rail-sec">
+        <IntegrationRail title="Works with the tools you already run"
+          lede="Keep your SIEM and EDR. Cyvion takes their alerts, plus raw activity from identity, cloud, code and endpoints, and triages all of it the same way." />
+      </section>
+
+      {p.flow && exposure && (
         <Section id="how" title={p.flowTitle}>
           <ol className="cy-pipe">{p.flow.map(([t, b]) => <li key={t}><b>{t}</b><span>{b}</span></li>)}</ol>
         </Section>
