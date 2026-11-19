@@ -55,6 +55,7 @@ const contentHash = (html, helmet) => crypto.createHash("sha1")
   .update(helmet ? [helmet.title, helmet.meta].map((x) => x?.toString() ?? "").join("") : "")
   .digest("hex").slice(0, 16);
 let ok = 0;
+const pageImages = {}; // url -> main image, for the image entries in the sitemap
 for (const url of routes) {
   try {
     const { html, helmet } = await render(url);
@@ -63,6 +64,8 @@ for (const url of routes) {
     const head = helmet
       ? [helmet.title, helmet.meta, helmet.link, helmet.script].map((x) => x?.toString() ?? "").join("\n    ")
       : "";
+    const og = head.match(/property="og:image" content="([^"]+)"/)?.[1];
+    if (og) pageImages[url] = og;
     let base = stripHead(template);
     if (/property="og:image"/.test(head)) base = base.replace(/<meta\s+property="og:image(:width|:height)?"[^>]*\/>/gi, "");
     if (/property="og:type"/.test(head)) base = base.replace(/<meta\s+property="og:type"[^>]*\/>/i, "");
@@ -115,6 +118,8 @@ const videoTag = (u) => {
   if (!v) return "";
   return `<video:video><video:thumbnail_loc>https://www.infovion.in${videoPoster(v)}</video:thumbnail_loc><video:title>${xmlText(v.title)}</video:title><video:description>${xmlText(v.description)}</video:description><video:content_loc>https://www.infovion.in${videoFile(v)}</video:content_loc><video:duration>${v.seconds}</video:duration><video:publication_date>${v.uploadDate}T00:00:00+05:30</video:publication_date><video:family_friendly>yes</video:family_friendly></video:video>`;
 };
+// Main image of each page (its og:image), so image search can find it
+const imageTag = (u) => (pageImages[u] ? `<image:image><image:loc>${xmlText(pageImages[u].startsWith("http") ? pageImages[u] : `https://www.infovion.in${pageImages[u]}`)}</image:loc></image:image>` : "");
 // Highest for the company home, the service hub/pages and the two product homes
 const TOP = ["/services", "/cyvion", "/cyvion/ai-soc-analyst", "/cyvion/exposure-management", "/cyvion/banks-financial-services", "/school-management-software", "/jewellery-management-software", "/contact", "/government", "/healthcare-software-development"];
 const prio = (u) =>
@@ -124,10 +129,10 @@ const prio = (u) =>
   : u.startsWith("/blog/") || u.startsWith("/videos/") ? "0.6"
   : "0.8";
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${routes
   // Legal pages are listed too (low priority): they are trust pages Google should know
-  .map((u) => `  <url><loc>https://www.infovion.in${u === "/" ? "/" : u}</loc><lastmod>${lastmod[u]?.date ?? new Date().toISOString().slice(0, 10)}</lastmod><priority>${prio(u)}</priority>${videoTag(u)}</url>`)
+  .map((u) => `  <url><loc>https://www.infovion.in${u === "/" ? "/" : u}</loc><lastmod>${lastmod[u]?.date ?? new Date().toISOString().slice(0, 10)}</lastmod><priority>${prio(u)}</priority>${imageTag(u)}${videoTag(u)}</url>`)
   .join("\n")}
 </urlset>
 `;

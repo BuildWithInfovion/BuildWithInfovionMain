@@ -27,7 +27,7 @@ export default function About() {
     <>
       <Helmet>
         <title>About Infovion Technologies | Software Company in Pune</title>
-        <meta name="description" content="Infovion Technologies is a software development company and registered MSME in Pune, India, and the maker of Infovion School ERP and Infovion JMS." />
+        <meta name="description" content="Infovion Technologies is a software development company and registered MSME in Pune, India, and the maker of Infovion School ERP, Infovion JMS and the Cyvion security platform." />
         <link rel="canonical" href={`${SITE}/about`} />
         <meta property="og:title" content="About Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/about`} />
@@ -44,12 +44,13 @@ export default function About() {
         <div className="mt-8 grid gap-12 lg:grid-cols-[1.25fr_1fr]">
           <div className="space-y-5 text-[16px] leading-relaxed text-slate-300">
             <p>Infovion started from a practical observation. The offices that keep many Indian organisations running, such as a school fee counter or a jeweller's billing desk, were still relying on registers, calculators and spreadsheets, because the software available did not reflect how they actually work.</p>
-            <p>We built software for them. <Link to="/school-management-software" className="text-sky-300 underline underline-offset-2">Infovion School ERP</Link> manages admissions, fees, attendance, examinations, transport and certificates, with a portal for each role in the school. <Link to="/jewellery-management-software" className="text-sky-300 underline underline-offset-2">Infovion JMS</Link> manages billing by weight and purity, girvi loans, customer credit, stock and accounting exports for jewellery retailers.</p>
+            <p>We built software for them. <Link to="/school-management-software" className="text-sky-300 underline underline-offset-2">Infovion School ERP</Link> manages admissions, fees, attendance, examinations, transport and certificates, with a portal for each role in the school. <Link to="/jewellery-management-software" className="text-sky-300 underline underline-offset-2">Infovion JMS</Link> manages billing by weight and purity, girvi loans, customer credit, stock and accounting exports for jewellery retailers. <Link to="/cyvion" className="text-sky-300 underline underline-offset-2">Cyvion</Link>, now in early access, triages security alerts, manages exposure and keeps audit evidence for enterprise security teams and banks.</p>
             <p>Operating these products in production has given us practical experience in data isolation, security, usability for non-technical staff and system reliability. We now apply that experience to client projects for businesses, startups and public sector organisations.</p>
           </div>
           <div className="border-t border-white/10">
             <LinkRow to="/case-studies/school-erp-platform" icon="GraduationCap" title="Infovion School ERP" body="Multi-tenant school management platform" />
             <LinkRow to="/case-studies/jewellery-management-system" icon="Gem" title="Infovion JMS" body="Billing, girvi, customer credit and stock for jewellery retailers" />
+            <LinkRow to="/case-studies/cyvion-security-operations-platform" icon="ShieldCheck" title="Cyvion" body="AI security operations and exposure management, in early access" />
           </div>
         </div>
       </Section>

@@ -232,7 +232,7 @@ function Commitments() {
 function Sectors() {
   return (
     <Section kicker="Industries" title="Sectors we work in"
-      sub="Our engineers spend time with the people who will use the software before design begins. Our two products came out of that work with schools and jewellery retailers.">
+      sub="Our engineers spend time with the people who will use the software before design begins. Our products came out of that work with schools, jewellery retailers and security teams.">
       <ul className="mt-10 flex flex-wrap gap-2.5">
         {INDUSTRIES.map(([, t, to]) => (
           <li key={t}><Link to={to} className="inline-block rounded-full border border-white/12 px-5 py-2.5 text-[15px] text-slate-200 transition-colors hover:border-white/40 hover:text-white">{t}</Link></li>

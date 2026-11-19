@@ -15,7 +15,7 @@ export function CaseStudiesIndex() {
     <>
       <Helmet>
         <title>Our Work: Case Studies and Solution Blueprints | Infovion</title>
-        <meta name="description" content="Software by Infovion Technologies: a school ERP, jewellery billing system and website we delivered, plus blueprints for AI agents, hospital and crusher ERP." />
+        <meta name="description" content="Software by Infovion Technologies: a school ERP, jewellery billing system, the Cyvion security platform and our website, plus blueprints for AI agents and ERP." />
         <link rel="canonical" href={`${SITE}/case-studies`} />
         <meta property="og:url" content={`${SITE}/case-studies`} />
       </Helmet>
@@ -104,7 +104,7 @@ export function CaseStudyPage() {
       </section>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <BrowserFrame url={c.slug === "infovion-website" ? "www.infovion.in" : c.slug === "school-erp-platform" ? "app.infovion.in" : "jms"}>
+        <BrowserFrame url={{ "infovion-website": "www.infovion.in", "school-erp-platform": "app.infovion.in", "cyvion-security-operations-platform": "cyvion.infovion.in" }[c.slug] ?? "jms"}>
           <img src={c.image[0]} alt={c.image[2]} width="1800" height="1125" className="block w-full" />
         </BrowserFrame>
         <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 md:grid-cols-4">

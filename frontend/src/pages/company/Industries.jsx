@@ -78,7 +78,7 @@ const INDUSTRIES = [
 
 const FAQ = [
   ["Do you work only in these industries?", "No. These are the sectors in which we have the most experience or an existing product. Our approach of studying the process before designing the system applies to any organisation."],
-  ["Do you have ready-made software for my industry?", "For schools we offer Infovion School ERP, and for jewellery retailers Infovion JMS. For other sectors we develop custom software, reusing proven modules such as billing, inventory, CRM, approvals and dashboards where appropriate to reduce cost."],
+  ["Do you have ready-made software for my industry?", "For schools we offer Infovion School ERP, for jewellery retailers Infovion JMS, and for security teams and banks Cyvion, in early access. For other sectors we develop custom software, reusing proven modules such as billing, inventory, CRM, approvals and dashboards where appropriate to reduce cost."],
   ["Can your products be customised for our organisation?", "Yes. Both products can be extended with custom modules, integrations and reports for larger organisations, groups of institutions and government bodies."],
 ];
 

@@ -120,7 +120,7 @@ export default function Footer() {
             </Link>
             <p className="mb-6 max-w-sm text-sm leading-relaxed text-slate-400">
               Infovion Technologies is a software development company in Pune, India. We build custom software, web and mobile
-              applications, ERP and SaaS platforms, and develop Infovion School ERP and Infovion JMS.
+              applications, ERP and SaaS platforms, and develop Infovion School ERP, Infovion JMS and Cyvion.
             </p>
             <address className="space-y-2.5 not-italic">
               <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-white"><Mail className="h-4 w-4 flex-shrink-0 text-teal-300" />{COMPANY.email}</a>

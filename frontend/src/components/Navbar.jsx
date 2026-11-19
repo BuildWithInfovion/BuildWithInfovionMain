@@ -133,7 +133,7 @@ export default function Navbar() {
         ref={navRef}
         className="fixed left-0 right-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 print:hidden"
         style={{
-          backgroundColor: onLight || menu ? "rgba(2,4,9,0.97)" : isScrolled ? "rgba(2,4,9,0.94)" : "rgba(2,4,9,0)",
+          backgroundColor: onLight || menu ? "rgba(2,4,9,0.98)" : isScrolled ? "rgba(3,5,10,0.985)" : "rgba(2,4,9,0)",
           borderBottom: solid ? "1px solid rgba(148,163,184,0.14)" : "1px solid transparent",
           boxShadow: solid ? "0 4px 32px rgba(0,0,0,0.28)" : "none",
         }}

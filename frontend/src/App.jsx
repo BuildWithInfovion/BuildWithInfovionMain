@@ -218,7 +218,7 @@ export function AppRoutes() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Infovion Technologies — Software Development Company in Pune" />
-        <meta name="twitter:description" content="Custom software, web & mobile apps, ERP, SaaS and AI automation from Pune, India. Makers of Infovion School ERP and JMS." />
+        <meta name="twitter:description" content="Custom software, web & mobile apps, ERP, SaaS and AI automation from Pune, India. Makers of Infovion School ERP, JMS and Cyvion." />
         <meta name="twitter:image" content={ogImage} />
 
         <meta name="theme-color" content="#05070D" />
