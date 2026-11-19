@@ -244,7 +244,7 @@ export const HEALTHCARE = [
     ctaTitle: "Build DPDP compliance into your applications",
     card: "The DPDP Act, 2023 and Rules, 2025 built into your software: consent, notices, data rights, retention, security and breach response.",
     icon: "ShieldCheck",
-    title: "DPDP Act Compliance for Apps and Hospitals | Infovion",
+    title: "DPDP Act Compliance Audit for Apps and Hospitals | Infovion",
     description: "DPDP Act, 2023 and Rules, 2025 built into your software: consent and notices, data rights requests, retention and deletion, breach response, security and logs.",
     h1: "DPDP Act compliance for applications and hospitals",
     updated: UPDATED,

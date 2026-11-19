@@ -24,7 +24,7 @@ const INDUSTRIES = [
     id: "government", icon: "Landmark", name: "Government and public sector", tagline: "Departments, municipal bodies, PSUs and universities",
     pains: ["Websites that do not meet accessibility guidelines", "Progress data collected by email in spreadsheets", "Citizen applications that require office visits"],
     build: ["Websites and portals aligned with GIGW 3.0", "MIS dashboards and field inspection applications", "Citizen service applications with status tracking"],
-    links: [["Government capabilities", "/government"], ["Company profile", "/company-profile"]],
+    links: [["Government capabilities", "/government"], ["Partner for tender bidders and SIs", "/software-partner-for-government-tenders"], ["Constituency management software", "/constituency-management-software"], ["Company profile", "/company-profile"]],
   },
   {
     id: "retail", icon: "Store", name: "Retail and distribution", tagline: "Retail stores, chains, wholesalers and distributors",
@@ -36,7 +36,7 @@ const INDUSTRIES = [
     id: "manufacturing", icon: "Factory", name: "Manufacturing", tagline: "Manufacturers, job workers and engineering firms",
     pains: ["Job work and wastage recorded on paper", "Orders, production and dispatch maintained in separate spreadsheets", "Management figures available only at month-end"],
     build: ["Production, job work and dispatch tracking", "Purchase, sales and GST e-invoicing", "Management dashboards on mobile"],
-    links: [["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
+    links: [["Manufacturing software in Pune", "/manufacturing-software-pune"], ["Robotics software partner, Pune", "/robotics-software-development-pune"], ["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
   },
   {
     id: "banking", icon: "ShieldCheck", name: "Banking and financial services", tagline: "Banks, NBFCs, brokers, insurers and fintech companies",
@@ -55,6 +55,12 @@ const INDUSTRIES = [
     pains: ["Hospital software that is slow, insecure or unusable for patients with disabilities", "DPDP Act, WCAG and ABDM requirements on existing systems", "Patient records and reports split across branches", "Batch, QC and stock records on paper or spreadsheets in pharma"],
     build: ["Hospital management systems and modules for hospital chains", "ABDM integration: ABHA, M1, M2 and M3", "WCAG accessibility audits and DPDP Act compliance in existing apps", "Pharma batch, QC, inventory and QR traceability"],
     links: [["Healthcare software", "/healthcare-software-development"], ["Hospital management systems", "/hospital-management-system-development"], ["ABDM integration", "/abdm-integration"], ["WCAG accessibility audit", "/wcag-accessibility-audit"], ["DPDP Act compliance", "/dpdp-compliance"], ["Pharma software", "/pharma-software-development"], ["HMS blueprint", "/solutions/hospital-management-system"], ["AI WhatsApp front desk blueprint", "/solutions/ai-whatsapp-assistant-for-clinics"]],
+  },
+  {
+    id: "csr", icon: "HandHeart", name: "CSR programmes and NGOs", tagline: "Company CSR teams, foundations and implementing NGOs",
+    pains: ["Beneficiary numbers collected on paper and typed up for reports", "Field visits with no dated evidence", "Board and annual report figures assembled by hand every quarter"],
+    build: ["Education, health camp and skilling apps that work offline", "Beneficiary MIS with photos, GPS and timestamps", "Impact dashboards and board reports"],
+    links: [["Software for CSR projects", "/csr-software-development"], ["Infovion School ERP", "/school-management-software"]],
   },
   {
     id: "services", icon: "Building2", name: "Real estate and professional services", tagline: "Developers, brokers, agencies, consultancies and field service firms",

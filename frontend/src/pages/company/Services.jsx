@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { GhostButton, GlowButton } from "../../components/fx/Fx";
 import { CtaBand, FaqList, LinkRow, PageHero, Section } from "../../components/site/Ui";
-import { SERVICES, HEALTHCARE, OFFSHORE, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
+import { SERVICES, HEALTHCARE, OFFSHORE, SECTORS, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
 import { wa, SITE } from "../../Data/company";
 import { showcaseBySlug, showcasePath } from "../../Data/showcase";
 import { faqSchema, serviceSchema } from "../../lib/seo";
@@ -74,6 +74,12 @@ export function ServicesIndex() {
           </div>
         </Section>
       ))}
+
+      <Section kicker="Sectors" title="Manufacturing, robotics, CSR, tenders and public representatives" className="py-12">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          {SECTORS.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
+        </div>
+      </Section>
 
       <Section kicker="Healthcare" title="Hospitals, hospital chains and pharma" className="py-12">
         <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">

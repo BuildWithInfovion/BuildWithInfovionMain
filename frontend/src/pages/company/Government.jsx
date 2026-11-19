@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, Printer } from "lucide-react";
 import { GhostButton, GlowButton } from "../../components/fx/Fx";
-import { AnswerBox, CtaBand, FaqList, PageHero, Section } from "../../components/site/Ui";
+import { AnswerBox, CtaBand, FaqList, LinkRow, PageHero, Section } from "../../components/site/Ui";
 import { COMPANY, SITE, credentials } from "../../Data/company";
 
 const DELIVER = [
@@ -136,6 +136,15 @@ export default function Government() {
             </li>
           ))}
         </ol>
+      </Section>
+
+      <Section kicker="Also for" title="Tender bidders and public representatives" className="pt-4">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          <LinkRow to="/software-partner-for-government-tenders" icon="Landmark" title="Software partner for tender bidders and system integrators" body="We build, document and maintain the portal, app or MIS in your tender, to GIGW 3.0 and WCAG, under your name where you need it." />
+          <LinkRow to="/constituency-management-software" icon="Users" title="Constituency management software" body="Grievance tracking, development works, citizen app and WhatsApp updates for MPs, MLAs and corporators." />
+          <LinkRow to="/wcag-accessibility-audit" icon="Accessibility" title="WCAG accessibility audit" body="Testing and fixes to WCAG 2.1 and 2.2 AA for websites and apps." />
+          <LinkRow to="/dpdp-compliance" icon="ShieldCheck" title="DPDP Act compliance" body="Consent, access control, retention and breach readiness built into the software." />
+        </div>
       </Section>
 
       <FaqList faqs={FAQ} />

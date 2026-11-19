@@ -76,7 +76,9 @@ export const organizationNode = () => {
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress())}`,
     openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: COMPANY.hoursSpec.days, opens: COMPANY.hoursSpec.opens, closes: COMPANY.hoursSpec.closes }],
     areaServed: [
-      { "@type": "City", name: "Pune" }, { "@type": "State", name: "Maharashtra" }, { "@type": "Country", name: "India" },
+      { "@type": "City", name: "Pune" }, { "@type": "City", name: "Pimpri-Chinchwad" },
+      ...["Chakan", "Bhosari", "Talegaon Dabhade", "Ranjangaon", "Hinjewadi", "Shirwal", "Sanaswadi"].map((name) => ({ "@type": "Place", name: `${name}, Pune district` })),
+      { "@type": "State", name: "Maharashtra" }, { "@type": "Country", name: "India" },
       ...["United States", "United Kingdom", "United Arab Emirates", "Saudi Arabia", "Australia", "New Zealand", "Canada", "Germany", "Netherlands", "Ireland", "Singapore"].map((name) => ({ "@type": "Country", name })),
       { "@type": "Place", name: "Worldwide" },
     ],
@@ -87,7 +89,7 @@ export const organizationNode = () => {
       "API integration", "MIS and dashboards", "E-governance software", "GIGW 3.0", "School management software", "Jewellery management software",
       "Software maintenance and AMC", "On-demand software development", "Application security", "OWASP Top 10", "DPDP Act compliance", "Fixing apps built with AI coding tools (vibe coding)",
       "Offshore software development", "IT outsourcing to India", "Dedicated developers", "White-label development", "GDPR standard contractual clauses", "Arabic RTL applications", "ZATCA e-invoicing integration",
-      "Security operations (SOC) automation", "AI SOC analyst", "Alert triage", "Exposure management", "Continuous threat exposure management (CTEM)", "Vulnerability scanning", "CERT-In incident reporting", "Stone crusher and quarry ERP", "Real estate CRM", "Healthcare software development", "Hospital management systems", "ABDM integration", "HL7 FHIR", "WCAG 2.2 accessibility audits", "Pharmaceutical software", "21 CFR Part 11",
+      "Security operations (SOC) automation", "AI SOC analyst", "Alert triage", "Exposure management", "Continuous threat exposure management (CTEM)", "Vulnerability scanning", "CERT-In incident reporting", "Manufacturing ERP", "Shop floor and OEE monitoring", "Robotics software", "ROS 2 integration", "CSR project software", "Beneficiary MIS", "Government tender software development", "GeM and CPPP tenders", "Constituency management software", "Citizen grievance management", "Stone crusher and quarry ERP", "Real estate CRM", "Healthcare software development", "Hospital management systems", "ABDM integration", "HL7 FHIR", "WCAG 2.2 accessibility audits", "Pharmaceutical software", "21 CFR Part 11",
     ],
     sameAs: Object.values(COMPANY.socials).concat(COMPANY.productHunt),
     contactPoint: [

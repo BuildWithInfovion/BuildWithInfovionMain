@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
-import { OFFSHORE, SERVICES } from "../Data/services";
+import { HEALTHCARE, OFFSHORE, SECTORS, SERVICES } from "../Data/services";
 import { COMPANY, fullAddress, jmsTrial } from "../Data/company";
 import { SHOWCASE, showcasePath } from "../Data/showcase";
 import { productOf } from "../lib/sections";
@@ -167,6 +167,16 @@ export default function Footer() {
             <span className="text-slate-400">: </span>
             {SHOWCASE.map((p, i) => (
               <React.Fragment key={p.slug}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={showcasePath(p)} className="text-slate-400 hover:text-white">{p.short}</Link></React.Fragment>
+            ))}
+          </p>
+        </nav>
+
+        <nav aria-label="Industries and audits" className="mt-6 border-t border-white/10 pt-6 text-sm">
+          <p className="text-slate-400">
+            <Link to="/industries" className="font-semibold text-slate-200 hover:text-white">Industries</Link>
+            <span className="text-slate-500">: </span>
+            {[...SECTORS.map((s) => [s.path, s.nav]), ...HEALTHCARE.filter((s) => ["wcag-accessibility-audit", "dpdp-compliance", "hospital-management-system-development"].includes(s.slug)).map((s) => [s.path, s.nav]), ["/cyvion/banks-financial-services", "Banks and finance"]].map(([to, t], i) => (
+              <React.Fragment key={to}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={to} className="text-slate-400 hover:text-white">{t}</Link></React.Fragment>
             ))}
           </p>
         </nav>

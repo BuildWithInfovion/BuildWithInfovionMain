@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "3e3c08cbd51e78b3",
-  "date": "2026-11-17"
+  "hash": "5060bcfc1cb71bd0",
+  "date": "2026-11-19"
  },
  "/abdm-integration": {
   "hash": "5595d06df9d47c53",
@@ -179,9 +179,17 @@
   "hash": "9cc121647613ac10",
   "date": "2026-11-17"
  },
+ "/constituency-management-software": {
+  "hash": "742d5649df3b8a9d",
+  "date": "2026-11-19"
+ },
  "/contact": {
-  "hash": "cf2ce959c7ce3085",
-  "date": "2026-11-17"
+  "hash": "16832760c5617484",
+  "date": "2026-11-19"
+ },
+ "/csr-software-development": {
+  "hash": "a2f98952fb3cd0da",
+  "date": "2026-11-19"
  },
  "/cyvion": {
   "hash": "8f5c7976f501acee",
@@ -200,8 +208,8 @@
   "date": "2026-11-18"
  },
  "/dpdp-compliance": {
-  "hash": "951e52280d0eb6b1",
-  "date": "2026-11-12"
+  "hash": "19540011c03bc23d",
+  "date": "2026-11-19"
  },
  "/dubai-gold-price-calculator": {
   "hash": "8d805fa129ac0108",
@@ -216,16 +224,16 @@
   "date": "2026-11-11"
  },
  "/free-tools/bonafide-certificate": {
-  "hash": "f4ca28103dac50e2",
-  "date": "2026-11-17"
+  "hash": "92335cd9e6e6d056",
+  "date": "2026-11-19"
  },
  "/free-tools/school-leaving-certificate-marathi": {
-  "hash": "aa0057ad77f23202",
-  "date": "2026-11-17"
+  "hash": "e2c2e2a9ede5f345",
+  "date": "2026-11-19"
  },
  "/free-tools/transfer-certificate": {
-  "hash": "b913bbee90ac913a",
-  "date": "2026-11-17"
+  "hash": "afabc4665383934e",
+  "date": "2026-11-19"
  },
  "/free-trial": {
   "hash": "92da32f7e9a0aa41",
@@ -252,8 +260,8 @@
   "date": "2026-11-11"
  },
  "/government": {
-  "hash": "b25282f796351412",
-  "date": "2026-11-11"
+  "hash": "6f4692bf192bba6d",
+  "date": "2026-11-19"
  },
  "/gst-on-gold-jewellery": {
   "hash": "f38835a8fb54a6ca",
@@ -284,8 +292,8 @@
   "date": "2026-11-11"
  },
  "/industries": {
-  "hash": "bcb54f52279633ed",
-  "date": "2026-11-17"
+  "hash": "4c4de88b30ddbff6",
+  "date": "2026-11-19"
  },
  "/infovion-jms-features": {
   "hash": "4764c6d888c182ca",
@@ -379,6 +387,10 @@
   "hash": "158abe34d97aa3fc",
   "date": "2026-11-11"
  },
+ "/manufacturing-software-pune": {
+  "hash": "61c5f23f798010ef",
+  "date": "2026-11-19"
+ },
  "/marg-vs-infovion-jms": {
   "hash": "1fd766243187443c",
   "date": "2026-11-11"
@@ -439,6 +451,10 @@
   "hash": "f63b3a773cab943e",
   "date": "2026-11-17"
  },
+ "/robotics-software-development-pune": {
+  "hash": "50b45f4297504d26",
+  "date": "2026-11-19"
+ },
  "/school-attendance-app": {
   "hash": "b5be73c511a5002b",
   "date": "2026-11-11"
@@ -468,8 +484,8 @@
   "date": "2026-11-11"
  },
  "/services": {
-  "hash": "55e13587f9dee7ba",
-  "date": "2026-11-11"
+  "hash": "a4e6d1b3a180f2cb",
+  "date": "2026-11-19"
  },
  "/services/ai-agent-development": {
   "hash": "74329688c195d6e4",
@@ -546,6 +562,10 @@
  "/software-development-cost-calculator": {
   "hash": "1bddb786911d4649",
   "date": "2026-11-11"
+ },
+ "/software-partner-for-government-tenders": {
+  "hash": "32303e93aec546a8",
+  "date": "2026-11-19"
  },
  "/solutions/ai-customer-support-agent-saas": {
   "hash": "7f0986751d2b2068",
