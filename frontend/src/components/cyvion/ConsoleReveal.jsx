@@ -35,7 +35,7 @@ export default function ConsoleReveal() {
         </aside>
         <div className="cy-console-main">
           <div className="top">
-            <div><small>Northwind Group, last 30 days</small><h4>6 cases need a decision</h4></div>
+            <div><small>Northwind Group, last 30 days</small><p className="h4">6 cases need a decision</p></div>
             <span className="btn">Run an attack simulation</span>
           </div>
           <div className="kpis">

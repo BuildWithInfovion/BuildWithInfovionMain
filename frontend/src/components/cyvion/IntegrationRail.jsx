@@ -44,7 +44,7 @@ export default function IntegrationRail({ title, lede }) {
       <div className="top"><span className="kind">{kind}</span><span className="state">{state === "available" ? "available" : "in validation"}</span></div>
       <h3>{name}</h3>
       <p>{reads}</p>
-      <span className="idx" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+      <span className="idx" aria-hidden="true" data-idx={String(i + 1).padStart(2, "0")} />
     </article>
   ));
 
