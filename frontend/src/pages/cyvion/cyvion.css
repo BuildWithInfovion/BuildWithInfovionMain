@@ -6,7 +6,7 @@
    rest of the page is still unless the reader acts (scrolls the case, picks a technique). */
 .cy {
   --ink: #0A0F17; --surface: #101722; --surface-2: #162032; --line: rgba(154,168,255,0.14); --line-2: rgba(154,168,255,0.26);
-  --fg: #E4EAF3; --muted: #8B9AB3; --faint: #5D6C86;
+  --fg: #E4EAF3; --muted: #8B9AB3; --faint: #7D8BA3;
   --accent: #9AA8FF; --flow: #57C7D6; --crit: #F0605D; --high: #F0904B; --med: #E2C24A; --ok: #4CC38A;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
