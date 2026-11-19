@@ -51,6 +51,7 @@ export const organizationNode = () => {
     "@id": ORG_ID,
     name: COMPANY.name,
     alternateName: ["Infovion", "Infovion Tech"],
+    disambiguatingDescription: "Infovion Technologies, a software company at Mahalunge, Pune, India (www.infovion.in); not Infysion Technologies or InfoVision Labs.",
     url: SITE,
     logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png`, width: 512, height: 512 },
     image: `${SITE}/og-image.jpg`,
