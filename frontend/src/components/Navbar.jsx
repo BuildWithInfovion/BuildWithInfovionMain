@@ -164,6 +164,7 @@ export default function Navbar() {
                     <span className="flex items-center gap-5">
                       <Link to="/government" className="inline-flex items-center gap-2 text-sm font-semibold text-amber-200 hover:text-amber-100"><Landmark className="h-4 w-4" /> Government & e-governance</Link>
                       <Link to="/healthcare-software-development" className="inline-flex items-center gap-2 text-sm font-semibold text-rose-200 hover:text-rose-100"><HeartPulse className="h-4 w-4" /> Healthcare</Link>
+                      <Link to="/private-software-development" className="inline-flex items-center gap-2 text-sm font-semibold text-violet-200 hover:text-violet-100"><Gem className="h-4 w-4" /> Private clients</Link>
                     </span>
                     <Link to="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300 hover:text-teal-200">All services <ArrowRight className="h-4 w-4" /></Link>
                   </div>
@@ -269,7 +270,7 @@ export default function Navbar() {
                   </button>
                   {mobileSection === m && (
                     <div className="space-y-1 pb-4">
-                      {m === "services" && [...SERVICES.map((s) => [`/services/${s.slug}`, s.name]), ["/healthcare-software-development", "Healthcare: hospitals and pharma"], ["/government", "Government & e-governance"], ["/services", "All services →"]].map(([to, t]) => (
+                      {m === "services" && [...SERVICES.map((s) => [`/services/${s.slug}`, s.name]), ["/healthcare-software-development", "Healthcare: hospitals and pharma"], ["/government", "Government & e-governance"], ["/private-software-development", "Private clients: personal and family office software"], ["/services", "All services →"]].map(([to, t]) => (
                         <Link key={to} to={to} className="block rounded-xl px-3 py-2.5 text-[15px] text-slate-200 active:bg-white/10">{t}</Link>
                       ))}
                       {m === "products" && [...PRODUCTS.map((p) => [p.to, `${p.name}: ${p.short}`]), ["/products", "All products"]].map(([to, t]) => (
