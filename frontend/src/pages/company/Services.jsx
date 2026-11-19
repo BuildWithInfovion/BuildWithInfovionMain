@@ -75,7 +75,7 @@ export function ServicesIndex() {
         </Section>
       ))}
 
-      <Section kicker="Sectors" title="Manufacturing, robotics, CSR, tenders and public representatives" className="py-12">
+      <Section kicker="Sectors" title="Manufacturing, robotics, CSR, tenders, public representatives and private clients" className="py-12">
         <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
           {SECTORS.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
         </div>
@@ -202,7 +202,7 @@ export function ServicePage({ slug: fixedSlug }) {
       </Helmet>
 
       <PageHero trail={s.trail ?? [["Services", "/services"], [s.name, servicePath(s)]]} kicker={s.kicker ?? (s.path ? "Healthcare" : "Services")} title={s.h1} sub={s.intro}>
-        <GlowButton to={contactTo}>Request a proposal</GlowButton>
+        <GlowButton to={contactTo}>{s.ctaLabel ?? "Request a proposal"}</GlowButton>
         <GhostButton href={wa(waText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
       </PageHero>
 
@@ -219,7 +219,7 @@ export function ServicePage({ slug: fixedSlug }) {
       </div>
 
       <div className="mx-auto mt-16 max-w-6xl gap-16 px-5 sm:px-6 lg:flex">
-        <SideNav items={nav} contactTo={contactTo} />
+        <SideNav items={nav} contactTo={contactTo} cta={s.ctaLabel ?? "Request a proposal"} />
 
         <div className="min-w-0 flex-1 space-y-20">
           <Block id="overview" title={s.answerQ ?? "Overview"}>
@@ -338,7 +338,7 @@ export function ServicePage({ slug: fixedSlug }) {
       </div>
 
       <div className="mt-20" />
-      <CtaBand title={s.ctaTitle ?? `Discuss your ${s.noun.replace(/ \(AMC\)$/, "")} requirements`} primary={["Request a proposal", contactTo]} whatsappText={waText} />
+      <CtaBand title={s.ctaTitle ?? `Discuss your ${s.noun.replace(/ \(AMC\)$/, "")} requirements`} primary={[s.ctaLabel ?? "Request a proposal", contactTo]} whatsappText={waText} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 // Audience pages for the enquiries Infovion actually receives (November 2026): Pune manufacturers,
 // Pune robotics companies looking for a software partner, CSR teams and NGOs, government tender
-// bidders and system integrators, and elected representatives' offices.
+// bidders and system integrators, elected representatives' offices, and private clients
+// (founders, family offices and individuals wanting confidential bespoke software).
 // Same shape as SERVICES (rendered by pages/company/Services.jsx), at top-level URLs.
 // Rules: no client names, no claims of registrations Infovion does not hold (GeM, ISO, CMMI,
 // CSR-1), and prices in step with Data/services.js and the cost calculators.
@@ -315,5 +316,64 @@ export const SECTORS = [
     ],
     reading: [["/government", "Government and e-governance", "Portals, MIS and apps for departments and local bodies."], ["/services/whatsapp-chatbot-development", "WhatsApp chatbots", "Official WhatsApp Business API for updates and requests."], ["/dpdp-compliance", "DPDP Act compliance", "Consent, access control and data protection in apps."]],
     related: ["whatsapp-chatbot-development", "dashboards-mis-reporting", "mobile-app-development"],
+  },
+  // ── Private clients ───────────────────────────────────────────────────────
+  {
+    slug: "private-software-development",
+    path: "/private-software-development",
+    trail: TRAIL("Private software and consultations", "/private-software-development"),
+    kicker: "Private clients",
+    name: "Private Software Development and Consultations",
+    nav: "Private clients",
+    noun: "a private software project",
+    ctaTitle: "Arrange a private consultation",
+    ctaLabel: "Arrange a private consultation",
+    waText: "Hello Infovion, I would like to arrange a private consultation about a software project.",
+    card: "For founders, family offices and individuals: one-to-one consultations and bespoke, confidential software, hosted where you choose and owned entirely by you.",
+    icon: "ShieldCheck",
+    title: "Private Software Development and Consultations | Infovion",
+    description: "Private, confidential software for founders, family offices and individuals: one-to-one consultations, family office dashboards, private AI assistants, bespoke apps.",
+    h1: "Private software and consultations for founders, families and family offices",
+    updated: UPDATED,
+    answerQ: "Can I hire a software company privately for a personal or family project?",
+    answer: "Yes. Infovion Technologies, a software company in Pune, takes on private engagements for business founders, family offices and individuals: a one-to-one technology consultation, under NDA, at your office, your home or on a video call, and bespoke software built only for you, such as a consolidated view of family holdings, a private document vault, a personal AI assistant that answers from your own documents, an app for your household or family business, or a private build of a product idea before it goes public. Engagements are handled by a small named team with the founder involved, the software is hosted where you choose, including your own server, and the source code, data and accounts belong to you. Infovion never names private clients without written permission and does not give investment advice.",
+    intro: "Some software is not for a company's customers but for a person, a family or a family office: confidential, made for exactly how you live and work, and seen by as few people as possible. We take on a small number of these engagements, with the founder involved from the first conversation.",
+    build: [
+      ["Private technology consultation", "A one-to-one session to think through an idea, review a vendor's proposal or an app you already pay for, or plan the systems for your family business. Under NDA, in person or on a video call."],
+      ["Family office and holdings dashboard", "One private view of holdings across banks, brokers, properties and family businesses, built from statements you upload or feeds you authorise. A record-keeping tool, not investment advice."],
+      ["Private document vault", "Property papers, policies, wills and certificates, encrypted, searchable, with access you grant to named family members and a defined process for emergencies."],
+      ["Personal AI assistant on your own data", "An assistant that answers from your documents, notes and correspondence, running on your own server or a private cloud account, with your data never used to train a model."],
+      ["Owner's command centre", "For promoters with several companies: sales, cash, receivables and approvals across all of them on one screen, drawn from Tally or their ERPs."],
+      ["Household and property apps", "Staff schedules, vendors, travel, maintenance and rent across several properties, in one private app for the family and the people who run the household."],
+      ["Private builds of a new idea", "Your product or venture built quietly to a working first version, with nothing published until you decide."],
+    ],
+    explain: [
+      ["How a private engagement works", null, ["A first conversation by appointment, with the founder", "A mutual NDA signed before you share any details", "A small named team; no one else sees your project", "A written scope and a fixed price before work starts", "Source code, data, domains and cloud accounts in your name from the first day", "We never name you or show your project without written permission"]],
+      ["Where your software and data live", null, ["On a server you own, at home or in your office", "In a private cloud account in your name, in India or abroad", "Encrypted at rest and in transit, with two-step sign-in", "No third-party analytics, advertising or tracking code", "A full export and handover whenever you want it"]],
+      ["What we will not do", null, ["Give investment, tax or legal advice, or recommend financial products", "Build our own password manager: we set you up with a proven one instead", "Build software that tracks or monitors people without their knowledge and consent", "Keep copies of your data after the engagement ends, beyond what you ask us to keep"]],
+      ["Ways to work with us", null, ["A single private consultation", "A fixed-price build of one system", "A retained technology partner: a direct line for advice, changes and support, by the month"]],
+    ],
+    sources: [SRC.meity],
+    deliverables: ["Notes and a written recommendation after the consultation", "A written scope and fixed price under NDA", "Software built and hosted where you choose", "Security set-up: encryption, two-step sign-in, backups", "Handover of code, accounts and documentation", "Optional retained support with a direct line"],
+    stack: ["React", "Next.js", "React Native", "Node.js", "PostgreSQL", "Encryption at rest and in transit", "Self-hosted or private cloud", "Claude and open models on private infrastructure"],
+    fit: ["Business founders and promoters", "Family offices and family businesses", "Senior professionals and executives", "Families managing several properties", "Individuals with a private product idea"],
+    cost: {
+      title: "Fees for private engagements",
+      sub: "Private work is scoped individually. Fees are agreed in writing before anything starts.",
+      ranges: [["Private consultation", "By appointment; fee agreed in advance"], ["Bespoke private software", "Fixed price, quoted after the first meeting"], ["Retained technology partner", "Monthly retainer, agreed per engagement"]],
+      drivers: ["What the software must do and for how many people", "Where it is hosted and how it is secured", "Integrations with banks, brokers or business systems you authorise", "How quickly you need it", "Whether you want ongoing support"],
+      timeline: "A first meeting within a week of your enquiry; most private builds take four to twelve weeks.",
+    },
+    faqs: [
+      ["Can I hire a software developer privately for a personal project?", "Yes. Infovion takes on private engagements for founders, families and individuals, under NDA, with a small named team, a fixed price, and the code and data owned by you."],
+      ["Will anyone else know about my project?", "Only the named people working on it. We sign an NDA before you share details, and we never name a private client or show their work without written permission."],
+      ["Can the software run on my own server instead of the cloud?", "Yes. It can run on a server you own at home or in your office, or in a private cloud account in your name, in India or abroad."],
+      ["Can you build a private AI assistant on my documents?", "Yes. It answers from your own documents and notes, runs on your server or private cloud, and your data is not used to train any model."],
+      ["Do you give investment advice through the dashboard?", "No. A holdings dashboard records and organises what you own from statements and feeds you authorise. Investment, tax and legal advice remain with your advisers."],
+      ["How are private engagements priced?", "Each is quoted individually: a consultation fee agreed in advance, a fixed price for a build after the first meeting, or a monthly retainer for ongoing work."],
+      ["Do you meet in person?", "Yes, at your office or home in Pune, or by video call anywhere."],
+    ],
+    reading: [["/services/ai-agent-development", "AI assistants and agents", "Assistants that answer from your own information."], ["/services/application-security", "Application security", "Access control, encryption and secure sign-in."], ["/services/custom-software-development", "Custom software development", "How we scope, build and hand over."]],
+    related: ["ai-agent-development", "application-security", "custom-software-development"],
   },
 ];

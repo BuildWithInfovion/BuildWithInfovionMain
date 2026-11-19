@@ -22,7 +22,7 @@ const INTERESTS = [
 ];
 
 const BUDGETS = ["Not yet decided", "Under ₹1 lakh", "₹1 to 5 lakh", "₹5 to 15 lakh", "Above ₹15 lakh", "International project (USD or EUR)"];
-const ORG_LABEL = { cyvion: ["Organisation", "e.g. Northwind Bank"], school: ["School name", "e.g. Gyan Ganga Vidyalaya"], jms: ["Store name", "e.g. Shree Jewellers"], government: ["Department / organisation", "e.g. Municipal Corporation"] };
+const ORG_LABEL = { "private-software-development": ["Name or family office (optional)", "Shared only with the people on your project"], cyvion: ["Organisation", "e.g. Northwind Bank"], school: ["School name", "e.g. Gyan Ganga Vidyalaya"], jms: ["Store name", "e.g. Shree Jewellers"], government: ["Department / organisation", "e.g. Municipal Corporation"] };
 
 const EMPTY = { name: "", org: "", email: "", phone: "", interest: "project", budget: "", message: "", website: "" };
 

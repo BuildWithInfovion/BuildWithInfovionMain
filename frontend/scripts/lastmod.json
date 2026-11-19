@@ -184,7 +184,7 @@
   "date": "2026-11-19"
  },
  "/contact": {
-  "hash": "16832760c5617484",
+  "hash": "94736984a529e3d5",
   "date": "2026-11-19"
  },
  "/csr-software-development": {
@@ -447,6 +447,10 @@
   "hash": "2c48b0e4ffe7ba2d",
   "date": "2026-11-11"
  },
+ "/private-software-development": {
+  "hash": "9e4c7678f80195ac",
+  "date": "2026-11-19"
+ },
  "/products": {
   "hash": "f63b3a773cab943e",
   "date": "2026-11-17"
@@ -484,7 +488,7 @@
   "date": "2026-11-11"
  },
  "/services": {
-  "hash": "a4e6d1b3a180f2cb",
+  "hash": "4c49bc04f23a9b7a",
   "date": "2026-11-19"
  },
  "/services/ai-agent-development": {
