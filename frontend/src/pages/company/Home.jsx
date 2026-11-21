@@ -15,6 +15,7 @@ import WorkRail from "../../components/home/WorkRail";
 import Reach from "../../components/home/Reach";
 import { SERVICES, PROCESS, ENGAGEMENT } from "../../Data/services";
 import { TECH } from "../../Data/company";
+import { ORG_ID } from "../../lib/seo";
 
 const FAQ = [
   ["What does Infovion Technologies do?", "Infovion Technologies is a software development company based in Pune, India. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop products of our own: Infovion School ERP, Infovion JMS for jewellery shops, and Cyvion, a security operations platform in early access."],
@@ -59,6 +60,21 @@ const TOOLS = [
   ["/ai-automation-roi-calculator", "AI automation ROI calculator", "Hours saved, monthly saving and payback period for an automation."],
 ];
 
+// The home page itself, with the same description as the meta tag; the headline and summary are
+// marked as the parts a voice assistant should read out.
+const HOME_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.infovion.in/#webpage",
+  url: "https://www.infovion.in/",
+  name: "Infovion Technologies: custom software development company in Pune, India",
+  description: "Infovion Technologies, Pune: custom software, mobile apps, ERP, SaaS, AI agents and automation for clients in India and abroad, at a fixed price agreed upfront.",
+  isPartOf: { "@id": "https://www.infovion.in/#website" },
+  about: { "@id": ORG_ID },
+  inLanguage: "en-IN",
+  speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".hero-summary"] },
+};
+
 const HEADLINE = ["Custom software,", "built around", "the way you work"];
 
 function Hero() {
@@ -72,7 +88,7 @@ function Hero() {
           {HEADLINE.map((l, i) => <span key={l} className="line"><span style={{ "--i": i }}>{l}{i < HEADLINE.length - 1 ? " " : ""}</span></span>)}
         </h1>
         <HeroLine />
-        <p className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-slate-300" style={{ "--d": "420ms" }}>
+        <p className="hero-summary fade-up mt-8 max-w-xl text-lg leading-relaxed text-slate-300" style={{ "--d": "420ms" }}>
           Web and mobile apps, ERP, SaaS, AI agents and automation, planned, built and supported by one team in Pune, for
           clients in India and abroad, at a price fixed in writing before work begins.
         </p>
@@ -324,6 +340,7 @@ export default function Home() {
         <meta property="og:title" content="Infovion Technologies | Software Development Company in Pune, India" />
         <meta property="og:description" content="Custom software, web and mobile applications, ERP, SaaS, AI agents and automation for businesses, institutions and government. Pune, India." />
         <meta property="og:url" content="https://www.infovion.in/" />
+        <script type="application/ld+json">{JSON.stringify(HOME_PAGE_SCHEMA)}</script>
       </Helmet>
       <Hero />
       <Manifesto />

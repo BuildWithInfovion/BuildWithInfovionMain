@@ -255,7 +255,7 @@ export const SECTORS = [
       ["Can you deliver under our company's name?", "Yes. Software, documents and training can be delivered under your name, and we do not contact the department about your project unless you ask us to."],
       ["Do you maintain the software after acceptance?", "Yes, under an AMC matched to the SLA in your contract with the department: updates, security patches, backups, change requests and response times."],
     ],
-    reading: [["/government", "Government and e-governance", "What we build for departments, local bodies and PSUs."], ["/company-profile", "Company profile", "Registration details and capabilities on one printable page."], ["/blog/gigw-3-government-website-guidelines-explained", "GIGW 3.0 explained", "Accessibility, bilingual content and security for government sites."], ["/wcag-accessibility-audit", "WCAG accessibility audit", "Testing and fixes to WCAG 2.1 and 2.2 AA."]],
+    reading: [["/blog/software-partner-for-government-and-private-tenders", "Choosing a technology partner for a tender", "Scope, eligibility, costs and ten questions to ask before you bid."], ["/government", "Government and e-governance", "What we build for departments, local bodies and PSUs."], ["/company-profile", "Company profile", "Registration details and capabilities on one printable page."], ["/blog/gigw-3-government-website-guidelines-explained", "GIGW 3.0 explained", "Accessibility, bilingual content and security for government sites."], ["/wcag-accessibility-audit", "WCAG accessibility audit", "Testing and fixes to WCAG 2.1 and 2.2 AA."]],
     related: ["web-development", "dashboards-mis-reporting", "software-maintenance-support"],
     proof: "infovion-website",
   },

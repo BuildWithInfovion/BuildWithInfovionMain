@@ -409,6 +409,82 @@ export const companyPosts = [
     `,
   },
   {
+    id: 303,
+    slug: "software-partner-for-government-and-private-tenders",
+    seoTitle: "Software Partner for Government & Private Tenders | Infovion",
+    title: "Won a Tender With a Software Scope? How to Choose a Technology Partner",
+    excerpt: "For contractors, suppliers and system integrators: how the software part of a government or private tender is scoped, built, documented and maintained, and what to ask a development partner before you bid.",
+    category: "government",
+    author: "Infovion Team",
+    date: "2026-11-21",
+    readTime: "9 min read",
+    tags: ["Government tender", "Private tender", "RFP", "System integrator", "Software subcontracting", "GeM", "CPPP", "GIGW 3.0", "Technical proposal"],
+    image: "/blog/software-partner-for-government-and-private-tenders.webp",
+    faqs: [
+      ["Can a contractor subcontract the software part of a government tender?", "Only where the tender document permits subcontracting, and on the terms it sets. Where it does not, the bidder delivers the software itself, and a development partner can still support the bidder's own team under a separate agreement."],
+      ["Who holds the eligibility in a tender: the bidder or the software partner?", "The bidder. Turnover, past experience, certifications, the earnest money deposit and the performance guarantee are assessed for the company that bids. The software partner works under a written agreement with the bidder."],
+      ["What should a software partner provide before the bid?", "A solution architecture, the technical sections of the proposal, an effort and timeline estimate, and a compliance matrix that answers each technical requirement in the tender, all under an NDA."],
+      ["How are private-sector tenders different from government tenders?", "Corporate, PSU, hospital, university and foundation RFPs are usually shorter and arrive by email or a vendor portal. They lean more on security questionnaires, data protection terms, integration with the buyer's existing systems and references, and less on portal-based bid submission."],
+      ["How long does it take to build the software in a typical tender?", "As a guide, two to three months for a department website or MIS dashboard, and three to six months for a multi-service portal or a field app with an admin panel, delivered in fortnightly releases."],
+    ],
+    content: `
+      <p><strong>Short answer:</strong> if a tender you are bidding on, or have already won, includes a website, a portal, a mobile app or an MIS dashboard, you need a technology partner who can do three things: help you write the technical bid, build the software to the buyer's specification, and carry it through acceptance, audit and maintenance. You keep the contract and the eligibility; the partner works under you. This guide explains how that works for <strong>government tenders</strong> in India and for <strong>private-sector tenders and RFPs</strong>, and what to check before you sign.</p>
+
+      <h2>Who this is for</h2>
+      <p>Most companies that win tenders with a software component are not software companies. They are civil and electrical contractors whose works tender includes a monitoring portal, equipment and hardware suppliers whose bid requires a dashboard or an app, facility and service providers, consultancies serving departments, and system integrators who need extra development capacity for one project. The pattern is the same in each case: the software is a fraction of the contract value but a large share of the delivery risk, because it is what the buyer's officers see, test and sign off.</p>
+
+      <h2>Where government tenders with software scope appear</h2>
+      <p>In India, central government buyers publish on the <a href="https://eprocure.gov.in/" rel="noopener" target="_blank">Central Public Procurement Portal (CPPP)</a>, many standard purchases run on the <a href="https://gem.gov.in/" rel="noopener" target="_blank">Government e-Marketplace (GeM)</a>, and each state runs its own e-procurement portal. Software appears in these tenders in a few recurring shapes:</p>
+      <ul>
+        <li><strong>Department websites</strong> that must follow the <a href="https://guidelines.india.gov.in/" rel="noopener" target="_blank">Guidelines for Indian Government Websites and Apps (GIGW 3.0)</a>, with bilingual content and WCAG 2.1 AA accessibility.</li>
+        <li><strong>Citizen service portals</strong> with applications, officer workflows, payments and SMS or email notifications.</li>
+        <li><strong>MIS dashboards</strong> that bring field data, scheme progress or asset status into one view for senior officers.</li>
+        <li><strong>Field and citizen mobile apps</strong>, usually Android first, with an admin panel behind them.</li>
+        <li><strong>Operations and maintenance (O&amp;M)</strong> of existing systems under an annual contract with a service-level agreement.</li>
+      </ul>
+
+      <h2>Private tenders and RFPs work differently</h2>
+      <p>Private buyers also tender software work: manufacturers replacing spreadsheets with a plant system, hospitals and diagnostic chains commissioning patient-facing apps, universities building admission and examination portals, PSUs and large companies inviting vendors for an ERP module, and CSR foundations needing a beneficiary MIS for a funded programme. These requests usually arrive by email or a vendor portal rather than a public procurement site. They are shorter than a government tender, but they ask harder questions about <strong>information security</strong> (a security questionnaire is common), <strong>data protection</strong> terms under the Digital Personal Data Protection Act, 2023, <strong>integration</strong> with the buyer's existing ERP, CRM or identity provider, and <strong>references</strong> for similar work.</p>
+
+      <h2>What a technology partner does at each stage</h2>
+      <table>
+        <thead><tr><th>Stage</th><th>What the bidder needs</th><th>What the partner delivers</th></tr></thead>
+        <tbody>
+          <tr><td>Pre-bid</td><td>A credible technical response and a realistic price</td><td>Solution architecture, technical sections, effort estimate, compliance matrix, answers for the pre-bid meeting</td></tr>
+          <tr><td>After award</td><td>Software that matches the specification</td><td>Requirements confirmed against the SRS, design, development in fortnightly releases with demonstrations</td></tr>
+          <tr><td>Acceptance</td><td>Sign-off from the buyer's committee</td><td>Test cases and results, accessibility testing, user acceptance support, training</td></tr>
+          <tr><td>Audit</td><td>A clean security audit report</td><td>Secure development from the start, then fixes for every finding from the buyer's auditor</td></tr>
+          <tr><td>O&amp;M</td><td>The SLA in the contract met every month</td><td>Hosting, monitoring, backups, updates, change requests and support under the AMC</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Eligibility stays with the bidder</h2>
+      <p>This is the point most often misunderstood. In a government tender, the turnover threshold, past-experience certificates, certifications, the earnest money deposit and the performance bank guarantee are all assessed for the bidding company. A software partner does not lend you eligibility. It can be named as a subcontractor <em>only where the tender permits subcontracting</em>, and where it does not, the partner supports your team under a separate agreement and the software is delivered under your name. Micro and small enterprises may benefit from the <a href="https://www.dcmsme.gov.in/NewFAQs01022022.pdf" rel="noopener" target="_blank">Public Procurement Policy for MSEs</a>, such as exemption from the earnest money deposit, but only where a tender applies it and on the terms in force on the bid date.</p>
+
+      <h2>Ten questions to ask a software partner before you bid</h2>
+      <ol>
+        <li>Will you sign an NDA before seeing the tender, and keep our pricing and client relationship confidential?</li>
+        <li>Can you give us the technical sections and a compliance matrix against each requirement, not a generic company profile?</li>
+        <li>What will you build, and what is explicitly out of scope?</li>
+        <li>Is your price fixed for the scope in the SRS, and how are change requests estimated and approved?</li>
+        <li>Can we see working software every two weeks, on a link our team can open?</li>
+        <li>How do you build for GIGW 3.0 and WCAG 2.1 AA, and how do you test it before submission?</li>
+        <li>Will you fix every finding from the buyer's security auditor until the report is clean, at no extra cost?</li>
+        <li>What documentation do you hand over: SRS, design, test cases, manuals, training material and source code?</li>
+        <li>Where will the system be hosted, and can you meet data residency requirements?</li>
+        <li>Will you maintain it for the full O&amp;M period at a price we can build into the bid?</li>
+      </ol>
+
+      <h2>Typical cost and timeline</h2>
+      <p>As an indicative guide from our own 2026 prices: a GIGW-aligned department website with a content management system costs <strong>₹1 to 4 lakh</strong>, a citizen service portal or MIS dashboard <strong>₹2 to 8 lakh</strong>, and a field or citizen mobile app with an admin panel <strong>₹2 to 6 lakh</strong>. Annual maintenance is usually <strong>15 to 25% of the build cost per year</strong>. A website or MIS takes two to three months; a multi-service portal three to six months. Each scope should get a written quote you can build into your bid.</p>
+
+      <h2>How Infovion works with tender bidders</h2>
+      <p>Infovion Technologies is a Udyam-registered software company in Pune. We work as the technology partner for contractors, suppliers and system integrators bidding on government and private tenders: technical proposal inputs and a compliance matrix before the bid, then development to the specification, documentation, accessibility and audit fixes, hosting in India and O&amp;M under the AMC. We sign an NDA first, can deliver under your company's name, and do not contact the buyer about your project unless you ask us to. Details: <a href="/software-partner-for-government-tenders">technology partner for government and private tender bidders</a> and our <a href="/company-profile">company profile</a>.</p>
+
+      <p><small>Sources: <a href="https://eprocure.gov.in/" rel="noopener" target="_blank">Central Public Procurement Portal</a>; <a href="https://gem.gov.in/" rel="noopener" target="_blank">Government e-Marketplace</a>; <a href="https://guidelines.india.gov.in/" rel="noopener" target="_blank">GIGW 3.0</a>; <a href="https://www.dcmsme.gov.in/NewFAQs01022022.pdf" rel="noopener" target="_blank">Public Procurement Policy for MSEs, DC-MSME FAQs</a>. Prices are Infovion's indicative 2026 ranges, not quotes.</small></p>
+    `,
+  },
+  {
     id: 107,
     slug: "gigw-3-government-website-guidelines-explained",
     seoTitle: "GIGW 3.0 Explained for Government Websites | Infovion",

@@ -197,11 +197,11 @@ export default function Assembly() {
         {CHAPTERS.map(([label, head, body], i) => {
           const on = reduce || i === step;
           return (
-            <li key={label} className={`relative pb-6 pl-6 transition-opacity duration-500 last:pb-0 ${on ? "opacity-100" : "opacity-35 max-lg:hidden"}`}>
+            <li key={label} className={`relative pl-6 transition-all duration-500 ${on ? "pb-6 opacity-100 last:pb-0" : "opacity-35 max-lg:pointer-events-none max-lg:max-h-0 max-lg:overflow-hidden max-lg:pb-0 max-lg:opacity-0 lg:pb-6"}`}>
               <span aria-hidden="true" className={`absolute -left-px top-1 h-6 w-px transition-colors duration-500 ${on ? "bg-sky-300" : "bg-transparent"}`} />
               <p className="font-mono text-xs text-slate-400">{String(i + 1).padStart(2, "0")} {label}</p>
               <h3 className="font-display mt-1.5 text-xl text-white sm:text-2xl">{head}</h3>
-              <p className={`mt-2 max-w-md text-[15px] leading-relaxed text-slate-400 transition-all duration-500 ${on ? "" : "lg:hidden"}`}>{body}</p>
+              <p className={`max-w-md overflow-hidden text-[15px] leading-relaxed text-slate-400 transition-all duration-500 ${on ? "mt-2 max-h-40 opacity-100" : "mt-0 max-h-0 opacity-0"}`}>{body}</p>
             </li>
           );
         })}

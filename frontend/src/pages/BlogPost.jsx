@@ -6,7 +6,8 @@ import { blogPosts } from "../Data/blogData";
 import { CATEGORY_LABEL, CTA, audienceOf } from "../Data/blogCategories";
 import { GlowButton } from "../components/fx/Fx";
 import PreferredSourceBadge from "../components/PreferredSourceBadge";
-import { faqSchema } from "../lib/seo";
+import { faqSchema, FOUNDER_ID, ORG_ID } from "../lib/seo";
+import { COMPANY } from "../Data/company";
 import { Breadcrumbs } from "../components/site/Ui";
 
 const DOMAIN = "https://www.infovion.in";
@@ -39,8 +40,18 @@ export default function BlogPost() {
     image: [abs(post.image)],
     datePublished: post.date,
     dateModified: post.updated || post.date,
-    author: post.authorName ? { "@type": "Person", name: post.authorName, worksFor: { "@id": `${DOMAIN}/#organization` } } : { "@id": `${DOMAIN}/#organization` },
-    publisher: { "@id": `${DOMAIN}/#organization` },
+    // Every post is published under the founder's name, the same person the organisation schema
+    // names (one @id across the site), so search engines and AI assistants can tie the writing to
+    // a real, accountable person and to Infovion Technologies.
+    author: post.authorName
+      ? { "@type": "Person", name: post.authorName, worksFor: { "@id": ORG_ID } }
+      : { "@type": "Person", "@id": FOUNDER_ID, name: COMPANY.founder, jobTitle: `${COMPANY.founderRole}, ${COMPANY.name}`, url: `${DOMAIN}/about#founder`, worksFor: { "@id": ORG_ID } },
+    publisher: { "@id": ORG_ID },
+    isPartOf: { "@id": `${DOMAIN}/#website` },
+    about: (post.tags || []).slice(0, 4).map((name) => ({ "@type": "Thing", name })),
+    mentions: [{ "@id": ORG_ID }],
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".post-excerpt"] },
+    wordCount: post.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length,
     articleSection: CATEGORY_LABEL[post.category] ?? post.category,
     keywords: (post.tags || []).join(", "),
     description: post.excerpt,
@@ -59,6 +70,12 @@ export default function BlogPost() {
         <meta property="og:image" content={abs(post.image)} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
+        <meta name="keywords" content={(post.tags || []).join(", ")} />
+        <meta name="author" content={post.authorName || COMPANY.founder} />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:modified_time" content={post.updated || post.date} />
+        <meta property="article:section" content={CATEGORY_LABEL[post.category] ?? post.category} />
+        {(post.tags || []).map((t) => <meta key={t} property="article:tag" content={t} />)}
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
 
@@ -66,13 +83,13 @@ export default function BlogPost() {
         <div className="mx-auto max-w-3xl px-5 sm:px-6">
           <Breadcrumbs trail={[["Blog", "/blog"], [CATEGORY_LABEL[post.category] ?? "Guide", `/blog/${post.slug}`]]} />
           <h1 className="font-display mt-8 text-[2.1rem] leading-[1.08] text-white sm:text-5xl">{post.title}</h1>
-          <p className="mt-6 text-lg leading-relaxed text-slate-300">{post.excerpt}</p>
+          <p className="post-excerpt mt-6 text-lg leading-relaxed text-slate-300">{post.excerpt}</p>
           <p className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-5 text-sm text-slate-400">
             <span className="text-sky-300">{CATEGORY_LABEL[post.category] ?? post.category}</span>
             <span>{fmt(post.date)}</span>
             {post.updated && post.updated !== post.date && <span>Updated {fmt(post.updated)}</span>}
             <span>{post.readTime}</span>
-            <span>By {post.author}</span>
+            <span>By {post.authorName ? post.authorName : <Link to="/about#founder" className="text-slate-300 underline decoration-white/20 underline-offset-4 hover:text-white">{COMPANY.founder}, {COMPANY.founderRole.toLowerCase()} of Infovion Technologies</Link>}</span>
           </p>
         </div>
       </header>
