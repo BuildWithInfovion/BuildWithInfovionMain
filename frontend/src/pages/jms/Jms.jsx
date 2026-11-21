@@ -15,7 +15,10 @@ const PRICE = `₹${JMS.price.toLocaleString("en-IN")}`;
 const MRP = `₹${JMS.mrp.toLocaleString("en-IN")}`;
 const AMC = `₹${JMS.amc.toLocaleString("en-IN")}`;
 
-const SUB = "Billing by weight and purity, barcode tags, girvi, gold savings schemes, orders and karigar, repairs, GST returns and Tally export, for one shop or several branches. In 10 Indian languages, in a web browser, and billing carries on when the internet drops.";
+const SUB = "Billing by weight and purity, barcode and RFID tags, girvi, gold savings schemes, advances and gold booking, orders and karigar, repairs, GST returns and Tally export, for one shop or several branches. In 10 Indian languages, in a web browser, and billing carries on when the internet drops.";
+
+// The trial is asked for in the app and approved by Infovion one by one; the demo call stays the main route.
+const TRIAL_REQUEST = "https://jms.infovion.in/signup";
 
 /** The usual price struck through, then the price: "₹11,999 ₹9,999". */
 const Price = () => (
@@ -35,7 +38,7 @@ const softwareSchema = {
   operatingSystem: "Any web browser (Windows, macOS, Android, iOS)",
   url: `${SITE}/jewellery-management-software`,
   description:
-    "Jewellery management software for jewellery shops in India and worldwide: billing by weight, purity, rate per gram and making charges; barcode and QR tags with scanning and stock audit; GST (CGST/SGST/IGST) or VAT invoices with GSTR-1 and GSTR-3B; old-gold purchase and exchange; girvi (gold loan) management; gold savings schemes; customer orders, repairs and karigar job work; supplier purchases; stock value and profit; customer credit and KYC; Tally export; branches with stock transfer; billing that keeps working offline; screens in 10 Indian languages; add-ons for money lending and gold release.",
+    "Jewellery management software for jewellery shops in India and worldwide: billing by weight, purity, rate per gram and making charges; barcode, QR and RFID tags with scanning and stock audit; GST (CGST/SGST/IGST) or VAT invoices with GSTR-1, GSTR-3B and e-invoices; old-gold purchase, exchange and vouchers adjusted on later bills; advance receipts with gold booked at the day's rate; bookings of pieces kept aside; returns of part of a bill; girvi (gold loan) management; gold savings schemes; customer orders, repairs, karigar job work and manufacturing; supplier purchases; stock register, stock value and profit; customer credit and KYC; Tally export; branches with stock transfer; billing that keeps working offline; screens in 10 Indian languages; add-ons for money lending and gold release.",
   featureList: [
     "Jewellery billing by weight, purity and rate per gram",
     "Making charges per gram, as a percentage or per piece",
@@ -46,6 +49,11 @@ const softwareSchema = {
     "GST invoices with CGST and SGST or IGST; VAT for other countries",
     "HUID on tags and invoice lines",
     "Old gold exchange and split payments",
+    "Advance receipts with gold booked at the day's rate, used on later bills",
+    "Bookings: pieces kept aside from stock for a customer",
+    "Returns of some pieces or grams from a bill, with GST credit notes",
+    "Old gold vouchers adjusted against a bill or an order advance",
+    "RFID tags: link or write UHF tags, read a whole tray in a stock audit or at billing",
     "Girvi (gahan) register with interest to date, part-payments and release",
     "Customer credit (udhaar) ledger with payments",
     "Tally export: TallyPrime XML ledgers and vouchers",
@@ -58,7 +66,11 @@ const softwareSchema = {
     "Purchases from suppliers with supplier and karigar accounts",
     "Estimates (quotations), sales returns, exchanges and GST credit notes",
     "Stock value at cost and today's rate, margin on every bill and a profit report",
-    "Branches: separate stock and bills per branch, stock transfers, branches side by side",
+    "Stock register: opening, in, out and closing by metal and purity, category or counter",
+    "Sale summary, sale details, order, booking and karigar reports, each to Excel or PDF",
+    "Manufacturing: production orders through casting, filing, setting and polishing",
+    "GST e-invoice: JSON for the IRP's bulk upload, IRN and signed QR on the bill",
+    "Branches: separate stock and bills per branch; stock transfers received piece by piece with a delivery challan",
     "Billing without internet: bills saved on the device and sent when back online",
     "Sales, girvi and stock registers for Excel",
     "Owner and staff accounts with an activity log",
@@ -67,7 +79,9 @@ const softwareSchema = {
     "Direct printing to thermal receipt printers (ESC/POS) and tag printers (TSPL, ZPL, EPL) without a driver",
     "Weighing scale readings over RS-232 or USB",
     "Customer KYC with encrypted ID numbers and documents; PAN and cash-limit checks on large bills",
-    "Notifications for out-of-stock items, overdue girvi and udhaar",
+    "Notifications for out-of-stock items, overdue girvi and udhaar, also on the owner's phone",
+    "Letterhead for bills and printed documents: layout, colour, logo or your own letterhead picture",
+    "Market today: the world gold and silver price beside the shop's own rates",
     "Finance add-on: finance files, interest loans, collections, cash book, day close, profit and loss",
     "Gold release add-on: release pledged gold from a bank loan, test, buy or return it",
   ],
@@ -83,16 +97,16 @@ const FEATURES = [
     id: "billing",
     kicker: "Billing",
     title: "Scan, check and bill",
-    body: "Scan the tag and the piece is on the bill with its weight, purity, making charge and today's rate. Adjust anything on the counter, take old gold in exchange, split the payment between cash, UPI and card, and leave a balance on the customer's account. The invoice prints on A4, A5 or an 80 mm roll, or goes to the customer as a PDF.",
-    points: ["Weight × rate per gram for every line", "Making charges per gram, % or per piece", "Stone and other charges", "GST with CGST and SGST, or IGST", "HUID on every invoice line", "Discount before tax, old gold, split payments"],
+    body: "Scan the tag and the piece is on the bill with its weight, purity, making charge and today's rate. Adjust anything on the counter, take old gold in exchange, use the customer's advance with any gold they booked at an earlier rate, split the payment between cash, UPI and card, and leave a balance on the customer's account. The invoice prints on A4, A5 or an 80 mm roll on your own letterhead, or goes to the customer as a PDF.",
+    points: ["Weight × rate per gram for every line", "Making charges per gram, % or per piece", "Stone and other charges", "GST with CGST and SGST, or IGST", "HUID on every invoice line", "Discount as an amount or %, before tax", "Advance receipts and gold booked at a rate", "Old gold, credit notes and split payments", "Sales person on every bill", "Return one piece, some pieces or some grams"],
     img: ["/product/jms/billing", "New bill in Infovion JMS with three scanned items, weights, rates and making charges"],
   },
   {
     id: "tags",
     kicker: "Barcode tags",
     title: "Tag every piece",
-    body: "Weigh a tray of new pieces, enter the weights once, and print a barcode or QR tag for each one on a thermal tag printer or on A4 label sheets. The tag carries the tag number, weight, purity and HUID, folded back to back on a jewellery tag.",
-    points: ["Jewellery tags 100 × 15, 100 × 13, 95 × 12 and 81 × 12 mm", "Stickers and A4 label sheets", "Code 128 barcode or QR code", "Works through the printer's own driver (TSC, Zebra, Argox and others)", "Test print and alignment for each printer"],
+    body: "Weigh a tray of new pieces, enter the weights once, and print a barcode or QR tag for each one on a thermal tag printer or on A4 label sheets. The tag carries the tag number, weight, purity and HUID, folded back to back on a jewellery tag. Pieces can also carry a UHF RFID tag: JMS writes the tag number on a blank chip with a desktop reader-writer, or while an RFID tag printer prints the tag.",
+    points: ["Jewellery tags 100 × 15, 100 × 13, 95 × 12 and 81 × 12 mm", "Stickers and A4 label sheets", "Code 128 barcode or QR code", "Works through the printer's own driver (TSC, Zebra, Argox and others)", "Test print and alignment for each printer", "RFID tags written or linked, piece by piece"],
     img: ["/product/jms/tags", "Print tags screen in Infovion JMS with a preview of a jewellery barcode tag"],
     link: ["/jewellery-barcode-software", "Barcode tagging in detail"],
   },
@@ -101,7 +115,7 @@ const FEATURES = [
     kicker: "Stock audit",
     title: "Count the showroom in minutes",
     body: "Start an audit and scan every tag in the counters and lockers. JMS shows what has been found, what is still missing, any tag that was already sold, and tags it doesn't recognise. The result is saved for the records.",
-    points: ["Scanner or phone camera", "Missing pieces listed with their location", "Sold and unknown tags flagged", "Missing list exported to Excel"],
+    points: ["Scanner, phone camera or RFID reader", "Missing pieces listed with their location", "Sold and unknown tags flagged", "Missing list exported to Excel"],
     img: ["/product/jms/audit", "Stock audit in Infovion JMS showing items found, not yet scanned and tags with problems"],
   },
   {
@@ -151,8 +165,8 @@ const FEATURES = [
     id: "orders",
     kicker: "Orders and karigar",
     title: "Every custom order, from advance to delivery",
-    body: "Book an order with the customer's advance and, if they want it, today's rate locked in. Send it to the karigar as a job with the fine gold issued, follow it to ready, and deliver it on an ordinary bill that uses the advance as payment. The karigar's account shows the fine gold still with them.",
-    points: ["Advance and booked rate on the order", "Job to the karigar with metal issued", "Fine-gold balance for every karigar", "Ready and delivery dates, with WhatsApp updates", "Advance adjusted on the final bill"],
+    body: "Book an order with the customer's advance and, if they want it, grams of gold booked at today's rate. Keep ready pieces aside on a booking so no other bill can take them. Send the work to the karigar as a job with the design photo and the fine gold issued, follow it to ready, and deliver it on an ordinary bill that uses the advance as payment. The karigar's account shows the fine gold still with them.",
+    points: ["Advance and gold booked at a rate", "Bookings: pieces kept aside from stock", "Job card with the design photo, sent on WhatsApp", "Each karigar's usual wastage and labour", "Fine-gold balance and a report for every karigar", "Ready and delivery dates, with WhatsApp updates", "Advance adjusted on the final bill"],
     img: ["/product/jms/order-detail", "A customer order in Infovion JMS with the advance, booked rate and the karigar job"],
     link: ["/karigar-management-software", "Orders and karigar in detail"],
   },
@@ -168,16 +182,16 @@ const FEATURES = [
     id: "old-gold",
     kicker: "Old gold and purchases",
     title: "Old gold bought, melted and accounted for",
-    body: "Buy old gold from a walk-in customer with its weight, tested purity and deduction, pay them and print the voucher. The old gold register shows what is in hand, and a melting batch sent to the refiner comes back as fine gold. Supplier bills and karigar accounts are kept in money and in fine metal.",
-    points: ["Purchase voucher with KYC and PAN checks", "Old gold register and melting batches", "Supplier bills with input GST", "Supplier and karigar accounts in money and fine gold"],
+    body: "Buy old gold from a walk-in customer with its weight, tested purity and deduction, then pay them, split between cash and bank if they like, or keep the voucher's value for their next bill or as an order advance. The old gold register shows what is in hand, and a melting batch sent to the refiner comes back as fine gold. Supplier bills can be pasted from Excel, and supplier and karigar accounts are kept in money and in fine metal.",
+    points: ["Purchase voucher with KYC and PAN checks", "Voucher paid out, or adjusted against a bill or order", "Old gold register, URD purchase report and melting", "Supplier bills with input GST, pasted from Excel", "Supplier and karigar accounts in money and fine gold"],
     img: ["/product/jms/old-gold", "Old gold bought from customers in Infovion JMS with fine weight and amount paid"],
   },
   {
     id: "profit",
-    kicker: "Profit and stock value",
-    title: "Know what you made on every bill",
-    body: "JMS records what each piece cost you, so the profit report shows the margin on every bill and the stock report values what is on the counters at cost and at today's rate. Owners see it; staff don't.",
-    points: ["Margin on every invoice line", "Stock value at cost and at today's rate", "Profit by day, by bill or by category", "Only the owner can see costs"],
+    kicker: "Reports and stock",
+    title: "Know what you made, and where every gram went",
+    body: "JMS records what each piece cost you, so the profit report shows the margin on every bill and the stock report values what is on the counters at cost and at today's rate. The stock register shows opening, in, out and closing stock, and the sale summary, order and booking reports follow the formats jewellers already keep. Owners see costs; staff don't.",
+    points: ["Margin on every invoice line", "Stock value at cost and at today's rate", "Stock register: opening + in − out = closing", "Closing stock by counter, category and purity", "Sale summary and sale details by sales person", "Excel and Print/PDF on every report"],
     img: ["/product/jms/profit", "Profit report in Infovion JMS with sales, cost and margin on each bill"],
   },
 ];
@@ -186,8 +200,11 @@ const COMPARISON = [
   ["Pricing from weight, purity and rate per gram", false, "partial", true],
   ["Barcode tags and billing by scanning", false, "partial", true],
   ["Stock audit by scanning", false, false, true],
+  ["RFID tags read a whole tray at once", false, false, true],
+  ["Stock register: opening, in, out, closing", "register", "partial", true],
   ["Making charges per gram, % or per piece", false, false, true],
   ["Old-gold exchange on the same bill", false, false, true],
+  ["Advances with gold booked at a rate", "register", false, true],
   ["GST invoice with CGST/SGST or IGST", false, true, true],
   ["Girvi register with interest to date", "register", false, true],
   ["Customer credit with part-payments", "register", "partial", true],
@@ -205,11 +222,15 @@ const COMPARISON = [
 const MORE = [
   ["10 Indian languages", "Every screen in English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali or Punjabi — each person picks their own. Bills can carry Hindi or Marathi labels next to English, and WhatsApp messages go out in English, Hindi or Marathi."],
   ["Works without internet", "If the connection drops at the counter, keep billing from the stock and rates the counter keeps ready. Each counter holds ten invoice numbers from your series; the bills print, wait on the device and are sent, numbers and times unchanged, the moment you are back online."],
-  ["Branches", "Open a branch with its own stock, bills, number series and staff. Move stock between branches with a transfer note, and see every branch's sales side by side."],
-  ["Printers, scales and scanners", "Bills through any printer driver, or straight to an ESC/POS receipt printer with paper cut and cash drawer. Tags to TSC, TVS, Argox, Zebra and other tag printers in TSPL, ZPL or EPL. Weights straight from the jewellery scale."],
+  ["Advances and gold booking", "Take an advance on its own numbered receipt, in any mix of cash, UPI, card, cheque and old gold. Book grams at today's rate: the bill charges them at the booked rate and anything more at the day's rate, and if the rate falls the customer can get the lower one."],
+  ["Returns, piece by piece", "Take back one piece of a bill, some pieces of a lot or some grams of a weight item. The credit is that part's share of the line, tax is reversed at the invoice's own rates, and stock gets back only what came back."],
+  ["Branches", "Open a branch with its own stock, bills, number series and staff. Stock sent to a branch goes with a delivery challan and is on the way until the branch ticks or scans each piece in. Each branch's stock, bills and stock register, side by side."],
+  ["Printers, scales, scanners and RFID", "Bills through any printer driver, or straight to an ESC/POS receipt printer with paper cut and cash drawer. Tags to TSC, TVS, Argox, Zebra and other tag printers in TSPL, ZPL or EPL. Weights straight from the jewellery scale. RFID reader-writers on a COM port, with a step-by-step hardware setup guide."],
+  ["Letterhead", "Design the top of every bill, receipt and PDF once: the layout, colour and lettering, your logo, a faint logo behind the bill, or a picture of your own letterhead. Or leave room for paper that is already printed."],
+  ["Market today", "The world price of gold and silver in your currency, with import duty, beside your own rate for each purity. Send today's rates as a WhatsApp message and see the buying days coming up."],
   ["KYC and big bills", "Customer ID and PAN stored encrypted and shown masked, with consent and verification. A bill over ₹2 lakh asks for PAN or Form 60, and cash of ₹2 lakh or more on one bill is refused."],
-  ["Notifications", "A bell for out-of-stock items, girvi and udhaar past their due date, and loans due today, with a WhatsApp reminder in one tap."],
-  ["Search and dashboard", "Ctrl+K finds any tag, customer, invoice or pledge. The dashboard shows today's sales, money received and what needs attention."],
+  ["Notifications on your phone", "A bell for out-of-stock items, girvi and udhaar past their due date, and loans due today, with a WhatsApp reminder in one tap. Install JMS from the browser and the owner gets them on the phone too."],
+  ["Search and dashboard", "Ctrl+K finds any tag, customer, invoice or pledge. The dashboard shows gold sold today, how the rates moved, orders and repairs in hand, best sellers and customers' birthdays, with udhaar and girvi on a Money tab."],
   ["Security", "Each shop's data kept apart, staff access set per area, sign-in history, sign out of other devices, lockout after repeated wrong passwords."],
 ];
 
@@ -230,7 +251,7 @@ const COUNTRIES = [
 ];
 
 const FAQ = [
-  ["What is Infovion JMS?", "Infovion JMS is jewellery management software for jewellery shops. It covers billing by weight, purity and making charges, barcode tags and scanning, stock audit, GST or VAT invoices with GSTR-1 and GSTR-3B, old gold bought and exchanged, girvi (gold loans), gold savings schemes, custom orders, karigar job work and repairs, customer credit, profit and stock value, branches, reports and export to Tally. It runs in a web browser in 10 Indian languages, keeps billing when the internet drops, and has nothing to install."],
+  ["What is Infovion JMS?", "Infovion JMS is jewellery management software for jewellery shops. It covers billing by weight, purity and making charges, barcode and RFID tags, stock audit, GST or VAT invoices with GSTR-1 and GSTR-3B, old gold bought and exchanged, advance receipts with gold booked at the day's rate, bookings, returns, girvi (gold loans), gold savings schemes, custom orders, karigar job work and repairs, customer credit, profit, a stock register, branches, reports and export to Tally. It runs in a web browser in 10 Indian languages, keeps billing when the internet drops, and has nothing to install."],
   ["How much does Infovion JMS cost?", `${PRICE} per shop (usual price ${MRP}), plus GST, and then an AMC of ${AMC} a year. That includes every feature, unlimited staff accounts, invoices, tags and girvi records, and help with setup and importing your stock. For shops outside India we quote in your currency.`],
   ["Does JMS support barcode tags?", "Yes. JMS gives every piece a tag number and prints barcode (Code 128) or QR tags on thermal tag printers such as TSC, Zebra and Argox, through the printer's driver, or on A4 label sheets. Pieces are billed by scanning the tag with a USB or Bluetooth scanner or a phone camera, and the whole stock can be audited by scanning."],
   ["Which tag sizes and printers work?", "Common jewellery tag rolls of 100 × 15 mm, 100 × 13 mm, 95 × 12 mm and 81 × 12 mm, stickers of 50 × 25 and 38 × 25 mm, and A4 label sheets, plus a custom size. Any label printer with a Windows or macOS driver works, for example TSC TE244, Zebra ZD230 or Argox OS-214. A test print and alignment settings help match each printer."],
@@ -241,9 +262,13 @@ const FAQ = [
   ["Does JMS manage gold savings schemes?", "Yes. Set up your plans (for example ₹5,000 a month for 11 months with the 12th month as bonus, or a 22K weight plan where each instalment buys gold at the day's rate), join customers, take instalments with receipts, and see who is late or has matured. On maturity the amount and bonus are used straight on the bill."],
   ["Can JMS handle custom orders and karigar work?", "Yes. An order records the customer's advance, an optional booked rate and the due date. It can be sent to a karigar as a job with fine gold issued, marked ready, and delivered on a bill that uses the advance. Each karigar's account shows the fine gold still with them. Repairs work the same way with numbered slips."],
   ["Does JMS make GSTR-1 and GSTR-3B?", "JMS works out the GSTR-3B summary and creates the GSTR-1 sections (B2B, B2C large and small, credit notes, HSN summary and documents issued) for any month, as files in the GST Offline Tool's columns. Your CA checks them and files the return; JMS does not file on the GST portal."],
-  ["Can one owner run several branches?", "Yes. Each branch keeps its own stock, bills, invoice series and staff. The owner moves between branches from the menu, sends stock from one branch to another with a transfer note, and sees branches side by side in Reports. A branch in another state needs its own GSTIN."],
+  ["Can one owner run several branches?", "Yes. Each branch keeps its own stock, bills, invoice series and staff. The owner moves between branches from the menu and sends stock with a delivery challan; the pieces are on the way until the branch ticks or scans each one in, and any that don't arrive go back. Reports show each branch's sales, stock and stock register side by side. A branch in another state needs its own GSTIN."],
+  ["Can JMS take an advance and book the gold rate?", "Yes. An advance receipt has its own number and can be paid in any mix of cash, UPI, card, cheque or an old gold voucher. Switch on gold booking and the grams the money pays for are booked at today's rate, with an optional date the rate holds until. On the bill, the booked grams are charged at the booked rate and anything more at the day's rate; what is left stays for the next bill. With rate protection on, the customer gets the day's rate if it is lower."],
+  ["Can a customer return one piece from a bill?", "Yes. Tick only the pieces coming back, or enter how many pieces of a lot or how many grams of a weight item. The credit is that part's share of the line, less any deduction you keep, with tax reversed at the invoice's own rates. Only what came back goes into stock, and the credit note is given back as money or used on a new bill."],
+  ["Does JMS keep a stock register?", "Yes. For any period, the stock register shows opening stock, everything in and out, and closing stock, by metal and purity, by category or by counter, in pieces, net weight and fine weight. Every movement can be traced to its bill or document, and every report downloads to Excel or prints as a PDF."],
+  ["Is there a free trial?", "Yes, on request. Ask for one on the JMS sign-in page or on a demo call; Infovion checks each request and sets up the shop for you, and the trial days start when you first sign in. Most jewellers start with a free 15-minute demo call in their language."],
   ["Can I bring my existing stock and records?", "Yes. Stock can be imported from an Excel sheet saved as CSV, and older customer dues can be entered as opening balances. Shops moving from the earlier single-shop version of JMS can have all their records moved across by our team."],
-  ["Do I need to install anything?", "No. JMS runs in Chrome, Edge or Safari on a counter computer, laptop, tablet or phone, and can be added to the home screen like an app. If the internet drops, billing carries on from the stock and rates the counter keeps ready, and the bills are sent when the connection is back."],
+  ["Do I need to install anything?", "No. JMS runs in Chrome, Edge or Safari on a counter computer, laptop, tablet or phone, and can be installed from the browser like an app, which also brings notifications to the owner's phone. If the internet drops, billing carries on from the stock and rates the counter keeps ready, and the bills are sent when the connection is back."],
   ["Which languages is JMS available in?", "Ten: English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali and Punjabi. Each person picks their language on the sign-in page or in the menu, and every screen changes. Bills can carry Hindi or Marathi labels next to English, and WhatsApp reminders go out in English, Hindi or Marathi."],
   ["Which printers and weighing scales work with JMS?", "Any printer with a Windows or macOS driver works through the print window. Without a driver, JMS prints directly to ESC/POS thermal receipt printers (with paper cut and cash drawer) and to tag printers in TSPL (TSC, TVS, Argox, Xprinter), ZPL or EPL (Zebra) from Chrome or Edge. Jewellery scales with an RS-232 or USB output, such as Essae, Citizen, Atom, Contech, Shimadzu, A&D and Sartorius, fill in weights with one click."],
   ["Does JMS ask for PAN on big jewellery bills?", "Yes, for shops in India. When a bill goes over ₹2 lakh, JMS asks for the customer's PAN or a signed Form 60 (Income Tax Rule 114B) and keeps the PAN on the customer's record. It refuses cash of ₹2 lakh or more for one bill (section 269ST) and asks for the rest by UPI, card, bank transfer or cheque. The limits can be changed in Settings."],
@@ -317,7 +342,7 @@ export function JmsHome() {
       <section className="pb-4">
         <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <nav aria-label="Features on this page" className="flex flex-wrap gap-x-6 gap-y-3 border-y border-white/10 py-5">
-            {[...FEATURES.map((f) => [f.id, f.kicker]), ["more", "Languages and devices"], ["add-ons", "Add-ons"], ["worldwide", "Worldwide"], ["pricing", "Pricing"]].map(([id, label]) => (
+            {[...FEATURES.map((f) => [f.id, f.kicker]), ["more", "More in JMS"], ["add-ons", "Add-ons"], ["worldwide", "Worldwide"], ["pricing", "Pricing"]].map(([id, label]) => (
               <a key={id} href={`#${id}`} className="text-sm text-slate-300 underline-offset-4 hover:text-white hover:underline">
                 {label}
               </a>
@@ -385,25 +410,27 @@ export function JmsHome() {
               <span className="ml-2 text-base font-normal text-slate-400">plus GST</span>
             </p>
             <p className="mt-2 text-sm text-slate-300">Then an AMC of <strong className="font-semibold text-white">{AMC} a year</strong>, plus GST, for support, updates and new features.</p>
-            <p className="mt-3 text-slate-300">Start with a free 15-minute demo on a call, in your language. Your data stays yours and can be exported at any time.</p>
+            <p className="mt-3 text-slate-300">Start with a free 15-minute demo on a call, in your language, or ask for a free trial. Your data stays yours and can be exported at any time.</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <GlowButton to={TRIAL_HREF}>
                 {TRIAL_LABEL} <ArrowRight className="h-4 w-4" />
               </GlowButton>
+              <GhostButton href={TRIAL_REQUEST}>Ask for a free trial</GhostButton>
             </div>
             <p className="mt-5 text-sm text-slate-400">Outside India, we quote in your currency. Groups of shops and branches: ask about a group price. The money lending and gold release add-ons are priced separately.</p>
           </div>
           <ul className="grid content-start gap-x-8 sm:grid-cols-2">
             {[
               "Billing, invoices and customer history",
-              "Barcode and QR tags, scanning, stock audit",
+              "Advances, gold booking and returns",
+              "Barcode, QR and RFID tags, stock audit",
               "Girvi and customer credit",
               "Gold savings schemes",
-              "Orders, karigar jobs and repairs",
+              "Orders, bookings, karigar jobs and repairs",
               "Old gold, purchases and supplier accounts",
-              "Daily metal rates",
-              "GST or VAT, HUID, GSTR-1 and GSTR-3B",
-              "Profit and stock value",
+              "Daily metal rates and Market today",
+              "GST or VAT, HUID, GSTR-1, GSTR-3B, e-invoice",
+              "Profit, stock register and reports",
               "Tally export, Excel registers, full backup",
               "Billing when the internet is down",
               "Unlimited staff accounts",
@@ -479,7 +506,7 @@ export function JmsHome() {
         <div className="panel grid gap-8 rounded-xl p-7 sm:p-9 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <h2 className="font-display text-2xl font-semibold text-white">New in JMS</h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-400">Recently added, at the request of jewellers, and included in every plan.</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-400">Added in November 2026, most of it at the request of jewellers using JMS, and included in every plan. RFID stock audits, manufacturing and GST e-invoices came in October.</p>
             <h3 className="mt-7 font-display text-lg font-semibold text-white">Next on the list</h3>
             <ul className="mt-2 space-y-1.5 text-sm text-slate-400">
               {["Automatic WhatsApp Business messages", "Loyalty points", "An app for your customers", "Diamond certificates on tags", "Bank statement reconciliation"].map((t) => (
@@ -491,7 +518,7 @@ export function JmsHome() {
             </ul>
           </div>
           <ul className="grid content-start gap-x-8 sm:grid-cols-2">
-            {["RFID stock audits", "Manufacturing: casting to polishing", "GST e-invoice (IRN and QR)", "Gold savings schemes", "Custom orders with advances", "Karigar job work and fine gold", "Repairs with job slips", "Old gold purchase and melting", "Supplier purchases", "GSTR-1 and GSTR-3B", "Profit and stock value", "Branches and stock transfer", "Billing without internet", "10 Indian languages", "Estimates, returns and exchanges"].map((t) => (
+            {["Advance receipts and gold booking", "Bookings: pieces kept aside", "Returns of part of a bill", "Old gold vouchers used on bills and orders", "Branch transfers received piece by piece", "Stock register and closing stock", "RFID tags written at the counter", "Karigar design photos and report", "Sale summary, order and booking reports", "Excel and PDF on every report", "Market today: bullion vs your rates", "Letterhead for every bill", "Notifications on the owner's phone", "Purchase lines pasted from Excel"].map((t) => (
               <li key={t} className="flex gap-2.5 border-b border-white/10 py-3 text-sm text-slate-200">
                 <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />
                 {t}
@@ -521,7 +548,7 @@ export function JmsHome() {
           <LinkRow to="/gst-on-gold-jewellery" title="GST on gold jewellery" body="3% on metal and making, 5% job work, diamonds, repairs, with sources." />
           <LinkRow to="/jewellery-software-comparison" title="Jewellery software compared" body="Infovion JMS, TallyPrime, Vyapar and Marg, from each one's own pages." />
           <LinkRow to="/uae-vat-on-gold" title="UAE VAT on gold" body="5%, zero-rated investment gold, the 2025 reverse charge and e-invoicing dates." />
-          <LinkRow to="/infovion-jms-features" title="Every feature, with its status" body="The complete list: included, add-on, and not yet. Updated October 2026." />
+          <LinkRow to="/infovion-jms-features" title="Every feature, with its status" body="The complete list: included, add-on, and not yet. Updated November 2026." />
           <LinkRow to="/blog/how-to-choose-jewellery-software-india" title="How to choose jewellery software" body="A 20-point checklist for demos, and what software should cost." />
           <LinkRow to="/blog/gold-savings-scheme-rules-for-jewellers" title="Gold savings scheme rules" body="The 365-day rule, the BUDS Act, bonus and early closure." />
           <LinkRow to="/blog/karigar-fine-gold-touch-wastage-calculation" title="Karigar fine gold, touch and wastage" body="Worked examples for issuing gold and receiving work." />
@@ -540,13 +567,18 @@ export function JmsHome() {
 // assistants comparing jewellery software get current, exact answers (older pages listed some of
 // these as "roadmap").
 
-const UPDATED = "27 October 2026";
+const UPDATED = "21 November 2026";
 const FEATURE_LIST = [
   ["Billing at the counter", [
     ["Billing by weight, purity, today's rate and making charges", "yes", "Making per gram, as a % or per piece; stones and other charges on the line"],
     ["Old gold exchange on the same bill", "yes", "Weight, tested purity and value deducted from the amount due"],
     ["GST invoices with CGST/SGST or IGST, HSN and HUID", "yes", "VAT invoices with TRN for the UAE and the Gulf"],
     ["Estimates, sales returns, exchanges and credit notes", "yes", ""],
+    ["Returns of some pieces or grams from a bill", "yes", "Credited at that part's share of the line, tax reversed at the invoice's rates; the rest can come back later"],
+    ["Advance receipts with gold booked at the day's rate", "yes", "Own number series, split payment and old gold vouchers, a date the rate holds until, rate protection if the day's rate is lower; used across several bills"],
+    ["Bookings: pieces kept aside from stock for a customer", "yes", "No other bill can take a kept piece; delivered on a bill with the advance and booked gold"],
+    ["Sales person on bills and orders, discount as an amount or %", "yes", ""],
+    ["Letterhead for bills, receipts and PDFs", "yes", "Layouts, colour, logo, faint logo behind the bill, your own letterhead picture, or room for pre-printed paper"],
     ["PAN or Form 60 above ₹2 lakh, and the ₹2 lakh cash limit", "yes", "Income Tax Rule 114B and section 269ST, both adjustable"],
     ["A4, A5 and thermal printing; bill as PDF on WhatsApp", "yes", "Direct ESC/POS printing with paper cut and cash drawer"],
     ["Billing when the internet is down", "yes", "Each counter keeps stock, rates and ten invoice numbers; bills are sent when back online"],
@@ -556,8 +588,11 @@ const FEATURE_LIST = [
     ["Billing by scanning tags", "yes", "USB or Bluetooth scanner, or the phone camera"],
     ["Stock audit by scanning", "yes", "Missing, sold and unknown tags listed"],
     ["Weighing scale readings", "yes", "RS-232 or USB scales such as Essae, Citizen, Atom, Shimadzu"],
-    ["Stock import from Excel, keeping your tag numbers", "yes", ""],
+    ["Stock import from Excel, keeping your tag numbers", "yes", "Your own column headings matched, a preview first, and rows with problems listed to fix"],
     ["RFID tags and bulk RFID reading", "yes", "UHF readers that type like a keyboard, or a handheld's export file; thousands of tags matched at once in a stock audit, and at billing"],
+    ["RFID tags written or linked for each piece", "yes", "Desktop UHF reader-writers on a COM port write the tag number on a blank tag; ZPL RFID tag printers write the chip while printing the tag"],
+    ["Stock register: opening, in, out and closing", "yes", "By metal and purity, category or counter, in pieces, net and fine weight; closing stock by counter"],
+    ["Market today: world bullion price beside your rates", "yes", "Gold and silver in your currency with import duty; today's rates as a WhatsApp message"],
   ]],
   ["Girvi, schemes and customers", [
     ["Girvi (gold loan) register with interest counted by days", "yes", "Part-payments of principal and interest, overdue list, ornament photos, release receipts"],
@@ -573,13 +608,19 @@ const FEATURE_LIST = [
     ["Karigar job work: gold issued in gross and fine weight", "yes", "Jobs linked to customer orders or made for stock"],
     ["Work received with touch, wastage and labour", "yes", "Wastage reconciled against the fine gold issued"],
     ["Fine-gold and money balance for every karigar", "yes", ""],
+    ["Karigar job card with the design photo, sent on WhatsApp", "yes", "Each karigar's usual wastage and labour filled in; stage, size and stones on the job"],
+    ["Karigar report", "yes", "Fine issued, received and still with each karigar, wastage, labour, open and late jobs"],
+    ["Order and booking reports", "yes", "From the counter to the karigar, back, tagged and delivered"],
     ["Repairs with numbered slips, karigar and delivery", "yes", "GST on the repair service"],
     ["Manufacturing through casting, filing, setting and polishing", "yes", "Production orders with metal issued and received at each process, loss against each process's allowed %, loss by process and worker, finished pieces into stock"],
   ]],
   ["Purchases, accounts and GST", [
     ["Supplier purchases with input GST", "yes", ""],
     ["Supplier and karigar ledgers in money and fine metal", "yes", ""],
-    ["Old gold bought from customers, register and melting", "yes", ""],
+    ["Old gold bought from customers, register and melting", "yes", "Seller paid in cash, bank or both"],
+    ["Old gold voucher adjusted against a bill or an order advance", "yes", "Kept as the customer's credit (URD purchase); URD purchase report"],
+    ["Purchase lines pasted from Excel or uploaded", "yes", ".xlsx or .csv; several weights for one item"],
+    ["Sale summary and sale details in the jewellers' formats", "yes", "Every report downloads to Excel or prints as a PDF"],
     ["Profit on every bill, profit by period and stock value", "yes", "Only the owner sees costs"],
     ["GSTR-1 files for the GST Offline Tool and GSTR-3B summary", "yes", "Your CA files them; JMS does not file on the portal"],
     ["TallyPrime export (ledgers and vouchers)", "yes", "Sales, receipts, old gold, udhaar, girvi"],
@@ -591,10 +632,12 @@ const FEATURE_LIST = [
     ["Bank statement reconciliation", "no", "Done in Tally from the export"],
   ]],
   ["Shops, staff and devices", [
-    ["Multiple branches", "yes", "Stock, bills, invoice series and staff per branch; stock transfers; branches side by side"],
+    ["Multiple branches", "yes", "Stock, bills, invoice series and staff per branch; branches side by side"],
+    ["Stock transfers received piece by piece", "yes", "Delivery challan; on the way until the branch ticks or scans each piece in; pieces that don't arrive go back"],
     ["Owner and staff accounts with permissions and an activity log", "yes", "Unlimited staff"],
     ["Screens in 10 Indian languages", "yes", "English, Hindi, Marathi, Gujarati, Tamil, Telugu, Kannada, Malayalam, Bengali, Punjabi"],
     ["Works on phone, tablet and computer", "yes", "Installs as an app on Android and iPhone from the browser"],
+    ["Notifications on the owner's phone", "yes", "Once JMS is installed from the browser"],
     ["App in the Play Store or App Store", "no", "It installs from the browser instead"],
     ["Full data backup and Excel exports at any time", "yes", "Data stays yours if the plan ends"],
     ["Public API for other software", "no", ""],
@@ -603,12 +646,14 @@ const FEATURE_LIST = [
 ];
 
 const FEATURE_FAQ = [
-  ["Does Infovion JMS support multiple branches?", "Yes, since October 2026. Each branch has its own stock, bills, invoice series and staff; the owner moves between branches, transfers stock on a numbered note and sees branches side by side."],
+  ["Does Infovion JMS support multiple branches?", "Yes, since October 2026. Each branch has its own stock, bills, invoice series and staff; the owner moves between branches and sees them side by side. Since November 2026, stock goes to a branch with a delivery challan and stays on the way until the branch ticks or scans each piece in, and each branch has its own stock register."],
+  ["Can Infovion JMS book the gold rate for a customer?", "Yes. An advance receipt or a booking can book grams of gold at the day's rate. Later bills charge those grams at the booked rate and anything more at that day's rate; with rate protection on, the customer gets the day's rate if it has fallen. The advance can be paid in cash, UPI, card, cheque or with an old gold voucher."],
+  ["Can a customer return part of a bill in Infovion JMS?", "Yes. One piece of a bill, some pieces of a lot or some grams of a weight item can come back, and the rest later. Each part is credited at its share of the line with tax reversed at the invoice's rates, and the credit note is refunded or used on a new bill."],
   ["Does Infovion JMS handle karigar gold issue and receipt?", "Yes. Gold issued to a karigar is recorded in gross and fine weight; work received is entered with touch, wastage and labour, and each karigar's fine-gold and money balance is kept. Jobs can be linked to customer orders."],
   ["Does Infovion JMS have gold savings schemes?", "Yes. Amount plans and 22K weight plans, instalment receipts, bonus, a list of late members and redemption of the matured amount on the bill."],
   ["Can Infovion JMS send WhatsApp reminders?", "Yes, with one tap per customer for udhaar, girvi, scheme instalments and ready orders, in English, Hindi or Marathi. Fully automatic scheduled sending is not available yet."],
   ["Is there an Infovion JMS mobile app?", "JMS works on any phone or tablet and installs as an app on Android and iPhone from the browser, so the owner can see sales, stock and dues anywhere. It is not in the Play Store or App Store yet."],
-  ["Does Infovion JMS support RFID?", "Yes. A piece can carry its RFID tag, or the tag can be encoded with the piece's tag number. In a stock audit a UHF reader reads a whole tray at once, or a handheld's export file is loaded; billing finds a piece by its RFID tag too. Barcode and QR tags keep working alongside."],
+  ["Does Infovion JMS support RFID?", "Yes. A piece can carry its RFID tag's own number, or JMS writes the piece's tag number on a blank tag, with a desktop UHF reader-writer or with an RFID tag printer (ZPL) as it prints the tag. In a stock audit a UHF reader reads a whole tray at once, or a handheld's export file is loaded; billing finds a piece by its RFID tag too. Barcode and QR tags keep working alongside."],
   ["Does Infovion JMS make GST e-invoices?", "Yes. JMS prepares the month's invoices and credit notes to registered buyers in the IRP's JSON format, checking GSTINs, PIN codes and totals first. After the bulk upload on the e-invoice portal, the IRP's results are loaded back and each bill prints its IRN, acknowledgement and signed QR. E-way bills aren't needed for jewellery except within Kerala; their number is kept on the bill."],
   ["Does Infovion JMS handle jewellery manufacturing?", "Yes. A production order issues metal to casting, filing, setting and polishing in turn, records what comes back with stones added and scrap recovered, flags any process that loses more than its allowed %, and puts the finished pieces into stock with new tags. A loss report shows loss by process and by worker."],
   ["How much does Infovion JMS cost?", `${PRICE} per shop plus GST (usual price ${MRP}), then an AMC of ${AMC} a year. Every feature above marked Included is in the plan.`],
@@ -626,8 +671,8 @@ export function JmsFeatureListPage() {
   return (
     <>
       <Helmet>
-        <title>Infovion JMS Features: Complete List (October 2026)</title>
-        <meta name="description" content="Every Infovion JMS feature and its status: billing, tags, girvi, schemes, karigar, branches, GSTR-1, offline billing, 10 languages, and what is not yet there." />
+        <title>Infovion JMS Features: Complete List (November 2026)</title>
+        <meta name="description" content="Every Infovion JMS feature and its status: billing, advances, RFID, girvi, schemes, karigar, branches, stock register, GSTR-1, 10 languages, and what is not yet." />
         <link rel="canonical" href={url} />
         <meta property="og:title" content="Infovion JMS Features: Complete List" />
         <meta property="og:url" content={url} />
@@ -638,7 +683,7 @@ export function JmsFeatureListPage() {
             "@type": "WebPage",
             name: "Infovion JMS features: complete list",
             url,
-            dateModified: "2026-10-27",
+            dateModified: "2026-11-21",
             about: { "@id": ID },
           })}
         </script>
@@ -657,7 +702,7 @@ export function JmsFeatureListPage() {
 
       <Section className="pt-0">
         <AnswerBox q="What does Infovion JMS include?">
-          {`As of ${UPDATED}, Infovion JMS includes jewellery billing by weight and purity with GST, barcode tags and stock audits, girvi with interest by days, gold savings schemes, customer orders, karigar job work with fine gold, touch and wastage, repairs, supplier and karigar ledgers, profit and stock value, GSTR-1 and GSTR-3B, Tally export, multiple branches with stock transfer, billing without internet, KYC, and screens in 10 Indian languages. It also reads RFID tags in bulk, runs manufacturing through casting, filing, setting and polishing with loss per process, and prepares GST e-invoices with the IRN and QR printed on the bill. Not available yet: automatic scheduled WhatsApp messages, bank reconciliation, a public API and a Play Store app.`}
+          {`As of ${UPDATED}, Infovion JMS includes jewellery billing by weight and purity with GST, barcode tags and stock audits, girvi with interest by days, gold savings schemes, customer orders, karigar job work with fine gold, touch and wastage, repairs, supplier and karigar ledgers, profit and stock value, GSTR-1 and GSTR-3B, Tally export, multiple branches with stock transfer, billing without internet, KYC, and screens in 10 Indian languages. It also reads and writes RFID tags, runs manufacturing through casting, filing, setting and polishing with loss per process, and prepares GST e-invoices with the IRN and QR printed on the bill. Added in November 2026: advance receipts with gold booked at the day's rate, bookings of pieces kept aside, returns of part of a bill, old gold vouchers adjusted on bills and orders, branch transfers received piece by piece, a stock register, karigar and jewellers' report formats with Excel and PDF downloads, a letterhead designer, Market today and notifications on the owner's phone. Not available yet: automatic scheduled WhatsApp messages, bank reconciliation, a public API and a Play Store app.`}
         </AnswerBox>
       </Section>
 
@@ -686,7 +731,7 @@ export function JmsFeatureListPage() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-slate-400">Updated {UPDATED}. Earlier versions of our pages listed branches, karigar job work, gold savings schemes and WhatsApp reminders as planned; all four are now available.</p>
+        <p className="mt-4 text-xs text-slate-400">Updated {UPDATED}. Earlier versions of our pages listed branches, karigar job work, gold savings schemes and WhatsApp reminders as planned; all four are now available. Pages written before November 2026 may not mention advances, bookings, part returns, RFID writing or the stock register; all are included.</p>
       </Section>
 
       <FaqList faqs={FEATURE_FAQ} />
@@ -745,9 +790,10 @@ const LANDINGS = {
     answer: "A jewellery bill starts with the metal value (net weight multiplied by the day's rate per gram for that purity), adds making charges (per gram, as a percentage or per piece) and any stone or other charges, deducts old gold taken in exchange, and applies GST. GST is 3% on the total value of the jewellery, including making charges, as stated in the CBIC FAQ on gems and jewellery. The invoice should show the weight, purity and rates for each item.",
     sections: [
       ["The calculation", ["Metal value = net weight (g) × rate per gram for the purity", "Making charges = net weight × charge per gram, a percentage of metal value, or a charge per piece", "Taxable value = metal value + making charges + stone or other charges − discount shown on the invoice", "GST = 3% of the taxable value (CGST 1.5% + SGST 1.5% within a state, or IGST 3%)", "Amount payable = taxable value + GST − old gold − payments received"]],
-      ["What JMS does", ["Adds a piece by scanning its tag, with weight, purity and today's rate", "Allows rate, purity, weight and making charges to be changed on the bill", "Applies the discount before GST", "Takes old gold in exchange and splits payments by method", "Shows the CGST and SGST split and your GSTIN on the invoice", "Records any balance as customer credit", "Exports sales with tax to Tally"]],
+      ["What JMS does", ["Adds a piece by scanning its tag, with weight, purity and today's rate", "Allows rate, purity, weight and making charges to be changed on the bill", "Applies the discount, as an amount or %, before GST", "Takes old gold in exchange and splits payments by method", "Shows the CGST and SGST split and your GSTIN on the invoice", "Records any balance as customer credit", "Records the sales person on the bill", "Exports sales with tax to Tally"]],
+      ["Advances, bookings and returns", ["Advance receipts with their own numbers, paid in any mix of methods or with an old gold voucher", "Grams of gold booked at the day's rate, charged at that rate on later bills and anything more at the day's rate", "Rate protection: the customer gets the day's rate if it is below the booked rate", "Pieces kept aside on a booking can't be billed to anyone else", "Returns of one piece, some pieces of a lot or some grams, with a GST credit note", "Credit notes and old gold vouchers used as payment on a new bill"]],
       ["Rules for big bills", ["A bill over ₹2 lakh asks for the customer's PAN or a signed Form 60 (Income Tax Rule 114B)", "A PAN entered once is kept, encrypted, on the customer's record", "Cash of ₹2 lakh or more on one bill is refused (section 269ST); the rest goes by UPI, card, transfer or cheque", "Both limits can be changed or switched off in Settings"]],
-      ["Print and share", ["A4, A5, Letter, 80 mm or 58 mm paper, with margin and text size settings", "Through the printer's driver, or straight to an ESC/POS thermal printer with paper cut and cash drawer", "Bill labels in English, or with Hindi or Marathi next to English", "PDF of the invoice on WhatsApp, in the customer's language", "Reprint any invoice from the sales list"]],
+      ["Print and share", ["A4, A5, Letter, 80 mm or 58 mm paper, with margin and text size settings", "Your letterhead: layout, colour and logo, your own letterhead picture, or pre-printed paper", "Through the printer's driver, or straight to an ESC/POS thermal printer with paper cut and cash drawer", "Bill labels in English, or with Hindi or Marathi next to English", "PDF of the invoice on WhatsApp, in the customer's language", "Reprint any invoice from the sales list"]],
     ],
     example: {
       caption: "Worked example: a 10 g, 22K chain",
@@ -780,6 +826,7 @@ const LANDINGS = {
       ["How it works in JMS", ["Weigh a tray of new pieces and enter each piece's weights once; JMS numbers them", "Print the tags: barcode or QR, with weight, purity and HUID", "At billing, scan the tag; the piece is added with today's rate and can't be sold twice", "For a stock audit, scan every tag; JMS lists missing, sold and unknown tags", "Reprint any tag from the piece's page"]],
       ["Equipment that works", ["Thermal tag printers through their own driver, e.g. TSC TE244, TVS, Zebra ZD230, Argox OS-214, Godex, Honeywell", "Jewellery tag rolls: 100 × 15, 100 × 13, 95 × 12 and 81 × 12 mm, or a custom size", "Stickers (50 × 25, 38 × 25 mm) and A4 label sheets on a normal printer", "USB or Bluetooth scanners: 1D for barcodes, 2D for QR codes", "Or a phone or tablet camera, from the Camera button"]],
       ["Printing without a driver", ["Tags sent straight to the printer in TSPL (TSC, TVS, Argox, Xprinter, Gainscha, HPRT), ZPL or EPL (Zebra)", "Over a USB or Bluetooth COM port, USB on Android, Mac or Linux, Bluetooth Low Energy, or a saved .prn file", "Print head DPI, darkness, speed and gap set once per printer", "Alignment test and sample tag before a full roll"]],
+      ["RFID tags", ["Link a UHF tag's own number to a piece, with any reader, including keyboard-style readers", "Or write the piece's tag number on a blank tag with a desktop reader-writer on a COM port", "An RFID tag printer (ZPL) writes the chip while it prints each tag", "Billing and stock audits find pieces by RFID, a whole tray at once", "A step-by-step hardware setup guide for each device"]],
       ["Tag layout controls", ["Move the print right or down in millimetres", "Size correction when a driver shrinks the tag", "1 to 4 labels across the roll", "Upside-down feed", "Layout saved as the default for every counter"]],
       ["Weighing scale", ["Jewellery balances with RS-232 or USB output: Essae, Citizen, Atom, Contech, Shimadzu, A&D, Sartorius and others", "A Scale button beside every weight on stock, tagging and girvi forms", "Takes the first stable reading and converts mg, ct, kg, tola and oz to grams", "Works in Chrome or Edge on a computer"]],
     ],
@@ -788,7 +835,7 @@ const LANDINGS = {
       ["Which tag printer should I buy?", "Any thermal label printer with a Windows or macOS driver that handles narrow labels. Popular choices in India include the TSC TE244, Zebra ZD230 and Argox OS-214, typically with a resin or wax-resin ribbon for jewellery tags. Buy the tag rolls in the size you want to use and set the same size in the printer driver."],
       ["Do I need a special scanner?", "No. Any USB or Bluetooth barcode scanner that types like a keyboard works: JMS recognises a scan anywhere on the billing and audit screens. A 2D scanner is needed for QR tags. A phone or tablet camera also works for occasional scans."],
       ["Can I keep my existing tag numbers?", "Yes. When importing stock from a spreadsheet, keep your current tag numbers in the Tag number column and JMS uses them. New pieces get the next numbers automatically, with an optional prefix."],
-      ["Does JMS support RFID?", "Yes. A piece can carry its UHF RFID tag, or the tag can be encoded with the tag number. A stock audit reads a whole tray at once with an RFID reader, or loads a handheld's export file; barcode and QR tags work alongside."],
+      ["Does JMS support RFID?", "Yes. A piece can carry its UHF RFID tag, linked by the tag's own number, or JMS writes the piece's tag number on a blank tag with a desktop reader-writer or an RFID tag printer (ZPL). A stock audit reads a whole tray at once with an RFID reader, or loads a handheld's export file; barcode and QR tags work alongside."],
       ["My tag printer has no driver. Can JMS still print?", "Yes. In Chrome or Edge, JMS can send tags straight to the printer in its own language: TSPL for TSC, TVS, Argox, Xprinter, Gainscha and HPRT, ZPL or EPL for Zebra. It connects over a USB or Bluetooth COM port, over USB on Android, Mac or Linux, or by Bluetooth Low Energy, and can also save a .prn file."],
       ["Can JMS read weights from my jewellery scale?", "Yes. Scales with an RS-232 or USB output connect in Chrome or Edge on a computer. Press Scale beside a weight on the stock, tagging or girvi form and JMS fills in the first stable reading in grams."],
     ],
@@ -861,7 +908,7 @@ const LANDINGS = {
     answerQ: "How does jewellery software send data to Tally?",
     answer: "Most jewellery software sends data to Tally as XML files that TallyPrime imports. Infovion JMS creates two files for any period: first the masters (ledgers for customers, sales, tax, cash, bank, old gold and girvi), then the vouchers (sales with GST or VAT, receipts, old gold taken in exchange as a journal, girvi loans given as payments, and girvi interest and repayments as receipts). The accountant imports the masters, then the transactions, from Gateway of Tally → Import. Ledger names are set in JMS to match the accountant's books.",
     sections: [
-      ["What goes into Tally", ["Sales vouchers: taxable value after discount, CGST and SGST or IGST (or VAT), and round off", "Receipts taken at billing, by cash or bank", "Old gold taken in exchange, as a journal entry", "Udhaar payments from customers, including opening dues", "Girvi loans given, as payments", "Girvi interest and principal repaid, as receipts"]],
+      ["What goes into Tally", ["Sales vouchers: taxable value after discount, CGST and SGST or IGST (or VAT), and round off", "Receipts taken at billing, by cash or bank", "Sales returns as credit note vouchers", "Purchases with input GST, under supplier ledgers", "Old gold taken in exchange, as a journal entry", "Old gold vouchers kept as the customer's credit, and used on bills", "Udhaar payments from customers, including opening dues", "Girvi loans given, as payments", "Girvi interest and principal repaid, as receipts"]],
       ["How the accountant imports it", ["In JMS: Reports and exports → Tally, choose the period", "Download 1. Masters, then 2. Vouchers", "In TallyPrime: Gateway of Tally → Import → Masters, then Import → Transactions", "Voucher numbers follow the JMS invoice and girvi numbers", "Each voucher's narration lists the customer, items and weights, and any discount"]],
       ["Ledger names you can set", ["Sales - Jewellery", "Output CGST, Output SGST, Output IGST or Output VAT", "Cash, Bank, Round Off", "Old Gold Purchase", "Girvi Loans Given, Interest on Girvi", "Tally company name"]],
       ["Also for the accountant", ["Sales register for Excel with taxable value, tax, HSN and HUID", "Girvi and stock registers", "Full backup of the shop's data", "Finance add-on loans: Excel exports (not yet in the Tally files)"]],
@@ -916,10 +963,10 @@ const LANDINGS = {
     answerQ: "How do jewellers track karigar work?",
     answer: "A jeweller who gives work to a karigar (goldsmith) issues metal, usually counted as fine gold, and receives finished pieces with an allowance for wastage. The balance of fine gold with each karigar has to be tracked, along with the labour owed. Infovion JMS records customer orders with their advances, sends them to a karigar as jobs with the metal issued, receives the work back, and keeps each karigar's account in money and in fine gold.",
     sections: [
-      ["Customer orders", ["Order number, design, weight and purity wanted, and due date", "Advance taken in cash, UPI, card or bank, with a receipt", "Today's rate booked for the customer, if agreed", "Booked, in work, ready, delivered or cancelled, with WhatsApp updates", "Delivered on an ordinary bill that uses the advance"]],
-      ["Karigar jobs", ["Job sent with the metal issued, in gross and fine weight", "Linked to the customer's order, or made for stock", "Work received with weight, touch, wastage and labour", "Each karigar's account in money and in fine gold", "Open jobs and overdue jobs at a glance"]],
+      ["Customer orders and bookings", ["Order number, design, weight and purity wanted, and due date", "Advance taken in cash, UPI, card, bank or an old gold voucher, with a receipt", "Grams of gold booked at today's rate, if agreed", "Bookings keep ready pieces aside from stock for the customer", "Booked, in work, ready, delivered or cancelled, with WhatsApp updates", "Delivered on an ordinary bill that uses the advance", "Order and booking reports, from the counter to delivery"]],
+      ["Karigar jobs", ["Job sent with the metal issued, in gross and fine weight", "Design photo, size, stones and stage on the job", "Job card printed or sent to the karigar on WhatsApp", "Each karigar's usual wastage and labour filled in", "Linked to the customer's order, or made for stock", "Work received with weight, touch, wastage and labour", "Each karigar's account in money and in fine gold", "Karigar report: fine with each karigar, wastage, labour and late work"]],
       ["Repairs", ["Repair slip with the piece, its weight and the work", "In the shop or with a karigar", "Advance on intake, balance on delivery", "GST on the repair charge as a service", "Ready and delivered lists, so nothing is forgotten"]],
-      ["Purchases and suppliers", ["Supplier bills with input GST", "Supplier and karigar accounts kept in money and fine metal", "Old gold bought from customers, and melting batches"]],
+      ["Purchases and suppliers", ["Supplier bills with input GST, lines pasted from Excel or uploaded", "Supplier and karigar accounts kept in money and fine metal", "Old gold bought from customers, and melting batches"]],
     ],
     faqs: [
       ["Does JMS keep the karigar's fine gold balance?", "Yes. Metal issued on a job is recorded in gross and fine weight. When work comes back, the fine gold in the pieces and the wastage allowed are set against it, and the karigar's account shows what is still with them."],
@@ -927,6 +974,7 @@ const LANDINGS = {
       ["Can I book the gold rate for an order?", "Yes. The order can keep the day's rate, so the customer is billed at that rate when the piece is delivered."],
       ["Are repairs charged with GST?", "Repair charges are a service and carry GST at the rate your accountant confirms. JMS prints a repair bill with the SAC code and the tax."],
       ["Do customers get updates on WhatsApp?", "Yes. A message can be sent when the order or repair is ready, in English, Hindi or Marathi."],
+      ["Can I keep a piece aside for a customer?", "Yes. A booking keeps ready pieces from stock aside for the customer, with an advance and, if agreed, gold booked at today's rate. No other bill can take a kept piece until the booking is delivered or cancelled."],
     ],
     links: [["/blog/karigar-fine-gold-touch-wastage-calculation", "Guide: fine gold, touch and wastage", "Worked examples for karigar accounts."], ["/gold-scheme-software", "Gold scheme software", "Monthly schemes with bonus and redemption on the bill."], ["/jewellery-gst-software", "GST for jewellers", "GSTR-1 and GSTR-3B from bills, repairs and purchases."]],
     whatsappText: "Hello Infovion, I would like to know more about orders and karigar management in Infovion JMS.",
@@ -965,16 +1013,17 @@ const LANDINGS = {
     trail: "Multi-branch",
     kicker: "Infovion JMS",
     h1: "Jewellery software for shops with branches",
-    sub: "Each branch keeps its own stock, bills, invoice series and staff. The owner moves between branches from the menu, sends stock across with a transfer note and sees every branch side by side.",
+    sub: "Each branch keeps its own stock, bills, invoice series and staff. The owner moves between branches from the menu, sends stock across with a delivery challan that the branch receives piece by piece, and sees every branch side by side.",
     answerQ: "How does multi-branch jewellery software work?",
     answer: "In multi-branch jewellery software, each showroom has its own stock, bills and invoice numbers, while the owner sees all of them in one account. Pieces moved from one branch to another go on a transfer note, so each branch's stock stays right, and reports compare the branches. In Infovion JMS, staff are given access to their own branch, the owner switches between branches from the menu, and a branch in another state can use its own GSTIN.",
     sections: [
-      ["Per branch", ["Stock, tags and stock audits", "Bills with the branch's own invoice series", "Girvi, schemes, orders and repairs", "Staff accounts limited to their branch", "Address and GSTIN on the branch's invoices"]],
-      ["For the owner", ["Move between branches from the menu", "Stock transfer note when pieces move", "Sales and money received for every branch side by side", "Rates, settings and staff managed in one place"]],
+      ["Per branch", ["Stock, tags and stock audits", "Bills with the branch's own invoice series", "Girvi, schemes, orders and repairs", "Staff accounts limited to their branch", "Address and GSTIN on the branch's invoices", "Its own stock register: opening, in, out and closing"]],
+      ["Stock transfers", ["Pieces scanned or picked, sent with a delivery challan", "On the way, and not for sale, until the branch receives them", "The branch ticks or scans each piece in, or receives all at once", "Pieces that don't arrive go back to the sender's stock", "Transferred stock listed: on the way, then received by the branch"]],
+      ["For the owner", ["Move between branches from the menu", "Open branches up to the number in your plan", "Each branch's stock, bills and stock register side by side", "Rates, settings and staff managed in one place"]],
     ],
     faqs: [
       ["Can staff see other branches?", "No. Staff accounts work in the branch they are given. The owner can see and switch between all branches."],
-      ["How is stock moved between branches?", "The owner chooses the pieces and the branch, and JMS moves them from one branch's stock to the other's on a numbered transfer note, with their weights and cost."],
+      ["How is stock moved between branches?", "The owner scans or picks the pieces and the branch, and prints a delivery challan to go with them. The pieces leave the sender's stock and are on the way until the branch ticks or scans each one in; any that don't arrive go back to the sender's stock and can be sold there again."],
       ["Does each branch need its own GSTIN?", "A branch in another state needs its own GST registration. Branches in the same state normally share one GSTIN; your accountant can confirm."],
       ["How is a group of shops priced?", "Ask us about a group price for shops with several branches."],
     ],
