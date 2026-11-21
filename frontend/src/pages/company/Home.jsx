@@ -5,7 +5,11 @@ import { ArrowUpRight } from "lucide-react";
 import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { GhostButton, GlowButton, Tilt } from "../../components/fx/Fx";
 import { CtaBand, FaqList, Section } from "../../components/site/Ui";
-import Stage from "../../components/home/Stage";
+import HeroLine from "../../components/home/HeroLine";
+import Manifesto from "../../components/home/Manifesto";
+import Assembly from "../../components/home/Assembly";
+import Audiences from "../../components/home/Audiences";
+import useSmoothScroll from "../../components/cyvion/useSmoothScroll";
 import Bento from "../../components/home/Bento";
 import WorkRail from "../../components/home/WorkRail";
 import Reach from "../../components/home/Reach";
@@ -21,6 +25,7 @@ const FAQ = [
   ["Do you build AI agents and automation?", "Yes. We build AI agents for customer support and lead qualification, WhatsApp chatbots on the official Business API, invoice and document extraction posted to Tally or an ERP, and workflow automation. Each project starts with a proof of concept on your own data, typically ₹50,000 to ₹1.5 lakh."],
   ["How much does it cost to build an app or software in India?", "An installable progressive web app typically costs ₹60,000 to 2.5 lakh, an Android and iOS first release ₹2 to 6 lakh, a CRM ₹1 to 3 lakh and an ERP ₹3 to 10 lakh. Our free app and software cost calculators give a range for your own scope."],
   ["What support do you provide after launch?", "Every project includes thirty days of support after go-live. After that, clients can choose a monthly or annual maintenance contract covering fixes, updates, backups, monitoring and minor enhancements."],
+  ["Can you be the technology partner for a company bidding on a tender?", "Yes. For contractors, suppliers and system integrators bidding on government or private tenders, we prepare the technical proposal, architecture and compliance matrix before the bid, then build, document and maintain the software part to the specification, under an NDA and under your company's name if you prefer. The bidder holds the contract and its eligibility."],
   ["Do you take up government and public sector work?", "Yes. Infovion Technologies is a Udyam-registered MSME. We develop websites aligned with GIGW 3.0 and WCAG 2.1 AA, e-governance portals, MIS dashboards and mobile applications, with data hosted in India."],
 ];
 
@@ -54,27 +59,34 @@ const TOOLS = [
   ["/ai-automation-roi-calculator", "AI automation ROI calculator", "Hours saved, monthly saving and payback period for an automation."],
 ];
 
-const HEADLINE = ["Custom software for", "businesses, institutions", "and government"];
+const HEADLINE = ["Custom software,", "built around", "the way you work"];
 
 function Hero() {
   return (
     // The brand animation sits behind the page: on phones the logo occupies the upper third of the
     // screen, so the copy starts below it; on wider screens the copy sits to the left of the logo.
-    <section className="relative pt-[38svh] md:pt-44">
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
-        <h1 className="font-display max-w-3xl text-[2.5rem] leading-[1.02] text-white sm:text-6xl lg:text-[4.6rem]">
+    // No product screen here: the first screen is the promise, the work comes as the visitor scrolls.
+    <section className="relative flex min-h-[100svh] flex-col pt-[36svh] md:pt-40">
+      <div className="mx-auto w-full max-w-6xl flex-1 px-5 sm:px-6">
+        <h1 className="font-display max-w-3xl text-[2.6rem] leading-[1.0] tracking-[-0.045em] text-white sm:text-6xl lg:text-[5.2rem]">
           {HEADLINE.map((l, i) => <span key={l} className="line"><span style={{ "--i": i }}>{l}{i < HEADLINE.length - 1 ? " " : ""}</span></span>)}
         </h1>
-        <p className="fade-up mt-7 max-w-xl text-lg leading-relaxed text-slate-300" style={{ "--d": "350ms" }}>
-          We plan, build and support web applications, mobile apps, ERP systems, AI agents and automation. One team in Pune, working with
-          clients across India and abroad, at a fixed price agreed in writing.
+        <HeroLine />
+        <p className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-slate-300" style={{ "--d": "420ms" }}>
+          Web and mobile apps, ERP, SaaS, AI agents and automation, planned, built and supported by one team in Pune, for
+          clients in India and abroad, at a price fixed in writing before work begins.
         </p>
-        <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ "--d": "450ms" }}>
+        <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ "--d": "520ms" }}>
           <GlowButton to="/contact" className="w-full sm:w-auto">Discuss a project</GlowButton>
           <GhostButton to="/case-studies" className="w-full sm:w-auto">See our work</GhostButton>
         </div>
       </div>
-      <div className="fade-up" style={{ "--d": "600ms" }}><Stage /></div>
+      <div className="fade-up mx-auto mt-14 flex w-full max-w-6xl items-end justify-between gap-6 px-5 pb-8 sm:px-6" style={{ "--d": "800ms" }}>
+        <ul className="flex flex-wrap gap-x-7 gap-y-2 text-sm text-slate-400">
+          <li>Udyam-registered MSME</li><li>Code and accounts in your name</li><li>Fortnightly releases</li>
+        </ul>
+        <a href="#approach" className="hidden flex-col items-center gap-3 text-xs text-slate-400 hover:text-white sm:flex" aria-label="Scroll to how we work"><span>Scroll</span><span className="hero-cue" /></a>
+      </div>
     </section>
   );
 }
@@ -273,7 +285,7 @@ function Government() {
             Websites, citizen service portals, MIS dashboards, mobile applications and annual maintenance contracts, developed to the
             accessibility, security and data residency requirements of public sector work.
           </p>
-          <GhostButton to="/government" className="mt-8">Government capabilities</GhostButton>
+          <div className="mt-8 flex flex-wrap gap-3"><GhostButton to="/government">Government capabilities</GhostButton><GhostButton to="/software-partner-for-government-tenders">For tender bidders</GhostButton></div>
         </div>
         <ul className="grid gap-x-8 sm:grid-cols-2">
           {["GIGW 3.0 aligned", "WCAG 2.1 AA accessibility", "CERT-In security practices", "DPDP Act, 2023 compliance", "Data hosted in India", "MSE registered (Udyam)"].map((t) => (
@@ -302,6 +314,7 @@ function Stack() {
 }
 
 export default function Home() {
+  useSmoothScroll();
   return (
     <>
       <Helmet>
@@ -313,6 +326,9 @@ export default function Home() {
         <meta property="og:url" content="https://www.infovion.in/" />
       </Helmet>
       <Hero />
+      <Manifesto />
+      <Assembly />
+      <Audiences />
       <Kinetic />
       <Capabilities />
       <WorkRail />

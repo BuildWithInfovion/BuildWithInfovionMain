@@ -28,16 +28,26 @@ export default function IntegrationRail({ title, lede }) {
   const bar = useTransform(scrollYProgress, [0.05, 0.95], ["0%", "100%"]);
 
   useEffect(() => {
+    // The track starts after the window's left padding (the page gutter), so the distance to
+    // travel is the track's full width plus that padding, minus the viewport, plus the same
+    // gutter on the right. Measuring against the padded box alone left the last card off screen
+    // on wide monitors.
     const measure = () => {
       const narrow = window.innerWidth < 900;
       setFlat(narrow || reduce);
       const t = trackRef.current;
-      if (t) setDist(Math.max(0, t.scrollWidth - t.parentElement.clientWidth + 40));
+      if (!t) return;
+      const pad = parseFloat(getComputedStyle(t.parentElement).paddingLeft) || 0;
+      const viewport = document.documentElement.clientWidth;
+      setDist(Math.max(0, Math.ceil(t.scrollWidth + pad * 2 - viewport)));
     };
     measure();
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [reduce]);
+    // Fonts arriving late change the card widths, so measure again when the track resizes
+    const ro = typeof ResizeObserver !== "undefined" && trackRef.current ? new ResizeObserver(measure) : null;
+    if (ro) ro.observe(trackRef.current);
+    return () => { window.removeEventListener("resize", measure); ro?.disconnect(); };
+  }, [reduce, flat]);
 
   const cards = SOURCES.map(([name, kind, reads, state], i) => (
     <article key={name} className={`cy-src ${state}`}>
