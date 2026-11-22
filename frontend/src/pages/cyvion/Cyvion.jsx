@@ -54,7 +54,7 @@ export default function CyvionPage({ page }) {
   const trail = home ? [["Cyvion", "/cyvion"]] : [["Cyvion", "/cyvion"], [p.nav, p.path]];
   const software = {
     "@context": "https://schema.org", "@type": "SoftwareApplication", "@id": `${SITE}/cyvion#software`,
-    name: "Cyvion", alternateName: "Cyvion by Infovion", applicationCategory: "SecurityApplication",
+    name: "Cyvion", alternateName: ["Cyvion by Infovion", "Vigil (former name)"], applicationCategory: "SecurityApplication",
     applicationSubCategory: "Security operations, alert triage and exposure management",
     operatingSystem: "Web browser; self-hosted on Linux", url: `${SITE}/cyvion`, description: cyvionPage("home").answer,
     featureList: cyvionPage("home").points.map(([t]) => t), publisher: { "@id": ORG_ID }, creator: { "@id": ORG_ID },
