@@ -36,7 +36,7 @@ export const COMPANY = {
   hours: "Mon – Sun, 9 am – 10 pm IST",
   hoursSpec: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:00", closes: "22:00" },
   socials: {
-    linkedin: "https://www.linkedin.com/company/112026919/",
+    linkedin: "https://www.linkedin.com/company/infovion/",
     instagram: "https://www.instagram.com/infoviontech/",
     facebook: "https://www.facebook.com/profile.php?id=61595050592821",
     youtube: "https://www.youtube.com/@Infovion_tech",
