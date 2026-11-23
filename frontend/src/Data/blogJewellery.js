@@ -147,7 +147,7 @@ export const jewelleryPosts = [
   {
     id: 110,
     slug: "hallmarking-huid-rules-for-jewellers",
-    seoTitle: "Hallmarking and HUID Rules for Jewellers in India (2026)",
+    seoTitle: "HUID Hallmark Rules 2026: Exemptions, Bill and How to Verify",
     title: "Hallmarking and HUID: What Jewellers Must Know in 2026",
     excerpt: "Mandatory hallmarking, the six-character HUID, the 2-gram and turnover exemptions, what goes on the bill, and how customers check a HUID.",
     category: "jewellery",

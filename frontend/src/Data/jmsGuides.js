@@ -24,8 +24,8 @@ const NS = "Not stated on its jewellery page";
 export const JMS_GUIDES = {
   // ── GST ──────────────────────────────────────────────────────────────────
   "gst-on-gold-jewellery": {
-    title: "GST on Gold Jewellery 2026: 3% Rate, CGST, SGST, Making Charges",
-    description: "GST on gold jewellery in 2026: 3% (1.5% CGST + 1.5% SGST) on the full value including making charges, 5% on job work, 1.5% on loose diamonds. Worked examples.",
+    title: "GST on Gold Jewellery 2026: Is Making Charge Taxed? Examples",
+    description: "How the 3% GST on gold jewellery is split into CGST and SGST, why making charges are taxed with the metal, the rates for job work and diamonds, and three worked bills you can check yours against.",
     trail: "GST on gold jewellery",
     kicker: "Guide for jewellers · GST",
     h1: "GST on gold jewellery",
@@ -137,8 +137,8 @@ export const JMS_GUIDES = {
   },
 
   "gst-on-old-gold": {
-    title: "GST on Old Gold Purchase from Customers and Exchange (2026)",
-    description: "GST on old gold: none when a jeweller buys from a customer; in an exchange, 3% on the new jewellery's full value; used jewellery resold under the margin scheme.",
+    title: "GST on Old Gold Exchange & Purchase (2026): Bill Examples",
+    description: "What GST applies when a customer exchanges old gold for new jewellery, when a jeweller buys old gold outright, and when used jewellery is resold. Worked bills, the margin scheme and the cash limits.",
     trail: "GST on old gold",
     kicker: "Guide for jewellers · GST",
     h1: "GST on old gold",
@@ -172,8 +172,8 @@ export const JMS_GUIDES = {
 
   // ── UAE ──────────────────────────────────────────────────────────────────
   "uae-vat-on-gold": {
-    title: "VAT on Gold in Dubai and UAE (2026): 5%, 0% on 24K Bars",
-    description: "VAT on gold in Dubai and the UAE: 5% on jewellery including making, 0% on 24K investment gold of 99% purity, tourist refunds and the 2025 dealer reverse charge.",
+    title: "Is There VAT on Gold in Dubai? 24K, Jewellery, Tourist Refund",
+    description: "When VAT is charged on gold in Dubai and the UAE: jewellery and making charges, 24K bars and coins, how tourists claim the refund at the airport, and the reverse charge between dealers since 2025.",
     trail: "UAE VAT on gold",
     kicker: "Guide for UAE jewellers · VAT",
     h1: "UAE VAT on gold and jewellery",

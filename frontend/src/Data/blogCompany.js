@@ -266,9 +266,9 @@ export const companyPosts = [
   {
     id: 105,
     slug: "jewellery-billing-gst-making-charges-old-gold",
-    seoTitle: "Jewellery GST Bill: 3% GST on Gold and Making Charges",
-    title: "Jewellery GST Bill in India: 3% GST, Making Charges, Discount and Old Gold",
-    excerpt: "How a gold jewellery GST bill is worked out: 3% GST on metal and making charges together, discount before tax, old gold deducted after tax, with a worked example.",
+    seoTitle: "How to Make a Jewellery GST Bill: Step-by-Step Example",
+    title: "How to Make a Jewellery GST Bill: Step by Step, With Discount and Old Gold",
+    excerpt: "A line-by-line walk through one gold jewellery bill: weight and rate, making charges, discount, GST, old gold exchange and the amount payable, in the order the law requires. For the GST rates themselves, see our GST on gold guide.",
     category: "jewellery",
     author: "Infovion Team",
     date: "2026-10-17",
@@ -278,6 +278,7 @@ export const companyPosts = [
     image: "/blog/jewellery-billing-gst-making-charges-old-gold.webp",
     content: `
       <p><strong>Short answer:</strong> on a jewellery bill in India, GST is 3% of the full value of the piece: metal value plus making charges plus stones, less any discount shown on the bill. Within a state it is split into 1.5% CGST and 1.5% SGST; to another state it is 3% IGST. Old gold given in exchange is deducted <em>after</em> GST, from the amount the customer pays. A 10 g, 22K chain at ₹7,250 a gram with ₹600 a gram making comes to ₹78,500 before tax, ₹2,355 GST and ₹80,855 in all.</p>
+      <p>This article walks through making one bill. For the rates on their own (gold, silver, diamonds, job work and HSN codes) see <a href="/gst-on-gold-jewellery">GST on gold jewellery</a>, and for exchanges see <a href="/gst-on-old-gold">GST on old gold</a>.</p>
       <p>Jewellery bills confuse customers and even shop staff, because a single line combines weight, purity, the day's rate, making charges and tax. Getting it right protects your margin, your customer's trust — and your GST compliance. <em>This is general information, not tax advice; confirm your invoicing with your CA.</em></p>
 
       <h2>The building blocks of a jewellery bill</h2>
