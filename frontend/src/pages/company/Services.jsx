@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { GhostButton, GlowButton } from "../../components/fx/Fx";
 import { CtaBand, FaqList, LinkRow, PageHero, Section } from "../../components/site/Ui";
 import { SERVICES, HEALTHCARE, OFFSHORE, SECTORS, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
-import { wa, SITE } from "../../Data/company";
+import { wa, SITE, COMPANY } from "../../Data/company";
 import { showcaseBySlug, showcasePath } from "../../Data/showcase";
 import { faqSchema, serviceSchema } from "../../lib/seo";
 
@@ -52,7 +52,7 @@ export function ServicesIndex() {
     <>
       <Helmet>
         <title>Software Development and AI Automation Services | Infovion</title>
-        <meta name="description" content="Software development services from Pune, India: custom software, mobile apps, ERP and CRM, SaaS, AI agents, WhatsApp chatbots, automation and maintenance." />
+        <meta name="description" content="Software development services for businesses across India and abroad: custom software, mobile apps, ERP and CRM, SaaS, AI agents, WhatsApp chatbots, automation and maintenance." />
         <link rel="canonical" href={`${SITE}/services`} />
         <meta property="og:title" content="Software Development Services | Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/services`} />
@@ -62,6 +62,7 @@ export function ServicesIndex() {
         sub="Infovion Technologies provides design, development, integration and support services for web, mobile and enterprise software. A single team is responsible for each engagement, from requirements through to maintenance.">
         <GlowButton to="/contact">Discuss a project <ArrowRight className="h-4 w-4" /></GlowButton>
         <GhostButton href={wa("Hello Infovion, I would like to discuss a software project.")}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
+        <GhostButton href={COMPANY.phoneHref}><Phone className="h-4 w-4" /> Call {COMPANY.phone}</GhostButton>
       </PageHero>
 
       {GROUPS.map(([g, sub, slugs]) => (
@@ -204,6 +205,7 @@ export function ServicePage({ slug: fixedSlug }) {
       <PageHero trail={s.trail ?? [["Services", "/services"], [s.name, servicePath(s)]]} kicker={s.kicker ?? (s.path ? "Healthcare" : "Services")} title={s.h1} sub={s.intro}>
         <GlowButton to={contactTo}>{s.ctaLabel ?? "Request a proposal"}</GlowButton>
         <GhostButton href={wa(waText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
+        <GhostButton href={COMPANY.phoneHref}><Phone className="h-4 w-4" /> Call {COMPANY.phone}</GhostButton>
       </PageHero>
 
       {/* The three things a buyer looks for first */}
@@ -224,7 +226,7 @@ export function ServicePage({ slug: fixedSlug }) {
         <div className="min-w-0 flex-1 space-y-20">
           <Block id="overview" title={s.answerQ ?? "Overview"}>
             <p className="max-w-3xl text-lg leading-relaxed text-slate-200">{s.answer}</p>
-            {s.updated && <p className="mt-5 text-sm text-slate-400">Updated {fmtDate(s.updated)} by Infovion Technologies, Pune.</p>}
+            {s.updated && <p className="mt-5 text-sm text-slate-400">Updated {fmtDate(s.updated)} by Infovion Technologies.</p>}
           </Block>
 
           <Block id="scope" title="What we deliver">

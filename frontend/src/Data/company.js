@@ -7,7 +7,7 @@ export const SITE = "https://www.infovion.in";
 export const COMPANY = {
   brand: "Infovion",
   name: "Infovion Technologies",
-  tagline: "Software development company in Pune, India",
+  tagline: "Software development company in India, headquartered in Pune",
   founder: "Sankalp Deshpande",
   founderRole: "Founder",
   constitution: "Proprietorship (MSME)",

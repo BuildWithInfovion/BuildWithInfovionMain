@@ -128,7 +128,7 @@ const globalSchema = {
       dateModified: __BUILD_DATE__,
       name: "Infovion Technologies",
       alternateName: "Infovion",
-      description: "Software development company in Pune, India — custom software, web and mobile apps, ERP, SaaS, AI agents and automation, e-governance — and the makers of Infovion School ERP, Infovion JMS and Cyvion, a security operations platform.",
+      description: "Software development company in India, headquartered in Pune — custom software, web and mobile apps, ERP, SaaS, AI agents and automation, e-governance — and the makers of Infovion School ERP, Infovion JMS and Cyvion, a security operations platform.",
       publisher: { "@id": `${SITE}/#organization` },
       inLanguage: "en-IN",
       potentialAction: {
@@ -197,8 +197,8 @@ export function AppRoutes() {
   return (
     <>
       <Helmet>
-        <title>Infovion Technologies — Software Development Company in Pune, India</title>
-        <meta name="description" content="Infovion Technologies is a software development company in Pune, India: custom software, websites and web apps, mobile apps, ERP and CRM, SaaS, AI automation and e-governance. Makers of Infovion School ERP and Infovion JMS." />
+        <title>Infovion Technologies — Software Development Company in India</title>
+        <meta name="description" content="Infovion Technologies is a software development company in India, serving clients across the country and abroad: custom software, websites and web apps, mobile apps, ERP and CRM, SaaS, AI automation and e-governance. Makers of Infovion School ERP and Infovion JMS." />
         <meta name="author" content="Infovion Technologies" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="geo.region" content="IN-MH" />
@@ -208,8 +208,8 @@ export function AppRoutes() {
         <meta name="google" content="notranslate" />
         <link rel="canonical" href={url} />
 
-        <meta property="og:title" content="Infovion Technologies — Software Development Company in Pune" />
-        <meta property="og:description" content="Custom software, web & mobile apps, ERP, SaaS and AI automation — built, run and supported by one accountable team in Pune, India." />
+        <meta property="og:title" content="Infovion Technologies — Software Development Company in India" />
+        <meta property="og:description" content="Custom software, web & mobile apps, ERP, SaaS and AI automation — built, run and supported by one accountable team for clients across India and abroad." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
         <meta property="og:site_name" content="Infovion Technologies" />
@@ -217,8 +217,8 @@ export function AppRoutes() {
         <meta property="og:image" content={ogImage} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Infovion Technologies — Software Development Company in Pune" />
-        <meta name="twitter:description" content="Custom software, web & mobile apps, ERP, SaaS and AI automation from Pune, India. Makers of Infovion School ERP, JMS and Cyvion." />
+        <meta name="twitter:title" content="Infovion Technologies — Software Development Company in India" />
+        <meta name="twitter:description" content="Custom software, web & mobile apps, ERP, SaaS and AI automation for clients across India and abroad. Makers of Infovion School ERP, JMS and Cyvion." />
         <meta name="twitter:image" content={ogImage} />
 
         <meta name="theme-color" content="#05070D" />

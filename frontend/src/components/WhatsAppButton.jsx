@@ -1,8 +1,9 @@
 import React from "react";
 import { motion as Motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { Phone } from "lucide-react";
 import { track } from "../lib/analytics";
-import { wa } from "../Data/company";
+import { COMPANY, wa } from "../Data/company";
 import { productOf } from "../lib/sections";
 
 // The opening message matches the page the visitor is on
@@ -18,14 +19,29 @@ export default function WhatsAppButton() {
   const { pathname } = useLocation();
   const url = wa(MESSAGES[pathname.startsWith("/government") ? "government" : productOf(pathname) ?? "company"]);
 
+  // Phones get a call button above WhatsApp: most visitors arrive on a phone, and otherwise the
+  // number sits inside the closed menu. Wider screens show the number in the header instead.
   return (
+    <div className="print:hidden fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <Motion.a
+      href={COMPANY.phoneHref}
+      aria-label={`Call Infovion on ${COMPANY.phone}`}
+      onClick={() => track("call_click", { place: "floating", page: pathname })}
+      className="flex items-center justify-center rounded-full bg-white p-3.5 text-[#020409] shadow-2xl shadow-black/50 sm:hidden"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 1.05, type: "spring", stiffness: 260, damping: 20 }}
+      whileTap={{ scale: 0.94 }}
+    >
+      <Phone className="h-5 w-5" aria-hidden="true" />
+    </Motion.a>
     <Motion.a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
       onClick={() => track("whatsapp_click", { place: "floating", page: pathname })}
-      className="print:hidden fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 bg-[#25D366] text-[#052e16] p-3.5 sm:pl-3 sm:pr-4 sm:py-3 rounded-full shadow-2xl shadow-[#25D366]/40"
+      className="flex items-center gap-2.5 bg-[#25D366] text-[#052e16] p-3.5 sm:pl-3 sm:pr-4 sm:py-3 rounded-full shadow-2xl shadow-[#25D366]/40"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
@@ -45,5 +61,6 @@ export default function WhatsAppButton() {
       </svg>
       <span className="hidden sm:inline text-sm font-semibold leading-none">Chat with us</span>
     </Motion.a>
+    </div>
   );
 }

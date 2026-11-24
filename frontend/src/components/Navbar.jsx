@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
-import { HeartPulse, ArrowRight, ChevronDown, FileSignature, Gem, GraduationCap, Landmark, ShieldCheck } from "lucide-react";
+import { HeartPulse, ArrowRight, ChevronDown, FileSignature, Gem, GraduationCap, Landmark, Phone, ShieldCheck } from "lucide-react";
 import { SERVICES } from "../Data/services";
 import { COMPANY, PRODUCTS, jmsTrial } from "../Data/company";
 import { productOf } from "../lib/sections";
@@ -213,6 +213,10 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
+              <a href={COMPANY.phoneHref} aria-label={`Call Infovion on ${COMPANY.phone}`}
+                className="hidden items-center gap-2 whitespace-nowrap px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white xl:inline-flex">
+                <Phone className="h-4 w-4 text-teal-300" aria-hidden="true" />{COMPANY.phone}
+              </a>
               <Go to={cta[0]} className="btn-primary hidden items-center gap-2 px-5 py-2.5 text-sm font-semibold sm:inline-flex">
                 {cta[1]}
               </Go>

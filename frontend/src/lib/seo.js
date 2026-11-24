@@ -56,7 +56,7 @@ export const organizationNode = () => {
     logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png`, width: 512, height: 512 },
     image: `${SITE}/og-image.jpg`,
     description:
-      "Infovion Technologies is a software development company in Pune, India. It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products and AI automation for businesses and government, and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Cyvion (an AI SOC analyst and exposure management platform, in early access).",
+      "Infovion Technologies is a software development company in India, headquartered in Pune, that works with clients across India and abroad. It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products and AI automation for businesses and government, and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Cyvion (an AI SOC analyst and exposure management platform, in early access).",
     slogan: "We build the software your business runs on.",
     founder: { "@type": "Person", "@id": FOUNDER_ID, name: COMPANY.founder, jobTitle: COMPANY.founderRole, worksFor: { "@id": ORG_ID }, url: `${SITE}/about`, knowsAbout: ["Custom software development", "School management software", "Jewellery management software", "AI automation"] },
     foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
@@ -76,10 +76,10 @@ export const organizationNode = () => {
     geo: { "@type": "GeoCoordinates", latitude: COMPANY.geo.lat, longitude: COMPANY.geo.lng },
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress())}`,
     openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: COMPANY.hoursSpec.days, opens: COMPANY.hoursSpec.opens, closes: COMPANY.hoursSpec.closes }],
+    // All of India first (the office is in Pune; clients are anywhere), then the main business cities, then abroad.
     areaServed: [
-      { "@type": "City", name: "Pune" }, { "@type": "City", name: "Pimpri-Chinchwad" },
-      ...["Chakan", "Bhosari", "Talegaon Dabhade", "Ranjangaon", "Hinjewadi", "Shirwal", "Sanaswadi"].map((name) => ({ "@type": "Place", name: `${name}, Pune district` })),
-      { "@type": "State", name: "Maharashtra" }, { "@type": "Country", name: "India" },
+      { "@type": "Country", name: "India" },
+      ...["Pune", "Mumbai", "Bengaluru", "Delhi", "Hyderabad", "Chennai", "Ahmedabad", "Kolkata", "Nagpur", "Nashik", "Surat", "Jaipur", "Indore", "Coimbatore", "Lucknow", "Chandigarh"].map((name) => ({ "@type": "City", name })),
       ...["United States", "United Kingdom", "United Arab Emirates", "Saudi Arabia", "Australia", "New Zealand", "Canada", "Germany", "Netherlands", "Ireland", "Singapore"].map((name) => ({ "@type": "Country", name })),
       { "@type": "Place", name: "Worldwide" },
     ],

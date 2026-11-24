@@ -94,6 +94,16 @@
       "source": "/vigil/:path*",
       "destination": "/cyvion/:path*",
       "permanent": true
+    },
+    {
+      "source": "/manufacturing-software-pune",
+      "destination": "/manufacturing-software-development",
+      "permanent": true
+    },
+    {
+      "source": "/robotics-software-development-pune",
+      "destination": "/robotics-software-development",
+      "permanent": true
     }
   ],
   "headers": [

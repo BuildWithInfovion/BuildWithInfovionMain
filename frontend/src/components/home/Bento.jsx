@@ -183,7 +183,7 @@ export default function Bento() {
         body="Invoices, forms and orders extracted, checked against your rules and entered into Tally or your ERP.">{(on) => <InvoiceScene on={on} />}</Card>
       <Card to="/services/offshore-software-development-india" className="lg:col-span-5" title="A team inside your working day"
         body="For clients abroad: developers in Pune whose hours overlap yours, quoted in your currency.">{(on) => <ClockScene on={on} />}</Card>
-      <Card to="/manufacturing-software-pune" className="lg:col-span-7" title="ERP shaped around your operation"
+      <Card to="/manufacturing-software-development" className="lg:col-span-7" title="ERP shaped around your operation"
         body="Stock, sales, production and accounts in one system, connected to the weighbridge, machines and tablets on your floor.">{(on) => <LedgerScene on={on} />}</Card>
       <Card to="/services/mobile-app-development" className="lg:col-span-6" title="Mobile apps people actually open"
         body="Android, iOS and installable web apps, with payments, notifications and offline use.">{(on) => <PhoneScene on={on} />}</Card>

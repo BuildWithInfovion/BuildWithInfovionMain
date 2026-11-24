@@ -124,7 +124,7 @@ export default function Footer() {
               <img src="/brand/infovion-logo.webp" alt="Infovion" width="342" height="261" loading="lazy" className="h-20 w-auto" />
             </Link>
             <p className="mb-6 max-w-sm text-sm leading-relaxed text-slate-400">
-              Infovion Technologies is a software development company in Pune, India. We build custom software, web and mobile
+              Infovion Technologies is a software development company in India, headquartered in Pune. We build custom software, web and mobile
               applications, ERP and SaaS platforms, and develop Infovion School ERP, Infovion JMS and Cyvion.
             </p>
             <address className="space-y-2.5 not-italic">

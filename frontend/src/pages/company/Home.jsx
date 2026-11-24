@@ -18,8 +18,8 @@ import { TECH } from "../../Data/company";
 import { ORG_ID } from "../../lib/seo";
 
 const FAQ = [
-  ["What does Infovion Technologies do?", "Infovion Technologies is a software development company based in Pune, India. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop products of our own: Infovion School ERP, Infovion JMS for jewellery shops, and Cyvion, a security operations platform in early access."],
-  ["Do you work with clients outside Pune and outside India?", "Yes. Most of our engagements are delivered remotely, with scheduled video reviews, a shared project board and a staging environment the client can access at any time. Our working hours overlap with the Gulf, the United Kingdom and Europe, and we schedule calls for clients in the Americas."],
+  ["What does Infovion Technologies do?", "Infovion Technologies is a software development company in India, headquartered in Pune, working with clients across the country and abroad. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop products of our own: Infovion School ERP, Infovion JMS for jewellery shops, and Cyvion, a security operations platform in early access."],
+  ["Do you work with clients across India and outside India?", "Yes. Most of our engagements are delivered remotely, with scheduled video reviews, a shared project board and a staging environment the client can access at any time. Our working hours overlap with the Gulf, the United Kingdom and Europe, and we schedule calls for clients in the Americas."],
   ["How is a project priced?", "After an initial consultation we send a written scope and a fixed-price proposal, with payments linked to milestones. As a guide, focused business tools in India typically cost ₹75,000 to 2 lakh and multi-module systems ₹2.5 to 8 lakh. Websites start at about ₹15,000."],
   ["Who owns the source code?", "The client. On final payment the complete source code, database, domain and hosting accounts are transferred to you, and the agreement states this explicitly."],
   ["Do you sign a non-disclosure agreement?", "Yes. We sign a mutual NDA before any business information is shared."],
@@ -44,8 +44,8 @@ const INDUSTRIES = [
   ["Gem", "Jewellery and bullion", "/jewellery-management-software"],
   ["Landmark", "Government and PSUs", "/government"],
   ["Store", "Retail and distribution", "/industries#retail"],
-  ["Factory", "Manufacturing in Pune", "/manufacturing-software-pune"],
-  ["Cpu", "Robotics", "/robotics-software-development-pune"],
+  ["Factory", "Manufacturing", "/manufacturing-software-development"],
+  ["Cpu", "Robotics", "/robotics-software-development"],
   ["HandHeart", "CSR programmes and NGOs", "/csr-software-development"],
   ["HeartPulse", "Healthcare", "/healthcare-software-development"],
   ["ShieldCheck", "Banking and financial services", "/cyvion/banks-financial-services"],
@@ -67,8 +67,8 @@ const HOME_PAGE_SCHEMA = {
   "@type": "WebPage",
   "@id": "https://www.infovion.in/#webpage",
   url: "https://www.infovion.in/",
-  name: "Infovion Technologies: custom software development company in Pune, India",
-  description: "Infovion Technologies, Pune: custom software, mobile apps, ERP, SaaS, AI agents and automation for clients in India and abroad, at a fixed price agreed upfront.",
+  name: "Infovion Technologies: software development company in India",
+  description: "Infovion Technologies builds custom software, mobile apps, ERP, SaaS, AI agents and automation for businesses across India and abroad, at a fixed price agreed upfront.",
   isPartOf: { "@id": "https://www.infovion.in/#website" },
   about: { "@id": ORG_ID },
   inLanguage: "en-IN",
@@ -89,8 +89,8 @@ function Hero() {
         </h1>
         <HeroLine />
         <p className="hero-summary fade-up mt-8 max-w-xl text-lg leading-relaxed text-slate-300" style={{ "--d": "420ms" }}>
-          Web and mobile apps, ERP, SaaS, AI agents and automation, planned, built and supported by one team in Pune, for
-          clients in India and abroad, at a price fixed in writing before work begins.
+          Web and mobile apps, ERP, SaaS, AI agents and automation, planned, built and supported by one team, for
+          clients across India and abroad, at a price fixed in writing before work begins.
         </p>
         <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ "--d": "520ms" }}>
           <GlowButton to="/contact" className="w-full sm:w-auto">Discuss a project</GlowButton>
@@ -334,11 +334,11 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Software Development & AI Automation Company, Pune | Infovion</title>
-        <meta name="description" content="Infovion Technologies, Pune: custom software, mobile apps, ERP, SaaS, AI agents and automation for clients in India and abroad, at a fixed price agreed upfront." />
+        <title>Infovion Technologies: Software Development Company in India</title>
+        <meta name="description" content="Infovion Technologies builds custom software, mobile apps, ERP, SaaS, AI agents and automation for businesses across India and abroad, at a fixed price agreed upfront." />
         <link rel="canonical" href="https://www.infovion.in/" />
-        <meta property="og:title" content="Infovion Technologies | Software Development Company in Pune, India" />
-        <meta property="og:description" content="Custom software, web and mobile applications, ERP, SaaS, AI agents and automation for businesses, institutions and government. Pune, India." />
+        <meta property="og:title" content="Infovion Technologies | Software Development Company in India" />
+        <meta property="og:description" content="Custom software, web and mobile applications, ERP, SaaS, AI agents and automation for businesses, institutions and government across India and abroad." />
         <meta property="og:url" content="https://www.infovion.in/" />
         <script type="application/ld+json">{JSON.stringify(HOME_PAGE_SCHEMA)}</script>
       </Helmet>

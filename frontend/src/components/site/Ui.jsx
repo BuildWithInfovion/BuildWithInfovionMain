@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { GhostButton, GlowButton, Kicker, Reveal } from "../fx/Fx";
 import { breadcrumbSchema, faqSchema } from "../../lib/seo";
-import { wa } from "../../Data/company";
+import { COMPANY, wa } from "../../Data/company";
 
 const ICONS = { Code2, Globe, Smartphone, Boxes, Layers, PenTool, ShoppingCart, Bot, Cloud, Plug, BarChart3, LifeBuoy, Landmark, Gem, GraduationCap, Building2, Factory, HeartPulse, Rocket, Store, Accessibility, ShieldCheck, Sparkles, Timer, MessagesSquare, Truck, Stethoscope, FileText, Headphones, Calculator, Cpu, HandHeart, Users };
 
@@ -157,9 +157,14 @@ export function CtaBand({
           </h2>
           <p className="mt-3 text-slate-300">{sub}</p>
         </div>
-        <div className="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
-          <GlowButton {...(primary[1].startsWith("http") ? { href: primary[1] } : { to: primary[1] })}>{primary[0]} <ArrowRight className="h-4 w-4" /></GlowButton>
-          <GhostButton href={wa(whatsappText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
+        <div className="flex-shrink-0">
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <GlowButton {...(primary[1].startsWith("http") ? { href: primary[1] } : { to: primary[1] })}>{primary[0]} <ArrowRight className="h-4 w-4" /></GlowButton>
+            <GhostButton href={wa(whatsappText)}><MessageCircle className="h-4 w-4" /> WhatsApp</GhostButton>
+          </div>
+          <p className="mt-4 text-center text-sm text-slate-400 sm:text-left">
+            Or call <a href={COMPANY.phoneHref} className="font-semibold text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">{COMPANY.phone}</a>, 9 am to 10 pm IST, every day
+          </p>
         </div>
       </div>
     </section>

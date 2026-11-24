@@ -31,8 +31,8 @@ export default function CompanyProfile() {
   return (
     <div className="pb-24 pt-32 print:bg-white print:p-0 sm:pt-36">
       <Helmet>
-        <title>Company Profile | Infovion Technologies, Pune | MSME Registered</title>
-        <meta name="description" content="Company profile of Infovion Technologies, Pune: registration details, services, products, technology and compliance. Printable for tenders and vendor forms." />
+        <title>Company Profile | Infovion Technologies, India | MSME Registered</title>
+        <meta name="description" content="Company profile of Infovion Technologies, an MSME software development company in India (head office Pune): registration, services, products, technology and compliance. Printable for tenders." />
         <link rel="canonical" href={`${SITE}/company-profile`} />
         <meta property="og:url" content={`${SITE}/company-profile`} />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "AboutPage", name: "Infovion Technologies company profile", url: `${SITE}/company-profile`, about: { "@id": `${SITE}/#organization` } })}</script>

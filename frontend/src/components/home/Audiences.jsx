@@ -10,7 +10,7 @@ const AUD = [
     key: "business", hue: "#38b6ff", who: "Businesses and manufacturers",
     promise: "Replace the spreadsheets, calls and paper that run your operations.",
     rows: ["ERP, production and shop-floor systems", "CRM, dealer and customer portals", "Billing and inventory, with Tally integration", "AI agents and WhatsApp automation"],
-    links: [["/manufacturing-software-pune", "Manufacturing in Pune"], ["/services/erp-crm-development", "ERP and CRM"]],
+    links: [["/manufacturing-software-development", "Manufacturing"], ["/services/erp-crm-development", "ERP and CRM"]],
   },
   {
     key: "tender", hue: "#f5b942", who: "Tender bidders and system integrators",

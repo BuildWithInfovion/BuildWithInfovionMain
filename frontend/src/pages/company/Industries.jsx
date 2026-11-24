@@ -36,7 +36,7 @@ const INDUSTRIES = [
     id: "manufacturing", icon: "Factory", name: "Manufacturing", tagline: "Manufacturers, job workers and engineering firms",
     pains: ["Job work and wastage recorded on paper", "Orders, production and dispatch maintained in separate spreadsheets", "Management figures available only at month-end"],
     build: ["Production, job work and dispatch tracking", "Purchase, sales and GST e-invoicing", "Management dashboards on mobile"],
-    links: [["Manufacturing software in Pune", "/manufacturing-software-pune"], ["Robotics software partner, Pune", "/robotics-software-development-pune"], ["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
+    links: [["Manufacturing software", "/manufacturing-software-development"], ["Robotics software partner", "/robotics-software-development"], ["ERP development", "/services/erp-crm-development"], ["Dashboards and MIS", "/services/dashboards-mis-reporting"]],
   },
   {
     id: "banking", icon: "ShieldCheck", name: "Banking and financial services", tagline: "Banks, NBFCs, brokers, insurers and fintech companies",

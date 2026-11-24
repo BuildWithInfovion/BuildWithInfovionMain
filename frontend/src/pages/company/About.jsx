@@ -26,8 +26,8 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About Infovion Technologies | Software Company in Pune</title>
-        <meta name="description" content="Infovion Technologies is a software development company and registered MSME in Pune, India, and the maker of Infovion School ERP, Infovion JMS and the Cyvion security platform." />
+        <title>About Infovion Technologies | Software Company in India</title>
+        <meta name="description" content="Infovion Technologies is a software development company and registered MSME headquartered in Pune, working with clients across India and abroad, and the maker of Infovion School ERP, Infovion JMS and the Cyvion security platform." />
         <link rel="canonical" href={`${SITE}/about`} />
         <meta property="og:title" content="About Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/about`} />
@@ -35,7 +35,7 @@ export default function About() {
       </Helmet>
 
       <PageHero trail={[["About", "/about"]]} kicker="About us" title="About Infovion Technologies"
-        sub={`${COMPANY.name} is a software development company based in Pune, India, and a registered MSME. We work with businesses, institutions and government bodies in India and overseas, and we develop two products of our own for schools and jewellery retailers.`}>
+        sub={`${COMPANY.name} is a software development company in India, headquartered in Pune, and a registered MSME. We work with businesses, institutions and government bodies across India and overseas, and we develop three products of our own: for schools, for jewellery retailers and for security teams.`}>
         <GlowButton to="/contact">Contact us <ArrowRight className="h-4 w-4" /></GlowButton>
         <GhostButton to="/case-studies">Our work</GhostButton>
       </PageHero>
@@ -86,7 +86,7 @@ export default function About() {
             ["Registration", `MSME, Udyam ${COMPANY.udyam}`],
             ["Founder", COMPANY.founder],
             ["Registered office", fullAddress()],
-            ["Service area", "Pune, Maharashtra, across India, and international clients remotely"],
+            ["Service area", "All of India, and clients in the US, UK, Europe, the Gulf and Australia; head office in Pune"],
             ["Contact", `${COMPANY.email} · ${COMPANY.phone}`],
           ].map(([k, v]) => (
             <div key={k} id={k === "Founder" ? "founder" : undefined} className="bg-cell scroll-mt-28 p-6">
