@@ -584,23 +584,12 @@ h3.font-display, h4.font-display, p.font-display, span.font-display, dd.font-dis
   .aud-gauge { stroke-dashoffset: 36; }
 }
 
-/* ── Home hero on phones: a poster headline with the logo's orbit round "around"
-   (components/home/HeroHeadline.jsx). The orbit's far half sits behind the letters, its near half
-   in front; --x/--y/--w are the word's centre and width, measured in the component. */
-@media (max-width: 639px) {
-  .hero-h1 { font-size: clamp(52px, 18.2vw, 78px); line-height: .94; letter-spacing: -.05em; }
-  .hero-around { display: inline-block; margin-left: .5em; }
-}
-.hero-orbit { position: absolute; left: var(--x); top: var(--y); width: calc(var(--w) * 1.36); aspect-ratio: 1368 / 438; transform: translate(-50%, -50%) rotate(-5deg); pointer-events: none; }
-.hero-orbit svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.hero-orbit-back { z-index: 0; clip-path: inset(-40% 0 50% 0); opacity: .5; }
-.hero-orbit-front { z-index: 2; clip-path: inset(50% 0 -40% 0); }
-.hero-orbit-draw { stroke-dasharray: 100; animation: hero-orbit-draw 1.5s .8s var(--ease) both; }
-.hero-orbit-light { mix-blend-mode: screen; animation: hero-orbit-fade .6s 2.1s ease both; }
-@keyframes hero-orbit-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
-@keyframes hero-orbit-fade { from { opacity: 0; } to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) {
-  .hero-orbit-draw, .hero-orbit-light { animation: none; }
-  .hero-orbit-draw { stroke-dasharray: none; }
-  .hero-orbit-light { display: none; }
+/* ── Home hero on phones: where the copy starts. The brand scene (components/site/brandScene.js,
+   measure(), portrait home) draws the logo min(66vw, 380px) wide, its box 0.762 of that tall,
+   centred at max(header + half the box + 10px, 24% of the canvas height), on a canvas 100lvh tall.
+   The same sum here puts the headline 22px below the bottom of the logo, the INFOVION lettering
+   included, on every phone, whatever its browser bars do. Keep the two in step. */
+.hero-top { padding-top: 36svh; }
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero-top { padding-top: calc(max(74px + min(66vw, 380px) * .762, 24lvh + min(66vw, 380px) * .381) + 22px); }
 }

@@ -17,8 +17,8 @@ const MESSAGES = {
 
 export default function WhatsAppButton() {
   const { pathname } = useLocation();
-  // On phones the hero has its own Call and WhatsApp buttons; the dock would sit on top of them,
-  // so it appears once the visitor has scrolled half a screen
+  // On phones the dock would sit on top of the hero's buttons, so it appears once the visitor has
+  // scrolled half a screen
   const [past, setPast] = useState(false);
   useEffect(() => {
     const on = () => setPast(window.scrollY > window.innerHeight * 0.5);
