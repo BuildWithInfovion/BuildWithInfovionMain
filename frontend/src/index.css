@@ -584,36 +584,23 @@ h3.font-display, h4.font-display, p.font-display, span.font-display, dd.font-dis
   .aud-gauge { stroke-dashoffset: 36; }
 }
 
-/* ── Home hero on phones: the headline inside the logo's braces (components/home/HeroEmblem.jsx) ──
-   --bh is the height of the braces; the headline's side padding and size follow it so the longest
-   line ("Custom software,") always fits between them. */
-.emb-frame { position: relative; --bh: clamp(130px, 38vw, 240px); }
-.emb-frame > h1 { position: relative; z-index: 1; }
-@media (max-width: 767px) {
-  .emb-frame > h1 { padding-inline: calc(var(--bh) * .375 - 10px); text-align: center; text-shadow: 0 2px 18px rgba(0, 1, 5, .65); }
+/* ── Home hero on phones: a poster headline with the logo's orbit round "around"
+   (components/home/HeroHeadline.jsx). The orbit's far half sits behind the letters, its near half
+   in front; --x/--y/--w are the word's centre and width, measured in the component. */
+@media (max-width: 639px) {
+  .hero-h1 { font-size: clamp(52px, 18.2vw, 78px); line-height: .94; letter-spacing: -.05em; }
+  .hero-around { display: inline-block; margin-left: .5em; }
 }
-@media (max-width: 639px) { .emb-frame > h1 { font-size: clamp(26px, calc(12.2vw - 16px), 2.6rem); } }
-@media (min-width: 640px) and (max-width: 767px) { .emb-frame > h1 { font-size: 3.4rem; } }
-.emb { position: absolute; left: -1.25rem; right: -1.25rem; top: 50%; height: 0; z-index: 0; pointer-events: none; }
-.emb-field { position: absolute; left: 50%; top: 0; width: 160vw; height: calc(var(--bh) * 1.9); transform: translate(-50%, -50%);
-  background: radial-gradient(closest-side, rgba(56, 182, 255, .2), rgba(56, 182, 255, .06) 55%, rgba(56, 182, 255, 0)); animation: emb-fade 1.6s .2s var(--ease) both; }
-.emb-ring { position: absolute; left: 50%; top: 0; width: 150vw; aspect-ratio: 1368 / 438; transform: translate(-50%, -50%); }
-.emb-orbit, .emb-light { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.emb-orbit-glow { opacity: .4; }
-.emb-draw { stroke-dasharray: 100; animation: emb-draw 1.6s .2s var(--ease) both; }
-/* the ring's far half runs behind the braces, its near half in front, as in the logo */
-.emb-back { clip-path: inset(-30% 0 50% 0); opacity: .62; }
-.emb-front { clip-path: inset(50% 0 -30% 0); }
-.emb-light { mix-blend-mode: screen; animation: emb-fade .8s 1.7s ease both; }
-.emb-brace { position: absolute; top: 0; height: var(--bh); width: auto; filter: drop-shadow(0 0 12px rgba(255, 246, 228, .16)); }
-.emb-brace-l { left: .25rem; transform: translateY(calc(-50% + var(--bh) * .06)); animation: emb-open-l 1.2s .1s var(--ease) both; }
-.emb-brace-r { right: .25rem; transform: translateY(calc(-50% - var(--bh) * .05)); animation: emb-open-r 1.2s .1s var(--ease) both; }
-@keyframes emb-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes emb-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
-@keyframes emb-open-l { from { opacity: 0; transform: translate(calc(var(--bh) * .45), calc(-50% + var(--bh) * .06)) scale(.88); } to { opacity: 1; transform: translateY(calc(-50% + var(--bh) * .06)); } }
-@keyframes emb-open-r { from { opacity: 0; transform: translate(calc(var(--bh) * -.45), calc(-50% - var(--bh) * .05)) scale(.88); } to { opacity: 1; transform: translateY(calc(-50% - var(--bh) * .05)); } }
+.hero-orbit { position: absolute; left: var(--x); top: var(--y); width: calc(var(--w) * 1.36); aspect-ratio: 1368 / 438; transform: translate(-50%, -50%) rotate(-5deg); pointer-events: none; }
+.hero-orbit svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hero-orbit-back { z-index: 0; clip-path: inset(-40% 0 50% 0); opacity: .5; }
+.hero-orbit-front { z-index: 2; clip-path: inset(50% 0 -40% 0); }
+.hero-orbit-draw { stroke-dasharray: 100; animation: hero-orbit-draw 1.5s .8s var(--ease) both; }
+.hero-orbit-light { mix-blend-mode: screen; animation: hero-orbit-fade .6s 2.1s ease both; }
+@keyframes hero-orbit-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes hero-orbit-fade { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
-  .emb-field, .emb-draw, .emb-light, .emb-brace-l, .emb-brace-r { animation: none; }
-  .emb-draw { stroke-dasharray: none; }
-  .emb-light { display: none; }
+  .hero-orbit-draw, .hero-orbit-light { animation: none; }
+  .hero-orbit-draw { stroke-dasharray: none; }
+  .hero-orbit-light { display: none; }
 }

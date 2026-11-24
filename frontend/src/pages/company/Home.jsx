@@ -6,7 +6,7 @@ import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { GhostButton, GlowButton, Tilt } from "../../components/fx/Fx";
 import { CtaBand, FaqList, Section } from "../../components/site/Ui";
 import HeroLine from "../../components/home/HeroLine";
-import HeroEmblem from "../../components/home/HeroEmblem";
+import HeroHeadline from "../../components/home/HeroHeadline";
 import Manifesto from "../../components/home/Manifesto";
 import Assembly from "../../components/home/Assembly";
 import Audiences from "../../components/home/Audiences";
@@ -78,28 +78,21 @@ const HOME_PAGE_SCHEMA = {
   speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".hero-summary"] },
 };
 
-const HEADLINE = ["Custom software,", "built around", "the way you work"];
-
 function Hero() {
   return (
     // Wider screens: the brand animation behind the page puts the full logo to the right of the copy.
-    // Phones: the headline sits inside the logo's own braces with the orbit ring passing behind it
-    // (HeroEmblem), the hero is centred, and Call and WhatsApp are right under the main button.
+    // Phones: the headline is set as a poster with the logo's orbit round "around" (HeroHeadline),
+    // Call and WhatsApp sit under the main button, and the summary follows them.
     // No product screen here: the first screen is the promise, the work comes as the visitor scrolls.
-    <section className="relative flex min-h-[100svh] flex-col pt-32 md:pt-40">
-      <div className="mx-auto w-full max-w-6xl flex-1 px-5 sm:px-6">
-        <div className="emb-frame">
-          <HeroEmblem />
-          <h1 className="font-display max-w-3xl text-[2.6rem] leading-[1.0] tracking-[-0.045em] text-white sm:text-6xl lg:text-[5.2rem]">
-            {HEADLINE.map((l, i) => <span key={l} className="line"><span style={{ "--i": i }}>{l}{i < HEADLINE.length - 1 ? " " : ""}</span></span>)}
-          </h1>
-        </div>
+    <section className="relative flex min-h-[100svh] flex-col pt-28 md:pt-40">
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 sm:px-6">
+        <HeroHeadline />
         <HeroLine />
-        <p className="hero-summary fade-up mt-8 max-w-xl text-lg leading-relaxed text-slate-300 max-md:mx-auto max-md:text-center" style={{ "--d": "420ms" }}>
+        <p className="hero-summary fade-up mt-8 max-w-xl text-lg leading-relaxed text-slate-300 max-sm:order-last max-sm:mt-10 max-sm:text-base" style={{ "--d": "420ms" }}>
           Web and mobile apps, ERP, SaaS, AI agents and automation, planned, built and supported by one team, for
           clients across India and abroad, at a price fixed in writing before work begins.
         </p>
-        <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row max-md:sm:justify-center" style={{ "--d": "520ms" }}>
+        <div className="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style={{ "--d": "520ms" }}>
           <GlowButton to="/contact" className="w-full sm:w-auto">Discuss a project</GlowButton>
           <GhostButton to="/case-studies" className="hidden sm:inline-flex sm:w-auto">See our work</GhostButton>
           <div className="grid grid-cols-2 gap-3 sm:hidden">
@@ -109,7 +102,7 @@ function Hero() {
         </div>
       </div>
       <div className="fade-up mx-auto mt-14 flex w-full max-w-6xl items-end justify-between gap-6 px-5 pb-8 sm:px-6" style={{ "--d": "800ms" }}>
-        <ul className="flex flex-wrap gap-x-7 gap-y-2 text-sm text-slate-400 max-md:w-full max-md:justify-center max-md:text-center">
+        <ul className="flex flex-wrap gap-x-7 gap-y-2 text-sm text-slate-400">
           <li>Udyam-registered MSME</li><li>Code and accounts in your name</li><li>Fortnightly releases</li>
         </ul>
         <a href="#approach" className="hidden flex-col items-center gap-3 text-xs text-slate-400 hover:text-white sm:flex" aria-label="Scroll to how we work"><span>Scroll</span><span className="hero-cue" /></a>

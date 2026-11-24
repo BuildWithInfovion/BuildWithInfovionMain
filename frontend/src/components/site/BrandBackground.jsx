@@ -70,7 +70,7 @@ export default function BrandBackground() {
       const centred = Boolean(h1) && getComputedStyle(h1).textAlign === "center";
       const aside = !home && (centred || Boolean(document.querySelector("main [data-hero-aside]")));
       // On phones the logo would sit on the breadcrumb and title of an inner page, so it stays hidden
-      // there; on the phone home page the hero draws the logo itself, round the headline (HeroEmblem)
+      // there; on the phone home page the headline carries the logo's orbit instead (HeroHeadline)
       veil.current = home ? (narrow ? 1 : 0) : aside || narrow ? 1 : 0.18;
       scene.current?.setVeil(veil.current);
     };

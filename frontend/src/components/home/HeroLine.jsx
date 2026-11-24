@@ -54,7 +54,7 @@ export default function HeroLine() {
   }, []);
 
   return (
-    <p className="fade-up mt-5 font-display text-[1.65rem] leading-tight text-slate-400 max-md:mt-14 max-md:text-center sm:text-4xl lg:text-[2.7rem]" style={{ "--d": "280ms" }}>
+    <p className="fade-up mt-5 font-display text-[1.65rem] leading-tight text-slate-400 max-sm:mt-7 sm:text-4xl lg:text-[2.7rem]" style={{ "--d": "280ms" }}>
       <span className="sr-only">For {AUDIENCES.slice(0, -1).join(", ")} and {AUDIENCES[AUDIENCES.length - 1]}.</span>
       <span aria-hidden="true">
         for <span ref={el} className="hero-decode text-white">{AUDIENCES[0]}</span><span className="hero-caret" />

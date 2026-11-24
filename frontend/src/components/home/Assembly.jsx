@@ -6,9 +6,12 @@
 //   4 Run        the system goes live: numbers move, orders flow in from the phone, and the
 //                code, database and accounts are handed over
 // Everything is one SVG whose shapes are driven from scroll progress, so it scales to any screen.
-// All four chapters are in the page as text. Reduced motion shows the finished system, unpinned.
+// All four chapters are in the page as text.
+// Desktop only: on phones and tablets the pinned scene was taller than the screen and was cut off,
+// so there the heading, the whole scene and all four chapters are shown unpinned, and the build
+// plays once when the scene comes into view. Reduced motion shows the finished system, unpinned.
 import React, { useEffect, useRef, useState } from "react";
-import { motion as Motion, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { animate, motion as Motion, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 const CHAPTERS = [
   ["Listen", "We start with the people who will use it.", "Time with your team to see how orders, stock, approvals and reports really move today, and where they get stuck."],
@@ -161,15 +164,47 @@ function Scene({ p, live }) {
 
 export default function Assembly() {
   const ref = useRef(null);
+  const sceneRef = useRef(null);
   const reduce = useReducedMotion();
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const on = () => setWide(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  const simple = reduce || !wide;
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
-  const fixed = useMotionValue(1);
-  const p = reduce ? fixed : scrollYProgress;
+  // Unpinned: the build plays once, from notes to the live system, when the scene comes into view
+  const auto = useMotionValue(reduce ? 1 : 0);
+  const [built, setBuilt] = useState(Boolean(reduce));
+  useEffect(() => {
+    if (!simple || reduce) return undefined;
+    const el = sceneRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      auto.set(1);
+      setBuilt(true);
+      return undefined;
+    }
+    let controls;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      controls = animate(auto, 1, { duration: 3.4, ease: [0.45, 0, 0.2, 1], onComplete: () => setBuilt(true) });
+    }, { threshold: 0.35 });
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      controls?.stop();
+    };
+  }, [simple, reduce, auto]);
+  const p = simple ? auto : scrollYProgress;
   const [step, setStep] = useState(reduce ? 3 : 0);
   // The chapter list follows the section's own position. (Framer can run scroll values natively,
   // without JavaScript change events, so they are not used for React state here.)
   useEffect(() => {
-    if (reduce) return undefined;
+    if (simple) return undefined;
     let raf = 0;
     const read = () => {
       raf = 0;
@@ -186,16 +221,19 @@ export default function Assembly() {
     window.addEventListener("scroll", on, { passive: true });
     window.addEventListener("resize", on);
     return () => { window.removeEventListener("scroll", on); window.removeEventListener("resize", on); cancelAnimationFrame(raf); };
-  }, [reduce]);
+  }, [simple]);
   const bar = useTransform(p, [0, 1], [0, 1]);
 
-  const copy = (
-    <div className="lg:pr-6">
+  const head = (
+    <>
       <p className="kicker-pill">One project, start to finish</p>
       <h2 className="font-display mt-3 text-[1.9rem] leading-[1.08] text-white sm:text-[2.6rem]">How an idea becomes running software</h2>
+    </>
+  );
+  const list = (
       <ol className="mt-8 border-l border-white/10 lg:mt-10">
         {CHAPTERS.map(([label, head, body], i) => {
-          const on = reduce || i === step;
+          const on = simple || i === step;
           return (
             <li key={label} className={`relative pl-6 transition-all duration-500 ${on ? "pb-6 opacity-100 last:pb-0" : "opacity-35 max-lg:pointer-events-none max-lg:max-h-0 max-lg:overflow-hidden max-lg:pb-0 max-lg:opacity-0 lg:pb-6"}`}>
               <span aria-hidden="true" className={`absolute -left-px top-1 h-6 w-px transition-colors duration-500 ${on ? "bg-sky-300" : "bg-transparent"}`} />
@@ -206,14 +244,19 @@ export default function Assembly() {
           );
         })}
       </ol>
-    </div>
   );
+  const copy = <div className="lg:pr-6">{head}{list}</div>;
 
-  if (reduce) {
+  if (simple) {
     return (
-      <section id="approach" data-rv="" className="scroll-mt-24 py-20">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          {copy}<Scene p={p} live={false} />
+      <section id="approach" ref={ref} data-rv="" className="scroll-mt-24 py-20">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6">
+          {head}
+          <div ref={sceneRef} className="relative mt-8">
+            <div aria-hidden="true" className="pointer-events-none absolute -inset-6 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(56,182,255,0.1),transparent_70%)]" />
+            <div className="relative"><Scene p={p} live={built} /></div>
+          </div>
+          {list}
         </div>
       </section>
     );
