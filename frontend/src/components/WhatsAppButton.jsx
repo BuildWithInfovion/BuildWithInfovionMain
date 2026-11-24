@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion as Motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { Phone } from "lucide-react";
@@ -17,12 +17,21 @@ const MESSAGES = {
 
 export default function WhatsAppButton() {
   const { pathname } = useLocation();
+  // On phones the hero has its own Call and WhatsApp buttons; the dock would sit on top of them,
+  // so it appears once the visitor has scrolled half a screen
+  const [past, setPast] = useState(false);
+  useEffect(() => {
+    const on = () => setPast(window.scrollY > window.innerHeight * 0.5);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, [pathname]);
   const url = wa(MESSAGES[pathname.startsWith("/government") ? "government" : productOf(pathname) ?? "company"]);
 
   // Phones get a call button above WhatsApp: most visitors arrive on a phone, and otherwise the
   // number sits inside the closed menu. Wider screens show the number in the header instead.
   return (
-    <div className="print:hidden fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className={`print:hidden fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 transition-[opacity,transform] duration-300 sm:bottom-6 sm:right-6 ${past ? "" : "max-sm:pointer-events-none max-sm:translate-y-3 max-sm:opacity-0"}`}>
     <Motion.a
       href={COMPANY.phoneHref}
       aria-label={`Call Infovion on ${COMPANY.phone}`}

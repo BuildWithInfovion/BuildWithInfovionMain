@@ -23,7 +23,6 @@ export default function CompanyProfile() {
     ["Constitution", COMPANY.constitution],
     ...credentials(),
     ["Registered office", fullAddress()],
-    ["Authorised contact", `${COMPANY.founder}, ${COMPANY.founderRole}`],
     ["Phone", `${COMPANY.phone} (WhatsApp ${COMPANY.whatsapp})`],
     ["Email", COMPANY.email],
     ["Website", "www.infovion.in"],

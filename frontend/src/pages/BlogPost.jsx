@@ -6,7 +6,7 @@ import { blogPosts } from "../Data/blogData";
 import { CATEGORY_LABEL, CTA, audienceOf } from "../Data/blogCategories";
 import { GlowButton } from "../components/fx/Fx";
 import PreferredSourceBadge from "../components/PreferredSourceBadge";
-import { faqSchema, FOUNDER_ID, ORG_ID } from "../lib/seo";
+import { faqSchema, ORG_ID } from "../lib/seo";
 import { COMPANY } from "../Data/company";
 import { Breadcrumbs } from "../components/site/Ui";
 
@@ -40,12 +40,8 @@ export default function BlogPost() {
     image: [abs(post.image)],
     datePublished: post.date,
     dateModified: post.updated || post.date,
-    // Every post is published under the founder's name, the same person the organisation schema
-    // names (one @id across the site), so search engines and AI assistants can tie the writing to
-    // a real, accountable person and to Infovion Technologies.
-    author: post.authorName
-      ? { "@type": "Person", name: post.authorName, worksFor: { "@id": ORG_ID } }
-      : { "@type": "Person", "@id": FOUNDER_ID, name: COMPANY.founder, jobTitle: `${COMPANY.founderRole}, ${COMPANY.name}`, url: `${DOMAIN}/about#founder`, worksFor: { "@id": ORG_ID } },
+    // Posts are published by the company, not a named person: no personal names on the site.
+    author: { "@type": "Organization", "@id": ORG_ID, name: COMPANY.name, url: DOMAIN },
     publisher: { "@id": ORG_ID },
     isPartOf: { "@id": `${DOMAIN}/#website` },
     about: (post.tags || []).slice(0, 4).map((name) => ({ "@type": "Thing", name })),
@@ -71,7 +67,7 @@ export default function BlogPost() {
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
         <meta name="keywords" content={(post.tags || []).join(", ")} />
-        <meta name="author" content={post.authorName || COMPANY.founder} />
+        <meta name="author" content={COMPANY.name} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:modified_time" content={post.updated || post.date} />
         <meta property="article:section" content={CATEGORY_LABEL[post.category] ?? post.category} />
@@ -89,7 +85,7 @@ export default function BlogPost() {
             <span>{fmt(post.date)}</span>
             {post.updated && post.updated !== post.date && <span>Updated {fmt(post.updated)}</span>}
             <span>{post.readTime}</span>
-            <span>By {post.authorName ? post.authorName : <Link to="/about#founder" className="text-slate-300 underline decoration-white/20 underline-offset-4 hover:text-white">{COMPANY.founder}, {COMPANY.founderRole.toLowerCase()} of Infovion Technologies</Link>}</span>
+            <span>By <Link to="/about" className="text-slate-300 underline decoration-white/20 underline-offset-4 hover:text-white">Infovion Technologies</Link></span>
           </p>
         </div>
       </header>

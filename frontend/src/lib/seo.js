@@ -4,7 +4,6 @@ import { COMPANY, SITE, fullAddress } from "../Data/company";
 export const abs = (path) => (path.startsWith("http") ? path : `${SITE}${path === "/" ? "/" : path}`);
 
 export const ORG_ID = `${SITE}/#organization`;
-export const FOUNDER_ID = `${SITE}/about#founder`;
 
 /** [["Services", "/services"], ["Web development", "/services/web-development"]] → BreadcrumbList */
 export const breadcrumbSchema = (trail) => ({
@@ -59,7 +58,6 @@ export const organizationNode = () => {
       "Infovion Technologies is a software development company in India, headquartered in Pune, that works with clients across India and abroad. It builds custom software, websites and web apps, mobile apps, ERP and CRM systems, SaaS products and AI automation for businesses and government, and makes three products: Infovion School ERP (school management software), Infovion JMS (jewellery management software) and Cyvion (an AI SOC analyst and exposure management platform, in early access).",
     slogan: "We build the software your business runs on.",
     keywords: "software development company in India, custom software development company, app development company, app development agency, website design and development company, web development agency, AI agent and chatbot development company, AI automation agency, ERP and CRM software development company, React, Node.js and React Native development company, white-label development partner for agencies, dedicated developers in India, staff augmentation, IT services company",
-    founder: { "@type": "Person", "@id": FOUNDER_ID, name: COMPANY.founder, jobTitle: COMPANY.founderRole, worksFor: { "@id": ORG_ID }, url: `${SITE}/about`, knowsAbout: ["Custom software development", "School management software", "Jewellery management software", "AI automation"] },
     foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
     email: COMPANY.email,
     telephone: COMPANY.phone.replace(/\s/g, ""),

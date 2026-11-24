@@ -8,8 +8,6 @@ export const COMPANY = {
   brand: "Infovion",
   name: "Infovion Technologies",
   tagline: "Software development company in India, headquartered in Pune",
-  founder: "Sankalp Deshpande",
-  founderRole: "Founder",
   constitution: "Proprietorship (MSME)",
   udyam: "UDYAM-MH-26-1125911",
   // Fill in as each registration is completed — they appear on /company-profile and /government automatically.

@@ -84,12 +84,11 @@ export default function About() {
           {[
             ["Legal name", COMPANY.name],
             ["Registration", `MSME, Udyam ${COMPANY.udyam}`],
-            ["Founder", COMPANY.founder],
             ["Registered office", fullAddress()],
             ["Service area", "All of India, and clients in the US, UK, Europe, the Gulf and Australia; head office in Pune"],
             ["Contact", `${COMPANY.email} · ${COMPANY.phone}`],
           ].map(([k, v]) => (
-            <div key={k} id={k === "Founder" ? "founder" : undefined} className="bg-cell scroll-mt-28 p-6">
+            <div key={k} className="bg-cell p-6">
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{k}</dt>
               <dd className="mt-2 text-[15px] text-white">{v}</dd>
             </div>
