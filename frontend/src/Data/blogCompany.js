@@ -552,4 +552,99 @@ export const companyPosts = [
       <p><small>Sources: <a href="https://guidelines.india.gov.in/" rel="noopener" target="_blank">Guidelines for Indian Government Websites and Apps</a>; <a href="https://www.w3.org/TR/WCAG21/" rel="noopener" target="_blank">W3C WCAG 2.1</a>.</small></p>
     `,
   },
+  {
+    id: 114,
+    slug: "website-app-software-banwane-ka-kharcha",
+    lang: "hi-Latn",
+    seoTitle: "Website, App ya Software Banwana Hai? Kharcha 2026 | Infovion",
+    title: "Website, App ya Software Banwana Hai? Kharcha, Samay aur Sahi Company Kaise Chunein (2026)",
+    excerpt: "Website banane ka kharcha ₹15,000 se, app ₹60,000 se aur business software ₹75,000 se shuru hota hai. Kitna samay lagta hai, kharcha kis cheez se badhta hai, aur website ya app banane wali company kaise chunein: seedhi Hinglish mein.",
+    category: "development",
+    author: "Infovion Team",
+    date: "2026-11-24",
+    readTime: "6 min",
+    tags: ["website banane ka kharcha", "app banane ka kharcha", "software banane wali company", "website banane wala", "Hinglish"],
+    image: "/blog/website-app-software-banwane-ka-kharcha.webp",
+    faqs: [
+      ["Website banane ka kharcha kitna aata hai?", "Infovion mein 5 page tak ki business website ₹15,000 se ₹50,000 tak, aur blog, CMS aur SEO wali company website ₹50,000 se ₹1.5 lakh tak banti hai. Shopify par online store ₹40,000 se ₹2 lakh tak. Domain aur hosting ka saalana kharcha alag hota hai."],
+      ["App banane me kitna kharcha aata hai?", "Installable web app (PWA) ₹60,000 se ₹2.5 lakh tak, aur Android aur iPhone app ka pehla version ₹2 lakh se ₹6 lakh tak. Admin panel aur kai integrations wale bade app ₹6 lakh se upar."],
+      ["Software banwane me kitna samay lagta hai?", "Business website 2 se 3 hafte mein, ek chhota software tool 4 se 8 hafte mein, CRM 6 se 10 hafte mein, aur ERP 3 se 6 mahine mein, module-dar-module."],
+      ["Website ya software banane wali company kaise chunein?", "Live kaam dekhiye, likhit fixed price lijiye, code aur domain apne naam rakhiye, banane wale insaan se miliye, har do hafte demo maangiye, launch ke baad support aur AMC ka daam poochiye, aur NDA sign karwaiye."],
+      ["Kya Infovion sirf Pune mein kaam karta hai?", "Nahi. Infovion Technologies poore Bharat aur videsh ke clients ke liye website, app aur software banata hai. Office Pune mein hai; baaki jagah kaam video call aur har do hafte ke demo link se hota hai."],
+      ["Website ya app banwane ke liye kisse baat karein?", "Infovion Technologies ko +91 91563 02024 par call karein (subah 9 se raat 10 baje tak, har din), +91 93091 93613 par WhatsApp karein, ya contact@infovion.in par email karein."],
+    ],
+    content: `
+      <p>Business ke liye website, mobile app ya software banwana hai, to pehla sawal yahi hota hai: <strong>kharcha kitna aayega, aur kaam kaun karega?</strong> Is guide mein Infovion Technologies ke 2026 ke daam hain, har kaam mein lagne wala samay, aur company chunne se pehle poochne wale sawal. Hum poore Bharat aur videsh ke clients ke liye kaam karte hain; office Pune mein hai.</p>
+
+      <h2>Website banane ka kharcha (2026)</h2>
+      <table>
+        <thead><tr><th>Kis tarah ki website</th><th>Kharcha</th><th>Samay</th></tr></thead>
+        <tbody>
+          <tr><td>Landing page ya 5 page tak ki business website</td><td>₹15,000 – 50,000</td><td>2–3 hafte</td></tr>
+          <tr><td>Company website: blog, CMS aur SEO ke saath</td><td>₹50,000 – 1.5 lakh</td><td>4–6 hafte</td></tr>
+          <tr><td>Online store (Shopify)</td><td>₹40,000 – 2 lakh</td><td>3–5 hafte</td></tr>
+          <tr><td>Custom online store</td><td>₹1.5 – 5 lakh</td><td>2–4 mahine</td></tr>
+          <tr><td>Web application: login, workflow, reports</td><td>₹75,000 se shuru</td><td>Scope ke hisaab se</td></tr>
+        </tbody>
+      </table>
+      <p>Static website, jiske page sirf developer badalta hai, sabse sasti hoti hai. Dynamic website, jisme aap khud blog, products ya photos badal sakte hain, CMS ki wajah se thodi mehngi hoti hai. Domain aur hosting ka saalana kharcha alag hota hai.</p>
+
+      <h2>App banane ka kharcha</h2>
+      <table>
+        <thead><tr><th>Kis tarah ka app</th><th>Kharcha</th><th>Samay</th></tr></thead>
+        <tbody>
+          <tr><td>Installable web app (PWA): link se install, Play Store ki zaroorat nahi</td><td>₹60,000 – 2.5 lakh</td><td>6–10 hafte tak</td></tr>
+          <tr><td>Android aur iPhone app, pehla version</td><td>₹2 – 6 lakh</td><td>6–10 hafte</td></tr>
+          <tr><td>Bada app: admin panel aur kai integrations ke saath</td><td>₹6 lakh se upar</td><td>3–5 mahine</td></tr>
+        </tbody>
+      </table>
+      <p>Hum React Native se app banate hain, isliye ek hi code se Android aur iPhone dono app bante hain. Kai businesses ke liye installable web app hi kaafi hota hai, aur woh kaafi kam kharche mein ban jaata hai. Apne app ka andaaza lagane ke liye <a href="/app-development-cost-calculator">app development cost calculator</a> use karein.</p>
+
+      <h2>Business software banane ka kharcha</h2>
+      <table>
+        <thead><tr><th>Software</th><th>Kharcha</th><th>Samay</th></tr></thead>
+        <tbody>
+          <tr><td>Ek tool: billing, stock, attendance ya job card</td><td>₹75,000 – 2 lakh</td><td>4–8 hafte</td></tr>
+          <tr><td>CRM: leads, follow-up, quotation</td><td>₹1 – 3 lakh</td><td>6–10 hafte</td></tr>
+          <tr><td>ERP: 3 se 6 department (stock, purchase, sales, production, accounts)</td><td>₹3 – 10 lakh</td><td>3–6 mahine</td></tr>
+          <tr><td>WhatsApp chatbot, menu wala</td><td>₹40,000 – 1.2 lakh</td><td>1–2 hafte</td></tr>
+          <tr><td>AI assistant, aapke software aur data se juda</td><td>₹1.5 – 5 lakh</td><td>4–8 hafte</td></tr>
+        </tbody>
+      </table>
+      <p>In sab mein koi per-user licence fee nahi hoti, aur poora source code aapke naam hota hai. Apne software ka andaaza: <a href="/software-development-cost-calculator">software development cost calculator</a>.</p>
+
+      <h2>Kharcha kis cheez se badhta hai?</h2>
+      <ul>
+        <li>Kitni screens, aur kitne tarah ke users (owner, staff, customer)</li>
+        <li>Payment, WhatsApp, GST e-invoice ya Tally jaise integrations</li>
+        <li>Android aur iPhone dono, ya sirf web</li>
+        <li>Purana data Excel ya Tally se laana</li>
+        <li>Reports aur dashboard kitne detail mein chahiye</li>
+        <li>Kitni bhashaon mein: Hindi, Marathi, English ya aur</li>
+      </ul>
+
+      <h2>Website ya app banane wali company kaise chunein: 7 sawal</h2>
+      <ol>
+        <li><strong>Live kaam dikhaiye.</strong> Sirf screenshot nahi, aisi website ya app jo aap khud khol kar chala sakein.</li>
+        <li><strong>Daam likh kar dijiye.</strong> Kaam shuru hone se pehle likhit scope aur fixed price.</li>
+        <li><strong>Code, domain aur hosting kiske naam honge?</strong> Sab kuch aapke naam hona chahiye.</li>
+        <li><strong>Asal mein banayega kaun?</strong> Pehli call par hi us insaan se miliye.</li>
+        <li><strong>Har do hafte demo milega?</strong> Aakhir mein ek baar dikhane se behtar hai har do hafte chalta hua version.</li>
+        <li><strong>Launch ke baad kya?</strong> Kitne din ka free support, aur uske baad AMC ka kharcha kitna.</li>
+        <li><strong>NDA sign karenge?</strong> Business ki jaankari dene se pehle.</li>
+      </ol>
+
+      <h2>Freelancer, chhoti company ya badi IT company?</h2>
+      <p>Ek-do page ki website ke liye accha freelancer kaafi ho sakta hai. Business software, app ya ERP mein design, testing, launch aur saalon tak support chahiye, isliye wahan ek chhoti, zimmedar team behtar rehti hai. Badi IT companies bade projects aur bade budget ke liye bani hain; chhote business ke kaam mein wahan kharcha aur samay dono zyada lagte hain.</p>
+
+      <h2>Infovion ke saath kaise shuru karein</h2>
+      <ul>
+        <li><strong>Call karein:</strong> <a href="tel:+919156302024">+91 91563 02024</a>, subah 9 se raat 10 baje tak, har din</li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/919309193613">+91 93091 93613</a></li>
+        <li><strong>Form:</strong> <a href="/contact">apni zaroorat likh kar bhejiye</a></li>
+      </ul>
+      <p>Pehli call mein hum aapki zaroorat samajhte hain, aur do business din ke andar likhit scope, plan aur fixed price bhejte hain. Poore Bharat mein kaam video call aur har do hafte ke demo link ke saath hota hai; Pune mein hum aapke office aa kar bhi mil sakte hain.</p>
+      <p><em>Infovion Technologies: Udyam-registered MSME software company. Website, mobile app, ERP, CRM, AI aur WhatsApp automation. <a href="/services">Saari services dekhein</a> ya <a href="/services/custom-software-development">custom software development</a> ke baare mein English mein padhein.</em></p>
+    `,
+  },
 ];

@@ -263,7 +263,7 @@ export function AppCostCalculatorPage() {
   return (
     <>
       <Head path={path} name="App development cost calculator"
-        title="App Development Cost Calculator India (2026) | Infovion"
+        title="App Development Cost in India (2026): Free Calculator | Infovion"
         description="Free app development cost calculator: choose Android, iOS or PWA, screens and features, and get a budget range in INR, USD, AED or GBP with a timeline." />
       <PageHero trail={[["Free tools", "/free-tools"], ["App cost calculator", path]]} kicker="Free tool"
         title="App development cost calculator"
