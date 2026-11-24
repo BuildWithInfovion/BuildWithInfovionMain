@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "2cd98761ce66e06e",
+  "hash": "3daec6a977576253",
   "date": "2026-11-24"
  },
  "/abdm-integration": {
@@ -20,7 +20,7 @@
   "date": "2026-11-24"
  },
  "/blog": {
-  "hash": "c47f2e413bb74381",
+  "hash": "1a5838f644be69fb",
   "date": "2026-11-24"
  },
  "/blog/7-signs-your-school-needs-erp-software-india": {
@@ -147,8 +147,12 @@
   "hash": "10635fff36cc7cb4",
   "date": "2026-11-24"
  },
+ "/blog/website-app-banwane-ka-kharcha-hindi": {
+  "hash": "3767d727bdfb84f6",
+  "date": "2026-11-24"
+ },
  "/blog/website-app-software-banwane-ka-kharcha": {
-  "hash": "a18b20690182febd",
+  "hash": "8803fc5b5692938e",
   "date": "2026-11-24"
  },
  "/blog/website-vs-web-app-vs-mobile-app": {
@@ -196,7 +200,7 @@
   "date": "2026-11-24"
  },
  "/contact": {
-  "hash": "55adf0b64a59de04",
+  "hash": "2efb11e4ef6e6b0e",
   "date": "2026-11-24"
  },
  "/csr-software-development": {
@@ -415,6 +419,10 @@
   "hash": "15d2b1f74f247cbd",
   "date": "2026-11-24"
  },
+ "/nodejs-development-company": {
+  "hash": "c7b3730d3eb4509e",
+  "date": "2026-11-24"
+ },
  "/offline-jewellery-billing-software": {
   "hash": "bed3b666f13a1ab1",
   "date": "2026-11-24"
@@ -467,6 +475,14 @@
   "hash": "205875b3ea7c881b",
   "date": "2026-11-24"
  },
+ "/react-development-company": {
+  "hash": "fdd71253682cc656",
+  "date": "2026-11-24"
+ },
+ "/react-native-app-development-company": {
+  "hash": "677be60683de5a21",
+  "date": "2026-11-24"
+ },
  "/robotics-software-development": {
   "hash": "848a28e29059be1b",
   "date": "2026-11-24"
@@ -500,15 +516,15 @@
   "date": "2026-11-24"
  },
  "/services": {
-  "hash": "91200f36224623fc",
+  "hash": "87a4f0472e33fcf1",
   "date": "2026-11-24"
  },
  "/services/ai-agent-development": {
-  "hash": "0e1743d26f3e20ca",
+  "hash": "dbebfbaab5fa7b78",
   "date": "2026-11-24"
  },
  "/services/ai-automation": {
-  "hash": "c11a2bc2a624fed3",
+  "hash": "7766c32fc02efcc9",
   "date": "2026-11-24"
  },
  "/services/api-integration": {
@@ -524,7 +540,7 @@
   "date": "2026-11-24"
  },
  "/services/custom-software-development": {
-  "hash": "84cfe6dec48a8976",
+  "hash": "90c7b893686ea659",
   "date": "2026-11-24"
  },
  "/services/dashboards-mis-reporting": {
@@ -532,15 +548,15 @@
   "date": "2026-11-24"
  },
  "/services/ecommerce-development": {
-  "hash": "efad33b0f8114a58",
+  "hash": "7b9af26c8af3ffc9",
   "date": "2026-11-24"
  },
  "/services/erp-crm-development": {
-  "hash": "b7e75f6333fb6e52",
+  "hash": "3e5b624a9f809a1e",
   "date": "2026-11-24"
  },
  "/services/mobile-app-development": {
-  "hash": "07e04778e690ed0a",
+  "hash": "e8a647c7ebc4c70f",
   "date": "2026-11-24"
  },
  "/services/offshore-software-development-india": {
@@ -548,11 +564,11 @@
   "date": "2026-11-24"
  },
  "/services/on-demand-software-development": {
-  "hash": "e17c04a0e0c122d7",
+  "hash": "fb5a70f5e197c3bc",
   "date": "2026-11-24"
  },
  "/services/saas-product-development": {
-  "hash": "6cc680e736cecffe",
+  "hash": "8c210b0b319ef269",
   "date": "2026-11-24"
  },
  "/services/software-maintenance-support": {
@@ -560,7 +576,7 @@
   "date": "2026-11-24"
  },
  "/services/ui-ux-design": {
-  "hash": "6ebf88c02308e44c",
+  "hash": "c2531ffd64f656d8",
   "date": "2026-11-24"
  },
  "/services/vibe-coding-help": {
@@ -568,7 +584,7 @@
   "date": "2026-11-24"
  },
  "/services/web-development": {
-  "hash": "6fc4c92e034a8c34",
+  "hash": "933f607af5c11ba8",
   "date": "2026-11-24"
  },
  "/services/whatsapp-chatbot-development": {
@@ -577,6 +593,10 @@
  },
  "/software-development-cost-calculator": {
   "hash": "80f37f9fc8ebfec7",
+  "date": "2026-11-24"
+ },
+ "/software-development-for-small-business": {
+  "hash": "7727cabd6a3caaae",
   "date": "2026-11-24"
  },
  "/software-partner-for-government-tenders": {
@@ -681,6 +701,10 @@
  },
  "/wcag-accessibility-audit": {
   "hash": "c0e09aad6a134ff6",
+  "date": "2026-11-24"
+ },
+ "/white-label-software-development": {
+  "hash": "8f27b986e84e661e",
   "date": "2026-11-24"
  }
 }

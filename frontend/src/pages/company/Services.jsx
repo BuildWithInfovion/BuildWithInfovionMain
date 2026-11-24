@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { GhostButton, GlowButton } from "../../components/fx/Fx";
 import { CtaBand, FaqList, LinkRow, PageHero, Section } from "../../components/site/Ui";
-import { SERVICES, HEALTHCARE, OFFSHORE, SECTORS, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
+import { SERVICES, HEALTHCARE, OFFSHORE, SECTORS, STACK_PAGES, AUDIENCE_PAGES, PROCESS, serviceBySlug, servicePath } from "../../Data/services";
 import { wa, SITE, COMPANY } from "../../Data/company";
 import { showcaseBySlug, showcasePath } from "../../Data/showcase";
 import { faqSchema, serviceSchema } from "../../lib/seo";
@@ -79,6 +79,18 @@ export function ServicesIndex() {
       <Section kicker="Sectors" title="Manufacturing, robotics, CSR, tenders, public representatives and private clients" className="py-12">
         <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
           {SECTORS.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
+        </div>
+      </Section>
+
+      <Section kicker="Technologies" title="React, Node.js and React Native development" className="py-12">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          {STACK_PAGES.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
+        </div>
+      </Section>
+
+      <Section kicker="Small businesses and agencies" title="For small businesses, and for agencies that need a development partner" className="py-12">
+        <div className="mt-8 grid border-t border-white/10 md:grid-cols-2 md:gap-x-12">
+          {AUDIENCE_PAGES.map((s) => <LinkRow key={s.slug} to={servicePath(s)} icon={s.icon} title={s.name} body={s.card} />)}
         </div>
       </Section>
 

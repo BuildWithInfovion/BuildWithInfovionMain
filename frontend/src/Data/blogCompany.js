@@ -557,7 +557,7 @@ export const companyPosts = [
     slug: "website-app-software-banwane-ka-kharcha",
     lang: "hi-Latn",
     seoTitle: "Website, App ya Software Banwana Hai? Kharcha 2026 | Infovion",
-    title: "Website, App ya Software Banwana Hai? Kharcha, Samay aur Sahi Company Kaise Chunein (2026)",
+    title: "Website, App ya Software Banwana Hai? Kitna Kharcha Aata Hai, Kitna Samay Lagta Hai aur Sahi Company Kaise Chunein (2026)",
     excerpt: "Website banane ka kharcha ₹15,000 se, app ₹60,000 se aur business software ₹75,000 se shuru hota hai. Kitna samay lagta hai, kharcha kis cheez se badhta hai, aur website ya app banane wali company kaise chunein: seedhi Hinglish mein.",
     category: "development",
     author: "Infovion Team",
@@ -570,13 +570,14 @@ export const companyPosts = [
       ["App banane me kitna kharcha aata hai?", "Installable web app (PWA) ₹60,000 se ₹2.5 lakh tak, aur Android aur iPhone app ka pehla version ₹2 lakh se ₹6 lakh tak. Admin panel aur kai integrations wale bade app ₹6 lakh se upar."],
       ["Software banwane me kitna samay lagta hai?", "Business website 2 se 3 hafte mein, ek chhota software tool 4 se 8 hafte mein, CRM 6 se 10 hafte mein, aur ERP 3 se 6 mahine mein, module-dar-module."],
       ["Website ya software banane wali company kaise chunein?", "Live kaam dekhiye, likhit fixed price lijiye, code aur domain apne naam rakhiye, banane wale insaan se miliye, har do hafte demo maangiye, launch ke baad support aur AMC ka daam poochiye, aur NDA sign karwaiye."],
+      ["App banane wali company in India kaun si hai?", "Infovion Technologies ek app aur software banane wali company hai jo poore Bharat aur videsh ke clients ke liye Android aur iPhone app, website aur business software banati hai. Contact number: +91 91563 02024 (call) aur +91 93091 93613 (WhatsApp)."],
       ["Kya Infovion sirf Pune mein kaam karta hai?", "Nahi. Infovion Technologies poore Bharat aur videsh ke clients ke liye website, app aur software banata hai. Office Pune mein hai; baaki jagah kaam video call aur har do hafte ke demo link se hota hai."],
       ["Website ya app banwane ke liye kisse baat karein?", "Infovion Technologies ko +91 91563 02024 par call karein (subah 9 se raat 10 baje tak, har din), +91 93091 93613 par WhatsApp karein, ya contact@infovion.in par email karein."],
     ],
     content: `
       <p>Business ke liye website, mobile app ya software banwana hai, to pehla sawal yahi hota hai: <strong>kharcha kitna aayega, aur kaam kaun karega?</strong> Is guide mein Infovion Technologies ke 2026 ke daam hain, har kaam mein lagne wala samay, aur company chunne se pehle poochne wale sawal. Hum poore Bharat aur videsh ke clients ke liye kaam karte hain; office Pune mein hai.</p>
 
-      <h2>Website banane ka kharcha (2026)</h2>
+      <h2>Website banane ka kharcha kitna aata hai (2026)</h2>
       <table>
         <thead><tr><th>Kis tarah ki website</th><th>Kharcha</th><th>Samay</th></tr></thead>
         <tbody>
@@ -589,7 +590,7 @@ export const companyPosts = [
       </table>
       <p>Static website, jiske page sirf developer badalta hai, sabse sasti hoti hai. Dynamic website, jisme aap khud blog, products ya photos badal sakte hain, CMS ki wajah se thodi mehngi hoti hai. Domain aur hosting ka saalana kharcha alag hota hai.</p>
 
-      <h2>App banane ka kharcha</h2>
+      <h2>Mobile app banane ka kharcha</h2>
       <table>
         <thead><tr><th>Kis tarah ka app</th><th>Kharcha</th><th>Samay</th></tr></thead>
         <tbody>
@@ -600,7 +601,7 @@ export const companyPosts = [
       </table>
       <p>Hum React Native se app banate hain, isliye ek hi code se Android aur iPhone dono app bante hain. Kai businesses ke liye installable web app hi kaafi hota hai, aur woh kaafi kam kharche mein ban jaata hai. Apne app ka andaaza lagane ke liye <a href="/app-development-cost-calculator">app development cost calculator</a> use karein.</p>
 
-      <h2>Business software banane ka kharcha</h2>
+      <h2>Software banane ka kharcha kitna aata hai</h2>
       <table>
         <thead><tr><th>Software</th><th>Kharcha</th><th>Samay</th></tr></thead>
         <tbody>
@@ -637,14 +638,115 @@ export const companyPosts = [
       <h2>Freelancer, chhoti company ya badi IT company?</h2>
       <p>Ek-do page ki website ke liye accha freelancer kaafi ho sakta hai. Business software, app ya ERP mein design, testing, launch aur saalon tak support chahiye, isliye wahan ek chhoti, zimmedar team behtar rehti hai. Badi IT companies bade projects aur bade budget ke liye bani hain; chhote business ke kaam mein wahan kharcha aur samay dono zyada lagte hain.</p>
 
-      <h2>Infovion ke saath kaise shuru karein</h2>
+      <h2>Website ya app banwane ke liye sampark karein</h2>
       <ul>
         <li><strong>Call karein:</strong> <a href="tel:+919156302024">+91 91563 02024</a>, subah 9 se raat 10 baje tak, har din</li>
         <li><strong>WhatsApp:</strong> <a href="https://wa.me/919309193613">+91 93091 93613</a></li>
         <li><strong>Form:</strong> <a href="/contact">apni zaroorat likh kar bhejiye</a></li>
       </ul>
       <p>Pehli call mein hum aapki zaroorat samajhte hain, aur do business din ke andar likhit scope, plan aur fixed price bhejte hain. Poore Bharat mein kaam video call aur har do hafte ke demo link ke saath hota hai; Pune mein hum aapke office aa kar bhi mil sakte hain.</p>
-      <p><em>Infovion Technologies: Udyam-registered MSME software company. Website, mobile app, ERP, CRM, AI aur WhatsApp automation. <a href="/services">Saari services dekhein</a> ya <a href="/services/custom-software-development">custom software development</a> ke baare mein English mein padhein.</em></p>
+      <p><em>Infovion Technologies: Udyam-registered MSME software company. Website, mobile app, ERP, CRM, AI aur WhatsApp automation. <a href="/services">Saari services dekhein</a> ya <a href="/services/custom-software-development">custom software development</a> ke baare mein English mein padhein. Hindi mein: <a href="/blog/website-app-banwane-ka-kharcha-hindi">वेबसाइट, ऐप या सॉफ्टवेयर बनवाने का खर्च</a>.</em></p>
+    `,
+  },
+  {
+    id: 115,
+    slug: "website-app-banwane-ka-kharcha-hindi",
+    lang: "hi",
+    seoTitle: "वेबसाइट, ऐप या सॉफ्टवेयर बनवाने का खर्च (2026) | Infovion",
+    title: "वेबसाइट, ऐप या सॉफ्टवेयर बनवाना है? कितना खर्च आता है, कितना समय लगता है और सही कंपनी कैसे चुनें (2026)",
+    excerpt: "वेबसाइट बनाने का खर्च ₹15,000 से, ऐप ₹60,000 से और बिज़नेस सॉफ्टवेयर ₹75,000 से शुरू होता है। कितना समय लगता है, खर्च किन बातों से बढ़ता है, और वेबसाइट या सॉफ्टवेयर बनाने वाली कंपनी कैसे चुनें: आसान हिंदी में।",
+    category: "development",
+    author: "Infovion Team",
+    date: "2026-11-24",
+    readTime: "6 मिनट",
+    tags: ["वेबसाइट बनाने का खर्च", "ऐप बनाने का खर्च", "सॉफ्टवेयर बनाने वाली कंपनी", "वेबसाइट बनाने वाली कंपनी", "हिंदी"],
+    image: "/blog/website-app-banwane-ka-kharcha-hindi.webp",
+    faqs: [
+      ["वेबसाइट बनाने में कितना खर्च आता है?", "Infovion में 5 पेज तक की बिज़नेस वेबसाइट ₹15,000 से ₹50,000 तक, और ब्लॉग, CMS और SEO वाली कंपनी वेबसाइट ₹50,000 से ₹1.5 लाख तक बनती है। Shopify पर ऑनलाइन स्टोर ₹40,000 से ₹2 लाख तक। डोमेन और होस्टिंग का सालाना खर्च अलग होता है।"],
+      ["ऐप बनाने का खर्च कितना है?", "इंस्टॉल होने वाला वेब ऐप (PWA) ₹60,000 से ₹2.5 लाख तक, और Android और iPhone ऐप का पहला वर्ज़न ₹2 लाख से ₹6 लाख तक। एडमिन पैनल और कई इंटीग्रेशन वाले बड़े ऐप ₹6 लाख से ऊपर।"],
+      ["सॉफ्टवेयर बनवाने में कितना समय लगता है?", "बिज़नेस वेबसाइट 2 से 3 हफ़्ते में, एक छोटा सॉफ्टवेयर टूल 4 से 8 हफ़्ते में, CRM 6 से 10 हफ़्ते में, और ERP 3 से 6 महीने में, एक-एक मॉड्यूल करके।"],
+      ["वेबसाइट बनवाने के लिए क्या करना पड़ता है?", "पहले लिख लें कि वेबसाइट में क्या-क्या चाहिए: पेज, फ़ोटो, सेवाएँ, फ़ॉर्म या ऑनलाइन पेमेंट। फिर किसी भरोसेमंद कंपनी से लिखित स्कोप और फ़िक्स्ड कीमत लें, डिज़ाइन मंज़ूर करें, और डोमेन व होस्टिंग अपने नाम पर रखें।"],
+      ["वेबसाइट या सॉफ्टवेयर बनाने वाली कंपनी कैसे चुनें?", "लाइव काम देखें, लिखित फ़िक्स्ड कीमत लें, कोड और डोमेन अपने नाम रखें, बनाने वाले व्यक्ति से मिलें, हर दो हफ़्ते डेमो माँगें, लॉन्च के बाद सपोर्ट और AMC की कीमत पूछें, और NDA साइन करवाएँ।"],
+      ["वेबसाइट या ऐप बनवाने के लिए किससे संपर्क करें?", "Infovion Technologies को +91 91563 02024 पर कॉल करें (सुबह 9 से रात 10 बजे तक, हर दिन), +91 93091 93613 पर WhatsApp करें, या contact@infovion.in पर ईमेल करें। हम पूरे भारत और विदेश के क्लाइंट्स के लिए काम करते हैं; ऑफ़िस पुणे में है।"],
+    ],
+    content: `
+      <p>बिज़नेस के लिए वेबसाइट, मोबाइल ऐप या सॉफ्टवेयर बनवाना है, तो पहला सवाल यही होता है: <strong>खर्च कितना आएगा, और काम कौन करेगा?</strong> इस गाइड में Infovion Technologies के 2026 के दाम हैं, हर काम में लगने वाला समय, और कंपनी चुनने से पहले पूछने वाले सवाल। हम पूरे भारत और विदेश के क्लाइंट्स के लिए काम करते हैं; ऑफ़िस पुणे में है।</p>
+
+      <h2>वेबसाइट बनाने में कितना खर्च आता है (2026)</h2>
+      <table>
+        <thead><tr><th>किस तरह की वेबसाइट</th><th>खर्च</th><th>समय</th></tr></thead>
+        <tbody>
+          <tr><td>लैंडिंग पेज या 5 पेज तक की बिज़नेस वेबसाइट</td><td>₹15,000 – 50,000</td><td>2–3 हफ़्ते</td></tr>
+          <tr><td>कंपनी वेबसाइट: ब्लॉग, CMS और SEO के साथ</td><td>₹50,000 – 1.5 लाख</td><td>4–6 हफ़्ते</td></tr>
+          <tr><td>ऑनलाइन स्टोर (Shopify)</td><td>₹40,000 – 2 लाख</td><td>3–5 हफ़्ते</td></tr>
+          <tr><td>कस्टम ऑनलाइन स्टोर</td><td>₹1.5 – 5 लाख</td><td>2–4 महीने</td></tr>
+          <tr><td>वेब एप्लिकेशन: लॉगिन, वर्कफ़्लो, रिपोर्ट</td><td>₹75,000 से शुरू</td><td>स्कोप के हिसाब से</td></tr>
+        </tbody>
+      </table>
+      <p>स्टैटिक वेबसाइट, जिसके पेज सिर्फ़ डेवलपर बदलता है, सबसे सस्ती होती है। डायनैमिक वेबसाइट, जिसमें आप ख़ुद ब्लॉग, प्रोडक्ट या फ़ोटो बदल सकते हैं, CMS की वजह से थोड़ी महँगी होती है। डोमेन और होस्टिंग का सालाना खर्च अलग होता है।</p>
+
+      <h2>मोबाइल ऐप बनाने का खर्च</h2>
+      <table>
+        <thead><tr><th>किस तरह का ऐप</th><th>खर्च</th><th>समय</th></tr></thead>
+        <tbody>
+          <tr><td>इंस्टॉल होने वाला वेब ऐप (PWA): लिंक से इंस्टॉल, Play Store की ज़रूरत नहीं</td><td>₹60,000 – 2.5 लाख</td><td>6–10 हफ़्ते तक</td></tr>
+          <tr><td>Android और iPhone ऐप, पहला वर्ज़न</td><td>₹2 – 6 लाख</td><td>6–10 हफ़्ते</td></tr>
+          <tr><td>बड़ा ऐप: एडमिन पैनल और कई इंटीग्रेशन के साथ</td><td>₹6 लाख से ऊपर</td><td>3–5 महीने</td></tr>
+        </tbody>
+      </table>
+      <p>हम React Native से ऐप बनाते हैं, इसलिए एक ही कोड से Android और iPhone दोनों ऐप बनते हैं। कई बिज़नेस के लिए इंस्टॉल होने वाला वेब ऐप ही काफ़ी होता है, और वह काफ़ी कम खर्च में बन जाता है। अपने ऐप का अंदाज़ा लगाने के लिए <a href="/app-development-cost-calculator">ऐप डेवलपमेंट कॉस्ट कैलकुलेटर</a> इस्तेमाल करें।</p>
+
+      <h2>सॉफ्टवेयर बनाने में कितना खर्च आता है</h2>
+      <table>
+        <thead><tr><th>सॉफ्टवेयर</th><th>खर्च</th><th>समय</th></tr></thead>
+        <tbody>
+          <tr><td>एक टूल: बिलिंग, स्टॉक, अटेंडेंस या जॉब कार्ड</td><td>₹75,000 – 2 लाख</td><td>4–8 हफ़्ते</td></tr>
+          <tr><td>CRM: लीड, फ़ॉलो-अप, कोटेशन</td><td>₹1 – 3 लाख</td><td>6–10 हफ़्ते</td></tr>
+          <tr><td>ERP: 3 से 6 विभाग (स्टॉक, ख़रीद, बिक्री, प्रोडक्शन, अकाउंट)</td><td>₹3 – 10 लाख</td><td>3–6 महीने</td></tr>
+          <tr><td>WhatsApp चैटबॉट, मेन्यू वाला</td><td>₹40,000 – 1.2 लाख</td><td>1–2 हफ़्ते</td></tr>
+          <tr><td>AI असिस्टेंट, आपके सॉफ्टवेयर और डेटा से जुड़ा</td><td>₹1.5 – 5 लाख</td><td>4–8 हफ़्ते</td></tr>
+        </tbody>
+      </table>
+      <p>इन सब में कोई पर-यूज़र लाइसेंस फ़ीस नहीं होती, और पूरा सोर्स कोड आपके नाम होता है। अपने सॉफ्टवेयर का अंदाज़ा: <a href="/software-development-cost-calculator">सॉफ्टवेयर डेवलपमेंट कॉस्ट कैलकुलेटर</a>।</p>
+
+      <h2>खर्च किन बातों से बढ़ता है?</h2>
+      <ul>
+        <li>कितनी स्क्रीन, और कितने तरह के यूज़र (मालिक, स्टाफ़, ग्राहक)</li>
+        <li>पेमेंट, WhatsApp, GST ई-इनवॉइस या Tally जैसे इंटीग्रेशन</li>
+        <li>Android और iPhone दोनों, या सिर्फ़ वेब</li>
+        <li>पुराना डेटा Excel या Tally से लाना</li>
+        <li>रिपोर्ट और डैशबोर्ड कितने विस्तार में चाहिए</li>
+        <li>कितनी भाषाओं में: हिंदी, मराठी, अंग्रेज़ी या और</li>
+      </ul>
+
+      <h2>वेबसाइट बनवाने के लिए क्या करना पड़ता है?</h2>
+      <ol>
+        <li>लिख लें कि वेबसाइट में क्या चाहिए: पेज, फ़ोटो, सेवाएँ, फ़ॉर्म या ऑनलाइन पेमेंट।</li>
+        <li>दो-तीन कंपनियों से बात करें और लिखित स्कोप व फ़िक्स्ड कीमत लें।</li>
+        <li>डिज़ाइन देखकर मंज़ूर करें, उसके बाद डेवलपमेंट शुरू हो।</li>
+        <li>डोमेन, होस्टिंग और कोड अपने नाम पर रखें।</li>
+        <li>लॉन्च से पहले मोबाइल पर हर पेज जाँचें, और वेबसाइट को Google Search Console से जोड़ें।</li>
+      </ol>
+
+      <h2>वेबसाइट या सॉफ्टवेयर बनाने वाली कंपनी कैसे चुनें: 7 सवाल</h2>
+      <ol>
+        <li><strong>लाइव काम दिखाइए।</strong> सिर्फ़ स्क्रीनशॉट नहीं, ऐसी वेबसाइट या ऐप जिसे आप ख़ुद खोलकर चला सकें।</li>
+        <li><strong>कीमत लिखकर दीजिए।</strong> काम शुरू होने से पहले लिखित स्कोप और फ़िक्स्ड कीमत।</li>
+        <li><strong>कोड, डोमेन और होस्टिंग किसके नाम होंगे?</strong> सब कुछ आपके नाम होना चाहिए।</li>
+        <li><strong>असल में बनाएगा कौन?</strong> पहली कॉल पर ही उस व्यक्ति से मिलिए।</li>
+        <li><strong>हर दो हफ़्ते डेमो मिलेगा?</strong> आख़िर में एक बार दिखाने से बेहतर है हर दो हफ़्ते चलता हुआ वर्ज़न।</li>
+        <li><strong>लॉन्च के बाद क्या?</strong> कितने दिन का मुफ़्त सपोर्ट, और उसके बाद AMC का खर्च कितना।</li>
+        <li><strong>NDA साइन करेंगे?</strong> बिज़नेस की जानकारी देने से पहले।</li>
+      </ol>
+
+      <h2>वेबसाइट या ऐप बनवाने के लिए संपर्क करें</h2>
+      <ul>
+        <li><strong>कॉल करें:</strong> <a href="tel:+919156302024">+91 91563 02024</a>, सुबह 9 से रात 10 बजे तक, हर दिन</li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/919309193613">+91 93091 93613</a></li>
+        <li><strong>फ़ॉर्म:</strong> <a href="/contact">अपनी ज़रूरत लिखकर भेजिए</a></li>
+      </ul>
+      <p>पहली कॉल में हम आपकी ज़रूरत समझते हैं, और दो बिज़नेस दिनों के अंदर लिखित स्कोप, प्लान और फ़िक्स्ड कीमत भेजते हैं। पूरे भारत में काम वीडियो कॉल और हर दो हफ़्ते के डेमो लिंक के साथ होता है; पुणे में हम आपके ऑफ़िस आकर भी मिल सकते हैं।</p>
+      <p><em>Infovion Technologies: Udyam-रजिस्टर्ड MSME सॉफ्टवेयर कंपनी। वेबसाइट, मोबाइल ऐप, ERP, CRM, AI और WhatsApp ऑटोमेशन। <a href="/services">सभी सेवाएँ देखें</a> या <a href="/blog/website-app-software-banwane-ka-kharcha">यही गाइड Hinglish में पढ़ें</a>।</em></p>
     `,
   },
 ];

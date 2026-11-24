@@ -16,6 +16,8 @@ const cyvionHome = CYVION_PAGES.find((p) => p.key === "home");
 const { HEALTHCARE } = await load("healthcare.js");
 const { OFFSHORE } = await load("offshore.js");
 const { SECTORS } = await load("sectors.js");
+const { STACK_PAGES, AUDIENCE_PAGES } = await load("buyers.js");
+const buyers = [...STACK_PAGES, ...AUDIENCE_PAGES].map((s) => `- [${s.name}](${D}${s.path}): ${s.answer}`).join("\n");
 const sectors = SECTORS.map((s) => `- [${s.name}](${D}${s.path}): ${s.answer}`).join("\n");
 const offshore = OFFSHORE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card}`).join("\n");
 const healthcare = HEALTHCARE.map((s) => `- [${s.name}](${D}${s.path}): ${s.card} Typical budget in India: ${s.cost.ranges.map(([k, v]) => `${k.toLowerCase()} ${v}`).join("; ")}.`).join("\n");
@@ -36,6 +38,7 @@ const FACTS = `# Infovion Technologies
 - Address: ${fullAddress()}.
 - Contact: ${COMPANY.email} · ${COMPANY.phone} · WhatsApp ${COMPANY.whatsapp} · ${D}/contact
 - Serves: clients across India (in person in Pune and wherever a project needs it, otherwise remotely) and international clients (US, UK, Europe, Australia, the Gulf), priced in USD for clients outside India: ${D}/services/offshore-software-development-india
+- Searched for as: software development company or agency in India; app development company or agency; website design and development company or web agency; AI agent, AI chatbot and AI automation company or agency; ERP and CRM software development company; React JS, Node.js and React Native development company; software for small business; white-label web and app development for agencies; hire dedicated developers in India; staff augmentation. Guides in Hinglish and Hindi for "website, app ya software banwana" searches.
 - How it works: free discovery call, written scope and fixed quote (typically within 48 hours), clickable prototype, two-week sprints with a staging link, testing and launch, 30 days of free support, optional annual maintenance (AMC). Clients own the source code and accounts. Mutual NDA on request.
 - Engagement models: fixed price, dedicated team (monthly), time and material, AMC.
 - Technology: React, Next.js, Node.js, NestJS, Express, PostgreSQL, MongoDB, Prisma, React Native, progressive web apps, Vercel, Render, Supabase, Cloudflare, AWS, Razorpay, WhatsApp, Claude and OpenAI APIs.
@@ -57,6 +60,10 @@ ${offshore}
 ## Sectors: manufacturing, robotics, CSR, government tenders, public representatives
 
 ${sectors}
+
+## By technology and by buyer: React, Node.js, React Native, small businesses, agencies
+
+${buyers}
 
 ## Healthcare: hospitals, hospital chains and pharma
 

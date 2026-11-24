@@ -19,6 +19,7 @@ import { ORG_ID } from "../../lib/seo";
 
 const FAQ = [
   ["What does Infovion Technologies do?", "Infovion Technologies is a software development company in India, headquartered in Pune, working with clients across the country and abroad. We build custom software, websites and web applications, mobile applications, ERP and CRM systems, SaaS products, dashboards, AI agents, WhatsApp chatbots and business automation for businesses, institutions and government bodies. We also develop products of our own: Infovion School ERP, Infovion JMS for jewellery shops, and Cyvion, a security operations platform in early access."],
+  ["What kind of company is Infovion Technologies: a software company, an agency or an IT services firm?", "All three descriptions fit. Infovion Technologies is a Udyam-registered software development and IT services company in India, headquartered in Pune. It works as the app development, web development and AI automation agency for businesses and startups, as a white-label development partner for other agencies, and provides dedicated developers by the hour or month for teams that need extra hands."],
   ["Do you work with clients across India and outside India?", "Yes. Most of our engagements are delivered remotely, with scheduled video reviews, a shared project board and a staging environment the client can access at any time. Our working hours overlap with the Gulf, the United Kingdom and Europe, and we schedule calls for clients in the Americas."],
   ["How is a project priced?", "After an initial consultation we send a written scope and a fixed-price proposal, with payments linked to milestones. As a guide, focused business tools in India typically cost ₹75,000 to 2 lakh and multi-module systems ₹2.5 to 8 lakh. Websites start at about ₹15,000."],
   ["Who owns the source code?", "The client. On final payment the complete source code, database, domain and hosting accounts are transferred to you, and the agreement states this explicitly."],
@@ -40,6 +41,7 @@ const COMMITMENTS = [
 ];
 
 const INDUSTRIES = [
+  ["Store", "Small businesses", "/software-development-for-small-business"],
   ["GraduationCap", "Education", "/school-management-software"],
   ["Gem", "Jewellery and bullion", "/jewellery-management-software"],
   ["Landmark", "Government and PSUs", "/government"],

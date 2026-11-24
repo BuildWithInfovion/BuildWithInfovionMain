@@ -3,6 +3,7 @@
 import { HEALTHCARE } from "./healthcare.js";
 import { OFFSHORE } from "./offshore.js";
 import { SECTORS } from "./sectors.js";
+import { STACK_PAGES, AUDIENCE_PAGES } from "./buyers.js";
 
 export const SERVICES = [
   {
@@ -50,6 +51,7 @@ export const SERVICES = [
       ["Do you sign a non-disclosure agreement?", "Yes. We sign a mutual NDA before any business information is shared."],
       ["When is custom software the right choice over a packaged product?", "Packaged software is usually more economical when processes are standard. Custom software is appropriate when a process is a competitive advantage, when several disconnected tools are in use, or when per-user licence costs are rising. We recommend an existing product where it is the better fit."],
       ["Can you work with our existing systems and data?", "Yes. We import data from spreadsheets, Tally exports and most databases, and integrate with systems that remain in use through their APIs."],
+      ["Is Infovion a software development company or an agency?", "Both, in the way that matters to you. Infovion Technologies is a registered software development company (MSME) that works like an agency: one team designs, builds and supports your software at a fixed price. You can also hire our developers by the hour or month, as you would a freelancer, or use us as a white-label partner if you are an agency yourself."],
       ["Do you only work with companies in Pune?", "No. We meet clients in Pune in person and work remotely with clients across India and abroad, with the same process: video calls, a staging link every two weeks and a named contact. Clients outside India are quoted in USD; see outsourcing software development to India."],
       ["Can you build custom software for a small business?", "Yes. A focused tool such as billing, stock, job cards or attendance typically costs ₹75,000 to ₹2 lakh and goes live in four to eight weeks, with no per-user licence fee. Where a packaged product already fits your process, we say so, because it is usually cheaper."],
       ["How much does billing software development cost in India?", "A billing system with GST invoices, stock, customer ledgers and reports typically costs ₹75,000 to ₹2 lakh as a focused tool, or ₹2.5 to 8 lakh as part of a business system with four to eight modules. Integrations such as Tally, e-invoicing, payments or WhatsApp add to the scope."],
@@ -122,7 +124,7 @@ export const SERVICES = [
     card: "Developers when you need them: by the task, by the hour, by the sprint or a dedicated developer by the month.",
     icon: "Timer",
     title: "Hire Dedicated Developers in India: Task, Hour, Month | Infovion",
-    description: "Hire dedicated developers in India on demand: React, Node.js and mobile developers by the task, by the hour, in sprints or full-time by the month.",
+    description: "Hire dedicated developers in India, or add them to your team (staff augmentation): React, Node.js and mobile developers by the task, hour, sprint or month.",
     h1: "On-demand software development: hire developers when you need them",
     updated: "2026-11-05",
     answerQ: "What is on-demand software development?",
@@ -154,6 +156,8 @@ export const SERVICES = [
       ["Can you work on code another developer wrote?", "Yes. We read the code first and tell you if anything needs fixing before new work goes in. Most on-demand work is on software built by someone else."],
       ["How do you charge for on-demand work?", "Per task with a fixed quote, by the hour with weekly timesheets, or monthly for a dedicated developer. Each is agreed in writing before work starts."],
       ["Who owns the code you write?", "You do. Code goes into your repository and the work is assigned to you on payment."],
+      ["Do you provide staff augmentation?", "Yes. Our developers can join your team by the month, working in your tools and hours, without recruitment, notice periods or office costs. A dedicated developer costs ₹60,000 to ₹1.5 lakh a month, or about $900 to $1,800 for clients outside India."],
+      ["Should I hire a freelancer or a company in India?", "A freelancer can be the cheapest choice for a short, well-defined task. A company gives continuity: if one developer is away, another knows the code, and you get code review, backups and support. Our on-demand developers give you freelancer-style flexibility, by the task or the hour, with that continuity."],
       ["Can I stop at any time?", "Yes. Task and hourly work ends when the task is done; a dedicated developer can be stopped at the end of any month."],
       ["Do you help founders who build apps with AI tools?", "Yes, by the hour or by the task: unblocking, reviewing what the AI wrote, fixing bugs and getting the app ready to launch."],
       ["Do you work with clients outside India?", "Yes. For clients abroad, on-demand work is about $12 to $25 an hour and a dedicated developer about $900 to $1,800 a month, invoiced in USD with no Indian GST. See outsourcing software development to India."],
@@ -170,9 +174,9 @@ export const SERVICES = [
     card: "Corporate websites, portals and web applications with performance and technical SEO built in.",
     icon: "Globe",
     title: "Website Design and Development Company in India | Infovion",
-    description: "Website and web application development company in India: corporate websites, portals and React or Next.js apps, with speed, accessibility and SEO built in.",
+    description: "Website design and development company and web agency in India: corporate websites, portals and React or Next.js apps, with speed, accessibility and SEO built in.",
     h1: "Website and web application development for businesses across India",
-    answer: "Infovion Technologies is a website and web application development company in India, headquartered in Pune. We build corporate websites, landing pages, portals and web applications with React and Next.js, with performance optimisation, structured data, analytics and technical SEO configured as part of every project.",
+    answer: "Infovion Technologies is a website design and development company in India, headquartered in Pune, working as the web agency for businesses, institutions and other agencies. We build corporate websites, landing pages, portals and web applications with React and Next.js, with performance optimisation, structured data, analytics and technical SEO configured as part of every project.",
     intro: "We build websites and web applications that load quickly on mobile networks, meet accessibility standards and are structured for search engines and AI assistants. Content-managed pages can be updated by your own team after launch.",
     build: [
       ["Corporate websites", "Company websites with service pages, case studies, a blog and enquiry forms, structured for search."],
@@ -195,6 +199,7 @@ export const SERVICES = [
       ["How much does a business website cost in India?", "A professionally designed five-page business website typically costs ₹15,000 to ₹50,000. A corporate website with a blog, content management and full SEO configuration typically costs ₹50,000 to ₹1.5 lakh. Web applications are priced by scope."],
       ["What is the cost of a static and a dynamic website in India?", "A static website, whose pages change only when a developer edits them, typically costs ₹15,000 to ₹50,000 for up to five pages. A dynamic website with a content management system, blog and forms that your team updates typically costs ₹50,000 to ₹1.5 lakh. Domain and hosting are a small yearly cost on top."],
       ["Will the website rank on Google?", "Every site is built so search engines can read it fully: prerendered HTML, fast loading, clean URLs, structured data and a sitemap, with Search Console configured at launch. Rankings also depend on content and links over time, and we provide a plan for both."],
+      ["Are you a web design agency or a web development company?", "Both. One team designs and builds, so the design you approve is the site you get. Agencies can hire us white-label, and businesses that only need a developer can hire one by the hour."],
       ["Do you build on WordPress?", "We generally build with React and Next.js for speed and security. Where an organisation already uses WordPress and wishes to continue, we work with it."],
       ["Can our team update the website?", "Yes. Pages that change regularly are managed through a CMS or administration panel, and we provide training at handover."],
       ["Do you provide hosting and maintenance?", "Yes. We configure hosting, SSL and backups, and offer monthly maintenance covering updates, security and content changes."],
@@ -213,7 +218,7 @@ export const SERVICES = [
     title: "Mobile App Development Company in India | Infovion",
     description: "Android and iOS app development company in India: React Native apps and PWAs with payments, push notifications, offline use and store publishing.",
     h1: "Mobile app development for businesses in India and abroad",
-    answer: "Infovion Technologies develops mobile applications for Android and iOS using React Native, and installable progressive web apps (PWAs) that run from a link without an app store. Our scope covers design, development, push notifications, offline capability, store publishing and maintenance.",
+    answer: "Infovion Technologies is a mobile app development company in India, working as the app development agency for businesses and startups. It develops mobile applications for Android and iOS using React Native, and installable progressive web apps (PWAs) that run from a link without an app store. Our scope covers design, development, push notifications, offline capability, store publishing and maintenance.",
     intro: "We advise on the right delivery model before development begins. For many organisations a progressive web app, installed from a link with notifications and offline support, achieves the objective at lower cost than separate store applications.",
     build: [
       ["Customer applications", "Ordering, booking, loyalty and account management with integrated payments and notifications."],
@@ -237,6 +242,7 @@ export const SERVICES = [
       ["How much does it cost to make an Android app in India?", "An Android app built with React Native typically costs ₹2 lakh to ₹6 lakh for a first release, and the same code also produces the iPhone app, so adding iOS costs comparatively little. If an installable web app is enough, it costs ₹60,000 to ₹2.5 lakh."],
       ["Should we build a native app or a progressive web app?", "A PWA suits applications reached from a link, built mainly on forms, lists and notifications, where avoiding app-store review is useful. A store application suits extensive device integration, heavy offline use or discovery through the stores."],
       ["Will the application work on both Android and iPhone?", "Yes. React Native and PWAs run on Android and iOS from a single codebase, which reduces both development and maintenance cost."],
+      ["Should I hire an app development agency or a freelancer?", "A freelancer can suit a small, well-defined app. An agency or company suits apps that need design, a back end, testing, store publishing and support for years. We work both ways: a fixed-price project, or a developer by the hour or month."],
       ["Do you publish to Google Play and the App Store?", "Yes, under the client's developer accounts, so the application and its ratings remain the client's property."],
       ["Who maintains the application after launch?", "We offer maintenance plans covering operating-system updates, store policy changes, defect resolution and enhancements."],
     ],
@@ -254,7 +260,7 @@ export const SERVICES = [
     title: "ERP and CRM Software Development Company in India | Infovion",
     description: "Custom ERP and CRM software for small businesses and manufacturers in India: inventory, purchase, sales, GST billing, production, HR and leads, with Tally.",
     h1: "ERP and CRM software development for businesses across India",
-    answer: "Infovion Technologies develops custom ERP (enterprise resource planning) and CRM (customer relationship management) software for small and mid-sized organisations. We connect sales, purchasing, inventory, production, accounts, HR and customer follow-up in one system, with role-based access and the GST, Tally and WhatsApp integrations Indian businesses use.",
+    answer: "Infovion Technologies is an ERP and CRM software development company in India that builds custom ERP (enterprise resource planning) and CRM (customer relationship management) software for small and mid-sized organisations and manufacturers. We connect sales, purchasing, inventory, production, accounts, HR and customer follow-up in one system, with role-based access and the GST, Tally and WhatsApp integrations Indian businesses use.",
     intro: "We build ERP and CRM systems sized to the organisation: the modules you need, the rules your business follows, and integration with the accounting system you already use. Our experience includes a multi-tenant school ERP with more than forty backend modules, which we develop and operate.",
     build: [
       ["Inventory and warehousing", "Stock by item, batch, serial number or weight across locations, with reorder alerts and valuation."],
@@ -294,7 +300,7 @@ export const SERVICES = [
     card: "Multi-tenant SaaS platforms, from first release to subscriptions, onboarding and scale.",
     icon: "Layers",
     title: "SaaS and MVP Development Company in India | Infovion",
-    description: "SaaS and MVP development for startups: multi-tenant architecture, onboarding, subscription billing and analytics, from a team that runs its own SaaS.",
+    description: "SaaS and MVP development company in India for startups: multi-tenant architecture, onboarding, subscription billing and analytics, from a team that runs its own SaaS.",
     h1: "SaaS and MVP development for startups and businesses",
     answer: "Infovion Technologies builds software-as-a-service products for founders and established businesses: multi-tenant architecture, sign-up and onboarding, subscription billing, role-based access, administration consoles and analytics. We operate our own multi-tenant SaaS platform for schools, and apply the same practices to client products.",
     intro: "A SaaS product requires more than an application: strict separation of customer data, onboarding that works without assistance, accurate recurring billing and performance that holds as usage grows. We have addressed each of these in our own platform and apply that experience to yours.",
@@ -332,10 +338,10 @@ export const SERVICES = [
     noun: "UI/UX design",
     card: "User research, prototypes and accessible interface design for web and mobile products.",
     icon: "PenTool",
-    title: "UI/UX Design Services in India | Infovion",
-    description: "UI/UX design for web and mobile applications: user research, wireframes, clickable prototypes and design systems, designed to WCAG 2.1 AA, for clients across India and abroad.",
-    h1: "UI/UX design",
-    answer: "Infovion Technologies provides UI/UX design for websites, web applications and mobile applications, covering user research, information architecture, wireframes, clickable prototypes, visual design and design systems. Designs follow WCAG 2.1 AA accessibility guidelines and are specified for accurate implementation.",
+    title: "UI/UX Design Agency in India: Web and App Design | Infovion",
+    description: "UI/UX design agency in India for web and mobile apps: user research, wireframes, clickable prototypes and design systems, designed to WCAG 2.1 AA.",
+    h1: "UI/UX design for websites, web apps and mobile apps",
+    answer: "Infovion Technologies is a UI/UX design agency in India that designs websites, web applications and mobile applications, covering user research, information architecture, wireframes, clickable prototypes, visual design and design systems. Designs follow WCAG 2.1 AA accessibility guidelines and are specified for accurate implementation.",
     intro: "We design for the people who will use the software every day, from office staff on shared computers to customers on mobile phones, and test designs with users before development begins.",
     build: [
       ["UX research and audits", "Interviews, task analysis and heuristic review of existing products, with a prioritised list of improvements."],
@@ -369,10 +375,10 @@ export const SERVICES = [
     noun: "e-commerce development",
     card: "Online stores and B2B ordering portals integrated with stock, billing and shipping.",
     icon: "ShoppingCart",
-    title: "E-commerce Website Development Company in India | Infovion",
-    description: "E-commerce development: online stores and B2B ordering portals with UPI and card payments, GST invoicing, shipping and inventory. Shopify or custom.",
+    title: "E-commerce and Shopify Development Company in India | Infovion",
+    description: "E-commerce and Shopify development company and agency in India: online stores and B2B ordering portals with UPI and card payments, GST invoicing, shipping and inventory.",
     h1: "E-commerce website development for businesses across India",
-    answer: "Infovion Technologies builds e-commerce websites and B2B ordering portals on Shopify or as custom applications, with UPI, card and cash-on-delivery payments, GST invoicing, shipping integration and inventory synchronised with physical stores.",
+    answer: "Infovion Technologies, an e-commerce and Shopify development company in India, builds online stores and B2B ordering portals on Shopify or as custom applications, with UPI, card and cash-on-delivery payments, GST invoicing, shipping integration and inventory synchronised with physical stores.",
     intro: "We connect online sales with stores, warehouses and billing, so that stock levels stay accurate across channels and orders flow into invoicing without manual re-entry.",
     build: [
       ["Online stores", "Product catalogues, search and filters, promotions, reviews and UPI checkout."],
@@ -408,11 +414,11 @@ export const SERVICES = [
     card: "Document extraction, AI assistants and workflow automation applied to defined business tasks.",
     icon: "Bot",
     title: "AI Automation Services for Businesses in India | Infovion",
-    description: "AI automation services in India: invoice and document extraction, AI chatbots on your data, WhatsApp and email automation, n8n workflows, automated reports.",
+    description: "AI automation agency and services in India: invoice and document extraction, AI chatbots on your data, WhatsApp and email automation, n8n workflows and reports.",
     updated: "2026-11-11",
     answerQ: "What is AI automation, and what does it cost in India?",
-    h1: "AI and business automation",
-    answer: "AI automation uses language models and workflow software to do repetitive office work: reading invoices and forms, answering routine questions, following up leads, preparing reports and moving data between applications. Infovion Technologies, an AI automation company in India, builds these for businesses in India and abroad with the Claude and OpenAI APIs, custom code and workflow tools such as n8n, with client data kept private. An assessment and proof of concept typically costs ₹50,000 to ₹1.5 lakh, and a production automation ₹1.5 lakh to ₹6 lakh, plus usage-based running costs.",
+    h1: "AI automation agency for businesses in India and abroad",
+    answer: "AI automation uses language models and workflow software to do repetitive office work: reading invoices and forms, answering routine questions, following up leads, preparing reports and moving data between applications. Infovion Technologies, an AI automation company and agency in India, builds these for businesses in India and abroad with the Claude and OpenAI APIs, custom code and workflow tools such as n8n, with client data kept private. An assessment and proof of concept typically costs ₹50,000 to ₹1.5 lakh, and a production automation ₹1.5 lakh to ₹6 lakh, plus usage-based running costs.",
     intro: "We identify repetitive, well-defined tasks such as data entry from documents, routine customer queries and periodic reports, automate them, and measure the time saved. Each project begins with a proof of concept on your own data.",
     build: [
       ["Document and invoice extraction", "Automatic capture of data from invoices, purchase orders, identity documents and forms, with human review where required."],
@@ -457,8 +463,8 @@ export const SERVICES = [
     ctaTitle: "Discuss an AI agent for your business",
     card: "AI agents that answer from your data, use your systems through tools and hand over to people: support, sales, operations and voice.",
     icon: "Bot",
-    title: "AI Agent Development Company in India: RAG, Voice | Infovion",
-    description: "AI agent development: customer support and sales agents, RAG chatbots on your documents, voice agents and workflow agents, built with Claude and GPT APIs.",
+    title: "AI Agent and Chatbot Development Company in India | Infovion",
+    description: "AI agent and AI chatbot development company in India: support and sales agents, RAG chatbots on your documents, voice agents and workflow agents, on Claude and GPT.",
     h1: "AI agent development for businesses in India and abroad",
     updated: "2026-11-11",
     answerQ: "What is an AI agent, and what does it cost to build one?",
@@ -493,6 +499,7 @@ export const SERVICES = [
       ["What is the difference between an AI chatbot and an AI agent?", "A chatbot replies to messages. An AI agent can also act: it looks up information, calls tools such as a CRM, calendar or database, completes steps in a task and decides when to pass to a person. Agents need tighter limits and testing because they can change things."],
       ["How much does it cost to build an AI agent?", "With Infovion, a proof of concept on your own data is typically ₹50,000 to ₹1.5 lakh ($600 to $1,800), and a production agent with tools, guardrails and hand-over ₹2 lakh to ₹8 lakh ($2,500 to $10,000). Model usage is a separate running cost, estimated in advance."],
       ["What is RAG?", "Retrieval-augmented generation. Before answering, the system searches your own content for relevant passages and gives them to the language model, which answers from them and cites the source. It keeps answers tied to your information and makes them checkable."],
+      ["Are you an AI development company or an AI agency?", "Both descriptions fit. Infovion Technologies is a software development company that builds AI agents, AI chatbots, voice agents and automation the way an AI agency would, with the engineering to connect them to your CRM, ERP or website and keep them running."],
       ["Which AI models do you use?", "Mainly Claude and GPT models through their business APIs, chosen per task for accuracy, speed and cost. Where data cannot leave your infrastructure, we can use models hosted in your own cloud account."],
       ["Is our data used to train the AI model?", "No. We use business API plans under which the provider does not train on customer data. Your documents and conversation logs stay in your own database, and personal details can be masked before processing."],
       ["Can an AI agent work on WhatsApp?", "Yes, through the official WhatsApp Business Platform. See WhatsApp chatbot development for booking, order and support assistants on WhatsApp."],
@@ -814,10 +821,10 @@ export const SERVICES = [
 ];
 
 // Service pages plus the healthcare and country pages, which use the same template at top-level URLs.
-export const ALL_SERVICES = [...SERVICES, ...HEALTHCARE, ...OFFSHORE, ...SECTORS];
+export const ALL_SERVICES = [...SERVICES, ...HEALTHCARE, ...OFFSHORE, ...SECTORS, ...STACK_PAGES, ...AUDIENCE_PAGES];
 export const serviceBySlug = (slug) => ALL_SERVICES.find((s) => s.slug === slug);
 export const servicePath = (s) => s.path ?? `/services/${s.slug}`;
-export { HEALTHCARE, OFFSHORE, SECTORS };
+export { HEALTHCARE, OFFSHORE, SECTORS, STACK_PAGES, AUDIENCE_PAGES };
 
 // Shared delivery process, shown on service pages and /how-we-work.
 export const PROCESS = [

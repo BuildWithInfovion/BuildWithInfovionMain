@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import PreferredSourceBadge from "./PreferredSourceBadge";
-import { HEALTHCARE, OFFSHORE, SECTORS, SERVICES } from "../Data/services";
+import { AUDIENCE_PAGES, HEALTHCARE, OFFSHORE, SECTORS, SERVICES, STACK_PAGES } from "../Data/services";
 import { COMPANY, fullAddress, jmsTrial } from "../Data/company";
 import { SHOWCASE, showcasePath } from "../Data/showcase";
 import { productOf } from "../lib/sections";
@@ -182,6 +182,16 @@ export default function Footer() {
             <span className="text-slate-500">: </span>
             {[...SECTORS.map((s) => [s.path, s.nav]), ...HEALTHCARE.filter((s) => ["wcag-accessibility-audit", "dpdp-compliance", "hospital-management-system-development"].includes(s.slug)).map((s) => [s.path, s.nav]), ["/cyvion/banks-financial-services", "Banks and finance"]].map(([to, t], i) => (
               <React.Fragment key={to}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={to} className="text-slate-400 hover:text-white">{t}</Link></React.Fragment>
+            ))}
+          </p>
+        </nav>
+
+        <nav aria-label="Technologies, small businesses and agencies" className="mt-6 border-t border-white/10 pt-6 text-sm">
+          <p className="text-slate-400">
+            <Link to="/services" className="font-semibold text-slate-200 hover:text-white">Technologies and partners</Link>
+            <span className="text-slate-500">: </span>
+            {[...STACK_PAGES, ...AUDIENCE_PAGES].map((s, i) => (
+              <React.Fragment key={s.path}>{i > 0 && <span className="text-slate-600"> · </span>}<Link to={s.path} className="text-slate-400 hover:text-white">{s.nav}</Link></React.Fragment>
             ))}
           </p>
         </nav>
