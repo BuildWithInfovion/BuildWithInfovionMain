@@ -27,7 +27,7 @@ const NODES = [
   { t: "T1078.004", s: "Valid Accounts: Cloud", c: "accent", a: 2.3 },
   { t: "T1114.003", s: "Email Forwarding Rule", c: "accent", a: 3.45 },
 ];
-export const CHAPTERS = [
+const CHAPTERS = [
   { k: "Flood", h: "Your tools see everything.", p: "Sign-ins, process starts, firewall blocks, cloud changes, reported emails. Thousands of events an hour, from every system you run. No team can read them all." },
   { k: "Filter", h: "Rules remove the noise first.", p: "Cyvion's detection rules, your SIEM's and your EDR's alerts, and suppressions for known-safe accounts cut the flood to the few events that need a look. No AI is spent on noise." },
   { k: "Group", h: "Related alerts become one case.", p: "Alerts about the same user, host or address are grouped, so your team sees five stories instead of forty fragments." },
@@ -63,7 +63,7 @@ export default function ScrollStory() {
       const r = rng(7);
       const N = W < 720 ? 900 : 2400;
       const alertIdx = [];
-      parts = Array.from({ length: N }, (_, i) => ({ s1: r(), s2: r(), s3: r(), s4: r(), lane: (r() * 5) | 0, alert: false, cs: -1, ph: r() * 6.28 }));
+      parts = Array.from({ length: N }, () => ({ s1: r(), s2: r(), s3: r(), s4: r(), lane: (r() * 5) | 0, alert: false, cs: -1, ph: r() * 6.28 }));
       // the alerts: spread across the field so the wall reveals them as it passes
       let k = 0;
       CASES.forEach((c, ci) => { for (let j = 0; j < c.n; j++) { const idx = (k * 37 + 11) % N; parts[idx].alert = true; parts[idx].cs = ci; alertIdx.push(idx); k++; } });

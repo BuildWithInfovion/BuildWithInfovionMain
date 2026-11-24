@@ -266,6 +266,7 @@ export const companyPosts = [
   {
     id: 105,
     slug: "jewellery-billing-gst-making-charges-old-gold",
+    description: "A gold jewellery bill line by line: weight and rate, making charges, discount, 3% GST and old gold exchange, in the order the law requires.",
     seoTitle: "How to Make a Jewellery GST Bill: Step-by-Step Example",
     title: "How to Make a Jewellery GST Bill: Step by Step, With Discount and Old Gold",
     excerpt: "A line-by-line walk through one gold jewellery bill: weight and rate, making charges, discount, GST, old gold exchange and the amount payable, in the order the law requires. For the GST rates themselves, see our GST on gold guide.",
@@ -412,6 +413,7 @@ export const companyPosts = [
   {
     id: 303,
     slug: "software-partner-for-government-and-private-tenders",
+    description: "For contractors and system integrators: how the software part of a government or private tender is scoped, built and maintained, and what to ask before you bid.",
     seoTitle: "Software Partner for Government & Private Tenders | Infovion",
     title: "Won a Tender With a Software Scope? How to Choose a Technology Partner",
     excerpt: "For contractors, suppliers and system integrators: how the software part of a government or private tender is scoped, built, documented and maintained, and what to ask a development partner before you bid.",
@@ -555,6 +557,7 @@ export const companyPosts = [
   {
     id: 114,
     slug: "website-app-software-banwane-ka-kharcha",
+    description: "Website banane ka kharcha ₹15,000 se, app ₹60,000 se, software ₹75,000 se. Samay, kharcha aur sahi company kaise chunein, seedhi Hinglish mein.",
     lang: "hi-Latn",
     seoTitle: "Website, App ya Software Banwana Hai? Kharcha 2026 | Infovion",
     title: "Website, App ya Software Banwana Hai? Kitna Kharcha Aata Hai, Kitna Samay Lagta Hai aur Sahi Company Kaise Chunein (2026)",
@@ -651,6 +654,7 @@ export const companyPosts = [
   {
     id: 115,
     slug: "website-app-banwane-ka-kharcha-hindi",
+    description: "वेबसाइट बनाने का खर्च ₹15,000 से, ऐप ₹60,000 से, सॉफ्टवेयर ₹75,000 से। समय, खर्च और सही कंपनी कैसे चुनें, आसान हिंदी में।",
     lang: "hi",
     seoTitle: "वेबसाइट, ऐप या सॉफ्टवेयर बनवाने का खर्च (2026) | Infovion",
     title: "वेबसाइट, ऐप या सॉफ्टवेयर बनवाना है? कितना खर्च आता है, कितना समय लगता है और सही कंपनी कैसे चुनें (2026)",

@@ -27,7 +27,7 @@ export default function About() {
     <>
       <Helmet>
         <title>About Infovion Technologies | Software Company in India</title>
-        <meta name="description" content="Infovion Technologies is a software development company and registered MSME headquartered in Pune, working with clients across India and abroad, and the maker of Infovion School ERP, Infovion JMS and the Cyvion security platform." />
+        <meta name="description" content="Infovion Technologies, an MSME software development company headquartered in Pune, working across India and abroad. Makers of School ERP, JMS and Cyvion." />
         <link rel="canonical" href={`${SITE}/about`} />
         <meta property="og:title" content="About Infovion Technologies" />
         <meta property="og:url" content={`${SITE}/about`} />

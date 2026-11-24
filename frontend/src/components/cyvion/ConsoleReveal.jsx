@@ -1,7 +1,7 @@
 // "What your team sees": the console, built in code with sample data, rising out of a steep 3D tilt
 // into place as it scrolls into view. Replaces the screenshot (which still carries the old name).
 import React, { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion as Motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 const NAV = ["Overview", "Cases", "Exposure", "Phishing", "Hunt", "Alerts", "Events", "Detections", "Playbooks", "Connectors", "Endpoints", "Reports", "Audit log"];
 const NEEDS = [
@@ -26,8 +26,8 @@ export default function ConsoleReveal() {
 
   return (
     <div ref={ref} className="cy-console-stage">
-      <motion.div className="cy-console" style={reduce ? undefined : { rotateX, scale, y }}>
-        <motion.div className="cy-console-glow" style={reduce ? undefined : { opacity: glow }} aria-hidden="true" />
+      <Motion.div className="cy-console" style={reduce ? undefined : { rotateX, scale, y }}>
+        <Motion.div className="cy-console-glow" style={reduce ? undefined : { opacity: glow }} aria-hidden="true" />
         <aside className="cy-console-nav" aria-hidden="true">
           <b>Cyvion</b>
           <ul>{NAV.map((n, i) => <li key={n} className={i === 0 ? "on" : ""}>{n}{n === "Cases" && <em>6</em>}</li>)}</ul>
@@ -71,7 +71,7 @@ export default function ConsoleReveal() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
       <p className="cy-console-cap">The Cyvion console with its demonstration tenant. Names, addresses and figures are sample data.</p>
     </div>
   );

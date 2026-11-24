@@ -59,7 +59,7 @@ export default function BlogPost() {
       <Helmet>
         {post.lang && <html lang={post.lang} />}
         <title>{post.seoTitle || `${post.title} | Infovion`}</title>
-        <meta name="description" content={post.excerpt} />
+        <meta name="description" content={post.description ?? post.excerpt} />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />

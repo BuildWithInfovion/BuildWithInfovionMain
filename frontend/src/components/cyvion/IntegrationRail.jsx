@@ -1,9 +1,9 @@
 // Integrations: the section pins while you scroll and the connectors travel sideways past you.
 // On phones and with reduced motion it becomes an ordinary list.
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion as Motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
-export const SOURCES = [
+const SOURCES = [
   ["Microsoft Sentinel", "SIEM", "Incidents with their accounts, hosts and IP entities, triaged as they arrive", "validation"],
   ["Microsoft Defender XDR", "EDR / XDR", "Alerts from Defender for Endpoint, Identity, Office 365 and Cloud Apps, with process evidence", "validation"],
   ["Splunk", "SIEM", "Enterprise Security notable events, or the results of any search you choose", "validation"],
@@ -67,9 +67,9 @@ export default function IntegrationRail({ title, lede }) {
       <div className="cy-rail-pin">
         {head}
         <div className="cy-rail-window">
-          <motion.div ref={trackRef} className="cy-rail-track" style={{ x }}>{cards}</motion.div>
+          <Motion.div ref={trackRef} className="cy-rail-track" style={{ x }}>{cards}</Motion.div>
         </div>
-        <div className="cy-rail-progress"><motion.i style={{ width: bar }} /></div>
+        <div className="cy-rail-progress"><Motion.i style={{ width: bar }} /></div>
       </div>
     </div>
   );
